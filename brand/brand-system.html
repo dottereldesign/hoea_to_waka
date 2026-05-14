@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Brand System | Hoea tō Waka</title>
+    <meta name="description" content="Working brand system extracted from the current Hoea tō Waka website.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@600;700&family=Manrope:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="../styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="site-header-inner">
+        <a class="brand-mark" href="../index.html">Hoea tō Waka</a>
+        <nav class="top-nav" aria-label="Page">
+          <a href="../index.html">Hub</a>
+          <a href="../pages/home.html">Homepage Map</a>
+          <a href="../context/anna-brown/index.html">Context Pack</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="doc-shell">
+      <section class="doc-head">
+        <div class="doc-nav">
+          <a class="button button-secondary" href="../index.html">Back to hub</a>
+        </div>
+        <p class="eyebrow">Page</p>
+        <h1>Brand System</h1>
+        <p class="lede">Working brand system for the Hoea tō Waka rebuild.</p>
+      </section>
+
+      <article class="prose">
+        <h2>Brand Summary</h2>
+        <ul>
+          <li>Brand name: <code>Hoea tō Waka</code></li>
+          <li>Core line in current use: <code>Strength in Aotearoa</code></li>
+          <li>Overall feel: calm, supportive, practical, grounded in Aotearoa, people-first rather than corporate</li>
+          <li>Current site mood: light, oceanic, airy, service-led</li>
+        </ul>
+
+        <h2>Core Palette</h2>
+        <div class="palette-grid">
+          <article class="swatch">
+            <div class="swatch-top" style="background: #3d9be9;"></div>
+            <div class="swatch-body">
+              <strong>brand-primary</strong>
+              <span class="muted">Ocean Blue · #3D9BE9</span>
+              <span>Current use: testimonial background, key brand color</span>
+            </div>
+          </article>
+          <article class="swatch">
+            <div class="swatch-top" style="background: #a3d9f6;"></div>
+            <div class="swatch-body">
+              <strong>brand-primary-soft</strong>
+              <span class="muted">Sky Blue · #A3D9F6</span>
+              <span>Current use: light accents, softer surfaces</span>
+            </div>
+          </article>
+          <article class="swatch">
+            <div class="swatch-top" style="background: #a6033f;"></div>
+            <div class="swatch-body">
+              <strong>brand-accent</strong>
+              <span class="muted">Harbour Magenta · #A6033F</span>
+              <span>Current use: primary CTA buttons</span>
+            </div>
+          </article>
+          <article class="swatch">
+            <div class="swatch-top" style="background: #e40255;"></div>
+            <div class="swatch-body">
+              <strong>brand-accent-hover</strong>
+              <span class="muted">Bright Magenta · #E40255</span>
+              <span>Current use: CTA hover state</span>
+            </div>
+          </article>
+          <article class="swatch">
+            <div class="swatch-top" style="background: #ffffff;"></div>
+            <div class="swatch-body">
+              <strong>bg-base</strong>
+              <span class="muted">Cloud White · #FFFFFF</span>
+              <span>Current use: main page background</span>
+            </div>
+          </article>
+          <article class="swatch">
+            <div class="swatch-top" style="background: #f2f2f2;"></div>
+            <div class="swatch-body">
+              <strong>bg-soft</strong>
+              <span class="muted">Mist Gray · #F2F2F2</span>
+              <span>Current use: soft surfaces and gentle contrast</span>
+            </div>
+          </article>
+          <article class="swatch">
+            <div class="swatch-top" style="background: #b1b4b5;"></div>
+            <div class="swatch-body">
+              <strong>border-muted</strong>
+              <span class="muted">Stone Gray · #B1B4B5</span>
+              <span>Current use: low-emphasis borders and support color</span>
+            </div>
+          </article>
+          <article class="swatch">
+            <div class="swatch-top" style="background: #605e5e;"></div>
+            <div class="swatch-body">
+              <strong>text-muted</strong>
+              <span class="muted">Charcoal Gray · #605E5E</span>
+              <span>Current use: secondary body text</span>
+            </div>
+          </article>
+        </div>
+
+        <h3>Extended theme colors</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Hex</th>
+                <th>Suggested role</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Fern Green</td>
+                <td><code>#44C26D</code></td>
+                <td>Positive states, success, wellbeing accents</td>
+              </tr>
+              <tr>
+                <td>Kelp Green</td>
+                <td><code>#2D8149</code></td>
+                <td>Darker support green</td>
+              </tr>
+              <tr>
+                <td>Warm Gold</td>
+                <td><code>#DEC328</code></td>
+                <td>Highlights and small emphasis</td>
+              </tr>
+              <tr>
+                <td>Clay Orange</td>
+                <td><code>#DE5021</code></td>
+                <td>Sparing accent use only</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Suggested Dev Tokens</h2>
+        <pre><code>:root {
+  --color-brand-primary: #3D9BE9;
+  --color-brand-primary-soft: #A3D9F6;
+  --color-brand-accent: #A6033F;
+  --color-brand-accent-hover: #E40255;
+
+  --color-bg: #FFFFFF;
+  --color-surface: #F2F2F2;
+  --color-border: #B1B4B5;
+
+  --color-text: #000000;
+  --color-text-muted: #605E5E;
+}</code></pre>
+
+        <h2>Typography</h2>
+        <h3>Current type system</h3>
+        <ul>
+          <li>Primary heading family: Helvetica W01 Bold, with Arial/Helvetica fallback</li>
+          <li>Primary body family: Helvetica W01 Roman, with Arial/Helvetica fallback</li>
+          <li>Navigation family: DIN Next W01 Light</li>
+        </ul>
+
+        <h3>Approximate type scale from the live site</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Role</th>
+                <th>Approx size</th>
+                <th>Weight</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Hero title</td>
+                <td><code>42px</code></td>
+                <td>bold</td>
+                <td>Used for the <code>h1</code></td>
+              </tr>
+              <tr>
+                <td>Section title large</td>
+                <td><code>36px</code></td>
+                <td>bold</td>
+                <td>Close to current <code>h2</code> styling</td>
+              </tr>
+              <tr>
+                <td>Section title</td>
+                <td><code>24px</code></td>
+                <td>bold</td>
+                <td>Current <code>h3</code> size</td>
+              </tr>
+              <tr>
+                <td>Small section title</td>
+                <td><code>20px</code></td>
+                <td>bold</td>
+                <td>Current <code>h4</code> size</td>
+              </tr>
+              <tr>
+                <td>Button / small heading</td>
+                <td><code>16px</code></td>
+                <td>bold</td>
+                <td>CTA and support headings</td>
+              </tr>
+              <tr>
+                <td>Body</td>
+                <td><code>15px</code></td>
+                <td>regular</td>
+                <td>Standard paragraph text</td>
+              </tr>
+              <tr>
+                <td>Nav</td>
+                <td><code>16px</code></td>
+                <td>light</td>
+                <td>Top navigation</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Suggested dev tokens</h3>
+        <pre><code>:root {
+  --font-display: "Helvetica W01 Bold", Arial, Helvetica, sans-serif;
+  --font-body: "Helvetica W01 Roman", Arial, Helvetica, sans-serif;
+  --font-nav: "DIN Next W01 Light", Arial, Helvetica, sans-serif;
+
+  --font-size-h1: 42px;
+  --font-size-h2: 36px;
+  --font-size-h3: 24px;
+  --font-size-h4: 20px;
+  --font-size-body: 15px;
+  --font-size-button: 16px;
+}</code></pre>
+
+        <h2>Buttons</h2>
+        <h3>Primary CTA</h3>
+        <ul>
+          <li>Background: <code>#A6033F</code></li>
+          <li>Text: <code>#FFFFFF</code></li>
+          <li>Hover background: <code>#E40255</code></li>
+          <li>Style: solid fill, high contrast, fairly straightforward, not ornamental</li>
+        </ul>
+
+        <h3>Current button labels on the homepage</h3>
+        <ul>
+          <li>Go to inhouse workshops</li>
+          <li>Go to individual coaching</li>
+          <li>More for support professionals</li>
+          <li>See resources</li>
+          <li>Send</li>
+        </ul>
+
+        <h2>Layout Patterns</h2>
+        <ul>
+          <li>Full-width image hero</li>
+          <li>Centered section intro</li>
+          <li>Three-column service grid</li>
+          <li>Full-width testimonial band in blue</li>
+          <li>Split content-and-image promo block</li>
+          <li>Contact details paired with form</li>
+        </ul>
+
+        <h2>Imagery Direction</h2>
+        <ul>
+          <li>Water</li>
+          <li>Movement</li>
+          <li>Journey</li>
+          <li>Resilience</li>
+          <li>Aotearoa context</li>
+          <li>Waka / waterway associations</li>
+          <li>Coastal or open-sky tones</li>
+          <li>Human, practical, non-corporate imagery</li>
+          <li>Resource-led imagery such as books and workshop material</li>
+          <li>Kayak / waka associations and wahine-led continuity</li>
+        </ul>
+
+        <h2>Voice and Tone</h2>
+        <ul>
+          <li>Warm</li>
+          <li>Respectful</li>
+          <li>Clear</li>
+          <li>Grounded</li>
+          <li>Supportive</li>
+          <li>Locally rooted</li>
+        </ul>
+        <p>It should avoid sounding overly clinical, generic corporate wellness, or overly spiritual without practical grounding.</p>
+
+        <h2>Components to Standardise Later</h2>
+        <ul>
+          <li>Header and navigation</li>
+          <li>Hero block</li>
+          <li>Service card / feature card</li>
+          <li>Testimonial slider</li>
+          <li>Content-image promo section</li>
+          <li>Contact section</li>
+          <li>Primary CTA button</li>
+        </ul>
+
+        <h2>Notes</h2>
+        <ul>
+          <li>The current social icons exist, but the footer links should be checked before reuse.</li>
+          <li>This reflects the live site's existing system, not a polished future design system.</li>
+          <li>If the brand is refreshed later, this file should become the baseline comparison point.</li>
+        </ul>
+      </article>
+    </main>
+  </body>
+</html>
