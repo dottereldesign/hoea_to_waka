@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hoea tō Waka</title>
+    <title>Brand Guidelines | Hoea tō Waka</title>
     <meta
       name="description"
-      content="Working website hub for the Hoea tō Waka rebuild: brief, audit, inventory, homepage block map, source notes, and brand system."
+      content="Brand guidelines for Hoea tō Waka, including logo, colours, typography, mockups, audience, and services."
     >
     <script>
       document.documentElement.classList.add("js");
@@ -28,31 +28,42 @@
               <header class="site-preview-header">
                 <a href="index.html" class="preview-brand">
                   <img src="assets/logo-white.svg" alt="" class="preview-brand-logo" />
-                  <div class="preview-brand-text">
-                    <span class="preview-brand-title">Hoea tō Waka</span>
-                    <span class="preview-brand-subtitle">Strength in Aotearoa</span>
-                  </div>
-                </a>
-                <nav class="site-preview-nav" aria-label="Preview navigation">
-                  <span>Home</span>
-                  <span>About</span>
-                  <div class="site-preview-nav-item site-preview-nav-item-dropdown">
-                    <span>Services</span>
-                    <div class="site-preview-subnav" aria-label="Services submenu">
-                      <a href="#">In-house Workshops</a>
-                      <a href="#">Resilience One on One</a>
-                      <a href="#">Workshops for Support Professionals</a>
-                    </div>
-                  </div>
-                  <span>Resources</span>
-                  <span>Contact</span>
-                </nav>
+	                  <div class="preview-brand-text">
+	                    <span class="preview-brand-title">Hoea tō Waka</span>
+	                    <span class="preview-brand-subtitle">Strength in Aotearoa</span>
+	                  </div>
+	                </a>
+	                <button class="site-preview-menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="preview-navigation" aria-expanded="false">
+	                  <span class="site-preview-menu-toggle-bar"></span>
+	                  <span class="site-preview-menu-toggle-bar"></span>
+	                  <span class="site-preview-menu-toggle-bar"></span>
+	                </button>
+	                <nav class="site-preview-nav" id="preview-navigation" aria-label="Preview navigation">
+	                  <a href="index.html" class="site-preview-nav-link">Home</a>
+	                  <div class="site-preview-nav-item site-preview-nav-item-dropdown">
+	                    <button class="site-preview-nav-link site-preview-subnav-toggle" type="button" aria-expanded="false" data-preview-subnav-toggle="about">About</button>
+	                    <div class="site-preview-subnav" aria-label="About submenu">
+	                      <a href="index.html">Brand Guidelines</a>
+	                      <a href="anna-brown.html">Anna Brown</a>
+	                    </div>
+	                  </div>
+	                  <div class="site-preview-nav-item site-preview-nav-item-dropdown">
+	                    <button class="site-preview-nav-link site-preview-subnav-toggle" type="button" aria-expanded="false" data-preview-subnav-toggle="services">Services</button>
+	                    <div class="site-preview-subnav" aria-label="Services submenu">
+	                      <a href="#">In-house Workshops</a>
+	                      <a href="#">Resilience One on One</a>
+	                      <a href="#">Workshops for Support Professionals</a>
+	                    </div>
+	                  </div>
+	                  <a href="#" class="site-preview-nav-link">Resources</a>
+	                  <a href="#" class="site-preview-nav-link">Contact</a>
+	                </nav>
               </header>
 
-	              <section class="site-preview-hero site-preview-guide-cover" id="brand-guide-cover">
-	                <div class="site-preview-guide-cover-shell">
-	                  <h1 class="site-preview-guide-cover-title"><span>Brand</span><span>Guidelines</span></h1>
-	                  <div class="site-preview-guide-cover-meta" aria-label="Brand guideline publication details">
+		              <section class="site-preview-hero site-preview-guide-cover" id="brand-guide-cover">
+		                <div class="site-preview-guide-cover-shell">
+		                  <h1 class="site-preview-guide-cover-title"><span>Brand</span><span>Guidelines</span></h1>
+		                  <div class="site-preview-guide-cover-meta" aria-label="Brand guideline publication details">
 	                    <span>Created by Jamie Wilson</span>
 	                    <span>Version 1.0</span>
 	                    <span>2026</span>
@@ -86,16 +97,17 @@
 	                    <span>Created by Jamie Wilson</span>
 	                    <span>Version 1.0</span>
 	                    <span>2026</span>
-	                  </div>
-	                </div>
-	              </section>
+		                  </div>
+		                </div>
+		              </section>
 
-	              <section class="site-preview-section site-preview-contents" id="contents">
-	                <div class="site-preview-contents-shell">
-	                  <div class="site-preview-contents-main">
-	                    <div class="site-preview-contents-head">
-	                      <h2>Table of Contents</h2>
-	                    </div>
+	              <div class="site-preview-guideline-layout">
+		              <aside class="site-preview-contents" id="contents" aria-labelledby="contents-title">
+		                <div class="site-preview-contents-shell">
+		                  <div class="site-preview-contents-main">
+		                    <div class="site-preview-contents-head">
+		                      <h2 id="contents-title">Table of Contents</h2>
+		                    </div>
 
 	                    <nav class="site-preview-contents-grid" aria-label="Table of contents">
 	                      <a href="#brand-overview" class="site-preview-contents-link">
@@ -139,12 +151,13 @@
 	                  <div class="site-preview-guide-cover-meta site-preview-contents-meta" aria-label="Brand guideline publication details">
 	                    <span>Created by Jamie Wilson</span>
 	                    <span>Version 1.0</span>
-	                    <span>2026</span>
-	                  </div>
-	                </div>
-	              </section>
+		                    <span>2026</span>
+		                  </div>
+		                </div>
+		              </aside>
 
-	              <section class="site-preview-section site-preview-brand-overview" id="brand-overview">
+	              <div class="site-preview-guideline-main">
+		              <section class="site-preview-section site-preview-brand-overview" id="brand-overview">
 	                <div class="site-preview-brand-overview-shell">
 	                  <article class="site-preview-brand-overview-sheet" aria-label="Brand overview">
 	                    <div class="site-preview-brand-overview-head">
@@ -236,11 +249,16 @@
 	                      <p class="site-preview-logo-anatomy-translation">Paddle</p>
 	                      <p>Anchors the logo in waka imagery and points to direction, effort, and purposeful movement.</p>
 	                    </article>
-	                  </div>
-	                </div>
-	              </section>
+		                  </div>
+		                </div>
+		                <div class="site-preview-guide-cover-meta site-preview-section-meta" aria-label="Brand guideline publication details">
+		                  <span>Created by Jamie Wilson</span>
+		                  <span>Version 1.0</span>
+		                  <span>2026</span>
+		                </div>
+		              </section>
 
-	              <section class="site-preview-section site-preview-logo-backgrounds" aria-label="Logo background section">
+		              <section class="site-preview-section site-preview-logo-backgrounds" aria-label="Logo background section">
 	                <article class="site-preview-logo-backgrounds-sheet" aria-label="Logo background examples">
 	                  <div class="site-preview-logo-backgrounds-copy">
 	                    <p class="site-preview-typeface-eyebrow">Logo</p>
@@ -280,69 +298,119 @@
 	                    <div class="preview-logo-tile preview-logo-tile-mist">
 	                      <img src="assets/logo.svg" alt="Hoea tō Waka logo on mist gradient" class="preview-logo-image" />
 	                    </div>
-	                  </div>
-	                </article>
-	              </section>
+		                  </div>
+		                </article>
+		                <div class="site-preview-guide-cover-meta site-preview-section-meta" aria-label="Brand guideline publication details">
+		                  <span>Created by Jamie Wilson</span>
+		                  <span>Version 1.0</span>
+		                  <span>2026</span>
+		                </div>
+		              </section>
 
-	              <section class="site-preview-section site-preview-colours" id="colours">
+		              <section class="site-preview-section site-preview-colours" id="colours">
 	                <article class="site-preview-colours-sheet" aria-label="Brand colours">
 	                  <div class="site-preview-colours-copy">
 	                    <p class="site-preview-typeface-eyebrow">Palette</p>
 	                    <h2 class="site-preview-heading-display">Colours</h2>
 	                    <p>
-	                      The palette balances ocean blues, a sharper accent, and soft neutral surfaces. Together
-	                      they keep the system clear, calm, and recognisable across print and digital use.
+	                      The palette balances deep coastal blues, cool water tones, and grounded support colours.
+	                      Together they keep the system calm, clear, and recognisable across print and digital use.
 	                    </p>
 	                  </div>
 
-	                  <div class="site-preview-colours-grid">
-	                    <article class="site-preview-colour-card">
-	                      <div class="site-preview-colour-swatch" style="background: #3d9be9;"></div>
-	                      <div class="site-preview-colour-meta">
-	                        <h3>Ocean Blue</h3>
-	                        <p>#3D9BE9</p>
+	                  <div class="site-preview-colours-groups">
+	                    <div class="site-preview-colours-group">
+	                      <div class="site-preview-colours-group-head">
+	                        <p class="site-preview-typeface-eyebrow">Primary</p>
+	                        <h3>Primary Colours</h3>
 	                      </div>
-	                    </article>
-	                    <article class="site-preview-colour-card">
-	                      <div class="site-preview-colour-swatch" style="background: #a3d9f6;"></div>
-	                      <div class="site-preview-colour-meta">
-	                        <h3>Sky Blue</h3>
-	                        <p>#A3D9F6</p>
-	                      </div>
-	                    </article>
-	                    <article class="site-preview-colour-card">
-	                      <div class="site-preview-colour-swatch" style="background: #a6033f;"></div>
-	                      <div class="site-preview-colour-meta">
-	                        <h3>Harbour Magenta</h3>
-	                        <p>#A6033F</p>
-	                      </div>
-	                    </article>
-	                    <article class="site-preview-colour-card">
-	                      <div class="site-preview-colour-swatch" style="background: #e40255;"></div>
-	                      <div class="site-preview-colour-meta">
-	                        <h3>Bright Magenta</h3>
-	                        <p>#E40255</p>
-	                      </div>
-	                    </article>
-	                    <article class="site-preview-colour-card">
-	                      <div class="site-preview-colour-swatch" style="background: #ffffff;"></div>
-	                      <div class="site-preview-colour-meta">
-	                        <h3>Cloud White</h3>
-	                        <p>#FFFFFF</p>
-	                      </div>
-	                    </article>
-	                    <article class="site-preview-colour-card">
-	                      <div class="site-preview-colour-swatch" style="background: #f2f2f2;"></div>
-	                      <div class="site-preview-colour-meta">
-	                        <h3>Mist Gray</h3>
-	                        <p>#F2F2F2</p>
-	                      </div>
-	                    </article>
-	                  </div>
-	                </article>
-	              </section>
 
-	              <section class="site-preview-section site-preview-typeface" id="typeface">
+	                      <div class="site-preview-colours-grid site-preview-colours-grid-primary">
+	                        <article class="site-preview-colour-card">
+	                          <div class="site-preview-colour-swatch" style="background: #24486f;"></div>
+	                          <div class="site-preview-colour-meta">
+	                            <h3>Deep Harbour Blue</h3>
+	                            <p>#24486F</p>
+	                          </div>
+	                        </article>
+	                        <article class="site-preview-colour-card">
+	                          <div class="site-preview-colour-swatch" style="background: #a3d9f6;"></div>
+	                          <div class="site-preview-colour-meta">
+	                            <h3>Open Sky Blue</h3>
+	                            <p>#A3D9F6</p>
+	                          </div>
+	                        </article>
+	                        <article class="site-preview-colour-card">
+	                          <div class="site-preview-colour-swatch" style="background: linear-gradient(135deg, #985b84 0%, #743f64 100%);"></div>
+	                          <div class="site-preview-colour-meta">
+	                            <h3>Mulberry Tide</h3>
+	                            <p>#985B84 / #743F64</p>
+	                          </div>
+	                        </article>
+	                        <article class="site-preview-colour-card">
+	                          <div class="site-preview-colour-swatch" style="background: #2e8c79;"></div>
+	                          <div class="site-preview-colour-meta">
+	                            <h3>Greenstone Current</h3>
+	                            <p>#2E8C79</p>
+	                          </div>
+	                        </article>
+	                      </div>
+	                    </div>
+
+	                    <div class="site-preview-colours-group">
+	                      <div class="site-preview-colours-group-head">
+	                        <p class="site-preview-typeface-eyebrow">Secondary</p>
+	                        <h3>Secondary Colours</h3>
+	                      </div>
+
+	                      <div class="site-preview-colours-grid site-preview-colours-grid-secondary">
+	                        <article class="site-preview-colour-card">
+	                          <div class="site-preview-colour-swatch" style="background: #ffffff;"></div>
+	                          <div class="site-preview-colour-meta">
+	                            <h3>Cloud Foam</h3>
+	                            <p>#FFFFFF</p>
+	                          </div>
+	                        </article>
+	                        <article class="site-preview-colour-card">
+	                          <div class="site-preview-colour-swatch" style="background: #f2f2f2;"></div>
+	                          <div class="site-preview-colour-meta">
+	                            <h3>Sea Mist</h3>
+	                            <p>#F2F2F2</p>
+	                          </div>
+	                        </article>
+	                        <article class="site-preview-colour-card">
+	                          <div class="site-preview-colour-swatch" style="background: #111111;"></div>
+	                          <div class="site-preview-colour-meta">
+	                            <h3>Ink Depth</h3>
+	                            <p>#111111</p>
+	                          </div>
+	                        </article>
+	                        <article class="site-preview-colour-card">
+	                          <div class="site-preview-colour-swatch" style="background: #605e5e;"></div>
+	                          <div class="site-preview-colour-meta">
+	                            <h3>Drift Grey</h3>
+	                            <p>#605E5E</p>
+	                          </div>
+	                        </article>
+	                        <article class="site-preview-colour-card">
+	                          <div class="site-preview-colour-swatch" style="background: #e7eef2;"></div>
+	                          <div class="site-preview-colour-meta">
+	                            <h3>Pearl Wake</h3>
+	                            <p>#E7EEF2</p>
+	                          </div>
+	                        </article>
+	                      </div>
+	                    </div>
+		                  </div>
+		                </article>
+		                <div class="site-preview-guide-cover-meta site-preview-section-meta" aria-label="Brand guideline publication details">
+		                  <span>Created by Jamie Wilson</span>
+		                  <span>Version 1.0</span>
+		                  <span>2026</span>
+		                </div>
+		              </section>
+
+		              <section class="site-preview-section site-preview-typeface" id="typeface">
                 <h2 class="site-preview-heading-display">Typography</h2>
 
                 <div class="site-preview-typeface-grid">
@@ -426,11 +494,16 @@
 	                      <span>Hoea tō Waka Brand Guidelines</span>
 	                      <span>Supporting Typeface / 03B</span>
 	                    </div>
-	                  </article>
-	                </div>
-	              </section>
+		                  </article>
+		                </div>
+		                <div class="site-preview-guide-cover-meta site-preview-section-meta" aria-label="Brand guideline publication details">
+		                  <span>Created by Jamie Wilson</span>
+		                  <span>Version 1.0</span>
+		                  <span>2026</span>
+		                </div>
+		              </section>
 
-	              <section class="site-preview-section site-preview-mockups" id="mockups">
+		              <section class="site-preview-section site-preview-mockups" id="mockups">
 	                <article class="site-preview-mockups-sheet" aria-label="Branded merchandise mockups">
 	                  <div class="site-preview-mockups-copy">
 	                    <h2>Mockups</h2>
@@ -593,21 +666,31 @@
 	                        </div>
 	                      </div>
 	                    </article>
-	                  </div>
-	                </article>
-	              </section>
+		                  </div>
+		                </article>
+		                <div class="site-preview-guide-cover-meta site-preview-section-meta" aria-label="Brand guideline publication details">
+		                  <span>Created by Jamie Wilson</span>
+		                  <span>Version 1.0</span>
+		                  <span>2026</span>
+		                </div>
+		              </section>
 
-	              <section class="site-preview-section" id="audience">
-	                <h2>Who it's for</h2>
-	                <div class="tags">
+		              <section class="site-preview-section" id="audience">
+		                <h2>Who it's for</h2>
+		                <div class="tags">
 	                  <span class="tag">Organisations</span>
 	                  <span class="tag">HR and people leaders</span>
-	                  <span class="tag">Team leaders</span>
-	                  <span class="tag">Support professionals</span>
-	                </div>
-	              </section>
+		                  <span class="tag">Team leaders</span>
+		                  <span class="tag">Support professionals</span>
+		                </div>
+		                <div class="site-preview-guide-cover-meta site-preview-section-meta" aria-label="Brand guideline publication details">
+		                  <span>Created by Jamie Wilson</span>
+		                  <span>Version 1.0</span>
+		                  <span>2026</span>
+		                </div>
+		              </section>
 
-	              <section class="site-preview-section" id="services-overview">
+		              <section class="site-preview-section" id="services-overview">
 	                <h2>How we can work together</h2>
 	                <div class="preview-card-grid">
                   <article class="preview-card">
@@ -630,15 +713,28 @@
                       <p>Training for people supporting clients, whānau, and communities in complex settings.</p>
                       <a href="#" class="preview-card-button">View page</a>
 	                    </div>
-	                  </article>
-	                </div>
-	              </section>
+		                  </article>
+			                </div>
+		                <div class="site-preview-guide-cover-meta site-preview-section-meta" aria-label="Brand guideline publication details">
+		                  <span>Created by Jamie Wilson</span>
+		                  <span>Version 1.0</span>
+		                  <span>2026</span>
+		                </div>
+		              </section>
+
+	              </div>
+	              </div>
 
             </article>
           </div>
         </section>
 
         <div class="dashboard-content">
+          <div class="dashboard-context-head">
+            <p class="section-kicker">Codex Context</p>
+            <h2>Codex Context</h2>
+          </div>
+
           <section class="section" id="brief">
         <div class="section-head">
           <div>
@@ -1367,13 +1463,114 @@
     </script>
     <script>
       (() => {
+        const header = document.querySelector(".site-preview-header");
+        const menuToggle = document.querySelector(".site-preview-menu-toggle");
+        const nav = document.querySelector("#preview-navigation");
+        const subnavToggles = Array.from(document.querySelectorAll("[data-preview-subnav-toggle]"));
+        const pageParams = new URLSearchParams(window.location.search);
         const hero = document.querySelector(".site-preview-brand-hero");
-        const heroTrigger = hero?.querySelector(".site-preview-brand-hero-lockup") ?? hero;
         const brandOverview = document.querySelector(".site-preview-brand-overview");
         const anatomy = document.querySelector(".site-preview-logo-anatomy");
         const anatomyTrigger = document.querySelector(".site-preview-logo-anatomy-layout");
         const contents = document.querySelector(".site-preview-contents");
         const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const mobileMenuQuery = window.matchMedia("(max-width: 760px)");
+
+        const syncNavInteractivity = () => {
+          if (!nav) {
+            return;
+          }
+
+          nav.inert = mobileMenuQuery.matches && !header?.classList.contains("site-preview-header-is-open");
+        };
+
+        const closeSubnavs = (exceptToggle = null) => {
+          subnavToggles.forEach((toggle) => {
+            if (toggle === exceptToggle) {
+              return;
+            }
+
+            toggle.closest(".site-preview-nav-item-dropdown")?.classList.remove("site-preview-nav-item-dropdown-is-open");
+            toggle.setAttribute("aria-expanded", "false");
+          });
+        };
+
+        const closeMenu = () => {
+          header?.classList.remove("site-preview-header-is-open");
+          document.documentElement.classList.remove("site-preview-menu-is-open");
+          menuToggle?.setAttribute("aria-expanded", "false");
+          menuToggle?.setAttribute("aria-label", "Open navigation menu");
+          closeSubnavs();
+          syncNavInteractivity();
+        };
+
+        const toggleMenu = () => {
+          const isOpen = header?.classList.toggle("site-preview-header-is-open") ?? false;
+          document.documentElement.classList.toggle("site-preview-menu-is-open", isOpen);
+          menuToggle?.setAttribute("aria-expanded", String(isOpen));
+          menuToggle?.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
+          syncNavInteractivity();
+
+          if (!isOpen) {
+            closeSubnavs();
+          }
+        };
+
+        const toggleSubnav = (toggle) => {
+          const subnavItem = toggle.closest(".site-preview-nav-item-dropdown");
+          const willOpen = !subnavItem?.classList.contains("site-preview-nav-item-dropdown-is-open");
+          closeSubnavs(toggle);
+          subnavItem?.classList.toggle("site-preview-nav-item-dropdown-is-open", willOpen);
+          toggle.setAttribute("aria-expanded", String(willOpen));
+        };
+
+        const openMenu = () => {
+          header?.classList.add("site-preview-header-is-open");
+          document.documentElement.classList.add("site-preview-menu-is-open");
+          menuToggle?.setAttribute("aria-expanded", "true");
+          menuToggle?.setAttribute("aria-label", "Close navigation menu");
+          syncNavInteractivity();
+        };
+
+        menuToggle?.addEventListener("click", toggleMenu);
+        subnavToggles.forEach((toggle) => {
+          toggle.addEventListener("click", () => toggleSubnav(toggle));
+        });
+        nav?.addEventListener("click", (event) => {
+          if (event.target instanceof HTMLAnchorElement) {
+            closeMenu();
+          }
+        });
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape") {
+            closeMenu();
+          }
+        });
+        mobileMenuQuery.addEventListener("change", (event) => {
+          syncNavInteractivity();
+          if (!event.matches) {
+            closeMenu();
+          }
+        });
+        syncNavInteractivity();
+
+        if (pageParams.get("menu") === "open") {
+          openMenu();
+        }
+
+        if (pageParams.get("submenu") === "services") {
+          openMenu();
+          const servicesToggle = subnavToggles.find((toggle) => toggle.dataset.previewSubnavToggle === "services");
+          servicesToggle?.closest(".site-preview-nav-item-dropdown")?.classList.add("site-preview-nav-item-dropdown-is-open");
+          servicesToggle?.setAttribute("aria-expanded", "true");
+        }
+
+        if (pageParams.get("submenu") === "about") {
+          openMenu();
+          const aboutToggle = subnavToggles.find((toggle) => toggle.dataset.previewSubnavToggle === "about");
+          aboutToggle?.closest(".site-preview-nav-item-dropdown")?.classList.add("site-preview-nav-item-dropdown-is-open");
+          aboutToggle?.setAttribute("aria-expanded", "true");
+        }
 
         const scrollToHashTarget = () => {
           if (!window.location.hash) {
@@ -1392,15 +1589,25 @@
           });
         };
 
-        const startSequence = () => {
-          if (!hero || hero.classList.contains("site-preview-brand-hero-is-ready") || hero.classList.contains("site-preview-brand-hero-is-complete")) {
-            return;
-          }
+	        const startSequence = () => {
+	          if (!hero || hero.classList.contains("site-preview-brand-hero-is-ready") || hero.classList.contains("site-preview-brand-hero-is-complete")) {
+	            return;
+	          }
+	          let sequenceStarted = false;
+	          let ticking = false;
 
-          const runSequence = () => {
-            requestAnimationFrame(() => {
-              requestAnimationFrame(() => {
-                hero.classList.add("site-preview-brand-hero-is-ready");
+	          const runSequence = () => {
+	            if (sequenceStarted) {
+	              return;
+	            }
+
+	            sequenceStarted = true;
+	            window.removeEventListener("scroll", requestSequenceCheck);
+	            window.removeEventListener("resize", requestSequenceCheck);
+
+	            requestAnimationFrame(() => {
+	              requestAnimationFrame(() => {
+	                hero.classList.add("site-preview-brand-hero-is-ready");
 
                 window.setTimeout(() => {
                   hero.classList.add("site-preview-brand-hero-is-complete");
@@ -1408,32 +1615,44 @@
                 }, 4000);
               });
             });
-          };
+	          };
 
-          if (prefersReducedMotion || !("IntersectionObserver" in window)) {
-            hero.classList.add("site-preview-brand-hero-is-complete");
-            return;
-          }
+	          const isHeroInStartZone = () => {
+	            const rect = hero.getBoundingClientRect();
+	            const headerBottom = header?.getBoundingClientRect().bottom ?? 0;
+	            const startLine = Math.max(headerBottom + 96, window.innerHeight * 0.58);
 
-          const observer = new IntersectionObserver(
-            (entries) => {
-              entries.forEach((entry) => {
-                if (!entry.isIntersecting) {
-                  return;
-                }
+	            return rect.top <= startLine && rect.bottom >= headerBottom + 180;
+	          };
 
-                runSequence();
-                observer.disconnect();
-              });
-            },
-            {
-              threshold: 0.01,
-              rootMargin: "0px 0px 12% 0px",
-            }
-          );
+	          const checkSequenceStart = () => {
+	            ticking = false;
 
-          observer.observe(heroTrigger);
-        };
+	            if (sequenceStarted || !isHeroInStartZone()) {
+	              return;
+	            }
+
+	            runSequence();
+	          };
+
+	          function requestSequenceCheck() {
+	            if (ticking) {
+	              return;
+	            }
+
+	            ticking = true;
+	            requestAnimationFrame(checkSequenceStart);
+	          }
+
+	          if (prefersReducedMotion) {
+	            hero.classList.add("site-preview-brand-hero-is-complete");
+	            return;
+	          }
+
+	          window.addEventListener("scroll", requestSequenceCheck, { passive: true });
+	          window.addEventListener("resize", requestSequenceCheck, { passive: true });
+	          requestSequenceCheck();
+	        };
 
         const startBrandOverviewSequence = () => {
           if (!brandOverview || brandOverview.classList.contains("site-preview-brand-overview-is-animated")) {
