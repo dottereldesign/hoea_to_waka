@@ -1,0 +1,27 @@
+# Previous build URLs (forced so the fallback HTML files cannot shadow the 301s)
+/index.html https://www.hoeatowaka.co.nz/ 301!
+/anna-brown.html https://www.hoeatowaka.co.nz/about/ 301!
+/brand-guidelines.html https://www.hoeatowaka.co.nz/about/brand-guidelines/ 301!
+/services.html https://www.hoeatowaka.co.nz/services/ 301!
+/in-house-workshops.html https://www.hoeatowaka.co.nz/services/in-house-workshops/ 301!
+/individual-coaching.html https://www.hoeatowaka.co.nz/services/resilience-one-on-one/ 301!
+/support-professionals.html https://www.hoeatowaka.co.nz/services/workshops-for-support-professionals/ 301!
+/resources.html https://www.hoeatowaka.co.nz/resources/ 301!
+/contact.html https://www.hoeatowaka.co.nz/contact/ 301!
+
+# Original Wix URLs and useful aliases
+/about-hoea-t%C5%8D-waka https://www.hoeatowaka.co.nz/about/ 301!
+/about-hoea-tō-waka https://www.hoeatowaka.co.nz/about/ 301!
+/anna-brown https://www.hoeatowaka.co.nz/about/ 301!
+/brand-guidelines https://www.hoeatowaka.co.nz/about/brand-guidelines/ 301!
+/in-house-workshops https://www.hoeatowaka.co.nz/services/in-house-workshops/ 301!
+/in-house-workshps https://www.hoeatowaka.co.nz/services/in-house-workshops/ 301!
+/services/in-house-workshps https://www.hoeatowaka.co.nz/services/in-house-workshops/ 301!
+/individual-coaching https://www.hoeatowaka.co.nz/services/resilience-one-on-one/ 301!
+/resilience-one-on-one https://www.hoeatowaka.co.nz/services/resilience-one-on-one/ 301!
+/support-professionals https://www.hoeatowaka.co.nz/services/workshops-for-support-professionals/ 301!
+/workshops-for-support-professionals https://www.hoeatowaka.co.nz/services/workshops-for-support-professionals/ 301!
+
+# Canonical host fallback for every other path
+http://hoeatowaka.co.nz/* https://www.hoeatowaka.co.nz/:splat 301!
+https://hoeatowaka.co.nz/* https://www.hoeatowaka.co.nz/:splat 301!

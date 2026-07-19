@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Page not found | Hoea tō Waka</title>
+    <meta name="description" content="The page you requested could not be found. Explore Hoea tō Waka resilience services and resources or contact Anna Brown.">
+    <meta name="robots" content="noindex,follow">
+    <meta name="theme-color" content="#e8f4fa">
+    <script>
+      (() => {
+        const path = decodeURIComponent(window.location.pathname).replace(/\/+$/, "").toLowerCase();
+        const legacyRoutes = {
+          "/about-hoea-tō-waka": "/about/",
+          "/anna-brown": "/about/",
+          "/anna-brown.html": "/about/",
+          "/about/anna-brown": "/about/",
+          "/brand-guidelines": "/about/brand-guidelines/",
+          "/brand-guidelines.html": "/about/brand-guidelines/",
+          "/services.html": "/services/",
+          "/in-house-workshops": "/services/in-house-workshops/",
+          "/in-house-workshps": "/services/in-house-workshops/",
+          "/in-house-workshops.html": "/services/in-house-workshops/",
+          "/services/in-house-workshps": "/services/in-house-workshops/",
+          "/individual-coaching": "/services/resilience-one-on-one/",
+          "/individual-coaching.html": "/services/resilience-one-on-one/",
+          "/resilience-one-on-one": "/services/resilience-one-on-one/",
+          "/support-professionals": "/services/workshops-for-support-professionals/",
+          "/support-professionals.html": "/services/workshops-for-support-professionals/",
+          "/workshops-for-support-professionals": "/services/workshops-for-support-professionals/",
+          "/resources.html": "/resources/",
+          "/contact.html": "/contact/"
+        };
+        const destination = legacyRoutes[path];
+        if (destination) {
+          window.location.replace(destination + window.location.search + window.location.hash);
+          return;
+        }
+
+        document.documentElement.classList.add("js");
+        let theme = "light";
+        try {
+          const savedTheme = window.localStorage.getItem("hoea-theme");
+          if (savedTheme === "light" || savedTheme === "dark") theme = savedTheme;
+        } catch {}
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@600;700&amp;family=Manrope:wght@400;500;700;800&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/site.css">
+    <link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="site-header" data-site-header>
+      <a class="site-brand" href="/">
+        <img src="/assets/logo-white.svg" alt="">
+        <span class="site-brand-copy">
+          <span class="site-brand-name">Hoea tō Waka</span>
+          <span class="site-brand-line">Strength in Aotearoa</span>
+        </span>
+      </a>
+      <button class="theme-switcher-grid theme-switcher-grid--compact site-theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false" data-theme-toggle>
+        <svg class="orb" aria-hidden="true" viewBox="0 0 20 20">
+          <defs>
+            <mask id="hoea-crescent-mask" x="0" y="0" width="20" height="20" maskUnits="userSpaceOnUse" style="mask-type: luminance">
+              <rect width="20" height="20" fill="white"></rect>
+              <circle class="orb-cutout" cx="6.5" cy="10" r="9" fill="black"></circle>
+            </mask>
+          </defs>
+          <circle class="orb-disc" cx="10" cy="10" r="10" mask="url(#hoea-crescent-mask)"></circle>
+        </svg>
+        <span class="cloud-ball cloud-ball-left" aria-hidden="true"></span>
+        <span class="cloud-ball cloud-ball-middle" aria-hidden="true"></span>
+        <span class="cloud-ball cloud-ball-right" aria-hidden="true"></span>
+        <span class="cloud-ball cloud-ball-top" aria-hidden="true"></span>
+        <span class="star star-1" aria-hidden="true"></span>
+        <span class="star star-2" aria-hidden="true"></span>
+        <span class="star star-3" aria-hidden="true"></span>
+        <span class="star star-4" aria-hidden="true"></span>
+      </button>
+      <button class="site-menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="site-navigation" aria-expanded="false" data-menu-toggle>
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="site-nav" id="site-navigation" aria-label="Primary navigation" data-site-nav>
+        <a class="site-nav-link" href="/">Home</a>
+        <a class="site-nav-link" href="/about/">About</a>
+        <div class="site-nav-dropdown" data-nav-dropdown>
+          <a class="site-nav-parent-link site-nav-services-link" href="/services/" aria-haspopup="true" aria-controls="services-subnav">Services</a>
+          <div class="site-subnav" id="services-subnav" role="group" aria-label="Services">
+            <a href="/services/in-house-workshops/">In-house Workshops</a>
+            <a href="/services/resilience-one-on-one/">Resilience One on One</a>
+            <a href="/services/workshops-for-support-professionals/">Workshops for Support Professionals</a>
+          </div>
+        </div>
+        <a class="site-nav-link" href="/resources/">Resources</a>
+        <a class="site-nav-link" href="/contact/">Contact</a>
+      </nav>
+    </header>
+    <main class="error-main" id="main-content">
+      <div class="error-card">
+        <img class="error-mark" src="/assets/logo-black.svg" alt="">
+        <p class="error-code">Error 404</p>
+        <h1>This path has drifted.</h1>
+        <p>The page may have moved or the address may be incomplete. Head home, explore the services, or ask Anna for a hand.</p>
+        <div class="button-row">
+          <a class="button button-primary" href="/">Return home</a>
+          <a class="button button-ghost" href="/services/">Explore services</a>
+          <a class="button button-ghost" href="/contact/">Contact Anna</a>
+        </div>
+      </div>
+    </main>
+    <script src="/site.js"></script>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+/about/brand-guidelines/*
+  X-Robots-Tag: noindex, follow, noarchive
+
+/brand/*
+  X-Robots-Tag: noindex, nofollow, noarchive
+
+/context/*
+  X-Robots-Tag: noindex, nofollow, noarchive
+
+/pages/*
+  X-Robots-Tag: noindex, nofollow, noarchive
+
+/websitethankyou/*
+  X-Robots-Tag: noindex, nofollow, noarchive

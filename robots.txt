@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /websitethankyou/
+
+Sitemap: https://www.hoeatowaka.co.nz/sitemap.xml
