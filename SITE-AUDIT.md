@@ -65,7 +65,7 @@ The brand-guidelines presentation now lives at `/about/brand-guidelines/`. It re
 - Resources now have a clear role as post-workshop and wider learning tools.
 - Anna's experience, credentials, cultural context, and programme-development rationale are presented together.
 - Service URLs now sit beneath `/services/`, matching the visible information architecture.
-- Root-relative internal links prevent nested pages from resolving navigation or assets against the wrong folder.
+- Depth-aware relative links keep navigation and assets correct on both a custom domain and the GitHub Pages project path.
 
 ### Content requiring client confirmation
 

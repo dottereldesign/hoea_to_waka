@@ -12,6 +12,8 @@ python3 -m http.server 8000
 
 Then open [http://localhost:8000](http://localhost:8000).
 
+The GitHub Pages preview is available at [https://dottereldesign.github.io/hoea_to_waka/](https://dottereldesign.github.io/hoea_to_waka/).
+
 ## Public routes
 
 - `/` — Home
@@ -23,7 +25,7 @@ Then open [http://localhost:8000](http://localhost:8000).
 - `/resources/` — Books, waiata, and song resources
 - `/contact/` — Contact details and enquiry form
 
-Each clean route is backed by an `index.html` inside the matching directory. Root-relative links are used throughout so navigation and assets resolve correctly at every nesting level.
+Each clean route is backed by an `index.html` inside the matching directory. Depth-aware relative links keep navigation and assets working both at a domain root and at the GitHub Pages project path `/hoea_to_waka/`.
 
 ## Shared public-site files
 
