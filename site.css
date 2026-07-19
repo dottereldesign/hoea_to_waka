@@ -985,7 +985,7 @@ html[data-theme="dark"] .theme-switcher-grid[data-theme-toggle] .star-4 {
   position: absolute;
   z-index: 4;
   inset: -20%;
-  background-image: url("/assets/grain.gif");
+  background-image: url("assets/grain.gif");
   background-position: center;
   background-size: 360px 270px;
   mix-blend-mode: soft-light;
