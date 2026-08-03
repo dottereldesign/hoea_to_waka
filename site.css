@@ -1235,28 +1235,39 @@ html[data-theme="dark"] .home-statement {
 }
 
 .proof-band {
-  padding: clamp(70px, 8vw, 120px) 0;
-  background: var(--sky-100);
+  padding: 0 0 clamp(76px, 8vw, 120px);
+  background: transparent;
 }
 
 .proof-grid {
-  display: grid;
-  grid-template-columns: minmax(220px, 0.45fr) minmax(0, 1fr);
-  gap: clamp(32px, 7vw, 100px);
-  align-items: center;
-}
-
-.proof-mark {
-  width: min(100%, 280px);
-  opacity: 0.12;
+  width: min(100%, 1040px);
+  margin-inline: auto;
+  text-align: center;
 }
 
 .proof-quote {
-  margin: 0;
+  position: relative;
+  max-width: 19ch;
+  margin: 0 auto;
+  padding-top: clamp(82px, 10vw, 132px);
   font-family: var(--font-display);
   font-size: clamp(2.4rem, 4.5vw, 5rem);
   letter-spacing: -0.035em;
   line-height: 0.96;
+}
+
+.proof-quote::before {
+  position: absolute;
+  top: -0.08em;
+  left: 50%;
+  color: var(--accent-text);
+  content: "“";
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(10rem, 20vw, 19rem);
+  font-weight: var(--weight-bold);
+  line-height: 0.7;
+  opacity: 0.24;
+  transform: translateX(-50%);
 }
 
 .proof-quote footer {
@@ -2122,10 +2133,6 @@ html[data-theme="dark"] .home-hero .button-ghost {
   color: var(--white);
 }
 
-html[data-theme="dark"] .proof-mark {
-  filter: brightness(0) invert(1);
-}
-
 html[data-theme="dark"] .button-ghost:hover,
 html[data-theme="dark"] .button-ghost:focus-visible {
   border-color: var(--line);
@@ -2790,10 +2797,6 @@ html[data-theme="dark"] .field textarea:focus {
 
   .hero-fact-card {
     margin-top: 18px;
-  }
-
-  .proof-mark {
-    width: 140px;
   }
 
   .logo-panel {
