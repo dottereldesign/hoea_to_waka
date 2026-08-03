@@ -241,6 +241,18 @@
 
   if (scrollStatement && scrollStatementInner && scrollStatementCopy && scrollStatementLines.length) {
     const characterSequence = [];
+    const statementEmphasisWords = new Set([
+      "aotearoa’s",
+      "unique",
+      "cultural",
+      "context",
+      "workplaces",
+      "leaders",
+      "support",
+      "professionals",
+    ]);
+    const statementSegmenter =
+      "Segmenter" in Intl ? new Intl.Segmenter("en-NZ", { granularity: "grapheme" }) : null;
     const linePause = 5;
     let sequenceIndex = 0;
 
@@ -251,8 +263,14 @@
       words.forEach((word, wordIndex) => {
         const wordElement = document.createElement("span");
         wordElement.className = "home-statement-word";
+        const emphasisKey = word.toLocaleLowerCase("en-NZ").replace(/[.,]/g, "");
+        if (statementEmphasisWords.has(emphasisKey)) wordElement.classList.add("is-emphasis");
 
-        Array.from(word).forEach((character) => {
+        const characters = statementSegmenter
+          ? Array.from(statementSegmenter.segment(word), ({ segment }) => segment)
+          : Array.from(word);
+
+        characters.forEach((character) => {
           const characterElement = document.createElement("span");
           characterElement.className = "home-statement-char";
           characterElement.textContent = character;
