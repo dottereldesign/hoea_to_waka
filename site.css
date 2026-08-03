@@ -2182,7 +2182,7 @@ html[data-theme="dark"] .field textarea:focus {
 }
 
 .site-footer::before {
-  background: url("assets/footer-cosmic-waka.webp") center / cover no-repeat;
+  background: url("assets/footer-cosmic-waka.webp") center top / 100% auto no-repeat;
   filter: saturate(0.68) contrast(0.88);
   opacity: 0.2;
 }
@@ -2194,6 +2194,12 @@ html[data-theme="dark"] .field textarea:focus {
 .site-footer > .container {
   position: relative;
   z-index: 1;
+}
+
+@media (max-width: 760px) {
+  .site-footer::before {
+    background-size: auto 100%;
+  }
 }
 
 .home-contact-callout {
