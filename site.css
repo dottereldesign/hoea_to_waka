@@ -2196,12 +2196,14 @@ html[data-theme="dark"] .field textarea:focus {
   z-index: 1;
 }
 
+.home-contact-callout {
+  padding: clamp(72px, 8vw, 112px) 0;
+  background: var(--mist);
+}
+
 .footer-callout-options {
   display: grid;
   gap: 22px;
-  margin-bottom: clamp(56px, 7vw, 90px);
-  padding-bottom: clamp(56px, 7vw, 90px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.13);
 }
 
 .footer-callout {
@@ -2212,6 +2214,7 @@ html[data-theme="dark"] .field textarea:focus {
   border: 1px solid rgba(255, 255, 255, 0.13);
   border-radius: var(--radius-lg);
   background: linear-gradient(135deg, rgba(52, 93, 137, 0.58), rgba(15, 43, 70, 0.34));
+  color: var(--white);
 }
 
 .footer-callout-copy {
@@ -2258,7 +2261,7 @@ html[data-theme="dark"] .field textarea:focus {
 .footer-callout-cutout {
   background:
     radial-gradient(circle at 84% 40%, rgba(137, 177, 215, 0.28), transparent 31%),
-    linear-gradient(135deg, rgba(25, 64, 101, 0.68), rgba(12, 34, 56, 0.4));
+    linear-gradient(135deg, #1a4569, #0d293d);
 }
 
 .footer-callout-cutout .footer-callout-media {
