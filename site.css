@@ -2228,18 +2228,6 @@ html[data-theme="dark"] .field textarea:focus {
   object-position: center bottom;
 }
 
-.footer-callout-photo .footer-callout-media {
-  margin: clamp(22px, 2.4vw, 34px);
-  padding: 0;
-  overflow: hidden;
-  border-radius: calc(var(--radius-lg) - 10px);
-  background: rgba(6, 20, 34, 0.28);
-}
-
-.footer-callout-photo .footer-callout-media img {
-  padding: 14px;
-}
-
 .footer-callout-cutout {
   background:
     radial-gradient(circle at 84% 40%, rgba(137, 177, 215, 0.28), transparent 31%),
