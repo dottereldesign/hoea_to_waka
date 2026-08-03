@@ -242,10 +242,6 @@
   if (scrollStatement && scrollStatementInner && scrollStatementCopy && scrollStatementLines.length) {
     const characterSequence = [];
     const statementEmphasisWords = new Set([
-      "aotearoa’s",
-      "unique",
-      "cultural",
-      "context",
       "workplaces",
       "leaders",
       "support",
