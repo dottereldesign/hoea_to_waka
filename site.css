@@ -2164,9 +2164,36 @@ html[data-theme="dark"] .field textarea:focus {
 }
 
 .site-footer {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   padding: clamp(68px, 8vw, 110px) 0 26px;
   background: var(--navy-950);
   color: var(--white);
+}
+
+.site-footer::before,
+.site-footer::after {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  content: "";
+  pointer-events: none;
+}
+
+.site-footer::before {
+  background: url("assets/footer-cosmic-waka.webp") center / cover no-repeat;
+  filter: saturate(0.68) contrast(0.88);
+  opacity: 0.2;
+}
+
+.site-footer::after {
+  background: linear-gradient(180deg, rgba(11, 32, 45, 0.08), rgba(11, 32, 45, 0.72));
+}
+
+.site-footer > .container {
+  position: relative;
+  z-index: 1;
 }
 
 .footer-callout-options {
