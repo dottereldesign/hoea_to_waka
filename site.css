@@ -2310,8 +2310,8 @@ html[data-theme="dark"] .field textarea:focus {
   display: inline-grid;
   place-items: center;
   margin-top: 24px;
-  padding: 7px;
-  border-radius: 16px;
+  padding: 4px;
+  border-radius: 12px;
   background: rgba(255, 255, 255, 0.94);
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
   transition: background-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
@@ -2327,8 +2327,8 @@ html[data-theme="dark"] .field textarea:focus {
 }
 
 .footer-shielded-site img {
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
   object-fit: contain;
 }
 
