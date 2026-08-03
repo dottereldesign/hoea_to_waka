@@ -2182,8 +2182,10 @@ html[data-theme="dark"] .field textarea:focus {
 }
 
 .site-footer::before {
-  background: url("assets/footer-cosmic-waka.webp") center top / 100% auto no-repeat;
+  background: url("assets/footer-cosmic-waka.webp") center top / 68% auto no-repeat;
   filter: saturate(0.68) contrast(0.88);
+  -webkit-mask-image: radial-gradient(ellipse 70% 92% at 50% 12%, #000 32%, transparent 78%);
+  mask-image: radial-gradient(ellipse 70% 92% at 50% 12%, #000 32%, transparent 78%);
   opacity: 0.2;
 }
 
@@ -2198,7 +2200,7 @@ html[data-theme="dark"] .field textarea:focus {
 
 @media (max-width: 760px) {
   .site-footer::before {
-    background-size: auto 100%;
+    background-size: 120% auto;
   }
 }
 
