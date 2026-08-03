@@ -1071,6 +1071,92 @@ html[data-theme="dark"] .theme-switcher-grid[data-theme-toggle] .star-4 {
   backdrop-filter: blur(9px);
 }
 
+.home-statement {
+  --statement-muted: rgba(36, 72, 111, 0.18);
+  --statement-blue: #24486f;
+  --statement-sky: #365f8d;
+  --statement-mulberry: #743f64;
+  --statement-violet: #514f7b;
+  position: relative;
+  min-height: clamp(1050px, 165vh, 1680px);
+  background: var(--mist);
+}
+
+.home-statement-inner {
+  position: sticky;
+  top: clamp(112px, 16vh, 164px);
+  display: flex;
+  align-items: center;
+  min-height: clamp(520px, 68vh, 720px);
+  padding-block: clamp(72px, 9vh, 110px);
+}
+
+.home-statement-copy {
+  width: 100%;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 5.45vw, 5.4rem);
+  font-weight: var(--weight-semibold);
+  letter-spacing: -0.045em;
+  line-height: 0.96;
+}
+
+.home-statement-line {
+  --statement-line-color: var(--statement-blue);
+  display: block;
+  color: var(--statement-line-color);
+}
+
+.home-statement-line:nth-child(2) {
+  --statement-line-color: var(--statement-sky);
+}
+
+.home-statement-line:nth-child(3) {
+  --statement-line-color: var(--statement-mulberry);
+}
+
+.home-statement-line:nth-child(4) {
+  --statement-line-color: var(--statement-violet);
+}
+
+.home-statement.is-scroll-ready .home-statement-line {
+  color: inherit;
+}
+
+.home-statement-word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.home-statement-char {
+  --char-progress: 0;
+  color: var(--statement-muted);
+}
+
+@supports ((background-clip: text) or (-webkit-background-clip: text)) {
+  .home-statement-char {
+    background: linear-gradient(
+      90deg,
+      var(--statement-line-color) 0%,
+      var(--statement-line-color) calc(var(--char-progress) * 100%),
+      var(--statement-muted) calc(var(--char-progress) * 100%),
+      var(--statement-muted) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+html[data-theme="dark"] .home-statement {
+  --statement-muted: rgba(201, 230, 245, 0.15);
+  --statement-blue: #a3d9f6;
+  --statement-sky: #8dccf2;
+  --statement-mulberry: #d7a7c9;
+  --statement-violet: #c2b9e7;
+}
+
 .home-services {
   padding: clamp(80px, 9vw, 140px) 0;
   background: var(--mist);
@@ -2826,6 +2912,22 @@ html[data-theme="dark"] .field textarea:focus {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .home-statement {
+    min-height: auto;
+  }
+
+  .home-statement-inner {
+    position: relative;
+    top: auto;
+    min-height: auto;
+    padding-block: clamp(90px, 12vw, 160px);
+  }
+
+  .home-statement-char {
+    color: var(--statement-line-color);
+    -webkit-text-fill-color: currentColor;
   }
 
   *,

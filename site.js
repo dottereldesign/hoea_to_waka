@@ -232,6 +232,88 @@
     revealItems.forEach((item) => item.classList.add("is-visible"));
   }
 
+  const scrollStatement = document.querySelector("[data-scroll-statement]");
+  const scrollStatementInner = scrollStatement?.querySelector(".home-statement-inner");
+  const scrollStatementCopy = scrollStatement?.querySelector("[data-scroll-statement-copy]");
+  const scrollStatementLines = Array.from(
+    scrollStatement?.querySelectorAll("[data-scroll-statement-line]") || []
+  );
+
+  if (scrollStatement && scrollStatementInner && scrollStatementCopy && scrollStatementLines.length) {
+    const characterSequence = [];
+    const linePause = 5;
+    let sequenceIndex = 0;
+
+    scrollStatementLines.forEach((line, lineIndex) => {
+      const words = line.textContent.trim().split(/\s+/);
+      line.textContent = "";
+
+      words.forEach((word, wordIndex) => {
+        const wordElement = document.createElement("span");
+        wordElement.className = "home-statement-word";
+
+        Array.from(word).forEach((character) => {
+          const characterElement = document.createElement("span");
+          characterElement.className = "home-statement-char";
+          characterElement.textContent = character;
+          characterElement.style.setProperty("--char-progress", "0");
+          wordElement.append(characterElement);
+          characterSequence.push({ element: characterElement, index: sequenceIndex });
+          sequenceIndex += 1;
+        });
+
+        line.append(wordElement);
+        if (wordIndex < words.length - 1) line.append(document.createTextNode(" "));
+      });
+
+      if (lineIndex < scrollStatementLines.length - 1) sequenceIndex += linePause;
+    });
+
+    scrollStatement.classList.add("is-scroll-ready");
+    const statementMotionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const sequenceLength = Math.max(sequenceIndex, 1);
+    let statementFrame = 0;
+
+    const paintStatement = () => {
+      statementFrame = 0;
+      let progress = 1;
+
+      if (!statementMotionPreference.matches) {
+        const statementRect = scrollStatement.getBoundingClientRect();
+        const innerRect = scrollStatementInner.getBoundingClientRect();
+        const viewportHeight = window.innerHeight;
+        const startTop = viewportHeight * 0.72;
+        const endTop = Math.min(
+          -viewportHeight * 0.22,
+          viewportHeight * 0.16 + innerRect.height - statementRect.height
+        );
+        const rawProgress = Math.min(
+          1,
+          Math.max(0, (startTop - statementRect.top) / Math.max(startTop - endTop, 1))
+        );
+        progress = rawProgress * rawProgress * (3 - 2 * rawProgress);
+      }
+
+      const cursor = progress * (sequenceLength + 1);
+      characterSequence.forEach(({ element, index }) => {
+        const characterProgress = Math.min(1, Math.max(0, cursor - index));
+        element.style.setProperty("--char-progress", characterProgress.toFixed(3));
+      });
+      scrollStatement.dataset.scrollProgress = progress.toFixed(3);
+    };
+
+    const scheduleStatementPaint = () => {
+      if (statementFrame) return;
+      statementFrame = window.requestAnimationFrame(paintStatement);
+    };
+
+    paintStatement();
+    window.addEventListener("scroll", scheduleStatementPaint, { passive: true });
+    window.addEventListener("resize", scheduleStatementPaint, { passive: true });
+    statementMotionPreference.addEventListener("change", scheduleStatementPaint);
+    document.fonts?.ready.then(scheduleStatementPaint);
+  }
+
   const contactForm = document.querySelector("[data-contact-form]");
   const requestedInterest = new URLSearchParams(window.location.search).get("interest");
   const interestSelect = contactForm?.querySelector("[name='interest']");
