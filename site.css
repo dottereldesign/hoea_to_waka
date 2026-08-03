@@ -22,7 +22,7 @@
   --accent-text: #365f8d;
   --mobile-logo-filter: brightness(0);
   --mobile-brand-line: rgba(17, 26, 32, 0.62);
-  --day-bg-color: #0dbdf6;
+  --day-bg-color: var(--blue-700);
   --night-bg-color: #100a09;
   --sun-color: #fabc1c;
   --moon-color: #fffdf2;
