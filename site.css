@@ -2359,14 +2359,27 @@ html[data-theme="dark"] .field textarea:focus {
 }
 
 .footer-bottom {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: end;
   gap: 20px;
   margin-top: clamp(50px, 7vw, 90px);
   padding-top: 24px;
   border-top: 1px solid rgba(255, 255, 255, 0.13);
   color: rgba(255, 255, 255, 0.52);
   font-size: 0.82rem;
+}
+
+.footer-bottom > :last-child {
+  justify-self: end;
+  text-align: right;
+}
+
+.footer-creator-credit {
+  display: grid;
+  justify-self: center;
+  line-height: 1.1em;
+  text-align: center;
 }
 
 @media (max-width: 1040px) {
@@ -2958,7 +2971,13 @@ html[data-theme="dark"] .field textarea:focus {
   }
 
   .footer-bottom {
-    flex-direction: column;
+    grid-template-columns: 1fr;
+  }
+
+  .footer-bottom > :last-child,
+  .footer-creator-credit {
+    justify-self: start;
+    text-align: left;
   }
 }
 
