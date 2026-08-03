@@ -28,8 +28,8 @@
   --moon-color: #fffdf2;
   --star-color: #fffdf2;
   --cloud-color: #fffdf2;
-  --toggle-border-day: #1c2135;
-  --toggle-border-night: #f0f0e8;
+  --toggle-border-day: #ffffff;
+  --toggle-border-night: #ffffff;
   --font-display: "Crimson Text", Georgia, "Times New Roman", serif;
   --font-body: "Manrope", "Helvetica Neue", Arial, sans-serif;
   --weight-medium: 500;
@@ -1247,7 +1247,7 @@ html[data-theme="dark"] .home-statement {
 
 .proof-quote {
   position: relative;
-  max-width: 19ch;
+  max-width: 24ch;
   margin: 0 auto;
   padding-top: clamp(82px, 10vw, 132px);
   font-family: var(--font-display);
