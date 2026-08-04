@@ -196,6 +196,11 @@ html[data-theme="dark"] .site-header {
   right: 16px;
   bottom: 16px;
   z-index: 120;
+  width: 62px;
+  min-width: 62px;
+  height: 29px;
+  justify-self: auto;
+  align-self: auto;
 }
 
 .site-brand img {
@@ -287,6 +292,13 @@ html[data-theme="dark"] .site-header {
 .site-nav > .site-nav-dropdown {
   grid-column: 6;
   justify-self: end;
+}
+
+@media (min-width: 761px) {
+  .site-nav > .site-nav-link,
+  .site-nav > .site-nav-dropdown {
+    grid-row: 1;
+  }
 }
 
 .site-nav-indicator {
@@ -3083,6 +3095,9 @@ html[data-theme="dark"] .field textarea:focus {
     right: 16px;
     bottom: 16px;
     z-index: 120;
+    width: 52px;
+    min-width: 52px;
+    height: 24px;
     margin: 0;
     --unit: 0.92px;
   }
