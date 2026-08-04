@@ -2172,21 +2172,12 @@ html[data-theme="dark"] .field textarea:focus {
   color: var(--white);
 }
 
-.site-footer::before,
 .site-footer::after {
   position: absolute;
   inset: 0;
   z-index: 0;
   content: "";
   pointer-events: none;
-}
-
-.site-footer::before {
-  background: url("assets/footer-cosmic-waka.webp") center top / 68% auto no-repeat;
-  filter: saturate(0.68) contrast(0.88);
-  -webkit-mask-image: radial-gradient(ellipse 70% 92% at 50% 12%, #000 32%, transparent 78%);
-  mask-image: radial-gradient(ellipse 70% 92% at 50% 12%, #000 32%, transparent 78%);
-  opacity: 0.2;
 }
 
 .site-footer::after {
@@ -2196,12 +2187,6 @@ html[data-theme="dark"] .field textarea:focus {
 .site-footer > .container {
   position: relative;
   z-index: 1;
-}
-
-@media (max-width: 760px) {
-  .site-footer::before {
-    background-size: 120% auto;
-  }
 }
 
 .home-contact-callout {
