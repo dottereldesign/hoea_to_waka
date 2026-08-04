@@ -40,6 +40,7 @@
   --radius-sm: 16px;
   --radius-md: 24px;
   --radius-lg: 36px;
+  --section-space: 96px;
 }
 
 * {
@@ -2190,7 +2191,7 @@ html[data-theme="dark"] .field textarea:focus {
 }
 
 .home-contact-callout {
-  padding: clamp(72px, 8vw, 112px) 0 clamp(28px, 3vw, 44px);
+  padding: 0 0 var(--section-space);
   background: var(--mist);
 }
 
@@ -2377,6 +2378,10 @@ html[data-theme="dark"] .field textarea:focus {
 }
 
 @media (max-width: 1040px) {
+  :root {
+    --section-space: 80px;
+  }
+
   .home-hero-inner {
     grid-template-columns: minmax(0, 1fr) minmax(320px, 0.82fr);
     padding-inline: clamp(48px, 7vw, 72px);
@@ -2438,6 +2443,10 @@ html[data-theme="dark"] .field textarea:focus {
 }
 
 @media (max-width: 760px) {
+  :root {
+    --section-space: 60px;
+  }
+
   html {
     scroll-padding-top: 88px;
   }
