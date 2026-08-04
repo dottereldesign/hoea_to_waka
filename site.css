@@ -1166,7 +1166,7 @@ html[data-theme="dark"] .home-statement {
   --service-card-padding: clamp(18px, 2vw, 28px);
   display: flex;
   flex-direction: column;
-  min-height: clamp(650px, 52vw, 720px);
+  min-height: clamp(620px, 48vw, 680px);
   padding: 0 var(--service-card-padding) var(--service-card-padding);
   overflow: hidden;
   border-radius: var(--radius-md);
@@ -1224,7 +1224,7 @@ html[data-theme="dark"] .home-statement {
 
 .service-card p {
   max-width: 35ch;
-  margin: 18px 6px 0;
+  margin: 18px 6px 22px;
   color: rgba(255, 255, 255, 0.78);
   line-height: 1.5;
 }
@@ -2910,7 +2910,7 @@ html[data-theme="dark"] .field textarea:focus {
   }
 
   .service-card {
-    min-height: 620px;
+    min-height: 580px;
   }
 
   .service-card-image {
