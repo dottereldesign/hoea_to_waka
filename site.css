@@ -1096,7 +1096,7 @@ html[data-theme="dark"] .theme-switcher-grid[data-theme-toggle] .star-4 {
 }
 
 .home-statement-line {
-  display: block;
+  display: inline;
   color: var(--hero-copy-ink);
 }
 
