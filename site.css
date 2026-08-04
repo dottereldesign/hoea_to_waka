@@ -2289,25 +2289,99 @@ html[data-theme="dark"] .home-use-list li::before {
 
 .faq-list {
   display: grid;
-  gap: 10px;
+  gap: 0;
+  interpolate-size: allow-keywords;
 }
 
 .faq-list details {
-  border: 1px solid var(--line);
-  border-radius: var(--radius-sm);
-  background: var(--surface-raised);
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background: transparent;
 }
 
 .faq-list summary {
-  padding: 20px 22px;
-  font-weight: var(--weight-bold);
+  position: relative;
+  display: block;
+  padding: clamp(24px, 3vw, 36px) 52px clamp(24px, 3vw, 36px) 0;
+  font-family: var(--font-body);
+  font-size: clamp(1.2rem, 2vw, 1.85rem);
+  font-weight: var(--weight-semibold);
+  letter-spacing: -0.025em;
+  line-height: 1.24;
+  list-style: none;
   cursor: pointer;
+  transition: color 180ms ease, padding-bottom 360ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.faq-list summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-list summary::marker {
+  content: "";
+}
+
+.faq-list summary::before,
+.faq-list summary::after {
+  position: absolute;
+  top: 50%;
+  right: 4px;
+  width: 20px;
+  height: 3px;
+  border-radius: 999px;
+  background: currentColor;
+  content: "";
+  transform-origin: center;
+}
+
+.faq-list summary::before {
+  transform: translateY(-50%);
+}
+
+.faq-list summary::after {
+  transform: translateY(-50%) rotate(90deg);
+  transition: transform 380ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.faq-list details[open] summary {
+  padding-bottom: 18px;
+}
+
+.faq-list details[open] summary::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.faq-list summary:focus-visible {
+  color: var(--accent-text);
+  outline: none;
+}
+
+.faq-list summary:focus-visible::before {
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent-text) 18%, transparent);
+}
+
+.faq-list details::details-content {
+  block-size: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition:
+    block-size 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 260ms ease,
+    content-visibility 420ms allow-discrete;
+}
+
+.faq-list details[open]::details-content {
+  block-size: auto;
+  opacity: 1;
 }
 
 .faq-list details p {
+  max-width: 64ch;
   margin: 0;
-  padding: 0 22px 22px;
+  padding: 0 52px clamp(28px, 3vw, 38px) 0;
   color: var(--muted);
+  font-size: clamp(0.98rem, 1.1vw, 1.08rem);
+  line-height: 1.65;
 }
 
 html[data-theme="dark"] .home-hero {
