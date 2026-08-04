@@ -1970,10 +1970,10 @@ html[data-theme="dark"] .error-mark {
   --icon-x: 0%;
   --icon-y: 0%;
   content: "";
-  flex: 0 0 26px;
-  width: 26px;
-  height: 26px;
-  background-image: url("assets/home-use-icons.png");
+  flex: 0 0 30px;
+  width: 30px;
+  height: 30px;
+  background-image: url("assets/home-use-icons.svg");
   background-position: var(--icon-x) var(--icon-y);
   background-repeat: no-repeat;
   background-size: 400% 300%;
