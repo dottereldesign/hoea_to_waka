@@ -1236,8 +1236,12 @@ html[data-theme="dark"] .home-statement {
 }
 
 .proof-band {
+  width: calc(100% - 32px);
+  max-width: 1660px;
+  margin-inline: auto;
   padding: 0 0 clamp(76px, 8vw, 120px);
-  background: transparent;
+  border-radius: var(--radius-md);
+  background: var(--sky-100);
 }
 
 .proof-grid {
@@ -1446,6 +1450,10 @@ html[data-theme="dark"] .error-mark {
 .section.home-model-section,
 .section.home-uses-section {
   padding-block: var(--section-space);
+}
+
+.section.home-model-section {
+  background: transparent;
 }
 
 .section-white {
