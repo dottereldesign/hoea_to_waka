@@ -2106,7 +2106,7 @@ html[data-theme="dark"] .error-mark {
   flex: 0 0 30px;
   width: 30px;
   height: 30px;
-  background-image: url("assets/home-use-icons.svg");
+  background-image: url("assets/home-use-icons.png");
   background-position: var(--icon-x) var(--icon-y);
   background-repeat: no-repeat;
   background-size: 400% 300%;
