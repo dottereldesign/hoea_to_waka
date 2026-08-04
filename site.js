@@ -328,6 +328,129 @@
     document.fonts?.ready.then(scheduleStatementPaint);
   }
 
+  const testimonialCarousel = document.querySelector("[data-testimonial-carousel]");
+  const testimonialViewport = testimonialCarousel?.querySelector("[data-carousel-viewport]");
+  const testimonialTrack = testimonialCarousel?.querySelector("[data-carousel-track]");
+  const testimonialSlides = Array.from(
+    testimonialCarousel?.querySelectorAll("[data-carousel-slide]") || []
+  );
+
+  if (testimonialCarousel && testimonialViewport && testimonialTrack && testimonialSlides.length) {
+    const previousButton = testimonialCarousel.querySelector("[data-carousel-previous]");
+    const nextButton = testimonialCarousel.querySelector("[data-carousel-next]");
+    const progressButtons = Array.from(testimonialCarousel.querySelectorAll("[data-carousel-go]"));
+    const status = testimonialCarousel.querySelector("[data-carousel-status]");
+    let currentIndex = 0;
+    let resizeFrame = 0;
+    let activePointer = null;
+    let dragStart = 0;
+    let dragDelta = 0;
+    let dragOrigin = 0;
+
+    const getStep = () => {
+      const cardWidth = testimonialSlides[0].getBoundingClientRect().width;
+      const trackStyles = window.getComputedStyle(testimonialTrack);
+      const gap = Number.parseFloat(trackStyles.columnGap || trackStyles.gap) || 0;
+      return cardWidth + gap;
+    };
+
+    const renderCarousel = ({ announce = true, animate = true } = {}) => {
+      if (!animate) testimonialCarousel.classList.add("is-resizing");
+      testimonialTrack.style.transform = `translate3d(${-currentIndex * getStep()}px, 0, 0)`;
+
+      testimonialSlides.forEach((slide, index) => {
+        if (index === currentIndex) {
+          slide.setAttribute("aria-current", "true");
+        } else {
+          slide.removeAttribute("aria-current");
+        }
+      });
+
+      progressButtons.forEach((button, index) => {
+        if (index === currentIndex) {
+          button.setAttribute("aria-current", "true");
+        } else {
+          button.removeAttribute("aria-current");
+        }
+      });
+
+      if (previousButton instanceof HTMLButtonElement) previousButton.disabled = currentIndex === 0;
+      if (nextButton instanceof HTMLButtonElement) nextButton.disabled = currentIndex === testimonialSlides.length - 1;
+      if (announce && status) status.textContent = `Showing testimonial ${currentIndex + 1} of ${testimonialSlides.length}`;
+
+      if (!animate) {
+        window.requestAnimationFrame(() => testimonialCarousel.classList.remove("is-resizing"));
+      }
+    };
+
+    const goToTestimonial = (index, options) => {
+      currentIndex = Math.min(testimonialSlides.length - 1, Math.max(0, index));
+      renderCarousel(options);
+    };
+
+    previousButton?.addEventListener("click", () => goToTestimonial(currentIndex - 1));
+    nextButton?.addEventListener("click", () => goToTestimonial(currentIndex + 1));
+    progressButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        goToTestimonial(Number.parseInt(button.dataset.carouselGo || "0", 10));
+      });
+    });
+
+    testimonialViewport.addEventListener("keydown", (event) => {
+      if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+      event.preventDefault();
+      goToTestimonial(currentIndex + (event.key === "ArrowRight" ? 1 : -1));
+    });
+
+    testimonialViewport.addEventListener("pointerdown", (event) => {
+      if (event.button !== 0 || activePointer !== null) return;
+      activePointer = event.pointerId;
+      dragStart = event.clientX;
+      dragDelta = 0;
+      dragOrigin = -currentIndex * getStep();
+      testimonialCarousel.classList.add("is-dragging");
+      testimonialViewport.setPointerCapture(event.pointerId);
+    });
+
+    testimonialViewport.addEventListener("pointermove", (event) => {
+      if (event.pointerId !== activePointer) return;
+      dragDelta = event.clientX - dragStart;
+      const pullingPastStart = currentIndex === 0 && dragDelta > 0;
+      const pullingPastEnd = currentIndex === testimonialSlides.length - 1 && dragDelta < 0;
+      const displayedDelta = pullingPastStart || pullingPastEnd ? dragDelta * 0.24 : dragDelta;
+      testimonialTrack.style.transform = `translate3d(${dragOrigin + displayedDelta}px, 0, 0)`;
+    });
+
+    const finishTestimonialDrag = (event) => {
+      if (event.pointerId !== activePointer) return;
+      const pointerId = activePointer;
+      activePointer = null;
+      testimonialCarousel.classList.remove("is-dragging");
+      if (testimonialViewport.hasPointerCapture(pointerId)) testimonialViewport.releasePointerCapture(pointerId);
+
+      const threshold = Math.min(90, testimonialSlides[0].getBoundingClientRect().width * 0.16);
+      if (dragDelta <= -threshold) {
+        goToTestimonial(currentIndex + 1);
+      } else if (dragDelta >= threshold) {
+        goToTestimonial(currentIndex - 1);
+      } else {
+        renderCarousel({ announce: false });
+      }
+    };
+
+    testimonialViewport.addEventListener("pointerup", finishTestimonialDrag);
+    testimonialViewport.addEventListener("pointercancel", finishTestimonialDrag);
+
+    const resizeCarousel = () => {
+      window.cancelAnimationFrame(resizeFrame);
+      resizeFrame = window.requestAnimationFrame(() => renderCarousel({ announce: false, animate: false }));
+    };
+
+    window.addEventListener("resize", resizeCarousel, { passive: true });
+    document.fonts?.ready.then(resizeCarousel);
+    renderCarousel({ announce: false, animate: false });
+  }
+
   const contactForm = document.querySelector("[data-contact-form]");
   const requestedInterest = new URLSearchParams(window.location.search).get("interest");
   const interestSelect = contactForm?.querySelector("[name='interest']");
