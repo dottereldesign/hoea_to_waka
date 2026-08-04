@@ -36,11 +36,81 @@
     }
   });
 
+  if (themeToggle) {
+    const contactPageLink = document.querySelector('.site-nav > .site-nav-link[href$="contact/"]');
+    const contactPageHref = contactPageLink?.getAttribute("href") || "contact/";
+    const utilityMenu = document.createElement("div");
+    utilityMenu.className = "site-utility-menu";
+    utilityMenu.innerHTML = `
+      <button class="site-utility-trigger" type="button" aria-label="Open quick menu" aria-controls="site-utility-panel" aria-expanded="false">
+        <span class="site-utility-trigger-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
+      <div class="site-utility-panel" id="site-utility-panel" role="dialog" aria-label="Quick menu" aria-hidden="true">
+        <h2>Quick menu</h2>
+        <p class="site-utility-panel-intro">Theme controls and Anna’s contact details.</p>
+        <div class="site-utility-theme">
+          <span class="site-utility-theme-copy">
+            <strong>Appearance</strong>
+            <small>Switch between light and dark</small>
+          </span>
+          <span data-utility-theme-slot></span>
+        </div>
+        <div class="site-utility-contact">
+          <p class="site-utility-contact-label">Contact Anna</p>
+          <a href="mailto:anna@hoeatowaka.co.nz">anna@hoeatowaka.co.nz</a>
+          <a href="tel:+64272059520">027 205 9520</a>
+          <span class="site-utility-location">Ōtautahi Christchurch</span>
+          <a class="site-utility-contact-page" data-utility-contact-page>Contact page →</a>
+        </div>
+      </div>
+    `;
+
+    const utilityPanel = utilityMenu.querySelector(".site-utility-panel");
+    const utilityTrigger = utilityMenu.querySelector(".site-utility-trigger");
+    const themeSlot = utilityMenu.querySelector("[data-utility-theme-slot]");
+    const utilityContactLink = utilityMenu.querySelector("[data-utility-contact-page]");
+
+    themeSlot?.append(themeToggle);
+    utilityContactLink?.setAttribute("href", contactPageHref);
+    document.body.append(utilityMenu);
+
+    const setUtilityMenuOpen = (open, { restoreFocus = false } = {}) => {
+      utilityMenu.classList.toggle("is-open", open);
+      utilityTrigger?.setAttribute("aria-expanded", String(open));
+      utilityTrigger?.setAttribute("aria-label", open ? "Close quick menu" : "Open quick menu");
+      utilityPanel?.setAttribute("aria-hidden", String(!open));
+      if (utilityPanel instanceof HTMLElement) utilityPanel.inert = !open;
+      if (!open && restoreFocus && utilityTrigger instanceof HTMLButtonElement) utilityTrigger.focus();
+    };
+
+    setUtilityMenuOpen(false);
+
+    utilityTrigger?.addEventListener("click", () => {
+      setUtilityMenuOpen(!utilityMenu.classList.contains("is-open"));
+    });
+
+    document.addEventListener("pointerdown", (event) => {
+      if (utilityMenu.classList.contains("is-open") && !utilityMenu.contains(event.target)) {
+        setUtilityMenuOpen(false);
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && utilityMenu.classList.contains("is-open")) {
+        setUtilityMenuOpen(false, { restoreFocus: true });
+      }
+    });
+  }
+
   const header = document.querySelector("[data-site-header]");
   const menuToggle = document.querySelector("[data-menu-toggle]");
   const nav = document.querySelector("[data-site-nav]");
   const mobileQuery = window.matchMedia("(max-width: 760px)");
-  const subnavToggles = Array.from(document.querySelectorAll("[data-subnav-toggle]"));
+  const subnavToggles = Array.from(
+    document.querySelectorAll("[data-subnav-toggle], [data-nav-dropdown] > .site-nav-parent-link")
+  );
+
+  subnavToggles.forEach((toggle) => toggle.setAttribute("aria-expanded", "false"));
 
   const syncNav = () => {
     if (!nav || !header) return;
@@ -73,7 +143,9 @@
   });
 
   subnavToggles.forEach((toggle) => {
-    toggle.addEventListener("click", () => {
+    toggle.addEventListener("click", (event) => {
+      if (!mobileQuery.matches && !toggle.hasAttribute("data-subnav-toggle")) return;
+      event.preventDefault();
       const dropdown = toggle.closest(".site-nav-dropdown");
       const willOpen = !dropdown?.classList.contains("is-open");
       closeSubnavs(toggle);
@@ -83,7 +155,7 @@
   });
 
   nav?.addEventListener("click", (event) => {
-    if (event.target instanceof HTMLAnchorElement) closeMenu();
+    if (event.target instanceof HTMLAnchorElement && !event.target.matches(".site-nav-parent-link")) closeMenu();
   });
 
   document.addEventListener("keydown", (event) => {
@@ -96,7 +168,7 @@
   if (nav) {
     const parentLinks = Array.from(
       nav.querySelectorAll(":scope > .site-nav-link, :scope > .site-nav-dropdown > .site-nav-parent-link")
-    );
+    ).filter((link) => !link.matches('[href$="contact/"]'));
     const activeChildLink = nav.querySelector('.site-subnav a[aria-current="page"]');
     const activeChildParent = activeChildLink
       ?.closest(".site-nav-dropdown")
