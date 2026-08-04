@@ -1443,6 +1443,11 @@ html[data-theme="dark"] .error-mark {
   padding: clamp(78px, 9vw, 138px) 0;
 }
 
+.section.home-model-section,
+.section.home-uses-section {
+  padding-block: var(--section-space);
+}
+
 .section-white {
   background: var(--surface);
 }
