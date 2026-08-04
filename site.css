@@ -1742,6 +1742,36 @@ html[data-theme="dark"] .error-mark {
   font-weight: var(--weight-semibold);
 }
 
+.home-use-list li {
+  display: inline-flex;
+  gap: 9px;
+  align-items: center;
+  padding-left: 11px;
+}
+
+.home-use-list li::before {
+  --icon-x: 0%;
+  --icon-y: 0%;
+  content: "";
+  flex: 0 0 26px;
+  width: 26px;
+  height: 26px;
+  background-image: url("assets/home-use-icons.png");
+  background-position: var(--icon-x) var(--icon-y);
+  background-repeat: no-repeat;
+  background-size: 400% 300%;
+}
+
+.home-use-list li:nth-child(4n + 2)::before { --icon-x: 33.333%; }
+.home-use-list li:nth-child(4n + 3)::before { --icon-x: 66.667%; }
+.home-use-list li:nth-child(4n + 4)::before { --icon-x: 100%; }
+.home-use-list li:nth-child(n + 5):nth-child(-n + 8)::before { --icon-y: 50%; }
+.home-use-list li:nth-child(n + 9)::before { --icon-y: 100%; }
+
+html[data-theme="dark"] .home-use-list li::before {
+  filter: brightness(0) invert(1);
+}
+
 .section-dark .tag-list li {
   border-color: rgba(255, 255, 255, 0.16);
   background: rgba(255, 255, 255, 0.07);
