@@ -146,15 +146,31 @@ img {
   width: calc(100% - 32px);
   min-height: 64px;
   margin: 16px auto 0;
-  padding: 12px 20px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 999px;
-  background: linear-gradient(180deg, #365f8d 0%, #24486f 100%);
+  padding: 16px 24px;
+  border: 0;
+  border-radius: 99px;
+  background-image: linear-gradient(0deg, #ffffffe6, #fff);
   box-shadow:
-    0 24px 52px rgba(8, 25, 46, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.14);
-  color: var(--white);
+    inset 0 2px 3px #fff3,
+    inset 0 1px 2px #fff3,
+    inset 0 0.5px 0.5px #fff3,
+    0 4px 8px #225a8d0f,
+    0 2px 4px #225a8d0f,
+    0 1px 2px #225a8d14,
+    0 0.5px 0.5px #225a8d0f;
+  color: #111a20;
   font-family: -apple-system, BlinkMacSystemFont, "Inter", system-ui, sans-serif;
+}
+
+html[data-theme="dark"] .site-header {
+  box-shadow:
+    inset 0 2px 3px 0 rgba(255, 255, 255, 0.2),
+    inset 0 1px 2px 0 rgba(255, 255, 255, 0.2),
+    inset 0 0.5px 0.5px 0 rgba(255, 255, 255, 0.2),
+    0 4px 8px 0 rgba(50, 26, 123, 0.08),
+    0 2px 4px 0 rgba(50, 26, 123, 0.08),
+    0 1px 2px 0 rgba(50, 26, 123, 0.08),
+    0 0.5px 0.5px 0 rgba(50, 26, 123, 0.06);
 }
 
 .site-brand {
@@ -177,6 +193,7 @@ img {
   width: auto;
   height: 40px;
   flex: 0 0 auto;
+  filter: brightness(0);
 }
 
 .site-brand-copy {
@@ -199,7 +216,7 @@ img {
   display: flex;
   align-items: center;
   gap: 6px;
-  color: rgba(255, 255, 255, 0.82);
+  color: rgba(17, 26, 32, 0.7);
   font-size: 0.58rem;
   font-weight: var(--weight-medium);
   letter-spacing: 0.18em;
@@ -213,7 +230,7 @@ img {
   content: "";
   width: 10px;
   height: 1px;
-  background: rgba(255, 255, 255, 0.48);
+  background: rgba(17, 26, 32, 0.42);
 }
 
 .site-nav {
@@ -228,7 +245,7 @@ img {
   justify-content: center;
   gap: 4px;
   min-width: 0;
-  color: rgba(255, 255, 255, 0.92);
+  color: rgba(17, 26, 32, 0.86);
   font-size: clamp(0.86rem, 0.9vw, 0.92rem);
 }
 
@@ -278,7 +295,7 @@ img {
 .site-nav-parent-link:hover,
 .site-nav-parent-link:focus-visible {
   background: transparent;
-  color: var(--white);
+  color: #111a20;
   outline: none;
   transform: translateY(-1px);
 }
