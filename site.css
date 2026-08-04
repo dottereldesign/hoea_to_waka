@@ -9,7 +9,8 @@
   --nav-mobile-active: #3d9be9;
   --sky-200: #c9e6f5;
   --sky-100: #e8f4fa;
-  --mist: #f4f8fa;
+  --mist: #f1f6f8;
+  --section-light: #f1f6f8;
   --white: #ffffff;
   --ink: #111a20;
   --muted: #5d6972;
@@ -60,6 +61,7 @@ html[data-theme="dark"] {
   color-scheme: dark;
   --sky-100: #102b3b;
   --mist: #071923;
+  --section-light: #0d2432;
   --ink: #f1f6f8;
   --muted: #b4c1c8;
   --line: rgba(226, 240, 247, 0.16);
@@ -1674,7 +1676,7 @@ html[data-theme="dark"] .error-mark {
 }
 
 .section-white {
-  background: var(--surface);
+  background: var(--section-light);
 }
 
 .section-sky {

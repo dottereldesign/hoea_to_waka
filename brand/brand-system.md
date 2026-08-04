@@ -33,7 +33,7 @@ Working brand system extracted from the current Hoea tō Waka website. This is a
 
 | Token | Name | Hex | Current use |
 | --- | --- | --- | --- |
-| `bg-base` | Cloud White | `#FFFFFF` | main page background |
+| `bg-base` | Cloud Mist | `#F1F6F8` | default light section and page background |
 | `bg-soft` | Mist Gray | `#F2F2F2` | light surfaces and soft contrast |
 | `border-muted` | Stone Gray | `#B1B4B5` | low-emphasis borders and support color |
 | `text-muted` | Charcoal Gray | `#605E5E` | secondary body text |
@@ -59,7 +59,7 @@ These exist in the current Wix theme variables, even though they are not dominan
   --color-brand-accent: #A6033F;
   --color-brand-accent-hover: #E40255;
 
-  --color-bg: #FFFFFF;
+  --color-bg: #F1F6F8;
   --color-surface: #F2F2F2;
   --color-border: #B1B4B5;
 
