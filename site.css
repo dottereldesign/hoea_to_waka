@@ -1539,6 +1539,12 @@ html[data-theme="dark"] .home-statement {
   border-radius: var(--radius-md);
   background: var(--testimonial-card-bg);
   color: var(--testimonial-card-ink);
+  transition: border-radius 520ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.testimonial-card.is-carousel-right {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 .testimonial-card:nth-child(2) {
@@ -1610,7 +1616,7 @@ html[data-theme="dark"] .home-statement {
 
 .testimonial-carousel-progress {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: clamp(8px, 1vw, 14px);
   width: min(calc(100% - 32px), 1660px);
   margin: clamp(30px, 4vw, 50px) auto 0;
@@ -1623,12 +1629,7 @@ html[data-theme="dark"] .home-statement {
   border-radius: 999px;
   background: var(--line);
   cursor: pointer;
-  transition: background-color 220ms ease, transform 220ms ease;
-}
-
-.testimonial-carousel-progress button:hover,
-.testimonial-carousel-progress button:focus-visible {
-  transform: scaleY(1.8);
+  transition: background-color 220ms ease;
 }
 
 .testimonial-carousel-progress button[aria-current="true"] {

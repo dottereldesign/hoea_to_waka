@@ -347,6 +347,11 @@
     let dragDelta = 0;
     let dragOrigin = 0;
 
+    const getLastIndex = () => {
+      const visibleSlides = window.matchMedia("(max-width: 720px)").matches ? 1 : 2;
+      return Math.max(0, testimonialSlides.length - visibleSlides);
+    };
+
     const getStep = () => {
       const cardWidth = testimonialSlides[0].getBoundingClientRect().width;
       const trackStyles = window.getComputedStyle(testimonialTrack);
@@ -356,9 +361,11 @@
 
     const renderCarousel = ({ announce = true, animate = true } = {}) => {
       if (!animate) testimonialCarousel.classList.add("is-resizing");
+      currentIndex = Math.min(currentIndex, getLastIndex());
       testimonialTrack.style.transform = `translate3d(${-currentIndex * getStep()}px, 0, 0)`;
 
       testimonialSlides.forEach((slide, index) => {
+        slide.classList.toggle("is-carousel-right", index === currentIndex + 1);
         if (index === currentIndex) {
           slide.setAttribute("aria-current", "true");
         } else {
@@ -366,8 +373,9 @@
         }
       });
 
+      const activeProgressIndex = Math.min(currentIndex, progressButtons.length - 1);
       progressButtons.forEach((button, index) => {
-        if (index === currentIndex) {
+        if (index === activeProgressIndex) {
           button.setAttribute("aria-current", "true");
         } else {
           button.removeAttribute("aria-current");
@@ -375,7 +383,7 @@
       });
 
       if (previousButton instanceof HTMLButtonElement) previousButton.disabled = currentIndex === 0;
-      if (nextButton instanceof HTMLButtonElement) nextButton.disabled = currentIndex === testimonialSlides.length - 1;
+      if (nextButton instanceof HTMLButtonElement) nextButton.disabled = currentIndex === getLastIndex();
       if (announce && status) status.textContent = `Showing testimonial ${currentIndex + 1} of ${testimonialSlides.length}`;
 
       if (!animate) {
@@ -384,7 +392,7 @@
     };
 
     const goToTestimonial = (index, options) => {
-      currentIndex = Math.min(testimonialSlides.length - 1, Math.max(0, index));
+      currentIndex = Math.min(getLastIndex(), Math.max(0, index));
       renderCarousel(options);
     };
 
@@ -392,7 +400,9 @@
     nextButton?.addEventListener("click", () => goToTestimonial(currentIndex + 1));
     progressButtons.forEach((button) => {
       button.addEventListener("click", () => {
-        goToTestimonial(Number.parseInt(button.dataset.carouselGo || "0", 10));
+        const requestedIndex = Number.parseInt(button.dataset.carouselGo || "0", 10);
+        const targetIndex = requestedIndex === progressButtons.length - 1 ? getLastIndex() : requestedIndex;
+        goToTestimonial(targetIndex);
       });
     });
 
@@ -416,7 +426,7 @@
       if (event.pointerId !== activePointer) return;
       dragDelta = event.clientX - dragStart;
       const pullingPastStart = currentIndex === 0 && dragDelta > 0;
-      const pullingPastEnd = currentIndex === testimonialSlides.length - 1 && dragDelta < 0;
+      const pullingPastEnd = currentIndex === getLastIndex() && dragDelta < 0;
       const displayedDelta = pullingPastStart || pullingPastEnd ? dragDelta * 0.24 : dragDelta;
       testimonialTrack.style.transform = `translate3d(${dragOrigin + displayedDelta}px, 0, 0)`;
     });
