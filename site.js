@@ -51,7 +51,20 @@
       <button class="site-utility-trigger" type="button" aria-label="Open quick menu" aria-controls="site-utility-panel" aria-expanded="false">
         <span class="site-utility-trigger-icon" aria-hidden="true"><span></span><span></span><span></span></span>
       </button>
-      <div class="site-utility-panel" id="site-utility-panel" role="dialog" aria-label="Theme and contact details" aria-hidden="true">
+      <div class="site-utility-panel" id="site-utility-panel" role="dialog" aria-label="Theme and contact details" aria-hidden="true"></div>
+    `;
+
+    const utilityPanel = utilityMenu.querySelector(".site-utility-panel");
+    const utilityTrigger = utilityMenu.querySelector(".site-utility-trigger");
+    let utilityIcons = [];
+    let utilityPanelPopulated = false;
+    let utilityIconsLoaded = false;
+
+    document.body.append(utilityMenu);
+
+    const populateUtilityPanel = () => {
+      if (!utilityPanel || utilityPanelPopulated) return;
+      utilityPanel.innerHTML = `
         <div class="site-utility-theme">
           <span class="site-utility-theme-copy">
             <strong>Appearance</strong>
@@ -74,19 +87,14 @@
             <span>Ōtautahi Christchurch</span>
           </span>
         </div>
-      </div>
-    `;
-
-    const utilityPanel = utilityMenu.querySelector(".site-utility-panel");
-    const utilityTrigger = utilityMenu.querySelector(".site-utility-trigger");
-    const themeSlot = utilityMenu.querySelector("[data-utility-theme-slot]");
-    const utilityIcons = Array.from(utilityMenu.querySelectorAll("img[data-src]"));
-    let utilityIconsLoaded = false;
-
-    themeSlot?.append(themeToggle);
-    document.body.append(utilityMenu);
+      `;
+      utilityPanel.querySelector("[data-utility-theme-slot]")?.append(themeToggle);
+      utilityIcons = Array.from(utilityPanel.querySelectorAll("img[data-src]"));
+      utilityPanelPopulated = true;
+    };
 
     const setUtilityMenuOpen = (open, { restoreFocus = false } = {}) => {
+      if (open) populateUtilityPanel();
       if (open && !utilityIconsLoaded) {
         utilityIcons.forEach((icon) => {
           icon.src = icon.dataset.src;
@@ -360,20 +368,28 @@
   }
 
   const revealItems = Array.from(document.querySelectorAll("[data-reveal]"));
-  if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        });
-      },
-      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
-    );
-    revealItems.forEach((item) => observer.observe(item));
+  const setupRevealObserver = () => {
+    if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          });
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+      );
+      revealItems.forEach((item) => observer.observe(item));
+    } else {
+      revealItems.forEach((item) => item.classList.add("is-visible"));
+    }
+  };
+
+  if (isHomePage && window.scrollY === 0) {
+    window.addEventListener("scroll", setupRevealObserver, { once: true, passive: true });
   } else {
-    revealItems.forEach((item) => item.classList.add("is-visible"));
+    setupRevealObserver();
   }
 
   const scrollStatement = document.querySelector("[data-scroll-statement]");
