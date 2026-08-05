@@ -1863,7 +1863,7 @@ html[data-theme="dark"] .home-hero .home-hero-inner-photo .button-ghost:focus-vi
   position: relative;
   padding-block: 96px;
   border-radius: 0;
-  background: transparent;
+  background: #fcfdfe;
 }
 
 .home-statement-inner {
@@ -1914,7 +1914,7 @@ html[data-theme="dark"] .home-statement-word {
 }
 
 html[data-theme="dark"] .home-statement {
-  --hero-copy-ink: #f2f7fa;
+  --hero-copy-ink: #0b1e33;
 }
 
 @media (max-width: 1040px) {
