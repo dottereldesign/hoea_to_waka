@@ -3225,6 +3225,7 @@ html[data-theme="dark"] .field textarea:focus {
 
 .footer-brand-lockup img {
   width: 58px;
+  height: auto;
 }
 
 .footer-brand-lockup strong {
