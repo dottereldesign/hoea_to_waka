@@ -169,6 +169,10 @@ body {
   background-size: 100% var(--home-gradient-height);
 }
 
+.page-home .site-main {
+  background: #fcfdfe;
+}
+
 body.menu-open {
   overflow: hidden;
 }
@@ -1403,8 +1407,8 @@ html.is-page-ready .page-home .home-tagline::after { transition-delay: 330ms; }
   min-height: clamp(780px, 84svh, 900px);
   margin-top: calc(-1 * var(--hero-header-overlap));
   overflow: hidden;
-  border-bottom-left-radius: 99px;
-  border-bottom-right-radius: 99px;
+  border-bottom-left-radius: 32px;
+  border-bottom-right-radius: 32px;
   background: transparent;
   color: var(--hero-copy-ink);
   transition: color 520ms ease;
