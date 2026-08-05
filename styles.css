@@ -32,6 +32,7 @@
   --radius-sm: 12px;
   --max-width: 1440px;
   --font-display: "Crimson Text", Georgia, "Times New Roman", serif;
+  --font-display-tracking: 0.01em;
   --font-body: "Manrope", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --weight-regular: 400;
   --weight-medium: 500;
@@ -117,7 +118,7 @@ html[data-theme="dark"] {
   font-family: var(--font-display);
   font-size: clamp(4rem, 11vw, 9rem);
   font-weight: var(--weight-bold);
-  letter-spacing: -0.055em;
+  letter-spacing: var(--font-display-tracking);
   line-height: 0.82;
 }
 
@@ -164,7 +165,7 @@ html[data-theme="dark"] {
   font-family: var(--font-display);
   font-size: clamp(3rem, 6.5vw, 6.5rem);
   line-height: 0.88;
-  letter-spacing: -0.045em;
+  letter-spacing: var(--font-display-tracking);
 }
 
 .home-services-grid {
@@ -196,7 +197,7 @@ html[data-theme="dark"] {
   font-family: var(--font-display);
   font-size: clamp(2.25rem, 3.6vw, 4.4rem);
   line-height: 0.9;
-  letter-spacing: -0.04em;
+  letter-spacing: var(--font-display-tracking);
 }
 
 .home-service-card h3 span {
@@ -424,6 +425,7 @@ h6 {
   margin: 0;
   line-height: 1.08;
   font-family: var(--font-display);
+  letter-spacing: var(--font-display-tracking);
 }
 
 h1 {
@@ -548,6 +550,7 @@ h6 {
   font-family: var(--font-display);
   font-size: 1.35rem;
   font-weight: var(--weight-semibold);
+  letter-spacing: var(--font-display-tracking);
   line-height: 1.02;
   white-space: nowrap;
 }
@@ -995,7 +998,7 @@ html[data-theme="dark"] .theme-switcher-grid[data-theme-toggle] .star-4 { transf
   text-align: right;
   font-size: clamp(4.5rem, 14vw, 11rem);
   line-height: 0.82;
-  letter-spacing: -0.05em;
+  letter-spacing: var(--font-display-tracking);
   color: #ffffff;
   text-shadow: 0 18px 44px rgba(0, 0, 0, 0.34);
 }
@@ -1423,6 +1426,7 @@ html[data-theme="dark"] .theme-switcher-grid[data-theme-toggle] .star-4 { transf
   display: block;
   font-family: var(--font-display);
   font-size: clamp(1rem, 1.05vw, 1.12rem);
+  letter-spacing: var(--font-display-tracking);
   line-height: 1.02;
   color: #111111;
 }
@@ -1952,7 +1956,7 @@ html[data-theme="dark"] .theme-switcher-grid[data-theme-toggle] .star-4 { transf
   max-width: 5.2ch;
   font-size: clamp(2.9rem, 6.8vw, 5.4rem);
   line-height: 0.9;
-  letter-spacing: -0.04em;
+  letter-spacing: var(--font-display-tracking);
 }
 
 .site-preview-brand-overview-head p {
@@ -2068,7 +2072,7 @@ html[data-theme="dark"] .theme-switcher-grid[data-theme-toggle] .star-4 { transf
   margin: 0;
   font-size: clamp(3.8rem, 7vw, 6.4rem);
   line-height: 0.88;
-  letter-spacing: -0.04em;
+  letter-spacing: var(--font-display-tracking);
 }
 
 .site-preview-colours-copy p:last-child {
@@ -2186,7 +2190,7 @@ html[data-theme="dark"] .theme-switcher-grid[data-theme-toggle] .star-4 { transf
   margin: 0;
   font-size: clamp(5.8rem, 14vw, 13rem);
   line-height: 0.78;
-  letter-spacing: -0.05em;
+  letter-spacing: var(--font-display-tracking);
 }
 
 .site-preview-anna-hero-copy p:last-child {
@@ -2272,7 +2276,7 @@ html[data-theme="dark"] .theme-switcher-grid[data-theme-toggle] .star-4 { transf
   margin: 0;
   font-size: clamp(3rem, 7vw, 7rem);
   line-height: 0.84;
-  letter-spacing: -0.05em;
+  letter-spacing: var(--font-display-tracking);
 }
 
 .site-preview-anna-grid {
@@ -2601,7 +2605,7 @@ html[data-theme="dark"] .theme-switcher-grid[data-theme-toggle] .star-4 { transf
   max-width: 100%;
   font-size: clamp(3.4rem, 8vw, 6.4rem);
   line-height: 0.88;
-  letter-spacing: -0.04em;
+  letter-spacing: var(--font-display-tracking);
   overflow-wrap: anywhere;
 }
 
@@ -2721,6 +2725,7 @@ html[data-theme="dark"] .theme-switcher-grid[data-theme-toggle] .star-4 { transf
   font-family: var(--font-display);
   font-size: clamp(2.9rem, 4.8vw, 4.9rem);
   font-weight: var(--weight-bold);
+  letter-spacing: var(--font-display-tracking);
 }
 
 .site-preview-typeface-body-name {
@@ -2746,6 +2751,7 @@ html[data-theme="dark"] .theme-switcher-grid[data-theme-toggle] .star-4 { transf
 .site-preview-typeface-sample-alphabet {
   font-family: var(--font-display);
   font-size: clamp(1.12rem, 1.45vw, 1.45rem);
+  letter-spacing: var(--font-display-tracking);
   line-height: 1.18;
   overflow-wrap: anywhere;
 }
@@ -2762,6 +2768,7 @@ html[data-theme="dark"] .theme-switcher-grid[data-theme-toggle] .star-4 { transf
   border-top: 1px solid rgba(17, 17, 17, 0.12);
   font-family: var(--font-display);
   font-size: clamp(1.4rem, 1.7vw, 1.7rem);
+  letter-spacing: var(--font-display-tracking);
   color: rgb(17, 17, 17);
 }
 
@@ -3497,6 +3504,7 @@ html[data-theme="dark"] .theme-switcher-grid[data-theme-toggle] .star-4 { transf
   font-family: var(--font-display);
   font-size: clamp(1.3rem, 2vw, 1.75rem);
   font-weight: var(--weight-bold);
+  letter-spacing: var(--font-display-tracking);
   line-height: 1;
 }
 
@@ -3667,6 +3675,7 @@ html[data-theme="dark"] .theme-switcher-grid[data-theme-toggle] .star-4 { transf
   font-family: var(--font-display);
   font-size: clamp(1.25rem, 1.6vw, 1.5rem);
   font-weight: var(--weight-bold);
+  letter-spacing: var(--font-display-tracking);
   line-height: 1;
 }
 
@@ -3858,6 +3867,7 @@ html[data-theme="dark"] .theme-switcher-grid[data-theme-toggle] .star-4 { transf
   color: var(--color-text);
   font-family: var(--font-display);
   font-size: clamp(2.5rem, 5vw, 4.5rem);
+  letter-spacing: var(--font-display-tracking);
   line-height: 0.9;
 }
 
@@ -3945,7 +3955,7 @@ html[data-theme="dark"] .theme-switcher-grid[data-theme-toggle] .star-4 { transf
   margin: 0;
   font-size: clamp(1.5rem, 2.8vw, 2.15rem);
   line-height: 1.08;
-  letter-spacing: -0.02em;
+  letter-spacing: var(--font-display-tracking);
   font-weight: var(--weight-bold);
   transform: translateY(0);
   transition: transform 180ms ease;
@@ -4266,7 +4276,7 @@ html[data-theme="dark"] .theme-switcher-grid[data-theme-toggle] .star-4 { transf
 .type-h6 {
   font-family: var(--font-display);
   line-height: 1.08;
-  letter-spacing: -0.02em;
+  letter-spacing: var(--font-display-tracking);
 }
 
 .type-h1 {
