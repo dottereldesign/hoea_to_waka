@@ -386,8 +386,8 @@
     }
   };
 
-  if (isHomePage && window.scrollY === 0) {
-    window.addEventListener("scroll", setupRevealObserver, { once: true, passive: true });
+  if (isHomePage && "requestIdleCallback" in window) {
+    window.requestIdleCallback(setupRevealObserver, { timeout: 1200 });
   } else {
     setupRevealObserver();
   }
@@ -460,11 +460,9 @@
     };
 
     scrollStatement.dataset.scrollProgress = "0";
-    if (window.scrollY > 0) scheduleStatementPaint();
+    scheduleStatementPaint();
     window.addEventListener("scroll", scheduleStatementPaint, { passive: true });
-    window.addEventListener("resize", () => {
-      if (window.scrollY > 0) scheduleStatementPaint();
-    }, { passive: true });
+    window.addEventListener("resize", scheduleStatementPaint, { passive: true });
     statementMotionPreference.addEventListener("change", scheduleStatementPaint);
   }
 

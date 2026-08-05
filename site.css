@@ -1402,10 +1402,8 @@ html.is-page-ready .page-home .home-tagline::after { transition-delay: 650ms; }
   top: 50%;
   left: 50%;
   width: 59%;
+  height: auto;
   aspect-ratio: 385 / 384;
-  background: #f9fbfc;
-  -webkit-mask: url("assets/logo-black.svg") center / contain no-repeat;
-  mask: url("assets/logo-black.svg") center / contain no-repeat;
   transform: translate(-50%, -50%);
 }
 
@@ -2067,6 +2065,21 @@ html[data-theme="dark"] .home-statement {
   border-radius: 50%;
   background: #ffffff;
   object-fit: cover;
+}
+
+.testimonial-card-person--organisation {
+  grid-template-columns: 96px minmax(0, 1fr);
+}
+
+.testimonial-card-organisation-logo {
+  display: block;
+  width: 96px;
+  height: 88px;
+  padding: 7px;
+  border: 1px solid rgba(17, 26, 32, 0.1);
+  border-radius: 14px;
+  background: #ffffff;
+  object-fit: contain;
 }
 
 .testimonial-card-person > span:last-child {
