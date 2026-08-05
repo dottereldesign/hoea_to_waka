@@ -45,6 +45,7 @@
   --radius-sm: 16px;
   --radius-md: 24px;
   --radius-lg: 36px;
+  --radius-max: clamp(48px, 6vw, 96px);
   --section-space: 96px;
 }
 
@@ -1408,11 +1409,42 @@ html[data-theme="dark"] .theme-switcher-grid[data-theme-toggle] .star-4 {
   --statement-blue: #4676a8;
   position: relative;
   padding-block: 96px;
+  border-radius: 0 0 var(--radius-max) var(--radius-max);
   background: transparent;
+}
+
+.home-statement::before,
+.home-statement::after {
+  position: absolute;
+  z-index: 0;
+  bottom: 0;
+  width: var(--radius-max);
+  height: var(--radius-max);
+  content: "";
+  pointer-events: none;
+}
+
+.home-statement::before {
+  left: 0;
+  background: radial-gradient(
+    circle var(--radius-max) at 100% 0,
+    transparent calc(100% - 1px),
+    var(--mist) 100%
+  );
+}
+
+.home-statement::after {
+  right: 0;
+  background: radial-gradient(
+    circle var(--radius-max) at 0 0,
+    transparent calc(100% - 1px),
+    var(--mist) 100%
+  );
 }
 
 .home-statement-inner {
   position: relative;
+  z-index: 1;
   min-height: 0;
 }
 
