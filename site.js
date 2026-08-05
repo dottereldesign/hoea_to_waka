@@ -62,15 +62,15 @@
         <div class="site-utility-contact">
           <p class="site-utility-contact-label">Contact Anna</p>
           <a class="site-utility-contact-item" href="mailto:anna@hoeatowaka.co.nz">
-            <img class="site-utility-contact-icon" src="${utilityIconUrl("utility-email.png")}" width="64" height="64" alt="" aria-hidden="true">
+            <img class="site-utility-contact-icon" data-src="${utilityIconUrl("utility-email.png")}" width="64" height="64" decoding="async" alt="" aria-hidden="true">
             <span>anna@hoeatowaka.co.nz</span>
           </a>
           <a class="site-utility-contact-item" href="tel:+64272059520">
-            <img class="site-utility-contact-icon" src="${utilityIconUrl("utility-phone.png")}" width="64" height="64" alt="" aria-hidden="true">
+            <img class="site-utility-contact-icon" data-src="${utilityIconUrl("utility-phone.png")}" width="64" height="64" decoding="async" alt="" aria-hidden="true">
             <span>027 205 9520</span>
           </a>
           <span class="site-utility-contact-item site-utility-location">
-            <img class="site-utility-contact-icon" src="${utilityIconUrl("utility-location.png")}" width="64" height="64" alt="" aria-hidden="true">
+            <img class="site-utility-contact-icon" data-src="${utilityIconUrl("utility-location.png")}" width="64" height="64" decoding="async" alt="" aria-hidden="true">
             <span>Ōtautahi Christchurch</span>
           </span>
         </div>
@@ -80,11 +80,20 @@
     const utilityPanel = utilityMenu.querySelector(".site-utility-panel");
     const utilityTrigger = utilityMenu.querySelector(".site-utility-trigger");
     const themeSlot = utilityMenu.querySelector("[data-utility-theme-slot]");
+    const utilityIcons = Array.from(utilityMenu.querySelectorAll("img[data-src]"));
+    let utilityIconsLoaded = false;
 
     themeSlot?.append(themeToggle);
     document.body.append(utilityMenu);
 
     const setUtilityMenuOpen = (open, { restoreFocus = false } = {}) => {
+      if (open && !utilityIconsLoaded) {
+        utilityIcons.forEach((icon) => {
+          icon.src = icon.dataset.src;
+          icon.removeAttribute("data-src");
+        });
+        utilityIconsLoaded = true;
+      }
       utilityMenu.classList.toggle("is-open", open);
       utilityTrigger?.setAttribute("aria-expanded", String(open));
       utilityTrigger?.setAttribute("aria-label", open ? "Close quick menu" : "Open quick menu");
@@ -268,19 +277,8 @@
       resizeFrame = window.requestAnimationFrame(updateIndicator);
     };
 
-    positionIndicator(activeParentLink, { visible: false });
     window.addEventListener("resize", repositionIndicator, { passive: true });
-
-    const enableIndicatorMotion = () => {
-      updateIndicator();
-      window.requestAnimationFrame(() => nav.classList.add("is-indicator-ready"));
-    };
-
-    if (document.fonts?.ready) {
-      document.fonts.ready.then(enableIndicatorMotion);
-    } else {
-      enableIndicatorMotion();
-    }
+    window.requestAnimationFrame(() => nav.classList.add("is-indicator-ready"));
   }
 
   document.querySelectorAll("[data-year]").forEach((element) => {
@@ -288,32 +286,78 @@
   });
 
   const shieldedSiteBadge = document.querySelector("[data-shielded-site]");
-  const ShieldedEmbed = window.ds07o6pcmkorn;
-  if (shieldedSiteBadge && typeof ShieldedEmbed === "function") {
-    const shieldedFrame = new ShieldedEmbed({
-      openElementId: "#shielded-logo",
-      modalID: "shielded-site-modal",
+  if (shieldedSiteBadge) {
+    let shieldedSiteReady = false;
+    let shieldedSitePromise = null;
+
+    const loadShieldedSite = () => {
+      if (shieldedSitePromise) return shieldedSitePromise;
+      shieldedSitePromise = new Promise((resolve, reject) => {
+        if (typeof window.ds07o6pcmkorn === "function") {
+          resolve();
+          return;
+        }
+
+        const script = document.createElement("script");
+        script.src = "https://staticcdn.co.nz/embed/embed.js";
+        script.async = true;
+        script.onload = resolve;
+        script.onerror = reject;
+        document.head.append(script);
+      }).then(() => {
+        const ShieldedEmbed = window.ds07o6pcmkorn;
+        if (typeof ShieldedEmbed !== "function") throw new Error("Shielded Site could not be loaded");
+        const shieldedFrame = new ShieldedEmbed({
+          openElementId: "#shielded-logo",
+          modalID: "shielded-site-modal",
+        });
+        shieldedFrame.init();
+        shieldedSiteReady = true;
+      });
+      return shieldedSitePromise;
+    };
+
+    const warmShieldedSite = () => {
+      loadShieldedSite().catch(() => {});
+    };
+
+    shieldedSiteBadge.addEventListener("pointerenter", warmShieldedSite, { once: true });
+    shieldedSiteBadge.addEventListener("focus", warmShieldedSite, { once: true });
+    shieldedSiteBadge.addEventListener("click", async (event) => {
+      if (shieldedSiteReady) return;
+      event.preventDefault();
+      try {
+        await loadShieldedSite();
+        shieldedSiteBadge.click();
+      } catch {
+        window.open(shieldedSiteBadge.href, "_blank", "noopener");
+      }
     });
-    shieldedFrame.init();
   }
 
-  document
-    .querySelectorAll(".service-grid, .card-grid, .video-grid, .page-hero-grid, .split, .resource-feature, .footer-grid")
-    .forEach((group) => {
-      Array.from(group.children).forEach((item, index) => {
-        item.setAttribute("data-reveal", "");
-        item.style.setProperty("--reveal-delay", `${Math.min(index, 5) * 90}ms`);
+  const isHomePage = document.body.classList.contains("page-home");
+
+  if (!isHomePage) {
+    document
+      .querySelectorAll(".service-grid, .card-grid, .video-grid, .page-hero-grid, .split, .resource-feature, .footer-grid")
+      .forEach((group) => {
+        Array.from(group.children).forEach((item, index) => {
+          item.setAttribute("data-reveal", "");
+          item.style.setProperty("--reveal-delay", `${Math.min(index, 5) * 90}ms`);
+        });
       });
-    });
+  }
 
   document.querySelectorAll(".testimonial-carousel [data-reveal]").forEach((item, index) => {
     item.style.setProperty("--reveal-delay", `${index * 90}ms`);
   });
 
-  document.querySelectorAll(".footer-bottom").forEach((item) => {
-    item.setAttribute("data-reveal", "");
-    item.style.setProperty("--reveal-delay", "120ms");
-  });
+  if (!isHomePage) {
+    document.querySelectorAll(".footer-bottom").forEach((item) => {
+      item.setAttribute("data-reveal", "");
+      item.style.setProperty("--reveal-delay", "120ms");
+    });
+  }
 
   const revealItems = Array.from(document.querySelectorAll("[data-reveal]"));
   if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -340,44 +384,19 @@
   );
 
   if (scrollStatement && scrollStatementInner && scrollStatementCopy && scrollStatementLines.length) {
-    const characterSequence = [];
-    const statementEmphasisWords = new Set([
-      "workplaces",
-      "leaders",
-      "support",
-      "professionals",
-    ]);
-    const statementSegmenter =
-      "Segmenter" in Intl ? new Intl.Segmenter("en-NZ", { granularity: "grapheme" }) : null;
+    const wordSequence = [];
     const linePause = 5;
     let sequenceIndex = 0;
 
     scrollStatementLines.forEach((line, lineIndex) => {
-      const words = line.textContent.trim().split(/\s+/);
-      line.textContent = "";
-
-      words.forEach((word, wordIndex) => {
-        const wordElement = document.createElement("span");
-        wordElement.className = "home-statement-word";
-        const emphasisKey = word.toLocaleLowerCase("en-NZ").replace(/[.,]/g, "");
-        if (statementEmphasisWords.has(emphasisKey)) wordElement.classList.add("is-emphasis");
-
-        const characters = statementSegmenter
-          ? Array.from(statementSegmenter.segment(word), ({ segment }) => segment)
-          : Array.from(word);
-
-        characters.forEach((character) => {
-          const characterElement = document.createElement("span");
-          characterElement.className = "home-statement-char";
-          characterElement.textContent = character;
-          characterElement.style.setProperty("--char-progress", "0");
-          wordElement.append(characterElement);
-          characterSequence.push({ element: characterElement, index: sequenceIndex });
+      const words = Array.from(line.querySelectorAll("[data-statement-word]"));
+      words.forEach((wordElement, wordIndex) => {
+        const wordLength = Math.max(Array.from(wordElement.textContent).length, 1);
+        wordSequence.push({ element: wordElement, start: sequenceIndex, length: wordLength, progress: -1 });
+        sequenceIndex += wordLength;
+        if (wordIndex < words.length - 1) {
           sequenceIndex += 1;
-        });
-
-        line.append(wordElement);
-        if (wordIndex < words.length - 1) line.append(document.createTextNode(" "));
+        }
       });
 
       if (lineIndex < scrollStatementLines.length - 1) sequenceIndex += linePause;
@@ -409,9 +428,12 @@
       }
 
       const cursor = progress * (sequenceLength + 1);
-      characterSequence.forEach(({ element, index }) => {
-        const characterProgress = Math.min(1, Math.max(0, cursor - index));
-        element.style.setProperty("--char-progress", characterProgress.toFixed(3));
+      wordSequence.forEach((word) => {
+        const wordProgress = Math.min(1, Math.max(0, (cursor - word.start) / word.length));
+        const roundedProgress = Math.round(wordProgress * 1000) / 10;
+        if (roundedProgress === word.progress) return;
+        word.progress = roundedProgress;
+        word.element.style.setProperty("--word-progress", `${roundedProgress}%`);
       });
       scrollStatement.dataset.scrollProgress = progress.toFixed(3);
     };
@@ -421,11 +443,13 @@
       statementFrame = window.requestAnimationFrame(paintStatement);
     };
 
-    paintStatement();
+    scrollStatement.dataset.scrollProgress = "0";
+    if (window.scrollY > 0) scheduleStatementPaint();
     window.addEventListener("scroll", scheduleStatementPaint, { passive: true });
-    window.addEventListener("resize", scheduleStatementPaint, { passive: true });
+    window.addEventListener("resize", () => {
+      if (window.scrollY > 0) scheduleStatementPaint();
+    }, { passive: true });
     statementMotionPreference.addEventListener("change", scheduleStatementPaint);
-    document.fonts?.ready.then(scheduleStatementPaint);
   }
 
   const testimonialCarousel = document.querySelector("[data-testimonial-carousel]");
@@ -446,6 +470,7 @@
     let dragStart = 0;
     let dragDelta = 0;
     let dragOrigin = 0;
+    let carouselInitialized = false;
 
     const getLastIndex = () => {
       const visibleSlides = window.matchMedia("(max-width: 720px)").matches ? 1 : 2;
@@ -496,10 +521,23 @@
       renderCarousel(options);
     };
 
-    previousButton?.addEventListener("click", () => goToTestimonial(currentIndex - 1));
-    nextButton?.addEventListener("click", () => goToTestimonial(currentIndex + 1));
+    const initializeCarousel = () => {
+      if (carouselInitialized) return;
+      carouselInitialized = true;
+      renderCarousel({ announce: false, animate: false });
+    };
+
+    previousButton?.addEventListener("click", () => {
+      initializeCarousel();
+      goToTestimonial(currentIndex - 1);
+    });
+    nextButton?.addEventListener("click", () => {
+      initializeCarousel();
+      goToTestimonial(currentIndex + 1);
+    });
     progressButtons.forEach((button) => {
       button.addEventListener("click", () => {
+        initializeCarousel();
         const requestedIndex = Number.parseInt(button.dataset.carouselGo || "0", 10);
         const targetIndex = requestedIndex === progressButtons.length - 1 ? getLastIndex() : requestedIndex;
         goToTestimonial(targetIndex);
@@ -509,11 +547,13 @@
     testimonialViewport.addEventListener("keydown", (event) => {
       if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
       event.preventDefault();
+      initializeCarousel();
       goToTestimonial(currentIndex + (event.key === "ArrowRight" ? 1 : -1));
     });
 
     testimonialViewport.addEventListener("pointerdown", (event) => {
       if (event.button !== 0 || activePointer !== null) return;
+      initializeCarousel();
       activePointer = event.pointerId;
       dragStart = event.clientX;
       dragDelta = 0;
@@ -552,13 +592,25 @@
     testimonialViewport.addEventListener("pointercancel", finishTestimonialDrag);
 
     const resizeCarousel = () => {
+      if (!carouselInitialized) return;
       window.cancelAnimationFrame(resizeFrame);
       resizeFrame = window.requestAnimationFrame(() => renderCarousel({ announce: false, animate: false }));
     };
 
     window.addEventListener("resize", resizeCarousel, { passive: true });
-    document.fonts?.ready.then(resizeCarousel);
-    renderCarousel({ announce: false, animate: false });
+    if ("IntersectionObserver" in window) {
+      const carouselObserver = new IntersectionObserver(
+        (entries) => {
+          if (!entries.some((entry) => entry.isIntersecting)) return;
+          initializeCarousel();
+          carouselObserver.disconnect();
+        },
+        { rootMargin: "360px 0px" }
+      );
+      carouselObserver.observe(testimonialCarousel);
+    } else {
+      initializeCarousel();
+    }
   }
 
   const contactForm = document.querySelector("[data-contact-form]");
