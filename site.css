@@ -3275,7 +3275,7 @@ html.js .footer-bottom[data-reveal].is-visible::before {
   align-items: center;
   gap: 0.55em;
   justify-self: center;
-  color: inherit;
+  color: var(--white);
   line-height: 1.1em;
   text-align: left;
   transition: color 180ms ease;
