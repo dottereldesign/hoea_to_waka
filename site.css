@@ -1357,9 +1357,6 @@ html.is-page-ready .page-home .home-tagline::after { transition-delay: 650ms; }
 .home-hero {
   --hero-copy-ink: #0b1e33;
   --hero-copy-muted: #53636f;
-  --hero-moon-core: #ffffff;
-  --hero-moon-mid: #fbfdff;
-  --hero-moon-edge: #e7f1f8;
   --hero-wave-haze-a: #f8fbfd;
   --hero-wave-haze-b: #e4f0f8;
   --hero-wave-haze-c: #b9d3e6;
@@ -1414,57 +1411,17 @@ html.is-page-ready .page-home .home-tagline::after { transition-delay: 650ms; }
   transform-origin: center;
 }
 
-.home-hero-moon {
-  position: absolute;
-  z-index: 0;
-  inset: 0;
-  border: 1px solid rgba(255, 255, 255, 0.94);
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at 34% 31%, rgba(255, 255, 255, 0.98) 0 12%, transparent 35%),
-    radial-gradient(circle at 47% 42%, var(--hero-moon-core) 0 35%, var(--hero-moon-mid) 61%, var(--hero-moon-edge) 100%);
-  box-shadow:
-    inset -42px -38px 76px rgba(82, 126, 159, 0.08),
-    0 0 0 1px rgba(255, 255, 255, 0.32),
-    0 28px 95px rgba(56, 91, 119, 0.1);
-  transition: background 620ms ease, border-color 620ms ease, box-shadow 620ms ease, filter 620ms ease;
-}
-
-.home-hero-moon::before,
-.home-hero-moon::after {
-  content: "";
-  position: absolute;
-  border-radius: 50%;
-  opacity: 0.18;
-}
-
-.home-hero-moon::before {
-  top: 19%;
-  right: 15%;
-  width: 19%;
-  aspect-ratio: 1.25;
-  border: 1px solid rgba(105, 149, 181, 0.16);
-  background: radial-gradient(ellipse at center, rgba(169, 198, 218, 0.22), transparent 68%);
-  transform: rotate(-17deg);
-}
-
-.home-hero-moon::after {
-  right: 27%;
-  bottom: 16%;
-  width: 12%;
-  aspect-ratio: 1;
-  background: radial-gradient(circle, rgba(143, 178, 201, 0.16), transparent 70%);
-}
-
 .home-hero-logo {
   position: absolute;
   z-index: 2;
   top: 50%;
   left: 50%;
   width: 59%;
-  filter: brightness(0) saturate(100%) invert(10%) sepia(20%) saturate(1419%) hue-rotate(169deg) brightness(91%) contrast(101%);
+  aspect-ratio: 385 / 384;
+  background: #f9fbfc;
+  -webkit-mask: url("assets/logo-black.svg") center / contain no-repeat;
+  mask: url("assets/logo-black.svg") center / contain no-repeat;
   transform: translate(-50%, -50%);
-  transition: filter 520ms ease;
 }
 
 .home-hero-waves {
@@ -3168,9 +3125,6 @@ html[data-theme="dark"] .page-home {
 html[data-theme="dark"] .home-hero {
   --hero-copy-ink: #f2f7fa;
   --hero-copy-muted: #b8c8d1;
-  --hero-moon-core: #ffffff;
-  --hero-moon-mid: #f4faff;
-  --hero-moon-edge: #b8d6e8;
   --hero-wave-haze-a: #17384b;
   --hero-wave-haze-b: #1b4057;
   --hero-wave-haze-c: #365e78;
@@ -3192,26 +3146,6 @@ html[data-theme="dark"] .home-hero {
   --hero-line-light: rgba(201, 230, 245, 0.2);
   --hero-line-dark: rgba(140, 190, 219, 0.22);
   background: transparent;
-}
-
-html[data-theme="dark"] .home-hero-moon {
-  border-color: rgba(226, 244, 255, 0.9);
-  box-shadow:
-    inset -46px -42px 92px rgba(73, 125, 158, 0.18),
-    0 0 0 1px rgba(220, 242, 255, 0.34),
-    0 0 42px rgba(191, 227, 248, 0.62),
-    0 0 118px rgba(113, 181, 219, 0.42),
-    0 24px 180px rgba(89, 166, 208, 0.28);
-  filter: brightness(1.04);
-}
-
-html[data-theme="dark"] .home-hero-moon::before,
-html[data-theme="dark"] .home-hero-moon::after {
-  opacity: 0.28;
-}
-
-html[data-theme="dark"] .home-hero-logo {
-  filter: brightness(0) saturate(100%) invert(8%) sepia(38%) saturate(1227%) hue-rotate(167deg) brightness(91%) contrast(102%) drop-shadow(0 12px 18px rgba(8, 31, 49, 0.12));
 }
 
 html[data-theme="dark"] .home-wave-pale-ribbon {
