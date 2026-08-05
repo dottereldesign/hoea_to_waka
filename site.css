@@ -41,7 +41,7 @@
   --weight-semibold: 700;
   --weight-bold: 800;
   --site-width: 1320px;
-  --site-wide: 1660px;
+  --site-wide: 1440px;
   --page-gutter: clamp(20px, 3vw, 48px);
   --shadow-soft: 0 24px 70px rgba(11, 32, 45, 0.12);
   --radius-sm: 16px;
@@ -171,7 +171,7 @@ img {
   align-items: center;
   gap: 18px;
   width: calc(100% - var(--page-gutter) - var(--page-gutter));
-  max-width: 1660px;
+  max-width: 1440px;
   min-height: 64px;
   margin: 16px auto 0;
   padding: 16px 24px;
@@ -1787,7 +1787,8 @@ html[data-theme="dark"] .home-statement {
 
 .testimonial-carousel {
   --testimonial-carousel-gap: clamp(12px, 1.4vw, 20px);
-  --testimonial-carousel-gutter: max(16px, calc((100vw - 1660px) / 2));
+  --testimonial-carousel-content-width: var(--site-wide);
+  --testimonial-carousel-gutter: max(16px, calc((100vw - var(--testimonial-carousel-content-width)) / 2));
   --testimonial-card-width: calc((100vw - var(--testimonial-carousel-gutter) - var(--testimonial-carousel-gap)) / 2);
   padding-block: var(--section-space);
   overflow: hidden;
@@ -1795,7 +1796,7 @@ html[data-theme="dark"] .home-statement {
 }
 
 .testimonial-carousel-head {
-  width: min(calc(100% - 32px), 1660px);
+  width: min(calc(100% - 32px), var(--testimonial-carousel-content-width));
   margin-inline: auto;
   text-align: center;
 }
@@ -1974,7 +1975,7 @@ html[data-theme="dark"] .home-statement {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: clamp(8px, 1vw, 14px);
-  width: min(calc(100% - 32px), 1660px);
+  width: min(calc(100% - 32px), var(--testimonial-carousel-content-width));
   margin: clamp(30px, 4vw, 50px) auto 0;
 }
 
