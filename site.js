@@ -6,6 +6,10 @@
   const themeViewTransitionPreference = window.matchMedia("(min-width: 801px) and (pointer: fine)");
   const themeStorageKey = "hoea-theme";
 
+  window.requestAnimationFrame(() => {
+    window.requestAnimationFrame(() => root.classList.add("is-page-ready"));
+  });
+
   const applyTheme = (theme, { persist = true } = {}) => {
     const nextTheme = theme === "dark" ? "dark" : "light";
     const isDark = nextTheme === "dark";
@@ -286,6 +290,24 @@
     });
     shieldedFrame.init();
   }
+
+  document
+    .querySelectorAll(".service-grid, .card-grid, .video-grid, .page-hero-grid, .split, .resource-feature, .footer-grid")
+    .forEach((group) => {
+      Array.from(group.children).forEach((item, index) => {
+        item.setAttribute("data-reveal", "");
+        item.style.setProperty("--reveal-delay", `${Math.min(index, 5) * 90}ms`);
+      });
+    });
+
+  document.querySelectorAll(".testimonial-carousel [data-reveal]").forEach((item, index) => {
+    item.style.setProperty("--reveal-delay", `${index * 90}ms`);
+  });
+
+  document.querySelectorAll(".footer-bottom").forEach((item) => {
+    item.setAttribute("data-reveal", "");
+    item.style.setProperty("--reveal-delay", "120ms");
+  });
 
   const revealItems = Array.from(document.querySelectorAll("[data-reveal]"));
   if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {

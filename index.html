@@ -173,8 +173,10 @@
     <main class="site-main" id="main-content">
       <section class="home-hero" aria-labelledby="home-hero-title">
         <div class="home-hero-art" aria-hidden="true">
-          <div class="home-hero-moon"></div>
-          <img class="home-hero-logo" src="assets/logo-black.svg" alt="">
+          <div class="home-hero-orb">
+            <div class="home-hero-moon"></div>
+            <img class="home-hero-logo" src="assets/logo-black.svg" alt="">
+          </div>
         </div>
 
         <div class="home-hero-inner">
@@ -291,7 +293,7 @@
           </div>
         </div>
 
-        <div class="testimonial-carousel-viewport" data-carousel-viewport tabindex="0" role="region" aria-label="Testimonials carousel" aria-roledescription="carousel">
+        <div class="testimonial-carousel-viewport" data-carousel-viewport data-reveal tabindex="0" role="region" aria-label="Testimonials carousel" aria-roledescription="carousel">
           <div class="testimonial-carousel-track" data-carousel-track>
             <article class="testimonial-card" data-carousel-slide aria-roledescription="slide" aria-label="Testimonial 1 of 5">
               <p class="testimonial-card-company">Hoea tō Waka workshop</p>
@@ -336,7 +338,7 @@
           </div>
         </div>
 
-        <div class="testimonial-carousel-progress" role="group" aria-label="Choose a testimonial">
+        <div class="testimonial-carousel-progress" data-reveal role="group" aria-label="Choose a testimonial">
           <button type="button" data-carousel-go="0" aria-label="Show testimonial 1" aria-current="true"></button>
           <button type="button" data-carousel-go="1" aria-label="Show testimonial 2"></button>
           <button type="button" data-carousel-go="2" aria-label="Show testimonial 3"></button>
