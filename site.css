@@ -746,7 +746,7 @@ html[data-theme="dark"] .theme-switcher-grid[data-theme-toggle] .star-4 {
 
 .site-utility-menu {
   position: fixed;
-  right: max(var(--page-gutter), calc((100vw - var(--site-wide)) / 2));
+  right: 8px;
   bottom: 16px;
   z-index: 160;
   display: grid;
@@ -3302,20 +3302,45 @@ html.js .footer-bottom[data-reveal].is-visible::before {
     --section-space: 80px;
   }
 
+  .home-hero {
+    display: block;
+    min-height: max(660px, calc(100svh - 92px));
+  }
+
+  .home-hero-art {
+    position: relative;
+    inset: auto;
+    left: auto;
+    width: min(
+      calc(100% - var(--page-gutter) - var(--page-gutter)),
+      var(--site-wide)
+    );
+    height: clamp(235px, 29vw, 310px);
+    margin-inline: auto;
+    transform: none;
+  }
+
   .home-hero-inner {
-    grid-template-columns: minmax(0, 0.95fr) minmax(360px, 1.05fr);
+    display: block;
+    min-height: 0;
+    padding: clamp(16px, 2vw, 28px) 0 clamp(48px, 7vw, 72px);
   }
 
   .home-hero-orb {
-    width: clamp(360px, 45vw, 500px);
+    top: 0;
+    right: auto;
+    left: 50%;
+    width: clamp(220px, 28vw, 290px);
+    transform: translateX(-50%);
   }
 
   .home-hero-copy {
-    margin-top: -72px;
+    width: min(100%, 620px);
+    margin-top: 0;
   }
 
   .home-hero .display-title {
-    font-size: clamp(5.5rem, 10.4vw, 7.4rem);
+    font-size: clamp(4.5rem, 9.2vw, 6rem);
   }
 
   .home-services-head,
@@ -3382,14 +3407,11 @@ html.js .footer-bottom[data-reveal].is-visible::before {
   }
 
   .home-hero {
-    min-height: max(900px, calc(100svh - 92px));
+    min-height: 0;
   }
 
   .home-hero-inner {
-    grid-template-columns: 1fr;
-    align-items: start;
-    min-height: 0;
-    padding: 52px 0 300px;
+    padding: 8px 0 52px;
   }
 
   .home-hero-copy {
@@ -3398,29 +3420,29 @@ html.js .footer-bottom[data-reveal].is-visible::before {
   }
 
   .home-hero .display-title {
-    font-size: clamp(4rem, 20vw, 5.6rem);
+    font-size: clamp(3.65rem, 18vw, 5rem);
     letter-spacing: -0.06em;
     white-space: nowrap;
   }
 
   .home-tagline {
-    gap: 16px;
-    margin-top: 24px;
-    font-size: clamp(0.88rem, 3.8vw, 1.05rem);
+    gap: 12px;
+    margin-top: 18px;
+    font-size: clamp(0.78rem, 3.45vw, 0.98rem);
     letter-spacing: 0.2em;
   }
 
   .home-intro {
     max-width: 33ch;
-    margin-top: 20px;
-    font-size: clamp(1.05rem, 4vw, 1.18rem);
-    line-height: 1.56;
+    margin-top: 16px;
+    font-size: clamp(0.96rem, 3.8vw, 1.08rem);
+    line-height: 1.48;
   }
 
   .home-hero .button-row {
     gap: 10px;
     width: min(100%, 350px);
-    margin-top: 22px;
+    margin-top: 18px;
   }
 
   .home-hero-button {
@@ -3429,14 +3451,19 @@ html.js .footer-bottom[data-reveal].is-visible::before {
   }
 
   .home-hero-orb {
-    top: 330px;
-    right: 50%;
-    width: min(560px, 100%);
-    transform: translateX(50%);
+    width: clamp(170px, 54vw, 232px);
+  }
+
+  .home-hero-art {
+    height: clamp(184px, 60vw, 248px);
   }
 
   .site-header {
+    top: 8px;
+    grid-template-columns: minmax(0, 1fr) auto;
+    width: calc(100% - 16px);
     min-height: 64px;
+    margin-top: 8px;
     padding: 12px 16px;
     transition: background-color 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
   }
@@ -3472,6 +3499,7 @@ html.js .footer-bottom[data-reveal].is-visible::before {
   .site-menu-toggle {
     position: relative;
     z-index: 103;
+    grid-column: 2;
     display: grid;
     place-items: center;
     width: 46px;
@@ -3838,7 +3866,7 @@ html.js .footer-bottom[data-reveal].is-visible::before {
   }
 
   .home-hero {
-    min-height: max(900px, calc(100svh - 92px));
+    min-height: 0;
   }
 
   .home-intro {
@@ -3939,6 +3967,46 @@ html.js .footer-bottom[data-reveal].is-visible::before {
 
   .site-brand-line {
     display: none;
+  }
+}
+
+@media (max-width: 760px) and (max-height: 700px) {
+  .home-hero-art {
+    height: 162px;
+  }
+
+  .home-hero-orb {
+    width: 154px;
+  }
+
+  .home-hero-inner {
+    padding-top: 4px;
+    padding-bottom: 36px;
+  }
+
+  .home-hero .display-title {
+    font-size: 3.4rem;
+  }
+
+  .home-tagline {
+    gap: 9px;
+    margin-top: 13px;
+    font-size: 0.76rem;
+  }
+
+  .home-intro {
+    margin-top: 13px;
+    font-size: 0.92rem;
+    line-height: 1.42;
+  }
+
+  .home-hero .button-row {
+    margin-top: 14px;
+  }
+
+  .home-hero-button {
+    min-height: 44px;
+    padding-inline: 16px;
   }
 }
 
