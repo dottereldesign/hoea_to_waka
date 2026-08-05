@@ -1954,10 +1954,6 @@ html[data-theme="dark"] .home-statement {
 .testimonial-carousel-head h2 {
   max-width: 16ch;
   margin: 12px auto 0;
-  font-family: var(--font-display);
-  font-size: clamp(3rem, 5.5vw, 6rem);
-  letter-spacing: var(--font-display-tracking);
-  line-height: 0.88;
 }
 
 .testimonial-carousel-actions {
