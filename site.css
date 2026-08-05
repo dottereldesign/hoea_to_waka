@@ -1865,7 +1865,7 @@ html[data-theme="dark"] .home-hero .home-hero-inner-photo .button-ghost:focus-vi
   --hero-copy-ink: #0b1e33;
   --statement-blue: #4676a8;
   position: relative;
-  padding-block: 96px;
+  padding-block: 96px 0;
   border-radius: 0;
   background: #fcfdfe;
 }
@@ -1923,13 +1923,13 @@ html[data-theme="dark"] .home-statement {
 
 @media (max-width: 1040px) {
   .home-statement {
-    padding-block: 80px;
+    padding-block: 80px 0;
   }
 }
 
 @media (max-width: 760px) {
   .home-statement {
-    padding-block: 60px;
+    padding-block: 60px 0;
   }
 }
 
