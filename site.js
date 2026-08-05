@@ -41,17 +41,17 @@
   });
 
   if (themeToggle) {
-    const contactPageLink = document.querySelector('.site-nav > .site-nav-link[href$="contact/"]');
-    const contactPageHref = contactPageLink?.getAttribute("href") || "contact/";
+    const siteScriptUrl = document.currentScript?.src
+      || document.querySelector('script[src$="site.js"]')?.src
+      || document.baseURI;
+    const utilityIconUrl = (filename) => new URL(`assets/${filename}`, siteScriptUrl).href;
     const utilityMenu = document.createElement("div");
     utilityMenu.className = "site-utility-menu";
     utilityMenu.innerHTML = `
       <button class="site-utility-trigger" type="button" aria-label="Open quick menu" aria-controls="site-utility-panel" aria-expanded="false">
         <span class="site-utility-trigger-icon" aria-hidden="true"><span></span><span></span><span></span></span>
       </button>
-      <div class="site-utility-panel" id="site-utility-panel" role="dialog" aria-label="Quick menu" aria-hidden="true">
-        <h2>Quick menu</h2>
-        <p class="site-utility-panel-intro">Theme controls and Anna’s contact details.</p>
+      <div class="site-utility-panel" id="site-utility-panel" role="dialog" aria-label="Theme and contact details" aria-hidden="true">
         <div class="site-utility-theme">
           <span class="site-utility-theme-copy">
             <strong>Appearance</strong>
@@ -61,10 +61,18 @@
         </div>
         <div class="site-utility-contact">
           <p class="site-utility-contact-label">Contact Anna</p>
-          <a href="mailto:anna@hoeatowaka.co.nz">anna@hoeatowaka.co.nz</a>
-          <a href="tel:+64272059520">027 205 9520</a>
-          <span class="site-utility-location">Ōtautahi Christchurch</span>
-          <a class="site-utility-contact-page" data-utility-contact-page>Contact page →</a>
+          <a class="site-utility-contact-item" href="mailto:anna@hoeatowaka.co.nz">
+            <img class="site-utility-contact-icon" src="${utilityIconUrl("utility-email.png")}" width="64" height="64" alt="" aria-hidden="true">
+            <span>anna@hoeatowaka.co.nz</span>
+          </a>
+          <a class="site-utility-contact-item" href="tel:+64272059520">
+            <img class="site-utility-contact-icon" src="${utilityIconUrl("utility-phone.png")}" width="64" height="64" alt="" aria-hidden="true">
+            <span>027 205 9520</span>
+          </a>
+          <span class="site-utility-contact-item site-utility-location">
+            <img class="site-utility-contact-icon" src="${utilityIconUrl("utility-location.png")}" width="64" height="64" alt="" aria-hidden="true">
+            <span>Ōtautahi Christchurch</span>
+          </span>
         </div>
       </div>
     `;
@@ -72,10 +80,8 @@
     const utilityPanel = utilityMenu.querySelector(".site-utility-panel");
     const utilityTrigger = utilityMenu.querySelector(".site-utility-trigger");
     const themeSlot = utilityMenu.querySelector("[data-utility-theme-slot]");
-    const utilityContactLink = utilityMenu.querySelector("[data-utility-contact-page]");
 
     themeSlot?.append(themeToggle);
-    utilityContactLink?.setAttribute("href", contactPageHref);
     document.body.append(utilityMenu);
 
     const setUtilityMenuOpen = (open, { restoreFocus = false } = {}) => {
