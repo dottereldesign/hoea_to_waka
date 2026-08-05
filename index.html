@@ -173,80 +173,48 @@
       </nav>
     </header>
     <main class="site-main" id="main-content">
-      <section class="home-hero" aria-label="Homepage highlights" aria-roledescription="carousel" data-hero-carousel>
-        <div class="home-hero-track">
-          <article class="home-hero-slide home-hero-slide-brand is-active" id="home-hero-brand" role="group" aria-label="1 of 2: Strength in Aotearoa" data-hero-slide>
-            <div class="home-hero-inner home-hero-inner-brand">
-              <div class="home-hero-mark" aria-hidden="true">
-                <img class="home-hero-logo" src="assets/logo-hero.svg" width="385" height="384" fetchpriority="high" decoding="async" alt="">
-              </div>
-              <div class="home-hero-copy" data-reveal>
-                <h1 class="display-title" id="home-hero-title">Hoea tō Waka</h1>
-                <p class="home-tagline">Strength in Aotearoa</p>
-                <p class="home-intro">Practical resilience training and resources for organisations, teams, and the people who support others.</p>
-                <div class="button-row">
-                  <a class="button button-primary home-hero-button" href="#services">Explore services</a>
-                  <a class="button button-ghost home-hero-button home-hero-button-contact" href="contact/">Talk with Anna</a>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <article class="home-hero-slide home-hero-slide-photo" id="home-hero-collaboration" role="group" aria-label="2 of 2: Practical resilience training" aria-hidden="true" inert data-hero-slide>
-            <div class="home-hero-photo" aria-hidden="true">
-              <picture>
-                <source srcset="assets/hero-collaboration-900.webp 900w, assets/hero-collaboration.webp 1448w" sizes="100vw" type="image/webp">
-                <img src="assets/hero-collaboration.webp" width="1448" height="1086" fetchpriority="low" decoding="async" alt="">
-              </picture>
-            </div>
-            <div class="home-hero-photo-wash" aria-hidden="true"></div>
-            <svg class="home-hero-photo-wave home-hero-photo-wave-back" viewBox="0 0 1448 1086" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-              <defs>
-                <linearGradient id="home-photo-wave-back" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0" stop-color="#0b58c7" stop-opacity="0.32"></stop>
-                  <stop offset="0.58" stop-color="#0d64d8" stop-opacity="0.24"></stop>
-                  <stop offset="1" stop-color="#1049ac" stop-opacity="0.1"></stop>
-                </linearGradient>
-              </defs>
-              <path class="home-photo-wave-path-desktop" d="M0 1086C164 960 277 757 407 723C606 756 773 1002 1062 1086H1448V1086H0Z" fill="url(#home-photo-wave-back)"></path>
-              <path class="home-photo-wave-path-mobile" d="M0 1010C300 900 700 900 1160 1040C1270 1074 1340 1086 1448 1086H0Z" fill="url(#home-photo-wave-back)"></path>
-            </svg>
-            <svg class="home-hero-photo-wave home-hero-photo-wave-front" viewBox="0 0 1448 1086" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-              <defs>
-                <linearGradient id="home-photo-wave-front" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0" stop-color="#0846b7"></stop>
-                  <stop offset="0.54" stop-color="#087ce7"></stop>
-                  <stop offset="1" stop-color="#0b55c7"></stop>
-                </linearGradient>
-              </defs>
-              <path d="M0 1008C272 961 519 967 873 1086H0Z" fill="url(#home-photo-wave-front)"></path>
-            </svg>
-            <div class="home-hero-inner home-hero-inner-photo">
-              <div class="home-hero-mark" aria-hidden="true">
-                <img class="home-hero-logo" src="assets/logo-hero.svg" width="385" height="384" decoding="async" alt="">
-              </div>
-              <div class="home-hero-copy" data-reveal>
-                <p class="display-title" aria-hidden="true">Hoea tō Waka</p>
-                <p class="home-tagline">Strength in Aotearoa</p>
-                <p class="home-intro"><span class="home-intro-line">Practical resilience training and resources for</span><span class="home-intro-line">organisations, teams, and the people who</span><span class="home-intro-line">support others.</span></p>
-                <div class="button-row">
-                  <a class="button button-primary home-hero-button" href="#services">Explore services</a>
-                  <a class="button button-ghost home-hero-button home-hero-button-contact" href="contact/">Talk with Anna</a>
-                </div>
-              </div>
-            </div>
-          </article>
+      <section class="home-hero" aria-labelledby="home-hero-title">
+        <div class="home-hero-photo" aria-hidden="true">
+          <picture>
+            <source srcset="assets/hero-collaboration-900.webp 900w, assets/hero-collaboration.webp 1448w" sizes="100vw" type="image/webp">
+            <img src="assets/hero-collaboration.webp" width="1448" height="1086" fetchpriority="high" decoding="async" alt="">
+          </picture>
         </div>
-
-        <div class="home-hero-controls" aria-label="Choose homepage highlight">
-          <button class="home-hero-arrow" type="button" aria-label="Show previous highlight" aria-controls="home-hero-brand home-hero-collaboration" data-hero-previous>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14.5 5-7 7 7 7"></path></svg>
-          </button>
-          <span class="home-hero-position" aria-hidden="true"><span data-hero-position>1</span> / 2</span>
-          <button class="home-hero-arrow" type="button" aria-label="Show next highlight" aria-controls="home-hero-brand home-hero-collaboration" data-hero-next>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9.5 5 7 7-7 7"></path></svg>
-          </button>
-          <span class="sr-only" aria-live="polite" aria-atomic="true" data-hero-status>Showing highlight 1 of 2: Strength in Aotearoa</span>
+        <div class="home-hero-photo-wash" aria-hidden="true"></div>
+        <svg class="home-hero-photo-wave home-hero-photo-wave-back" viewBox="0 0 1448 1086" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+          <defs>
+            <linearGradient id="home-photo-wave-back" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#0b58c7" stop-opacity="0.32"></stop>
+              <stop offset="0.58" stop-color="#0d64d8" stop-opacity="0.24"></stop>
+              <stop offset="1" stop-color="#1049ac" stop-opacity="0.1"></stop>
+            </linearGradient>
+          </defs>
+          <path class="home-photo-wave-path-desktop" d="M0 1086C164 960 277 757 407 723C606 756 773 1002 1062 1086H1448V1086H0Z" fill="url(#home-photo-wave-back)"></path>
+          <path class="home-photo-wave-path-mobile" d="M0 1010C300 900 700 900 1160 1040C1270 1074 1340 1086 1448 1086H0Z" fill="url(#home-photo-wave-back)"></path>
+        </svg>
+        <svg class="home-hero-photo-wave home-hero-photo-wave-front" viewBox="0 0 1448 1086" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+          <defs>
+            <linearGradient id="home-photo-wave-front" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#0846b7"></stop>
+              <stop offset="0.54" stop-color="#087ce7"></stop>
+              <stop offset="1" stop-color="#0b55c7"></stop>
+            </linearGradient>
+          </defs>
+          <path d="M0 1008C272 961 519 967 873 1086H0Z" fill="url(#home-photo-wave-front)"></path>
+        </svg>
+        <div class="home-hero-inner home-hero-inner-photo">
+          <div class="home-hero-mark" aria-hidden="true">
+            <img class="home-hero-logo" src="assets/logo-hero.svg" width="385" height="384" decoding="async" alt="">
+          </div>
+          <div class="home-hero-copy" data-reveal>
+            <h1 class="display-title" id="home-hero-title">Hoea tō Waka</h1>
+            <p class="home-tagline">Strength in Aotearoa</p>
+            <p class="home-intro"><span class="home-intro-line">Practical resilience training and resources for</span><span class="home-intro-line">organisations, teams, and the people who</span><span class="home-intro-line">support others.</span></p>
+            <div class="button-row">
+              <a class="button button-primary home-hero-button" href="#services">Explore services</a>
+              <a class="button button-ghost home-hero-button home-hero-button-contact" href="contact/">Talk with Anna</a>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -271,21 +239,21 @@
           </div>
           <div class="service-grid">
             <article class="service-card" data-reveal>
-              <img class="service-card-image" src="assets/service-in-house-800.webp" srcset="assets/service-in-house-360.webp 360w, assets/service-in-house-440.webp 440w, assets/service-in-house-480.webp 480w, assets/service-in-house-640.webp 640w, assets/service-in-house-700.webp 700w, assets/service-in-house-800.webp 800w, assets/service-in-house-1200.webp 1200w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1080px) calc(50vw - 42px), (max-width: 1472px) calc((100vw - 96px) / 3), 448px" width="1200" height="720" loading="lazy" decoding="async" alt="Contemporary workplace building in warm afternoon light">
+              <img class="service-card-image" src="assets/service-in-house-1200.webp" width="1200" height="720" loading="lazy" decoding="async" alt="Contemporary workplace building in warm afternoon light">
               <span class="service-index">Organisations</span>
               <h3><span>In-house</span><span>workshops</span></h3>
               <p>Tailored half-day resilience training for teams and organisations.</p>
               <a class="button button-light" href="services/in-house-workshops/">Learn more<span class="sr-only"> about in-house workshops</span></a>
             </article>
             <article class="service-card" data-reveal>
-              <img class="service-card-image" src="assets/service-individual-800.webp" srcset="assets/service-individual-360.webp 360w, assets/service-individual-440.webp 440w, assets/service-individual-480.webp 480w, assets/service-individual-640.webp 640w, assets/service-individual-700.webp 700w, assets/service-individual-800.webp 800w, assets/service-individual-1200.webp 1200w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1080px) calc(50vw - 42px), (max-width: 1472px) calc((100vw - 96px) / 3), 448px" width="1200" height="720" loading="lazy" decoding="async" alt="Anna listening during an individual coaching conversation">
+              <img class="service-card-image" src="assets/service-individual-1200.webp" width="1200" height="720" loading="lazy" decoding="async" alt="Anna listening during an individual coaching conversation">
               <span class="service-index">One-to-one</span>
               <h3><span>Individual</span><span>coaching</span></h3>
               <p>Focused one-to-one support for leaders or team members who need practical direction.</p>
               <a class="button button-light" href="services/resilience-one-on-one/">Learn more<span class="sr-only"> about individual coaching</span></a>
             </article>
             <article class="service-card" data-reveal>
-              <img class="service-card-image" src="assets/service-support-800.webp" srcset="assets/service-support-360.webp 360w, assets/service-support-440.webp 440w, assets/service-support-480.webp 480w, assets/service-support-640.webp 640w, assets/service-support-700.webp 700w, assets/service-support-800.webp 800w, assets/service-support-1200.webp 1200w" sizes="(max-width: 760px) calc(100vw - 36px), (max-width: 1080px) calc(50vw - 42px), (max-width: 1472px) calc((100vw - 96px) / 3), 448px" width="1200" height="720" loading="lazy" decoding="async" alt="Hoea tō Waka branded lanyard and identity card on a desk">
+              <img class="service-card-image" src="assets/service-support-1200.webp" width="1200" height="720" loading="lazy" decoding="async" alt="Hoea tō Waka branded lanyard and identity card on a desk">
               <span class="service-index">Practice</span>
               <h3><span>Support</span><span>professional</span><span>training</span></h3>
               <p>Training for people supporting clients, whānau, and communities in complex settings.</p>

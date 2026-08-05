@@ -345,46 +345,6 @@
 
   const isHomePage = document.body.classList.contains("page-home");
 
-  const heroCarousel = document.querySelector("[data-hero-carousel]");
-  const heroSlides = Array.from(heroCarousel?.querySelectorAll("[data-hero-slide]") || []);
-
-  if (heroCarousel && heroSlides.length > 1) {
-    const previousHeroButton = heroCarousel.querySelector("[data-hero-previous]");
-    const nextHeroButton = heroCarousel.querySelector("[data-hero-next]");
-    const heroPosition = heroCarousel.querySelector("[data-hero-position]");
-    const heroStatus = heroCarousel.querySelector("[data-hero-status]");
-    const heroNames = ["Strength in Aotearoa", "Practical resilience training"];
-    let activeHeroIndex = 0;
-
-    const showHeroSlide = (requestedIndex, { announce = true } = {}) => {
-      activeHeroIndex = (requestedIndex + heroSlides.length) % heroSlides.length;
-
-      heroSlides.forEach((slide, index) => {
-        const isActive = index === activeHeroIndex;
-        slide.classList.toggle("is-active", isActive);
-        slide.setAttribute("aria-hidden", String(!isActive));
-        slide.inert = !isActive;
-      });
-
-      if (heroPosition) heroPosition.textContent = String(activeHeroIndex + 1);
-      if (announce && heroStatus) {
-        heroStatus.textContent = `Showing highlight ${activeHeroIndex + 1} of ${heroSlides.length}: ${heroNames[activeHeroIndex]}`;
-      }
-    };
-
-    previousHeroButton?.addEventListener("click", () => showHeroSlide(activeHeroIndex - 1));
-    nextHeroButton?.addEventListener("click", () => showHeroSlide(activeHeroIndex + 1));
-
-    heroCarousel.addEventListener("keydown", (event) => {
-      if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
-      if (!event.target.closest(".home-hero-controls")) return;
-      event.preventDefault();
-      showHeroSlide(activeHeroIndex + (event.key === "ArrowRight" ? 1 : -1));
-    });
-
-    showHeroSlide(0, { announce: false });
-  }
-
   if (!isHomePage) {
     document
       .querySelectorAll(".service-grid, .card-grid, .video-grid, .page-hero-grid, .split, .resource-feature, .footer-grid")
