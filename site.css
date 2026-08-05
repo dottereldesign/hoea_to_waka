@@ -2085,6 +2085,25 @@ html[data-theme="dark"] .home-statement {
   line-height: 1;
 }
 
+.testimonial-card.testimonial-card--long blockquote {
+  max-width: 38ch;
+  font-size: clamp(1.45rem, 1.8vw, 2.15rem);
+  line-height: 1.12;
+}
+
+.testimonial-card blockquote a {
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 0.06em;
+  text-underline-offset: 0.12em;
+}
+
+.testimonial-card blockquote a:hover,
+.testimonial-card blockquote a:focus-visible {
+  opacity: 0.72;
+  outline: none;
+}
+
 .testimonial-card-person {
   display: grid;
   grid-template-columns: 52px minmax(0, 1fr);
@@ -2099,6 +2118,7 @@ html[data-theme="dark"] .home-statement {
   border: 1px solid rgba(17, 26, 32, 0.1);
   border-radius: 50%;
   background: #ffffff;
+  object-fit: cover;
 }
 
 .testimonial-card-person > span:last-child {
