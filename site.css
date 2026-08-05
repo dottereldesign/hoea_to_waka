@@ -170,10 +170,8 @@ img {
   grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: center;
   gap: 18px;
-  width: min(
-    calc(100% - var(--page-gutter) - var(--page-gutter)),
-    var(--site-wide)
-  );
+  width: calc(100% - var(--page-gutter) - var(--page-gutter));
+  max-width: 1660px;
   min-height: 64px;
   margin: 16px auto 0;
   padding: 16px 24px;
