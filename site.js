@@ -429,13 +429,9 @@
 
       if (!statementMotionPreference.matches) {
         const statementRect = scrollStatement.getBoundingClientRect();
-        const innerRect = scrollStatementInner.getBoundingClientRect();
         const viewportHeight = window.innerHeight;
         const startTop = viewportHeight * 0.72;
-        const endTop = Math.min(
-          -viewportHeight * 0.22,
-          viewportHeight * 0.16 + innerRect.height - statementRect.height
-        );
+        const endTop = viewportHeight * 0.18;
         const rawProgress = Math.min(
           1,
           Math.max(0, (startTop - statementRect.top) / Math.max(startTop - endTop, 1))
