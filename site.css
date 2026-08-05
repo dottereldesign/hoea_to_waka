@@ -13,8 +13,8 @@
   --nav-mobile-active: #3d9be9;
   --sky-200: #c9e6f5;
   --sky-100: #e8f4fa;
-  --mist: #f1f6f8;
-  --section-light: #f1f6f8;
+  --mist: #fcfdfe;
+  --section-light: #fcfdfe;
   --white: #ffffff;
   --ink: #111a20;
   --muted: #5d6972;
@@ -104,7 +104,7 @@ body {
     var(--website-blue--darker),
     var(--website-blue--normal) 20%,
     var(--website-blue--lighter) 68%,
-    #fff
+    var(--mist)
   );
   background-position: top center;
   background-repeat: no-repeat;
@@ -1470,10 +1470,6 @@ html[data-theme="dark"] .home-statement {
 
 .home-services {
   padding: 0 0 clamp(80px, 9vw, 140px);
-  background: #f8fafb;
-}
-
-html[data-theme="dark"] .home-services {
   background: var(--mist);
 }
 
