@@ -2125,7 +2125,7 @@ html[data-theme="dark"] .home-statement {
 }
 
 .page-hero-dark {
-  margin-top: -82px;
+  margin-top: -88px;
   padding-top: clamp(170px, 15vw, 230px);
   background: var(--navy-900);
   color: var(--white);
