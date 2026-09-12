@@ -1,1 +1,5 @@
 /hero-bg-video.mp4
+/node_modules/
+/tmp/
+/test-results/
+/_site/

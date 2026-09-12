@@ -1,0 +1,96 @@
+Bundled license information:
+
+react/cjs/react.production.js:
+  /**
+   * @license React
+   * react.production.js
+   *
+   * Copyright (c) Meta Platforms, Inc. and affiliates.
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE file in the root directory of this source tree.
+   */
+
+scheduler/cjs/scheduler.production.js:
+  /**
+   * @license React
+   * scheduler.production.js
+   *
+   * Copyright (c) Meta Platforms, Inc. and affiliates.
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE file in the root directory of this source tree.
+   */
+
+react-dom/cjs/react-dom.production.js:
+  /**
+   * @license React
+   * react-dom.production.js
+   *
+   * Copyright (c) Meta Platforms, Inc. and affiliates.
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE file in the root directory of this source tree.
+   */
+
+react-dom/cjs/react-dom-client.production.js:
+  /**
+   * @license React
+   * react-dom-client.production.js
+   *
+   * Copyright (c) Meta Platforms, Inc. and affiliates.
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE file in the root directory of this source tree.
+   */
+
+react/cjs/react-jsx-runtime.production.js:
+  /**
+   * @license React
+   * react-jsx-runtime.production.js
+   *
+   * Copyright (c) Meta Platforms, Inc. and affiliates.
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE file in the root directory of this source tree.
+   */
+
+lucide/dist/esm/createElement.js:
+lucide/dist/esm/defaultAttributes.js:
+lucide/dist/esm/icons/arrow-down.js:
+lucide/dist/esm/icons/arrow-right.js:
+lucide/dist/esm/icons/arrow-up-right.js:
+lucide/dist/esm/icons/book-open.js:
+lucide/dist/esm/icons/check.js:
+lucide/dist/esm/icons/chevron-left.js:
+lucide/dist/esm/icons/chevron-right.js:
+lucide/dist/esm/icons/compass.js:
+lucide/dist/esm/icons/copy.js:
+lucide/dist/esm/icons/download.js:
+lucide/dist/esm/icons/heart.js:
+lucide/dist/esm/icons/layers.js:
+lucide/dist/esm/icons/leaf.js:
+lucide/dist/esm/icons/mail.js:
+lucide/dist/esm/icons/map-pin.js:
+lucide/dist/esm/icons/menu.js:
+lucide/dist/esm/icons/minus.js:
+lucide/dist/esm/icons/moon.js:
+lucide/dist/esm/icons/move-up-right.js:
+lucide/dist/esm/icons/pause.js:
+lucide/dist/esm/icons/phone.js:
+lucide/dist/esm/icons/play.js:
+lucide/dist/esm/icons/plus.js:
+lucide/dist/esm/icons/rotate-ccw.js:
+lucide/dist/esm/icons/sliders-horizontal.js:
+lucide/dist/esm/icons/sparkles.js:
+lucide/dist/esm/icons/sun.js:
+lucide/dist/esm/icons/users.js:
+lucide/dist/esm/icons/waves.js:
+lucide/dist/esm/icons/x.js:
+lucide/dist/esm/lucide.js:
+  /**
+   * @license lucide v0.468.0 - ISC
+   *
+   * This source code is licensed under the ISC license.
+   * See the LICENSE file in the root directory of this source tree.
+   */

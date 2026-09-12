@@ -1,0 +1,23 @@
+{
+  "name": "hoea-to-waka-design-studio",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node scripts/verify.cjs",
+    "test:interactions": "node scripts/interactions.cjs",
+    "test:accessibility": "node scripts/accessibility.cjs",
+    "preview": "node scripts/preview.cjs"
+  },
+  "dependencies": {
+    "lucide": "^0.468.0",
+    "motion": "^12.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "esbuild": "^0.25.0",
+    "playwright": "^1.51.0",
+    "sharp": "^0.35.4"
+  }
+}

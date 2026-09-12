@@ -2,6 +2,8 @@
 
 Static public website and internal brand-guidelines reference for Hoea tō Waka Training Ltd.
 
+The public site now includes a component design studio with five new directions plus the preserved Original. Use each section's corner control or the bottom-left Design studio panel. See [DESIGN-STUDIO.md](DESIGN-STUDIO.md) for coverage, research, generated assets, verification and publishing details.
+
 ## Preview locally
 
 From this folder, run:
