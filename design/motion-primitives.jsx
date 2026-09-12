@@ -4,6 +4,7 @@
  */
 import React from 'react';
 import { motion, useReducedMotion } from 'motion/react';
+import { entryMotion } from './directions';
 
 export function TextEffect({ children, variant=1 }) {
   const reduced = useReducedMotion();
@@ -15,9 +16,10 @@ export function TextEffect({ children, variant=1 }) {
     5: { opacity:0, scale:.84, y:10 }
   };
   if (reduced) return children;
-  return <motion.span initial="hidden" whileInView="visible" viewport={{once:true, amount:.15}} variants={{hidden:{},visible:{transition:{staggerChildren:.035}}}}>
+  const extended=entryMotion(variant);
+  return <motion.span initial="hidden" whileInView="visible" viewport={{once:true, amount:.15}} variants={{hidden:{},visible:{transition:{staggerChildren:extended?.stagger||.035}}}}>
     <span className="ds-sr-only">{children}</span>
-    {children.split(/(\s+)/).map((word,i)=> /^\s+$/.test(word) ? word : <motion.span aria-hidden="true" className="ds-motion-word" key={i} variants={{hidden:presets[variant],visible:{opacity:1,x:0,y:0,scale:1,rotate:0,filter:'blur(0px)',transition:{duration:.58,ease:[.22,1,.36,1]}}}}>{word}</motion.span>)}
+    {children.split(/(\s+)/).map((word,i)=> /^\s+$/.test(word) ? word : <motion.span aria-hidden="true" className="ds-motion-word" key={i} variants={{hidden:extended?.from||presets[variant],visible:{opacity:1,x:0,y:0,scale:1,rotate:0,filter:'blur(0px)',transition:{duration:extended?.duration||.58,ease:[.22,1,.36,1]}}}}>{word}</motion.span>)}
   </motion.span>;
 }
 

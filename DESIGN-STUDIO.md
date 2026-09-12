@@ -2,15 +2,15 @@
 
 ## Using the studio
 
-Every public section has a small Layers control at its top right. It opens six choices: **Original**, plus **Editorial**, **Open water**, **Blueprint**, **Field notes**, and **Constellation**. Hover a choice to see its layout and motion name. Tab, Enter, and Escape work throughout. Native modal dialogs keep the picker above page content; its controls are not clipped by component containers.
+Every public section has a small Layers control at its top right. It opens 51 choices: **Original**, the first five designs, and **45 additional directions**. Search by name, collection or motion; use collection filters or star favourites. Hover a choice to see its layout and motion name. Tab, Enter, and Escape work throughout. Native modal dialogs keep the picker above page content; its controls are not clipped by component containers.
 
 Cards, actions, the enquiry form and individual fields have smaller controls for independent treatments. Their first choice restores the section's default treatment. The section-level Original restores the actual pre-existing DOM, including listeners and form state.
 
-The bottom-left **Design studio** control applies a complete direction to the current page, shows/hides detailed controls, pauses motion, exports the browser's choices as JSON, and restores originals. Each section and micro-component stores its own choice in localStorage. Navigation and footer choices carry across pages. `?design=0` through `?design=5` open a particular direction for comparison; ordinary navigation uses your saved choices. New visitors see Editorial.
+The bottom-left **Design studio** control applies a complete direction to the current page, shows/hides detailed controls, pauses motion, exports the browser's choices as JSON, and restores originals. Each section and micro-component stores its own choice in localStorage. Navigation and footer choices carry across pages. `?design=0` through `?design=50` open a particular direction for comparison; ordinary navigation uses your saved choices. New visitors see Editorial.
 
 This is a public design playground as requested. The controls appear on the published website. No selection changes the site for other visitors. Original HTML remains the no-JavaScript fallback. Brand-guidelines reference documents keep their existing presentation.
 
-## Coverage and direction
+## Original five directions
 
 Ten public templates: Home, About, Services, all three service-detail pages, Resources, Contact, Illustrations, and 404.
 
@@ -37,6 +37,46 @@ Ten public templates: Home, About, Services, all three service-detail pages, Res
 | 404 | Editorial message; coastal scene; graphic numeral; missing journal page; compass |
 
 The designs change composition, reading hierarchy, image framing, spacing, and motion—not only colour. Reusable typography, link and card functions preserve semantics and business content across the independently authored layouts.
+
+## 45 additional directions
+
+All 19 component families now support another 45 choices (IDs 6–50), alongside the existing five and Original. Cards, buttons, forms and fields also expose the added direction treatments. The added library shares semantic content builders and tokens, but has 45 explicit composition functions: spatial hierarchy, image framing, content arrangements and typography change across directions. Compact navigation and quick-contact patterns adapt the collections to their smaller footprints. Motion has per-direction entrance vectors, durations and stagger timing. No autoplay video or continuous GPU-heavy scene was added.
+
+| IDs | Collection | Directions |
+| --- | --- | --- |
+| 6–10 | Botanical | Canopy, Fernhouse, Glasshouse, Understory, Seedling |
+| 11–15 | Coastal | Tidal, Estuary, Shoreline, Harbour, Sea Glass |
+| 16–20 | Sculptural | Monolith, Clay Studio, Archway, Still Life, Balance |
+| 21–25 | Editorial | Folio, Dispatch, Margin, Anthology, Colophon |
+| 26–30 | Graphic | Signal, Cutout, Assembly, Wayfinder, Playbill |
+| 31–35 | Quiet | Stillwater, Linen, Pause, Breathing Room, Soft Focus |
+| 36–40 | Nocturnal | Afterglow, Observatory, North Star, Deep Current, Moonrise |
+| 41–45 | Playful | Paper Garden, Pebble, Ribbon, Mosaic, Postmark |
+| 46–50 | Architectural | Atrium, Terrace, Pavilion, Contour, Threshold |
+
+Picker thumbnails are schematic layout sketches, not screenshots. Hover or focus a tile for its description and motion name, then select to preview the real component. Favourites are browser-local and survive resetting all sections to Original. Existing saved IDs 0–5 are unchanged. Initial navigation reveal remains confined to the homepage.
+
+### Added generated imagery
+
+Three new assets generated using the **built-in image generation tool**, inspected and converted to optimised WebP. These are clearly conceptual visuals, not photographs documenting a real service, person or named location. Existing portraits, book covers and other content imagery remain in the relevant content components.
+
+- `assets/forest-concept.webp` — 1536×864, approximately 299 kB.
+- `assets/sculpture-concept.webp` — 1536×864, approximately 83 kB.
+- `assets/tide-concept.webp` — 1536×658, approximately 284 kB.
+
+#### Exact prompts
+
+**Forest**
+
+Use case: photorealistic-natural. Asset type: wide website art for a real Aotearoa resilience training business, used as an evocative concept, not a documented location. Primary request: an extraordinary editorial landscape photograph of a quiet native fern forest, pale morning mist and a narrow sunlit stream winding between rocks. Immersive fresh green canopy, tangible leaf texture, understated cinematic light. Composition: wide landscape, generous uncluttered misty space, no people or buildings. No text, logos, cultural carvings, or watermarks. Natural rather than fantasy.
+
+**Sculpture**
+
+Use case: stylized-concept. Asset type: website editorial art for a practical resilience training business. Primary request: a beautiful sculptural still life of three smooth pale limestone arches and one terracotta sphere balanced beside shallow blue-green water, visually expressing connection and a way forward. Premium physical studio photography of a handmade clay sculpture, subtle imperfect stone texture, warm sidelight, soft long shadows, muted sand background. Wide landscape with generous negative space. No text, people, logos, writing, watermark, or cultural motifs. Clearly an abstract concept, not a real product.
+
+**Tide**
+
+Use case: photorealistic-natural. Asset type: wide editorial website concept art for an Aotearoa resilience business. Primary request: an ethereal but believable close aerial photograph of a turquoise ocean tide washing onto black volcanic sand. White foam traces elegant curves through the dark sand, rich jade water and finely textured sparkling volcanic grains. Abstract sweeping diagonal composition, refined natural colours, softly overcast light, no people, animals, boats, buildings, writing, text, logos or watermark. Not a specific identifiable location, no culturally significant sites. Landscape panoramic crop, richly detailed.
 
 ## Content and accessibility
 
@@ -74,6 +114,8 @@ Optional Open water hero film: a 10–15 second silent morning-water loop with a
 `npm install` then `npm run build` compiles the studio and copies its CSS into `assets/`. The compiled files are committed so the original static hosting model remains usable. On this Windows host, npm's global script-shell setting points to `/bin/bash`; use `npm --script-shell=C:\Windows\System32\cmd.exe run build` if needed, or `node scripts/build.mjs`.
 
 Run `node scripts/preview.cjs` for a local project-path preview. `node scripts/verify.cjs` checks all six designs on all ten templates at desktop and mobile widths, headings, image errors, horizontal overflow and Original restoration. Screenshots and reports go to ignored `tmp/design-studio/`.
+
+The expansion adds `node scripts/verify-expanded.cjs` (1,170 route/viewport/direction checks, all 45 mobile menus, preserved form input and Original restoration); `node scripts/interactions-expanded.cjs` (51-option picker, search, favourites, persistence, whole-page application, independent form treatment, all 51 form states, quick contact, URL selection and 45 motion-enabled mounts); and `node scripts/accessibility-expanded.cjs` (135 WCAG-tagged automated page scans plus the library dialog). All passed after the caption-contrast corrections. An additional 180 intermediate-width checks at 801, 850, 900 and 1100 pixels found no document or navigation overflow. Automated tests complement visual review; they are not a claim of complete accessibility certification. Contact tests intercept email preparation before it can open an external application.
 
 GitHub Pages was returning 404 although its source was configured and the repository was public. GitHub Actions was disabled. Actions is re-enabled for GitHub-owned actions only. `.github/workflows/pages.yml` publishes an explicit public-file allowlist via Pages Actions. It excludes source code, node_modules, local screenshots, internal context and Jamie's private workspace from the deployed artifact. This does not make files in the already-public Git repository private; it only limits website deployment content.
 

@@ -6,6 +6,9 @@
     "test": "node scripts/verify.cjs",
     "test:interactions": "node scripts/interactions.cjs",
     "test:accessibility": "node scripts/accessibility.cjs",
+    "test:expanded": "node scripts/verify-expanded.cjs",
+    "test:expanded-interactions": "node scripts/interactions-expanded.cjs",
+    "test:expanded-accessibility": "node scripts/accessibility-expanded.cjs",
     "preview": "node scripts/preview.cjs"
   },
   "dependencies": {

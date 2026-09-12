@@ -28,6 +28,7 @@ const nav = () => `<nav class="ds-nav-links" aria-label="Primary navigation">${n
 const contactLinks = () => `<div class="ds-contact-links"><a href="mailto:anna@hoeatowaka.co.nz">${icon('Mail')}anna@hoeatowaka.co.nz</a><a href="tel:+64272059520">${icon('Phone')}027 205 9520</a><span>${icon('MapPin')}Ōtautahi Christchurch</span></div>`;
 const footerlinks = () => `<div class="ds-footer-links"><div>${label('Explore')}${navlinks()}</div><div>${label('Work together')}<a href="${url('services/in-house-workshops/')}">In-house workshops</a><a href="${url('services/resilience-one-on-one/')}">Individual coaching</a><a href="${url('services/workshops-for-support-professionals/')}">Professional training</a><a href="${url('about/brand-guidelines/')}">Brand guidelines</a><a href="${url('illustrations/')}">Illustrations</a></div></div>`;
 const fineprint = () => `<div class="ds-fineprint"><span>© ${new Date().getFullYear()} Hoea tō Waka Training Ltd.</span><a href="https://dottereldesign.github.io/portfolio/" target="_blank" rel="noopener">Created by Jamie Wilson ${icon('ArrowUpRight',14)}</a><span data-shielded-slot></span></div>`;
+export { brand, nav, navtools, contactLinks, footerlinks, fineprint };
 
 export const renderers = {
   utility: [
