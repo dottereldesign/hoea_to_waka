@@ -1,6 +1,8 @@
 const {chromium}=require('playwright');const assert=require('assert/strict');const serve=require('./preview.cjs');
 (async()=>{const server=serve(8767);const browser=await chromium.launch({channel:'chrome',headless:true});const errors=[];try{
   const p=await browser.newPage({viewport:{width:390,height:844},reducedMotion:'reduce'});p.on('pageerror',e=>errors.push(e.message));
+  // Intercept the external protocol at its source. Never launch the host mail app in tests.
+  await p.route('**/contact.js',async route=>{const response=await route.fetch();const source=await response.text();assert(source.includes('window.location.href ='));await route.fulfill({response,body:source.replace('window.location.href =','window.__preparedMailto =')});});
   await p.goto('http://127.0.0.1:8767/hoea_to_waka/contact/');await p.waitForFunction(()=>window.HoeaDesignStudio);await p.waitForTimeout(200);
   await p.getByLabel('Name',{exact:true}).fill('Studio verification');await p.getByLabel('Email',{exact:true}).fill('test@example.com');await p.getByLabel('How can Anna help?').fill('Testing that our enquiry stays intact.');
   for(let v=0;v<=5;v++){
@@ -11,7 +13,7 @@ const {chromium}=require('playwright');const assert=require('assert/strict');con
     if(v){await p.getByRole('button',{name:'Open navigation',exact:true}).click();assert.equal(await p.locator('.ds-type-navbar .ds-nav-links').isVisible(),true);await p.keyboard.press('Escape');assert.equal(await p.locator('.ds-type-navbar .ds-nav-links').isVisible(),false);}
   }
   await p.locator('[data-contact-form]').evaluate(e=>{window.__mailNavigation=false;e.addEventListener('submit',()=>window.__mailNavigation=true,{once:true});});
-  await p.getByRole('button',{name:'Prepare email',exact:true}).click();assert(await p.evaluate(()=>window.__mailNavigation));assert.match(await p.locator('[data-form-status]').innerText(),/Opening your email app/);
+  await p.getByRole('button',{name:'Prepare email',exact:true}).click();assert(await p.evaluate(()=>window.__mailNavigation));assert.match(await p.evaluate(()=>window.__preparedMailto),/^mailto:anna@hoeatowaka\.co\.nz\?subject=/);assert.match(decodeURIComponent(await p.evaluate(()=>window.__preparedMailto)),/Testing that our enquiry stays intact/);assert.match(await p.locator('[data-form-status]').innerText(),/Opening your email app/);
   // Open a section picker via its actual top-layer button.
   await p.evaluate(()=>window.scrollTo(0,0));
   await p.getByRole('button',{name:'Change Page header design',exact:true}).click();
