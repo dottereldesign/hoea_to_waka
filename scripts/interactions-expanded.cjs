@@ -6,7 +6,7 @@ const {chromium}=require('playwright');const assert=require('node:assert/strict'
   await p.getByLabel('Name',{exact:true}).fill('Local UI test');await p.getByLabel('Email',{exact:true}).fill('test@example.com');await p.getByLabel('How can Anna help?').fill('Keep this message through every design.');
   await p.evaluate(()=>window.scrollTo(0,0));await p.waitForTimeout(100);
   await p.getByRole('button',{name:'Change Page header design',exact:true}).click();
-  const dialog=p.locator('dialog');assert.equal(await dialog.locator('.ds-choice').count(),51);
+  const dialog=p.locator('.ds-picker');assert.equal(await dialog.locator('.ds-choice').count(),51);
   await dialog.getByRole('searchbox',{name:'Search designs'}).fill('threshold');assert.equal(await dialog.locator('.ds-choice').count(),1);
   await dialog.getByRole('button',{name:'Favourite Threshold',exact:true}).click();
   await dialog.locator('.ds-choice').click();assert.equal(await p.locator('.ds-type-header').getAttribute('data-design'),'50');

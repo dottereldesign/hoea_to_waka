@@ -9,6 +9,8 @@ const {chromium}=require('playwright');const assert=require('assert/strict');con
     await p.evaluate(v=>window.HoeaDesignStudio.all(v),v);
     assert.equal(await p.getByLabel('Name',{exact:true}).inputValue(),'Studio verification');
     assert.equal(await p.getByLabel('Email',{exact:true}).inputValue(),'test@example.com');
+    await p.locator('[data-contact-form]').scrollIntoViewIfNeeded();
+    await p.waitForFunction(()=>getComputedStyle(document.querySelector('[data-contact-form]')).opacity==='1');
     assert.equal(await p.locator('[data-contact-form]').evaluate(e=>getComputedStyle(e).opacity),'1');
     if(v){await p.getByRole('button',{name:'Open navigation',exact:true}).click();assert.equal(await p.locator('.ds-type-navbar .ds-nav-links').isVisible(),true);await p.keyboard.press('Escape');assert.equal(await p.locator('.ds-type-navbar .ds-nav-links').isVisible(),false);}
   }
@@ -17,10 +19,10 @@ const {chromium}=require('playwright');const assert=require('assert/strict');con
   // Open a section picker via its actual top-layer button.
   await p.evaluate(()=>window.scrollTo(0,0));
   await p.getByRole('button',{name:'Change Page header design',exact:true}).click();
-  assert(await p.locator('dialog').isVisible());
-  await p.locator('dialog').getByRole('button',{name:/^Blueprint/}).click();
+  assert(await p.locator('.ds-picker').isVisible());
+  await p.locator('.ds-picker').getByRole('button',{name:/^Blueprint/}).click();
   assert.equal(await p.locator('.ds-type-header').getAttribute('data-design'),'3');
-  await p.keyboard.press('Escape');assert.equal(await p.locator('dialog').isVisible(),false);
+  await p.keyboard.press('Escape');assert.equal(await p.locator('.ds-picker').isVisible(),false);
   await p.reload();await p.waitForFunction(()=>window.HoeaDesignStudio);assert.equal(await p.locator('.ds-type-header').getAttribute('data-design'),'3');
   await p.locator('[data-quick-toggle]').click();assert(await p.locator('.ds-quick-panel').isVisible());await p.locator('[data-quick-toggle]').click();assert.equal(await p.locator('.ds-quick-panel').isVisible(),false);
   await p.goto('http://127.0.0.1:8767/hoea_to_waka/?design=5');await p.waitForFunction(()=>window.HoeaDesignStudio);await p.getByRole('tab').nth(1).click();assert.equal(await p.getByRole('tabpanel').count(),1);await p.getByRole('tab').nth(1).press('ArrowRight');assert.equal(await p.getByRole('tab').nth(2).getAttribute('aria-selected'),'true');

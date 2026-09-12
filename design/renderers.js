@@ -43,7 +43,7 @@ export const renderers = {
     () => `<div class="ds-nav-floating">${brand()}${nav()}${navtools()}</div>`,
     () => `<div class="ds-nav-architect"><div>${brand()}${navtools()}</div><div>${label('Practical resilience. Aotearoa.')} ${nav()}</div></div>`,
     () => `<div class="ds-nav-journal">${brand()}<div class="ds-nav-journal-right">${label('Good people. Shared direction.')}${nav()}</div>${navtools()}</div>`,
-    () => `<div class="ds-nav-dock">${brand()}${nav()}${navtools()}<span class="ds-status-dot" aria-label="Explore the model"></span></div>`
+    () => `<div class="ds-nav-dock">${brand()}${nav()}${navtools()}<span class="ds-status-dot" aria-hidden="true"></span></div>`
   ],
   hero: [
     d => `<div class="ds-hero-editorial"><div class="ds-hero-copy">${label('A little clarity. A stronger direction.')}${heading('You can’t still the water. You can find your way.',1)}${para(d.lead)}${actions()}<div class="ds-hero-note">${icon('Compass')}Grounded in Aotearoa. Made for everyday life.</div></div><figure>${photo()}<figcaption><span>01 / A shared direction</span>${icon('Waves',24)}</figcaption><div class="ds-image-seal">People<br>before<br>everything.</div></figure><div class="ds-hero-bottom"><span>Resilience is something we practise.</span><a href="#services">Explore what’s possible ${icon('ArrowDown')}</a></div></div>`,

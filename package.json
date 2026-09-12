@@ -9,6 +9,8 @@
     "test:expanded": "node scripts/verify-expanded.cjs",
     "test:expanded-interactions": "node scripts/interactions-expanded.cjs",
     "test:expanded-accessibility": "node scripts/accessibility-expanded.cjs",
+    "test:themes": "node scripts/verify-themes.cjs",
+    "test:themes-accessibility": "node scripts/accessibility-themes.cjs",
     "preview": "node scripts/preview.cjs"
   },
   "dependencies": {

@@ -1,5 +1,10 @@
 # Hoea tō Waka — component design studio
 
+## Shared colours and typography
+
+The layout library now shares 10 site-wide colour palettes and six typography roles. Open **Colours & type** at the bottom left, or use the foundations shortcut inside Design studio. There are 10 font families and 10 suggested pairings. These settings apply to Original and all 50 directions, including nested variations, and persist across routes. Layouts retain their geometry and motion; the new foundations control their colours and fonts. See [research and palette rationale](assets/THEME-RESEARCH.md). Historical colour/font descriptions below describe the original layout explorations.
+
+
 ## Using the studio
 
 Every public section has a small Layers control at its top right. It opens 51 choices: **Original**, the first five designs, and **45 additional directions**. Search by name, collection or motion; use collection filters or star favourites. Hover a choice to see its layout and motion name. Tab, Enter, and Escape work throughout. Native modal dialogs keep the picker above page content; its controls are not clipped by component containers.
@@ -8,7 +13,7 @@ Cards, actions, the enquiry form and individual fields have smaller controls for
 
 The bottom-left **Design studio** control applies a complete direction to the current page, shows/hides detailed controls, pauses motion, exports the browser's choices as JSON, and restores originals. Each section and micro-component stores its own choice in localStorage. Navigation and footer choices carry across pages. `?design=0` through `?design=50` open a particular direction for comparison; ordinary navigation uses your saved choices. New visitors see Editorial.
 
-This is a public design playground as requested. The controls appear on the published website. No selection changes the site for other visitors. Original HTML remains the no-JavaScript fallback. Brand-guidelines reference documents keep their existing presentation.
+This is a public design playground as requested. The controls appear on the published website. No selection changes the site for other visitors. Original HTML remains the no-JavaScript fallback. Brand-guidelines reference documents retain their layout while sharing the new colour and typography settings.
 
 ## Original five directions
 

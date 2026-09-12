@@ -1,3 +1,4 @@
+import { colourReference } from './theme-data.mjs';
 // Stable IDs: never reorder. Existing browser choices 0–5 remain unchanged.
 const collections = {
   Botanical: {bg:'#edf0e5',ink:'#263a28',muted:'#52614e',surface:'#fafbf4',accent:'#d0dfa4',line:'#b5c1aa',image:'forest',font:'serif'},
@@ -61,7 +62,7 @@ const entries = [
 export const directions = entries.map(([name,collection,slug,description,motion,mode],i)=>({id:i+6,name,collection,slug,description,motion,mode,...collections[collection]}));
 export const MAX_VARIANT = 50;
 export const direction = id => directions[id-6];
-export const colourStyle = d => `--ds-bg:${d.bg};--ds-ink:${d.ink};--ds-muted:${d.muted};--ds-surface:${d.surface};--ds-accent:${d.accent};--ds-line:${d.line};--ex-font:${d.font==='serif'?"'Crimson Text',Georgia,serif":"Manrope,Arial,sans-serif"}`;
+export const colourStyle = d => Object.entries({bg:d.bg,ink:d.ink,muted:d.muted,surface:d.surface,accent:d.accent,line:d.line}).map(([role,value])=>`--ds-${role}:${colourReference(value)}`).join(';')+';--ex-font:var(--font-heading)';
 export function entryMotion(id) {
   const d=direction(id); if(!d)return null;
   // Each direction has its own vector, duration and stagger, rather than one repeated entrance.
