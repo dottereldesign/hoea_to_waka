@@ -20,7 +20,7 @@ for(const palette of palettes){
   themeCSS+=`\nhtml[data-palette="${palette.id}"]{${paint.join(';')}}`;
   for(const dark of [false,true])themeCSS+=`\nhtml[data-palette="${palette.id}"]${dark?'[data-theme="dark"]':':not([data-theme="dark"])'}{${Object.entries(semanticTokens(palette,dark)).map(([key,value])=>`--t-${key}:${value}`).join(';')}}`;
 }
-await writeFile('assets/theme.css',themeCSS+'\n'+await readFile('design/appearance.css','utf8'));
+await writeFile('assets/theme.css',themeCSS+'\n'+await readFile('design/appearance.css','utf8')+'\n'+await readFile('design/handoff.css','utf8'));
 await build({entryPoints:['design/theme-init.js'],bundle:true,minify:true,format:'iife',target:['es2020'],outfile:'assets/theme-init.js'});
 await build({entryPoints:['design/appearance.jsx'],bundle:true,minify:true,format:'iife',target:['es2020'],outfile:'assets/appearance.js',define:{'process.env.NODE_ENV':'"production"'}});
 await build({ entryPoints: ['design/studio.jsx'], bundle: true, minify: true, format: 'iife', target: ['es2020'], outfile: 'assets/design-studio.js', define: { 'process.env.NODE_ENV': '"production"' }, legalComments: 'linked' });

@@ -7,6 +7,12 @@ The layout library now shares 10 site-wide colour palettes and six typography ro
 
 ## Using the studio
 
+Each component control now has **previous / menu / next** buttons. The arrows cycle through all 51 options without opening the menu and wrap between Original and the final direction. Card, button, form and field controls have the same shortcuts; choices save immediately. Controls move around occupied actions so they do not intercept navigation or form buttons.
+
+When finished, use **Export my design choices** in the footer. The downloaded `hoea-client-design-YYYY-MM-DD.json` is the handoff for creating a client-ready site. Attach it or paste its contents into the design conversation. It includes all 10 studio routes, 52 top-level components (including shared navigation/footer), effective design IDs and names, active nested overrides with labels, and the selected colour palette and light/dark mode. Typography and entered enquiry data are excluded. Unchanged sections are explicitly recorded as their effective defaults; overrides belonging to an inactive parent layout are excluded. The exported file describes the chosen state at the time the button was clicked. A failed page read reports an error instead of downloading an incomplete file.
+
+The schema is `hoea-to-waka/client-design-handoff`, version 1. `effectiveChoices` provides exact stable studio keys, while `sharedComponents` and `pages` explain those keys for a reviewer. `selectionRules` documents defaults and indexing. The handoff requests a separate client-ready presentation with the studio tooling removed; exporting does not change the published site or create that presentation automatically. The existing studio export button uses the same handoff format.
+
 Every public section has a small Layers control at its top right. It opens 51 choices: **Original**, the first five designs, and **45 additional directions**. Search by name, collection or motion; use collection filters or star favourites. Hover a choice to see its layout and motion name. Tab, Enter, and Escape work throughout. Native modal dialogs keep the picker above page content; its controls are not clipped by component containers.
 
 Cards, actions, the enquiry form and individual fields have smaller controls for independent treatments. Their first choice restores the section's default treatment. The section-level Original restores the actual pre-existing DOM, including listeners and form state.

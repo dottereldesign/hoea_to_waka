@@ -4,6 +4,8 @@ Static public website and internal brand-guidelines reference for Hoea tō Waka 
 
 The public site includes 51 component layouts (50 directions plus Original), 10 coordinated colour palettes, and 10 font families with 10 suggested typography pairings. Use the bottom-left **Colours & type** button for site-wide foundations, and **Design studio** for layouts. See [DESIGN-STUDIO.md](DESIGN-STUDIO.md) for the layout library and [theme research](design/THEME-RESEARCH.md) for palette and typography decisions.
 
+Use the **left/right arrows** beside each component's menu icon to step through designs. When selections are complete, the footer's **Export my design choices** button downloads one JSON handoff covering every page's component choices, active nested variations and colour theme. Share that file to request a client-ready version; typography and enquiry-form entries are not included. Run `node scripts/handoff.cjs` to verify the shortcuts, export mapping, saved choices, failure handling and responsive controls.
+
 ## Preview locally
 
 From this folder, run:

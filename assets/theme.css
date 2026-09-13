@@ -317,3 +317,21 @@ html[data-palette] .home-hero-photo-wave stop:last-child{stop-color:var(--ramp-0
 .ap-footer{padding:20px 34px;border-top:1px solid var(--t-line);background:var(--t-surface);display:flex;align-items:center;justify-content:space-between;gap:16px}.ap-footer>div:first-child{display:flex;flex-direction:column;gap:6px}.ap-footer strong{font-size:12px}.ap-footer span{font-size:10px;color:var(--t-muted)}.ap-footer-actions{display:flex;gap:7px;flex-wrap:wrap}.ap-footer button{border:1px solid var(--t-line);color:var(--t-ink);background:transparent;border-radius:8px;padding:10px 12px;min-height:42px}.ap-footer .ap-done{background:var(--t-ink);color:var(--t-bg);border-color:var(--t-ink)}.ap-status{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
 @media(max-width:600px){.ap-dialog{width:calc(100% - 16px);max-height:calc(100dvh - 16px);border-radius:15px}.ap-header{padding:23px 18px}.ap-toolbar{padding:10px 12px;flex-wrap:wrap}.ap-tabs button{padding:9px 11px}.ap-content{padding:23px 18px 18px}.ap-section-title{display:block}.ap-section-title>span{display:block;margin-top:10px}.ap-palette-grid{gap:10px}.ap-palette-title strong{font-size:11px}.ap-palette>small{font-size:9px}.ap-swatches{height:34px}.ap-palette-detail{padding:16px}.ap-token-samples{grid-template-columns:repeat(3,1fr)}.ap-type-specimen{padding:24px}.ap-role{grid-template-columns:1fr;gap:10px}.ap-footer{padding:18px;align-items:flex-start;flex-direction:column}.ap-launcher{left:12px;bottom:68px;padding:9px 13px}.ap-shades>div{grid-template-columns:65px 1fr}}
 @media(prefers-reduced-motion:reduce){.ap-dialog *,.ap-launcher{transition:none!important}}
+
+/* Each overlay group belongs to one component; arrows retain focus while it re-renders. */
+.ds-switcher{position:absolute;top:0;left:0;display:flex;align-items:center;padding:3px;gap:2px;width:108px;height:38px;border:1px solid var(--t-line);border-radius:22px;background:var(--t-surface);color:var(--t-ink);box-shadow:0 3px 14px #0002;pointer-events:auto}
+.ds-switcher[hidden]{display:none!important}
+.ds-switcher .ds-badge,.ds-switcher .ds-step{position:static;display:grid;place-items:center;width:32px;height:30px;flex:0 0 32px;padding:0;border:0;border-radius:50%;color:var(--t-ink);background:transparent;box-shadow:none;opacity:1;transform:none;cursor:pointer}
+.ds-switcher .ds-badge{border-inline:1px solid var(--t-line);border-radius:0;background:var(--t-soft)}
+.ds-switcher .ds-step:hover,.ds-switcher .ds-badge:hover{background:var(--t-action);color:var(--t-on-action)}
+.ds-switcher :is(.ds-step,.ds-badge):focus-visible{outline:2px solid var(--t-focus);outline-offset:2px}
+.ds-switcher-small{width:96px;height:32px;padding:2px;gap:1px}
+.ds-switcher-small .ds-step,.ds-switcher-small .ds-badge{width:29px;height:26px;flex-basis:29px}
+.ds-handoff{display:flex;align-items:center;justify-content:space-between;gap:24px;margin:32px auto 0;padding:24px;max-width:1320px;border:1px solid var(--t-line);border-radius:16px;background:var(--t-surface);color:var(--t-ink);text-align:left}
+.ds-handoff strong{display:block;font:600 18px/1.3 var(--font-heading)}
+.ds-component .ds-handoff p,.ds-handoff p{margin:8px 0 0;max-width:560px;font:12px/1.7 var(--font-body);color:var(--t-muted)}
+.ds-handoff-button{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;gap:10px;min-height:46px;padding:12px 18px;border:1px solid var(--t-action);border-radius:30px;background:var(--t-action);color:var(--t-on-action)!important;font:600 12px/1.5 var(--font-ui);cursor:pointer}
+.ds-handoff-button:hover{filter:brightness(.92)}.ds-handoff-button:disabled{cursor:wait;opacity:.7}
+.ds-handoff{margin-bottom:100px;scroll-margin-bottom:160px}
+@media(max-width:600px){.ds-handoff{flex-direction:column;align-items:stretch;margin:25px 0 100px;padding:20px;gap:18px}.ds-handoff-button{white-space:normal}.site-footer>.ds-handoff{margin-inline:20px}.ds-switcher,.ds-switcher-small{width:108px;height:38px;padding:3px;gap:2px}.ds-switcher-small .ds-step,.ds-switcher-small .ds-badge{width:32px;height:30px;flex-basis:32px}}
+@media print{.ds-handoff{display:none!important}}

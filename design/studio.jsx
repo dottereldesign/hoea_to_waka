@@ -5,28 +5,37 @@ import { TextEffect, AnimatedBackground } from './motion-primitives';
 import { renderers, extract, classify, icon, esc, url } from './renderers';
 import { directions, direction, MAX_VARIANT, colourStyle, entryMotion } from './directions';
 import { renderExtended } from './extended-renderers';
+import { componentSelector, atomSelector, atomType, createHandoff, downloadHandoff } from './handoff';
 
 const names = ['Original','Editorial','Open water','Blueprint','Field notes','Constellation',...directions.map(d=>d.name)];
 const descriptions = ['Your original layout with the shared colour and type settings.','Generous type, fine rules and asymmetric compositions.','Immersive imagery, inverse surfaces and cinematic transitions.','Confident grids, strong hierarchy and graphic geometry.','Tactile notes, overlapping photography and human warmth.','Orbital compositions, inverse surfaces and spring interactions.',...directions.map(d=>d.description)];
 const motions = ['Original animation','Staggered rise','Soft-focus dissolve','Horizontal reveal','Gentle paper tilt','Spring and scale',...directions.map(d=>d.motion)];
 const storageKey='hoea-design-studio-v1';
 let saved={};try{saved=JSON.parse(localStorage.getItem(storageKey)||'{}');}catch{}
+if(!saved||typeof saved!=='object'||Array.isArray(saved))saved={};
+let persistedSnapshot=JSON.parse(JSON.stringify(saved));
 let reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 let paused = saved.motion === false;
 document.documentElement.classList.toggle('ds-motion-paused', paused || reduced);
-const persist = () => {try{localStorage.setItem(storageKey,JSON.stringify(saved));}catch{}};
+const persist = () => {try{
+  let merged=JSON.parse(localStorage.getItem(storageKey)||'{}');if(!merged||typeof merged!=='object'||Array.isArray(merged))merged={};
+  for(const key of new Set([...Object.keys(persistedSnapshot),...Object.keys(saved)])){
+    if(JSON.stringify(saved[key])!==JSON.stringify(persistedSnapshot[key])){if(key in saved)merged[key]=saved[key];else delete merged[key];}
+  }
+  localStorage.setItem(storageKey,JSON.stringify(merged));saved=merged;persistedSnapshot=JSON.parse(JSON.stringify(saved));
+}catch{}};
 const params = new URLSearchParams(location.search);
 const forced = params.has('design') ? Math.min(MAX_VARIANT,Math.max(0,Math.trunc(Number(params.get('design'))||0))) : null;
 const originals = new Map();
 const originalThemeToggle=document.querySelector('[data-theme-toggle]');
 const components = [];
-const route = location.pathname.replace(new URL(url('')).pathname,'').replace(/index.html$/,'') || 'home';
+const route = document.querySelector('.error-card')?'404.html':location.pathname.replace(new URL(url('')).pathname,'').replace(/index.html$/,'') || 'home';
 const toast=document.createElement('div');toast.className='ds-toast';toast.setAttribute('role','status');document.body.append(toast);
 let toastTimer;
 function announce(s){toast.textContent=s;toast.classList.add('is-visible');clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.classList.remove('is-visible'),2500);}
 
 // The preserved DOM nodes keep their event listeners, form values, and native state.
-const nodes=[...document.querySelectorAll('body > .site-header,main > section,body > .site-footer,.error-card,body > .site-utility-menu')];
+const nodes=[...document.querySelectorAll(componentSelector)];
 nodes.forEach((el,index)=>{
   const type=classify(el); if(!renderers[type])return;
   const key=(type==='navbar'||type==='footer')?type:`${route}:${index}:${type}`;
@@ -66,6 +75,7 @@ function render(c,value,{quiet=false,initial=false}={}){
   document.body.classList.toggle('ds-original-nav',components.find(x=>x.type==='navbar')?.value===0);
   if(!initial){saved[c.key]=value;persist(); if(previous.bottom<0) window.scrollBy(0,c.el.getBoundingClientRect().height-previous.height);}
   registerAtoms(c);
+  if(c.type==='footer')mountHandoff(c.el);
   requestPosition();
   if(!quiet)announce(`${titles[c.type]||c.type}: ${names[value]}`);
 }
@@ -102,12 +112,17 @@ const panel=document.createElement('dialog');panel.className='ds-picker';panel.s
 const panelRoot=createRoot(panel);
 let active=null,lastTrigger=null;
 const atomEntries=[];
-function addBadge(target,onClick,label,small=false){const b=document.createElement('button');b.className=`ds-badge${small?' ds-badge-small':''}`;b.innerHTML=icon(small?'SlidersHorizontal':'Layers',small?12:15);b.type='button';b.setAttribute('aria-label',label);b.title=label;b.setAttribute('aria-haspopup','dialog');b.addEventListener('click',()=>{lastTrigger=b;onClick();});overlay.append(b);return b;}
-components.forEach(c=>{c.badge=addBadge(c.el,()=>openPicker(c),`Change ${titles[c.type]||'Quick contact'} design`);});
+function addBadge(entry,label,small=false){
+  const group=document.createElement('div');group.className=`ds-switcher${small?' ds-switcher-small':''}`;group.setAttribute('role','group');group.setAttribute('aria-label',`${entry.atom?entry.type:titles[entry.type]||'Quick contact'} design controls`);group.dataset.componentKey=entry.key;
+  const b=document.createElement('button');b.className=`ds-badge${small?' ds-badge-small':''}`;b.innerHTML=icon(small?'SlidersHorizontal':'Layers',small?12:15);b.type='button';b.setAttribute('aria-label',label);b.setAttribute('aria-haspopup','dialog');b.addEventListener('click',()=>{lastTrigger=b;openPicker(entry);});
+  const stepButton=delta=>{const button=document.createElement('button');button.type='button';button.className='ds-step';button.dataset.step=delta;button.innerHTML=icon(delta<0?'ChevronLeft':'ChevronRight',16);button.setAttribute('aria-label',`${delta<0?'Previous':'Next'} ${entry.atom?entry.type:titles[entry.type]||'Quick contact'} design`);button.addEventListener('click',()=>{const next=(entry.value+delta+MAX_VARIANT+1)%(MAX_VARIANT+1);if(entry.atom){applyAtom(entry,next);announce(`${entry.type}: ${atomNames[entry.type]?.[next]||names[next]} (${next+1} of 51)`);}else render(entry,next);button.focus({preventScroll:true});});return button;};
+  group.append(stepButton(-1),b,stepButton(1));overlay.append(group);entry.controls=group;return b;
+}
+components.forEach(c=>{c.badge=addBadge(c,`Change ${titles[c.type]||'Quick contact'} design`);});
 function registerAtoms(c){
-  for(let i=atomEntries.length-1;i>=0;i--)if(atomEntries[i].parent===c){atomEntries[i].badge.remove();atomEntries.splice(i,1);}
-  const candidates=[...c.el.querySelectorAll('[data-card-unit],.ds-button,.ds-preserved-form,.ds-preserved-form .field')];
-  candidates.forEach((el,i)=>{const type=el.matches('.ds-button')?'button':el.matches('.field')?'field':el.matches('form')?'form':'card';const key=`${c.key}:v${c.value}:${type}:${i}`;const entry={key,el,parent:c,type,atom:true,value:Number(saved[key])||0};entry.badge=addBadge(el,()=>openPicker(entry),`Change ${type} design`,true);atomEntries.push(entry);applyAtom(entry,entry.value,false);});
+  for(let i=atomEntries.length-1;i>=0;i--)if(atomEntries[i].parent===c){atomEntries[i].controls.remove();atomEntries.splice(i,1);}
+  const candidates=[...c.el.querySelectorAll(atomSelector)];
+  candidates.forEach((el,i)=>{const type=atomType(el);const key=`${c.key}:v${c.value}:${type}:${i}`;const entry={key,el,parent:c,type,atom:true,value:Number.isInteger(saved[key])&&saved[key]>=0&&saved[key]<=MAX_VARIANT?saved[key]:0};entry.badge=addBadge(entry,`Change ${type} design`,true);atomEntries.push(entry);applyAtom(entry,entry.value,false);});
 }
 function applyAtom(a,v,save=true){
   a.stopMotion?.();a.stopMotion=null;
@@ -151,17 +166,30 @@ let positionQueued=false;
 function requestPosition(){if(positionQueued)return;positionQueued=true;requestAnimationFrame(()=>{positionQueued=false;positionBadges();});}
 function positionBadges(){
   const used=[];
+  const overlaps=(a,b)=>a.x<b.x+b.width+3&&a.x+a.width+3>b.x&&a.y<b.y+b.height+3&&a.y+a.height+3>b.y;
+  // Tooling must never intercept navigation, enquiry controls or the export action.
+  const reserved=[...document.querySelectorAll('body a,body button,body input,body select,body textarea,body summary')].filter(el=>!el.closest('.ds-overlay,.ds-picker,.ap-dialog')).map(el=>el.getBoundingClientRect()).filter(r=>r.width&&r.height&&r.bottom>0&&r.top<innerHeight);
+  const dockRect=dock.getBoundingClientRect();if(dockRect.width)reserved.push(dockRect);
   for(const entry of [...components,...atomEntries]){
-    const el=entry.el,r=el.getBoundingClientRect(),b=entry.badge;
+    const el=entry.el,r=el.getBoundingClientRect(),b=entry.controls;
     const hidden=!el.isConnected||r.width===0||r.height===0||r.bottom<0||r.top>innerHeight||el.closest('[hidden]')||(!saved.details&&entry.atom);
     b.hidden=!!hidden;if(hidden)continue;
-    let x=Math.min(innerWidth-38,r.right-(entry.atom?28:42));let y=Math.max(4,r.top+(entry.atom?5:10));
-    if(entry.type==='navbar') {x=innerWidth-38;y=4;}
-    if(entry.type==='utility'){x=r.right-24;y=r.top-27;}
-    if(entry.atom&&entry.type==='button'){x=r.right-14;y=r.top-12;}
-    for(const p of used)if(Math.abs(x-p.x)<27&&Math.abs(y-p.y)<27)y=p.y+30;
-    used.push({x,y});b.style.transform=`translate(${Math.max(4,x)}px,${y}px)`;
-    b.dataset.value=entry.value;
+    const width=b.offsetWidth,height=b.offsetHeight;
+    let x=Math.max(4,Math.min(innerWidth-width-6,r.right-width-10));let y=Math.max(4,r.top+(entry.atom?5:10));
+    if(entry.type==='navbar') {x=innerWidth-width-6;y=Math.max(4,r.bottom-height-4);}
+    if(entry.type==='utility'){y=Math.max(4,r.top-height-6);}
+    if(entry.atom&&entry.type==='button'){y=Math.max(4,r.top-height-3);}
+    const xs=[x,r.right+6,r.left-width-6,Math.max(4,r.left+6)];
+    if(entry.type==='navbar')xs.push(Math.max(4,innerWidth-width-140));
+    const ys=[y];for(let offset=1;offset<=4;offset++){ys.push(y-offset*(height+6),y+offset*(height+6));}
+    const candidates=ys.flatMap(y=>xs.map(x=>({x,y,width,height})));
+    const place=candidates.find(p=>p.x>=4&&p.x+p.width<=innerWidth-4&&p.y>=4&&p.y+p.height<=innerHeight-4&&!reserved.some(q=>overlaps(p,q))&&!used.some(q=>overlaps(p,q)));
+    if(!place){b.hidden=true;continue;}
+    used.push(place);b.style.transform=`translate(${place.x}px,${place.y}px)`;
+    entry.badge.dataset.value=entry.value;
+    const designName=entry.atom?(atomNames[entry.type]?.[entry.value]||names[entry.value]):names[entry.value];
+    entry.badge.title=`${designName} · ${entry.value+1} / 51 — open all designs`;
+    b.querySelectorAll('[data-step]').forEach(button=>{const next=(entry.value+Number(button.dataset.step)+51)%51;button.title=`${Number(button.dataset.step)<0?'Previous':'Next'}: ${entry.atom?(atomNames[entry.type]?.[next]||names[next]):names[next]} · ${next+1} / 51`;});
   }
 }
 window.addEventListener('scroll',requestPosition,{passive:true});window.addEventListener('resize',()=>{requestPosition();if(panel.open)positionPanel();});
@@ -172,8 +200,27 @@ const dock=document.createElement('div');dock.className='ds-studio-dock';dock.in
 dock.querySelector('button').addEventListener('click',openStudio);
 function openStudio(){
   lastTrigger=dock.querySelector('button');
-  panelRoot.render(<><div className="ds-picker-head"><div><small>HOEA TŌ WAKA</small><h2>Your design studio</h2></div><button aria-label="Close studio" onClick={()=>panel.close()}>×</button></div><p className="ds-picker-help">Mix directions using each section’s corner control, or try a complete direction below. Colours and fonts are shared across every direction.</p><button className="ds-foundations-link" onClick={()=>{panel.close();window.dispatchEvent(new CustomEvent('hoea:open-appearance'));}}>◐ Colours & typography — site-wide ↗</button><Library key="global-library" onChoose={i=>{components.forEach(c=>render(c,i,{quiet:true}));announce(`${names[i]} applied to this page`);panel.close();}}/><label className="ds-setting"><input type="checkbox" defaultChecked={saved.details!==false} onChange={e=>{saved.details=e.target.checked;persist();requestPosition();}}/> Show card, button & field controls</label><label className="ds-setting"><input type="checkbox" defaultChecked={!paused&&!reduced} disabled={reduced} onChange={e=>{paused=!e.target.checked;saved.motion=!paused;persist();document.documentElement.classList.toggle('ds-motion-paused',paused||reduced);components.filter(c=>c.value).forEach(c=>render(c,c.value,{quiet:true}));}}/> Motion {reduced?'(reduced by system preference)':''}</label><div className="ds-studio-actions"><button onClick={()=>{const blob=new Blob([JSON.stringify({layouts:saved,appearance:window.HoeaAppearance?.getState(),mode:document.documentElement.dataset.theme},null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='hoea-design-choices.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);}}>Export choices</button><button onClick={()=>{Object.keys(saved).forEach(k=>{if(k!=='motion'&&k!=='details'&&k!=='favourites')delete saved[k];});persist();components.forEach(c=>render(c,0,{quiet:true}));panel.close();announce('All original designs restored');}}>Reset originals</button></div><a className="ds-brief-link" href="${url('DESIGN-STUDIO.md')}" target="_blank">Design research & asset brief ↗</a></>);
+  panelRoot.render(<><div className="ds-picker-head"><div><small>HOEA TŌ WAKA</small><h2>Your design studio</h2></div><button aria-label="Close studio" onClick={()=>panel.close()}>×</button></div><p className="ds-picker-help">Mix directions using each section’s corner control, or try a complete direction below. Colours and fonts are shared across every direction.</p><button className="ds-foundations-link" onClick={()=>{panel.close();window.dispatchEvent(new CustomEvent('hoea:open-appearance'));}}>◐ Colours & typography — site-wide ↗</button><Library key="global-library" onChoose={i=>{components.forEach(c=>render(c,i,{quiet:true}));announce(`${names[i]} applied to this page`);panel.close();}}/><label className="ds-setting"><input type="checkbox" defaultChecked={saved.details!==false} onChange={e=>{saved.details=e.target.checked;persist();requestPosition();}}/> Show card, button & field controls</label><label className="ds-setting"><input type="checkbox" defaultChecked={!paused&&!reduced} disabled={reduced} onChange={e=>{paused=!e.target.checked;saved.motion=!paused;persist();document.documentElement.classList.toggle('ds-motion-paused',paused||reduced);components.filter(c=>c.value).forEach(c=>render(c,c.value,{quiet:true}));}}/> Motion {reduced?'(reduced by system preference)':''}</label><div className="ds-studio-actions"><button onClick={exportSelection}>Export choices</button><button onClick={()=>{Object.keys(saved).forEach(k=>{if(k!=='motion'&&k!=='details'&&k!=='favourites')delete saved[k];});persist();components.forEach(c=>render(c,0,{quiet:true}));panel.close();announce('All original designs restored');}}>Reset originals</button></div><a className="ds-brief-link" href="${url('DESIGN-STUDIO.md')}" target="_blank">Design research & asset brief ↗</a></>);
   if(!panel.open)panel.showModal();panel.style.width=`${Math.min(600,innerWidth-24)}px`;panel.style.left='12px';panel.style.top='12px';
+}
+let exporting=false;
+function mountHandoff(footer){
+  if(footer.querySelector('[data-design-handoff]'))return;
+  const handoff=document.createElement('div');handoff.className='ds-handoff';handoff.dataset.designHandoff='';
+  handoff.innerHTML=`<div><strong>Happy with your choices?</strong><p>Export all page designs and your colour theme in one file. Share it with your designer for the client-ready version.</p></div><button type="button" class="ds-handoff-button">${icon('Download',18)}<span>Export my design choices</span></button>`;
+  const button=handoff.querySelector('button');button.disabled=exporting;button.addEventListener('click',exportSelection);footer.append(handoff);
+}
+async function exportSelection(){
+  if(exporting)return;exporting=true;
+  const busy=value=>document.querySelectorAll('.ds-handoff-button').forEach(b=>{b.disabled=value;b.setAttribute('aria-busy',String(value));b.querySelector('span').textContent=value?'Preparing your file…':'Export my design choices';});
+  busy(true);announce('Gathering your choices from all pages…');
+  try{
+    let latest=saved;try{const stored=JSON.parse(localStorage.getItem(storageKey)||'{}');if(stored&&typeof stored==='object'&&!Array.isArray(stored))latest={...saved,...stored};}catch{}
+    const data=await createHandoff({saved:{...latest},components:[...components],atoms:[...atomEntries],route,names,atomNames,appearance:window.HoeaAppearance.getState(),mode:document.documentElement.dataset.theme==='dark'?'dark':'light'});
+    downloadHandoff(data);announce(`Exported ${data.summary.components} components and ${data.summary.nestedOverrides} detailed choices. Share the JSON file when you’re ready.`);
+    return data;
+  }catch(error){announce(error.message||'Export could not finish. Please try again.');return null;}
+  finally{exporting=false;busy(false);}
 }
 function openMedia(){
   lastTrigger=document.querySelector('[data-media-brief]');
@@ -183,4 +230,4 @@ if(saved.details===undefined)saved.details=true;
 components.forEach(c=>render(c,forced??(Number.isInteger(saved[c.key])&&saved[c.key]>=0&&saved[c.key]<=MAX_VARIANT?saved[c.key]:1),{quiet:true,initial:true}));
 requestPosition();
 matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change',e=>{reduced=e.matches;document.documentElement.classList.toggle('ds-motion-paused',paused||reduced);components.filter(c=>c.value).forEach(c=>render(c,c.value,{quiet:true,initial:true}));});
-window.HoeaDesignStudio={components,choose:(key,v)=>{const c=components.find(c=>c.key===key);if(c&&Number.isInteger(v)&&v>=0&&v<=MAX_VARIANT)render(c,v);},all:v=>{if(Number.isInteger(v)&&v>=0&&v<=MAX_VARIANT)components.forEach(c=>render(c,v,{quiet:true}));},directions:names.map((name,id)=>({id,name,collection:direction(id)?.collection||'Existing'})),version:2};
+window.HoeaDesignStudio={components,export:exportSelection,choose:(key,v)=>{const c=components.find(c=>c.key===key);if(c&&Number.isInteger(v)&&v>=0&&v<=MAX_VARIANT)render(c,v);},all:v=>{if(Number.isInteger(v)&&v>=0&&v<=MAX_VARIANT)components.forEach(c=>render(c,v,{quiet:true}));},directions:names.map((name,id)=>({id,name,collection:direction(id)?.collection||'Existing'})),version:2};

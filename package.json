@@ -11,6 +11,7 @@
     "test:expanded-accessibility": "node scripts/accessibility-expanded.cjs",
     "test:themes": "node scripts/verify-themes.cjs",
     "test:themes-accessibility": "node scripts/accessibility-themes.cjs",
+    "test:handoff": "node scripts/handoff.cjs",
     "preview": "node scripts/preview.cjs"
   },
   "dependencies": {
