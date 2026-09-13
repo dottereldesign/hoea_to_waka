@@ -6,6 +6,7 @@ import { renderers, extract, classify, icon, esc, url } from './renderers';
 import { directions, direction, MAX_VARIANT, colourStyle, entryMotion } from './directions';
 import { renderExtended } from './extended-renderers';
 import { componentSelector, atomSelector, atomType, createHandoff, downloadHandoff } from './handoff';
+import { ComponentColours, colourKey, validPalette, applyColour, clearColour } from './component-colours';
 
 const names = ['Original','Editorial','Open water','Blueprint','Field notes','Constellation',...directions.map(d=>d.name)];
 const descriptions = ['Your original layout with the shared colour and type settings.','Generous type, fine rules and asymmetric compositions.','Immersive imagery, inverse surfaces and cinematic transitions.','Confident grids, strong hierarchy and graphic geometry.','Tactile notes, overlapping photography and human warmth.','Orbital compositions, inverse surfaces and spring interactions.',...directions.map(d=>d.description)];
@@ -52,7 +53,7 @@ function cleanup(c){c.roots.forEach(r=>r.unmount());c.roots=[];c.cleanup.forEach
 function render(c,value,{quiet=false,initial=false}={}){
   const previous=c.el.getBoundingClientRect();
   // Clear transient atom presentation before relocating the preserved form.
-  atomEntries.filter(a=>a.parent===c).forEach(a=>applyAtom(a,0,false));
+  atomEntries.filter(a=>a.parent===c).forEach(a=>{applyAtom(a,0,false);clearColour(a.el);});
   cleanup(c);
   if(c.form)c.formMarker.after(c.form);
   if(c.shield)c.shieldMarker.after(c.shield);
@@ -75,6 +76,7 @@ function render(c,value,{quiet=false,initial=false}={}){
   document.body.classList.toggle('ds-original-nav',components.find(x=>x.type==='navbar')?.value===0);
   if(!initial){saved[c.key]=value;persist(); if(previous.bottom<0) window.scrollBy(0,c.el.getBoundingClientRect().height-previous.height);}
   registerAtoms(c);
+  applyColour(c,saved);
   if(c.type==='footer')mountHandoff(c.el);
   requestPosition();
   if(!quiet)announce(`${titles[c.type]||c.type}: ${names[value]}`);
@@ -138,6 +140,7 @@ function applyAtom(a,v,save=true){
     a.stopMotion=()=>{if(stopped)return;stopped=true;aMotion.stop();originalStyles.forEach(([key,value,priority])=>{if(value)a.el.style.setProperty(key,value,priority);else a.el.style.removeProperty(key);});};
     a.parent.cleanup.push(a.stopMotion);
   }}
+  applyColour(a,saved);
   requestPosition();
 }
 const atomNames={button:['Section default','Underline & arrow','Split action','Outlined capsule','Offset stamp','Icon reveal'],card:['Section default','Editorial rule','Raised panel','Offset outline','Notebook edge','Spotlight frame'],form:['Section default','Quiet sheet','Framed form','Two-tone panel','Letter paper','Focused surface'],field:['Section default','Bottom rule','Filled field','Side accent','Paper outline','Soft inset']};
@@ -154,8 +157,9 @@ function Library({entry,value,onChoose}){
 }
 function Picker({entry}){
   const [value,setValue]=React.useState(entry.value);
+  const [colour,setColour]=React.useState(validPalette(saved[colourKey(entry.key)])?saved[colourKey(entry.key)]:'');
   const title=entry.atom?entry.type:titles[entry.type]||'Quick contact';
-  return <><div className="ds-picker-head"><div><small>COMPONENT STUDIO · 51 OPTIONS</small><h2>{title}</h2></div><button aria-label="Close design options" onClick={()=>panel.close()} dangerouslySetInnerHTML={{__html:icon('X')}}/></div><p className="ds-picker-help">Only this component changes. Hover a design for its layout and motion notes; star your favourites.</p><Library entry={entry} value={value} onChoose={i=>{entry.atom?applyAtom(entry,i):render(entry,i);setValue(i);}}/><div className="ds-picker-bottom"><span>Saved in this browser</span><button onClick={()=>{entry.atom?applyAtom(entry,0):render(entry,0);setValue(0);}}>↶ Restore original</button></div></>;
+  return <><div className="ds-picker-head"><div><small>COMPONENT STUDIO · 51 OPTIONS</small><h2>{title}</h2></div><button aria-label="Close design options" onClick={()=>panel.close()} dangerouslySetInnerHTML={{__html:icon('X')}}/></div><ComponentColours entry={entry} value={colour} onChange={id=>{const key=colourKey(entry.key);if(id)saved[key]=id;else delete saved[key];persist();applyColour(entry,saved);setColour(id);announce(id?'Component colour scheme updated':'Inherited colours restored');}}/><p className="ds-picker-help">Only this component changes. Hover a design for its layout and motion notes; star your favourites.</p><Library entry={entry} value={value} onChoose={i=>{entry.atom?applyAtom(entry,i):render(entry,i);setValue(i);}}/><div className="ds-picker-bottom"><span>Saved in this browser</span><button onClick={()=>{entry.atom?applyAtom(entry,0):render(entry,0);setValue(0);}}>↶ Restore original</button></div></>;
 }
 function openPicker(entry){active=entry;panelRoot.render(<Picker key={`${entry.key}-${Date.now()}`} entry={entry}/>);if(!panel.open)panel.showModal();positionPanel();}
 function positionPanel(){const r=lastTrigger?.getBoundingClientRect();if(!r)return;const width=Math.min(600,innerWidth-24);panel.style.width=`${width}px`;panel.style.left=`${Math.max(12,Math.min(innerWidth-width-12,r.right-width))}px`;panel.style.top='12px';}
@@ -200,14 +204,14 @@ const dock=document.createElement('div');dock.className='ds-studio-dock';dock.in
 dock.querySelector('button').addEventListener('click',openStudio);
 function openStudio(){
   lastTrigger=dock.querySelector('button');
-  panelRoot.render(<><div className="ds-picker-head"><div><small>HOEA TŌ WAKA</small><h2>Your design studio</h2></div><button aria-label="Close studio" onClick={()=>panel.close()}>×</button></div><p className="ds-picker-help">Mix directions using each section’s corner control, or try a complete direction below. Colours and fonts are shared across every direction.</p><button className="ds-foundations-link" onClick={()=>{panel.close();window.dispatchEvent(new CustomEvent('hoea:open-appearance'));}}>◐ Colours & typography — site-wide ↗</button><Library key="global-library" onChoose={i=>{components.forEach(c=>render(c,i,{quiet:true}));announce(`${names[i]} applied to this page`);panel.close();}}/><label className="ds-setting"><input type="checkbox" defaultChecked={saved.details!==false} onChange={e=>{saved.details=e.target.checked;persist();requestPosition();}}/> Show card, button & field controls</label><label className="ds-setting"><input type="checkbox" defaultChecked={!paused&&!reduced} disabled={reduced} onChange={e=>{paused=!e.target.checked;saved.motion=!paused;persist();document.documentElement.classList.toggle('ds-motion-paused',paused||reduced);components.filter(c=>c.value).forEach(c=>render(c,c.value,{quiet:true}));}}/> Motion {reduced?'(reduced by system preference)':''}</label><div className="ds-studio-actions"><button onClick={exportSelection}>Export choices</button><button onClick={()=>{Object.keys(saved).forEach(k=>{if(k!=='motion'&&k!=='details'&&k!=='favourites')delete saved[k];});persist();components.forEach(c=>render(c,0,{quiet:true}));panel.close();announce('All original designs restored');}}>Reset originals</button></div><a className="ds-brief-link" href="${url('DESIGN-STUDIO.md')}" target="_blank">Design research & asset brief ↗</a></>);
+  panelRoot.render(<><div className="ds-picker-head"><div><small>HOEA TŌ WAKA</small><h2>Your design studio</h2></div><button aria-label="Close studio" onClick={()=>panel.close()}>×</button></div><p className="ds-picker-help">Mix directions using each section’s corner control, or try a complete direction below. Fonts are shared. Colours inherit the site theme unless you choose a palette in a component’s menu.</p><button className="ds-foundations-link" onClick={()=>{panel.close();window.dispatchEvent(new CustomEvent('hoea:open-appearance'));}}>◐ Colours & typography — site-wide ↗</button><Library key="global-library" onChoose={i=>{components.forEach(c=>render(c,i,{quiet:true}));announce(`${names[i]} applied to this page`);panel.close();}}/><label className="ds-setting"><input type="checkbox" defaultChecked={saved.details!==false} onChange={e=>{saved.details=e.target.checked;persist();requestPosition();}}/> Show card, button & field controls</label><label className="ds-setting"><input type="checkbox" defaultChecked={!paused&&!reduced} disabled={reduced} onChange={e=>{paused=!e.target.checked;saved.motion=!paused;persist();document.documentElement.classList.toggle('ds-motion-paused',paused||reduced);components.filter(c=>c.value).forEach(c=>render(c,c.value,{quiet:true}));}}/> Motion {reduced?'(reduced by system preference)':''}</label><div className="ds-studio-actions"><button onClick={exportSelection}>Export choices</button><button onClick={()=>{Object.keys(saved).forEach(k=>{if(k!=='motion'&&k!=='details'&&k!=='favourites')delete saved[k];});persist();components.forEach(c=>render(c,0,{quiet:true}));panel.close();announce('All original designs restored');}}>Reset originals</button></div><a className="ds-brief-link" href="${url('DESIGN-STUDIO.md')}" target="_blank">Design research & asset brief ↗</a></>);
   if(!panel.open)panel.showModal();panel.style.width=`${Math.min(600,innerWidth-24)}px`;panel.style.left='12px';panel.style.top='12px';
 }
 let exporting=false;
 function mountHandoff(footer){
   if(footer.querySelector('[data-design-handoff]'))return;
   const handoff=document.createElement('div');handoff.className='ds-handoff';handoff.dataset.designHandoff='';
-  handoff.innerHTML=`<div><strong>Happy with your choices?</strong><p>Export all page designs and your colour theme in one file. Share it with your designer for the client-ready version.</p></div><button type="button" class="ds-handoff-button">${icon('Download',18)}<span>Export my design choices</span></button>`;
+  handoff.innerHTML=`<div><strong>Happy with your choices?</strong><p>Export all page designs, your site theme and individual component palettes in one file. Share it with your designer for the client-ready version.</p></div><button type="button" class="ds-handoff-button">${icon('Download',18)}<span>Export my design choices</span></button>`;
   const button=handoff.querySelector('button');button.disabled=exporting;button.addEventListener('click',exportSelection);footer.append(handoff);
 }
 async function exportSelection(){

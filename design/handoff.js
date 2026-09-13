@@ -1,6 +1,6 @@
 import { classify, extract, renderers, url } from './renderers';
 import { renderExtended } from './extended-renderers';
-import { semanticTokens } from './theme-data.mjs';
+import { palettes, semanticTokens } from './theme-data.mjs';
 
 export const componentSelector='body > .site-header,main > section,body > .site-footer,.error-card,body > .site-utility-menu';
 export const atomSelector='[data-card-unit],.ds-button,.ds-preserved-form,.ds-preserved-form .field';
@@ -14,6 +14,8 @@ export async function createHandoff({saved,components,atoms,route,names,atomName
   const choices={...saved};
   components.forEach(c=>choices[c.key]=c.value);
   atoms.forEach(a=>choices[a.key]=a.value);
+  [...components,...atoms].forEach(entry=>{const key=`colour:${entry.key}`;if(entry.el.dataset.componentPalette)choices[key]=entry.el.dataset.componentPalette;else delete choices[key];});
+  const colourChoice=(key,inherited)=>{const own=palettes.find(p=>p.id===choices[`colour:${key}`]);const resolved=own||palettes.find(p=>p.id===inherited);return {source:own?'override':'inherit',id:resolved.id,name:resolved.name};};
   const palette=window.HoeaAppearance.palettes.find(p=>p.id===appearance.palette);
   const documents=await Promise.all(paths.map(async path=>{
     const response=await fetch(url(path),{cache:'no-cache',signal:AbortSignal.timeout(15000)});
@@ -26,7 +28,7 @@ export async function createHandoff({saved,components,atoms,route,names,atomName
     }
     return {path,doc};
   }));
-  const shared={},effectiveChoices={},pages=[];
+  const shared={},effectiveChoices={},effectiveColourOverrides={},pages=[];
   let detailCount=0;
   for(const {path,doc} of documents){
     const routeKey=path||'home';
@@ -38,6 +40,8 @@ export async function createHandoff({saved,components,atoms,route,names,atomName
       const live=components.find(c=>c.key===key);
       const variant=valid(choices[key])?choices[key]:1;
       const selection={key,type,label:live?.data.title||label(original)||type,sourceElementId:original.id||null,design:{id:variant,name:names[variant]},selectionSource:live?'current-page':valid(saved[key])?'saved':'default',details:[]};
+      selection.colour=colourChoice(key,palette.id);
+      if(selection.colour.source==='override')effectiveColourOverrides[key]=selection.colour.id;
       effectiveChoices[key]=variant;
       let surface=original;
       if(variant){
@@ -47,25 +51,31 @@ export async function createHandoff({saved,components,atoms,route,names,atomName
         const form=original.querySelector('[data-contact-form]')?.cloneNode(true);
         if(form){form.classList.add('ds-preserved-form');surface.querySelector('[data-form-slot]')?.append(form);}
       }
+      const colourParents=new Map([[surface,selection.colour.id]]);
       [...surface.querySelectorAll(atomSelector)].forEach((el,i)=>{
         const kind=atomType(el),atomKey=`${key}:v${variant}:${kind}:${i}`,value=choices[atomKey];
-        if(!valid(value)||value===0)return;
-        selection.details.push({key:atomKey,type:kind,index:i,label:label(el)||kind,design:{id:value,name:atomNames[kind]?.[value]||names[value]}});
-        effectiveChoices[atomKey]=value;detailCount++;
+        let parent=el.parentElement;while(parent&&!colourParents.has(parent))parent=parent.parentElement;
+        const colour=colourChoice(atomKey,colourParents.get(parent)||selection.colour.id);colourParents.set(el,colour.id);
+        if((!valid(value)||value===0)&&colour.source!=='override')return;
+        const selected=valid(value)?value:0;
+        selection.details.push({key:atomKey,type:kind,index:i,label:label(el)||kind,design:{id:selected,name:atomNames[kind]?.[selected]||names[selected]},colour});
+        if(colour.source==='override')effectiveColourOverrides[atomKey]=colour.id;
+        effectiveChoices[atomKey]=selected;detailCount++;
       });
       if(isShared)shared[key]=selection;else page.components.push(selection);
     });
     pages.push(page);
   }
   return {
-    format:'hoea-to-waka/client-design-handoff',schemaVersion:1,studioVersion:2,
+    format:'hoea-to-waka/client-design-handoff',schemaVersion:2,studioVersion:2,
     exportedAt:new Date().toISOString(),site:url(''),exportedFrom:route,
     purpose:'Use these selections to build a client-ready version of the existing site. Remove the design picker, stepping arrows, appearance controls and export controls from that client version. Keep typography unchanged.',
     colour:{id:palette.id,name:palette.name,mode,families:[...palette.colours],tokens:semanticTokens(palette,mode==='dark')},
     motionEnabled:saved.motion!==false,
     selectionRules:{shared:'Navigation and footer apply across every page.',defaults:'All top-level components are listed. Unmodified components use Editorial (1). Unlisted nested elements use their section default (0).',nested:'Nested keys include the selected parent layout and the zero-based index in atomSelector. Choices for inactive parent layouts are excluded.',reference:'Resolve stable keys using design/studio.jsx, design/renderers.js and design/extended-renderers.js in this repository.'},
     summary:{pages:pages.length,components:Object.keys(shared).length+pages.reduce((n,p)=>n+p.components.length,0),nestedOverrides:detailCount},
-    sharedComponents:Object.values(shared),pages,effectiveChoices,
+    sharedComponents:Object.values(shared),pages,effectiveChoices,effectiveColourOverrides,
+    colourRules:'The site palette is the default. effectiveColourOverrides pins individual components or nested elements to another palette. Unpinned children inherit their nearest parent palette; all palettes follow the site light/dark mode. Colour-only nested choices are included even when their design is Section default (0).',
   };
 }
 

@@ -1,0 +1,40 @@
+const {chromium}=require('playwright');
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const serve=require('./preview.cjs');
+(async()=>{const server=serve(8784),browser=await chromium.launch({channel:'chrome',headless:true});try{
+  const context=await browser.newContext({viewport:{width:1440,height:1000},reducedMotion:'reduce'}),page=await context.newPage();
+  const errors=[];page.on('pageerror',e=>errors.push(e.message));
+  const ready=()=>page.waitForFunction(()=>window.HoeaDesignStudio?.export);
+  const open=async key=>{await page.locator(`.ds-switcher[data-component-key="${key}"] .ds-badge`).evaluate(el=>el.click());await page.locator('.ds-component-palettes').waitFor();};
+  const pick=async name=>page.locator('.ds-component-palettes').getByRole('button',{name,exact:true}).click();
+  const token=()=>page.locator('.ds-type-hero').evaluate(el=>getComputedStyle(el).getPropertyValue('--t-action').trim());
+  await page.goto('http://127.0.0.1:8784/');await ready();
+  const initial=await token();await open('home:1:hero');await pick('Aubergine Garden');await page.keyboard.press('Escape');
+  const pinned=await token();assert.notEqual(pinned,initial);
+  await page.evaluate(()=>window.HoeaAppearance.setPalette('cobalt-atelier'));assert.equal(await token(),pinned);
+  for(let i=0;i<=50;i++){await page.evaluate(v=>window.HoeaDesignStudio.choose('home:1:hero',v),i);assert.equal(await page.evaluate(()=>window.HoeaDesignStudio.components.find(c=>c.type==='hero').el.dataset.componentPalette),'aubergine-garden');}
+  await page.evaluate(()=>window.HoeaDesignStudio.choose('home:1:hero',1));
+  const buttonKey=await page.locator('.ds-switcher[data-component-key^="home:1:hero:v1:button:"]').first().getAttribute('data-component-key');
+  await open(buttonKey);await pick('Terracotta Sky');await page.keyboard.press('Escape');
+  const result=await page.evaluate(()=>window.HoeaDesignStudio.export());assert.equal(result.schemaVersion,2);assert.equal(result.effectiveColourOverrides['home:1:hero'],'aubergine-garden');assert.equal(result.effectiveColourOverrides[buttonKey],'terracotta-sky');assert.equal(result.effectiveChoices[buttonKey],0);
+  await page.reload();await ready();assert.equal(await token(),pinned);assert.equal(await page.locator('.ds-type-hero .ds-button[data-component-palette]').getAttribute('data-component-palette'),'terracotta-sky');
+  await open(buttonKey);await pick('Use parent colours');await page.keyboard.press('Escape');assert.equal(await page.locator('.ds-type-hero .ds-button[data-component-palette]').count(),0);
+  await page.evaluate(()=>window.HoeaAppearance.setMode('dark'));assert.notEqual(await token(),pinned);
+  await open('home:1:hero');await pick('Use site theme');await page.keyboard.press('Escape');assert.equal(await page.locator('.ds-type-hero').getAttribute('data-component-palette'),null);
+  await open('home:1:hero');await pick('Aubergine Garden');
+  fs.mkdirSync('tmp/component-colours',{recursive:true});
+  for(const width of [1440,390]){await page.setViewportSize({width,height:1000});await page.screenshot({path:`tmp/component-colours/menu-${width}.png`});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+2),false);}
+  await page.keyboard.press('Escape');await page.screenshot({path:'tmp/component-colours/after-390.png'});
+  await page.goto('http://127.0.0.1:8784/contact/');await ready();
+  const contactKey=await page.evaluate(()=>window.HoeaDesignStudio.components.find(c=>c.type==='contact').key);
+  const nestedKey=async kind=>page.locator(`.ds-switcher[data-component-key^="${contactKey}:v1:${kind}:"]`).first().getAttribute('data-component-key');
+  const formKey=await nestedKey('form'),fieldKey=await nestedKey('field');
+  await open(formKey);await pick('Terracotta Sky');await page.keyboard.press('Escape');
+  assert.equal(await page.locator('.ds-preserved-form .field').first().evaluate(el=>getComputedStyle(el).getPropertyValue('--t-action')),await page.locator('.ds-preserved-form').evaluate(el=>getComputedStyle(el).getPropertyValue('--t-action')));
+  await open(fieldKey);await pick('Plum Sorbet');await page.keyboard.press('Escape');
+  await page.evaluate(key=>window.HoeaDesignStudio.choose(key,2),contactKey);assert.equal(await page.locator('.ds-preserved-form [data-component-palette],.ds-preserved-form[data-component-palette]').count(),0);
+  await page.evaluate(key=>window.HoeaDesignStudio.choose(key,1),contactKey);assert.equal(await page.locator('.ds-preserved-form').getAttribute('data-component-palette'),'terracotta-sky');assert.equal(await page.locator('.ds-preserved-form .field').first().getAttribute('data-component-palette'),'plum-sorbet');
+  const finalExport=await page.evaluate(()=>window.HoeaDesignStudio.export());assert.equal(finalExport.effectiveColourOverrides[formKey],'terracotta-sky');assert.equal(finalExport.effectiveColourOverrides[fieldKey],'plum-sorbet');assert.equal(finalExport.effectiveColourOverrides['home:1:hero'],'aubergine-garden');
+  assert.deepEqual(errors,[]);console.log('PASS: independent palettes, 51 layouts, nested colour-only export, inheritance, persistence, dark mode and responsive menu.');
+}finally{await browser.close();server.close();}})().catch(e=>{console.error(e);process.exitCode=1;});

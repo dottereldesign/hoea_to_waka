@@ -67,3 +67,5 @@ Source files are in `design/theme-data.mjs`, `design/theme-init.js`, `design/app
 ## Contact form
 
 The current static form prepares a pre-addressed email in the visitor's email application. Before launch, connect it to a hosted form endpoint or the final website platform if submissions need to work without a local email app.
+
+Individual component palettes: open any component’s menu and choose **Colour scheme**. **Use site theme** is the default; nested cards, buttons, forms and fields offer **Use parent colours**. A pinned palette survives layout changes and follows the site light/dark mode. Nested choices belong to their parent layout. The footer handoff uses schema version 2 and includes `effectiveColourOverrides`, resolved per-component colours and colour-only nested overrides. Typography remains global. Verify with `node scripts/component-colours.cjs`.
