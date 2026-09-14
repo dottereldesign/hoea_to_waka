@@ -1,11 +1,15 @@
 import { palettes, fonts, roles, pairings } from './theme-data.mjs';
+import { draft, appearanceStorageKey } from './draft';
 
-const key='hoea-appearance-v1',root=document.documentElement;
-const defaults={palette:palettes[0].id,pairing:pairings[0].id,roles:{...pairings[0].roles}};
+const key=appearanceStorageKey,root=document.documentElement;
+const defaults={palette:draft.colour.id,pairing:pairings[0].id,roles:{...pairings[0].roles}};
 const valid=(list,id)=>list.some(item=>item.id===id);
 function sanitise(value){return {palette:valid(palettes,value?.palette)?value.palette:defaults.palette,pairing:valid(pairings,value?.pairing)?value.pairing:'custom',roles:Object.fromEntries(roles.map(role=>[role.id,valid(fonts,value?.roles?.[role.id])?value.roles[role.id]:defaults.roles[role.id]]))};}
 function read(){try{return sanitise(JSON.parse(localStorage.getItem(key))||defaults);}catch{return sanitise(defaults);}}
 let state=read();
+// Preserve this browser's typography, while starting the new draft from the
+// submitted palette. The earlier playground's saved appearance is untouched.
+try{if(!localStorage.getItem(key)){const previous=JSON.parse(localStorage.getItem('hoea-appearance-v1'));state=sanitise({...defaults,...previous,palette:draft.colour.id});localStorage.setItem(key,JSON.stringify(state));setMode(draft.colour.mode);}}catch{}
 function apply(persist=true){
   root.dataset.palette=state.palette;
   root.dataset.typography=state.pairing;

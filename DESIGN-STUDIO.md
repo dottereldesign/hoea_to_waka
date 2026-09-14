@@ -2,7 +2,7 @@
 
 ## Shared colours and typography
 
-The layout library now shares 10 site-wide colour palettes and six typography roles. Open **Colours & type** at the bottom left, or use the foundations shortcut inside Design studio. There are 10 font families and 10 suggested pairings. These settings apply to every current and earlier layout, including nested variations, and persist across routes. Layouts retain their geometry and motion; the new foundations control their colours and fonts. See [research and palette rationale](assets/THEME-RESEARCH.md). Historical colour/font descriptions below describe the original layout explorations.
+The layout library now shares 10 site-wide colour palettes and six typography roles. Open **Colours & type** at the bottom left, or use the foundations shortcut inside Design studio. There are 20 font families and 20 suggested pairings. These settings apply to every current and earlier layout, including nested variations, and persist across routes. Layouts retain their geometry and motion; the new foundations control their colours and fonts. See [research and palette rationale](assets/THEME-RESEARCH.md). Historical colour/font descriptions below describe the original layout explorations.
 
 
 ## Using the studio
@@ -146,3 +146,9 @@ GitHub Pages was returning 404 although its source was configured and the reposi
 Published URL: https://dottereldesign.github.io/hoea_to_waka/
 
 Individual component palettes: open any component’s menu and choose **Colour scheme**. **Use site theme** is the default; nested cards, buttons, forms and fields offer **Use parent colours**. A pinned palette survives layout changes and follows the site light/dark mode. Nested choices belong to their parent layout. The footer handoff uses schema version 3 and includes `effectiveColourOverrides`, resolved per-component colours and colour-only nested overrides. Typography remains global. Verify with `node scripts/component-colours.cjs`.
+
+## Draft 1
+
+Draft 1 uses the updated export from 14 September 2026 at 03:08:23 UTC, including Original navigation. Its saved baseline is `assets/drafts/draft-1.json`: 52 sections, one nested button choice and 14 local colour overrides, with Cobalt Atelier in light mode. The draft stays editable. **Restore Draft 1** in the footer or studio resets its layouts and colours while preserving typography. New browser storage keys isolate draft edits from the previous playground, and the original browser settings are retained. Existing typography is migrated to the draft; new browsers use the established default pairing. The JSON handoff includes draft provenance.
+
+Typography now has 20 locally hosted families and 20 suggested pairings. New families: Archivo, Bricolage Grotesque, Figtree, Geist, Public Sans, Lora, Literata, Cormorant Garamond, Bodoni Moda and DM Serif Display. Every role can select any family. Normal styles and Latin/Latin Extended subsets come from Google Fonts, with each font’s OFL licence stored beside it. Run `node scripts/draft.cjs` to check the submitted baseline, export, edit/restore persistence, old-browser migration and all20 font loads.

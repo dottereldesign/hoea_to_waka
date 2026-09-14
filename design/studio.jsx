@@ -8,11 +8,13 @@ import { componentSelector, atomSelector, atomType, createHandoff, downloadHando
 import { ComponentColours, colourKey, validPalette, applyColour, clearColour } from './component-colours';
 import { validLayout, layoutInfo, recommendedLayouts, stepLayout, renderLayout, categories, purposeLayouts } from './layout-catalog';
 import { CategoryLibrary, CategoryDirectory } from './catalog-picker';
+import { draft, draftStorageKey, draftChoices } from './draft';
 
 const names = ['Original','Editorial','Open water','Blueprint','Field notes','Constellation',...directions.map(d=>d.name)];
-const storageKey='hoea-design-studio-v1';
-let saved={};try{saved=JSON.parse(localStorage.getItem(storageKey)||'{}');}catch{}
-if(!saved||typeof saved!=='object'||Array.isArray(saved))saved={};
+document.title=document.title.replace(/ — Draft 1$/,'')+' — Draft 1';
+const storageKey=draftStorageKey;
+let saved=draftChoices();try{const stored=localStorage.getItem(storageKey);if(stored)saved=JSON.parse(stored);else localStorage.setItem(storageKey,JSON.stringify(saved));}catch{}
+if(!saved||typeof saved!=='object'||Array.isArray(saved))saved=draftChoices();
 let persistedSnapshot=JSON.parse(JSON.stringify(saved));
 let reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 let paused = saved.motion === false;
@@ -212,19 +214,26 @@ window.addEventListener('scroll',requestPosition,{passive:true});window.addEvent
 const resize=new ResizeObserver(requestPosition);resize.observe(document.body);
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.querySelectorAll('.ds-menu-open').forEach(n=>{n.classList.remove('ds-menu-open');const b=n.querySelector('[data-ds-menu]');b?.setAttribute('aria-expanded','false');b?.setAttribute('aria-label','Open navigation');});document.querySelectorAll('.ds-quick-panel:not([hidden])').forEach(p=>p.parentElement.querySelector('[data-quick-toggle]')?.click());document.querySelectorAll('.ds-nav-service details[open]').forEach(d=>d.open=false);}});
 
-const dock=document.createElement('div');dock.className='ds-studio-dock';dock.innerHTML=`<button data-studio-home title="Design studio" aria-label="Open design studio">${icon('SlidersHorizontal',16)}<span>Design studio</span><b>Categories</b></button>`;overlay.append(dock);
+const dock=document.createElement('div');dock.className='ds-studio-dock';dock.innerHTML=`<button data-studio-home title="Design studio" aria-label="Open design studio">${icon('SlidersHorizontal',16)}<span>Design studio</span><b>Draft 1</b></button>`;overlay.append(dock);
 dock.querySelector('button').addEventListener('click',openStudio);
 function openStudio(){
   lastTrigger=dock.querySelector('button');
-  panelRoot.render(<><div className="ds-picker-head"><div><small>HOEA TŌ WAKA</small><h2>Your design studio</h2></div><button aria-label="Close studio" onClick={()=>panel.close()}>×</button></div><p className="ds-picker-help">Browse components by purpose. Fonts are shared; colours inherit the site theme unless you set a component palette.</p><button className="ds-foundations-link" onClick={()=>{panel.close();window.dispatchEvent(new CustomEvent('hoea:open-appearance'));}}>◐ Colours & typography — site-wide ↗</button><CategoryDirectory components={components} onOpen={openPicker}/><label className="ds-setting"><input type="checkbox" defaultChecked={saved.details!==false} onChange={e=>{saved.details=e.target.checked;persist();requestPosition();}}/> Show card, button & field controls</label><label className="ds-setting"><input type="checkbox" defaultChecked={!paused&&!reduced} disabled={reduced} onChange={e=>{paused=!e.target.checked;saved.motion=!paused;persist();document.documentElement.classList.toggle('ds-motion-paused',paused||reduced);components.filter(c=>c.value).forEach(c=>render(c,c.value,{quiet:true}));}}/> Motion {reduced?'(reduced by system preference)':''}</label><div className="ds-studio-actions"><button onClick={exportSelection}>Export choices</button><button onClick={()=>{Object.keys(saved).forEach(k=>{if(k!=='motion'&&k!=='details'&&k!=='favourites')delete saved[k];});persist();components.forEach(c=>render(c,0,{quiet:true}));panel.close();announce('All original designs restored');}}>Reset originals</button></div><a className="ds-brief-link" href={url('DESIGN-STUDIO.md')} target="_blank">Design research & asset brief ↗</a></>);
+  panelRoot.render(<><div className="ds-picker-head"><div><small>HOEA TŌ WAKA</small><h2>Draft 1 · design studio</h2></div><button aria-label="Close studio" onClick={()=>panel.close()}>×</button></div><p className="ds-picker-help">Browse components by purpose. Fonts are shared; colours inherit the site theme unless you set a component palette.</p><button className="ds-foundations-link" onClick={()=>{panel.close();window.dispatchEvent(new CustomEvent('hoea:open-appearance'));}}>◐ Colours & typography — site-wide ↗</button><CategoryDirectory components={components} onOpen={openPicker}/><label className="ds-setting"><input type="checkbox" defaultChecked={saved.details!==false} onChange={e=>{saved.details=e.target.checked;persist();requestPosition();}}/> Show card, button & field controls</label><label className="ds-setting"><input type="checkbox" defaultChecked={!paused&&!reduced} disabled={reduced} onChange={e=>{paused=!e.target.checked;saved.motion=!paused;persist();document.documentElement.classList.toggle('ds-motion-paused',paused||reduced);components.filter(c=>c.value).forEach(c=>render(c,c.value,{quiet:true}));}}/> Motion {reduced?'(reduced by system preference)':''}</label><div className="ds-studio-actions"><button onClick={restoreDraft}>Restore Draft 1</button><button onClick={exportSelection}>Export choices</button><button onClick={()=>{Object.keys(saved).forEach(k=>{if(k!=='motion'&&k!=='details'&&k!=='favourites')delete saved[k];});persist();components.forEach(c=>render(c,0,{quiet:true}));panel.close();announce('All original designs restored');}}>Reset originals</button></div><a className="ds-brief-link" href={url('DESIGN-STUDIO.md')} target="_blank">Design research & asset brief ↗</a></>);
   if(!panel.open)panel.showModal();panel.style.width=`${Math.min(600,innerWidth-24)}px`;panel.style.left='12px';panel.style.top='12px';
+}
+function restoreDraft(){
+  releaseControls();saved=draftChoices();try{localStorage.setItem(storageKey,JSON.stringify(saved));}catch{}persistedSnapshot=JSON.parse(JSON.stringify(saved));paused=saved.motion===false;
+  document.documentElement.classList.toggle('ds-motion-paused',paused||reduced);
+  window.HoeaAppearance.setPalette(draft.colour.id);window.HoeaAppearance.setMode(draft.colour.mode);
+  components.forEach(c=>render(c,saved[c.key]??1,{quiet:true,initial:true}));
+  if(panel.open)panel.close();announce('Draft 1 layouts and colours restored. Your typography is unchanged.');
 }
 let exporting=false;
 function mountHandoff(footer){
   if(footer.querySelector('[data-design-handoff]'))return;
   const handoff=document.createElement('div');handoff.className='ds-handoff';handoff.dataset.designHandoff='';
-  handoff.innerHTML=`<div><strong>Happy with your choices?</strong><p>Export all page designs, your site theme and individual component palettes in one file. Share it with your designer for the client-ready version.</p><a class="ds-prompts-link" href="${url('prompts/')}">Prompts ${icon('ArrowUpRight',16)}</a></div><button type="button" class="ds-handoff-button">${icon('Download',18)}<span>Export my design choices</span></button>`;
-  const button=handoff.querySelector('button');button.disabled=exporting;button.addEventListener('click',exportSelection);footer.append(handoff);
+  handoff.innerHTML=`<div><strong>Draft 1 · keep exploring</strong><p>Your selected designs are saved as Draft 1. Keep editing, or export your latest choices. Share it with your designer for the client-ready version.</p><a class="ds-prompts-link" href="${url('prompts/')}">Prompts ${icon('ArrowUpRight',16)}</a></div><button type="button" class="ds-handoff-button">${icon('Download',18)}<span>Export my design choices</span></button><button type="button" class="ds-draft-restore">Restore Draft 1</button>`;
+  const button=handoff.querySelector('button');button.disabled=exporting;button.addEventListener('click',exportSelection);handoff.querySelector('.ds-draft-restore').addEventListener('click',restoreDraft);footer.append(handoff);
 }
 async function exportSelection(){
   if(exporting)return;exporting=true;
@@ -246,4 +255,4 @@ if(saved.details===undefined)saved.details=true;
 components.forEach(c=>render(c,validLayout(c.type,forced)?forced:(validLayout(c.type,saved[c.key])?saved[c.key]:1),{quiet:true,initial:true}));
 requestPosition();
 matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change',e=>{reduced=e.matches;document.documentElement.classList.toggle('ds-motion-paused',paused||reduced);components.filter(c=>c.value).forEach(c=>render(c,c.value,{quiet:true,initial:true}));});
-window.HoeaDesignStudio={components,export:exportSelection,choose:(key,v)=>{const c=components.find(c=>c.key===key);if(c&&validLayout(c.type,v))render(c,v);},all:v=>{if(Number.isInteger(v)&&v>=0&&v<=MAX_VARIANT)components.forEach(c=>render(c,v,{quiet:true}));},directions:names.map((name,id)=>({id,name,collection:direction(id)?.collection||'Existing'})),categories,purposeLayouts,options:key=>{const entry=components.find(c=>c.key===key)||atomEntries.find(a=>a.key===key);return entry?recommendedLayouts(entry):[];},version:3};
+window.HoeaDesignStudio={draft,storageKey,restoreDraft,components,export:exportSelection,choose:(key,v)=>{const c=components.find(c=>c.key===key);if(c&&validLayout(c.type,v))render(c,v);},all:v=>{if(Number.isInteger(v)&&v>=0&&v<=MAX_VARIANT)components.forEach(c=>render(c,v,{quiet:true}));},directions:names.map((name,id)=>({id,name,collection:direction(id)?.collection||'Existing'})),categories,purposeLayouts,options:key=>{const entry=components.find(c=>c.key===key)||atomEntries.find(a=>a.key===key);return entry?recommendedLayouts(entry):[];},version:3};

@@ -232,6 +232,244 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 400 800;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(fonts/themes/archivo-latin-ext-0.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 400 800;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(fonts/themes/archivo-latin-1.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 400 800;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(fonts/themes/bricolage-grotesque-latin-ext-0.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  font-style: normal;
+  font-weight: 400 800;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(fonts/themes/bricolage-grotesque-latin-1.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Figtree';
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url(fonts/themes/figtree-latin-ext-0.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Figtree';
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url(fonts/themes/figtree-latin-1.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Geist';
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url(fonts/themes/geist-latin-ext-0.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Geist';
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url(fonts/themes/geist-latin-1.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Public Sans';
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url(fonts/themes/public-sans-latin-ext-0.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Public Sans';
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url(fonts/themes/public-sans-latin-1.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url(fonts/themes/lora-latin-ext-0.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url(fonts/themes/lora-latin-1.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Literata';
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url(fonts/themes/literata-latin-ext-0.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Literata';
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url(fonts/themes/literata-latin-1.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/themes/cormorant-garamond-latin-ext-0.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/themes/cormorant-garamond-latin-1.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(fonts/themes/cormorant-garamond-latin-ext-2.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(fonts/themes/cormorant-garamond-latin-3.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(fonts/themes/cormorant-garamond-latin-ext-4.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(fonts/themes/cormorant-garamond-latin-5.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(fonts/themes/cormorant-garamond-latin-ext-6.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(fonts/themes/cormorant-garamond-latin-7.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Bodoni Moda';
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url(fonts/themes/bodoni-moda-latin-ext-0.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Bodoni Moda';
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url(fonts/themes/bodoni-moda-latin-1.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'DM Serif Display';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/themes/dm-serif-display-latin-ext-0.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'DM Serif Display';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(fonts/themes/dm-serif-display-latin-1.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 html[data-palette="tidal-bloom"],[data-component-palette="tidal-bloom"]{--paint-f5f3eb:#f4f3ef;--paint-183e35:#2a3b36;--paint-53695f:#4c6b60;--paint-dfe89a:#e5dfee;--paint-cbd2c5:#d4cfc4;--paint-fffdf6:#fdfcfc;--paint-f39b47:#d6a492;--paint-e9e8dc:#eae8e1;--paint-ffffff:#fdfcfc;--paint-102d32:#0b2e30;--paint-0c3337:#0d3336;--paint-f2f2df:#f2eff6;--paint-c7d6ce:#d7d3c7;--paint-bbd7c0:#bad6cd;--paint-426265:#23666a;--paint-19454a:#114649;--paint-062e32:#0b2e30;--paint-53796b:#56796d;--paint-153c40:#0f3c40;--paint-000000:#080e0e;--paint-64827a:#5e8476;--paint-1649dc:#1f6267;--paint-f7f6e9:#f7f6f3;--paint-d5e1ff:#d8e4e4;--paint-d7ef78:#e7e1ef;--paint-6a8dea:#6c999c;--paint-285be4:#327074;--paint-143690:#114448;--paint-efdfc4:#f0ddd6;--paint-543529:#5d3020;--paint-705649:#8d4830;--paint-e9b290:#deb5a6;--paint-bfa991:#d4a18f;--paint-faf0de:#f8f0ed;--paint-795b38:#954c33;--paint-fffaf0:#fbfbf9;--paint-573824:#623221;--paint-bfab90:#d5a391;--paint-593b22:#653423;--paint-bda580:#d29c89;--paint-b8a087:#d09683;--paint-122b29:#0b2b2e;--paint-edffdc:#f6faf8;--paint-b4cab4:#a8ccbf;--paint-d7f98f:#efebf4;--paint-395650:#3d564d;--paint-1b3832:#273731;--paint-123025:#202d29;--paint-bde991:#cbe1d9;--paint-c3e48a:#ddd6e8;--paint-466e42:#4c6b60;--paint-193c33:#293a34;--paint-fffef3:#fdfcfc;--paint-234537:#30433c;--paint-e0edac:#e9e4f0;--paint-fffefa:#fdfcfc;--paint-fffdf5:#fdfcfc;--paint-d9ddd0:#e0dbd1;--paint-0b2924:#0a292b;--paint-1c3b32:#283833;--paint-102c25:#1e2925;--paint-eeeee4:#efede9;--paint-627267:#407777;--paint-d8dece:#e0dbd2;--paint-49644b:#47635a;--paint-edf3d9:#f1eff6;--paint-658343:#5c8175;--paint-566952:#4c6b60;--paint-9aaa8d:#7daf9e;--paint-deecf7:#e3ebec;--paint-4b91d3:#669498;--paint-254d3c:#344942;--paint-bbcfa1:#aecfc4;--paint-b5c8b5:#a5cbbe;--paint-dae991:#e4dfed;--paint-e8d4b4:#ead2c9;--paint-af8363:#c37960;--paint-b7d986:#d3c9e2;--paint-234733:#30443d;--paint-fbfaec:#faf9f8;--paint-b6ccb0:#aacdc1;--paint-dce8ab:#e5dfee;--paint-ecf1d9:#f0edf5;--paint-cae3f6:#d5e2e3;--paint-b9cb8e:#cabedc;--paint-c39871:#ce937e;--paint-244936:#32463f;--paint-edf0e3:#f0eeea;--paint-264c37:#344941;--paint-183b32:#283833;--paint-fafcef:#fbfbf9;--paint-a68c65:#c57e66;--paint-1d3028:#222f2a;--paint-f1f1dc:#f1eff6;--paint-c3caba:#ccc8bc;--paint-4a5e4a:#445f55;--paint-263c30:#2a3a35;--paint-627541:#79659c;--paint-332d26:#1a3232;--paint-f2e5cd:#f3e4de;--paint-cec2b1:#e1bcaf;--paint-685947:#8d4830;--paint-40392f:#213f3f;--paint-917455:#b86143;--paint-a9dfd3:#bfdad1;--paint-d9ded5:#e0dcd3;--paint-adb8ac:#b9b5aa;--paint-c37518:#c07359;--paint-0b202d:#082223;--paint-0f2737:#0a292b;--paint-173b55:#0f3f42;--paint-24486f:#134e52;--paint-365f8d:#23666a;--paint-104fc8:#1d6166;--paint-f3f3f4:#f5f3f0;--paint-050414:#080e0e;--paint-73acd1:#88acae;--paint-a3d9f6:#c3d5d6;--paint-3d9be9:#739da0;--paint-c9e6f5:#d8e4e4;--paint-e8f4fa:#f3f2ee;--paint-fcfdfe:#fdfcfc;--paint-111a20:#0e1b1c;--paint-5d6972:#337175;--paint-743f64:#594a72;--paint-2e8c79:#5f8578;--paint-dec328:#cabedc;--paint-100a09:#080e0e;--paint-fabc1c:#e2beb2;--paint-fffdf2:#fdfcfc;--paint-0d2432:#092628;--paint-112d3e:#0c2f32;--paint-102b3b:#0b2d2f;--paint-071923:#071a1c;--paint-f1f6f8:#f6f5f3;--paint-b4c1c8:#aac3c5;--paint-e2f0f7:#e8eff0;--paint-6fd0b7:#a0c7ba;--paint-9bcfeb:#b6ccce;--paint-8dccf2:#b1c8ca;--paint-6baee6:#8cafb1;--paint-225a8d:#1c6065;--paint-321a7b:#0d3437;--paint-070113:#080e0e;--paint-16416f:#11474a;--paint-0c2a4d:#0b2e31;--paint-08192e:#071b1d;--paint-071927:#071a1c;--paint-f8fafb:#faf9f8;--paint-0a1f2c:#082122;--paint-0b1e33:#082122;--paint-53636f:#296a6f;--paint-f8fbfd:#fbfbf9;--paint-e4f0f8:#e9f0f0;--paint-b9d3e6:#c1d3d5;--paint-eaf3f9:#f3f1ee;--paint-c8dcec:#cedcde;--paint-8eb2d0:#93b3b6;--paint-cedfec:#d2dfe0;--paint-90b2cf:#94b4b6;--paint-557fa7:#4f8488;--paint-163b62:#103f43;--paint-0a2849:#0b2b2e;--paint-061d36:#081f21;--paint-0b2747:#0b2a2d;--paint-061b33:#071e1f;--paint-031326:#051516;--paint-edf5fa:#f5f3f0;--paint-c8ddec:#ceddde;--paint-8eafca:#90b1b4;--paint-759ec2:#78a1a3;--paint-166cc5:#397579;--paint-287bc6:#4a8184;--paint-b6cad7:#b5cccd;--paint-e1e9ed:#eae8e1;--paint-8297a8:#719b9f;--paint-1d70c6:#3e787d;--paint-033080:#0f3b3f;--paint-021f55:#0a2629;--paint-021845:#081e20;--paint-145eae:#26676c;--paint-0853ae:#195f63;--paint-043e91:#124a4d;--paint-032b69:#0d3336;--paint-01173d:#071b1d;--paint-5babef:#87abae;--paint-2381e1:#55888c;--paint-edf6fb:#f6f5f2;--paint-5f85a8:#57898d;--paint-17395b:#0f3e41;--paint-d9e8f2:#dde7e8;--paint-dcedfc:#e5eced;--paint-3ec1ff:#9dbbbd;--paint-011c4c:#092224;--paint-0750c8:#1d6166;--paint-0796ec:#6b989b;--paint-0646b1:#15575b;--paint-0789d8:#5a8c8f;--paint-09265b:#0b2e30;--paint-071f4b:#092528;--paint-f9fbfc:#fbfbf9;--paint-4676a8:#437c80;--paint-834b71:#675684;--paint-635d8b:#2c6b70;--paint-113150:#0d3437;--paint-091827:#061a1b;--paint-985b84:#7a659c;--paint-431c36:#2e263b;--paint-756c9c:#437b80;--paint-514f7b:#175c61;--paint-302b51:#0d3638;--paint-dcecf5:#e2ebec;--paint-eadde8:#e4e0d8;--paint-dce6f1:#dce7e7;--paint-eeecf5:#efede9;--paint-1d2036:#092628;--paint-030d16:#040e0f;--paint-04111c:#051213;--paint-04101a:#041212;--paint-00070e:#080e0e;--paint-427392:#3c777b;--paint-234d66:#145055;--paint-06131d:#051516;--paint-091d2a:#081e20;--paint-102d3d:#0b2e31;--paint-f2f7fa:#f7f6f4;--paint-b8c8d1:#b3cacb;--paint-17384b:#0e3b3e;--paint-1b4057:#114347;--paint-365e78:#1f6267;--paint-1c4258:#114549;--paint-2d5872:#175c61;--paint-6a8fa7:#649396;--paint-17384d:#0e3b3e;--paint-254e69:#145257;--paint-517994:#467d81;--paint-0c2b43:#0b2e30;--paint-071d31:#081f21;--paint-03121f:#051315;--paint-071e33:#082122;--paint-031322:#051516;--paint-010b14:#040e0f;--paint-244d63:#145055;--paint-315d75:#1c6166;--paint-60869c:#57898d;--paint-8cbedb:#a0bcbf;--paint-2b576f:#165b5f;--paint-446b84:#317074;--paint-0e2d44:#0c2f32;--paint-294e62:#145256;--paint-081e2d:#081f21;--paint-1662b9:#2c6b70;--paint-03235b:#0b2a2d;--paint-01153a:#061a1b;--paint-05469f:#145357;--paint-043888:#114347;--paint-022258:#0a2a2c;--paint-416994:#317074;--paint-122a3e:#0b2d2f;--paint-a6033f:#7f412b;--paint-e40255:#b25b3c;--paint-f7fbfd:#fbfbf9;--paint-605e5e:#366767;--paint-111111:#0a1313;--paint-44c26d:#82b6a4;--paint-0dbdf6:#96b6b8;--paint-1c2135:#092628;--paint-f0f0e8:#f1f0eb;--paint-1e4566:#124a4d;--paint-24465a:#124a4d;--paint-103861:#0f3c40;--paint-eef8ff:#f7f6f4;--paint-061220:#051315;--paint-382e25:#4b2619;--paint-161616:#0c1818;--paint-5e78f7:#598b8e;--paint-4b67f7:#477e82;--paint-8599f9:#7fa5a8;--paint-cd7a59:#c57d65;--paint-b25739:#af593b;--paint-ffd6c4:#efdad4;--paint-451e11:#402116;--paint-de8c4d:#cd917c;--paint-c5692f:#bd6c50;--paint-ffdcb9:#f0dfd8;--paint-57280c:#532a1c;--paint-b99831:#a693c4;--paint-8d6d12:#af5a3c;--paint-f5e3a4:#e7e1ef;--paint-3c2e08:#4b2619;--paint-909d45:#a18dc0;--paint-6f7d2e:#826ca6;--paint-e0ecb0:#e9e4f0;--paint-2a340c:#352c43;--paint-639875:#6b9587;--paint-467057:#4e6d63;--paint-cce9d8:#d5e6e0;--paint-142b1e:#1d2924;--paint-1f6b5d:#48655b;--paint-b1e6d8:#cae0d9;--paint-0c2822:#1b2622;--paint-b76b75:#bc6b4f;--paint-934956:#944b32;--paint-f5cdd3:#ead2c9;--paint-39141e:#321a11;--paint-e7c5dc:#d3cae2;--paint-2c1022:#1c1724;--paint-b5694d:#ba6649;--paint-8d472e:#8c4730;--paint-efcab7:#e8ccc2;--paint-39180d:#341a12;--paint-847047:#b15a3c;--paint-625234:#82432c;--paint-dbcdab:#e6c8bd;--paint-2a1f0c:#341a12;--paint-f9fcfd:#fcfbfb;--paint-ebf0f4:#f1f0eb;--paint-e4eaee:#ebe9e3;--paint-0d1221:#051517;--paint-eef3ef:#f3f1ee;--paint-f3efe7:#f1f0eb;--paint-efece6:#efece7;--paint-ece7f3:#ebe9e2;--paint-23364c:#0e3b3e;--paint-24364b:#0e3b3e;--paint-1d2d41:#0c3134;--paint-f2f2f2:#f3f2ee;--paint-2c70d8:#437c80;--paint-163f95:#134c50;--paint-0b2044:#092527;--paint-8f98a1:#9a968e;--paint-efede8:#efede8;--paint-e9eff4:#f0eee9;--paint-113761:#0f3c40;--paint-eef5f9:#f5f3f0;--paint-e7eff5:#f0eee9;--paint-286f9f:#367277;--paint-f28ab1:#d39e8c;--paint-0b222f:#092325;--paint-edf0e5:#f0eeea;--paint-263a28:#283833;--paint-52614e:#466259;--paint-fafbf4:#fbfbf9;--paint-d0dfa4:#ddd6e8;--paint-b5c1aa:#9dc5b7;--paint-e9f2f1:#f1f0eb;--paint-123c44:#0f3c40;--paint-466970:#2d6c71;--paint-f8fcfa:#fcfbfa;--paint-b2d6d0:#bfd3d4;--paint-aec8c9:#b0c8c9;--paint-f1e8dc:#f4e6e2;--paint-49382e:#5c2f20;--paint-746053:#9a4f34;--paint-fff8ef:#faf9f7;--paint-e1b39a:#ddb3a5;--paint-cbbbaf:#deb5a7;--paint-f8f5ef:#f6f5f3;--paint-302c31:#1a3232;--paint-68616a:#396b6c;--paint-fffdfa:#fdfcfc;--paint-e5ced2:#e9cec4;--paint-cfc8cc:#cecabe;--paint-f2edcb:#eeeaf4;--paint-252c48:#0c3335;--paint-565a70:#226469;--paint-fffbed:#fbfbf9;--paint-d8dd8e:#dcd4e8;--paint-bdbda8:#c3b6d7;--paint-f6f5f1:#f6f5f2;--paint-3b4546:#264849;--paint-626f70:#3f7576;--paint-dce5df:#e6e3db;--paint-c5ceca:#d0cbc0;--paint-111d28:#081f21;--paint-edf4ed:#f3f2ee;--paint-b4c6cd:#b0c8c9;--paint-20303e:#0d3336;--paint-243f50:#104346;--paint-50616d:#26676c;--paint-f6e7dc:#f4e7e2;--paint-4a3138:#572d1e;--paint-76565c:#924b32;--paint-fff5eb:#fbf6f4;--paint-eac0b1:#e4c2b6;--paint-ceaca9:#d8aa99;--paint-e6e9e3:#ebe8e1;--paint-283931:#1e3a3a;--paint-53665a:#4a685d;--paint-f7f8f1:#f8f8f5;--paint-c6d0b6:#d2c9e1;--paint-acbbae:#bbb7ac;--ramp-0-1:#fbfcfd;--ramp-0-2:#f4f7f8;--ramp-0-3:#eaf0f0;--ramp-0-4:#d9e5e5;--ramp-0-5:#c3d5d6;--ramp-0-6:#a5c1c2;--ramp-0-7:#83a9ab;--ramp-0-8:#5e8e92;--ramp-0-9:#397579;--ramp-0-10:#16585d;--ramp-0-11:#0e3b3e;--ramp-0-12:#071a1c;--ramp-1-1:#fefcfb;--ramp-1-2:#fbf6f5;--ramp-1-3:#f7ece9;--ramp-1-4:#f0dfd8;--ramp-1-5:#e8ccc2;--ramp-1-6:#ddb2a4;--ramp-1-7:#cf947f;--ramp-1-8:#c07258;--ramp-1-9:#a65539;--ramp-1-10:#7c3f2a;--ramp-1-11:#512a1c;--ramp-1-12:#26130d;--ramp-2-1:#fdfcfd;--ramp-2-2:#f8f7fa;--ramp-2-3:#f0edf5;--ramp-2-4:#e5dfee;--ramp-2-5:#d6cee4;--ramp-2-6:#c3b6d7;--ramp-2-7:#ab9ac8;--ramp-2-8:#927cb7;--ramp-2-9:#776398;--ramp-2-10:#584870;--ramp-2-11:#39304a;--ramp-2-12:#1a1521;--ramp-3-1:#fbfdfc;--ramp-3-2:#f3f8f7;--ramp-3-3:#e6f1ed;--ramp-3-4:#d5e6e0;--ramp-3-5:#bbd7ce;--ramp-3-6:#9bc4b6;--ramp-3-7:#7bac9b;--ramp-3-8:#668f80;--ramp-3-9:#527367;--ramp-3-10:#3c554c;--ramp-3-11:#283732;--ramp-3-12:#121917;--ramp-4-1:#fdfcfc;--ramp-4-2:#f8f7f4;--ramp-4-3:#f0eeea;--ramp-4-4:#e5e2d9;--ramp-4-5:#d6d1c6;--ramp-4-6:#c0bcb1;--ramp-4-7:#a5a298;--ramp-4-8:#8a877f;--ramp-4-9:#6f6c66;--ramp-4-10:#52504b;--ramp-4-11:#363432;--ramp-4-12:#181816}
 html[data-palette="tidal-bloom"]:not([data-theme="dark"]),html:not([data-theme="dark"]) [data-component-palette="tidal-bloom"]{--t-bg:#f8f7f4;--t-surface:#fdfcfc;--t-raised:#f1f0eb;--t-ink:#082022;--t-muted:#185e62;--t-action:#185e62;--t-on-action:#fffdf8;--t-line:#89acaf;--t-soft:#d8e9e3;--t-accent:#ead0c8;--t-on-accent:#172126;--t-highlight:#ebe6f2;--t-on-highlight:#172126;--t-component-accent:#ebe6f2;--t-component-counter:#ead0c8;--t-inverse:#092325;--t-on-inverse:#f9f8f7;--t-inverse-muted:#d7d3c7;--t-focus:#7c3f2a;--t-success:#245d3b;--t-error:#9f292b}
 html[data-palette="tidal-bloom"][data-theme="dark"],html[data-theme="dark"] [data-component-palette="tidal-bloom"]{--t-bg:#071a1c;--t-surface:#0a292b;--t-raised:#0e3b3e;--t-ink:#f6f5f2;--t-muted:#c8c4b8;--t-action:#b1c8ca;--t-on-action:#172126;--t-line:#8a877f;--t-soft:#30433d;--t-accent:#c07258;--t-on-accent:#000000;--t-highlight:#a391c2;--t-on-highlight:#172126;--t-component-accent:#4f4265;--t-component-counter:#6b3725;--t-inverse:#092325;--t-on-inverse:#f9f8f7;--t-inverse-muted:#d7d3c7;--t-focus:#e9cec4;--t-success:#9bd7b3;--t-error:#ffb8b0}
@@ -335,8 +573,10 @@ html[data-palette] .home-hero-photo-wave stop:last-child{stop-color:var(--ramp-0
 .ds-handoff-button{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;gap:10px;min-height:46px;padding:12px 18px;border:1px solid var(--t-action);border-radius:30px;background:var(--t-action);color:var(--t-on-action)!important;font:600 12px/1.5 var(--font-ui);cursor:pointer}
 .ds-handoff-button:hover{filter:brightness(.92)}.ds-handoff-button:disabled{cursor:wait;opacity:.7}
 .ds-handoff{margin-bottom:100px;scroll-margin-bottom:160px}
+.ds-handoff{position:relative;z-index:1;flex-wrap:wrap}.ds-handoff>div{flex:1 1 300px}.ds-draft-restore{padding:12px 18px;min-height:46px;border:1px solid var(--t-line);border-radius:30px;background:var(--t-bg);color:var(--t-ink);font:600 12px/1.5 var(--font-ui);cursor:pointer}
 @media(max-width:600px){.ds-handoff{flex-direction:column;align-items:stretch;margin:25px 0 100px;padding:20px;gap:18px}.ds-handoff-button{white-space:normal}.site-footer>.ds-handoff{margin-inline:20px}.ds-switcher,.ds-switcher-small{width:108px;height:38px;padding:3px;gap:2px}.ds-switcher-small .ds-step,.ds-switcher-small .ds-badge{width:32px;height:30px;flex-basis:32px}}
 @media print{.ds-handoff{display:none!important}}
+@media(max-width:600px){.ds-handoff>div{flex:1 1 auto}}
 
 /* Rebind derived aliases at each boundary: inherited CSS variables are already resolved. */
 .home-hero[data-component-palette]{background:linear-gradient(180deg,var(--t-soft),var(--t-bg))}

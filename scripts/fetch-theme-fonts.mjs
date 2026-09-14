@@ -3,7 +3,7 @@ import { fonts } from '../design/theme-data.mjs';
 await mkdir('assets/fonts/themes',{recursive:true});
 const css=[];
 for(const font of fonts){
-  const weights=font.id==='ibm-plex-mono'?'400;500;600;700':font.id==='space-grotesk'?'400..700':'400..800';
+  const weights=font.id==='dm-serif-display'?'400':font.id==='ibm-plex-mono'||font.id==='cormorant-garamond'?'400;500;600;700':['space-grotesk','lora'].includes(font.id)?'400..700':'400..800';
   const response=await fetch(`https://fonts.googleapis.com/css2?family=${font.name.replaceAll(' ','+')}:wght@${weights}&display=swap`,{headers:{'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36'}});
   if(!response.ok)throw new Error(`${font.name}: ${response.status}`);
   const source=await response.text();

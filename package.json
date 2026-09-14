@@ -15,7 +15,8 @@
     "preview": "node scripts/preview.cjs",
     "test:catalog": "node scripts/catalog.cjs",
     "test:component-colours": "node scripts/component-colours.cjs",
-    "test:prompts": "node scripts/prompts.cjs"
+    "test:prompts": "node scripts/prompts.cjs",
+    "test:draft": "node scripts/draft.cjs"
   },
   "dependencies": {
     "lucide": "^0.468.0",

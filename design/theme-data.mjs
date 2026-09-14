@@ -22,6 +22,16 @@ export const fonts = [
   ['newsreader','Newsreader','serif','Literary detail and reading rhythm'],
   ['source-serif-4','Source Serif 4','serif','Sturdy, considered text serif'],
   ['ibm-plex-mono','IBM Plex Mono','monospace','Precise labels and annotation'],
+  ['archivo','Archivo','sans-serif','Compact editorial sans with a confident rhythm'],
+  ['bricolage-grotesque','Bricolage Grotesque','sans-serif','Expressive headlines with lively, human details'],
+  ['figtree','Figtree','sans-serif','Friendly reading sans with generous clarity'],
+  ['geist','Geist','sans-serif','Restrained contemporary interface typography'],
+  ['public-sans','Public Sans','sans-serif','Straightforward, sturdy humanist sans'],
+  ['lora','Lora','serif','Warm calligraphic detail for considered reading'],
+  ['literata','Literata','serif','Bookish, open forms for longer text'],
+  ['cormorant-garamond','Cormorant Garamond','serif','Delicate, high-contrast editorial headings'],
+  ['bodoni-moda','Bodoni Moda','serif','Dramatic contrast and refined display proportions'],
+  ['dm-serif-display','DM Serif Display','serif','Bold, compact serif statements'],
 ].map(([id,name,fallback,note])=>({id,name,fallback,note,stack:`"${name}", ${fallback}`}));
 export const roles = [
   ['display','Display headings','Large page titles and hero statements'],
@@ -42,7 +52,17 @@ export const pairings = [
   ['expressive-archive','Expressive archive','Characterful display serif, reading serif and precise annotations.','fraunces','newsreader','ibm-plex-mono'],
   ['clear-current','Clear current','One versatile family creates a clear, consistent hierarchy.','manrope','manrope','manrope'],
   ['civic-notes','Civic notes','Practical serif headings, readable sans paragraphs and mono details.','source-serif-4','dm-sans','ibm-plex-mono'],
-].map(([id,name,note,heading,body,detail])=>({id,name,note,roles:{display:heading,heading,body,eyebrow:detail,ui:body==='newsreader'||body==='source-serif-4'?'manrope':body,small:detail}}));
+  ['warm-dialogue','Warm dialogue','Characterful headings with a friendly reading voice.','bricolage-grotesque','figtree','figtree'],
+  ['contemporary-book','Contemporary book','Warm literary titles above a sturdy humanist body.','lora','public-sans','public-sans'],
+  ['clear-editorial','Clear editorial','Compact headline shapes and a restrained interface.','archivo','geist','geist'],
+  ['considered-essay','Considered essay','Bookish reading rhythm with clean supporting details.','literata','literata','public-sans'],
+  ['graceful-space','Graceful space','Fine editorial headings balanced with open, readable text.','cormorant-garamond','figtree','figtree'],
+  ['bold-journal','Bold journal','Weighty serif statements and understated reading text.','dm-serif-display','dm-sans','public-sans'],
+  ['modern-colophon','Modern colophon','Crisp fashion-editorial contrast with a quiet digital body.','bodoni-moda','geist','geist'],
+  ['public-conversation','Public conversation','An accessible-feeling, direct sans system for practical information.','public-sans','public-sans','ibm-plex-mono'],
+  ['friendly-notes','Friendly notes','An inviting all-sans family with restrained labels.','figtree','figtree','archivo'],
+  ['craft-and-clarity','Craft and clarity','Expressive sans titles, warm serif reading and precise annotations.','bricolage-grotesque','lora','geist'],
+].map(([id,name,note,heading,body,detail])=>({id,name,note,roles:{display:heading,heading,body,eyebrow:detail,ui:fonts.find(f=>f.id===body)?.fallback==='serif'?'manrope':body,small:detail}}));
 
 export function rgb(hex){return hex.replace('#','').match(/../g).slice(0,3).map(v=>parseInt(v,16));}
 export function hex(channels){return '#'+channels.map(c=>Math.round(Math.max(0,Math.min(255,c))).toString(16).padStart(2,'0')).join('');}

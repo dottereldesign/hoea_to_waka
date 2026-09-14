@@ -13,5 +13,7 @@
 .ds-handoff-button{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;gap:10px;min-height:46px;padding:12px 18px;border:1px solid var(--t-action);border-radius:30px;background:var(--t-action);color:var(--t-on-action)!important;font:600 12px/1.5 var(--font-ui);cursor:pointer}
 .ds-handoff-button:hover{filter:brightness(.92)}.ds-handoff-button:disabled{cursor:wait;opacity:.7}
 .ds-handoff{margin-bottom:100px;scroll-margin-bottom:160px}
+.ds-handoff{position:relative;z-index:1;flex-wrap:wrap}.ds-handoff>div{flex:1 1 300px}.ds-draft-restore{padding:12px 18px;min-height:46px;border:1px solid var(--t-line);border-radius:30px;background:var(--t-bg);color:var(--t-ink);font:600 12px/1.5 var(--font-ui);cursor:pointer}
 @media(max-width:600px){.ds-handoff{flex-direction:column;align-items:stretch;margin:25px 0 100px;padding:20px;gap:18px}.ds-handoff-button{white-space:normal}.site-footer>.ds-handoff{margin-inline:20px}.ds-switcher,.ds-switcher-small{width:108px;height:38px;padding:3px;gap:2px}.ds-switcher-small .ds-step,.ds-switcher-small .ds-badge{width:32px;height:30px;flex-basis:32px}}
 @media print{.ds-handoff{display:none!important}}
+@media(max-width:600px){.ds-handoff>div{flex:1 1 auto}}

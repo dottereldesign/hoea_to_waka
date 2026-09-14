@@ -1,6 +1,7 @@
 import { classify, extract, renderers, url } from './renderers';
 import { palettes, semanticTokens } from './theme-data.mjs';
 import { validLayout, layoutInfo, renderLayout, categoryFor } from './layout-catalog';
+import { draft } from './draft';
 
 export const componentSelector='body > .site-header,main > section,body > .site-footer,.error-card,body > .site-utility-menu';
 export const atomSelector='[data-card-unit],.ds-button,.ds-preserved-form,.ds-preserved-form .field';
@@ -69,6 +70,7 @@ export async function createHandoff({saved,components,atoms,route,names,atomName
   }
   return {
     format:'hoea-to-waka/client-design-handoff',schemaVersion:3,studioVersion:3,
+    draft:{id:draft.id,name:draft.name,baselineExportedAt:draft.sourceExportedAt},
     exportedAt:new Date().toISOString(),site:url(''),exportedFrom:route,
     purpose:'Use these selections to build a client-ready version of the existing site. Remove the design picker, stepping arrows, appearance controls and export controls from that client version. Keep typography unchanged.',
     colour:{id:palette.id,name:palette.name,mode,families:[...palette.colours],tokens:semanticTokens(palette,mode==='dark')},
