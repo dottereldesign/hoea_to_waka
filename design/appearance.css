@@ -1,4 +1,8 @@
 /* Shared component roles win over layout and nested-variation paint choices. */
+/* Subpage header surfaces reach the viewport edge behind the floating navbar. */
+body:has(.site-main > :is(.page-hero,.ds-type-header):first-child) > .site-header{position:fixed;left:0;right:0;margin-top:0}
+body:has(.site-main > :is(.page-hero,.ds-type-header):first-child) > .ds-type-navbar{position:absolute;top:0;left:0;right:0;width:100%;z-index:100}
+.site-main > :is(.page-hero,.ds-type-header):first-child{margin-top:0!important;padding-top:max(calc(var(--ds-nav-clearance,104px) + 48px),clamp(152px,15vw,230px))!important}
 html[data-palette] .ds-component{--ds-bg:var(--section-surface,var(--t-bg))!important;--ds-ink:var(--t-ink)!important;--ds-muted:var(--t-muted)!important;--ds-surface:var(--t-surface)!important;--ds-accent:var(--t-component-accent)!important;--ds-line:var(--t-line)!important;--ex-font:var(--font-heading)!important}
 /* Consistent section roles put the mixed palette to work throughout every layout. */
 html[data-palette] .ds-type-statement{--section-surface:var(--t-soft)}

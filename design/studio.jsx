@@ -31,6 +31,11 @@ const forced = params.has('design') ? Math.max(0,Math.trunc(Number(params.get('d
 const originals = new Map();
 const originalThemeToggle=document.querySelector('[data-theme-toggle]');
 const components = [];
+// Keep header copy clear of whichever navbar is currently selected.
+const navSize = new ResizeObserver(entries=>{
+  const nav=entries[0]?.target;
+  if(nav)document.body.style.setProperty('--ds-nav-clearance',`${nav.getBoundingClientRect().height+32}px`);
+});
 const route = document.querySelector('.error-card')?'404.html':location.pathname.replace(new URL(url('')).pathname,'').replace(/index.html$/,'') || 'home';
 const toast=document.createElement('div');toast.className='ds-toast';toast.setAttribute('role','status');document.body.append(toast);
 let toastTimer;
@@ -77,6 +82,7 @@ function render(c,value,{quiet=false,initial=false}={}){
   if(value===0){c.form?.classList.remove('ds-preserved-form');if(originalThemeToggle){const dark=document.documentElement.dataset.theme==='dark';originalThemeToggle.setAttribute('aria-pressed',String(dark));originalThemeToggle.setAttribute('aria-label',dark?'Switch to light theme':'Switch to dark theme');}}
   document.body.classList.toggle('ds-new-nav',components.find(x=>x.type==='navbar')?.value>0);
   document.body.classList.toggle('ds-original-nav',components.find(x=>x.type==='navbar')?.value===0);
+  if(c.type==='navbar'){navSize.disconnect();navSize.observe(c.el);}
   if(!initial){saved[c.key]=value;persist(); if(previous.bottom<0) window.scrollBy(0,c.el.getBoundingClientRect().height-previous.height);}
   registerAtoms(c);
   applyColour(c,saved);
@@ -179,7 +185,7 @@ function positionBadges(){
   const used=[];
   const overlaps=(a,b)=>a.x<b.x+b.width+3&&a.x+a.width+3>b.x&&a.y<b.y+b.height+3&&a.y+a.height+3>b.y;
   // Tooling must never intercept navigation, enquiry controls or the export action.
-  const reserved=[...document.querySelectorAll('body a,body button,body input,body select,body textarea,body summary')].filter(el=>!el.closest('.ds-overlay,.ds-picker,.ap-dialog')).map(el=>el.getBoundingClientRect()).filter(r=>r.width&&r.height&&r.bottom>0&&r.top<innerHeight);
+  const reserved=[...document.querySelectorAll('body a,body button,body input,body select,body textarea,body summary')].filter(el=>!el.closest('.ds-overlay,.ds-picker,.ap-dialog')&&getComputedStyle(el).visibility==='visible').map(el=>el.getBoundingClientRect()).filter(r=>r.width&&r.height&&r.bottom>0&&r.top<innerHeight);
   const dockRect=dock.getBoundingClientRect();if(dockRect.width)reserved.push(dockRect);
   for(const entry of [...(pinnedControl?[pinnedControl.entry]:[]),...components.filter(c=>c!==pinnedControl?.entry),...atomEntries]){
     const el=entry.el,r=el.getBoundingClientRect(),b=entry.controls;
@@ -188,7 +194,8 @@ function positionBadges(){
     b.hidden=!!hidden;if(hidden)continue;
     const width=b.offsetWidth,height=b.offsetHeight;
     let x=Math.max(4,Math.min(innerWidth-width-6,r.right-width-10));let y=Math.max(4,r.top+(entry.atom?5:10));
-    if(entry.type==='navbar') {x=innerWidth-width-6;y=Math.max(4,r.bottom-height-4);}
+    if(entry.type==='navbar') {x=innerWidth-width-6;y=Math.max(4,r.bottom+10);}
+    if(entry.type==='header'&&r.top<1){const nav=components.find(c=>c.type==='navbar');if(nav)y=Math.max(y,nav.el.getBoundingClientRect().bottom+10);}
     if(entry.type==='utility'){y=Math.max(4,r.top-height-6);}
     if(entry.atom&&entry.type==='button'){y=Math.max(4,r.top-height-3);}
     const xs=[x,r.right+6,r.left-width-6,Math.max(4,r.left+6)];
