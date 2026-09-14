@@ -113,11 +113,22 @@ const overlay=document.createElement('div');overlay.className='ds-overlay';overl
 const panel=document.createElement('dialog');panel.className='ds-picker';panel.setAttribute('aria-label','Component design options');document.body.append(panel);
 const panelRoot=createRoot(panel);
 let active=null,lastTrigger=null;
+// A browsing session owns one viewport anchor. Layout-driven scroll anchoring,
+// animation and new content must not move the controls out from under the user.
+let pinnedControl=null;
+function pinControls(entry){
+  if(entry.atom||entry.controls.hidden)return;
+  if(pinnedControl?.entry===entry)return;
+  const r=entry.controls.getBoundingClientRect();
+  pinnedControl={entry,x:r.x,y:r.y};
+}
+function releaseControls(){if(pinnedControl){pinnedControl=null;requestPosition();}}
 const atomEntries=[];
 function addBadge(entry,label,small=false){
   const group=document.createElement('div');group.className=`ds-switcher${small?' ds-switcher-small':''}`;group.setAttribute('role','group');group.setAttribute('aria-label',`${entry.atom?entry.type:titles[entry.type]||'Quick contact'} design controls`);group.dataset.componentKey=entry.key;
+  group.addEventListener('pointerdown',()=>pinControls(entry));
   const b=document.createElement('button');b.className=`ds-badge${small?' ds-badge-small':''}`;b.innerHTML=icon(small?'SlidersHorizontal':'Layers',small?12:15);b.type='button';b.setAttribute('aria-label',label);b.setAttribute('aria-haspopup','dialog');b.addEventListener('click',()=>{lastTrigger=b;openPicker(entry);});
-  const stepButton=delta=>{const button=document.createElement('button');button.type='button';button.className='ds-step';button.dataset.step=delta;button.innerHTML=icon(delta<0?'ChevronLeft':'ChevronRight',16);button.setAttribute('aria-label',`${delta<0?'Previous':'Next'} ${entry.atom?entry.type:titles[entry.type]||'Quick contact'} design`);button.addEventListener('click',()=>{const next=stepLayout(entry,delta);if(entry.atom){applyAtom(entry,next);announce(`${entry.type}: ${layoutInfo(entry.type,next,true).name}`);}else render(entry,next);button.focus({preventScroll:true});});return button;};
+  const stepButton=delta=>{const button=document.createElement('button');button.type='button';button.className='ds-step';button.dataset.step=delta;button.innerHTML=icon(delta<0?'ChevronLeft':'ChevronRight',16);button.setAttribute('aria-label',`${delta<0?'Previous':'Next'} ${entry.atom?entry.type:titles[entry.type]||'Quick contact'} design`);button.addEventListener('click',()=>{pinControls(entry);const next=stepLayout(entry,delta);if(entry.atom){applyAtom(entry,next);announce(`${entry.type}: ${layoutInfo(entry.type,next,true).name}`);}else render(entry,next);button.focus({preventScroll:true});});return button;};
   group.append(stepButton(-1),b,stepButton(1));overlay.append(group);entry.controls=group;return b;
 }
 components.forEach(c=>{c.badge=addBadge(c,`Change ${titles[c.type]||'Quick contact'} design`);});
@@ -155,7 +166,7 @@ function Picker({entry}){
   const title=entry.atom?entry.type:titles[entry.type]||'Quick contact';
   return <><div className="ds-picker-head"><div><small>COMPONENT STUDIO · CHOOSE BY PURPOSE</small><h2>{title}</h2></div><button aria-label="Close design options" onClick={()=>panel.close()} dangerouslySetInnerHTML={{__html:icon('X')}}/></div><ComponentColours entry={entry} value={colour} onChange={id=>{const key=colourKey(entry.key);if(id)saved[key]=id;else delete saved[key];persist();applyColour(entry,saved);setColour(id);announce(id?'Component colour scheme updated':'Inherited colours restored');}}/><p className="ds-picker-help">Browse layouts made for this component’s purpose. Colours are independent; star any layouts you want to revisit.</p><Library entry={entry} value={value} onChoose={i=>{entry.atom?applyAtom(entry,i):render(entry,i);setValue(i);}}/><div className="ds-picker-bottom"><span>Saved in this browser</span><button onClick={()=>{entry.atom?applyAtom(entry,0):render(entry,0);setValue(0);}}>↶ Restore original</button></div></>;
 }
-function openPicker(entry){active=entry;panelRoot.render(<Picker key={`${entry.key}-${Date.now()}`} entry={entry}/>);if(!panel.open)panel.showModal();positionPanel();}
+function openPicker(entry){pinControls(entry);active=entry;panelRoot.render(<Picker key={`${entry.key}-${Date.now()}`} entry={entry}/>);if(!panel.open)panel.showModal();positionPanel();}
 function positionPanel(){const r=lastTrigger?.getBoundingClientRect();if(!r)return;const width=Math.min(600,innerWidth-24);panel.style.width=`${width}px`;panel.style.left=`${Math.max(12,Math.min(innerWidth-width-12,r.right-width))}px`;panel.style.top='12px';}
 panel.addEventListener('click',e=>{if(e.target===panel){const r=panel.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)panel.close();}});
 panel.addEventListener('close',()=>{lastTrigger?.focus({preventScroll:true});active=null;});
@@ -168,9 +179,10 @@ function positionBadges(){
   // Tooling must never intercept navigation, enquiry controls or the export action.
   const reserved=[...document.querySelectorAll('body a,body button,body input,body select,body textarea,body summary')].filter(el=>!el.closest('.ds-overlay,.ds-picker,.ap-dialog')).map(el=>el.getBoundingClientRect()).filter(r=>r.width&&r.height&&r.bottom>0&&r.top<innerHeight);
   const dockRect=dock.getBoundingClientRect();if(dockRect.width)reserved.push(dockRect);
-  for(const entry of [...components,...atomEntries]){
+  for(const entry of [...(pinnedControl?[pinnedControl.entry]:[]),...components.filter(c=>c!==pinnedControl?.entry),...atomEntries]){
     const el=entry.el,r=el.getBoundingClientRect(),b=entry.controls;
-    const hidden=!el.isConnected||r.width===0||r.height===0||r.bottom<0||r.top>innerHeight||el.closest('[hidden]')||(!saved.details&&entry.atom);
+    const pinned=pinnedControl?.entry===entry;
+    const hidden=!el.isConnected||(!pinned&&(r.width===0||r.height===0||r.bottom<0||r.top>innerHeight||el.closest('[hidden]')||(!saved.details&&entry.atom)));
     b.hidden=!!hidden;if(hidden)continue;
     const width=b.offsetWidth,height=b.offsetHeight;
     let x=Math.max(4,Math.min(innerWidth-width-6,r.right-width-10));let y=Math.max(4,r.top+(entry.atom?5:10));
@@ -181,7 +193,7 @@ function positionBadges(){
     if(entry.type==='navbar')xs.push(Math.max(4,innerWidth-width-140));
     const ys=[y];for(let offset=1;offset<=4;offset++){ys.push(y-offset*(height+6),y+offset*(height+6));}
     const candidates=ys.flatMap(y=>xs.map(x=>({x,y,width,height})));
-    const place=candidates.find(p=>p.x>=4&&p.x+p.width<=innerWidth-4&&p.y>=4&&p.y+p.height<=innerHeight-4&&!reserved.some(q=>overlaps(p,q))&&!used.some(q=>overlaps(p,q)));
+    const place=pinned?{x:Math.max(4,Math.min(innerWidth-width-4,pinnedControl.x)),y:Math.max(4,Math.min(innerHeight-height-4,pinnedControl.y)),width,height}:candidates.find(p=>p.x>=4&&p.x+p.width<=innerWidth-4&&p.y>=4&&p.y+p.height<=innerHeight-4&&!reserved.some(q=>overlaps(p,q))&&!used.some(q=>overlaps(p,q)));
     if(!place){b.hidden=true;continue;}
     used.push(place);b.style.transform=`translate(${place.x}px,${place.y}px)`;
     entry.badge.dataset.value=entry.value;
@@ -190,6 +202,12 @@ function positionBadges(){
     b.querySelectorAll('[data-step]').forEach(button=>{const next=stepLayout(entry,Number(button.dataset.step));button.title=`${Number(button.dataset.step)<0?'Previous':'Next'}: ${layoutInfo(entry.type,next,entry.atom).name}`;});
   }
 }
+// Release only for intentional navigation, never for scroll events caused by
+// replacing a tall footer with a short one. Keep the anchor while using its menu.
+document.addEventListener('pointerdown',e=>{if(pinnedControl&&!pinnedControl.entry.controls.contains(e.target)&&!panel.contains(e.target))releaseControls();},true);
+window.addEventListener('wheel',()=>{if(!panel.open)releaseControls();},{passive:true});
+window.addEventListener('touchmove',()=>{if(!panel.open)releaseControls();},{passive:true});
+document.addEventListener('keydown',e=>{if(!panel.open&&['PageDown','PageUp','Home','End','ArrowDown','ArrowUp',' '].includes(e.key)&&!e.target.closest('input,textarea,select,button'))releaseControls();});
 window.addEventListener('scroll',requestPosition,{passive:true});window.addEventListener('resize',()=>{requestPosition();if(panel.open)positionPanel();});
 const resize=new ResizeObserver(requestPosition);resize.observe(document.body);
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.querySelectorAll('.ds-menu-open').forEach(n=>{n.classList.remove('ds-menu-open');const b=n.querySelector('[data-ds-menu]');b?.setAttribute('aria-expanded','false');b?.setAttribute('aria-label','Open navigation');});document.querySelectorAll('.ds-quick-panel:not([hidden])').forEach(p=>p.parentElement.querySelector('[data-quick-toggle]')?.click());document.querySelectorAll('.ds-nav-service details[open]').forEach(d=>d.open=false);}});
