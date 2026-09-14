@@ -1,0 +1,18 @@
+const {chromium}=require('playwright'),assert=require('node:assert/strict'),fs=require('node:fs'),serve=require('./preview.cjs');
+(async()=>{const server=serve(8791),browser=await chromium.launch({channel:'chrome',headless:true});try{
+ const page=await browser.newPage({viewport:{width:1440,height:1000},reducedMotion:'reduce'}),errors=[];
+ page.on('pageerror',e=>errors.push(e.message));
+ await page.goto('http://127.0.0.1:8791/about/');await page.waitForFunction(()=>window.HoeaAppearance&&window.HoeaDesignStudio);
+ const {fonts,pairings}=await page.evaluate(()=>({fonts:HoeaAppearance.fonts,pairings:HoeaAppearance.pairings}));
+ assert.equal(fonts.filter(f=>f.fallback==='serif').length,12);assert.equal(fonts.filter(f=>f.fallback==='sans-serif').length,8);
+ const old=['manrope','dm-sans','plus-jakarta-sans','space-grotesk','sora','outfit','fraunces','newsreader','source-serif-4','ibm-plex-mono','archivo','bricolage-grotesque','figtree','geist','public-sans','lora','literata','cormorant-garamond','bodoni-moda','dm-serif-display'];assert(!fonts.some(f=>old.includes(f.id)));
+ for(const f of fonts){for(const style of f.italics?['normal','italic']:['normal'])assert(await page.evaluate(async({f,style})=>{const faces=await document.fonts.load(`${style} 400 24px "${f.name}"`,'Hoea tō Waka ĀĒĪŌŪāēīōū');return faces.length&&faces.every(x=>x.status==='loaded');},{f,style}),f.name+' '+style);}
+ const baseline=await page.evaluate(()=>JSON.stringify(HoeaDesignStudio.export().effectiveChoices));
+ for(const pairing of pairings){await page.evaluate(id=>HoeaAppearance.setPairing(id),pairing.id);const result=await page.evaluate(()=>({heading:getComputedStyle(document.querySelector('h1')).fontFamily,weight:getComputedStyle(document.querySelector('h1')).fontWeight,body:getComputedStyle(document.querySelector('main p')).fontFamily}));const h=fonts.find(f=>f.id===pairing.roles.display),b=fonts.find(f=>f.id===pairing.roles.body);assert(result.heading.includes(h.name));assert.equal(+result.weight,h.headingWeight);assert(result.body.includes(b.name));}
+ assert.equal(await page.evaluate(()=>JSON.stringify(HoeaDesignStudio.export().effectiveChoices)),baseline);
+ await page.getByRole('button',{name:'Open colours and typography',exact:true}).click();await page.getByRole('tab',{name:'Typography',exact:true}).click();assert.equal(await page.locator('.ap-pair-card').count(),20);assert.equal(await page.locator('#ap-font-display option').count(),12);assert.equal(await page.locator('#ap-font-body option').count(),8);
+ await page.locator('.ap-pair-card').nth(1).click();await page.reload();await page.waitForFunction(()=>window.HoeaAppearance);assert.equal(await page.evaluate(()=>HoeaAppearance.getState().pairing),pairings[1].id);
+ fs.mkdirSync('tmp/fonts-2026',{recursive:true});
+ for(const width of [1440,390,320]){await page.setViewportSize({width,height:1000});await page.screenshot({path:`tmp/fonts-2026/page-${width}.png`});await page.getByRole('button',{name:'Open colours and typography',exact:true}).click();await page.getByRole('tab',{name:'Typography',exact:true}).click();await page.locator('.ap-pair-gallery').scrollIntoViewIfNeeded();await page.evaluate(()=>document.fonts.ready);await page.screenshot({path:`tmp/fonts-2026/picker-${width}.png`});assert(await page.locator('.ap-dialog').evaluate(e=>e.scrollWidth<=e.clientWidth+1),'dialog overflow '+width);await page.keyboard.press('Escape');}
+ assert.deepEqual(errors,[]);console.log('PASS: 20 new families, native normal/italic loads, 20 global pairings, role restrictions, preserved layouts, persistence and desktop/mobile screenshots.');
+}finally{await browser.close();server.close();}})().catch(e=>{console.error(e);process.exitCode=1;});

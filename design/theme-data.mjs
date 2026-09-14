@@ -12,27 +12,187 @@ export const palettes = [
   {id:'plum-sorbet',name:'Plum Sorbet',note:'Plum · persimmon · turquoise · vanilla',story:'Expressive plum, rounded out by persimmon warmth, fresh turquoise and soft lemon.',colours:['#704a7a','#bd6740','#4c9b9a','#c8b960','#ded4c4']},
 ];
 export const fonts = [
-  ['manrope','Manrope','sans-serif','Clean, open geometric sans'],
-  ['dm-sans','DM Sans','sans-serif','Warm, balanced reading sans'],
-  ['plus-jakarta-sans','Plus Jakarta Sans','sans-serif','Confident contemporary geometry'],
-  ['space-grotesk','Space Grotesk','sans-serif','Characterful technical sans'],
-  ['sora','Sora','sans-serif','Crisp, substantial digital type'],
-  ['outfit','Outfit','sans-serif','Soft, friendly geometric forms'],
-  ['fraunces','Fraunces','serif','Expressive, soft editorial serif'],
-  ['newsreader','Newsreader','serif','Literary detail and reading rhythm'],
-  ['source-serif-4','Source Serif 4','serif','Sturdy, considered text serif'],
-  ['ibm-plex-mono','IBM Plex Mono','monospace','Precise labels and annotation'],
-  ['archivo','Archivo','sans-serif','Compact editorial sans with a confident rhythm'],
-  ['bricolage-grotesque','Bricolage Grotesque','sans-serif','Expressive headlines with lively, human details'],
-  ['figtree','Figtree','sans-serif','Friendly reading sans with generous clarity'],
-  ['geist','Geist','sans-serif','Restrained contemporary interface typography'],
-  ['public-sans','Public Sans','sans-serif','Straightforward, sturdy humanist sans'],
-  ['lora','Lora','serif','Warm calligraphic detail for considered reading'],
-  ['literata','Literata','serif','Bookish, open forms for longer text'],
-  ['cormorant-garamond','Cormorant Garamond','serif','Delicate, high-contrast editorial headings'],
-  ['bodoni-moda','Bodoni Moda','serif','Dramatic contrast and refined display proportions'],
-  ['dm-serif-display','DM Serif Display','serif','Bold, compact serif statements'],
-].map(([id,name,fallback,note])=>({id,name,fallback,note,stack:`"${name}", ${fallback}`}));
+  [
+    "instrument-serif",
+    "Instrument Serif",
+    "serif",
+    "Narrow, expressive editorial titles",
+    "400",
+    true,
+    400
+  ],
+  [
+    "playfair-display",
+    "Playfair Display",
+    "serif",
+    "Crisp contrast and confident magazine headings",
+    "400..800",
+    true,
+    600
+  ],
+  [
+    "eb-garamond",
+    "EB Garamond",
+    "serif",
+    "Elegant, restrained old-style typography",
+    "400..800",
+    true,
+    500
+  ],
+  [
+    "libre-baskerville",
+    "Libre Baskerville",
+    "serif",
+    "Broad, assured forms with literary warmth",
+    "400;700",
+    false,
+    400
+  ],
+  [
+    "spectral",
+    "Spectral",
+    "serif",
+    "Clean editorial detail with a calm rhythm",
+    "400;500;600;700;800",
+    true,
+    500
+  ],
+  [
+    "alegreya",
+    "Alegreya",
+    "serif",
+    "Lively calligraphic shapes and human warmth",
+    "400..800",
+    true,
+    500
+  ],
+  [
+    "crimson-pro",
+    "Crimson Pro",
+    "serif",
+    "Refined book typography with generous clarity",
+    "400..800",
+    true,
+    500
+  ],
+  [
+    "vollkorn",
+    "Vollkorn",
+    "serif",
+    "Grounded, substantial forms for warm headings",
+    "400..800",
+    true,
+    600
+  ],
+  [
+    "cardo",
+    "Cardo",
+    "serif",
+    "Quiet, classical shapes with open proportions",
+    "400;700",
+    false,
+    400
+  ],
+  [
+    "merriweather",
+    "Merriweather",
+    "serif",
+    "Sturdy, compact serif with strong screen presence",
+    "400..800",
+    true,
+    600
+  ],
+  [
+    "young-serif",
+    "Young Serif",
+    "serif",
+    "Rounded, chunky display serif with personality",
+    "400",
+    false,
+    400
+  ],
+  [
+    "eczar",
+    "Eczar",
+    "serif",
+    "Expressive, sculptural shapes and striking details",
+    "400..800",
+    false,
+    500
+  ],
+  [
+    "instrument-sans",
+    "Instrument Sans",
+    "sans-serif",
+    "Precise contemporary sans with a warm edge",
+    "400..700",
+    true,
+    500
+  ],
+  [
+    "inter",
+    "Inter",
+    "sans-serif",
+    "Neutral, exceptionally clear interface rhythm",
+    "400..800",
+    true,
+    500
+  ],
+  [
+    "source-sans-3",
+    "Source Sans 3",
+    "sans-serif",
+    "Open humanist shapes for comfortable reading",
+    "400..800",
+    true,
+    500
+  ],
+  [
+    "work-sans",
+    "Work Sans",
+    "sans-serif",
+    "Practical, slightly characterful reading sans",
+    "400..800",
+    true,
+    500
+  ],
+  [
+    "karla",
+    "Karla",
+    "sans-serif",
+    "Friendly grotesque with distinctive proportions",
+    "400..800",
+    true,
+    500
+  ],
+  [
+    "noto-sans",
+    "Noto Sans",
+    "sans-serif",
+    "Warm, familiar humanist text with soft curves",
+    "400..800",
+    true,
+    700
+  ],
+  [
+    "nunito-sans",
+    "Nunito Sans",
+    "sans-serif",
+    "Soft, open forms for approachable reading",
+    "400..800",
+    true,
+    500
+  ],
+  [
+    "hanken-grotesk",
+    "Hanken Grotesk",
+    "sans-serif",
+    "Clear, balanced sans for a quiet body voice",
+    "400..800",
+    true,
+    500
+  ]
+].map(([id,name,fallback,note,weights,italics,headingWeight])=>({id,name,fallback,note,weights,italics,headingWeight,stack:`"${name}", ${fallback}`}));
 export const roles = [
   ['display','Display headings','Large page titles and hero statements'],
   ['heading','Section & card headings','Section titles, cards and accordions'],
@@ -42,27 +202,128 @@ export const roles = [
   ['small','Captions & small print','Captions, metadata and footer details'],
 ].map(([id,name,note])=>({id,name,note}));
 export const pairings = [
-  ['coastal-editorial','Coastal editorial','Warm, expressive titles with clean, open reading text.','fraunces','manrope','manrope'],
-  ['quiet-journal','Quiet journal','Literary headlines with an unhurried, human reading rhythm.','newsreader','dm-sans','dm-sans'],
-  ['modern-humanist','Modern humanist','Confident geometry softened by a friendly paragraph face.','plus-jakarta-sans','dm-sans','plus-jakarta-sans'],
-  ['field-atlas','Field atlas','Technical headings and annotated details, grounded by calm body text.','space-grotesk','manrope','ibm-plex-mono'],
-  ['soft-geometry','Soft geometry','Friendly rounded shapes for an approachable, cohesive voice.','outfit','dm-sans','outfit'],
-  ['digital-craft','Digital craft','Distinct digital headlines with restrained interface text.','sora','manrope','space-grotesk'],
-  ['literary-studio','Literary studio','A sturdy editorial serif with crisp sans-serif navigation.','source-serif-4','source-serif-4','manrope'],
-  ['expressive-archive','Expressive archive','Characterful display serif, reading serif and precise annotations.','fraunces','newsreader','ibm-plex-mono'],
-  ['clear-current','Clear current','One versatile family creates a clear, consistent hierarchy.','manrope','manrope','manrope'],
-  ['civic-notes','Civic notes','Practical serif headings, readable sans paragraphs and mono details.','source-serif-4','dm-sans','ibm-plex-mono'],
-  ['warm-dialogue','Warm dialogue','Characterful headings with a friendly reading voice.','bricolage-grotesque','figtree','figtree'],
-  ['contemporary-book','Contemporary book','Warm literary titles above a sturdy humanist body.','lora','public-sans','public-sans'],
-  ['clear-editorial','Clear editorial','Compact headline shapes and a restrained interface.','archivo','geist','geist'],
-  ['considered-essay','Considered essay','Bookish reading rhythm with clean supporting details.','literata','literata','public-sans'],
-  ['graceful-space','Graceful space','Fine editorial headings balanced with open, readable text.','cormorant-garamond','figtree','figtree'],
-  ['bold-journal','Bold journal','Weighty serif statements and understated reading text.','dm-serif-display','dm-sans','public-sans'],
-  ['modern-colophon','Modern colophon','Crisp fashion-editorial contrast with a quiet digital body.','bodoni-moda','geist','geist'],
-  ['public-conversation','Public conversation','An accessible-feeling, direct sans system for practical information.','public-sans','public-sans','ibm-plex-mono'],
-  ['friendly-notes','Friendly notes','An inviting all-sans family with restrained labels.','figtree','figtree','archivo'],
-  ['craft-and-clarity','Craft and clarity','Expressive sans titles, warm serif reading and precise annotations.','bricolage-grotesque','lora','geist'],
-].map(([id,name,note,heading,body,detail])=>({id,name,note,roles:{display:heading,heading,body,eyebrow:detail,ui:fonts.find(f=>f.id===body)?.fallback==='serif'?'manrope':body,small:detail}}));
+  [
+    "editorial-clarity",
+    "Editorial clarity",
+    "instrument-serif",
+    "instrument-sans"
+  ],
+  [
+    "modern-magazine",
+    "Modern magazine",
+    "playfair-display",
+    "inter"
+  ],
+  [
+    "quiet-literary",
+    "Quiet literary",
+    "eb-garamond",
+    "source-sans-3"
+  ],
+  [
+    "assured-warmth",
+    "Assured warmth",
+    "libre-baskerville",
+    "noto-sans"
+  ],
+  [
+    "clear-perspective",
+    "Clear perspective",
+    "spectral",
+    "hanken-grotesk"
+  ],
+  [
+    "human-story",
+    "Human story",
+    "alegreya",
+    "work-sans"
+  ],
+  [
+    "thoughtful-journal",
+    "Thoughtful journal",
+    "crimson-pro",
+    "source-sans-3"
+  ],
+  [
+    "grounded-voice",
+    "Grounded voice",
+    "vollkorn",
+    "nunito-sans"
+  ],
+  [
+    "classic-conversation",
+    "Classic conversation",
+    "cardo",
+    "karla"
+  ],
+  [
+    "practical-editorial",
+    "Practical editorial",
+    "merriweather",
+    "inter"
+  ],
+  [
+    "friendly-statement",
+    "Friendly statement",
+    "young-serif",
+    "instrument-sans"
+  ],
+  [
+    "expressive-print",
+    "Expressive print",
+    "eczar",
+    "work-sans"
+  ],
+  [
+    "light-and-open",
+    "Light and open",
+    "instrument-serif",
+    "hanken-grotesk"
+  ],
+  [
+    "polished-humanist",
+    "Polished humanist",
+    "playfair-display",
+    "noto-sans"
+  ],
+  [
+    "book-and-screen",
+    "Book and screen",
+    "eb-garamond",
+    "inter"
+  ],
+  [
+    "warm-and-direct",
+    "Warm and direct",
+    "libre-baskerville",
+    "source-sans-3"
+  ],
+  [
+    "gentle-rhythm",
+    "Gentle rhythm",
+    "spectral",
+    "nunito-sans"
+  ],
+  [
+    "character-and-clarity",
+    "Character and clarity",
+    "alegreya",
+    "instrument-sans"
+  ],
+  [
+    "quiet-craft",
+    "Quiet craft",
+    "crimson-pro",
+    "karla"
+  ],
+  [
+    "substantial-and-soft",
+    "Substantial and soft",
+    "vollkorn",
+    "hanken-grotesk"
+  ]
+].map(([id,name,heading,body])=>({id,name,note:`${fonts.find(f=>f.id===heading).note}. Paired with ${fonts.find(f=>f.id===body).name} for paragraphs and navigation.`,roles:{display:heading,heading,body,eyebrow:body,ui:body,small:body}}));
+export const fontsForRole=role=>fonts.filter(f=>f.fallback===(["display","heading"].includes(role)?"serif":"sans-serif"));
 
 export function rgb(hex){return hex.replace('#','').match(/../g).slice(0,3).map(v=>parseInt(v,16));}
 export function hex(channels){return '#'+channels.map(c=>Math.round(Math.max(0,Math.min(255,c))).toString(16).padStart(2,'0')).join('');}

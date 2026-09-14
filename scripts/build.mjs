@@ -33,3 +33,4 @@ await build({ entryPoints: ['design/studio.jsx'], bundle: true, minify: true, fo
 await writeFile('assets/design-studio.css',studioCSS);
 await copyFile('design/LICENSE-MOTION-PRIMITIVES.txt','assets/LICENSE-MOTION-PRIMITIVES.txt');
 await copyFile('design/THEME-RESEARCH.md','assets/THEME-RESEARCH.md');
+await copyFile('design/FONT-RESEARCH-2026.md','assets/FONT-RESEARCH-2026.md');
