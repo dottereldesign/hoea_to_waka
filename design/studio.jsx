@@ -45,7 +45,7 @@ function announce(s){toast.textContent=s;toast.classList.add('is-visible');clear
 const nodes=[...document.querySelectorAll(componentSelector)];
 nodes.forEach((el,index)=>{
   const type=classify(el); if(!renderers[type])return;
-  const key=(type==='navbar'||type==='footer')?type:`${route}:${index}:${type}`;
+  const key=(type==='navbar'||type==='footer')?type:`${route}:${el.dataset.designIndex??index}:${type}`;
   const marker=document.createComment(`Design component: ${key}`);el.before(marker);
   const id=el.id;
   const form=el.querySelector('[data-contact-form]');

@@ -36,7 +36,7 @@ export async function createHandoff({saved,components,atoms,route,names,atomName
     const page={path:path||'/',title:doc.title,components:[]};
     [...doc.querySelectorAll(componentSelector)].forEach((original,index)=>{
       const type=classify(original);if(!renderers[type])return;
-      const isShared=type==='navbar'||type==='footer',key=isShared?type:`${routeKey}:${index}:${type}`;
+      const isShared=type==='navbar'||type==='footer',key=isShared?type:`${routeKey}:${original.dataset.designIndex??index}:${type}`;
       if(isShared&&shared[key])return;
       const live=components.find(c=>c.key===key);
       const variant=validLayout(type,choices[key])?choices[key]:1;
