@@ -1,16 +1,15 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { animate, stagger } from 'motion';
-import { TextEffect, AnimatedBackground } from './motion-primitives';
+import { animate } from 'motion';
+import { TextEffect } from './motion-primitives';
 import { renderers, extract, classify, icon, esc, url } from './renderers';
 import { directions, direction, MAX_VARIANT, colourStyle, entryMotion } from './directions';
-import { renderExtended } from './extended-renderers';
 import { componentSelector, atomSelector, atomType, createHandoff, downloadHandoff } from './handoff';
 import { ComponentColours, colourKey, validPalette, applyColour, clearColour } from './component-colours';
+import { validLayout, layoutInfo, recommendedLayouts, stepLayout, renderLayout, categories, purposeLayouts } from './layout-catalog';
+import { CategoryLibrary, CategoryDirectory } from './catalog-picker';
 
 const names = ['Original','Editorial','Open water','Blueprint','Field notes','Constellation',...directions.map(d=>d.name)];
-const descriptions = ['Your original layout with the shared colour and type settings.','Generous type, fine rules and asymmetric compositions.','Immersive imagery, inverse surfaces and cinematic transitions.','Confident grids, strong hierarchy and graphic geometry.','Tactile notes, overlapping photography and human warmth.','Orbital compositions, inverse surfaces and spring interactions.',...directions.map(d=>d.description)];
-const motions = ['Original animation','Staggered rise','Soft-focus dissolve','Horizontal reveal','Gentle paper tilt','Spring and scale',...directions.map(d=>d.motion)];
 const storageKey='hoea-design-studio-v1';
 let saved={};try{saved=JSON.parse(localStorage.getItem(storageKey)||'{}');}catch{}
 if(!saved||typeof saved!=='object'||Array.isArray(saved))saved={};
@@ -26,7 +25,7 @@ const persist = () => {try{
   localStorage.setItem(storageKey,JSON.stringify(merged));saved=merged;persistedSnapshot=JSON.parse(JSON.stringify(saved));
 }catch{}};
 const params = new URLSearchParams(location.search);
-const forced = params.has('design') ? Math.min(MAX_VARIANT,Math.max(0,Math.trunc(Number(params.get('design'))||0))) : null;
+const forced = params.has('design') ? Math.max(0,Math.trunc(Number(params.get('design'))||0)) : null;
 const originals = new Map();
 const originalThemeToggle=document.querySelector('[data-theme-toggle]');
 const components = [];
@@ -51,6 +50,7 @@ nodes.forEach((el,index)=>{
 
 function cleanup(c){c.roots.forEach(r=>r.unmount());c.roots=[];c.cleanup.forEach(f=>f());c.cleanup=[];}
 function render(c,value,{quiet=false,initial=false}={}){
+  if(!validLayout(c.type,value))return;
   const previous=c.el.getBoundingClientRect();
   // Clear transient atom presentation before relocating the preserved form.
   atomEntries.filter(a=>a.parent===c).forEach(a=>{applyAtom(a,0,false);clearColour(a.el);});
@@ -61,11 +61,12 @@ function render(c,value,{quiet=false,initial=false}={}){
   c.el.remove();c.value=value;
   if(value===0){c.el=c.original;c.marker.after(c.el);}else{
     const node=document.createElement(c.type==='navbar'?'header':c.type==='footer'?'footer':['error','utility'].includes(c.type)?'div':'section');
-    node.className=`ds-component ds-v${value} ds-type-${c.type}${value>5?' ds-expanded':''}`;
-    if(value>5){const d=direction(value);node.dataset.collection=d.collection;node.dataset.layout=d.slug;node.style.cssText=colourStyle(d);}
+    node.className=`ds-component ds-v${value} ds-type-${c.type}${value>50?' ds-purpose':value>5?' ds-expanded':''}`;
+    if(value>50)node.dataset.purposeLayout=value;
+    else if(value>5){const d=direction(value);node.dataset.collection=d.collection;node.dataset.layout=d.slug;node.style.cssText=colourStyle(d);}
     node.dataset.design=value;node.dataset.component=c.key;
     if(c.id)node.id=c.id;
-    node.innerHTML=value>5?renderExtended(c.data,value):renderers[c.type][value-1](c.data);
+    node.innerHTML=renderLayout(c.data,value);
     if(c.form){node.querySelector('[data-form-slot]')?.append(c.form);c.form.classList.add('ds-preserved-form');}
     if(c.shield)node.querySelector('[data-shielded-slot]')?.append(c.shield);
     c.el=node;c.marker.after(node);
@@ -79,7 +80,7 @@ function render(c,value,{quiet=false,initial=false}={}){
   applyColour(c,saved);
   if(c.type==='footer')mountHandoff(c.el);
   requestPosition();
-  if(!quiet)announce(`${titles[c.type]||c.type}: ${names[value]}`);
+  if(!quiet)announce(`${titles[c.type]||c.type}: ${layoutInfo(c.type,value).name}`);
 }
 function wire(el,c,initial){
   const isNav = c.type==='navbar';
@@ -87,7 +88,7 @@ function wire(el,c,initial){
   if(!paused&&!reduced&&(!isNav||!initial||document.body.classList.contains('page-home'))){
     el.querySelectorAll('[data-text-motion]').forEach(h=>{const root=createRoot(h);root.render(<TextEffect variant={c.value}>{h.textContent}</TextEffect>);c.roots.push(root);});
     const extended=entryMotion(c.value);
-    const frames=extended?Object.fromEntries(Object.entries(extended.from).map(([key,value])=>[key,[value,extended.to[key]]])):[{}, {opacity:[0,1],y:[20,0]}, {opacity:[0,1],filter:['blur(7px)','blur(0px)']}, {opacity:[0,1],x:[-24,0]}, {opacity:[0,1],rotate:[1.5,0],y:[12,0]}, {opacity:[0,1],scale:[.96,1]}][c.value];
+    const frames=extended?Object.fromEntries(Object.entries(extended.from).map(([key,value])=>[key,[value,extended.to[key]]])):[{}, {opacity:[0,1],y:[20,0]}, {opacity:[0,1],filter:['blur(7px)','blur(0px)']}, {opacity:[0,1],x:[-24,0]}, {opacity:[0,1],rotate:[1.5,0],y:[12,0]}, {opacity:[0,1],scale:[.96,1]}][c.value]||{opacity:[0,1],y:[14,0]};
     const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){const animation=animate(e.target,frames,{duration:extended?.duration||.65,delay:0,ease:[.22,1,.36,1]});c.cleanup.push(()=>animation.stop());observer.unobserve(e.target);}}),{threshold:.06});
     el.querySelectorAll('[data-card-unit],.ds-prose,.ds-facts,.ds-actions,.ex-visual').forEach(n=>observer.observe(n));c.cleanup.push(()=>observer.disconnect());
   }
@@ -106,7 +107,6 @@ function wire(el,c,initial){
 }
 
 const titles={navbar:'Navigation',hero:'Homepage hero',header:'Page header',statement:'Brand statement',services:'Services',features:'Features',uses:'Applications',cta:'Call to action',testimonials:'Testimonials',story:'Story & content',process:'Steps & timeline',faq:'Frequently asked questions',contact:'Contact',resources:'Books & resources',videos:'Video & waiata',gallery:'Illustration gallery',footer:'Footer',error:'404 page'};
-const layoutNames={navbar:['Editorial masthead','Floating island','Two-tier grid','Journal masthead','Navigation dock'],hero:['Editorial landscape','Cinematic horizon','Cobalt atlas','Layered field journal','Interactive constellation'],services:['Editorial cards','Immersive panels','Service index','Field cards','Tabbed explorer'],features:['Editorial columns','Asymmetric bento','Numbered manifesto','Pinned notes','Connected pathway'],faq:['Split accordion','Card accordion','Question index','Open journal','Focused accordion'],contact:['Split enquiry','Image-led enquiry','Contact directory','A letter to Anna','Focused enquiry'],footer:['Editorial sign-off','Ocean horizon','Oversized wordmark','Journal colophon','Compass closing']};
 
 // Native top-layer controls escape header transforms, overflow clipping and stacking contexts.
 const overlay=document.createElement('div');overlay.className='ds-overlay';overlay.setAttribute('popover','manual');document.body.append(overlay);if(overlay.showPopover)overlay.showPopover();
@@ -117,7 +117,7 @@ const atomEntries=[];
 function addBadge(entry,label,small=false){
   const group=document.createElement('div');group.className=`ds-switcher${small?' ds-switcher-small':''}`;group.setAttribute('role','group');group.setAttribute('aria-label',`${entry.atom?entry.type:titles[entry.type]||'Quick contact'} design controls`);group.dataset.componentKey=entry.key;
   const b=document.createElement('button');b.className=`ds-badge${small?' ds-badge-small':''}`;b.innerHTML=icon(small?'SlidersHorizontal':'Layers',small?12:15);b.type='button';b.setAttribute('aria-label',label);b.setAttribute('aria-haspopup','dialog');b.addEventListener('click',()=>{lastTrigger=b;openPicker(entry);});
-  const stepButton=delta=>{const button=document.createElement('button');button.type='button';button.className='ds-step';button.dataset.step=delta;button.innerHTML=icon(delta<0?'ChevronLeft':'ChevronRight',16);button.setAttribute('aria-label',`${delta<0?'Previous':'Next'} ${entry.atom?entry.type:titles[entry.type]||'Quick contact'} design`);button.addEventListener('click',()=>{const next=(entry.value+delta+MAX_VARIANT+1)%(MAX_VARIANT+1);if(entry.atom){applyAtom(entry,next);announce(`${entry.type}: ${atomNames[entry.type]?.[next]||names[next]} (${next+1} of 51)`);}else render(entry,next);button.focus({preventScroll:true});});return button;};
+  const stepButton=delta=>{const button=document.createElement('button');button.type='button';button.className='ds-step';button.dataset.step=delta;button.innerHTML=icon(delta<0?'ChevronLeft':'ChevronRight',16);button.setAttribute('aria-label',`${delta<0?'Previous':'Next'} ${entry.atom?entry.type:titles[entry.type]||'Quick contact'} design`);button.addEventListener('click',()=>{const next=stepLayout(entry,delta);if(entry.atom){applyAtom(entry,next);announce(`${entry.type}: ${layoutInfo(entry.type,next,true).name}`);}else render(entry,next);button.focus({preventScroll:true});});return button;};
   group.append(stepButton(-1),b,stepButton(1));overlay.append(group);entry.controls=group;return b;
 }
 components.forEach(c=>{c.badge=addBadge(c,`Change ${titles[c.type]||'Quick contact'} design`);});
@@ -145,21 +145,15 @@ function applyAtom(a,v,save=true){
 }
 const atomNames={button:['Section default','Underline & arrow','Split action','Outlined capsule','Offset stamp','Icon reveal'],card:['Section default','Editorial rule','Raised panel','Offset outline','Notebook edge','Spotlight frame'],form:['Section default','Quiet sheet','Framed form','Two-tone panel','Letter paper','Focused surface'],field:['Section default','Bottom rule','Filled field','Side accent','Paper outline','Soft inset']};
 function Library({entry,value,onChoose}){
-  const [query,setQuery]=React.useState(''),[collection,setCollection]=React.useState('All'),[favourites,setFavourites]=React.useState(Array.isArray(saved.favourites)?saved.favourites:[]);
-  const groups=['All','Favourites','Existing',...new Set(directions.map(d=>d.collection))];
-  const visible=names.map((name,id)=>({id,name,group:direction(id)?.collection||'Existing'})).filter(d=>(collection==='All'||(collection==='Favourites'?favourites.includes(d.id):collection===d.group))&&`${d.name} ${d.group} ${descriptions[d.id]} ${motions[d.id]}`.toLowerCase().includes(query.trim().toLowerCase()));
+  const [favourites,setFavourites]=React.useState(Array.isArray(saved.favourites)?saved.favourites:[]);
   const favourite=id=>{const next=favourites.includes(id)?favourites.filter(n=>n!==id):[...favourites,id];setFavourites(next);saved.favourites=next;persist();};
-  return <><div className="ds-library-tools"><input className="ds-library-search" type="search" aria-label="Search designs" placeholder="Search 50 designs + Original…" value={query} onChange={e=>setQuery(e.target.value)}/><div className="ds-library-filters" role="group" aria-label="Design collections">{groups.map(g=><button key={g} aria-pressed={collection===g} onClick={()=>setCollection(g)}>{g}</button>)}</div><p className="ds-library-count" role="status">{visible.length} options · {value!==undefined?`Selected: ${names[value]}`:'Choose a direction for this page'}</p></div><div className="ds-choices">{visible.map(({id:i,name,group})=>{
-    const d=direction(i),style=d?{'--ds-bg':d.bg,'--ds-ink':d.ink,'--ds-accent':d.accent,'--ds-line':d.line}:undefined;
-    const label=entry?.atom?(atomNames[entry.type]?.[i]||name):name;
-    return <div className="ds-library-tile" key={i}><button className={`ds-choice ds-choice-${i}`} title={`${label} — ${descriptions[i]} Motion: ${motions[i]}`} aria-pressed={value===i} onClick={()=>onChoose(i)}><AnimatedBackground active={value===i}>{d?<span className="ds-layout-preview" style={style} data-mode={d.mode} aria-hidden="true"><i/><i/><i/></span>:<span className={`ds-mini ds-mini-${i}`} aria-hidden="true"><i/><i/><i/><i/></span>}<strong>{label}</strong><small>{i===0?'Your existing design':`${group} · ${motions[i]}`}</small></AnimatedBackground></button><button className="ds-favourite" title={`${favourites.includes(i)?'Remove':'Save'} ${name} ${favourites.includes(i)?'from':'to'} favourites`} aria-label={`Favourite ${name}`} aria-pressed={favourites.includes(i)} onClick={()=>favourite(i)}>{favourites.includes(i)?'★':'☆'}</button></div>;
-  })}</div>{visible.length===0&&<p className="ds-library-empty">No matches. Try another name or collection.</p>}</>;
+  return <CategoryLibrary entry={entry} value={value} onChoose={onChoose} favourites={favourites} onFavourite={favourite}/>;
 }
 function Picker({entry}){
   const [value,setValue]=React.useState(entry.value);
   const [colour,setColour]=React.useState(validPalette(saved[colourKey(entry.key)])?saved[colourKey(entry.key)]:'');
   const title=entry.atom?entry.type:titles[entry.type]||'Quick contact';
-  return <><div className="ds-picker-head"><div><small>COMPONENT STUDIO · 51 OPTIONS</small><h2>{title}</h2></div><button aria-label="Close design options" onClick={()=>panel.close()} dangerouslySetInnerHTML={{__html:icon('X')}}/></div><ComponentColours entry={entry} value={colour} onChange={id=>{const key=colourKey(entry.key);if(id)saved[key]=id;else delete saved[key];persist();applyColour(entry,saved);setColour(id);announce(id?'Component colour scheme updated':'Inherited colours restored');}}/><p className="ds-picker-help">Only this component changes. Hover a design for its layout and motion notes; star your favourites.</p><Library entry={entry} value={value} onChoose={i=>{entry.atom?applyAtom(entry,i):render(entry,i);setValue(i);}}/><div className="ds-picker-bottom"><span>Saved in this browser</span><button onClick={()=>{entry.atom?applyAtom(entry,0):render(entry,0);setValue(0);}}>↶ Restore original</button></div></>;
+  return <><div className="ds-picker-head"><div><small>COMPONENT STUDIO · CHOOSE BY PURPOSE</small><h2>{title}</h2></div><button aria-label="Close design options" onClick={()=>panel.close()} dangerouslySetInnerHTML={{__html:icon('X')}}/></div><ComponentColours entry={entry} value={colour} onChange={id=>{const key=colourKey(entry.key);if(id)saved[key]=id;else delete saved[key];persist();applyColour(entry,saved);setColour(id);announce(id?'Component colour scheme updated':'Inherited colours restored');}}/><p className="ds-picker-help">Browse layouts made for this component’s purpose. Colours are independent; star any layouts you want to revisit.</p><Library entry={entry} value={value} onChoose={i=>{entry.atom?applyAtom(entry,i):render(entry,i);setValue(i);}}/><div className="ds-picker-bottom"><span>Saved in this browser</span><button onClick={()=>{entry.atom?applyAtom(entry,0):render(entry,0);setValue(0);}}>↶ Restore original</button></div></>;
 }
 function openPicker(entry){active=entry;panelRoot.render(<Picker key={`${entry.key}-${Date.now()}`} entry={entry}/>);if(!panel.open)panel.showModal();positionPanel();}
 function positionPanel(){const r=lastTrigger?.getBoundingClientRect();if(!r)return;const width=Math.min(600,innerWidth-24);panel.style.width=`${width}px`;panel.style.left=`${Math.max(12,Math.min(innerWidth-width-12,r.right-width))}px`;panel.style.top='12px';}
@@ -191,27 +185,27 @@ function positionBadges(){
     if(!place){b.hidden=true;continue;}
     used.push(place);b.style.transform=`translate(${place.x}px,${place.y}px)`;
     entry.badge.dataset.value=entry.value;
-    const designName=entry.atom?(atomNames[entry.type]?.[entry.value]||names[entry.value]):names[entry.value];
-    entry.badge.title=`${designName} · ${entry.value+1} / 51 — open all designs`;
-    b.querySelectorAll('[data-step]').forEach(button=>{const next=(entry.value+Number(button.dataset.step)+51)%51;button.title=`${Number(button.dataset.step)<0?'Previous':'Next'}: ${entry.atom?(atomNames[entry.type]?.[next]||names[next]):names[next]} · ${next+1} / 51`;});
+    const designName=layoutInfo(entry.type,entry.value,entry.atom).name;
+    entry.badge.title=`${designName} — open ${entry.type} layouts`;
+    b.querySelectorAll('[data-step]').forEach(button=>{const next=stepLayout(entry,Number(button.dataset.step));button.title=`${Number(button.dataset.step)<0?'Previous':'Next'}: ${layoutInfo(entry.type,next,entry.atom).name}`;});
   }
 }
 window.addEventListener('scroll',requestPosition,{passive:true});window.addEventListener('resize',()=>{requestPosition();if(panel.open)positionPanel();});
 const resize=new ResizeObserver(requestPosition);resize.observe(document.body);
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.querySelectorAll('.ds-menu-open').forEach(n=>{n.classList.remove('ds-menu-open');const b=n.querySelector('[data-ds-menu]');b?.setAttribute('aria-expanded','false');b?.setAttribute('aria-label','Open navigation');});document.querySelectorAll('.ds-quick-panel:not([hidden])').forEach(p=>p.parentElement.querySelector('[data-quick-toggle]')?.click());document.querySelectorAll('.ds-nav-service details[open]').forEach(d=>d.open=false);}});
 
-const dock=document.createElement('div');dock.className='ds-studio-dock';dock.innerHTML=`<button data-studio-home title="Design studio" aria-label="Open design studio">${icon('SlidersHorizontal',16)}<span>Design studio</span><b>50 + original</b></button>`;overlay.append(dock);
+const dock=document.createElement('div');dock.className='ds-studio-dock';dock.innerHTML=`<button data-studio-home title="Design studio" aria-label="Open design studio">${icon('SlidersHorizontal',16)}<span>Design studio</span><b>Categories</b></button>`;overlay.append(dock);
 dock.querySelector('button').addEventListener('click',openStudio);
 function openStudio(){
   lastTrigger=dock.querySelector('button');
-  panelRoot.render(<><div className="ds-picker-head"><div><small>HOEA TŌ WAKA</small><h2>Your design studio</h2></div><button aria-label="Close studio" onClick={()=>panel.close()}>×</button></div><p className="ds-picker-help">Mix directions using each section’s corner control, or try a complete direction below. Fonts are shared. Colours inherit the site theme unless you choose a palette in a component’s menu.</p><button className="ds-foundations-link" onClick={()=>{panel.close();window.dispatchEvent(new CustomEvent('hoea:open-appearance'));}}>◐ Colours & typography — site-wide ↗</button><Library key="global-library" onChoose={i=>{components.forEach(c=>render(c,i,{quiet:true}));announce(`${names[i]} applied to this page`);panel.close();}}/><label className="ds-setting"><input type="checkbox" defaultChecked={saved.details!==false} onChange={e=>{saved.details=e.target.checked;persist();requestPosition();}}/> Show card, button & field controls</label><label className="ds-setting"><input type="checkbox" defaultChecked={!paused&&!reduced} disabled={reduced} onChange={e=>{paused=!e.target.checked;saved.motion=!paused;persist();document.documentElement.classList.toggle('ds-motion-paused',paused||reduced);components.filter(c=>c.value).forEach(c=>render(c,c.value,{quiet:true}));}}/> Motion {reduced?'(reduced by system preference)':''}</label><div className="ds-studio-actions"><button onClick={exportSelection}>Export choices</button><button onClick={()=>{Object.keys(saved).forEach(k=>{if(k!=='motion'&&k!=='details'&&k!=='favourites')delete saved[k];});persist();components.forEach(c=>render(c,0,{quiet:true}));panel.close();announce('All original designs restored');}}>Reset originals</button></div><a className="ds-brief-link" href="${url('DESIGN-STUDIO.md')}" target="_blank">Design research & asset brief ↗</a></>);
+  panelRoot.render(<><div className="ds-picker-head"><div><small>HOEA TŌ WAKA</small><h2>Your design studio</h2></div><button aria-label="Close studio" onClick={()=>panel.close()}>×</button></div><p className="ds-picker-help">Browse components by purpose. Fonts are shared; colours inherit the site theme unless you set a component palette.</p><button className="ds-foundations-link" onClick={()=>{panel.close();window.dispatchEvent(new CustomEvent('hoea:open-appearance'));}}>◐ Colours & typography — site-wide ↗</button><CategoryDirectory components={components} onOpen={openPicker}/><label className="ds-setting"><input type="checkbox" defaultChecked={saved.details!==false} onChange={e=>{saved.details=e.target.checked;persist();requestPosition();}}/> Show card, button & field controls</label><label className="ds-setting"><input type="checkbox" defaultChecked={!paused&&!reduced} disabled={reduced} onChange={e=>{paused=!e.target.checked;saved.motion=!paused;persist();document.documentElement.classList.toggle('ds-motion-paused',paused||reduced);components.filter(c=>c.value).forEach(c=>render(c,c.value,{quiet:true}));}}/> Motion {reduced?'(reduced by system preference)':''}</label><div className="ds-studio-actions"><button onClick={exportSelection}>Export choices</button><button onClick={()=>{Object.keys(saved).forEach(k=>{if(k!=='motion'&&k!=='details'&&k!=='favourites')delete saved[k];});persist();components.forEach(c=>render(c,0,{quiet:true}));panel.close();announce('All original designs restored');}}>Reset originals</button></div><a className="ds-brief-link" href={url('DESIGN-STUDIO.md')} target="_blank">Design research & asset brief ↗</a></>);
   if(!panel.open)panel.showModal();panel.style.width=`${Math.min(600,innerWidth-24)}px`;panel.style.left='12px';panel.style.top='12px';
 }
 let exporting=false;
 function mountHandoff(footer){
   if(footer.querySelector('[data-design-handoff]'))return;
   const handoff=document.createElement('div');handoff.className='ds-handoff';handoff.dataset.designHandoff='';
-  handoff.innerHTML=`<div><strong>Happy with your choices?</strong><p>Export all page designs, your site theme and individual component palettes in one file. Share it with your designer for the client-ready version.</p></div><button type="button" class="ds-handoff-button">${icon('Download',18)}<span>Export my design choices</span></button>`;
+  handoff.innerHTML=`<div><strong>Happy with your choices?</strong><p>Export all page designs, your site theme and individual component palettes in one file. Share it with your designer for the client-ready version.</p><a class="ds-prompts-link" href="${url('prompts/')}">Prompts ${icon('ArrowUpRight',16)}</a></div><button type="button" class="ds-handoff-button">${icon('Download',18)}<span>Export my design choices</span></button>`;
   const button=handoff.querySelector('button');button.disabled=exporting;button.addEventListener('click',exportSelection);footer.append(handoff);
 }
 async function exportSelection(){
@@ -228,10 +222,10 @@ async function exportSelection(){
 }
 function openMedia(){
   lastTrigger=document.querySelector('[data-media-brief]');
-  panelRoot.render(<><div className="ds-picker-head"><div><small>OPTIONAL FILM CONCEPT</small><h2>The current & the course</h2></div><button aria-label="Close film brief" onClick={()=>panel.close()}>×</button></div><p>A 10–15 second silent loop: morning light travels across coastal water, followed by a slow aerial pullback. Leave the left half calm for typography.</p><p>For a layered animation, commission a separate transparent WebM of flowing water ribbons. Keep the still image as a fallback and respect reduced motion.</p><p className="ds-picker-help">The current landscape is an AI-generated concept image. This control opens a brief, not a finished video.</p><a className="ds-brief-link" href="https://www.awwwards.com/websites/storytelling/" target="_blank" rel="noopener">Explore storytelling references ↗</a></>);if(!panel.open)panel.showModal();positionPanel();
+  panelRoot.render(<><div className="ds-picker-head"><div><small>OPTIONAL FILM CONCEPT</small><h2>The current & the course</h2></div><button aria-label="Close film brief" onClick={()=>panel.close()}>×</button></div><p>A 10–15 second silent loop: morning light travels across coastal water, followed by a slow aerial pullback. Leave the left half calm for typography.</p><p>For a layered animation, commission a separate transparent WebM of flowing water ribbons. Keep the still image as a fallback and respect reduced motion.</p><p className="ds-picker-help">The image area is a simple placeholder. Explore the Prompts page for complete still-image ideas.</p><a className="ds-brief-link" href="https://www.awwwards.com/websites/storytelling/" target="_blank" rel="noopener">Explore storytelling references ↗</a></>);if(!panel.open)panel.showModal();positionPanel();
 }
 if(saved.details===undefined)saved.details=true;
-components.forEach(c=>render(c,forced??(Number.isInteger(saved[c.key])&&saved[c.key]>=0&&saved[c.key]<=MAX_VARIANT?saved[c.key]:1),{quiet:true,initial:true}));
+components.forEach(c=>render(c,validLayout(c.type,forced)?forced:(validLayout(c.type,saved[c.key])?saved[c.key]:1),{quiet:true,initial:true}));
 requestPosition();
 matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change',e=>{reduced=e.matches;document.documentElement.classList.toggle('ds-motion-paused',paused||reduced);components.filter(c=>c.value).forEach(c=>render(c,c.value,{quiet:true,initial:true}));});
-window.HoeaDesignStudio={components,export:exportSelection,choose:(key,v)=>{const c=components.find(c=>c.key===key);if(c&&Number.isInteger(v)&&v>=0&&v<=MAX_VARIANT)render(c,v);},all:v=>{if(Number.isInteger(v)&&v>=0&&v<=MAX_VARIANT)components.forEach(c=>render(c,v,{quiet:true}));},directions:names.map((name,id)=>({id,name,collection:direction(id)?.collection||'Existing'})),version:2};
+window.HoeaDesignStudio={components,export:exportSelection,choose:(key,v)=>{const c=components.find(c=>c.key===key);if(c&&validLayout(c.type,v))render(c,v);},all:v=>{if(Number.isInteger(v)&&v>=0&&v<=MAX_VARIANT)components.forEach(c=>render(c,v,{quiet:true}));},directions:names.map((name,id)=>({id,name,collection:direction(id)?.collection||'Existing'})),categories,purposeLayouts,options:key=>{const entry=components.find(c=>c.key===key)||atomEntries.find(a=>a.key===key);return entry?recommendedLayouts(entry):[];},version:3};

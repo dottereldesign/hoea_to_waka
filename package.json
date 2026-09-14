@@ -12,7 +12,10 @@
     "test:themes": "node scripts/verify-themes.cjs",
     "test:themes-accessibility": "node scripts/accessibility-themes.cjs",
     "test:handoff": "node scripts/handoff.cjs",
-    "preview": "node scripts/preview.cjs"
+    "preview": "node scripts/preview.cjs",
+    "test:catalog": "node scripts/catalog.cjs",
+    "test:component-colours": "node scripts/component-colours.cjs",
+    "test:prompts": "node scripts/prompts.cjs"
   },
   "dependencies": {
     "lucide": "^0.468.0",

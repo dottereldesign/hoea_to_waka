@@ -6,7 +6,7 @@ import assert from 'node:assert/strict';
 // Regression: a named CSS colour must never rewrite part of a custom-property name.
 assert.equal(tokeniseCSS('.sample{color:var(--white);background:var(--black)}',new Set()),'.sample{color:var(--white);background:var(--black)}');
 const colours=new Set();
-const studioCSS=tokeniseCSS(await readFile('design/studio.css','utf8')+'\n'+await readFile('design/extended.css','utf8'),colours);
+const studioCSS=tokeniseCSS(await readFile('design/studio.css','utf8')+'\n'+await readFile('design/extended.css','utf8')+'\n'+await readFile('design/purpose-layouts.css','utf8'),colours);
 for(const [source,target] of [['site.css','assets/site-palette.css'],['styles.css','assets/brand-palette.css']]){
   const css=tokeniseCSS(await readFile(source,'utf8'),colours).replaceAll('url("assets/','url("').replaceAll("url('assets/","url('").replaceAll('url(assets/','url(');
   await writeFile(target,css);
@@ -26,7 +26,7 @@ for(const palette of palettes){
   for(const dark of [false,true]){const mode=dark?'[data-theme="dark"]':':not([data-theme="dark"])';themeCSS+=`\nhtml[data-palette="${palette.id}"]${mode},html${mode} [data-component-palette="${palette.id}"]{${Object.entries(semanticTokens(palette,dark)).map(([key,value])=>`--t-${key}:${value}`).join(';')}}`;}
 }
 themeCSS+=`\n[data-component-palette]{${lightAliases.join(';')}}\nhtml[data-theme="dark"] [data-component-palette]{${darkAliases.join(';')}}`;
-await writeFile('assets/theme.css',themeCSS+'\n'+await readFile('design/appearance.css','utf8')+'\n'+await readFile('design/handoff.css','utf8')+'\n'+await readFile('design/component-colours.css','utf8'));
+await writeFile('assets/theme.css',themeCSS+'\n'+await readFile('design/appearance.css','utf8')+'\n'+await readFile('design/handoff.css','utf8')+'\n'+await readFile('design/component-colours.css','utf8')+'\n'+await readFile('design/catalog-picker.css','utf8'));
 await build({entryPoints:['design/theme-init.js'],bundle:true,minify:true,format:'iife',target:['es2020'],outfile:'assets/theme-init.js'});
 await build({entryPoints:['design/appearance.jsx'],bundle:true,minify:true,format:'iife',target:['es2020'],outfile:'assets/appearance.js',define:{'process.env.NODE_ENV':'"production"'}});
 await build({ entryPoints: ['design/studio.jsx'], bundle: true, minify: true, format: 'iife', target: ['es2020'], outfile: 'assets/design-studio.js', define: { 'process.env.NODE_ENV': '"production"' }, legalComments: 'linked' });

@@ -1,0 +1,22 @@
+import React from 'react';
+import { categories, categoryFor, recommendedLayouts, earlierLayouts, layoutInfo } from './layout-catalog';
+import { url } from './renderers';
+
+export function CategoryLibrary({entry,value,onChoose,favourites,onFavourite}){
+  const [query,setQuery]=React.useState(''),[group,setGroup]=React.useState('All');
+  const options=recommendedLayouts(entry),earlier=earlierLayouts(entry),category=entry.atom?{label:`${entry.type[0].toUpperCase()+entry.type.slice(1)}s`,description:'Change this individual element within its surrounding component.'}:categoryFor(entry.type);
+  const groups=['All','Favourites',...new Set(options.filter(p=>p.id).map(p=>p.group))];
+  const isFavourite=id=>favourites.includes(`${entry.type}:${id}`)||favourites.includes(id);
+  const matches=p=>(group==='All'||(group==='Favourites'?isFavourite(p.id):p.group===group))&&`${p.name} ${p.group} ${p.description}`.toLowerCase().includes(query.trim().toLowerCase());
+  const tiles=list=><div className="ds-choices">{list.map(p=><div className="ds-library-tile" key={p.id}><button className="ds-choice ds-purpose-choice" data-layout-id={p.id} aria-pressed={value===p.id} onClick={()=>onChoose(p.id)} title={p.description}><span className="ds-purpose-sketch" data-kind={entry.type} data-shape={p.id%5} aria-hidden="true"><i/><i/><i/><i/><i/></span><small>{p.id===0?'Original':p.group}{p.id>50?' · New':''}</small><strong>{p.name}</strong><span className="ds-choice-description">{p.description}</span></button><button className="ds-favourite" aria-label={`Favourite ${p.name}`} aria-pressed={isFavourite(p.id)} onClick={()=>onFavourite(`${entry.type}:${p.id}`)}>{isFavourite(p.id)?'★':'☆'}</button></div>)}</div>;
+  const visible=options.filter(matches);
+  return <><div className="ds-category-context"><span>COMPONENT CATEGORY</span><h3>{category.label}</h3><p>{category.description}</p><b>{options.length-1} layouts + Original</b></div><div className="ds-library-tools"><input type="search" className="ds-library-search" aria-label="Search designs" placeholder={`Search ${category.label.toLowerCase()}…`} value={query} onChange={e=>setQuery(e.target.value)}/><div className="ds-library-filters" role="group" aria-label="Layout purpose">{groups.map(g=><button key={g} aria-pressed={group===g} onClick={()=>setGroup(g)}>{g}</button>)}</div><p className="ds-library-count" role="status">{visible.length} shown · Selected: {layoutInfo(entry.type,value,entry.atom).name}</p></div>{tiles(visible)}{!visible.length&&<p>No matching layouts. Try another purpose or search.</p>}{earlier.length>0&&<details className="ds-earlier" open={Boolean(query)||group==='Favourites'}><summary>Earlier explorations ({earlier.length})</summary><p>Previous options and saved choices remain here. The arrows cycle through the curated category above.</p>{tiles(earlier.filter(matches))}</details>}</>;
+}
+const destinations={hero:'',header:'about/',services:'',features:'',statement:'',uses:'',cta:'',testimonials:'',story:'about/',process:'services/in-house-workshops/',faq:'contact/',contact:'contact/',resources:'resources/',videos:'resources/',gallery:'illustrations/',error:'404.html',utility:''};
+export function CategoryDirectory({components,onOpen}){
+  const [selected,setSelected]=React.useState(null);
+  const relevant=categories.filter(c=>!['error','utility'].includes(c.type));
+  const instances=components.filter(c=>c.type===selected);
+  return <div className="ds-category-directory"><p>Choose what the component needs to do, then pick a layout. Each component’s corner menu opens its category directly.</p><p><strong>100 new layouts</strong> for heroes, page headers, features and contact. Every main category has 25 curated choices, plus Original.</p><div className="ds-category-grid">{relevant.map(c=><button key={c.type} aria-pressed={selected===c.type} onClick={()=>setSelected(c.type)}><strong>{c.label}</strong><span>{recommendedLayouts({type:c.type}).length-1} layouts</span></button>)}</div>{selected&&<div className="ds-category-targets"><h3>{categoryFor(selected).label}</h3>{instances.length?<><p>Choose the component to update on this page:</p>{instances.map(c=><button key={c.key} onClick={()=>onOpen(c)}>{c.data.title||categoryFor(c.type).label}<span>Choose layout ↗</span></button>)}</>:<><p>This category is used elsewhere on the site.</p><a href={url(destinations[selected]||'')}>Open a page with {categoryFor(selected).label.toLowerCase()} ↗</a></>}</div>}</div>;
+}
+

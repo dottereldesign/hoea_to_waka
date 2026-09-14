@@ -1,6 +1,6 @@
 import { classify, extract, renderers, url } from './renderers';
-import { renderExtended } from './extended-renderers';
 import { palettes, semanticTokens } from './theme-data.mjs';
+import { validLayout, layoutInfo, renderLayout, categoryFor } from './layout-catalog';
 
 export const componentSelector='body > .site-header,main > section,body > .site-footer,.error-card,body > .site-utility-menu';
 export const atomSelector='[data-card-unit],.ds-button,.ds-preserved-form,.ds-preserved-form .field';
@@ -38,8 +38,9 @@ export async function createHandoff({saved,components,atoms,route,names,atomName
       const isShared=type==='navbar'||type==='footer',key=isShared?type:`${routeKey}:${index}:${type}`;
       if(isShared&&shared[key])return;
       const live=components.find(c=>c.key===key);
-      const variant=valid(choices[key])?choices[key]:1;
-      const selection={key,type,label:live?.data.title||label(original)||type,sourceElementId:original.id||null,design:{id:variant,name:names[variant]},selectionSource:live?'current-page':valid(saved[key])?'saved':'default',details:[]};
+      const variant=validLayout(type,choices[key])?choices[key]:1;
+      const selectedLayout=layoutInfo(type,variant);
+      const selection={key,type,category:categoryFor(type).label,label:live?.data.title||label(original)||type,sourceElementId:original.id||null,design:{id:variant,name:selectedLayout.name,purpose:selectedLayout.group},selectionSource:live?'current-page':validLayout(type,saved[key])?'saved':'default',details:[]};
       selection.colour=colourChoice(key,palette.id);
       if(selection.colour.source==='override')effectiveColourOverrides[key]=selection.colour.id;
       effectiveChoices[key]=variant;
@@ -47,7 +48,7 @@ export async function createHandoff({saved,components,atoms,route,names,atomName
       if(variant){
         surface=doc.createElement('div');
         const data=extract(original,type);
-        surface.innerHTML=variant>5?renderExtended(data,variant):renderers[type][variant-1](data);
+        surface.innerHTML=renderLayout(data,variant);
         const form=original.querySelector('[data-contact-form]')?.cloneNode(true);
         if(form){form.classList.add('ds-preserved-form');surface.querySelector('[data-form-slot]')?.append(form);}
       }
@@ -67,12 +68,12 @@ export async function createHandoff({saved,components,atoms,route,names,atomName
     pages.push(page);
   }
   return {
-    format:'hoea-to-waka/client-design-handoff',schemaVersion:2,studioVersion:2,
+    format:'hoea-to-waka/client-design-handoff',schemaVersion:3,studioVersion:3,
     exportedAt:new Date().toISOString(),site:url(''),exportedFrom:route,
     purpose:'Use these selections to build a client-ready version of the existing site. Remove the design picker, stepping arrows, appearance controls and export controls from that client version. Keep typography unchanged.',
     colour:{id:palette.id,name:palette.name,mode,families:[...palette.colours],tokens:semanticTokens(palette,mode==='dark')},
     motionEnabled:saved.motion!==false,
-    selectionRules:{shared:'Navigation and footer apply across every page.',defaults:'All top-level components are listed. Unmodified components use Editorial (1). Unlisted nested elements use their section default (0).',nested:'Nested keys include the selected parent layout and the zero-based index in atomSelector. Choices for inactive parent layouts are excluded.',reference:'Resolve stable keys using design/studio.jsx, design/renderers.js and design/extended-renderers.js in this repository.'},
+    selectionRules:{shared:'Navigation and footer apply across every page.',defaults:'All top-level components are listed. Unmodified components use their category’s first existing layout (1). Unlisted nested elements use their section default (0).',nested:'Nested keys include the selected parent layout and the zero-based index in atomSelector. Choices for inactive parent layouts are excluded.',reference:'Resolve stable type and ID pairs using design/layout-catalog.js and design/purpose-renderers.js. Earlier IDs 0–50 remain compatible. Purpose layouts 101–200 only apply to their declared category.'},
     summary:{pages:pages.length,components:Object.keys(shared).length+pages.reduce((n,p)=>n+p.components.length,0),nestedOverrides:detailCount},
     sharedComponents:Object.values(shared),pages,effectiveChoices,effectiveColourOverrides,
     colourRules:'The site palette is the default. effectiveColourOverrides pins individual components or nested elements to another palette. Unpinned children inherit their nearest parent palette; all palettes follow the site light/dark mode. Colour-only nested choices are included even when their design is Section default (0).',

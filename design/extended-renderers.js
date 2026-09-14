@@ -13,7 +13,7 @@ const headlines=[
   'Good things grow from connection.','Small things can shift the whole journey.','Follow the thread of what matters.','Bring the pieces together.','A little encouragement for the road ahead.',
   'Open up a stronger way forward.','Build your next step on what matters.','A shared space for stronger people.','Find a path that fits your world.','Step into a new possibility.',
 ];
-const imageSources={forest:['assets/forest-concept.webp','AI-generated concept of a misty forest stream'],tide:['assets/tide-concept.webp','AI-generated concept of turquoise surf on volcanic sand'],sculpture:['assets/sculpture-concept.webp','AI-generated concept of sculptural stone arches'],ocean:['assets/ocean-concept.webp','AI-generated coastal inlet concept']};
+const imageSources={forest:['assets/placeholders/landscape.svg','Image placeholder'],tide:['assets/placeholders/landscape.svg','Image placeholder'],sculpture:['assets/placeholders/landscape.svg','Image placeholder'],ocean:['assets/placeholders/landscape.svg','Landscape image placeholder']};
 const para=t=>t?`<p>${esc(t)}</p>`:'';
 const heading=(d,v)=>`<header class="ex-heading"><p class="ds-kicker">${esc(d.eyebrow||'Hoea tō Waka · Practical resilience')}</p><h${['hero','header','gallery','error'].includes(d.type)?1:2} class="ds-title" data-text-motion>${esc(d.type==='hero'?headlines[v.id-6]:d.title||'A useful way forward.')}</h${['hero','header','gallery','error'].includes(d.type)?1:2}>${d.lead?`<p class="ds-lead">${esc(d.lead)}</p>`:''}</header>`;
 function visual(d,v){

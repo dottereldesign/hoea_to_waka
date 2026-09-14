@@ -7,12 +7,12 @@ const folder='tmp/handoff';fs.mkdirSync(folder,{recursive:true});
   await page.goto(base);await ready();
   const hero=page.locator('.ds-switcher[data-component-key="home:1:hero"]');
   const neighbours=await page.evaluate(()=>window.HoeaDesignStudio.components.filter(c=>c.type!=='hero').map(c=>c.value));
-  await hero.getByRole('button',{name:'Next Homepage hero design',exact:true}).click();assert.equal(await page.locator('.ds-type-hero').getAttribute('data-design'),'2');assert.equal(await page.locator('.ds-picker').evaluate(d=>d.open),false);
+  await hero.getByRole('button',{name:'Next Homepage hero design',exact:true}).click();assert.equal(await page.locator('.ds-type-hero').getAttribute('data-design'),'101');assert.equal(await page.locator('.ds-picker').evaluate(d=>d.open),false);
   assert.deepEqual(await page.evaluate(()=>window.HoeaDesignStudio.components.filter(c=>c.type!=='hero').map(c=>c.value)),neighbours);
-  await page.evaluate(()=>window.HoeaDesignStudio.choose('home:1:hero',50));await hero.getByRole('button',{name:'Next Homepage hero design',exact:true}).click();assert.equal(await page.locator('.home-hero').count(),1);
-  await hero.getByRole('button',{name:'Previous Homepage hero design',exact:true}).click();assert.equal(await page.locator('.ds-type-hero').getAttribute('data-design'),'50');
+  await page.evaluate(()=>window.HoeaDesignStudio.choose('home:1:hero',125));await hero.getByRole('button',{name:'Next Homepage hero design',exact:true}).click();assert.equal(await page.locator('.home-hero').count(),1);
+  await hero.getByRole('button',{name:'Previous Homepage hero design',exact:true}).click();assert.equal(await page.locator('.ds-type-hero').getAttribute('data-design'),'125');
   assert.equal(await hero.locator('[data-step="-1"]').evaluate(el=>document.activeElement===el),true);
-  await hero.getByRole('button',{name:'Change Homepage hero design',exact:true}).click();assert.equal(await page.locator('.ds-picker .ds-choice').count(),51);await page.keyboard.press('Escape');
+  await hero.getByRole('button',{name:'Change Homepage hero design',exact:true}).click();assert.equal(await page.locator('.ds-picker .ds-choice:visible').count(),26);await page.keyboard.press('Escape');
   await page.evaluate(()=>{window.HoeaDesignStudio.choose('home:1:hero',4);window.HoeaDesignStudio.choose('navbar',3);window.HoeaDesignStudio.choose('footer',5);window.HoeaAppearance.setPalette('moss-mulberry');window.HoeaAppearance.setMode('dark');});
   // Footer action survives every composition, including preserved Original.
   for(let v=0;v<=50;v++){await page.evaluate(v=>window.HoeaDesignStudio.choose('footer',v),v);assert.equal(await page.locator('footer .ds-handoff-button').count(),1);}
@@ -24,18 +24,18 @@ const folder='tmp/handoff';fs.mkdirSync(folder,{recursive:true});
   await page.getByLabel('Name',{exact:true}).scrollIntoViewIfNeeded();await page.waitForTimeout(100);
   const field=page.locator('.ds-switcher').filter({has:page.getByRole('button',{name:'Next field design',exact:true})}).first();const fieldKey=await field.getAttribute('data-component-key');
   await field.getByRole('button',{name:'Next field design',exact:true}).click();assert.equal(await page.locator('#contact-name').evaluate(el=>el.closest('.field').dataset.atomVariant),'1');
-  await field.getByRole('button',{name:'Previous field design',exact:true}).click();await field.getByRole('button',{name:'Previous field design',exact:true}).click();assert.equal(await page.locator('#contact-name').evaluate(el=>el.closest('.field').dataset.atomVariant),'50');
+  await field.getByRole('button',{name:'Previous field design',exact:true}).click();await field.getByRole('button',{name:'Previous field design',exact:true}).click();assert.equal(await page.locator('#contact-name').evaluate(el=>el.closest('.field').dataset.atomVariant),'25');
   assert.equal(await page.getByLabel('Name',{exact:true}).inputValue(),'PRIVATE INPUT MUST NOT EXPORT');
   await page.evaluate(key=>window.HoeaDesignStudio.choose(key,7),contactKey);
   await page.getByLabel('Name',{exact:true}).scrollIntoViewIfNeeded();await page.waitForTimeout(100);await page.getByRole('button',{name:'Next field design',exact:true}).first().click();
   await page.evaluate(key=>window.HoeaDesignStudio.choose(key,6),contactKey);
-  assert.equal(await page.locator('#contact-name').evaluate(el=>el.closest('.field').dataset.atomVariant),'50');
+  assert.equal(await page.locator('#contact-name').evaluate(el=>el.closest('.field').dataset.atomVariant),'25');
   // Different open pages must not overwrite each other's choices when saving.
   const other=await context.newPage();await other.goto(base+'about/');await other.waitForFunction(()=>window.HoeaDesignStudio?.export);const aboutKey=await other.evaluate(()=>window.HoeaDesignStudio.components.find(c=>c.type==='header').key);await other.evaluate(key=>window.HoeaDesignStudio.choose(key,19),aboutKey);
   await page.evaluate(key=>window.HoeaDesignStudio.choose(key,6),contactKey);
   await page.goto(base+'resources/');await ready();
   const downloadPromise=page.waitForEvent('download');await page.getByRole('button',{name:'Export my design choices',exact:true}).click();const download=await downloadPromise;await download.saveAs(`${folder}/example-client-design.json`);const data=JSON.parse(fs.readFileSync(await download.path(),'utf8'));
-  assert.equal(data.format,'hoea-to-waka/client-design-handoff');assert.equal(data.pages.length,10);assert.equal(data.colour.id,'moss-mulberry');assert.equal(data.colour.mode,'dark');assert.equal(data.effectiveChoices['home:1:hero'],4);assert.equal(data.effectiveChoices[aboutKey],19);assert.equal(data.effectiveChoices[contactKey],6);assert.equal(data.effectiveChoices[fieldKey],50);
+  assert.equal(data.format,'hoea-to-waka/client-design-handoff');assert.equal(data.pages.length,10);assert.equal(data.colour.id,'moss-mulberry');assert.equal(data.colour.mode,'dark');assert.equal(data.effectiveChoices['home:1:hero'],4);assert.equal(data.effectiveChoices[aboutKey],19);assert.equal(data.effectiveChoices[contactKey],6);assert.equal(data.effectiveChoices[fieldKey],25);
   assert(!Object.keys(data.effectiveChoices).some(k=>k.startsWith(`${contactKey}:v7:`)));assert.equal(data.effectiveChoices.navbar,3);assert.equal(data.effectiveChoices.footer,5);
   assert(!JSON.stringify(data).includes('PRIVATE INPUT'));assert(!JSON.stringify(data).includes('private-input@'));assert(!('typography' in data));assert(!('appearance' in data));assert(data.summary.components>50);
   assert.equal(data.pages.find(p=>p.path==='contact/').components.find(c=>c.key===contactKey).details.find(d=>d.key===fieldKey).label,'Name');

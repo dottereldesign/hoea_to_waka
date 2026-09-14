@@ -2,7 +2,7 @@
 
 Static public website and internal brand-guidelines reference for Hoea tō Waka Training Ltd.
 
-The public site includes 51 component layouts (50 directions plus Original), 10 coordinated colour palettes, and 10 font families with 10 suggested typography pairings. Use the bottom-left **Colours & type** button for site-wide foundations, and **Design studio** for layouts. See [DESIGN-STUDIO.md](DESIGN-STUDIO.md) for the layout library and [theme research](design/THEME-RESEARCH.md) for palette and typography decisions.
+The public site has 17 purpose-based component categories with 25 curated layouts each, including 100 new hero, header, feature and contact layouts, plus preserved earlier designs. It also includes 10 coordinated colour palettes, and 10 font families with 10 suggested typography pairings. Use the bottom-left **Colours & type** button for site-wide foundations, and **Design studio** for layouts. See [DESIGN-STUDIO.md](DESIGN-STUDIO.md) for the layout library and [theme research](design/THEME-RESEARCH.md) for palette and typography decisions.
 
 Use the **left/right arrows** beside each component's menu icon to step through designs. When selections are complete, the footer's **Export my design choices** button downloads one JSON handoff covering every page's component choices, active nested variations and colour theme. Share that file to request a client-ready version; typography and enquiry-form entries are not included. Run `node scripts/handoff.cjs` to verify the shortcuts, export mapping, saved choices, failure handling and responsive controls.
 
@@ -68,4 +68,6 @@ Source files are in `design/theme-data.mjs`, `design/theme-init.js`, `design/app
 
 The current static form prepares a pre-addressed email in the visitor's email application. Before launch, connect it to a hosted form endpoint or the final website platform if submissions need to work without a local email app.
 
-Individual component palettes: open any component’s menu and choose **Colour scheme**. **Use site theme** is the default; nested cards, buttons, forms and fields offer **Use parent colours**. A pinned palette survives layout changes and follows the site light/dark mode. Nested choices belong to their parent layout. The footer handoff uses schema version 2 and includes `effectiveColourOverrides`, resolved per-component colours and colour-only nested overrides. Typography remains global. Verify with `node scripts/component-colours.cjs`.
+Individual component palettes: open any component’s menu and choose **Colour scheme**. **Use site theme** is the default; nested cards, buttons, forms and fields offer **Use parent colours**. A pinned palette survives layout changes and follows the site light/dark mode. Nested choices belong to their parent layout. The footer handoff uses schema version 3 and includes `effectiveColourOverrides`, resolved per-component colours and colour-only nested overrides. Typography remains global. Verify with `node scripts/component-colours.cjs`.
+
+**Prompts** in the footer opens 100 complete, searchable image prompts with copy buttons. New image slots use explicit placeholders. Run `node scripts/catalog.cjs` for the categorized library and all 100 new layouts. The footer export now includes functional categories and stable layout IDs in schema version 3.

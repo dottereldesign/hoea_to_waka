@@ -2,24 +2,37 @@
 
 ## Shared colours and typography
 
-The layout library now shares 10 site-wide colour palettes and six typography roles. Open **Colours & type** at the bottom left, or use the foundations shortcut inside Design studio. There are 10 font families and 10 suggested pairings. These settings apply to Original and all 50 directions, including nested variations, and persist across routes. Layouts retain their geometry and motion; the new foundations control their colours and fonts. See [research and palette rationale](assets/THEME-RESEARCH.md). Historical colour/font descriptions below describe the original layout explorations.
+The layout library now shares 10 site-wide colour palettes and six typography roles. Open **Colours & type** at the bottom left, or use the foundations shortcut inside Design studio. There are 10 font families and 10 suggested pairings. These settings apply to every current and earlier layout, including nested variations, and persist across routes. Layouts retain their geometry and motion; the new foundations control their colours and fonts. See [research and palette rationale](assets/THEME-RESEARCH.md). Historical colour/font descriptions below describe the original layout explorations.
 
 
 ## Using the studio
 
-Each component control now has **previous / menu / next** buttons. The arrows cycle through all 51 options without opening the menu and wrap between Original and the final direction. Card, button, form and field controls have the same shortcuts; choices save immediately. Controls move around occupied actions so they do not intercept navigation or form buttons.
+Each component control now has **previous / menu / next** buttons. The arrows cycle through the component’s curated category without opening the menu and wrap between Original and its final layout. Card, button, form and field controls have the same shortcuts; choices save immediately. Controls move around occupied actions so they do not intercept navigation or form buttons.
 
 When finished, use **Export my design choices** in the footer. The downloaded `hoea-client-design-YYYY-MM-DD.json` is the handoff for creating a client-ready site. Attach it or paste its contents into the design conversation. It includes all 10 studio routes, 52 top-level components (including shared navigation/footer), effective design IDs and names, active nested overrides with labels, and the selected colour palette and light/dark mode. Typography and entered enquiry data are excluded. Unchanged sections are explicitly recorded as their effective defaults; overrides belonging to an inactive parent layout are excluded. The exported file describes the chosen state at the time the button was clicked. A failed page read reports an error instead of downloading an incomplete file.
 
-The schema is `hoea-to-waka/client-design-handoff`, version 1. `effectiveChoices` provides exact stable studio keys, while `sharedComponents` and `pages` explain those keys for a reviewer. `selectionRules` documents defaults and indexing. The handoff requests a separate client-ready presentation with the studio tooling removed; exporting does not change the published site or create that presentation automatically. The existing studio export button uses the same handoff format.
+The schema is `hoea-to-waka/client-design-handoff`, version 3. `effectiveChoices` provides exact stable studio keys, while `sharedComponents` and `pages` explain those keys for a reviewer. `selectionRules` documents defaults and indexing. The handoff requests a separate client-ready presentation with the studio tooling removed; exporting does not change the published site or create that presentation automatically. The existing studio export button uses the same handoff format.
 
-Every public section has a small Layers control at its top right. It opens 51 choices: **Original**, the first five designs, and **45 additional directions**. Search by name, collection or motion; use collection filters or star favourites. Hover a choice to see its layout and motion name. Tab, Enter, and Escape work throughout. Native modal dialogs keep the picker above page content; its controls are not clipped by component containers.
+Every public section has a small Layers control at its top right. It opens the matching category with **25 curated layouts plus Original**. Search by name or purpose, filter functional groups, or star favourites. The **Earlier explorations** disclosure preserves previous layouts and saved IDs. Small utility/error categories keep five appropriate options. Tab, Enter, and Escape work throughout. Native modal dialogs keep the picker above page content; its controls are not clipped by component containers.
 
 Cards, actions, the enquiry form and individual fields have smaller controls for independent treatments. Their first choice restores the section's default treatment. The section-level Original restores the actual pre-existing DOM, including listeners and form state.
 
-The bottom-left **Design studio** control applies a complete direction to the current page, shows/hides detailed controls, pauses motion, exports the browser's choices as JSON, and restores originals. Each section and micro-component stores its own choice in localStorage. Navigation and footer choices carry across pages. `?design=0` through `?design=50` open a particular direction for comparison; ordinary navigation uses your saved choices. New visitors see Editorial.
+The bottom-left **Design studio** control browses 17 relevant section categories and lets you choose a component to edit. It also shows/hides detailed controls, pauses motion, exports the browser's choices as JSON, and restores originals. Each section and micro-component stores its own choice in localStorage. Navigation and footer choices carry across pages. `?design=0` through `?design=50` open a particular direction for comparison; ordinary navigation uses your saved choices. New visitors see each category’s first existing layout.
 
 This is a public design playground as requested. The controls appear on the published website. No selection changes the site for other visitors. Original HTML remains the no-JavaScript fallback. Brand-guidelines reference documents retain their layout while sharing the new colour and typography settings.
+
+
+## Purpose-based library and image prompts
+
+The catalogue groups Navbars, Footers, Hero Sections, Header Sections, Service Sections, Feature Sections, Brand Statements, CTA Sections, FAQ Sections, Contact Sections, Testimonial Sections, Story & About Sections, Process Sections, Application Sections, Book & Resource Sections, Video Sections and Gallery Sections. It omits commerce/account categories for which this site has no content. Each main category offers 25 curated choices plus Original; utility and missing-page controls remain separate. Categories on another page link to a page where they are used.
+
+The 100 new layouts are authored specifically for four purposes: Hero Sections (IDs 101–125), Header Sections (126–150), Feature Sections (151–175), Contact Sections (176–200). IDs are scoped to their declared type; unsupported combinations are rejected. Earlier IDs 0–50 remain stable. Subpage headers preserve the page title, introduction and one h1; contact layouts preserve the actual enquiry form node and values. Global typography, palettes and component palette overrides continue to apply.
+
+New media slots are labelled CSS placeholders. Older generated concept-image slots now use a neutral SVG placeholder. Existing business imagery and book artwork are retained. The footer’s **Prompts** link opens a searchable library of 100 complete image prompts, with one-click copying and a manual-copy fallback. Prompts include composition, style, aspect ratio and palette direction. No images are generated or purchased by the page.
+
+The handoff includes each section’s category, functional layout name and stable ID as well as its colour choices. Tests: `node scripts/catalog.cjs`, `node scripts/handoff.cjs`, `node scripts/component-colours.cjs`.
+
+The organization follows the component-purpose approach documented by [Relume’s library guide](https://resources.relume.io/resources/docs/how-to-use-the-relume-webflow-library), with site-specific content and independently authored code. The following original-direction notes are historical reference.
 
 ## Original five directions
 
@@ -132,4 +145,4 @@ GitHub Pages was returning 404 although its source was configured and the reposi
 
 Published URL: https://dottereldesign.github.io/hoea_to_waka/
 
-Individual component palettes: open any component’s menu and choose **Colour scheme**. **Use site theme** is the default; nested cards, buttons, forms and fields offer **Use parent colours**. A pinned palette survives layout changes and follows the site light/dark mode. Nested choices belong to their parent layout. The footer handoff uses schema version 2 and includes `effectiveColourOverrides`, resolved per-component colours and colour-only nested overrides. Typography remains global. Verify with `node scripts/component-colours.cjs`.
+Individual component palettes: open any component’s menu and choose **Colour scheme**. **Use site theme** is the default; nested cards, buttons, forms and fields offer **Use parent colours**. A pinned palette survives layout changes and follows the site light/dark mode. Nested choices belong to their parent layout. The footer handoff uses schema version 3 and includes `effectiveColourOverrides`, resolved per-component colours and colour-only nested overrides. Typography remains global. Verify with `node scripts/component-colours.cjs`.

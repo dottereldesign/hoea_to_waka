@@ -13,7 +13,7 @@ const folder='tmp/design-studio/expanded';fs.mkdirSync(folder,{recursive:true});
       await page.route('**/contact.js',async route=>{const r=await route.fetch();await route.fulfill({response:r,body:(await r.text()).replace('window.location.href =','window.__preparedMailto =')});});
       for(const route of width===320||width===768?['','contact/','resources/']:routes){
         await page.goto(`http://127.0.0.1:8770/hoea_to_waka/${route}?design=0`);
-        await page.waitForFunction(()=>window.HoeaDesignStudio?.version===2);
+        await page.waitForFunction(()=>window.HoeaDesignStudio?.version>=2);
         const original=await page.locator('main').innerText();
         if(route==='contact/')await page.getByLabel('Name',{exact:true}).fill('Preserve this across 51 designs');
         for(let v=6;v<=50;v++){

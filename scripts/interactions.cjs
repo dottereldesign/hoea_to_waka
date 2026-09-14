@@ -20,7 +20,7 @@ const {chromium}=require('playwright');const assert=require('assert/strict');con
   await p.evaluate(()=>window.scrollTo(0,0));
   await p.getByRole('button',{name:'Change Page header design',exact:true}).click();
   assert(await p.locator('.ds-picker').isVisible());
-  await p.locator('.ds-picker').getByRole('button',{name:/^Blueprint/}).click();
+  await p.locator('.ds-earlier summary').click();await p.locator('.ds-choice[data-layout-id="3"]').click();
   assert.equal(await p.locator('.ds-type-header').getAttribute('data-design'),'3');
   await p.keyboard.press('Escape');assert.equal(await p.locator('.ds-picker').isVisible(),false);
   await p.reload();await p.waitForFunction(()=>window.HoeaDesignStudio);assert.equal(await p.locator('.ds-type-header').getAttribute('data-design'),'3');

@@ -10,7 +10,7 @@ const label = t => `<p class="ds-kicker">${esc(t)}</p>`;
 const heading = (t, level = 2) => `<h${level} class="ds-title" data-text-motion>${esc(t)}</h${level}>`;
 const para = t => t ? `<p class="ds-lead">${esc(t)}</p>` : '';
 export const link = (t, href = 'contact/', cls = '') => `<a class="ds-button ${cls}" href="${esc(url(href))}"><span>${esc(t)}</span>${icon('ArrowUpRight')}</a>`;
-const photo = () => img('assets/ocean-concept.webp', 'Concept image of a quiet coastal inlet', 'ds-landscape');
+const photo = () => img('assets/placeholders/landscape.svg', 'Landscape image placeholder', 'ds-landscape');
 const mark = () => img('assets/logo-black.svg', '', 'ds-mark');
 const number = i => String(i + 1).padStart(2, '0');
 const intro = d => `<header class="ds-section-heading">${label(d.eyebrow || d.type)}${heading(d.title,d.type==='gallery'?1:2)}${para(d.lead)}</header>`;
