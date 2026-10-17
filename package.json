@@ -17,7 +17,8 @@
     "test:component-colours": "node scripts/component-colours.cjs",
     "test:prompts": "node scripts/prompts.cjs",
     "test:draft": "node scripts/draft.cjs",
-    "test:statement": "node scripts/statement-icons.cjs"
+    "test:statement": "node scripts/statement-icons.cjs",
+    "test:model-timeline": "node scripts/model-timeline.cjs"
   },
   "dependencies": {
     "lucide": "^0.468.0",

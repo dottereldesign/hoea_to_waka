@@ -7,6 +7,7 @@ import { direction, MAX_VARIANT, colourStyle, entryMotion } from './directions';
 import { validLayout, renderLayout } from './layout-catalog';
 import { draftStorageKey, draftChoices } from './draft';
 import { setupStatementIcons } from './statement-icons';
+import { setupModelTimeline } from './model-timeline';
 
 // Retain this browser's existing presentation, with the published draft as fallback.
 // The public site has no layout, colour or typography editing interface.
@@ -75,6 +76,7 @@ function render(c,value,{initial=false}={}){
   }
   if(value===0){c.form?.classList.remove('ds-preserved-form');if(originalThemeToggle){const dark=document.documentElement.dataset.theme==='dark';originalThemeToggle.setAttribute('aria-pressed',String(dark));originalThemeToggle.setAttribute('aria-label',dark?'Switch to light theme':'Switch to dark theme');}}
   if(c.key==='home:2:statement')c.cleanup.push(setupStatementIcons(c.el,paused));
+  if(c.key==='home:4:features')c.cleanup.push(setupModelTimeline(c.el,paused));
   if(value!==0)wire(c.el,c,initial);
   document.body.classList.toggle('ds-new-nav',components.find(x=>x.type==='navbar')?.value>0);
   document.body.classList.toggle('ds-original-nav',components.find(x=>x.type==='navbar')?.value===0);
@@ -91,7 +93,7 @@ function wire(el,c,initial){
     const extended=entryMotion(c.value);
     const frames=extended?Object.fromEntries(Object.entries(extended.from).map(([key,value])=>[key,[value,extended.to[key]]])):[{}, {opacity:[0,1],y:[20,0]}, {opacity:[0,1],filter:['blur(7px)','blur(0px)']}, {opacity:[0,1],x:[-24,0]}, {opacity:[0,1],rotate:[1.5,0],y:[12,0]}, {opacity:[0,1],scale:[.96,1]}][c.value]||{opacity:[0,1],y:[14,0]};
     const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){const animation=animate(e.target,frames,{duration:extended?.duration||.65,delay:0,ease:[.22,1,.36,1]});c.cleanup.push(()=>animation.stop());observer.unobserve(e.target);}}),{threshold:.06});
-    el.querySelectorAll('[data-card-unit],.ds-prose,.ds-facts,.ds-actions,.ex-visual').forEach(n=>observer.observe(n));c.cleanup.push(()=>observer.disconnect());
+    el.querySelectorAll('[data-card-unit],.ds-prose,.ds-facts,.ds-actions,.ex-visual').forEach(n=>{if(!n.closest('.model-timeline'))observer.observe(n);});c.cleanup.push(()=>observer.disconnect());
   }
   el.querySelector('[data-ds-menu]')?.addEventListener('click',e=>{const b=e.currentTarget;const open=b.getAttribute('aria-expanded')!=='true';b.setAttribute('aria-expanded',String(open));b.setAttribute('aria-label',open?'Close navigation':'Open navigation');el.classList.toggle('ds-menu-open',open);});
   el.querySelector('[data-ds-theme]')?.addEventListener('click',()=>originalThemeToggle?.click());
