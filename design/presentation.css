@@ -1,7 +1,7 @@
 /* Shared component roles win over layout and nested-variation paint choices. */
 /* The header reaches every viewport edge; the homepage hero has a small inset. */
 body > .site-header{top:0;width:100%;max-width:none;margin:0;border-radius:0}
-.page-home .home-hero{margin-inline:8px}
+.page-home .home-hero{--hero-header-overlap:0px;margin-top:0;margin-inline:8px;border-radius:32px}
 /* Subpage header surfaces reach the viewport edge behind the floating navbar. */
 body:has(.site-main > :is(.page-hero,.ds-type-header):first-child) > .site-header{position:fixed;left:0;right:0;margin-top:0}
 body:has(.site-main > :is(.page-hero,.ds-type-header):first-child) > .ds-type-navbar{position:absolute;top:0;left:0;right:0;width:100%;z-index:100}
