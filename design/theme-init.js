@@ -1,5 +1,6 @@
 import { palettes, roles } from './theme-data.mjs';
 import { draft, appearanceStorageKey } from './draft';
+import { setupButtons } from './buttons';
 
 const key=appearanceStorageKey,root=document.documentElement;
 const defaults={palette:draft.colour.id};
@@ -22,3 +23,4 @@ const syncMode=()=>{
 apply();
 new MutationObserver(syncMode).observe(root,{attributes:true,attributeFilter:['data-theme']});
 document.addEventListener('DOMContentLoaded',syncMode,{once:true});
+document.addEventListener('DOMContentLoaded',()=>setupButtons(),{once:true});

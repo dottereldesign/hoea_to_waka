@@ -9,6 +9,7 @@ import { draftStorageKey, draftChoices } from './draft';
 import { setupStatementIcons } from './statement-icons';
 import { setupModelTimeline } from './model-timeline';
 import { setupTopicMarquee } from './topic-marquee';
+import { setupButtons } from './buttons';
 
 // Retain this browser's existing presentation, with the published draft as fallback.
 // The public site has no layout, colour or typography editing interface.
@@ -87,6 +88,7 @@ function render(c,value,{initial=false}={}){
   if(c.type==='navbar'){navSize.disconnect();navSize.observe(c.el);}
   registerAtoms(c);
   applyColour(c);
+  setupButtons(c.el);
 
 }
 function wire(el,c,initial){
@@ -129,6 +131,7 @@ function applyAtom(a,v){
   applyColour(a);
 }
 components.forEach(c=>render(c,validLayout(c.type,saved[c.key])?saved[c.key]:1,{initial:true}));
+setupButtons();
 setupTopicMarquee(document.querySelector('[data-topic-marquee]'),paused);
 matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change',e=>{
   reduced=e.matches;document.documentElement.classList.toggle('ds-motion-paused',paused||reduced);

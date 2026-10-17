@@ -9,7 +9,7 @@ const img = (path, alt = '', cls = '') => `<img class="${cls}" src="${esc(url(pa
 const label = t => `<p class="ds-kicker">${esc(t)}</p>`;
 const heading = (t, level = 2) => `<h${level} class="ds-title" data-text-motion>${esc(t)}</h${level}>`;
 const para = t => t ? `<p class="ds-lead">${esc(t)}</p>` : '';
-export const link = (t, href = 'contact/', cls = '') => `<a class="ds-button ${cls}" href="${esc(url(href))}"><span>${esc(t)}</span>${icon('ArrowUpRight')}</a>`;
+export const link = (t, href = 'contact/', cls = '') => `<a class="ds-button ${cls}" href="${esc(url(href))}"><span>${esc(t)}</span>${cls.includes('ds-button-quiet') || href.startsWith('contact/') ? '' : icon('ArrowRight')}</a>`;
 const photo = () => img('assets/placeholders/landscape.svg', 'Landscape image placeholder', 'ds-landscape');
 const mark = () => img('assets/logo-black.svg', '', 'ds-mark');
 const number = i => String(i + 1).padStart(2, '0');
@@ -34,7 +34,7 @@ export const renderers = {
   utility: [
     () => `<button class="ds-quick-trigger" data-quick-toggle aria-expanded="false" aria-label="Open quick contact">${icon('Plus')}</button><div class="ds-quick-panel" hidden>${label('Here when you need us')}${contactLinks()}<button data-ds-theme>${icon('Sun')} Change appearance</button></div>`,
     () => `<button class="ds-quick-trigger" data-quick-toggle aria-expanded="false" aria-label="Open quick contact">${icon('Waves')}<span>Connect</span></button><div class="ds-quick-panel" hidden>${heading('A simple first step.')}${contactLinks()}<button data-ds-theme>${icon('Sun')} Change appearance</button></div>`,
-    () => `<button class="ds-quick-trigger" data-quick-toggle aria-expanded="false" aria-label="Open quick contact">${icon('ArrowUpRight')}</button><div class="ds-quick-panel" hidden>${label('CONTACT / AOTEAROA')}${contactLinks()}<button data-ds-theme>${icon('Sun')} Change appearance</button></div>`,
+    () => `<button class="ds-quick-trigger" data-quick-toggle aria-expanded="false" aria-label="Open quick contact">${icon('Mail')}</button><div class="ds-quick-panel" hidden>${label('CONTACT / AOTEAROA')}${contactLinks()}<button data-ds-theme>${icon('Sun')} Change appearance</button></div>`,
     () => `<button class="ds-quick-trigger" data-quick-toggle aria-expanded="false" aria-label="Open quick contact">${icon('Mail')}</button><div class="ds-quick-panel" hidden><span class="ds-signature">A note to Anna</span>${contactLinks()}<button data-ds-theme>${icon('Sun')} Change appearance</button></div>`,
     () => `<button class="ds-quick-trigger" data-quick-toggle aria-expanded="false" aria-label="Open quick contact">${icon('Compass')}</button><div class="ds-quick-panel" hidden>${label('Find your bearings')}${contactLinks()}<button data-ds-theme>${icon('Sun')} Change appearance</button></div>`
   ],
