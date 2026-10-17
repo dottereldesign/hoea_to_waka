@@ -78,7 +78,7 @@ function render(c,value,{initial=false}={}){
   if(c.type==='navbar'){navSize.disconnect();navSize.observe(c.el);}
   registerAtoms(c);
   applyColour(c);
-  
+
 }
 function wire(el,c,initial){
   const isNav = c.type==='navbar';
