@@ -15,10 +15,13 @@ const routes=['','about/','services/','services/in-house-workshops/','services/r
       await page.waitForLoadState('networkidle');
       assert.equal(await page.locator('.ap-launcher,.ap-dialog,.ds-overlay,.ds-picker,.ds-switcher,.ds-dock,.ds-handoff').count(),0,route+' editor UI');
       assert.equal(await page.evaluate(()=>Boolean(window.HoeaDesignStudio||window.HoeaAppearance)),false,route+' editor API');
+      await page.evaluate(()=>document.fonts.ready);
+      assert(await page.evaluate(()=>document.fonts.check('400 16px "Inter"','Hoea tō Waka Ā Ē Ī Ō Ū')),route+' Inter loaded');
+      assert.deepEqual(await page.locator('body *').evaluateAll(els=>els.filter(el=>!el.matches('script,style,svg *')&&[...el.childNodes].some(n=>n.nodeType===3&&n.textContent.trim())&&!getComputedStyle(el).fontFamily.includes('Inter')).map(el=>el.tagName+': '+el.textContent.slice(0,60))),[],route+' consistent Inter');
       const components=await page.locator('.ds-component').evaluateAll(els=>els.map(el=>({key:el.dataset.component,value:Number(el.dataset.design),colour:el.dataset.componentPalette})));
       for(const c of components){assert.equal(c.value,baseline.effectiveChoices[c.key],route+' '+c.key);assert.equal(c.colour,baseline.effectiveColourOverrides[c.key],route+' colour '+c.key);}
       assert.equal(await page.locator('h1').count(),1,route+' h1');
-      if(routes.indexOf(route)<10)assert.match(await page.locator('h1').evaluate(el=>getComputedStyle(el).fontFamily),/Instrument Serif/,route+' heading font');
+      if(routes.indexOf(route)<10)assert.match(await page.locator('h1').evaluate(el=>getComputedStyle(el).fontFamily),/Inter/,route+' heading font');
       assert.deepEqual(await page.locator('img').evaluateAll(els=>els.filter(i=>i.currentSrc&&i.complete&&!i.naturalWidth).map(i=>i.currentSrc)),[],route+' broken images');
       if(routes.indexOf(route)<10){
         assert.equal(components.length,Object.entries(baseline.effectiveChoices).filter(([k,v])=>v>0&&k.startsWith((route||'home')+':')&&k.split(':').length===3).length,route+' rendered sections');
@@ -27,6 +30,7 @@ const routes=['','about/','services/','services/in-house-workshops/','services/r
         assert(await page.locator('footer [data-shielded-site]').count(),route+' shielded link');}
         assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),route+' overflow '+width);
       }
+      if(route===''){const bounds=await page.locator('h1').evaluate(el=>{const range=document.createRange();range.selectNodeContents(el);const r=range.getBoundingClientRect();return{left:r.left,right:r.right}});assert(bounds.left>=0&&bounds.right<=width,'homepage title fits '+width);}
       if(['','about/','contact/'].includes(route))await page.screenshot({path:`tmp/basic-site/after-${route.replaceAll('/','')||'home'}-${width===390?'mobile':'desktop'}.png`,fullPage:true});
     }
   }
@@ -41,7 +45,7 @@ const routes=['','about/','services/','services/in-house-workshops/','services/r
     localStorage.setItem('hoea-design-studio-draft-1',JSON.stringify({'home:2:statement':3,'colour:home:2:statement':'arctic-poppy'}));
     localStorage.setItem('hoea-appearance-draft-1',JSON.stringify({palette:'plum-sorbet',roles:{display:'eb-garamond'}}));
   });const returning=await saved.newPage();await returning.goto('http://127.0.0.1:8791/hoea_to_waka/?design=5');await returning.waitForLoadState('networkidle');
-  assert.equal(await returning.locator('[data-component="home:2:statement"]').getAttribute('data-design'),'3');assert.equal(await returning.locator('[data-component="home:2:statement"]').getAttribute('data-component-palette'),'arctic-poppy');assert.equal(await returning.locator('html').getAttribute('data-palette'),'plum-sorbet');assert.match(await returning.locator('html').getAttribute('style'),/EB Garamond/);
+  assert.equal(await returning.locator('[data-component="home:2:statement"]').getAttribute('data-design'),'3');assert.equal(await returning.locator('[data-component="home:2:statement"]').getAttribute('data-component-palette'),'arctic-poppy');assert.equal(await returning.locator('html').getAttribute('data-palette'),'plum-sorbet');assert.match(await returning.locator('html').getAttribute('style'),/Inter/);
   await returning.emulateMedia({reducedMotion:'no-preference'});await returning.waitForTimeout(500);await returning.emulateMedia({reducedMotion:'reduce'});
   await saved.close();assert.deepEqual(errors,[]);
   console.log('PASS: 15 routes at desktop/mobile, published layouts and palettes, removed editor UI/APIs, footer links, image loading, main-page overflow, contact email preparation, quick contact, mobile navigation, saved presentation and disabled query overrides.');

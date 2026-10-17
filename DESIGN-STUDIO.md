@@ -1,6 +1,6 @@
 # Current website
 
-The public site keeps the existing Draft 1 presentation and reads any previously saved browser choices without offering editing controls. Design studio, Colours & type, component variation pickers, and design export/reset actions have been removed. Brand guidelines, illustrations, and the footer resources remain available. Light/dark mode remains a normal visitor preference.
+The public site keeps the existing Draft 1 presentation and reads any previously saved browser choices without offering editing controls. Design studio, Colours & type, component variation pickers, and design export/reset actions have been removed. Brand guidelines, illustrations, and the footer resources remain available. Inter is fixed across all typography roles, including browsers with older saved type choices. Light/dark mode remains a normal visitor preference.
 
 Build with `node scripts/build.mjs` and verify with `node scripts/verify-basic.cjs`. Layout rendering and interaction code lives in `design/site-layouts.jsx`; appearance initialisation lives in `design/theme-init.js`. The draft JSON remains the fallback for new visitors.
 

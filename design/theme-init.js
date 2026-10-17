@@ -1,16 +1,16 @@
-import { palettes, fonts, roles, pairings, fontsForRole } from './theme-data.mjs';
+import { palettes, roles } from './theme-data.mjs';
 import { draft, appearanceStorageKey } from './draft';
 
 const key=appearanceStorageKey,root=document.documentElement;
-const defaults={palette:draft.colour.id,pairing:pairings[0].id,roles:{...pairings[0].roles}};
-const valid=(list,id)=>list.some(item=>item.id===id);
-function sanitise(value){const selectedRoles=Object.fromEntries(roles.map(role=>[role.id,valid(fontsForRole(role.id),value?.roles?.[role.id])?value.roles[role.id]:defaults.roles[role.id]]));const matching=pairings.find(p=>roles.every(r=>p.roles[r.id]===selectedRoles[r.id]));return {palette:valid(palettes,value?.palette)?value.palette:defaults.palette,pairing:matching?.id||'custom',roles:selectedRoles};}
+const defaults={palette:draft.colour.id};
+function sanitise(value){return {palette:palettes.some(p=>p.id===value?.palette)?value.palette:defaults.palette};}
 function read(){try{return sanitise(JSON.parse(localStorage.getItem(key))||defaults);}catch{return sanitise(defaults);}}
 let state=read();
 function apply(){
   root.dataset.palette=state.palette;
-  root.dataset.typography=state.pairing;
-  for(const role of roles){const font=fonts.find(f=>f.id===state.roles[role.id]);root.style.setProperty(`--font-${role.id}`,font.stack);root.style.setProperty(`--font-weight-${role.id}`,font.headingWeight);}
+  root.dataset.typography='inter';
+  // Typography is fixed site-wide, including browsers with older saved font choices.
+  for(const role of roles){root.style.setProperty(`--font-${role.id}`,'"Inter", Arial, sans-serif');root.style.setProperty(`--font-weight-${role.id}`,['display','heading'].includes(role.id)?600:500);}
   window.dispatchEvent(new CustomEvent('hoea:appearance',{detail:structuredClone(state)}));
 }
 const syncMode=()=>{
