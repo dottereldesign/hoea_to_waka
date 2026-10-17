@@ -157,13 +157,7 @@ body {
   --website-blue--lighter: var(--paint-f1f6f8, #f1f6f8);
   --home-gradient-height: calc(max(778px, 100svh) + 700px);
   background-color: var(--mist);
-  background-image: linear-gradient(
-    180deg,
-    var(--website-blue--darker),
-    var(--website-blue--normal) 20%,
-    var(--website-blue--lighter) 68%,
-    var(--mist)
-  );
+  background-image: none;
   background-position: top center;
   background-repeat: no-repeat;
   background-size: 100% var(--home-gradient-height);
@@ -1217,14 +1211,14 @@ html.js [data-reveal]:not(.home-hero-copy).is-visible {
 }
 
 html.js .page-home .site-header {
-  opacity: 0;
-  translate: 0 -18px;
+  opacity: 1;
+  translate: none;
 }
 
 html.is-page-ready .page-home .site-header {
   opacity: 1;
   translate: none;
-  animation: header-arrive 760ms 80ms cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  animation: none;
 }
 
 html.js .page-home .site-utility-menu {
@@ -3289,12 +3283,7 @@ html[data-theme="dark"] .home-use-list li::before {
 
 html[data-theme="dark"] .page-home {
   background-color: var(--mist);
-  background-image:
-    linear-gradient(90deg, color-mix(in srgb, var(--paint-030d16, #030d16) 50%, transparent) 0%, color-mix(in srgb, var(--paint-04111c, #04111c) 14%, transparent) 34%, transparent 56%),
-    linear-gradient(180deg, color-mix(in srgb, var(--paint-04101a, #04101a) 10%, transparent), transparent 26% 79%, color-mix(in srgb, var(--paint-00070e, #00070e) 25%, transparent)),
-    radial-gradient(ellipse 54% 76% at 78% 25%, color-mix(in srgb, var(--paint-427392, #427392) 24%, transparent), transparent 66%),
-    radial-gradient(ellipse 45% 60% at 12% 18%, color-mix(in srgb, var(--paint-234d66, #234d66) 18%, transparent), transparent 72%),
-    linear-gradient(112deg, var(--paint-06131d, #06131d) 0%, var(--paint-091d2a, #091d2a) 48%, var(--paint-102d3d, #102d3d) 100%);
+  background-image: none;
 }
 
 html[data-theme="dark"] .home-hero {
