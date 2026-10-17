@@ -942,6 +942,8 @@ html.js [data-home-statement]:not(.statement-icons-ready){visibility:hidden}
 
 .model-section-photo{display:block;width:100%;height:auto;aspect-ratio:1021/572;object-fit:cover;border-radius:20px;margin:0 0 clamp(24px,3vw,36px)}
 
+[data-component="home:3:services"] .ds-service-editorial .ds-card>img{border-radius:20px}
+
 .model-timeline article{border-left-color:transparent}
 .model-timeline article::before{content:"";position:absolute;left:-1px;top:26px;bottom:-26px;width:1px;background:var(--ds-line);transform:scaleY(var(--timeline-line,0));transform-origin:top;pointer-events:none}
 .model-timeline article:last-child::before{bottom:0}
