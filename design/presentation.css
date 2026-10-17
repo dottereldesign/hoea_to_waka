@@ -48,6 +48,12 @@ html[data-palette] .ds-button[data-component-palette]{background:var(--t-action)
 /* Keep legacy layouts, form controls and reference pages on the same typeface. */
 html[data-palette] body,html[data-palette] body *{font-family:var(--font-body)!important}
 
+/* Main section headings share the scale used by "Designed to stay with you." */
+html[data-palette]{--site-h2-size:clamp(38px,4.5vw,72px)}
+html[data-palette] main :is(h2.ds-title,h2.section-title){font-size:var(--site-h2-size)!important;letter-spacing:-.055em}
+html[data-palette] main :is(h2.ds-title,h2.section-title):not(.statement-icon-copy){line-height:1.02}
+@media(max-width:760px){html[data-palette]{--site-h2-size:clamp(37px,9vw,60px)}}
+
 @media(max-width:760px){
   html[data-palette] .home-hero .display-title{font-size:clamp(2rem,11.5vw,4.5rem);line-height:1.05;white-space:normal;transform:none}
 }
