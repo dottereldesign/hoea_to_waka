@@ -67,6 +67,7 @@ function render(c,value,{initial=false}={}){
     else if(value>5){const d=direction(value);node.dataset.collection=d.collection;node.dataset.layout=d.slug;node.style.cssText=colourStyle(d);}
     node.dataset.design=value;node.dataset.component=c.key;
     if(c.id)node.id=c.id;
+    if(c.key==='home:2:statement')node.dataset.homeStatement='';
     node.innerHTML=renderLayout(c.data,value);
     if(c.form){node.querySelector('[data-form-slot]')?.append(c.form);c.form.classList.add('ds-preserved-form');}
     if(c.shield)node.querySelector('[data-shielded-slot]')?.append(c.shield);

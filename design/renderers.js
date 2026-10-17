@@ -60,7 +60,7 @@ export const renderers = {
     d => `<div class="ds-page-orbit"><div>${label(d.eyebrow)}${heading(d.title,1)}${para(d.lead)}${facts(d)}</div>${orbit()}</div>`
   ],
   statement: [
-    d => `<div class="ds-statement-editorial">${label('A model for the life you’re actually living')}${heading(d.title)}<span class="ds-statement-rule"></span>${link('Meet the model','about/')}</div>`,
+    d => `<div class="ds-statement-editorial">${label('About Hoea tō Waka')}${heading(d.title)}<span class="ds-statement-rule"></span>${link('Meet the model','about/')}</div>`,
     d => `<div class="ds-statement-water">${icon('Waves',64)}${heading(d.title)}${label('Notice the current. Choose your direction.')}</div>`,
     d => `<div class="ds-statement-poster">${label('OUR PURPOSE')}${heading('Resilience, made practical.')}<div>${para(d.title)}${link('Discover how','about/')}</div></div>`,
     d => `<div class="ds-statement-letter">${label('A belief we come back to')}${heading(d.title)}<div class="ds-signature">Hoea tō Waka</div></div>`,
@@ -200,7 +200,7 @@ export function classify(el) {
   if(el.matches('.home-hero')) return 'hero';
   if(el.matches('.page-hero')) return 'header';
   if(el.matches('.error-card')) return 'error';
-  if(el.matches('.home-statement')) return 'statement';
+  if(el.matches('[data-home-statement],.home-statement')) return 'statement';
   if(el.querySelector('.service-grid')) return 'services';
   if(el.querySelector('.faq-list')) return 'faq';
   if(el.querySelector('[data-contact-form]')) return 'contact';

@@ -77,7 +77,6 @@ lucide/dist/esm/icons/map-pin.js:
 lucide/dist/esm/icons/menu.js:
 lucide/dist/esm/icons/minus.js:
 lucide/dist/esm/icons/moon.js:
-lucide/dist/esm/icons/mountain.js:
 lucide/dist/esm/icons/move-up-right.js:
 lucide/dist/esm/icons/pause.js:
 lucide/dist/esm/icons/phone.js:
