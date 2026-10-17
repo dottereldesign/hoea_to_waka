@@ -946,7 +946,8 @@ html.js [data-home-statement]:not(.statement-icons-ready){visibility:hidden}
 
 .model-timeline article{border-left-color:transparent}
 .model-timeline article::before{content:"";position:absolute;left:-1px;top:26px;bottom:-26px;width:1px;background:var(--ds-line);transform:scaleY(var(--timeline-line,0));transform-origin:top;pointer-events:none}
-.model-timeline article:last-child::before{bottom:0}
+.model-timeline article:last-child::before{content:none}
+[data-component="home:4:features"] .ds-path-line article:last-child{border-left-color:transparent}
 .model-timeline article>i{z-index:1;opacity:0;transform:scale(.65)}
 .model-timeline article>:is(.ds-number,h3,p){opacity:0;transform:translateY(10px)}
 .model-timeline.is-timeline-complete article>:is(i,.ds-number,h3,p){opacity:1;transform:none}
