@@ -1,9 +1,9 @@
 {
-  "name": "hoea-to-waka-design-studio",
+  "name": "hoea-to-waka",
   "private": true,
   "scripts": {
     "build": "node scripts/build.mjs",
-    "test": "node scripts/verify.cjs",
+    "test": "node scripts/verify-basic.cjs",
     "test:interactions": "node scripts/interactions.cjs",
     "test:accessibility": "node scripts/accessibility.cjs",
     "test:expanded": "node scripts/verify-expanded.cjs",

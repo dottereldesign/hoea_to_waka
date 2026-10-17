@@ -3,7 +3,7 @@ import { createElement, ArrowUpRight, ArrowRight, ArrowDown, Menu, X, Sun, Moon,
 const icons = { ArrowUpRight, ArrowRight, ArrowDown, Menu, X, Sun, Moon, Waves, Compass, MoveUpRight, BookOpen, Users, Heart, Leaf, Layers, SlidersHorizontal, Check, Play, Mail, Phone, MapPin, Plus, Minus, RotateCcw, Sparkles, Pause, Copy, Download, ChevronLeft, ChevronRight };
 export const icon = (name, size = 20) => createElement(icons[name] || ArrowUpRight, { width: size, height: size, 'aria-hidden': 'true', 'stroke-width': 1.6 }).outerHTML;
 export const esc = (s = '') => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-export const base = new URL('../', [...document.scripts].find(s => /assets\/design-studio\.js/.test(s.src)).src);
+export const base = new URL('../', [...document.scripts].find(s => /assets\/(?:site-layouts|design-studio)\.js/.test(s.src)).src);
 export const url = path => new URL(path, base).href;
 const img = (path, alt = '', cls = '') => `<img class="${cls}" src="${esc(url(path))}" alt="${esc(alt)}" loading="lazy" decoding="async">`;
 const label = t => `<p class="ds-kicker">${esc(t)}</p>`;

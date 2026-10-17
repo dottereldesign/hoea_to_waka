@@ -1,0 +1,47 @@
+/* Shared component roles win over layout and nested-variation paint choices. */
+/* Subpage header surfaces reach the viewport edge behind the floating navbar. */
+body:has(.site-main > :is(.page-hero,.ds-type-header):first-child) > .site-header{position:fixed;left:0;right:0;margin-top:0}
+body:has(.site-main > :is(.page-hero,.ds-type-header):first-child) > .ds-type-navbar{position:absolute;top:0;left:0;right:0;width:100%;z-index:100}
+.site-main > :is(.page-hero,.ds-type-header):first-child{margin-top:0!important;padding-top:max(calc(var(--ds-nav-clearance,104px) + 48px),clamp(152px,15vw,230px))!important}
+html[data-palette] .ds-component{--ds-bg:var(--section-surface,var(--t-bg))!important;--ds-ink:var(--t-ink)!important;--ds-muted:var(--t-muted)!important;--ds-surface:var(--t-surface)!important;--ds-accent:var(--t-component-accent)!important;--ds-line:var(--t-line)!important;--ex-font:var(--font-heading)!important}
+/* Consistent section roles put the mixed palette to work throughout every layout. */
+html[data-palette] .ds-type-statement{--section-surface:var(--t-soft)}
+html[data-palette] .ds-type-features{--section-surface:var(--t-component-accent)}
+html[data-palette] .ds-type-cta{--section-surface:var(--t-component-counter)}
+html[data-palette] .ds-type-testimonials{--section-surface:var(--t-surface)}
+html[data-palette] :is(.ds-v2,.ds-v5,.ds-expanded[data-collection="Nocturnal"]){--ds-bg:var(--t-inverse)!important;--ds-ink:var(--t-on-inverse)!important;--ds-muted:var(--t-inverse-muted)!important;--ds-surface:color-mix(in srgb,var(--t-inverse) 88%,var(--t-on-inverse))!important;--ds-accent:color-mix(in srgb,var(--t-inverse) 80%,var(--t-action))!important;--ds-line:color-mix(in srgb,var(--t-on-inverse) 40%,var(--t-inverse))!important}
+html[data-palette] [data-atom-extended]{--atom-bg:var(--ds-surface,var(--t-surface))!important;--atom-ink:var(--ds-ink,var(--t-ink))!important;--atom-line:var(--ds-line,var(--t-line))!important}
+html[data-palette] .ds-expanded .ex-footer-brand{background:var(--t-component-counter);color:var(--t-ink)}
+html[data-palette] .ds-v5 :is(.ds-tab-bar button[aria-selected="true"],.ds-tag-orbit span:nth-child(3n)){color:var(--t-on-inverse)}
+html[data-palette] .ds-v5 .ds-tab-bar button[aria-selected="true"]{border-color:var(--t-on-inverse)}
+html[data-palette] :is(.ds-quick-trigger,.ds-map-options button[aria-pressed="true"]){background:var(--t-action);color:var(--t-on-action)!important}
+html[data-palette] .ds-component .ds-button:not(.ds-button-quiet):not([data-atom-variant="1"]):not([data-atom-variant="3"]){background:var(--t-action);color:var(--t-on-action);border-color:var(--t-action)}
+html[data-palette] .ds-component .ds-button:not(.ds-button-quiet):hover{background:var(--t-ink);color:var(--t-bg);border-color:var(--t-ink)}
+html[data-palette] :is(a,button,input,textarea,select,summary):focus-visible{outline:3px solid var(--t-focus);outline-offset:4px}
+html[data-palette] ::selection{background:var(--t-accent);color:var(--t-on-accent)}
+/* Explicit role routing overrides font shorthand declarations inside all 51 layouts. */
+html[data-palette] body,html[data-palette] :is(.ds-component,.ds-prose,.ds-lead,p,li,dd,input,textarea){font-family:var(--font-body)!important}
+html[data-palette] :is(h1,.hero-title,.page-title,.ds-type-hero .ds-title,.ds-type-header .ds-title,.preview-brand-title){font-family:var(--font-display)!important;font-optical-sizing:auto}
+html[data-palette] :is(h2,h3,h4,h5,h6,.ds-title,blockquote,.ds-signature,.ds-brand>span,summary){font-family:var(--font-heading)!important;font-optical-sizing:auto}
+html[data-palette] :is(h1,.ds-type-hero .ds-title,.ds-type-header .ds-title){font-family:var(--font-display)!important}
+html[data-palette] :is(.eyebrow,.section-eyebrow,.ds-kicker,.ds-number,.ds-facts dt,.ds-brand small,[class*="eyebrow"],[class*="kicker"]){font-family:var(--font-eyebrow)!important}
+html[data-palette] :is(button,.button,.ds-button,select,label,nav a,.ds-nav-links a,.ds-footer-links a,.site-nav a){font-family:var(--font-ui)!important}
+html[data-palette] :is(small,figcaption,.ds-fineprint,.ds-carousel-status,.ds-facts dd,.ds-hero-note,.ds-hero-bottom,[class*="caption"],[class*="fineprint"]){font-family:var(--font-small)!important}
+html[data-palette] :is(.field-error,.form-error,[role="alert"]){color:var(--t-error)}
+/* Live layout thumbnails use the chosen palette as well. */
+html[data-palette] :is(h1,.hero-title,.page-title,.display-title,.ds-type-hero .ds-title,.ds-type-header .ds-title){font-weight:var(--font-weight-display)!important;font-synthesis:none}
+html[data-palette] :is(h2,h3,h4,h5,h6,blockquote,.ds-title,.ds-signature){font-weight:var(--font-weight-heading)!important;font-synthesis:none}
+html[data-palette] :is(h1,.ds-type-hero .ds-title,.ds-type-header .ds-title){font-weight:var(--font-weight-display)!important}
+html[data-palette] .home-hero-photo-wave stop{stop-color:var(--ramp-0-8)}
+html[data-palette] .home-hero-photo-wave stop:nth-child(2){stop-color:var(--ramp-0-6)}
+html[data-palette] .home-hero-photo-wave stop:last-child{stop-color:var(--ramp-0-9)}
+/* Rebind derived aliases at each boundary: inherited CSS variables are already resolved. */
+.home-hero[data-component-palette]{background:linear-gradient(180deg,var(--t-soft),var(--t-bg))}
+html[data-palette] [data-component-palette]{--section-surface:var(--t-bg)!important;--ds-bg:var(--section-surface)!important;--ds-ink:var(--t-ink)!important;--ds-muted:var(--t-muted)!important;--ds-surface:var(--t-surface)!important;--ds-accent:var(--t-component-accent)!important;--ds-line:var(--t-line)!important;--atom-bg:var(--ds-surface)!important;--atom-ink:var(--ds-ink)!important;--atom-line:var(--ds-line)!important}
+html[data-palette] [data-component-palette][data-colour-context="statement"]{--section-surface:var(--t-soft)!important}
+html[data-palette] [data-component-palette][data-colour-context="features"]{--section-surface:var(--t-component-accent)!important}
+html[data-palette] [data-component-palette][data-colour-context="cta"]{--section-surface:var(--t-component-counter)!important}
+html[data-palette] [data-component-palette][data-colour-context="testimonials"]{--section-surface:var(--t-surface)!important}
+html[data-palette] [data-component-palette][data-colour-inverse="true"]{--ds-bg:var(--t-inverse)!important;--ds-ink:var(--t-on-inverse)!important;--ds-muted:var(--t-inverse-muted)!important;--ds-surface:color-mix(in srgb,var(--t-inverse) 88%,var(--t-on-inverse))!important;--ds-accent:color-mix(in srgb,var(--t-inverse) 80%,var(--t-action))!important;--ds-line:color-mix(in srgb,var(--t-on-inverse) 40%,var(--t-inverse))!important}
+html[data-palette] [data-component-palette][data-atom-variant]{background:var(--ds-surface)!important;color:var(--ds-ink)!important}
+html[data-palette] .ds-button[data-component-palette]{background:var(--t-action)!important;color:var(--t-on-action)!important;--atom-ink:var(--t-on-action)!important;border-color:var(--t-action)!important}
