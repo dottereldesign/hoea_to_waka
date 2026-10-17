@@ -13,7 +13,7 @@ export const link = (t, href = 'contact/', cls = '') => `<a class="ds-button ${c
 const photo = () => img('assets/placeholders/landscape.svg', 'Landscape image placeholder', 'ds-landscape');
 const mark = () => img('assets/logo-black.svg', '', 'ds-mark');
 const number = i => String(i + 1).padStart(2, '0');
-const intro = d => `<header class="ds-section-heading">${label(d.eyebrow || d.type)}${heading(d.title,d.type==='gallery'?1:2)}${para(d.lead)}</header>`;
+const intro = d => `<header class="ds-section-heading">${d.modelPhoto ? `<img class="model-section-photo" src="${esc(d.modelPhoto.src)}" alt="${esc(d.modelPhoto.alt)}" width="1021" height="572" loading="lazy" decoding="async">` : ''}${label(d.eyebrow || d.type)}${heading(d.title,d.type==='gallery'?1:2)}${para(d.lead)}</header>`;
 const body = d => `<div class="ds-prose">${d.prose}</div>`;
 const actions = () => `<div class="ds-actions">${link('Find your starting point','services/')}${link('Talk with Anna','contact/','ds-button-quiet')}</div>`;
 const orbit = () => `<div class="ds-orbit" aria-hidden="true"><i></i><i></i><i></i><span>${mark()}</span><b>VALUES</b><b>DIRECTION</b><b>CONNECTION</b></div>`;
@@ -172,7 +172,8 @@ function gallery(d) { return d.items.map((c,i)=>`<figure data-card-unit><img src
 export function extract(el, type) {
   const text = (selector, from=el) => {const n=from.querySelector(selector)?.cloneNode(true);n?.querySelectorAll('span').forEach(s=>s.after(document.createTextNode(' ')));return (n?.textContent||'').replace(/\s+/g,' ').trim();};
   const primary = el.querySelector('h1,h2');
-  const d = {type, title: primary?.getAttribute('aria-label') || primary?.textContent.replace(/\s+/g,' ').trim() || '', eyebrow: text('.eyebrow'), lead: text('.lead,.home-intro,.section-head p:not(.eyebrow),.cta-band-inner p'), items:[], facts:[], tags:[], quotes:[]};
+  const modelPhoto = el.querySelector('[data-model-photo]');
+  const d = {type, modelPhoto:modelPhoto?{src:modelPhoto.src,alt:modelPhoto.alt}:null, title: primary?.getAttribute('aria-label') || primary?.textContent.replace(/\s+/g,' ').trim() || '', eyebrow: text('.eyebrow'), lead: text('.lead,.home-intro,.section-head p:not(.eyebrow),.cta-band-inner p'), items:[], facts:[], tags:[], quotes:[]};
   d.facts = [...el.querySelectorAll('.hero-fact')].map(f=>[f.children[0]?.textContent.trim(),f.children[1]?.textContent.trim()]);
   const selectors = {services:'.service-card',features:'.info-card',process:'.steps li,.step-list li',faq:'.faq-list details',resources:'.resource-feature',videos:'.video-card',gallery:'.illustration-card'};
   if (type==='process') selectors.process='ol li';
