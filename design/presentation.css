@@ -92,6 +92,11 @@ html[data-palette] [data-component="home:3:services"] .ds-button:focus-visible{o
 .model-timeline article>:is(.ds-number,h3,p){opacity:0;transform:translateY(10px)}
 .model-timeline.is-timeline-complete article>:is(i,.ds-number,h3,p){opacity:1;transform:none}
 
+/* Homepage testimonials use a white canvas with navy copy and controls. */
+html[data-palette] .ds-component[data-component="home:6:testimonials"]{--ds-bg:#fff!important;--ds-ink:#142044!important;--ds-muted:#526078!important;--ds-surface:#fff!important;--ds-accent:#eef1f9!important;--ds-line:#c7cede!important}
+[data-component="home:6:testimonials"] :is(figcaption,.ds-carousel-status){color:var(--ds-muted)}
+html[data-palette] [data-component="home:6:testimonials"] .ds-controls button:focus-visible{outline-color:var(--ds-ink)}
+
 /* Continuous typography: navy, cobalt outlines and a white canvas. */
 .kinetic-topics{position:relative;overflow:hidden;contain:layout paint;padding:clamp(48px,6vw,88px) 0;background:#fff;color:#142044}
 .kinetic-topics__list{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:20px 32px;max-width:1200px;margin:0 auto;padding:0 22px;font-size:clamp(24px,3vw,40px);font-weight:600;line-height:1.2;letter-spacing:-.035em}
