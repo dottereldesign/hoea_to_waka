@@ -8,6 +8,7 @@ import { validLayout, renderLayout } from './layout-catalog';
 import { draftStorageKey, draftChoices } from './draft';
 import { setupStatementIcons } from './statement-icons';
 import { setupModelTimeline } from './model-timeline';
+import { setupTopicMarquee } from './topic-marquee';
 
 // Retain this browser's existing presentation, with the published draft as fallback.
 // The public site has no layout, colour or typography editing interface.
@@ -125,6 +126,7 @@ function applyAtom(a,v){
   applyColour(a);
 }
 components.forEach(c=>render(c,validLayout(c.type,saved[c.key])?saved[c.key]:1,{initial:true}));
+setupTopicMarquee(document.querySelector('[data-topic-marquee]'),paused);
 matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change',e=>{
   reduced=e.matches;document.documentElement.classList.toggle('ds-motion-paused',paused||reduced);
   components.filter(c=>c.value).forEach(c=>render(c,c.value,{initial:true}));
