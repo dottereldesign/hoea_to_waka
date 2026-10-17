@@ -5,7 +5,6 @@ body:has(.site-main > :is(.page-hero,.ds-type-header):first-child) > .ds-type-na
 .site-main > :is(.page-hero,.ds-type-header):first-child{margin-top:0!important;padding-top:max(calc(var(--ds-nav-clearance,104px) + 48px),clamp(152px,15vw,230px))!important}
 html[data-palette] .ds-component{--ds-bg:var(--section-surface,var(--t-bg))!important;--ds-ink:var(--t-ink)!important;--ds-muted:var(--t-muted)!important;--ds-surface:var(--t-surface)!important;--ds-accent:var(--t-component-accent)!important;--ds-line:var(--t-line)!important;--ex-font:var(--font-heading)!important}
 /* Consistent section roles put the mixed palette to work throughout every layout. */
-html[data-palette] .ds-type-statement{--section-surface:var(--t-soft)}
 html[data-palette] .ds-type-features{--section-surface:var(--t-component-accent)}
 html[data-palette] .ds-type-cta{--section-surface:var(--t-component-counter)}
 html[data-palette] .ds-type-testimonials{--section-surface:var(--t-surface)}
@@ -38,7 +37,7 @@ html[data-palette] .home-hero-photo-wave stop:last-child{stop-color:var(--ramp-0
 /* Rebind derived aliases at each boundary: inherited CSS variables are already resolved. */
 .home-hero[data-component-palette]{background:linear-gradient(180deg,var(--t-soft),var(--t-bg))}
 html[data-palette] [data-component-palette]{--section-surface:var(--t-bg)!important;--ds-bg:var(--section-surface)!important;--ds-ink:var(--t-ink)!important;--ds-muted:var(--t-muted)!important;--ds-surface:var(--t-surface)!important;--ds-accent:var(--t-component-accent)!important;--ds-line:var(--t-line)!important;--atom-bg:var(--ds-surface)!important;--atom-ink:var(--ds-ink)!important;--atom-line:var(--ds-line)!important}
-html[data-palette] [data-component-palette][data-colour-context="statement"]{--section-surface:var(--t-soft)!important}
+html[data-palette]:not([data-theme="dark"]) [data-home-statement]{--section-surface:#fff!important}
 html[data-palette] [data-component-palette][data-colour-context="features"]{--section-surface:var(--t-component-accent)!important}
 html[data-palette] [data-component-palette][data-colour-context="cta"]{--section-surface:var(--t-component-counter)!important}
 html[data-palette] [data-component-palette][data-colour-context="testimonials"]{--section-surface:var(--t-surface)!important}
