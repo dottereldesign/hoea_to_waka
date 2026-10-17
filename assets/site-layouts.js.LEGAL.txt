@@ -61,12 +61,14 @@ lucide/dist/esm/icons/arrow-down.js:
 lucide/dist/esm/icons/arrow-right.js:
 lucide/dist/esm/icons/arrow-up-right.js:
 lucide/dist/esm/icons/book-open.js:
+lucide/dist/esm/icons/building-2.js:
 lucide/dist/esm/icons/check.js:
 lucide/dist/esm/icons/chevron-left.js:
 lucide/dist/esm/icons/chevron-right.js:
 lucide/dist/esm/icons/compass.js:
 lucide/dist/esm/icons/copy.js:
 lucide/dist/esm/icons/download.js:
+lucide/dist/esm/icons/hand-heart.js:
 lucide/dist/esm/icons/heart.js:
 lucide/dist/esm/icons/layers.js:
 lucide/dist/esm/icons/leaf.js:
@@ -75,6 +77,7 @@ lucide/dist/esm/icons/map-pin.js:
 lucide/dist/esm/icons/menu.js:
 lucide/dist/esm/icons/minus.js:
 lucide/dist/esm/icons/moon.js:
+lucide/dist/esm/icons/mountain.js:
 lucide/dist/esm/icons/move-up-right.js:
 lucide/dist/esm/icons/pause.js:
 lucide/dist/esm/icons/phone.js:
@@ -83,6 +86,7 @@ lucide/dist/esm/icons/plus.js:
 lucide/dist/esm/icons/rotate-ccw.js:
 lucide/dist/esm/icons/sliders-horizontal.js:
 lucide/dist/esm/icons/sparkles.js:
+lucide/dist/esm/icons/sprout.js:
 lucide/dist/esm/icons/sun.js:
 lucide/dist/esm/icons/users.js:
 lucide/dist/esm/icons/waves.js:

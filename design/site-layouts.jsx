@@ -6,6 +6,7 @@ import { renderers, extract, classify, url } from './renderers';
 import { direction, MAX_VARIANT, colourStyle, entryMotion } from './directions';
 import { validLayout, renderLayout } from './layout-catalog';
 import { draftStorageKey, draftChoices } from './draft';
+import { setupStatementIcons } from './statement-icons';
 
 // Retain this browser's existing presentation, with the published draft as fallback.
 // The public site has no layout, colour or typography editing interface.
@@ -70,9 +71,10 @@ function render(c,value,{initial=false}={}){
     if(c.form){node.querySelector('[data-form-slot]')?.append(c.form);c.form.classList.add('ds-preserved-form');}
     if(c.shield)node.querySelector('[data-shielded-slot]')?.append(c.shield);
     c.el=node;c.marker.after(node);
-    wire(node,c,initial);
   }
   if(value===0){c.form?.classList.remove('ds-preserved-form');if(originalThemeToggle){const dark=document.documentElement.dataset.theme==='dark';originalThemeToggle.setAttribute('aria-pressed',String(dark));originalThemeToggle.setAttribute('aria-label',dark?'Switch to light theme':'Switch to dark theme');}}
+  if(c.key==='home:2:statement')c.cleanup.push(setupStatementIcons(c.el,paused));
+  if(value!==0)wire(c.el,c,initial);
   document.body.classList.toggle('ds-new-nav',components.find(x=>x.type==='navbar')?.value>0);
   document.body.classList.toggle('ds-original-nav',components.find(x=>x.type==='navbar')?.value===0);
   if(c.type==='navbar'){navSize.disconnect();navSize.observe(c.el);}
