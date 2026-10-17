@@ -3392,18 +3392,6 @@ html[data-theme="dark"] .field textarea:focus {
   color: var(--white);
 }
 
-.site-footer::after {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  content: "";
-  pointer-events: none;
-}
-
-.site-footer::after {
-  background: linear-gradient(180deg, rgba(11, 32, 45, 0.08), rgba(11, 32, 45, 0.72));
-}
-
 .site-footer > .container {
   position: relative;
   z-index: 1;
