@@ -59,11 +59,12 @@ html[data-palette] main :is(h2.ds-title,h2.section-title):not(.statement-icon-co
 }
 
 /* Icons stay hidden until the entrance trigger, then a spring opens them once. */
-.statement-icon-copy{position:relative;text-wrap:wrap!important;line-height:1.35!important}
+.ds-type-statement .ds-statement-editorial{max-width:none}
+html[data-palette] main h2.statement-icon-copy{position:relative;font-size:clamp(26px,3.6vw,52px)!important;letter-spacing:-.035em;text-wrap:balance!important;line-height:1.18!important}
 .statement-icon-word{display:inline-block;white-space:nowrap}
 .statement-icon-line{display:block;white-space:nowrap}
-.statement-icon{display:inline-block;vertical-align:-.12em;width:calc(var(--icon-reveal,0)*1.05em);height:.95em;margin-left:calc(var(--icon-reveal,0)*.16em);overflow:hidden;line-height:0;opacity:var(--icon-reveal,0)}
-.statement-icon svg{display:block;width:1.05em;height:.95em;max-width:none;transform-origin:left center;transform:scaleX(calc(.15 + var(--icon-reveal,0)*.85))}
+.statement-icon{display:inline-block;vertical-align:-.08em;width:calc(var(--icon-reveal,0)*.85em);height:.8em;margin-left:calc(var(--icon-reveal,0)*.14em);overflow:hidden;line-height:0;opacity:var(--icon-reveal,0)}
+.statement-icon svg{display:block;width:.85em;height:.8em;max-width:none;transform-origin:left center;transform:scaleX(calc(.15 + var(--icon-reveal,0)*.85))}
 .is-measuring-icons .statement-icon{--icon-reveal:1!important}
 @media(prefers-reduced-motion:reduce){.statement-icon{--icon-reveal:1!important}}
 
