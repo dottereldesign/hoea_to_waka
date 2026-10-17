@@ -2,10 +2,17 @@ export function setupTopicMarquee(section, paused = false) {
   if (!section) return () => {};
   const terms = [...section.querySelectorAll('.kinetic-topics__list li')].map(el => el.textContent);
   const preference = matchMedia('(prefers-reduced-motion: reduce)');
+  let reducedMotion = preference.matches;
   const visual = document.createElement('div');
   visual.className = 'kinetic-topics__rows';
   visual.setAttribute('aria-hidden', 'true');
   section.append(visual);
+  const pauseButton = document.createElement('button');
+  pauseButton.type = 'button';
+  pauseButton.className = 'kinetic-topics__pause';
+  pauseButton.textContent = 'Pause animation';
+  pauseButton.setAttribute('aria-pressed', 'false');
+  section.append(pauseButton);
   const rows = [terms.slice(0, 4), terms.slice(4, 8), terms.slice(8)].map((words, i) => {
     const row = document.createElement('div');
     row.className = `kinetic-topics__row${i === 1 ? ' kinetic-topics__row--reverse' : ''}`;
@@ -13,12 +20,11 @@ export function setupTopicMarquee(section, paused = false) {
     track.className = 'kinetic-topics__track';
     row.append(track);
     visual.append(row);
-    return { row, track, words, index: i, speed: [.75, 1, 1.3][i], direction: i === 1 ? -1 : 1, cycle: 0, offset: 0 };
+    return { row, track, words, index: i, speed: [38, 44, 40][i], direction: i === 1 ? -1 : 1, cycle: 0, offset: 0 };
   });
   let frame = 0, layoutFrame = 0, active = false, ready = false, disposed = false;
-  let previousY = scrollY, previousScrollTime = performance.now(), lastFrameTime = 0;
-  let velocity = 0, targetVelocity = 0, observedWidth = section.clientWidth;
-  const allowed = () => !paused && !preference.matches && !document.hidden;
+  let lastFrameTime = 0, userPaused = false, observedWidth = section.clientWidth;
+  const allowed = () => !paused && !userPaused && !reducedMotion && !document.hidden;
   const modulo = (value, size) => ((value % size) + size) % size;
 
   function paint(row) {
@@ -27,16 +33,17 @@ export function setupTopicMarquee(section, paused = false) {
   function stop() {
     cancelAnimationFrame(frame);
     frame = 0;
-    velocity = targetVelocity = 0;
   }
   function layout() {
     layoutFrame = 0;
     if (disposed) return;
-    if (paused || preference.matches) {
+    if (paused || reducedMotion) {
       stop();
       section.classList.remove('is-kinetic-ready', 'is-kinetic-measuring');
       return;
     }
+    const title = document.querySelector('main h1');
+    if (title) section.style.setProperty('--marquee-font-size', getComputedStyle(title).fontSize);
     section.classList.add('is-kinetic-measuring');
     for (const row of rows) {
       const group = document.createElement('div');
@@ -78,41 +85,36 @@ export function setupTopicMarquee(section, paused = false) {
     section.classList.add('is-kinetic-ready');
     section.classList.remove('is-kinetic-measuring');
     ready = true;
+    requestTick();
   }
   function update(now) {
     frame = 0;
     if (!active || !allowed() || !ready) { stop(); return; }
     const dt = Math.min((now - lastFrameTime) / 1000, .05);
     lastFrameTime = now;
-    // Time-based damping keeps the same feel on 60 Hz and high-refresh screens.
-    velocity += (targetVelocity - velocity) * (1 - Math.exp(-14 * dt));
-    targetVelocity *= Math.exp(-8 * dt);
+    // Constant pixels per second: independent of scroll and display refresh rate.
     rows.forEach(row => {
-      row.offset = modulo(row.offset + velocity * dt * .55 * row.speed * row.direction, row.cycle);
+      row.offset = modulo(row.offset + dt * row.speed * row.direction, row.cycle);
       paint(row);
     });
-    if (Math.abs(velocity) > 1 || Math.abs(targetVelocity) > 1) frame = requestAnimationFrame(update);
+    frame = requestAnimationFrame(update);
   }
   function requestTick() {
     if (frame || !active || !allowed() || !ready) return;
     lastFrameTime = performance.now();
     frame = requestAnimationFrame(update);
   }
-  function onScroll() {
-    const now = performance.now(), currentY = scrollY;
-    const delta = currentY - previousY;
-    const elapsed = Math.max(16, now - previousScrollTime);
-    previousY = currentY;
-    previousScrollTime = now;
-    if (!active || !allowed()) return;
-    targetVelocity = Math.max(-2400, Math.min(2400, delta / elapsed * 1000));
-    requestTick();
+  function onPause() {
+    userPaused = !userPaused;
+    pauseButton.textContent = userPaused ? 'Resume animation' : 'Pause animation';
+    pauseButton.setAttribute('aria-pressed', String(userPaused));
+    if (userPaused) stop();
+    else requestTick();
   }
   const observer = new IntersectionObserver(entries => {
     active = entries.some(entry => entry.isIntersecting);
-    previousY = scrollY;
-    previousScrollTime = performance.now();
     if (!active) stop();
+    else requestTick();
   }, { rootMargin: '150px 0px' });
   const resize = new ResizeObserver(() => {
     if (section.clientWidth === observedWidth) return;
@@ -122,9 +124,17 @@ export function setupTopicMarquee(section, paused = false) {
   observer.observe(section);
   resize.observe(section);
   document.fonts.ready.then(() => { if (!disposed) layout(); });
-  const onVisibility = () => { if (document.hidden) stop(); };
-  window.addEventListener('scroll', onScroll, { passive: true });
-  preference.addEventListener('change', layout);
+  const onVisibility = () => { if (document.hidden) stop(); else requestTick(); };
+  const onMotionChange = event => {
+    reducedMotion = event.matches;
+    if (reducedMotion) {
+      stop();
+      ready = false;
+      section.classList.remove('is-kinetic-ready', 'is-kinetic-measuring');
+    } else layout();
+  };
+  pauseButton.addEventListener('click', onPause);
+  preference.addEventListener('change', onMotionChange);
   document.addEventListener('visibilitychange', onVisibility);
   return () => {
     disposed = true;
@@ -132,8 +142,8 @@ export function setupTopicMarquee(section, paused = false) {
     cancelAnimationFrame(layoutFrame);
     observer.disconnect();
     resize.disconnect();
-    window.removeEventListener('scroll', onScroll);
-    preference.removeEventListener('change', layout);
+    pauseButton.removeEventListener('click', onPause);
+    preference.removeEventListener('change', onMotionChange);
     document.removeEventListener('visibilitychange', onVisibility);
   };
 }
