@@ -12,7 +12,27 @@ export function setupTopicMarquee(section, paused = false) {
   pauseButton.className = 'kinetic-topics__pause';
   pauseButton.textContent = 'Pause animation';
   pauseButton.setAttribute('aria-pressed', 'false');
-  section.append(pauseButton);
+  const controls = document.createElement('div');
+  controls.className = 'kinetic-topics__controls';
+  controls.append(pauseButton);
+  section.append(controls);
+  const previousSection = () => document.getElementById('home-previous-uses');
+  const previousButton = document.createElement('button');
+  previousButton.type = 'button';
+  previousButton.className = 'kinetic-topics__previous';
+  previousButton.dataset.previousVersion = '';
+  previousButton.textContent = 'Previous Version';
+  previousButton.setAttribute('aria-controls', 'home-previous-uses');
+  previousButton.setAttribute('aria-expanded', 'false');
+  if (previousSection()) controls.append(previousButton);
+  function onPrevious() {
+    const target = previousSection();
+    if (!target) return;
+    target.hidden = !target.hidden;
+    previousButton.setAttribute('aria-expanded', String(!target.hidden));
+    previousButton.textContent = target.hidden ? 'Previous Version' : 'Hide Previous Version';
+  }
+  previousButton.addEventListener('click', onPrevious);
   const rows = [terms.slice(0, 4), terms.slice(4, 8), terms.slice(8)].map((words, i) => {
     const row = document.createElement('div');
     row.className = `kinetic-topics__row${i === 1 ? ' kinetic-topics__row--reverse' : ''}`;
@@ -143,6 +163,7 @@ export function setupTopicMarquee(section, paused = false) {
     observer.disconnect();
     resize.disconnect();
     pauseButton.removeEventListener('click', onPause);
+    previousButton.removeEventListener('click', onPrevious);
     preference.removeEventListener('change', onMotionChange);
     document.removeEventListener('visibilitychange', onVisibility);
   };
