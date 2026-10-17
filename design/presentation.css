@@ -92,6 +92,16 @@ html[data-palette] [data-component="home:3:services"] .ds-button:focus-visible{o
 .model-timeline article>:is(.ds-number,h3,p){opacity:0;transform:translateY(10px)}
 .model-timeline.is-timeline-complete article>:is(i,.ds-number,h3,p){opacity:1;transform:none}
 
+/* Forest green FAQs complement the homepage's navy and plum sections. */
+html[data-palette] :is(.home-faq-section,.ds-component[data-component="home:8:faq"]){background:#153e35;color:#f5f8f4;--ds-bg:#153e35!important;--ds-ink:#f5f8f4!important;--ds-muted:#d0ded5!important;--ds-surface:#1e4b40!important;--ds-accent:#29584b!important;--ds-line:#54776a!important}
+#home-faq .ds-answer{color:var(--ds-muted)}
+#home-faq .faq-list p{color:#d0ded5}
+#home-faq .faq-list details{border-color:#54776a}
+#home-faq :is(.eyebrow,.section-title,.faq-list summary){color:#f5f8f4}
+#home-faq summary{border-radius:4px;transition:background .2s}
+#home-faq summary:hover{background:var(--ds-accent,#29584b)}
+html[data-palette] #home-faq summary:focus-visible{outline-color:#d6e8bd;outline-offset:4px}
+
 /* Homepage testimonials use a white canvas with navy copy and controls. */
 html[data-palette] .ds-component[data-component="home:6:testimonials"]{--ds-bg:#fff!important;--ds-ink:#142044!important;--ds-muted:#526078!important;--ds-surface:#fff!important;--ds-accent:#eef1f9!important;--ds-line:#c7cede!important}
 [data-component="home:6:testimonials"] :is(figcaption,.ds-carousel-status){color:var(--ds-muted)}

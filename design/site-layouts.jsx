@@ -38,6 +38,8 @@ const navSize = new ResizeObserver(entries=>{
   if(nav)document.body.style.setProperty('--ds-nav-clearance',`${nav.getBoundingClientRect().height+32}px`);
 });
 const route = document.querySelector('.error-card')?'404.html':location.pathname.replace(new URL(url('')).pathname,'').replace(/index.html$/,'') || 'home';
+// Keep the homepage utility's saved design stable as new sections are added.
+if(route==='home')document.querySelector('.site-utility-menu')?.setAttribute('data-design-index','9');
 // The preserved DOM nodes keep their event listeners, form values, and native state.
 const nodes=[...document.querySelectorAll(componentSelector)];
 nodes.forEach((el,index)=>{
