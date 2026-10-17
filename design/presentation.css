@@ -90,6 +90,16 @@ html[data-palette] [data-component="home:3:services"]{margin-inline:8px;border-r
 .model-timeline article>:is(.ds-number,h3,p){opacity:0;transform:translateY(10px)}
 .model-timeline.is-timeline-complete article>:is(i,.ds-number,h3,p){opacity:1;transform:none}
 
+/* The homepage invitation keeps only its copy and two actions. */
+html[data-palette] :is(.home-cta-simple,.ds-component[data-component="home:7:cta"]){background:#fff;color:#142044;padding:clamp(64px,7vw,104px) max(5vw,24px);--ds-bg:#fff!important;--ds-ink:#142044!important;--ds-muted:#526078!important;--ds-surface:#fff!important;--ds-line:#c7cede!important}
+.home-cta-grid{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:clamp(40px,6vw,96px);align-items:center}
+.home-cta-copy{min-width:0;max-width:820px}
+.home-cta-simple .home-cta-copy .ds-kicker{margin:0 0 25px!important;color:#6e5473}
+.home-cta-simple .home-cta-copy .ds-title{max-width:none;color:inherit}
+.home-cta-simple .home-cta-copy .ds-lead{max-width:580px;color:var(--ds-muted);font-size:15px;line-height:1.75}
+.home-cta-simple .home-cta-actions{display:flex;flex-direction:column;align-items:stretch;gap:12px;margin:0;min-width:218px}
+@media(max-width:760px){.home-cta-grid{grid-template-columns:1fr;gap:32px}.home-cta-simple .home-cta-actions{align-items:flex-start;min-width:0}}
+
 /* Forest green FAQs complement the homepage's navy and plum sections. */
 #home-faq{margin-inline:8px;border-radius:32px;overflow:clip}
 html[data-palette] :is(.home-faq-section,.ds-component[data-component="home:8:faq"]){background:#153e35;color:#f5f8f4;--ds-bg:#153e35!important;--ds-ink:#f5f8f4!important;--ds-muted:#d0ded5!important;--ds-surface:#1e4b40!important;--ds-accent:#29584b!important;--ds-line:#54776a!important}
