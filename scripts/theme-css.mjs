@@ -2,6 +2,8 @@ import { colourReference, normaliseColour } from '../design/theme-data.mjs';
 // Replace declaration colour literals only, never selectors, content strings or URLs.
 export function tokeniseCSS(css,colours){
   return css.replace(/([\w-]+\s*:\s*)([^{};]+)(?=[;}])/g,(declaration,property,value)=>{
+    // Black and white in masks are geometry, not brand paint.
+    if(property.includes('mask'))return declaration;
     if(/^\s*font-family\s*:/.test(property)){
       if(value.includes('var(')||/^(inherit|initial|unset)$/.test(value.trim()))return declaration;
       return property+(value.includes('monospace')?'var(--font-small)':value.includes('serif')&&!value.includes('sans-serif')?'var(--font-heading)':'var(--font-body)');

@@ -24,7 +24,7 @@
     <meta name="twitter:title" content="Brand Guidelines | Hoea tō Waka">
     <meta name="twitter:description" content="The Hoea tō Waka brand system and visual guidelines.">
     <meta name="twitter:image" content="https://www.hoeatowaka.co.nz/assets/hoea-to-waka-social.png">
-    <meta name="theme-color" content="#e8f4fa">
+    <meta name="theme-color" content="#F8F8F6">
     <script>
       (() => {
         document.documentElement.classList.add("js");
@@ -37,12 +37,12 @@
         document.documentElement.style.colorScheme = theme;
       })();
     </script>
-    <link rel="stylesheet" href="../../assets/brand-palette.css?v=6">
+    <link rel="stylesheet" href="../../assets/brand-palette.css?v=7">
     <link rel="icon" href="../../assets/favicon.png" type="image/png">
-    <script src="../../assets/theme-init.js?v=13"></script>
-    <link rel="stylesheet" href="../../assets/theme.css?v=37">
+    <script src="../../assets/theme-init.js?v=14"></script>
+    <link rel="stylesheet" href="../../assets/theme.css?v=38">
   </head>
-  <body>
+  <body class="brand-guidelines">
     <main class="page-shell">
       <div class="dashboard-layout">
         <section class="preview-rail" id="preview" aria-label="Brand preview">
@@ -107,7 +107,7 @@
 		                  <h1 class="site-preview-guide-cover-title"><span>Brand</span><span>Guidelines</span></h1>
 		                  <div class="site-preview-guide-cover-meta" aria-label="Brand guideline publication details">
 	                    <span>Created by Jamie Wilson</span>
-	                    <span>Version 1.0</span>
+	                    <span>Version 2.0</span>
 	                    <span>2026</span>
 	                  </div>
 	                </div>
@@ -137,7 +137,7 @@
 
 	                  <div class="site-preview-guide-cover-meta site-preview-brand-hero-meta" aria-label="Brand guideline publication details">
 	                    <span>Created by Jamie Wilson</span>
-	                    <span>Version 1.0</span>
+	                    <span>Version 2.0</span>
 	                    <span>2026</span>
 		                  </div>
 		                </div>
@@ -197,7 +197,7 @@
 
 	                  <div class="site-preview-guide-cover-meta site-preview-contents-meta" aria-label="Brand guideline publication details">
 	                    <span>Created by Jamie Wilson</span>
-	                    <span>Version 1.0</span>
+	                    <span>Version 2.0</span>
 		                    <span>2026</span>
 		                  </div>
 		                </div>
@@ -238,7 +238,7 @@
 
 	                  <div class="site-preview-guide-cover-meta site-preview-brand-overview-meta" aria-label="Brand guideline publication details">
 	                    <span>Created by Jamie Wilson</span>
-	                    <span>Version 1.0</span>
+	                    <span>Version 2.0</span>
 	                    <span>2026</span>
 	                  </div>
 	                </div>
@@ -300,7 +300,7 @@
 		                </div>
 		                <div class="site-preview-guide-cover-meta site-preview-section-meta" aria-label="Brand guideline publication details">
 		                  <span>Created by Jamie Wilson</span>
-		                  <span>Version 1.0</span>
+		                  <span>Version 2.0</span>
 		                  <span>2026</span>
 		                </div>
 		              </section>
@@ -349,130 +349,218 @@
 		                </article>
 		                <div class="site-preview-guide-cover-meta site-preview-section-meta" aria-label="Brand guideline publication details">
 		                  <span>Created by Jamie Wilson</span>
-		                  <span>Version 1.0</span>
+		                  <span>Version 2.0</span>
 		                  <span>2026</span>
 		                </div>
 		              </section>
 
-		              <section class="site-preview-section site-preview-colours" id="colours">
-	                <article class="site-preview-colours-sheet" aria-label="Brand colours">
-	                  <div class="site-preview-colours-copy">
-	                    <p class="site-preview-typeface-eyebrow">Palette</p>
-	                    <h2 class="site-preview-heading-display">Colours</h2>
-	                    <p>
-	                      The palette balances deep harbour blues, open sky tones, tidal purple, and grounded
-	                      green with quiet neutral surfaces for text, backgrounds, and print use.
-	                    </p>
-	                  </div>
+		              <!-- brand-colours:start -->
+  <section class="site-preview-section site-preview-colours brand-colour-section" id="colours" aria-labelledby="brand-colour-title">
+    <div class="brand-editor" data-brand-editor>
+      <header class="brand-editor-heading"><p class="site-preview-typeface-eyebrow">The colour system</p><h2 id="brand-colour-title">Colours</h2><p>Ocean, Forest and Aubergine give the brand depth. Lavender and quiet neutral surfaces give the content room to breathe.</p><noscript><p>Enable JavaScript to preview changes. The published colour values are listed below.</p></noscript></header>
+      <div class="brand-preview-tools"><h3>Try a colour across the site</h3><p>Click a swatch to open its colour picker, or type a hex value. Your preview follows you around the site and across open tabs in this browser. It does not change the published palette for other visitors.</p><p>Linked colours share one value: for example, Ocean, Ocean 800 and Information update together. Each tonal shade can also be edited separately.</p><div class="brand-editor-actions"><a class="button button-primary" href="../../">View homepage</a><button class="button button-secondary" type="button" data-brand-reset>Reset preview</button><button class="button button-secondary" type="button" data-brand-copy>Copy CSS tokens</button></div><p class="brand-preview-status" role="status" data-brand-status>Published colours · no preview changes.</p></div>
+      <section class="brand-palette-group"><header><h3>Primary and secondary colours</h3><p>Use Ocean for recognition and navigation, Forest for grounding, Aubergine for depth, and Lavender for lighter panels.</p></header><div class="brand-swatch-grid brand-primary-grid"><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-ocean-800)"><input type="color" value="#243A53" data-colour-picker="ocean-800" aria-label="Edit Ocean colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>Ocean</h4><p>Primary · Brand recognition, hero and navigation</p><label class="brand-hex-label" for="primary-ocean-800">Hex value</label><input id="primary-ocean-800" class="brand-hex" value="#243A53" data-colour-hex="ocean-800" aria-label="Ocean hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="ocean-800" aria-label="Reset Ocean colour" disabled>Reset</button></div>
+  </article><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-forest-800)"><input type="color" value="#344A3A" data-colour-picker="forest-800" aria-label="Edit Forest colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>Forest</h4><p>Secondary · Grounding, cards and feature sections</p><label class="brand-hex-label" for="primary-forest-800">Hex value</label><input id="primary-forest-800" class="brand-hex" value="#344A3A" data-colour-hex="forest-800" aria-label="Forest hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="forest-800" aria-label="Reset Forest colour" disabled>Reset</button></div>
+  </article><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-aubergine-800)"><input type="color" value="#281A2C" data-colour-picker="aubergine-800" aria-label="Edit Aubergine colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>Aubergine</h4><p>Secondary · Depth, storytelling and editorial sections</p><label class="brand-hex-label" for="primary-aubergine-800">Hex value</label><input id="primary-aubergine-800" class="brand-hex" value="#281A2C" data-colour-hex="aubergine-800" aria-label="Aubergine hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="aubergine-800" aria-label="Reset Aubergine colour" disabled>Reset</button></div>
+  </article><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-lavender-500)"><input type="color" value="#D8CBDD" data-colour-picker="lavender-500" aria-label="Edit Lavender colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>Lavender</h4><p>Supporting · Light panels and highlights</p><label class="brand-hex-label" for="primary-lavender-500">Hex value</label><input id="primary-lavender-500" class="brand-hex" value="#D8CBDD" data-colour-hex="lavender-500" aria-label="Lavender hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="lavender-500" aria-label="Reset Lavender colour" disabled>Reset</button></div>
+  </article></div></section>
+      <section class="brand-palette-group"><header><h3>Tonal scales · 100–900</h3><p>These are design-token levels, not precise colour-space intervals. The original four brand colours are preserved in their scales.</p></header><div class="brand-scale"><h4>Ocean</h4><div class="brand-swatch-grid brand-tonal-grid"><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-ocean-100)"><input type="color" value="#F0F4F8" data-colour-picker="ocean-100" aria-label="Edit Ocean 100 colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>100</h4><p>Ocean</p><label class="brand-hex-label" for="ocean-ocean-100">Hex value</label><input id="ocean-ocean-100" class="brand-hex" value="#F0F4F8" data-colour-hex="ocean-100" aria-label="Ocean 100 hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="ocean-100" aria-label="Reset Ocean 100 colour" disabled>Reset</button></div>
+  </article><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-ocean-200)"><input type="color" value="#E9EEF4" data-colour-picker="ocean-200" aria-label="Edit Ocean 200 colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>200</h4><p>Ocean</p><label class="brand-hex-label" for="ocean-ocean-200">Hex value</label><input id="ocean-ocean-200" class="brand-hex" value="#E9EEF4" data-colour-hex="ocean-200" aria-label="Ocean 200 hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="ocean-200" aria-label="Reset Ocean 200 colour" disabled>Reset</button></div>
+  </article><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-ocean-300)"><input type="color" value="#C8D5E0" data-colour-picker="ocean-300" aria-label="Edit Ocean 300 colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>300</h4><p>Ocean</p><label class="brand-hex-label" for="ocean-ocean-300">Hex value</label><input id="ocean-ocean-300" class="brand-hex" value="#C8D5E0" data-colour-hex="ocean-300" aria-label="Ocean 300 hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="ocean-300" aria-label="Reset Ocean 300 colour" disabled>Reset</button></div>
+  </article><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-ocean-400)"><input type="color" value="#A9C5CE" data-colour-picker="ocean-400" aria-label="Edit Ocean 400 colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>400</h4><p>Ocean</p><label class="brand-hex-label" for="ocean-ocean-400">Hex value</label><input id="ocean-ocean-400" class="brand-hex" value="#A9C5CE" data-colour-hex="ocean-400" aria-label="Ocean 400 hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="ocean-400" aria-label="Reset Ocean 400 colour" disabled>Reset</button></div>
+  </article><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-ocean-500)"><input type="color" value="#829FB2" data-colour-picker="ocean-500" aria-label="Edit Ocean 500 colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>500</h4><p>Ocean</p><label class="brand-hex-label" for="ocean-ocean-500">Hex value</label><input id="ocean-ocean-500" class="brand-hex" value="#829FB2" data-colour-hex="ocean-500" aria-label="Ocean 500 hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="ocean-500" aria-label="Reset Ocean 500 colour" disabled>Reset</button></div>
+  </article><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-ocean-600)"><input type="color" value="#607F9D" data-colour-picker="ocean-600" aria-label="Edit Ocean 600 colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>600</h4><p>Ocean</p><label class="brand-hex-label" for="ocean-ocean-600">Hex value</label><input id="ocean-ocean-600" class="brand-hex" value="#607F9D" data-colour-hex="ocean-600" aria-label="Ocean 600 hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="ocean-600" aria-label="Reset Ocean 600 colour" disabled>Reset</button></div>
+  </article><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-ocean-700)"><input type="color" value="#3F5B78" data-colour-picker="ocean-700" aria-label="Edit Ocean 700 colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>700</h4><p>Ocean</p><label class="brand-hex-label" for="ocean-ocean-700">Hex value</label><input id="ocean-ocean-700" class="brand-hex" value="#3F5B78" data-colour-hex="ocean-700" aria-label="Ocean 700 hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="ocean-700" aria-label="Reset Ocean 700 colour" disabled>Reset</button></div>
+  </article><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-ocean-800)"><input type="color" value="#243A53" data-colour-picker="ocean-800" aria-label="Edit Ocean 800 colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>800</h4><p>Ocean</p><label class="brand-hex-label" for="ocean-ocean-800">Hex value</label><input id="ocean-ocean-800" class="brand-hex" value="#243A53" data-colour-hex="ocean-800" aria-label="Ocean 800 hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="ocean-800" aria-label="Reset Ocean 800 colour" disabled>Reset</button></div>
+  </article><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-ocean-900)"><input type="color" value="#1A2B3D" data-colour-picker="ocean-900" aria-label="Edit Ocean 900 colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>900</h4><p>Ocean</p><label class="brand-hex-label" for="ocean-ocean-900">Hex value</label><input id="ocean-ocean-900" class="brand-hex" value="#1A2B3D" data-colour-hex="ocean-900" aria-label="Ocean 900 hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="ocean-900" aria-label="Reset Ocean 900 colour" disabled>Reset</button></div>
+  </article></div></div><div class="brand-scale"><h4>Forest</h4><div class="brand-swatch-grid brand-tonal-grid"><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-forest-100)"><input type="color" value="#F1F5F0" data-colour-picker="forest-100" aria-label="Edit Forest 100 colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>100</h4><p>Forest</p><label class="brand-hex-label" for="forest-forest-100">Hex value</label><input id="forest-forest-100" class="brand-hex" value="#F1F5F0" data-colour-hex="forest-100" aria-label="Forest 100 hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="forest-100" aria-label="Reset Forest 100 colour" disabled>Reset</button></div>
+  </article><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-forest-200)"><input type="color" value="#E8EEE9" data-colour-picker="forest-200" aria-label="Edit Forest 200 colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>200</h4><p>Forest</p><label class="brand-hex-label" for="forest-forest-200">Hex value</label><input id="forest-forest-200" class="brand-hex" value="#E8EEE9" data-colour-hex="forest-200" aria-label="Forest 200 hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="forest-200" aria-label="Reset Forest 200 colour" disabled>Reset</button></div>
+  </article><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-forest-300)"><input type="color" value="#CBDBCD" data-colour-picker="forest-300" aria-label="Edit Forest 300 colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>300</h4><p>Forest</p><label class="brand-hex-label" for="forest-forest-300">Hex value</label><input id="forest-forest-300" class="brand-hex" value="#CBDBCD" data-colour-hex="forest-300" aria-label="Forest 300 hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="forest-300" aria-label="Reset Forest 300 colour" disabled>Reset</button></div>
+  </article><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-forest-400)"><input type="color" value="#ABC4AE" data-colour-picker="forest-400" aria-label="Edit Forest 400 colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>400</h4><p>Forest</p><label class="brand-hex-label" for="forest-forest-400">Hex value</label><input id="forest-forest-400" class="brand-hex" value="#ABC4AE" data-colour-hex="forest-400" aria-label="Forest 400 hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="forest-400" aria-label="Reset Forest 400 colour" disabled>Reset</button></div>
+  </article><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-forest-500)"><input type="color" value="#87A78C" data-colour-picker="forest-500" aria-label="Edit Forest 500 colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>500</h4><p>Forest</p><label class="brand-hex-label" for="forest-forest-500">Hex value</label><input id="forest-forest-500" class="brand-hex" value="#87A78C" data-colour-hex="forest-500" aria-label="Forest 500 hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="forest-500" aria-label="Reset Forest 500 colour" disabled>Reset</button></div>
+  </article><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-forest-600)"><input type="color" value="#6B916F" data-colour-picker="forest-600" aria-label="Edit Forest 600 colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>600</h4><p>Forest</p><label class="brand-hex-label" for="forest-forest-600">Hex value</label><input id="forest-forest-600" class="brand-hex" value="#6B916F" data-colour-hex="forest-600" aria-label="Forest 600 hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="forest-600" aria-label="Reset Forest 600 colour" disabled>Reset</button></div>
+  </article><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-forest-700)"><input type="color" value="#4C7054" data-colour-picker="forest-700" aria-label="Edit Forest 700 colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>700</h4><p>Forest</p><label class="brand-hex-label" for="forest-forest-700">Hex value</label><input id="forest-forest-700" class="brand-hex" value="#4C7054" data-colour-hex="forest-700" aria-label="Forest 700 hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="forest-700" aria-label="Reset Forest 700 colour" disabled>Reset</button></div>
+  </article><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-forest-800)"><input type="color" value="#344A3A" data-colour-picker="forest-800" aria-label="Edit Forest 800 colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>800</h4><p>Forest</p><label class="brand-hex-label" for="forest-forest-800">Hex value</label><input id="forest-forest-800" class="brand-hex" value="#344A3A" data-colour-hex="forest-800" aria-label="Forest 800 hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="forest-800" aria-label="Reset Forest 800 colour" disabled>Reset</button></div>
+  </article><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-forest-900)"><input type="color" value="#24362A" data-colour-picker="forest-900" aria-label="Edit Forest 900 colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>900</h4><p>Forest</p><label class="brand-hex-label" for="forest-forest-900">Hex value</label><input id="forest-forest-900" class="brand-hex" value="#24362A" data-colour-hex="forest-900" aria-label="Forest 900 hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="forest-900" aria-label="Reset Forest 900 colour" disabled>Reset</button></div>
+  </article></div></div><div class="brand-scale"><h4>Aubergine</h4><div class="brand-swatch-grid brand-tonal-grid"><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-aubergine-100)"><input type="color" value="#FAF7FB" data-colour-picker="aubergine-100" aria-label="Edit Aubergine 100 colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>100</h4><p>Aubergine</p><label class="brand-hex-label" for="aubergine-aubergine-100">Hex value</label><input id="aubergine-aubergine-100" class="brand-hex" value="#FAF7FB" data-colour-hex="aubergine-100" aria-label="Aubergine 100 hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="aubergine-100" aria-label="Reset Aubergine 100 colour" disabled>Reset</button></div>
+  </article><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-aubergine-200)"><input type="color" value="#F1EAF2" data-colour-picker="aubergine-200" aria-label="Edit Aubergine 200 colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>200</h4><p>Aubergine</p><label class="brand-hex-label" for="aubergine-aubergine-200">Hex value</label><input id="aubergine-aubergine-200" class="brand-hex" value="#F1EAF2" data-colour-hex="aubergine-200" aria-label="Aubergine 200 hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="aubergine-200" aria-label="Reset Aubergine 200 colour" disabled>Reset</button></div>
+  </article><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-aubergine-300)"><input type="color" value="#E2D5E5" data-colour-picker="aubergine-300" aria-label="Edit Aubergine 300 colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>300</h4><p>Aubergine</p><label class="brand-hex-label" for="aubergine-aubergine-300">Hex value</label><input id="aubergine-aubergine-300" class="brand-hex" value="#E2D5E5" data-colour-hex="aubergine-300" aria-label="Aubergine 300 hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="aubergine-300" aria-label="Reset Aubergine 300 colour" disabled>Reset</button></div>
+  </article><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-aubergine-400)"><input type="color" value="#C8B4CE" data-colour-picker="aubergine-400" aria-label="Edit Aubergine 400 colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>400</h4><p>Aubergine</p><label class="brand-hex-label" for="aubergine-aubergine-400">Hex value</label><input id="aubergine-aubergine-400" class="brand-hex" value="#C8B4CE" data-colour-hex="aubergine-400" aria-label="Aubergine 400 hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="aubergine-400" aria-label="Reset Aubergine 400 colour" disabled>Reset</button></div>
+  </article><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-aubergine-500)"><input type="color" value="#A18AA9" data-colour-picker="aubergine-500" aria-label="Edit Aubergine 500 colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>500</h4><p>Aubergine</p><label class="brand-hex-label" for="aubergine-aubergine-500">Hex value</label><input id="aubergine-aubergine-500" class="brand-hex" value="#A18AA9" data-colour-hex="aubergine-500" aria-label="Aubergine 500 hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="aubergine-500" aria-label="Reset Aubergine 500 colour" disabled>Reset</button></div>
+  </article><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-aubergine-600)"><input type="color" value="#806788" data-colour-picker="aubergine-600" aria-label="Edit Aubergine 600 colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>600</h4><p>Aubergine</p><label class="brand-hex-label" for="aubergine-aubergine-600">Hex value</label><input id="aubergine-aubergine-600" class="brand-hex" value="#806788" data-colour-hex="aubergine-600" aria-label="Aubergine 600 hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="aubergine-600" aria-label="Reset Aubergine 600 colour" disabled>Reset</button></div>
+  </article><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-aubergine-700)"><input type="color" value="#58415F" data-colour-picker="aubergine-700" aria-label="Edit Aubergine 700 colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>700</h4><p>Aubergine</p><label class="brand-hex-label" for="aubergine-aubergine-700">Hex value</label><input id="aubergine-aubergine-700" class="brand-hex" value="#58415F" data-colour-hex="aubergine-700" aria-label="Aubergine 700 hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="aubergine-700" aria-label="Reset Aubergine 700 colour" disabled>Reset</button></div>
+  </article><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-aubergine-800)"><input type="color" value="#281A2C" data-colour-picker="aubergine-800" aria-label="Edit Aubergine 800 colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>800</h4><p>Aubergine</p><label class="brand-hex-label" for="aubergine-aubergine-800">Hex value</label><input id="aubergine-aubergine-800" class="brand-hex" value="#281A2C" data-colour-hex="aubergine-800" aria-label="Aubergine 800 hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="aubergine-800" aria-label="Reset Aubergine 800 colour" disabled>Reset</button></div>
+  </article><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-aubergine-900)"><input type="color" value="#201423" data-colour-picker="aubergine-900" aria-label="Edit Aubergine 900 colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>900</h4><p>Aubergine</p><label class="brand-hex-label" for="aubergine-aubergine-900">Hex value</label><input id="aubergine-aubergine-900" class="brand-hex" value="#201423" data-colour-hex="aubergine-900" aria-label="Aubergine 900 hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="aubergine-900" aria-label="Reset Aubergine 900 colour" disabled>Reset</button></div>
+  </article></div></div><div class="brand-scale"><h4>Lavender</h4><div class="brand-swatch-grid brand-tonal-grid"><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-lavender-100)"><input type="color" value="#FCFAFC" data-colour-picker="lavender-100" aria-label="Edit Lavender 100 colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>100</h4><p>Lavender</p><label class="brand-hex-label" for="lavender-lavender-100">Hex value</label><input id="lavender-lavender-100" class="brand-hex" value="#FCFAFC" data-colour-hex="lavender-100" aria-label="Lavender 100 hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="lavender-100" aria-label="Reset Lavender 100 colour" disabled>Reset</button></div>
+  </article><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-lavender-200)"><input type="color" value="#F7F2F8" data-colour-picker="lavender-200" aria-label="Edit Lavender 200 colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>200</h4><p>Lavender</p><label class="brand-hex-label" for="lavender-lavender-200">Hex value</label><input id="lavender-lavender-200" class="brand-hex" value="#F7F2F8" data-colour-hex="lavender-200" aria-label="Lavender 200 hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="lavender-200" aria-label="Reset Lavender 200 colour" disabled>Reset</button></div>
+  </article><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-lavender-300)"><input type="color" value="#F0E9F2" data-colour-picker="lavender-300" aria-label="Edit Lavender 300 colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>300</h4><p>Lavender</p><label class="brand-hex-label" for="lavender-lavender-300">Hex value</label><input id="lavender-lavender-300" class="brand-hex" value="#F0E9F2" data-colour-hex="lavender-300" aria-label="Lavender 300 hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="lavender-300" aria-label="Reset Lavender 300 colour" disabled>Reset</button></div>
+  </article><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-lavender-400)"><input type="color" value="#E6DBE9" data-colour-picker="lavender-400" aria-label="Edit Lavender 400 colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>400</h4><p>Lavender</p><label class="brand-hex-label" for="lavender-lavender-400">Hex value</label><input id="lavender-lavender-400" class="brand-hex" value="#E6DBE9" data-colour-hex="lavender-400" aria-label="Lavender 400 hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="lavender-400" aria-label="Reset Lavender 400 colour" disabled>Reset</button></div>
+  </article><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-lavender-500)"><input type="color" value="#D8CBDD" data-colour-picker="lavender-500" aria-label="Edit Lavender 500 colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>500</h4><p>Lavender</p><label class="brand-hex-label" for="lavender-lavender-500">Hex value</label><input id="lavender-lavender-500" class="brand-hex" value="#D8CBDD" data-colour-hex="lavender-500" aria-label="Lavender 500 hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="lavender-500" aria-label="Reset Lavender 500 colour" disabled>Reset</button></div>
+  </article><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-lavender-600)"><input type="color" value="#B9A9C0" data-colour-picker="lavender-600" aria-label="Edit Lavender 600 colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>600</h4><p>Lavender</p><label class="brand-hex-label" for="lavender-lavender-600">Hex value</label><input id="lavender-lavender-600" class="brand-hex" value="#B9A9C0" data-colour-hex="lavender-600" aria-label="Lavender 600 hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="lavender-600" aria-label="Reset Lavender 600 colour" disabled>Reset</button></div>
+  </article><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-lavender-700)"><input type="color" value="#98859F" data-colour-picker="lavender-700" aria-label="Edit Lavender 700 colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>700</h4><p>Lavender</p><label class="brand-hex-label" for="lavender-lavender-700">Hex value</label><input id="lavender-lavender-700" class="brand-hex" value="#98859F" data-colour-hex="lavender-700" aria-label="Lavender 700 hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="lavender-700" aria-label="Reset Lavender 700 colour" disabled>Reset</button></div>
+  </article><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-lavender-800)"><input type="color" value="#74647D" data-colour-picker="lavender-800" aria-label="Edit Lavender 800 colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>800</h4><p>Lavender</p><label class="brand-hex-label" for="lavender-lavender-800">Hex value</label><input id="lavender-lavender-800" class="brand-hex" value="#74647D" data-colour-hex="lavender-800" aria-label="Lavender 800 hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="lavender-800" aria-label="Reset Lavender 800 colour" disabled>Reset</button></div>
+  </article><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-lavender-900)"><input type="color" value="#514459" data-colour-picker="lavender-900" aria-label="Edit Lavender 900 colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>900</h4><p>Lavender</p><label class="brand-hex-label" for="lavender-lavender-900">Hex value</label><input id="lavender-lavender-900" class="brand-hex" value="#514459" data-colour-hex="lavender-900" aria-label="Lavender 900 hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="lavender-900" aria-label="Reset Lavender 900 colour" disabled>Reset</button></div>
+  </article></div></div></section>
+      <section class="brand-palette-group"><header><h3>Neutrals and surfaces</h3><p>Use Warm White for the page, Paper for cards and overlays, and Stone for quiet dividers.</p></header><div class="brand-swatch-grid "><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-paper)"><input type="color" value="#FFFFFF" data-colour-picker="paper" aria-label="Edit Paper colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>Paper</h4><p>Cards and overlays</p><label class="brand-hex-label" for="neutral-paper">Hex value</label><input id="neutral-paper" class="brand-hex" value="#FFFFFF" data-colour-hex="paper" aria-label="Paper hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="paper" aria-label="Reset Paper colour" disabled>Reset</button></div>
+  </article><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-warm-white)"><input type="color" value="#F8F8F6" data-colour-picker="warm-white" aria-label="Edit Warm White colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>Warm White</h4><p>Default page surface</p><label class="brand-hex-label" for="neutral-warm-white">Hex value</label><input id="neutral-warm-white" class="brand-hex" value="#F8F8F6" data-colour-hex="warm-white" aria-label="Warm White hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="warm-white" aria-label="Reset Warm White colour" disabled>Reset</button></div>
+  </article><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-ivory)"><input type="color" value="#F5F3EE" data-colour-picker="ivory" aria-label="Edit Ivory colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>Ivory</h4><p>Warm content sections</p><label class="brand-hex-label" for="neutral-ivory">Hex value</label><input id="neutral-ivory" class="brand-hex" value="#F5F3EE" data-colour-hex="ivory" aria-label="Ivory hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="ivory" aria-label="Reset Ivory colour" disabled>Reset</button></div>
+  </article><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-cool-mist)"><input type="color" value="#EDF1F3" data-colour-picker="cool-mist" aria-label="Edit Cool Mist colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>Cool Mist</h4><p>Secondary surfaces</p><label class="brand-hex-label" for="neutral-cool-mist">Hex value</label><input id="neutral-cool-mist" class="brand-hex" value="#EDF1F3" data-colour-hex="cool-mist" aria-label="Cool Mist hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="cool-mist" aria-label="Reset Cool Mist colour" disabled>Reset</button></div>
+  </article><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-stone)"><input type="color" value="#E3E1DD" data-colour-picker="stone" aria-label="Edit Stone colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>Stone</h4><p>Dividers and borders</p><label class="brand-hex-label" for="neutral-stone">Hex value</label><input id="neutral-stone" class="brand-hex" value="#E3E1DD" data-colour-hex="stone" aria-label="Stone hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="stone" aria-label="Reset Stone colour" disabled>Reset</button></div>
+  </article><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-slate)"><input type="color" value="#6B7178" data-colour-picker="slate" aria-label="Edit Slate colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>Slate</h4><p>Supporting labels</p><label class="brand-hex-label" for="neutral-slate">Hex value</label><input id="neutral-slate" class="brand-hex" value="#6B7178" data-colour-hex="slate" aria-label="Slate hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="slate" aria-label="Reset Slate colour" disabled>Reset</button></div>
+  </article><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-ink)"><input type="color" value="#202329" data-colour-picker="ink" aria-label="Edit Ink colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>Ink</h4><p>High-contrast text</p><label class="brand-hex-label" for="neutral-ink">Hex value</label><input id="neutral-ink" class="brand-hex" value="#202329" data-colour-hex="ink" aria-label="Ink hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="ink" aria-label="Reset Ink colour" disabled>Reset</button></div>
+  </article><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-ocean-900)"><input type="color" value="#1A2B3D" data-colour-picker="ocean-900" aria-label="Edit Ocean Night colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>Ocean Night</h4><p>Deep footer and dark UI</p><label class="brand-hex-label" for="neutral-ocean-900">Hex value</label><input id="neutral-ocean-900" class="brand-hex" value="#1A2B3D" data-colour-hex="ocean-900" aria-label="Ocean Night hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="ocean-900" aria-label="Reset Ocean Night colour" disabled>Reset</button></div>
+  </article><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-aubergine-900)"><input type="color" value="#201423" data-colour-picker="aubergine-900" aria-label="Edit Plum Night colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>Plum Night</h4><p>Alternate dark UI</p><label class="brand-hex-label" for="neutral-aubergine-900">Hex value</label><input id="neutral-aubergine-900" class="brand-hex" value="#201423" data-colour-hex="aubergine-900" aria-label="Plum Night hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="aubergine-900" aria-label="Reset Plum Night colour" disabled>Reset</button></div>
+  </article></div></section>
+      <section class="brand-palette-group"><header><h3>Accent colours</h3><p>Reserve Dusty Rose and Sandstone for illustrations, diagrams and small details. They should support the primary blue, green and purple.</p></header><div class="brand-swatch-grid "><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-ocean-400)"><input type="color" value="#A9C5CE" data-colour-picker="ocean-400" aria-label="Edit Coastal Mist colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>Coastal Mist</h4><p>Wave imagery and infographic fills</p><label class="brand-hex-label" for="accent-ocean-400">Hex value</label><input id="accent-ocean-400" class="brand-hex" value="#A9C5CE" data-colour-hex="ocean-400" aria-label="Coastal Mist hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="ocean-400" aria-label="Reset Coastal Mist colour" disabled>Reset</button></div>
+  </article><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-dusty-rose)"><input type="color" value="#C88F99" data-colour-picker="dusty-rose" aria-label="Edit Dusty Rose colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>Dusty Rose</h4><p>Human warmth and small editorial highlights</p><label class="brand-hex-label" for="accent-dusty-rose">Hex value</label><input id="accent-dusty-rose" class="brand-hex" value="#C88F99" data-colour-hex="dusty-rose" aria-label="Dusty Rose hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="dusty-rose" aria-label="Reset Dusty Rose colour" disabled>Reset</button></div>
+  </article><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-sandstone)"><input type="color" value="#D6BA83" data-colour-picker="sandstone" aria-label="Edit Sandstone colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>Sandstone</h4><p>Small warm details and diagrams</p><label class="brand-hex-label" for="accent-sandstone">Hex value</label><input id="accent-sandstone" class="brand-hex" value="#D6BA83" data-colour-hex="sandstone" aria-label="Sandstone hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="sandstone" aria-label="Reset Sandstone colour" disabled>Reset</button></div>
+  </article><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-soft-sage)"><input type="color" value="#B8C9B5" data-colour-picker="soft-sage" aria-label="Edit Soft Sage colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>Soft Sage</h4><p>Land imagery and calm surfaces</p><label class="brand-hex-label" for="accent-soft-sage">Hex value</label><input id="accent-soft-sage" class="brand-hex" value="#B8C9B5" data-colour-hex="soft-sage" aria-label="Soft Sage hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="soft-sage" aria-label="Reset Soft Sage colour" disabled>Reset</button></div>
+  </article></div></section>
+      <section class="brand-palette-group"><header><h3>Semantic colours</h3><p>Use these for outcomes and interface states. Pair Success with Forest 200 and Information with Ocean 200. Errors and warnings use pale tinted surfaces.</p></header><div class="brand-swatch-grid "><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-success)"><input type="color" value="#347A56" data-colour-picker="success" aria-label="Edit Success colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>Success</h4><p>Positive outcomes · pair with Forest 200</p><label class="brand-hex-label" for="semantic-success">Hex value</label><input id="semantic-success" class="brand-hex" value="#347A56" data-colour-hex="success" aria-label="Success hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="success" aria-label="Reset Success colour" disabled>Reset</button></div>
+  </article><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-warning)"><input type="color" value="#A86823" data-colour-picker="warning" aria-label="Edit Warning colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>Warning</h4><p>Caution · use a dedicated pale surface</p><label class="brand-hex-label" for="semantic-warning">Hex value</label><input id="semantic-warning" class="brand-hex" value="#A86823" data-colour-hex="warning" aria-label="Warning hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="warning" aria-label="Reset Warning colour" disabled>Reset</button></div>
+  </article><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-error)"><input type="color" value="#B74855" data-colour-picker="error" aria-label="Edit Error colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>Error</h4><p>Errors · use a dedicated pale surface</p><label class="brand-hex-label" for="semantic-error">Hex value</label><input id="semantic-error" class="brand-hex" value="#B74855" data-colour-hex="error" aria-label="Error hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="error" aria-label="Reset Error colour" disabled>Reset</button></div>
+  </article><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-ocean-800)"><input type="color" value="#243A53" data-colour-picker="ocean-800" aria-label="Edit Information colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>Information</h4><p>Information · pair with Ocean 200</p><label class="brand-hex-label" for="semantic-ocean-800">Hex value</label><input id="semantic-ocean-800" class="brand-hex" value="#243A53" data-colour-hex="ocean-800" aria-label="Information hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="ocean-800" aria-label="Reset Information colour" disabled>Reset</button></div>
+  </article><article class="brand-swatch">
+    <label class="brand-colour-chip" style="--swatch:var(--brand-ocean-600)"><input type="color" value="#607F9D" data-colour-picker="ocean-600" aria-label="Edit Focus ring colour"><span>Change colour</span></label>
+    <div class="brand-swatch-copy"><h4>Focus ring</h4><p>Visible keyboard focus</p><label class="brand-hex-label" for="semantic-ocean-600">Hex value</label><input id="semantic-ocean-600" class="brand-hex" value="#607F9D" data-colour-hex="ocean-600" aria-label="Focus ring hex value" spellcheck="false" maxlength="7" autocomplete="off"><button type="button" data-colour-reset="ocean-600" aria-label="Reset Focus ring colour" disabled>Reset</button></div>
+  </article></div></section>
+      <section class="brand-palette-group"><header><h3>Buttons and interaction</h3><p>Rounded corners, a clear hierarchy and 150–200 ms colour transitions. Main actions use Ocean. Secondary links use Forest outlines. On dark surfaces, use Lavender with Aubergine text.</p></header><div class="brand-button-examples"><article><h4>Primary · Ocean</h4><div class="brand-demo-row"><span class="brand-demo-button" style="--demo-bg:var(--brand-ocean-800)">Default</span><span class="brand-demo-button" style="--demo-bg:var(--brand-ocean-700)">Hover</span><span class="brand-demo-button" style="--demo-bg:var(--brand-ocean-900)">Pressed</span><button class="brand-demo-button" type="button" disabled>Disabled</button></div></article><article><h4>Secondary · Forest</h4><div class="brand-demo-row"><span class="brand-demo-button" style="--demo-bg:var(--brand-forest-800)">Default</span><span class="brand-demo-button" style="--demo-bg:var(--brand-forest-700)">Hover</span><span class="brand-demo-button" style="--demo-bg:var(--brand-forest-900)">Pressed</span><span class="brand-demo-button brand-demo-light">Light variant</span></div></article><article class="brand-inverse-example"><h4>Light / inverse · Lavender</h4><span class="brand-demo-button brand-demo-inverse">Learn more</span><p>Use on Ocean and Aubergine backgrounds.</p></article></div></section>
+      <section class="brand-palette-group"><header><h3>Section backgrounds</h3><p>Keep the overall balance calm: around 45% neutral, 30% blue, 13% green, 8% purple and 4% lavender. These proportions are guidance, not a rule for every page.</p></header><div class="brand-section-examples"><div style="background:var(--brand-warm-white);color:var(--brand-ink)"><strong>Standard content</strong><code data-colour-current="warm-white">#F8F8F6</code></div><div style="background:var(--brand-ocean-200);color:var(--brand-ink)"><strong>Ocean mist</strong><code data-colour-current="ocean-200">#E9EEF4</code></div><div style="background:var(--brand-forest-200);color:var(--brand-ink)"><strong>Sage mist</strong><code data-colour-current="forest-200">#E8EEE9</code></div><div style="background:var(--brand-lavender-500);color:var(--brand-ink)"><strong>Lavender</strong><code data-colour-current="lavender-500">#D8CBDD</code></div><div style="background:var(--brand-ocean-800);color:var(--brand-paper)"><strong>Ocean dark</strong><code data-colour-current="ocean-800">#243A53</code></div><div style="background:var(--brand-forest-800);color:var(--brand-paper)"><strong>Forest dark</strong><code data-colour-current="forest-800">#344A3A</code></div><div style="background:var(--brand-aubergine-800);color:var(--brand-paper)"><strong>Aubergine dark</strong><code data-colour-current="aubergine-800">#281A2C</code></div></div></section>
+      <section class="brand-palette-group"><header><h3>Text and contrast</h3><p>Ratios update with your preview. Normal text needs at least 4.5:1; large text needs 3:1. Focus indicators must remain visible, and disabled controls do not respond to hover or press.</p></header><div class="brand-contrast-wrap"><table class="brand-contrast"><thead><tr><th>Combination</th><th>Contrast</th><th>AA normal text</th></tr></thead><tbody><tr data-contrast-pair="paper ocean-800"><th scope="row">Paper on Ocean</th><td data-contrast-ratio>11.63:1</td><td><span data-contrast-result data-pass="true">Pass</span></td></tr><tr data-contrast-pair="paper forest-800"><th scope="row">Paper on Forest</th><td data-contrast-ratio>9.60:1</td><td><span data-contrast-result data-pass="true">Pass</span></td></tr><tr data-contrast-pair="paper aubergine-800"><th scope="row">Paper on Aubergine</th><td data-contrast-ratio>16.48:1</td><td><span data-contrast-result data-pass="true">Pass</span></td></tr><tr data-contrast-pair="aubergine-800 lavender-500"><th scope="row">Aubergine on Lavender</th><td data-contrast-ratio>10.60:1</td><td><span data-contrast-result data-pass="true">Pass</span></td></tr><tr data-contrast-pair="paper ocean-700"><th scope="row">Paper on Ocean hover</th><td data-contrast-ratio>7.05:1</td><td><span data-contrast-result data-pass="true">Pass</span></td></tr><tr data-contrast-pair="paper forest-700"><th scope="row">Paper on Forest hover</th><td data-contrast-ratio>5.60:1</td><td><span data-contrast-result data-pass="true">Pass</span></td></tr><tr data-contrast-pair="paper ocean-600"><th scope="row">Paper on medium Ocean</th><td data-contrast-ratio>4.18:1</td><td><span data-contrast-result data-pass="false">Needs attention</span></td></tr><tr data-contrast-pair="ink warm-white"><th scope="row">Ink on Warm White</th><td data-contrast-ratio>14.81:1</td><td><span data-contrast-result data-pass="true">Pass</span></td></tr></tbody></table></div><p>Ocean 600 is a focus colour. Paper text on this medium blue does not meet the normal-text threshold.</p></section>
+    </div>
+  </section>
+  <!-- brand-colours:end -->
 
-	                  <div class="site-preview-colours-groups">
-	                    <div class="site-preview-colours-group">
-	                      <div class="site-preview-colours-group-head">
-	                        <p class="site-preview-typeface-eyebrow">Primary</p>
-	                        <h3>Primary Sea Colours</h3>
-	                      </div>
-
-	                      <div class="site-preview-colours-grid site-preview-colours-grid-primary">
-	                        <article class="site-preview-colour-card">
-	                          <div class="site-preview-colour-swatch" style="background: linear-gradient(180deg, #365f8d 0%, #24486f 100%);"></div>
-	                          <div class="site-preview-colour-meta">
-	                            <h3>Harbour Blue</h3>
-	                            <p>#365F8D / #24486F</p>
-	                          </div>
-	                        </article>
-	                        <article class="site-preview-colour-card">
-	                          <div class="site-preview-colour-swatch" style="background: #a3d9f6;"></div>
-	                          <div class="site-preview-colour-meta">
-	                            <h3>Sky Current</h3>
-	                            <p>#A3D9F6</p>
-	                          </div>
-	                        </article>
-	                        <article class="site-preview-colour-card">
-	                          <div class="site-preview-colour-swatch" style="background: linear-gradient(135deg, #985b84 0%, #743f64 100%);"></div>
-	                          <div class="site-preview-colour-meta">
-	                            <h3>Deep Tide Purple</h3>
-	                            <p>#985B84 / #743F64</p>
-	                          </div>
-	                        </article>
-	                        <article class="site-preview-colour-card">
-	                          <div class="site-preview-colour-swatch" style="background: #2e8c79;"></div>
-	                          <div class="site-preview-colour-meta">
-	                            <h3>Kelp Green</h3>
-	                            <p>#2E8C79</p>
-	                          </div>
-	                        </article>
-	                      </div>
-	                    </div>
-
-	                    <div class="site-preview-colours-group">
-	                      <div class="site-preview-colours-group-head">
-	                        <p class="site-preview-typeface-eyebrow">Secondary</p>
-	                        <h3>Secondary Sea Colours</h3>
-	                      </div>
-
-	                      <div class="site-preview-colours-grid site-preview-colours-grid-secondary">
-	                        <article class="site-preview-colour-card">
-	                          <div class="site-preview-colour-swatch" style="background: #ffffff;"></div>
-	                          <div class="site-preview-colour-meta">
-	                            <h3>Foam White</h3>
-	                            <p>#FFFFFF</p>
-	                          </div>
-	                        </article>
-	                        <article class="site-preview-colour-card">
-	                          <div class="site-preview-colour-swatch" style="background: #f2f2f2;"></div>
-	                          <div class="site-preview-colour-meta">
-	                            <h3>Mist Grey</h3>
-	                            <p>#F2F2F2</p>
-	                          </div>
-	                        </article>
-	                        <article class="site-preview-colour-card">
-	                          <div class="site-preview-colour-swatch" style="background: #111111;"></div>
-	                          <div class="site-preview-colour-meta">
-	                            <h3>Deep Ink</h3>
-	                            <p>#111111</p>
-	                          </div>
-	                        </article>
-	                        <article class="site-preview-colour-card">
-	                          <div class="site-preview-colour-swatch" style="background: #605e5e;"></div>
-	                          <div class="site-preview-colour-meta">
-	                            <h3>Driftwood Grey</h3>
-	                            <p>#605E5E</p>
-	                          </div>
-	                        </article>
-	                        <article class="site-preview-colour-card">
-	                          <div class="site-preview-colour-swatch" style="background: #e7eef2;"></div>
-	                          <div class="site-preview-colour-meta">
-	                            <h3>Pearl Wake</h3>
-	                            <p>#E7EEF2</p>
-	                          </div>
-	                        </article>
-	                      </div>
-	                    </div>
-		                  </div>
-		                </article>
-		                <div class="site-preview-guide-cover-meta site-preview-section-meta" aria-label="Brand guideline publication details">
-		                  <span>Created by Jamie Wilson</span>
-		                  <span>Version 1.0</span>
-		                  <span>2026</span>
-		                </div>
-		              </section>
-
-		              <section class="site-preview-section site-preview-typeface" id="typeface">
+<section class="site-preview-section site-preview-typeface" id="typeface">
                 <h2 class="site-preview-heading-display">Typography</h2>
 
                 <div class="site-preview-typeface-grid">
-                  <article class="site-preview-typeface-sheet site-preview-typeface-sheet-display" aria-label="Crimson Text type specimen">
+                  <article class="site-preview-typeface-sheet site-preview-typeface-sheet-display" aria-label="Inter type specimen">
                     <div class="site-preview-typeface-sheet-head">
                       <div>
                         <p class="site-preview-typeface-eyebrow">Typeface</p>
-                        <h3>Crimson Text</h3>
+                        <h3>Inter</h3>
                       </div>
                     </div>
 
                     <div class="site-preview-typeface-sheet-body">
                       <div class="site-preview-typeface-copy">
                         <p>
-                          Crimson Text is the editorial voice of the system. It carries the more reflective,
+                          Inter is the editorial voice of the system. It carries the more reflective,
                           grounded tone of the brand and is reserved for hero moments, section headings, and
                           signature statements.
                         </p>
@@ -484,7 +572,7 @@
 
                       <div class="site-preview-typeface-specimen site-preview-typeface-specimen-display">
                         <p class="site-preview-typeface-label">Primary display family</p>
-                        <p class="site-preview-typeface-sample-name">Crimson Text</p>
+                        <p class="site-preview-typeface-sample-name">Inter</p>
                         <p class="site-preview-typeface-sample-alphabet">
                           ABCDEFGHIJKLMNOPQRSTUVWXYZ
                           <br>
@@ -497,11 +585,11 @@
 
 	                  </article>
 
-                  <article class="site-preview-typeface-sheet site-preview-typeface-sheet-supporting" aria-label="Manrope type specimen">
+                  <article class="site-preview-typeface-sheet site-preview-typeface-sheet-supporting" aria-label="Inter type specimen">
                     <div class="site-preview-typeface-sheet-head">
                       <div>
                         <p class="site-preview-typeface-eyebrow">Typeface</p>
-                        <h3>Manrope</h3>
+                        <h3>Inter</h3>
                       </div>
                       <p class="site-preview-typeface-meta">Body and Interface Typography</p>
                     </div>
@@ -509,7 +597,7 @@
                     <div class="site-preview-typeface-sheet-body">
                       <div class="site-preview-typeface-copy">
                         <p>
-                          Manrope is the working typeface used for body copy, interface labels, navigation, and
+                          Inter is the working typeface used for body copy, interface labels, navigation, and
                           practical information. It keeps the system crisp, modern, and readable across print and
                           digital layouts.
                         </p>
@@ -521,16 +609,16 @@
 
                       <div class="site-preview-typeface-specimen site-preview-typeface-specimen-body">
                         <p class="site-preview-typeface-label">Supporting family</p>
-                        <p class="site-preview-typeface-body-name">Manrope</p>
+                        <p class="site-preview-typeface-body-name">Inter</p>
                         <p class="site-preview-typeface-body-tagline">Strength in Aotearoa</p>
                         <div class="site-preview-typeface-hierarchy">
-                          <p class="site-preview-typeface-hierarchy-label">Headline / Manrope 800</p>
+                          <p class="site-preview-typeface-hierarchy-label">Headline / Inter 800</p>
                           <p class="site-preview-typeface-hierarchy-title">Practical clarity for real-world resilience work.</p>
-                          <p class="site-preview-typeface-hierarchy-label">Subheading / Manrope 700</p>
+                          <p class="site-preview-typeface-hierarchy-label">Subheading / Inter 700</p>
                           <p class="site-preview-typeface-hierarchy-subtitle">Built for guidance, structure, and easy scanning across digital touchpoints.</p>
-                          <p class="site-preview-typeface-hierarchy-label">Body / Manrope 400</p>
+                          <p class="site-preview-typeface-hierarchy-label">Body / Inter 400</p>
                           <p class="site-preview-typeface-hierarchy-body">
-                            Hoea tō Waka uses Manrope for paragraphs, labels, and supporting information so content
+                            Hoea tō Waka uses Inter for paragraphs, labels, and supporting information so content
                             remains accessible, contemporary, and efficient to read.
                           </p>
                         </div>
@@ -545,7 +633,7 @@
 		                </div>
 		                <div class="site-preview-guide-cover-meta site-preview-section-meta" aria-label="Brand guideline publication details">
 		                  <span>Created by Jamie Wilson</span>
-		                  <span>Version 1.0</span>
+		                  <span>Version 2.0</span>
 		                  <span>2026</span>
 		                </div>
 		              </section>
@@ -717,7 +805,7 @@
 		                </article>
 		                <div class="site-preview-guide-cover-meta site-preview-section-meta" aria-label="Brand guideline publication details">
 		                  <span>Created by Jamie Wilson</span>
-		                  <span>Version 1.0</span>
+		                  <span>Version 2.0</span>
 		                  <span>2026</span>
 		                </div>
 		              </section>
@@ -732,7 +820,7 @@
 		                </div>
 		                <div class="site-preview-guide-cover-meta site-preview-section-meta" aria-label="Brand guideline publication details">
 		                  <span>Created by Jamie Wilson</span>
-		                  <span>Version 1.0</span>
+		                  <span>Version 2.0</span>
 		                  <span>2026</span>
 		                </div>
 		              </section>
@@ -764,7 +852,7 @@
 			                </div>
 		                <div class="site-preview-guide-cover-meta site-preview-section-meta" aria-label="Brand guideline publication details">
 		                  <span>Created by Jamie Wilson</span>
-		                  <span>Version 1.0</span>
+		                  <span>Version 2.0</span>
 		                  <span>2026</span>
 		                </div>
 		              </section>
@@ -805,7 +893,7 @@
 
 		                <div class="site-preview-guide-cover-meta site-preview-section-meta" aria-label="Brand guideline publication details">
 		                  <span>Created by Jamie Wilson</span>
-		                  <span>Version 1.0</span>
+		                  <span>Version 2.0</span>
 		                  <span>2026</span>
 		                </div>
 		              </section>
@@ -1222,7 +1310,7 @@
         <article class="card stack" style="margin-top: 16px;">
           <div class="stack-tight">
             <span class="badge">Typography system</span>
-            <h3>Display uses Crimson Text and body uses Manrope with a single calm, practical scale.</h3>
+            <h3>Display uses Inter and body uses Inter with a single calm, practical scale.</h3>
           </div>
 
           <div class="type-stack">
@@ -1297,62 +1385,13 @@
           </div>
         </article>
 
-        <div class="palette-grid" style="margin-top: 16px;">
-          <article class="swatch">
-            <div class="swatch-top" style="background: #3d9be9;"></div>
-            <div class="swatch-body">
-              <strong>Ocean Blue</strong>
-              <span class="muted">#3D9BE9</span>
-              <span>Key brand color and testimonial background.</span>
-            </div>
-          </article>
-          <article class="swatch">
-            <div class="swatch-top" style="background: #a3d9f6;"></div>
-            <div class="swatch-body">
-              <strong>Sky Blue</strong>
-              <span class="muted">#A3D9F6</span>
-              <span>Light accents and softer surfaces.</span>
-            </div>
-          </article>
-          <article class="swatch">
-            <div class="swatch-top" style="background: #a6033f;"></div>
-            <div class="swatch-body">
-              <strong>Harbour Magenta</strong>
-              <span class="muted">#A6033F</span>
-              <span>Primary CTA button color.</span>
-            </div>
-          </article>
-          <article class="swatch">
-            <div class="swatch-top" style="background: #e40255;"></div>
-            <div class="swatch-body">
-              <strong>Bright Magenta</strong>
-              <span class="muted">#E40255</span>
-              <span>CTA hover state.</span>
-            </div>
-          </article>
-          <article class="swatch">
-            <div class="swatch-top" style="background: #f1f6f8;"></div>
-            <div class="swatch-body">
-              <strong>Cloud Mist</strong>
-              <span class="muted">#F1F6F8</span>
-              <span>Default light section and page background.</span>
-            </div>
-          </article>
-          <article class="swatch">
-            <div class="swatch-top" style="background: #f2f2f2;"></div>
-            <div class="swatch-body">
-              <strong>Mist Gray</strong>
-              <span class="muted">#F2F2F2</span>
-              <span>Soft background surface.</span>
-            </div>
-          </article>
-        </div>
+        <div class="palette-grid" style="margin-top:16px"><article class="swatch"><a href="#colours" class="swatch-top" style="background:var(--brand-ocean-800);display:block" aria-label="Edit Ocean in the colour editor"></a><div class="swatch-body"><strong>Ocean</strong><span data-colour-current="ocean-800">#243A53</span><span>Primary · Brand recognition, hero and navigation</span></div></article><article class="swatch"><a href="#colours" class="swatch-top" style="background:var(--brand-forest-800);display:block" aria-label="Edit Forest in the colour editor"></a><div class="swatch-body"><strong>Forest</strong><span data-colour-current="forest-800">#344A3A</span><span>Secondary · Grounding, cards and feature sections</span></div></article><article class="swatch"><a href="#colours" class="swatch-top" style="background:var(--brand-aubergine-800);display:block" aria-label="Edit Aubergine in the colour editor"></a><div class="swatch-body"><strong>Aubergine</strong><span data-colour-current="aubergine-800">#281A2C</span><span>Secondary · Depth, storytelling and editorial sections</span></div></article><article class="swatch"><a href="#colours" class="swatch-top" style="background:var(--brand-lavender-500);display:block" aria-label="Edit Lavender in the colour editor"></a><div class="swatch-body"><strong>Lavender</strong><span data-colour-current="lavender-500">#D8CBDD</span><span>Supporting · Light panels and highlights</span></div></article></div>
 
-        <div class="grid-3" style="margin-top: 16px;">
+<div class="grid-3" style="margin-top: 16px;">
           <article class="card stack-tight">
             <span class="badge">Buttons</span>
             <h3>Current CTA treatment</h3>
-            <p>Solid magenta fill, white text, clear contrast, straightforward shape.</p>
+            <p>Ocean primary actions, Forest secondary outlines and Lavender inverse buttons, with rounded corners and visible focus.</p>
             <div class="button-row">
               <span class="button button-primary" aria-hidden="true">Example CTA</span>
               <span class="button button-secondary" aria-hidden="true">Secondary action</span>
@@ -1537,7 +1576,7 @@
           root.style.colorScheme = nextTheme;
           themeToggle?.setAttribute("aria-pressed", String(isDark));
           themeToggle?.setAttribute("aria-label", isDark ? "Switch to light theme" : "Switch to dark theme");
-          if (themeColorMeta) themeColorMeta.content = isDark ? "#071923" : "#e8f4fa";
+          if (themeColorMeta) themeColorMeta.content = getComputedStyle(root).getPropertyValue(isDark ? "--brand-ocean-900" : "--brand-warm-white").trim();
 
           if (persist) {
             try {

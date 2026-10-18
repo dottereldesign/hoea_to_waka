@@ -1,8 +1,13 @@
 import { build } from 'esbuild';
 import { copyFile, readFile, writeFile } from 'node:fs/promises';
 import { tokeniseCSS } from './theme-css.mjs';
-import { palettes, legacyColour, semanticTokens, tone } from '../design/theme-data.mjs';
 import assert from 'node:assert/strict';
+import { brandCSS } from './brand-css.mjs';
+import { readdir } from 'node:fs/promises';
+import { renderBrandGuidelines } from './brand-guidelines.mjs';
+const guidePath='about/brand-guidelines/index.html';
+const guide=await readFile(guidePath,'utf8');
+if(guide.includes('<!-- brand-colours:start -->'))await writeFile(guidePath,guide.replace(/<!-- brand-colours:start -->[\s\S]*?<!-- brand-colours:end -->/,renderBrandGuidelines()));
 // Regression: a named CSS colour must never rewrite part of a custom-property name.
 assert.equal(tokeniseCSS('.sample{color:var(--white);background:var(--black)}',new Set()),'.sample{color:var(--white);background:var(--black)}');
 const colours=new Set();
@@ -18,15 +23,19 @@ const siteSource=await readFile('site.css','utf8');
 const aliases=source=>tokeniseCSS(source,new Set()).match(/--[\w-]+\s*:[^;{}]*var\(--paint-[^;{}]+/g)||[];
 const lightAliases=aliases(siteSource.match(/:root\s*\{([^}]+)\}/)[1]);
 const darkAliases=aliases(siteSource.match(/html\[data-theme="dark"\]\s*\{([^}]+)\}/)[1]);
-for(const palette of palettes){
-  const paint=[...colours].map(c=>`--paint-${c.slice(1)}:${legacyColour(c,palette)}`);
-  const levels=[.975,.93,.86,.76,.64,.50,.36,.24,.15,.08,.035,.009];
-  palette.colours.forEach((seed,family)=>levels.forEach((level,i)=>paint.push(`--ramp-${family}-${i+1}:${tone(seed,level)}`)));
-  themeCSS+=`\nhtml[data-palette="${palette.id}"],[data-component-palette="${palette.id}"]{${paint.join(';')}}`;
-  for(const dark of [false,true]){const mode=dark?'[data-theme="dark"]':':not([data-theme="dark"])';themeCSS+=`\nhtml[data-palette="${palette.id}"]${mode},html${mode} [data-component-palette="${palette.id}"]{${Object.entries(semanticTokens(palette,dark)).map(([key,value])=>`--t-${key}:${value}`).join(';')}}`;}
+const presentation=tokeniseCSS(await readFile('design/presentation.css','utf8'),colours);
+async function collectInline(folder='.') {
+  for(const entry of await readdir(folder,{withFileTypes:true})) {
+    if(entry.name.startsWith('.')||['node_modules','tmp','assets'].includes(entry.name))continue;
+    const path=`${folder}/${entry.name}`;
+    if(entry.isDirectory())await collectInline(path);
+    else if(entry.name.endsWith('.html'))for(const match of (await readFile(path,'utf8')).matchAll(/#[\da-f]{6}\b/gi))colours.add(match[0].toLowerCase());
+  }
 }
+await collectInline();
+themeCSS+=brandCSS(colours);
 themeCSS+=`\n[data-component-palette]{${lightAliases.join(';')}}\nhtml[data-theme="dark"] [data-component-palette]{${darkAliases.join(';')}}`;
-await writeFile('assets/theme.css',themeCSS+'\n'+await readFile('design/presentation.css','utf8'));
+await writeFile('assets/theme.css',themeCSS+'\n'+presentation+'\n'+await readFile('design/brand-colours.css','utf8'));
 await build({entryPoints:['design/theme-init.js'],bundle:true,minify:true,format:'iife',target:['es2020'],outfile:'assets/theme-init.js'});
 await build({ entryPoints: ['design/site-layouts.jsx'], bundle: true, minify: true, format: 'iife', target: ['es2020'], outfile: 'assets/site-layouts.js', define: { 'process.env.NODE_ENV': '"production"' }, legalComments: 'linked' });
 await writeFile('assets/design-studio.css',studioCSS);

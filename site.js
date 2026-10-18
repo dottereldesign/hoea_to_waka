@@ -18,7 +18,7 @@
     root.style.colorScheme = nextTheme;
     themeToggle?.setAttribute("aria-pressed", String(isDark));
     themeToggle?.setAttribute("aria-label", isDark ? "Switch to light theme" : "Switch to dark theme");
-    if (themeColorMeta) themeColorMeta.content = isDark ? "#071923" : "#e8f4fa";
+    if (themeColorMeta) themeColorMeta.content = getComputedStyle(root).getPropertyValue(isDark ? '--brand-ocean-900' : '--brand-warm-white').trim();
 
     if (persist) {
       try {

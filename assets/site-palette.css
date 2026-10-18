@@ -1432,8 +1432,8 @@ html.is-page-ready .page-home .home-tagline::after { transition-delay: 330ms; }
   height: 93%;
   object-fit: contain;
   object-position: center;
-  -webkit-mask-image: linear-gradient(180deg, transparent 0, var(--paint-000000, #000000) 34px, var(--paint-000000, #000000) 100%);
-  mask-image: linear-gradient(180deg, transparent 0, var(--paint-000000, #000000) 34px, var(--paint-000000, #000000) 100%);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 34px, #000 100%);
+  mask-image: linear-gradient(180deg, transparent 0, #000 34px, #000 100%);
 }
 
 .home-hero-photo-wash {
@@ -1453,8 +1453,8 @@ html.is-page-ready .page-home .home-tagline::after { transition-delay: 330ms; }
     radial-gradient(circle 1100px at 1000px -500px, transparent 0 81%, color-mix(in srgb, var(--paint-5babef, #5babef) 15%, transparent) 81.2% 92%, transparent 92.2%),
     radial-gradient(circle 1450px at 1100px -720px, transparent 0 81%, color-mix(in srgb, var(--paint-2381e1, #2381e1) 9%, transparent) 81.2% 91%, transparent 91.2%);
   content: "";
-  -webkit-mask-image: linear-gradient(90deg, var(--paint-000000, #000000) 0 38%, transparent 58%);
-  mask-image: linear-gradient(90deg, var(--paint-000000, #000000) 0 38%, transparent 58%);
+  -webkit-mask-image: linear-gradient(90deg, #000 0 38%, transparent 58%);
+  mask-image: linear-gradient(90deg, #000 0 38%, transparent 58%);
 }
 
 .home-hero-photo-wave {
