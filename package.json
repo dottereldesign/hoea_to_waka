@@ -19,7 +19,8 @@
     "test:draft": "node scripts/draft.cjs",
     "test:statement": "node scripts/statement-icons.cjs",
     "test:model-timeline": "node scripts/model-timeline.cjs",
-    "test:marquee": "node scripts/topic-marquee.cjs"
+    "test:marquee": "node scripts/topic-marquee.cjs",
+    "test:cta-orbit": "node scripts/cta-orbit.cjs"
   },
   "dependencies": {
     "lucide": "^0.468.0",

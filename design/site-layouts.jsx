@@ -10,6 +10,7 @@ import { setupStatementIcons } from './statement-icons';
 import { setupModelTimeline } from './model-timeline';
 import { setupTopicMarquee } from './topic-marquee';
 import { setupButtons } from './buttons';
+import { setupCtaOrbit } from './cta-orbit';
 
 // Retain this browser's existing presentation, with the published draft as fallback.
 // The public site has no layout, colour or typography editing interface.
@@ -73,7 +74,7 @@ function render(c,value,{initial=false}={}){
     node.dataset.design=value;node.dataset.component=c.key;
     if(c.id)node.id=c.id;
     if(c.key==='home:2:statement')node.dataset.homeStatement='';
-    if(c.key==='home:7:cta')node.classList.add('home-cta-simple');
+    if(c.key==='home:7:cta'){node.classList.add('home-cta-simple');node.setAttribute('aria-labelledby','home-organisation-cta-title');}
     node.innerHTML=c.key==='home:7:cta'?c.original.innerHTML:renderLayout(c.data,value);
     if(c.form){node.querySelector('[data-form-slot]')?.append(c.form);c.form.classList.add('ds-preserved-form');}
     if(c.shield)node.querySelector('[data-shielded-slot]')?.append(c.shield);
@@ -83,6 +84,7 @@ function render(c,value,{initial=false}={}){
   if(c.key==='home:5:uses')c.el.hidden=document.querySelector('[data-previous-version]')?.getAttribute('aria-expanded')!=='true';
   if(c.key==='home:2:statement')c.cleanup.push(setupStatementIcons(c.el,paused));
   if(c.key==='home:4:features')c.cleanup.push(setupModelTimeline(c.el,paused));
+  if(c.key==='home:7:cta')c.cleanup.push(setupCtaOrbit(c.el,paused));
   if(value!==0)wire(c.el,c,initial);
   document.body.classList.toggle('ds-new-nav',components.find(x=>x.type==='navbar')?.value>0);
   document.body.classList.toggle('ds-original-nav',components.find(x=>x.type==='navbar')?.value===0);
