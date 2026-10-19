@@ -980,6 +980,11 @@ html[data-palette] #home-faq summary:focus-visible{outline-color:var(--paint-d6e
 /* Homepage testimonials use a white canvas with navy copy and controls. */
 html[data-palette] .ds-component[data-component="home:6:testimonials"]{--ds-bg:var(--paint-ffffff, #ffffff)!important;--ds-ink:var(--paint-142044, #142044)!important;--ds-muted:var(--paint-526078, #526078)!important;--ds-surface:var(--paint-ffffff, #ffffff)!important;--ds-accent:var(--paint-eef1f9, #eef1f9)!important;--ds-line:var(--paint-c7cede, #c7cede)!important}
 [data-component="home:6:testimonials"] :is(figcaption,.ds-carousel-status){color:var(--ds-muted)}
+[data-component="home:6:testimonials"] .ds-quote-cinema{max-width:1280px}
+[data-component="home:6:testimonials"] .ds-section-heading{max-width:none}
+[data-component="home:6:testimonials"] .ds-quote-slides{max-width:1000px;margin-inline:auto}
+html[data-palette] main [data-component="home:6:testimonials"] h2.ds-title{line-height:1.14!important;padding-bottom:.12em;overflow:visible}
+@media(min-width:1024px){[data-component="home:6:testimonials"] h2.ds-title{white-space:nowrap}}
 html[data-palette] [data-component="home:6:testimonials"] .ds-controls button:focus-visible{outline-color:var(--ds-ink)}
 
 /* Continuous typography: navy, cobalt outlines and a white canvas. */
@@ -1050,6 +1055,7 @@ html[data-palette] :is(.site-menu-toggle,.ds-quick-trigger){background:var(--bra
 html[data-palette] :is(.site-menu-toggle,.ds-quick-trigger):hover{background:var(--brand-ocean-700)}
 html[data-palette] .ds-component[data-component="home:4:features"]{--t-inverse:var(--brand-aubergine-800);--t-on-inverse:var(--brand-paper);--t-inverse-muted:var(--brand-lavender-300);--ds-line:var(--brand-aubergine-600)!important}
 html[data-palette] .ds-component[data-component="home:3:services"]{--t-inverse:var(--brand-ocean-800);--t-on-inverse:var(--brand-paper);--t-inverse-muted:var(--brand-ocean-300)}
+html[data-palette] [data-component="home:6:testimonials"] blockquote{color:#000}
 html[data-palette] .site-footer{background:var(--brand-ocean-900);color:var(--brand-paper)}
 html[data-palette] .site-footer :is(p,small,.footer-bottom){color:var(--brand-ocean-300)}
 html[data-palette] .site-footer a{color:var(--brand-paper)}
