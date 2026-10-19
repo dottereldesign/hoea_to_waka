@@ -17,7 +17,7 @@ const routes=['','about/','services/','services/in-house-workshops/','services/r
       assert.equal(await page.evaluate(()=>Boolean(window.HoeaDesignStudio||window.HoeaAppearance)),false,route+' editor API');
       await page.evaluate(()=>document.fonts.ready);
       assert(await page.evaluate(()=>document.fonts.check('400 16px "Inter"','Hoea tō Waka Ā Ē Ī Ō Ū')),route+' Inter loaded');
-      assert.deepEqual(await page.locator('body *').evaluateAll(els=>els.filter(el=>!el.matches('script,style,svg *')&&[...el.childNodes].some(n=>n.nodeType===3&&n.textContent.trim())&&!getComputedStyle(el).fontFamily.includes('Inter')).map(el=>el.tagName+': '+el.textContent.slice(0,60))),[],route+' consistent Inter');
+      assert.deepEqual(await page.locator('body *').evaluateAll(els=>els.filter(el=>!el.matches('script,style,svg *')&&[...el.childNodes].some(n=>n.nodeType===3&&n.textContent.trim())&&!getComputedStyle(el).fontFamily.includes(el.closest(':is(.ds-type-testimonials,.testimonial-carousel) blockquote')?'ABC Marist':'Inter')).map(el=>el.tagName+': '+el.textContent.slice(0,60))),[],route+' Inter with Marist testimonial quotes');
       const components=await page.locator('.ds-component').evaluateAll(els=>els.map(el=>({key:el.dataset.component,value:Number(el.dataset.design),colour:el.dataset.componentPalette})));
       for(const c of components){assert.equal(c.value,baseline.effectiveChoices[c.key],route+' '+c.key);assert.equal(c.colour,baseline.effectiveColourOverrides[c.key],route+' colour '+c.key);}
       assert.equal(await page.locator('h1').count(),1,route+' h1');

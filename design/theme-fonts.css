@@ -1,4 +1,12 @@
 @font-face {
+  font-family: 'ABC Marist';
+  font-style: normal;
+  font-weight: 350;
+  font-display: swap;
+  src: url(fonts/ABCMarist-Book.woff2) format('woff2');
+}
+
+@font-face {
   font-family: 'Instrument Serif';
   font-style: italic;
   font-weight: 400;
