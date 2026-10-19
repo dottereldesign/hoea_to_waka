@@ -1,4 +1,4 @@
-/* A single local preview, separate from the button artwork and site-wide styles. */
+/* Ink capsule with a contrasting arrow disc. */
 html[data-palette] .model-button{
   --model-ink:var(--brand-ink);--model-paper:var(--brand-paper);
   position:relative;isolation:isolate;display:inline-flex;align-items:center;justify-content:center;gap:18px;
@@ -8,71 +8,16 @@ html[data-palette] .model-button{
   transition:background .35s ease,color .35s ease,box-shadow .4s cubic-bezier(.22,1,.36,1),transform .4s cubic-bezier(.22,1,.36,1);
 }
 .model-button__label{position:relative;z-index:1;display:block;overflow:hidden;line-height:22px}
-.model-button__text{display:block;white-space:nowrap;transition:transform .45s cubic-bezier(.22,1,.36,1),opacity .3s ease}
-.model-button__text--alt{position:absolute;inset:0;transform:translateY(110%)}
 .model-button__icon{position:relative;z-index:1;display:grid;place-items:center;flex:none;width:22px;height:22px;transition:transform .4s cubic-bezier(.22,1,.36,1),background .3s,color .3s}
 .model-button__icon svg{display:block;width:18px;height:18px;transition:transform .4s cubic-bezier(.22,1,.36,1),opacity .3s ease}
 html[data-palette] .model-button:focus-visible{outline:3px solid var(--model-ink)!important;outline-offset:5px!important}
 html[data-palette] .model-button:active{transform:scale(.98)}
 
-/* 1 — restrained lift, with an arrow that leads the movement. */
-html[data-palette] .model-button:is([data-model-style="1"],:not([data-model-style])):is(:hover,:focus-visible){transform:translateY(-3px);box-shadow:0 10px 24px color-mix(in srgb,var(--model-ink) 18%,transparent)}
-.model-button[data-model-style="1"]:is(:hover,:focus-visible) .model-button__icon{transform:translateX(4px)}
 /* 2 — a bright arrow disc nestled inside the black capsule. */
-html[data-palette] .model-button[data-model-style="2"]{padding:6px 7px 6px 26px;gap:24px;justify-content:space-between}
-.model-button[data-model-style="2"] .model-button__icon{width:42px;height:42px;border-radius:50%;background:var(--model-paper);color:var(--model-ink)}
-.model-button[data-model-style="2"]:is(:hover,:focus-visible) .model-button__icon{transform:scale(.91)}
-.model-button[data-model-style="2"]:is(:hover,:focus-visible) svg{transform:translateX(3px)}
-/* 3 — a clean text-only pill with a rolling label. */
-html[data-palette] .model-button[data-model-style="3"]{min-width:190px;letter-spacing:.01em}
-.model-button[data-model-style="3"] .model-button__icon{display:none}
-.model-button[data-model-style="3"]:is(:hover,:focus-visible) .model-button__text--main{transform:translateY(-110%)}
-.model-button[data-model-style="3"]:is(:hover,:focus-visible) .model-button__text--alt{transform:translateY(0)}
-/* 4 — an outlined pill with gentle cursor-following content. */
-html[data-palette] .model-button[data-model-style="4"]{background:var(--model-paper);color:var(--model-ink);border-color:color-mix(in srgb,var(--model-ink) 45%,transparent)}
-html[data-palette] .model-button[data-model-style="4"]:is(:hover,:focus-visible){border-color:var(--model-ink);box-shadow:0 5px 20px color-mix(in srgb,var(--model-ink) 9%,transparent)}
-.model-button[data-model-style="4"] :is(.model-button__label,.model-button__icon){transform:translate(var(--model-dx,0px),var(--model-dy,0px));transition:transform .22s cubic-bezier(.22,1,.36,1)}
-/* 5 — a fine inner contour that tightens on hover. */
-html[data-palette] .model-button[data-model-style="5"]{padding-inline:30px;min-width:228px}
-.model-button[data-model-style="5"]::after{content:'';position:absolute;inset:5px;border:1px solid color-mix(in srgb,var(--model-paper) 32%,transparent);border-radius:999px;pointer-events:none;transition:inset .4s cubic-bezier(.22,1,.36,1),border-color .3s}
-.model-button[data-model-style="5"]:is(:hover,:focus-visible)::after{inset:8px;border-color:var(--model-paper)}
-.model-button[data-model-style="5"]:is(:hover,:focus-visible) svg{transform:translateX(3px)}
-/* 6 — a circular ink reveal grows from the arrow end. */
-html[data-palette] .model-button[data-model-style="6"]{background:var(--model-paper);color:var(--model-ink)}
-.model-button[data-model-style="6"]::before{content:'';position:absolute;right:12px;top:50%;width:30px;height:30px;margin-top:-15px;border-radius:50%;background:var(--model-ink);transform:scale(0);transition:transform .55s cubic-bezier(.22,1,.36,1)}
-html[data-palette] .model-button[data-model-style="6"]:is(:hover,:focus-visible){color:var(--model-paper)}
-.model-button[data-model-style="6"]:is(:hover,:focus-visible)::before{transform:scale(16)}
-/* 7 — two contrasting segments, with a sliding arrow compartment. */
-html[data-palette] .model-button[data-model-style="7"]{min-width:230px;padding:0 0 0 25px;gap:24px;justify-content:space-between}
-.model-button[data-model-style="7"] .model-button__icon{width:57px;height:54px;background:var(--model-paper);color:var(--model-ink);border-radius:999px 0 0 999px}
-.model-button[data-model-style="7"]:is(:hover,:focus-visible) .model-button__icon{transform:translateX(5px)}
-.model-button[data-model-style="7"]:is(:hover,:focus-visible) svg{transform:translateX(3px)}
-/* 8 — a subtle monochrome spotlight follows the pointer. */
-html[data-palette] .model-button[data-model-style="8"]{box-shadow:inset 0 1px 0 color-mix(in srgb,var(--model-paper) 20%,transparent),0 4px 12px color-mix(in srgb,var(--model-ink) 12%,transparent)}
-.model-button[data-model-style="8"]::before{content:'';position:absolute;inset:0;background:radial-gradient(100px circle at var(--model-x,50%) var(--model-y,50%),color-mix(in srgb,var(--model-paper) 22%,transparent),transparent 75%);opacity:0;transition:opacity .35s}
-.model-button[data-model-style="8"]:is(:hover,:focus-visible)::before{opacity:1}
-.model-button[data-model-style="8"]:is(:hover,:focus-visible) svg{transform:translateX(3px)}
-/* 9 — a small status dot becomes a directional cue. */
-html[data-palette] .model-button[data-model-style="9"]{flex-direction:row-reverse;min-width:200px;gap:13px}
-.model-button[data-model-style="9"] .model-button__icon{width:18px}
-.model-button[data-model-style="9"] .model-button__icon::before{content:'';position:absolute;width:6px;height:6px;border-radius:50%;background:currentColor;transition:transform .3s,opacity .3s}
-.model-button[data-model-style="9"] svg{opacity:0;transform:translateX(-7px)}
-.model-button[data-model-style="9"]:is(:hover,:focus-visible) .model-button__icon::before{transform:scale(0);opacity:0}
-.model-button[data-model-style="9"]:is(:hover,:focus-visible) svg{opacity:1;transform:translateX(0)}
-/* 10 — an offset ink edge adds depth and compresses on hover. */
-html[data-palette] .model-button[data-model-style="10"]{box-shadow:0 4px 0 var(--model-paper),0 5px 0 var(--model-ink);transform:translateY(-2px)}
-html[data-palette] .model-button[data-model-style="10"]:is(:hover,:focus-visible){transform:translateY(2px);box-shadow:0 0 0 var(--model-paper),0 1px 0 var(--model-ink)}
-.model-button[data-model-style="10"]:is(:hover,:focus-visible) svg{transform:translateX(4px)}
-
-.model-button-previews{display:grid;grid-template-columns:repeat(10,40px);justify-content:center;gap:6px;width:max-content;max-width:100%;margin:22px auto 0}
-html[data-palette] .model-button-previews button{display:grid;place-items:center;box-sizing:border-box;width:40px;height:40px;padding:0;border:1px solid var(--brand-stone);border-radius:50%;background:var(--brand-paper);color:var(--brand-ink);font-size:12px;font-weight:500;line-height:1;cursor:pointer;transition:background .2s,color .2s,border-color .2s,transform .2s}
-html[data-palette] .model-button-previews button[aria-pressed="true"]{background:var(--brand-ink);color:var(--brand-paper);border-color:var(--brand-ink)}
-html[data-palette] .model-button-previews button:hover{border-color:var(--brand-ink);transform:translateY(-2px)}
-.model-button-status{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
-@media(max-width:600px){.model-button-previews{grid-template-columns:repeat(5,40px)}}
+html[data-palette] .model-button{padding:6px 7px 6px 26px;gap:24px;justify-content:space-between}
+.model-button .model-button__icon{width:42px;height:42px;border-radius:50%;background:var(--model-paper);color:var(--model-ink)}
+.model-button:is(:hover,:focus-visible) .model-button__icon{transform:scale(.91)}
+.model-button:is(:hover,:focus-visible) svg{transform:translateX(3px)}
 @media(prefers-reduced-motion:reduce){
-  html[data-palette] .model-button{transition:none!important;transform:none!important}
-  .model-button *,.model-button::before,.model-button::after,.model-button-previews button{transition:none!important;animation:none!important}
-  .model-button[data-model-style="3"] .model-button__text--main{transform:none!important}
-  .model-button[data-model-style="3"] .model-button__text--alt{display:none}
+  html[data-palette] .model-button,.model-button *{transition:none!important;transform:none!important}
 }

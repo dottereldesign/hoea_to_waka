@@ -1,1 +1,32 @@
-const{chromium}=require('playwright'),assert=require('assert'),fs=require('fs');(async()=>{const s=require('./preview.cjs')(8800),b=await chromium.launch({channel:'chrome',headless:true});try{const context=await b.newContext(),p=await context.newPage(),errors=[];p.on('pageerror',e=>errors.push(e.message));fs.mkdirSync('tmp/model-buttons',{recursive:true});for(const width of[1440,390,320]){await p.setViewportSize({width,height:1000});await p.goto('http://127.0.0.1:8800/hoea_to_waka/');const candidate=p.locator('.model-button'),controls=p.locator('.model-button-previews');await candidate.scrollIntoViewIfNeeded();assert.equal(await controls.locator('button').count(),10);for(let i=1;i<=10;i++){await controls.locator('button').nth(i-1).click();assert.equal(await candidate.getAttribute('data-model-style'),String(i));assert.equal(await controls.locator('[aria-pressed="true"]').count(),1);assert.equal(await candidate.evaluate(e=>new URL(e.href).pathname),'/hoea_to_waka/about/');await candidate.hover();await p.waitForTimeout(580);const state=await candidate.evaluate(e=>({radius:getComputedStyle(e).borderRadius,width:e.getBoundingClientRect().width,height:e.getBoundingClientRect().height,controls:e.nextElementSibling.getBoundingClientRect().top,bottom:e.getBoundingClientRect().bottom}));assert.equal(state.radius,'999px');assert(state.height>=48&&state.controls>state.bottom);assert(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'no overflow '+width+' '+i);if(width===1440)await p.locator('[data-home-statement]').screenshot({path:'tmp/model-buttons/style-'+i+'-hover.png',style:'.site-header,.site-header *,.skip-link{visibility:hidden!important}'});}console.log('10 styles passed at '+width);}await p.reload();assert.equal(await p.locator('.model-button').getAttribute('data-model-style'),'10');await p.emulateMedia({reducedMotion:'reduce'});await p.locator('.model-button-previews button').nth(2).click();await p.locator('.model-button').hover();assert.equal(await p.locator('.model-button__text--alt').evaluate(e=>getComputedStyle(e).display),'none');await p.locator('.model-button-previews button').first().press('Enter');assert.equal(await p.locator('.model-button').getAttribute('data-model-style'),'1');assert.deepEqual(errors,[]);console.log('PASS: ten previews, working link, hover states, selected feedback, persistence, keyboard and reduced motion');}finally{await b.close();s.close()}})().catch(e=>{console.error(e);process.exit(1)})
+const {chromium}=require('playwright');
+const assert=require('node:assert/strict');
+(async()=>{
+ const server=require('./preview.cjs')(8800),browser=await chromium.launch({channel:'chrome',headless:true});
+ try{
+  const page=await browser.newPage();
+  for(const width of [1440,390,320]){
+   await page.setViewportSize({width,height:1000});
+   await page.goto('http://localhost:8800/hoea_to_waka/');
+   await page.waitForLoadState('networkidle');
+   const button=page.locator('.model-button');
+   await button.scrollIntoViewIfNeeded();
+   assert.equal(await page.locator('.model-button-previews').count(),0);
+   assert.equal(await button.evaluate(e=>new URL(e.href).pathname),'/hoea_to_waka/about/');
+   assert.equal(await button.evaluate(e=>getComputedStyle(e).borderRadius),'999px');
+   assert.equal(await button.locator('.model-button__icon').evaluate(e=>getComputedStyle(e).width),'42px');
+   for(const panel of ['home:6:testimonials','home:7:cta']){
+    const section=page.locator('[data-component="'+panel+'"]');
+    for(const selector of ['.ds-kicker','.ds-title'])assert.equal(await section.locator(selector).first().evaluate(e=>getComputedStyle(e).color),'rgb(32, 35, 41)');
+    await section.scrollIntoViewIfNeeded();
+    await section.screenshot({path:'tmp/'+panel.split(':')[2]+'-spacing-after-'+width+'.png',style:'.site-header,.site-header *,.skip-link{visibility:hidden!important}'});
+   }
+   const padding=await page.locator('.home-cta-simple').evaluate(e=>({top:parseFloat(getComputedStyle(e).paddingTop),bottom:parseFloat(getComputedStyle(e).paddingBottom),standard:parseFloat(getComputedStyle(e).getPropertyValue('--section-space'))}));
+   assert.equal(padding.top,padding.standard);assert.equal(padding.bottom,padding.standard);
+   assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+  }
+  await page.emulateMedia({reducedMotion:'reduce'});
+  await page.locator('.model-button').hover();
+  assert.equal(await page.locator('.model-button__icon').evaluate(e=>getComputedStyle(e).transform),'none');
+  console.log('PASS: chosen arrow-disc button, no previews, Ink headings, consistent section spacing, responsive layouts and reduced motion');
+ }finally{await browser.close();server.close()}
+})().catch(e=>{console.error(e);process.exit(1)});

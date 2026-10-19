@@ -139,3 +139,10 @@ html[data-palette] :is(.home-hero,.subpage-hero,[data-colour-inverse="true"],[da
 .brand-contrast [data-pass="false"]{color:var(--brand-error)}
 @media(max-width:1100px){.brand-tonal-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.brand-tonal-grid .brand-hex{font-size:13px!important;padding:8px}.brand-primary-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){#colours.brand-colour-section{padding:32px 16px}.brand-swatch-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.brand-tonal-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.brand-swatch-copy{padding:10px}.brand-primary-grid .brand-swatch-copy p{min-height:70px}.brand-button-examples,.brand-section-examples{grid-template-columns:1fr}.brand-preview-tools{padding:18px}.brand-editor-actions{flex-direction:column;align-items:stretch}.brand-colour-chip{height:96px}.brand-tonal-grid .brand-colour-chip{height:72px}}
+
+/* Ink headings on the two white homepage panels. */
+html[data-palette] [data-component="home:6:testimonials"] :is(.ds-kicker,.ds-title),
+html[data-palette] .home-cta-simple .home-cta-copy :is(.ds-kicker,.ds-title){color:var(--brand-ink)}
+/* Match the site's section rhythm around the full orbit, including its photos. */
+html[data-palette] .ds-component.home-cta-simple{padding-block:var(--section-space,96px)}
+@media(max-width:1279px){.home-cta-simple .home-cta-body{padding-bottom:0}}
