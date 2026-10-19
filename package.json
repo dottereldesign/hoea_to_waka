@@ -22,7 +22,8 @@
     "test:marquee": "node scripts/topic-marquee.cjs",
     "test:cta-orbit": "node scripts/cta-orbit.cjs",
     "test:brand-colours": "node scripts/brand-colours.cjs",
-    "test:header": "node scripts/header.cjs"
+    "test:header": "node scripts/header.cjs",
+    "test:model-button": "node scripts/model-button.cjs"
   },
   "dependencies": {
     "lucide": "^0.468.0",

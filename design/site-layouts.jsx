@@ -12,6 +12,7 @@ import { setupTopicMarquee } from './topic-marquee';
 import { setupButtons } from './buttons';
 import { setupCtaOrbit } from './cta-orbit';
 import { setupBrandNames } from './brand-name';
+import { setupModelButton } from './model-button';
 
 // Retain this browser's existing presentation, with the published draft as fallback.
 // The public site has no layout, colour or typography editing interface.
@@ -96,6 +97,7 @@ function render(c,value,{initial=false}={}){
   applyColour(c);
   if(c.el.classList.contains('subpage-hero'))c.el.dataset.colourInverse='true';
   setupButtons(c.el);
+  if(c.key==='home:2:statement')c.cleanup.push(setupModelButton(c.el));
   setupBrandNames(c.el);
 
 }
