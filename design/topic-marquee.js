@@ -73,7 +73,6 @@ export function setupTopicMarquee(section, paused = false) {
         row.words.forEach((word, i) => {
           const label = document.createElement('span');
           label.className = (start + i + row.index) % 2 ? 'kinetic-topics__outline' : '';
-          label.dataset.topicColour = ['ocean', 'forest', 'aubergine', 'lavender'][(i + row.index) % 4];
           label.textContent = word;
           group.append(label);
         });

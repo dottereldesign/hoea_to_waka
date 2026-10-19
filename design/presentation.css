@@ -150,14 +150,15 @@ html[data-palette] [data-component="home:6:testimonials"] .ds-controls button:fo
 .kinetic-topics__track{display:flex;width:max-content;font-size:var(--marquee-font-size,clamp(88px,8vw,115.2px));font-weight:600;line-height:1.05;letter-spacing:-.055em;white-space:nowrap;will-change:transform}
 .kinetic-topics__group{display:flex;flex:none;align-items:center;gap:clamp(24px,4vw,64px);padding-right:clamp(24px,4vw,64px)}
 .kinetic-topics__group>span{flex:none}
-.kinetic-topics__outline{-webkit-text-fill-color:transparent;-webkit-text-stroke:2px currentColor;paint-order:stroke fill}
+/* Fill after stroking so overlapping font contours do not leave internal seams. */
+.kinetic-topics__outline{-webkit-text-fill-color:var(--brand-paper);-webkit-text-stroke:4px currentColor;paint-order:stroke fill}
 .kinetic-topics__controls{position:absolute;right:22px;bottom:14px;left:22px;display:flex;justify-content:flex-end;flex-wrap:wrap;gap:8px}
 .kinetic-topics__controls button{align-items:center;min-height:32px;padding:6px 12px;border:1px solid #dce2f0;border-radius:999px;background:#fff;color:#142044;font-size:12px;cursor:pointer}
 .kinetic-topics__controls button:hover{background:#eef1f9;border-color:#284cb4}
 .kinetic-topics__pause{display:none}
 .home-uses-section[hidden],#home-previous-uses[hidden]{display:none!important}
 .is-kinetic-ready .kinetic-topics__pause{display:inline-flex}
-@media(max-width:760px){.kinetic-topics__track{font-size:var(--marquee-font-size,clamp(32px,11.5vw,72px))}.kinetic-topics__group{gap:24px;padding-right:24px}.kinetic-topics__outline{-webkit-text-stroke-width:1.5px}}
+@media(max-width:760px){.kinetic-topics__track{font-size:var(--marquee-font-size,clamp(32px,11.5vw,72px))}.kinetic-topics__group{gap:24px;padding-right:24px}.kinetic-topics__outline{-webkit-text-stroke-width:3px}}
 @media(prefers-reduced-motion:reduce){.kinetic-topics.is-kinetic-ready .kinetic-topics__rows,.kinetic-topics .kinetic-topics__pause{display:none}.kinetic-topics.is-kinetic-ready .kinetic-topics__list{position:static;width:auto;height:auto;margin:0 auto;padding:0 22px;clip-path:none;white-space:normal}}
 
 /* One button system across native pages and all saved layout variants. */
