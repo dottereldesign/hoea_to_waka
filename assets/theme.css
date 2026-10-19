@@ -860,7 +860,7 @@ html[data-theme="dark"] [data-component-palette]{--website-neutral--000: var(--p
 body > .site-header{top:0;width:100%;max-width:none;margin:0;border-radius:0}
 .page-home .home-hero{--hero-header-overlap:0px;margin-top:0;margin-inline:8px;border-radius:32px}
 /* Subpage header surfaces reach the viewport edge behind the floating navbar. */
-body:has(.site-main > :is(.page-hero,.ds-type-header):first-child) > .site-header{position:fixed;left:0;right:0;margin-top:0}
+body:has(.site-main > :is(.page-hero,.ds-type-header):first-child) > .site-header:not([data-morph-header]){position:fixed;left:0;right:0;margin-top:0}
 body:has(.site-main > :is(.page-hero,.ds-type-header):first-child) > .ds-type-navbar{position:absolute;top:0;left:0;right:0;width:100%;z-index:100}
 .site-main > :is(.page-hero,.ds-type-header):first-child{margin-top:0!important;padding-top:max(calc(var(--ds-nav-clearance,104px) + 48px),clamp(152px,15vw,230px))!important}
 html[data-palette] .ds-component{--ds-bg:var(--section-surface,var(--t-bg))!important;--ds-ink:var(--t-ink)!important;--ds-muted:var(--t-muted)!important;--ds-surface:var(--t-surface)!important;--ds-accent:var(--t-component-accent)!important;--ds-line:var(--t-line)!important;--ex-font:var(--font-heading)!important}
@@ -1039,7 +1039,6 @@ html[data-palette] .footer-brand-lockup img{width:var(--brand-logo-size);height:
 html[data-palette]{--color-brand-primary:var(--brand-ocean-800);--color-brand-primary-soft:var(--brand-ocean-200);--color-brand-accent:var(--brand-ocean-800);--color-brand-accent-hover:var(--brand-ocean-700);--color-success:var(--brand-success);--color-warm:var(--brand-sandstone);--color-text:var(--t-ink);--color-text-muted:var(--t-muted);--color-bg:var(--t-bg);--color-surface:var(--t-surface);--color-surface-strong:var(--t-surface);--color-border:var(--t-line)}
 html[data-palette] body{background-color:var(--t-bg);color:var(--t-ink)}
 /* Interior page heroes share the homepage's inset and rounded silhouette. */
-body:has(.site-main > .subpage-hero:first-child) > :is(.site-header,.ds-type-navbar){position:sticky;top:0;left:auto;right:auto;margin:0}
 html[data-palette] .site-main > .subpage-hero:first-child{
   margin:0 8px!important;width:auto;max-width:none;border-radius:32px;overflow:clip;
   padding-top:clamp(64px,7vw,104px)!important;
