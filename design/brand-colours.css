@@ -168,3 +168,6 @@ html[data-palette] .book-amazon-button:focus-visible{outline:3px solid var(--bra
   #home-faq .ds-faq-editorial>div,#home-faq .faq-list{grid-column:1;grid-row:2}
   #home-faq .home-faq-photo{margin-bottom:24px}
 }
+
+.coaching-photo-panel img,html[data-palette] [data-component="services/resilience-one-on-one/:2:story"] .ex-visual>img{display:block;width:100%;object-fit:cover;object-position:center;border-radius:20px}
+.coaching-photo-panel img{height:auto}

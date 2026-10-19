@@ -1204,6 +1204,9 @@ html[data-palette] .book-amazon-button:focus-visible{outline:3px solid var(--bra
   #home-faq .home-faq-photo{margin-bottom:24px}
 }
 
+.coaching-photo-panel img,html[data-palette] [data-component="services/resilience-one-on-one/:2:story"] .ex-visual>img{display:block;width:100%;object-fit:cover;object-position:center;border-radius:20px}
+.coaching-photo-panel img{height:auto}
+
 /* White at the top; a charcoal glass pill while scrolling, as in the reference. */
 html:has([data-morph-header]){scrollbar-gutter:stable}
 html[data-palette] body > .site-header[data-morph-header]{
