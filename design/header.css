@@ -116,7 +116,7 @@ html[data-palette] .site-menu-panel{
   html[data-palette] [data-morph-header] .site-header-shell{
     display:grid;grid-template-columns:68px minmax(0,1fr) 44px;gap:8px;width:calc(100% - 32px);max-width:none;height:76px;
   }
-  html[data-palette] [data-morph-header] .site-header-shell::before{content:'';position:fixed;inset:0 calc((100vw - 100%)/-2);z-index:-1;background:rgb(255 255 255 / .94);pointer-events:none;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+  html[data-palette] [data-morph-header] .site-header-shell::before{content:'';position:absolute;inset:0 calc((100vw - 100%)/-2);z-index:-1;background:rgb(255 255 255 / .94);pointer-events:none;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
   html[data-palette] [data-morph-header] .site-header-bar{display:contents}
   html[data-palette] [data-morph-header] .site-nav{display:none}
   html[data-palette] [data-morph-header] .site-header-actions{grid-column:1;justify-self:start}

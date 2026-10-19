@@ -1181,6 +1181,17 @@ html[data-palette] .home-cta-simple .home-cta-copy :is(.ds-kicker,.ds-title){col
 html[data-palette] .ds-component.home-cta-simple{padding-block:var(--section-space,96px)}
 @media(max-width:1279px){.home-cta-simple .home-cta-body{padding-bottom:0}}
 
+/* Retailer links sit beside the enquiry action without competing with the books. */
+.book-purchase-actions{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-top:24px}
+.book-purchase-actions .ds-button{margin:0}
+html[data-palette] .book-amazon-button{display:inline-flex;align-items:center;justify-content:center;gap:11px;min-height:48px;box-sizing:border-box;padding:12px 20px;border:1px solid var(--brand-ink);border-radius:999px;background:var(--brand-paper);color:var(--brand-ink);font-size:13px;font-weight:600;line-height:1.4;white-space:nowrap;text-decoration:none;transition:background .25s,color .25s,transform .3s cubic-bezier(.22,1,.36,1)}
+.book-amazon-mark{display:block;flex:none;width:22px;height:22px;background:currentColor;mask:url('icons/amazon.svg') center/contain no-repeat;-webkit-mask:url('icons/amazon.svg') center/contain no-repeat}
+.book-amazon-button>svg{flex:none;width:16px;height:16px;transition:transform .3s cubic-bezier(.22,1,.36,1)}
+html[data-palette] .book-amazon-button:hover{background:var(--brand-ink);color:var(--brand-paper);transform:translateY(-2px)}
+.book-amazon-button:hover>svg{transform:translate(2px,-2px)}
+html[data-palette] .book-amazon-button:focus-visible{outline:3px solid var(--brand-ocean-600);outline-offset:4px}
+@media(prefers-reduced-motion:reduce){.book-amazon-button,.book-amazon-button>svg{transition:none!important;transform:none!important}}
+
 /* White at the top; a charcoal glass pill while scrolling, as in the reference. */
 html:has([data-morph-header]){scrollbar-gutter:stable}
 html[data-palette] body > .site-header[data-morph-header]{
@@ -1299,7 +1310,7 @@ html[data-palette] .site-menu-panel{
   html[data-palette] [data-morph-header] .site-header-shell{
     display:grid;grid-template-columns:68px minmax(0,1fr) 44px;gap:8px;width:calc(100% - 32px);max-width:none;height:76px;
   }
-  html[data-palette] [data-morph-header] .site-header-shell::before{content:'';position:fixed;inset:0 calc((100vw - 100%)/-2);z-index:-1;background:rgb(255 255 255 / .94);pointer-events:none;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+  html[data-palette] [data-morph-header] .site-header-shell::before{content:'';position:absolute;inset:0 calc((100vw - 100%)/-2);z-index:-1;background:rgb(255 255 255 / .94);pointer-events:none;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
   html[data-palette] [data-morph-header] .site-header-bar{display:contents}
   html[data-palette] [data-morph-header] .site-nav{display:none}
   html[data-palette] [data-morph-header] .site-header-actions{grid-column:1;justify-self:start}
