@@ -17,14 +17,14 @@ const routes=['','about/','services/','services/in-house-workshops/','services/r
       assert.equal(await page.evaluate(()=>Boolean(window.HoeaDesignStudio||window.HoeaAppearance)),false,route+' editor API');
       await page.evaluate(()=>document.fonts.ready);
       assert(await page.evaluate(()=>document.fonts.check('400 16px "Inter"','Hoea tō Waka Ā Ē Ī Ō Ū')),route+' Inter loaded');
-      assert.deepEqual(await page.locator('body *').evaluateAll(els=>els.filter(el=>!el.matches('script,style,svg *')&&[...el.childNodes].some(n=>n.nodeType===3&&n.textContent.trim())&&!getComputedStyle(el).fontFamily.includes(el.closest(':is(.ds-type-testimonials,.testimonial-carousel) blockquote')?'ABC Marist':'Inter')).map(el=>el.tagName+': '+el.textContent.slice(0,60))),[],route+' Inter with Marist testimonial quotes');
+      assert.deepEqual(await page.locator('body *').evaluateAll(els=>els.filter(el=>!el.matches('script,style,svg *')&&[...el.childNodes].some(n=>n.nodeType===3&&n.textContent.trim())&&!getComputedStyle(el).fontFamily.includes(el.closest('.brand-name-text,:is(.ds-type-testimonials,.testimonial-carousel) blockquote')?'ABC Marist':'Inter')).map(el=>el.tagName+': '+el.textContent.slice(0,60))),[],route+' Inter with Marist testimonial quotes');
       const components=await page.locator('.ds-component').evaluateAll(els=>els.map(el=>({key:el.dataset.component,value:Number(el.dataset.design),colour:el.dataset.componentPalette})));
       for(const c of components){assert.equal(c.value,baseline.effectiveChoices[c.key],route+' '+c.key);assert.equal(c.colour,baseline.effectiveColourOverrides[c.key],route+' colour '+c.key);}
       assert.equal(await page.locator('h1').count(),1,route+' h1');
       const sectionHeadingSizes=await page.locator('main h2.ds-title:not(.statement-icon-copy),main h2.section-title').evaluateAll(els=>els.map(el=>({text:el.textContent.trim().slice(0,50),size:parseFloat(getComputedStyle(el).fontSize)})));
       const expectedH2=width<=760?Math.max(37,Math.min(width*.09,60)):Math.max(38,Math.min(width*.045,72));
       for(const h of sectionHeadingSizes)assert(Math.abs(h.size-expectedH2)<.02,route+' H2 scale: '+JSON.stringify(h));
-      if(routes.indexOf(route)<10)assert.match(await page.locator('h1').evaluate(el=>getComputedStyle(el).fontFamily),/Inter/,route+' heading font');
+      if(routes.indexOf(route)<10)assert.match(await page.locator('h1').evaluate(el=>getComputedStyle(el).fontFamily),route===''?/ABC Marist/:/Inter/,route+' heading font');
       assert.deepEqual(await page.locator('img').evaluateAll(els=>els.filter(i=>i.currentSrc&&i.complete&&!i.naturalWidth).map(i=>i.currentSrc)),[],route+' broken images');
       if(routes.indexOf(route)<10){
         assert.equal(components.length,Object.entries(baseline.effectiveChoices).filter(([k,v])=>v>0&&k.startsWith((route||'home')+':')&&k.split(':').length===3).length,route+' rendered sections');

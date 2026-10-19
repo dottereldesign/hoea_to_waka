@@ -11,6 +11,7 @@ import { setupModelTimeline } from './model-timeline';
 import { setupTopicMarquee } from './topic-marquee';
 import { setupButtons } from './buttons';
 import { setupCtaOrbit } from './cta-orbit';
+import { setupBrandNames } from './brand-name';
 
 // Retain this browser's existing presentation, with the published draft as fallback.
 // The public site has no layout, colour or typography editing interface.
@@ -94,6 +95,7 @@ function render(c,value,{initial=false}={}){
   applyColour(c);
   if(c.el.classList.contains('subpage-hero'))c.el.dataset.colourInverse='true';
   setupButtons(c.el);
+  setupBrandNames(c.el);
 
 }
 function wire(el,c,initial){
