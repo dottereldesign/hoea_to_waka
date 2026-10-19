@@ -7,26 +7,26 @@ html[data-palette] body > .site-header[data-morph-header]{
   background:var(--header-paper);background-image:none;box-shadow:none;color:var(--header-ink);z-index:100;
 }
 html[data-palette] [data-morph-header] .site-header-shell{
-  position:fixed;top:0;left:50%;display:flex;align-items:center;gap:8px;
+  position:fixed;top:0;left:0;right:0;margin-inline:auto;display:flex;align-items:center;gap:8px;
   width:calc(100% - 48px);max-width:calc(100vw - 96px);height:82px;
-  transform:translateX(-50%);isolation:isolate;pointer-events:none;
+  transform:none;isolation:isolate;pointer-events:none;
   transition:max-width .52s cubic-bezier(.22,1,.36,1),top .52s cubic-bezier(.22,1,.36,1),height .52s cubic-bezier(.22,1,.36,1);
 }
 /* The white strip belongs to the page; the fixed navigation has no white wrapper. */
 html[data-palette] [data-morph-header] .site-header-bar{
   position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);
   align-items:center;gap:24px;flex:1;min-width:0;height:64px;padding:8px 0 8px 12px;
-  border-radius:999px;background:transparent;color:var(--header-ink);pointer-events:auto;
+  border-radius:999px;background:transparent;color:var(--header-ink);pointer-events:auto;isolation:isolate;
   transition:background-color .45s ease,color .3s ease,height .52s cubic-bezier(.22,1,.36,1),padding .52s cubic-bezier(.22,1,.36,1),box-shadow .45s ease;
 }
 html[data-palette] [data-morph-header] .site-brand{
-  position:absolute;left:calc(50% + 28px);top:50%;grid-column:auto;grid-row:auto;justify-self:auto;gap:8px;
+  position:absolute;inset:0 -56px 0 0;margin:auto;width:max-content;height:max-content;grid-column:auto;grid-row:auto;justify-self:auto;gap:8px;
   color:inherit;opacity:1;translate:none;animation:none!important;
-  transform:translate(-50%,-50%) scale(1);transition:transform .52s cubic-bezier(.22,1,.36,1),color .3s ease;
+  transform:none;filter:none;transition:color .3s ease;
 }
 html[data-palette] [data-morph-header] .site-brand::before{width:var(--brand-logo-size);height:var(--brand-logo-size);background-color:currentColor;transition:width .52s cubic-bezier(.22,1,.36,1),height .52s cubic-bezier(.22,1,.36,1)}
-html[data-palette] [data-morph-header] .site-brand-name{font-family:'ABC Marist',Georgia,serif!important;font-weight:600!important;font-synthesis:weight;font-size:24px;line-height:1.12;letter-spacing:-.035em;color:inherit}
-html[data-palette] [data-morph-header] .site-brand-line{font-size:7px;letter-spacing:.16em;color:inherit}
+html[data-palette] [data-morph-header] .site-brand-name{font-family:'ABC Marist',Georgia,serif!important;font-weight:600!important;font-synthesis:weight;font-size:24px;line-height:1.12;letter-spacing:-.035em;color:inherit;transition:font-size .52s cubic-bezier(.22,1,.36,1)}
+html[data-palette] [data-morph-header] .site-brand-line{font-size:7px;letter-spacing:.16em;color:inherit;transition:font-size .52s cubic-bezier(.22,1,.36,1)}
 html[data-palette] [data-morph-header] .site-brand-line::before,
 html[data-palette] [data-morph-header] .site-brand-line::after{width:7px;transform:none;transition:none}
 html[data-palette] [data-morph-header] .site-nav{
@@ -76,11 +76,12 @@ html[data-palette] .site-menu-panel .site-menu-dots{
 .site-menu-close .site-menu-dots i:is(:nth-child(2),:nth-child(4),:nth-child(6),:nth-child(8)){opacity:.15}
 html[data-palette] [data-morph-header].is-scrolled .site-header-shell{top:16px;max-width:1000px;height:52px}
 html[data-palette] [data-morph-header].is-scrolled .site-header-bar{
-  height:52px;padding:6px 6px 6px 16px;background:var(--header-glass);color:var(--header-paper);
-  backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);box-shadow:0 6px 24px rgb(0 0 0 / .08);
+  height:52px;padding:6px 6px 6px 16px;background:transparent;color:var(--header-paper);
 }
-html[data-palette] [data-morph-header].is-scrolled .site-brand{color:var(--header-paper);transform:translate(-50%,-50%) scale(.88)}
-html[data-palette] [data-morph-header].is-scrolled .site-brand::before{width:32px;height:36px}
+html[data-palette] [data-morph-header].is-scrolled .site-brand{color:var(--header-paper)}
+html[data-palette] [data-morph-header].is-scrolled .site-brand-name{font-size:21px}
+html[data-palette] [data-morph-header].is-scrolled .site-brand-line{font-size:6px}
+html[data-palette] [data-morph-header].is-scrolled .site-brand::before{width:28px;height:32px}
 html[data-palette] [data-morph-header].is-scrolled .site-header-cta{background:var(--header-paper);color:var(--header-ink)}
 html[data-palette] [data-morph-header].is-scrolled .site-header-cta:hover{background:#e8e8e8}
 html[data-palette] [data-morph-header].is-scrolled .site-menu-toggle{background:var(--header-glass);color:var(--header-paper);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}
@@ -119,7 +120,7 @@ html[data-palette] .site-menu-panel{
   html[data-palette] [data-morph-header] .site-header-bar{display:contents}
   html[data-palette] [data-morph-header] .site-nav{display:none}
   html[data-palette] [data-morph-header] .site-header-actions{grid-column:1;justify-self:start}
-  html[data-palette] [data-morph-header] .site-brand{position:relative;left:auto;top:auto;grid-column:2;grid-row:1;justify-self:center;gap:6px;transform:none}
+  html[data-palette] [data-morph-header] .site-brand{position:relative;inset:auto;margin:0;width:auto;height:auto;grid-column:2;grid-row:1;justify-self:center;gap:6px;transform:none}
   html[data-palette] [data-morph-header] .site-brand-name{font-size:22px}
   html[data-palette] [data-morph-header] .site-menu-toggle{grid-column:3;grid-row:1;width:44px;height:44px;min-width:44px}
   html[data-palette] [data-morph-header] .site-header-cta{min-height:36px;padding:9px 15px;font-size:11px}
@@ -156,3 +157,7 @@ html[data-palette] .site-menu-contact :is(a,p){display:flex;align-items:center;g
 .site-menu-appearance p{margin:0 0 5px;font-size:14px;font-weight:600}
 .site-menu-appearance small{font-size:12px;line-height:1.5;color:var(--brand-slate)}
 html[data-palette] .site-menu-appearance .site-theme-toggle{display:inline-block;flex:none;position:relative;visibility:visible;opacity:1;pointer-events:auto}
+
+/* Keep glass in its own layer: the logo and links are rendered at their real size. */
+html[data-palette] [data-morph-header] .site-header-bar::before{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;background:transparent;pointer-events:none;transition:background-color .45s ease,box-shadow .45s ease}
+html[data-palette] [data-morph-header].is-scrolled .site-header-bar::before{background:var(--header-glass);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);box-shadow:0 6px 24px rgb(0 0 0 / .08)}
