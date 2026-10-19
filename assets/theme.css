@@ -1392,6 +1392,13 @@ html[data-palette] .model-button{padding:6px 7px 6px 26px;gap:24px;justify-conte
   html[data-palette] .model-button,.model-button *{transition:none!important;transform:none!important}
 }
 
+/* Reversed contrast for the primary action on the dark hero. */
+html[data-palette] .model-button.model-button-inverse{--model-ink:var(--brand-paper);--model-paper:var(--brand-ink)}
+@media(max-width:760px){
+ .page-home .home-hero .home-hero-inner-photo .button-row{flex-direction:column;align-items:stretch;width:100%;max-width:400px;gap:12px}
+ .page-home .home-hero .home-hero-inner-photo .button-row .button{width:100%;white-space:nowrap;min-height:48px}
+}
+
 /* A homepage-only monochrome study. Original brand colours remain on other pages. */
 html:has(body.page-home){
 --brand-ocean-100:#f7f7f7!important;
