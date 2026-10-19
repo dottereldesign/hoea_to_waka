@@ -24,7 +24,7 @@ html[data-palette] [data-morph-header] .site-brand{
   color:inherit;opacity:1;translate:none;animation:none!important;
   transform:translate(-50%,-50%) scale(1);transition:transform .52s cubic-bezier(.22,1,.36,1),color .3s ease;
 }
-html[data-palette] [data-morph-header] .site-brand::before{width:var(--brand-logo-size);height:var(--brand-logo-size);background-color:currentColor}
+html[data-palette] [data-morph-header] .site-brand::before{width:var(--brand-logo-size);height:var(--brand-logo-size);background-color:currentColor;transition:width .52s cubic-bezier(.22,1,.36,1),height .52s cubic-bezier(.22,1,.36,1)}
 html[data-palette] [data-morph-header] .site-brand-name{font-family:'ABC Marist',Georgia,serif!important;font-weight:600!important;font-synthesis:weight;font-size:24px;line-height:1.12;letter-spacing:-.035em;color:inherit}
 html[data-palette] [data-morph-header] .site-brand-line{font-size:7px;letter-spacing:.16em;color:inherit}
 html[data-palette] [data-morph-header] .site-brand-line::before,
@@ -80,6 +80,7 @@ html[data-palette] [data-morph-header].is-scrolled .site-header-bar{
   backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);box-shadow:0 6px 24px rgb(0 0 0 / .08);
 }
 html[data-palette] [data-morph-header].is-scrolled .site-brand{color:var(--header-paper);transform:translate(-50%,-50%) scale(.88)}
+html[data-palette] [data-morph-header].is-scrolled .site-brand::before{width:32px;height:36px}
 html[data-palette] [data-morph-header].is-scrolled .site-header-cta{background:var(--header-paper);color:var(--header-ink)}
 html[data-palette] [data-morph-header].is-scrolled .site-header-cta:hover{background:#e8e8e8}
 html[data-palette] [data-morph-header].is-scrolled .site-menu-toggle{background:var(--header-glass);color:var(--header-paper);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}
