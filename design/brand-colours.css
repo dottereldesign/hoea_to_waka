@@ -37,6 +37,8 @@ html[data-palette][data-typography] body .brand-name-text,
 html[data-palette][data-typography] body .brand-name-text *{font-family:'ABC Marist',Georgia,serif!important;font-weight:350!important;font-synthesis:none}
 /* Use browser-generated bold for the wordmarks; the supplied webfont is Book. */
 html[data-palette][data-typography] body :is(.site-brand,.footer-brand-lockup,.ds-brand,.home-hero) .brand-name-text{font-weight:600!important;font-synthesis:weight}
+/* Let Marist keep its natural proportions instead of the previous hero squeeze. */
+html[data-palette] .home-hero .home-hero-inner-photo h1.display-title{transform:none;line-height:1.05;letter-spacing:0}
 html[data-palette] .site-footer{background:var(--brand-ocean-900);color:var(--brand-paper)}
 html[data-palette] .site-footer :is(p,small,.footer-bottom){color:var(--brand-ocean-300)}
 html[data-palette] .site-footer a{color:var(--brand-paper)}
