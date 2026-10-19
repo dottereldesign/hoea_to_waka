@@ -991,10 +991,7 @@ html[data-palette] [data-component="home:6:testimonials"] .ds-controls button:fo
 .kinetic-topics__track{display:flex;width:max-content;font-size:var(--marquee-font-size,clamp(88px,8vw,115.2px));font-weight:600;line-height:1.05;letter-spacing:-.055em;white-space:nowrap;will-change:transform}
 .kinetic-topics__group{display:flex;flex:none;align-items:center;gap:clamp(24px,4vw,64px);padding-right:clamp(24px,4vw,64px)}
 .kinetic-topics__group>span{flex:none}
-.kinetic-topics__outline{color:var(--paint-ffffff, #ffffff);-webkit-text-stroke:2px var(--paint-284cb4, #284cb4);paint-order:stroke fill}
-.kinetic-topics__row--reverse{color:var(--paint-284cb4, #284cb4)}
-.kinetic-topics__row--reverse .kinetic-topics__outline{-webkit-text-stroke-color:var(--paint-142044, #142044)}
-.kinetic-topics__dot{width:.16em;height:.16em;border-radius:50%;background:var(--paint-284cb4, #284cb4)}
+.kinetic-topics__outline{-webkit-text-fill-color:transparent;-webkit-text-stroke:2px currentColor;paint-order:stroke fill}
 .kinetic-topics__controls{position:absolute;right:22px;bottom:14px;left:22px;display:flex;justify-content:flex-end;flex-wrap:wrap;gap:8px}
 .kinetic-topics__controls button{align-items:center;min-height:32px;padding:6px 12px;border:1px solid var(--paint-dce2f0, #dce2f0);border-radius:999px;background:var(--paint-ffffff, #ffffff);color:var(--paint-142044, #142044);font-size:12px;cursor:pointer}
 .kinetic-topics__controls button:hover{background:var(--paint-eef1f9, #eef1f9);border-color:var(--paint-284cb4, #284cb4)}
@@ -1080,6 +1077,12 @@ html[data-palette] :is(.home-hero,.subpage-hero,[data-colour-inverse="true"],[da
 html[data-palette] :is(.home-hero,.subpage-hero,[data-colour-inverse="true"],[data-component="home:3:services"],.ds-v2) :is(.button,.ds-button)[data-button-style="primary"]:hover{background:var(--brand-lavender-400)!important;border-color:var(--brand-lavender-400)!important}
 html[data-palette] :is(.home-hero,.subpage-hero,[data-colour-inverse="true"],[data-component="home:3:services"],.ds-v2) :is(.button,.ds-button)[data-button-style="secondary"]:hover{background:color-mix(in srgb,var(--brand-lavender-500) 15%,transparent)!important;border-color:var(--brand-lavender-500)!important}
 html[data-palette] :is(.home-hero,.subpage-hero,[data-colour-inverse="true"],[data-component="home:3:services"],.ds-v2) :is(.button,.ds-button)[data-button-style]:active{background:var(--brand-lavender-600)!important;border-color:var(--brand-lavender-600)!important;color:var(--brand-aubergine-800)!important}
+
+/* Filled and outlined marquee words share the four brand colour families. */
+.kinetic-topics [data-topic-colour="ocean"],.kinetic-topics__list li:nth-child(4n+1){color:var(--brand-ocean-700)}
+.kinetic-topics [data-topic-colour="forest"],.kinetic-topics__list li:nth-child(4n+2){color:var(--brand-forest-600)}
+.kinetic-topics [data-topic-colour="aubergine"],.kinetic-topics__list li:nth-child(4n+3){color:var(--brand-aubergine-600)}
+.kinetic-topics [data-topic-colour="lavender"],.kinetic-topics__list li:nth-child(4n){color:var(--brand-lavender-700)}
 
 /* Brand-guideline colour editing stays compact and usable at every width. */
 #colours.brand-colour-section{height:auto;min-height:0;padding:clamp(32px,5vw,72px);background:var(--brand-warm-white);color:var(--brand-ink);overflow:visible;scroll-margin-top:104px}

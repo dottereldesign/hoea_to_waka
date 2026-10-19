@@ -60,6 +60,12 @@ html[data-palette] :is(.home-hero,.subpage-hero,[data-colour-inverse="true"],[da
 html[data-palette] :is(.home-hero,.subpage-hero,[data-colour-inverse="true"],[data-component="home:3:services"],.ds-v2) :is(.button,.ds-button)[data-button-style="secondary"]:hover{background:color-mix(in srgb,var(--brand-lavender-500) 15%,transparent)!important;border-color:var(--brand-lavender-500)!important}
 html[data-palette] :is(.home-hero,.subpage-hero,[data-colour-inverse="true"],[data-component="home:3:services"],.ds-v2) :is(.button,.ds-button)[data-button-style]:active{background:var(--brand-lavender-600)!important;border-color:var(--brand-lavender-600)!important;color:var(--brand-aubergine-800)!important}
 
+/* Filled and outlined marquee words share the four brand colour families. */
+.kinetic-topics [data-topic-colour="ocean"],.kinetic-topics__list li:nth-child(4n+1){color:var(--brand-ocean-700)}
+.kinetic-topics [data-topic-colour="forest"],.kinetic-topics__list li:nth-child(4n+2){color:var(--brand-forest-600)}
+.kinetic-topics [data-topic-colour="aubergine"],.kinetic-topics__list li:nth-child(4n+3){color:var(--brand-aubergine-600)}
+.kinetic-topics [data-topic-colour="lavender"],.kinetic-topics__list li:nth-child(4n){color:var(--brand-lavender-700)}
+
 /* Brand-guideline colour editing stays compact and usable at every width. */
 #colours.brand-colour-section{height:auto;min-height:0;padding:clamp(32px,5vw,72px);background:var(--brand-warm-white);color:var(--brand-ink);overflow:visible;scroll-margin-top:104px}
 .brand-editor{width:100%;min-width:0;max-width:1440px;margin:auto}

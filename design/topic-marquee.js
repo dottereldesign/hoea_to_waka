@@ -69,19 +69,18 @@ export function setupTopicMarquee(section, paused = false) {
       const group = document.createElement('div');
       group.className = 'kinetic-topics__group';
       function appendWords() {
+        const start = group.childElementCount;
         row.words.forEach((word, i) => {
           const label = document.createElement('span');
-          label.className = row.index < 2 && (i + row.index) % 2 ? 'kinetic-topics__outline' : '';
+          label.className = (start + i + row.index) % 2 ? 'kinetic-topics__outline' : '';
+          label.dataset.topicColour = ['ocean', 'forest', 'aubergine', 'lavender'][(i + row.index) % 4];
           label.textContent = word;
           group.append(label);
-          if (row.index === 2) {
-            const dot = document.createElement('span');
-            dot.className = 'kinetic-topics__dot';
-            group.append(dot);
-          }
         });
       }
       appendWords();
+      // An even word count keeps fill/outline alternation intact at the loop seam.
+      if (row.words.length % 2) appendWords();
       row.track.replaceChildren(group);
       // Every repeat covers the viewport; three identical copies allow either
       // direction to wrap forever without revealing an empty edge.
