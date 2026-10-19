@@ -34,7 +34,7 @@ export const renderers = {
   utility: [
     () => `<button class="ds-quick-trigger" data-quick-toggle aria-expanded="false" aria-label="Open quick contact">${icon('Plus')}</button><div class="ds-quick-panel" hidden>${label('Here when you need us')}${contactLinks()}<button data-ds-theme>${icon('Sun')} Change appearance</button></div>`,
     () => `<button class="ds-quick-trigger" data-quick-toggle aria-expanded="false" aria-label="Open quick contact">${icon('Waves')}<span>Connect</span></button><div class="ds-quick-panel" hidden>${heading('A simple first step.')}${contactLinks()}<button data-ds-theme>${icon('Sun')} Change appearance</button></div>`,
-    () => `<button class="ds-quick-trigger" data-quick-toggle aria-expanded="false" aria-label="Open quick contact">${icon('Mail')}</button><div class="ds-quick-panel" hidden>${label('CONTACT / AOTEAROA')}${contactLinks()}<button data-ds-theme>${icon('Sun')} Change appearance</button></div>`,
+    () => `<button class="ds-quick-trigger" data-quick-toggle aria-expanded="false" aria-label="Open quick contact">${icon('Mail')}</button><div class="ds-quick-panel" hidden>${label('Contact / Aotearoa')}${contactLinks()}<button data-ds-theme>${icon('Sun')} Change appearance</button></div>`,
     () => `<button class="ds-quick-trigger" data-quick-toggle aria-expanded="false" aria-label="Open quick contact">${icon('Mail')}</button><div class="ds-quick-panel" hidden><span class="ds-signature">A note to Anna</span>${contactLinks()}<button data-ds-theme>${icon('Sun')} Change appearance</button></div>`,
     () => `<button class="ds-quick-trigger" data-quick-toggle aria-expanded="false" aria-label="Open quick contact">${icon('Compass')}</button><div class="ds-quick-panel" hidden>${label('Find your bearings')}${contactLinks()}<button data-ds-theme>${icon('Sun')} Change appearance</button></div>`
   ],
@@ -62,7 +62,7 @@ export const renderers = {
   statement: [
     d => `<div class="ds-statement-editorial">${label('About Hoea tō Waka')}${heading(d.title)}<span class="ds-statement-rule"></span>${link('Meet the model','about/')}</div>`,
     d => `<div class="ds-statement-water">${icon('Waves',64)}${heading(d.title)}${label('Notice the current. Choose your direction.')}</div>`,
-    d => `<div class="ds-statement-poster">${label('OUR PURPOSE')}${heading('Resilience, made practical.')}<div>${para(d.title)}${link('Discover how','about/')}</div></div>`,
+    d => `<div class="ds-statement-poster">${label('Our purpose')}${heading('Resilience, made practical.')}<div>${para(d.title)}${link('Discover how','about/')}</div></div>`,
     d => `<div class="ds-statement-letter">${label('A belief we come back to')}${heading(d.title)}<div class="ds-signature">Hoea tō Waka</div></div>`,
     d => `<div class="ds-statement-map">${orbit()}<div>${label('Find your bearings')}${heading(d.title)}${link('Explore the approach','about/')}</div></div>`
   ],
