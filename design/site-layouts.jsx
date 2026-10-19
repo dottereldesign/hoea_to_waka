@@ -72,6 +72,7 @@ function render(c,value,{initial=false}={}){
     if(value>50)node.dataset.purposeLayout=value;
     else if(value>5){const d=direction(value);node.dataset.collection=d.collection;node.dataset.layout=d.slug;node.style.cssText=colourStyle(d);}
     node.dataset.design=value;node.dataset.component=c.key;
+    if(c.original.classList.contains('subpage-hero'))node.classList.add('subpage-hero');
     if(c.id)node.id=c.id;
     if(c.key==='home:2:statement')node.dataset.homeStatement='';
     if(c.key==='home:7:cta'){node.classList.add('home-cta-simple');node.setAttribute('aria-labelledby','home-organisation-cta-title');}
@@ -91,6 +92,7 @@ function render(c,value,{initial=false}={}){
   if(c.type==='navbar'){navSize.disconnect();navSize.observe(c.el);}
   registerAtoms(c);
   applyColour(c);
+  if(c.el.classList.contains('subpage-hero'))c.el.dataset.colourInverse='true';
   setupButtons(c.el);
 
 }
