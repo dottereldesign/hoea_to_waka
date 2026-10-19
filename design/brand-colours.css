@@ -45,7 +45,7 @@ html[data-palette] .home-hero .home-hero-inner-photo h1.display-title{transform:
 html[data-palette][data-typography] body :is(.eyebrow,.section-eyebrow,.ds-kicker,.ds-number,.service-index,.info-card-number,.ds-facts dt,.pp-facts dt,[class*="eyebrow"],[class*="kicker"]){font-family:'ABC Marist',Georgia,serif!important;font-weight:350!important;font-synthesis:none;font-size:18px!important;line-height:1.35!important;text-transform:none!important;letter-spacing:.01em}
 html[data-palette][data-typography] body :is(.eyebrow,.section-eyebrow,.ds-kicker,.ds-number,.service-index,.info-card-number,.ds-facts dt,.pp-facts dt,[class*="eyebrow"],[class*="kicker"]) *{text-transform:none!important;font-family:'ABC Marist',Georgia,serif!important;font-weight:350!important;font-synthesis:none}
 @media(max-width:760px){html[data-palette][data-typography] body :is(.eyebrow,.section-eyebrow,.ds-kicker,.ds-number,.service-index,.info-card-number,.ds-facts dt,.pp-facts dt,[class*="eyebrow"],[class*="kicker"]){font-size:16px!important}}
-html[data-palette] .site-footer{background:var(--brand-ocean-900);color:var(--brand-paper)}
+html[data-palette] .site-footer{background:var(--brand-ocean-900);color:var(--brand-paper);margin:0 8px 8px;width:auto;border-radius:32px;overflow:clip}
 html[data-palette] .site-footer :is(p,small,.footer-bottom){color:var(--brand-ocean-300)}
 html[data-palette] .site-footer a{color:var(--brand-paper)}
 html[data-palette] :is(.field-error,.form-error,[role="alert"]){color:var(--brand-error)}
