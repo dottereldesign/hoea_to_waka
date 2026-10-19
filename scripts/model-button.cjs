@@ -16,7 +16,7 @@ const assert=require('node:assert/strict');
    assert.equal(await button.locator('.model-button__icon').evaluate(e=>getComputedStyle(e).width),'42px');
    for(const panel of ['home:6:testimonials','home:7:cta']){
     const section=page.locator('[data-component="'+panel+'"]');
-    for(const selector of ['.ds-kicker','.ds-title'])assert.equal(await section.locator(selector).first().evaluate(e=>getComputedStyle(e).color),'rgb(32, 35, 41)');
+    for(const selector of ['.ds-kicker','.ds-title'])assert.equal(await section.locator(selector).first().evaluate(e=>getComputedStyle(e).color),'rgb(32, 32, 32)');
     await section.scrollIntoViewIfNeeded();
     await section.screenshot({path:'tmp/'+panel.split(':')[2]+'-spacing-after-'+width+'.png',style:'.site-header,.site-header *,.skip-link{visibility:hidden!important}'});
    }

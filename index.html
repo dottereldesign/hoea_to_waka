@@ -116,8 +116,8 @@
         ]
       }
     </script>
-    <script src="assets/theme-init.js?v=18"></script>
-    <link rel="stylesheet" href="assets/theme.css?v=64">
+    <script src="assets/theme-init.js?v=19"></script>
+    <link rel="stylesheet" href="assets/theme.css?v=65">
   </head>
   <body class="page-home">
     <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -187,7 +187,7 @@
       </dialog>
     </header>
     <main class="site-main" id="main-content">
-      <section class="home-hero" aria-labelledby="home-hero-title">
+      <section class="home-hero" data-hero-version="01" aria-labelledby="home-hero-title">
         <div class="home-hero-photo" aria-hidden="true">
           <picture>
             <source srcset="assets/hero-collaboration-900.webp 900w, assets/hero-collaboration.webp 1448w" sizes="100vw" type="image/webp">
@@ -229,6 +229,11 @@
               <a class="button button-ghost home-hero-button home-hero-button-contact" href="contact/">Talk with Anna</a>
             </div>
           </div>
+        </div>
+      <div class="hero-version-controls" role="group" aria-label="Hero versions" hidden>
+          <button type="button" data-hero-choice="01" aria-label="Version 01: solid background" aria-pressed="true" title="Solid background">01</button>
+          <button type="button" data-hero-choice="02" aria-label="Version 02: original photo hero" aria-pressed="false" title="Original photo hero">02</button>
+          <span class="hero-version-status" aria-live="polite"></span>
         </div>
       </section>
 

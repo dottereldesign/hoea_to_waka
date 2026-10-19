@@ -23,7 +23,8 @@
     "test:cta-orbit": "node scripts/cta-orbit.cjs",
     "test:brand-colours": "node scripts/brand-colours.cjs",
     "test:header": "node scripts/header.cjs",
-    "test:model-button": "node scripts/model-button.cjs"
+    "test:model-button": "node scripts/model-button.cjs",
+    "test:home-variants": "node scripts/home-variants.cjs"
   },
   "dependencies": {
     "lucide": "^0.468.0",

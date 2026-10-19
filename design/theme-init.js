@@ -3,6 +3,7 @@ import { setupButtons } from './buttons';
 import { applyBrandColours, setupBrandEditor } from './brand-colours';
 import { setupBrandNames } from './brand-name';
 import { setupSiteHeader } from './header';
+import { setupHeroVersions } from './hero-versions';
 
 const root=document.documentElement;
 function apply(){
@@ -22,4 +23,4 @@ apply();
 new MutationObserver(syncMode).observe(root,{attributes:true,attributeFilter:['data-theme']});
 window.addEventListener('hoea:brand-colours',syncMode);
 document.addEventListener('DOMContentLoaded',syncMode,{once:true});
-document.addEventListener('DOMContentLoaded',()=>{setupButtons();setupBrandEditor();setupBrandNames();setupSiteHeader();},{once:true});
+document.addEventListener('DOMContentLoaded',()=>{setupButtons();setupBrandEditor();setupBrandNames();setupSiteHeader();setupHeroVersions();},{once:true});
