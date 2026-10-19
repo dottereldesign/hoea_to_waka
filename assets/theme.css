@@ -1056,6 +1056,7 @@ html[data-palette] :is(.site-menu-toggle,.ds-quick-trigger):hover{background:var
 html[data-palette] .ds-component[data-component="home:4:features"]{--t-inverse:var(--brand-aubergine-800);--t-on-inverse:var(--brand-paper);--t-inverse-muted:var(--brand-lavender-300);--ds-line:var(--brand-aubergine-600)!important}
 html[data-palette] .ds-component[data-component="home:3:services"]{--t-inverse:var(--brand-ocean-800);--t-on-inverse:var(--brand-paper);--t-inverse-muted:var(--brand-ocean-300)}
 html[data-palette] [data-component="home:6:testimonials"] blockquote{color:#000}
+html[data-palette] .home-cta-simple .home-cta-body :is(.ds-lead,.home-cta-support){color:var(--brand-ink)}
 html[data-palette] .site-footer{background:var(--brand-ocean-900);color:var(--brand-paper)}
 html[data-palette] .site-footer :is(p,small,.footer-bottom){color:var(--brand-ocean-300)}
 html[data-palette] .site-footer a{color:var(--brand-paper)}
