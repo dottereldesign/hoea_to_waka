@@ -87,6 +87,7 @@ function render(c,value,{initial=false}={}){
     c.el=node;c.marker.after(node);
   }
   if(value===0){c.form?.classList.remove('ds-preserved-form');if(originalThemeToggle){const dark=document.documentElement.dataset.theme==='dark';originalThemeToggle.setAttribute('aria-pressed',String(dark));originalThemeToggle.setAttribute('aria-label',dark?'Switch to light theme':'Switch to dark theme');}}
+  if(c.key==='services/resilience-one-on-one/:2:story')c.el.querySelectorAll('.ex-rail,.ex-aside,.ex-visual figcaption').forEach(element=>element.remove());
   if(c.key==='home:5:uses')c.el.hidden=document.querySelector('[data-previous-version]')?.getAttribute('aria-expanded')!=='true';
   if(c.key==='home:2:statement')c.cleanup.push(setupStatementIcons(c.el,paused));
   if(['home:4:features','about/:3:features'].includes(c.key))c.cleanup.push(setupModelTimeline(c.el,paused));
