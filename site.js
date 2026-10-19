@@ -131,6 +131,7 @@
 
   const header = document.querySelector("[data-site-header]");
   const menuToggle = document.querySelector("[data-menu-toggle]");
+  if (!header?.hasAttribute('data-morph-header')) {
   const nav = document.querySelector("[data-site-nav]");
   const mobileQuery = window.matchMedia("(max-width: 760px)");
   const subnavToggles = Array.from(
@@ -289,6 +290,7 @@
     window.requestAnimationFrame(() => nav.classList.add("is-indicator-ready"));
   }
 
+  }
   document.querySelectorAll("[data-year]").forEach((element) => {
     element.textContent = String(new Date().getFullYear());
   });
