@@ -1473,3 +1473,9 @@ html[data-palette] .page-home :is(a,button,summary):focus-visible{outline-color:
  .page-home .hero-version-controls{right:16px;bottom:16px}
 }
 @media(prefers-reduced-motion:reduce){.hero-version-controls button{transition:none!important}}
+
+/* Restore the model panel's original purple within the neutral homepage. */
+html[data-palette] .page-home [data-component="home:4:features"]{
+ --brand-aubergine-800:#281a2c;--brand-aubergine-600:#806788;--brand-lavender-300:#f0e9f2;
+ background:#281a2c;--ds-bg:#281a2c!important;--ds-ink:#fff!important;--ds-muted:#f0e9f2!important;--ds-line:#806788!important;
+}
