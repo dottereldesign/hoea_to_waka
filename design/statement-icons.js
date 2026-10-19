@@ -1,22 +1,13 @@
-import { createElement, Sprout, Building2, HandHeart } from 'lucide';
 import { animate } from 'motion';
+import sprout from '../assets/icons/statement/sprout.svg';
+import kiwi from '../assets/icons/statement/kiwi.svg';
+import workplace from '../assets/icons/statement/workplace.svg';
+import support from '../assets/icons/statement/support.svg';
 
 const illustrations = new Map([
-  ['Resilience', Sprout], ['Aotearoa’s', 'kiwi'], ['workplaces,', Building2],
-  ['professionals.', HandHeart],
+  ['Resilience', ['sprout', sprout]], ['Aotearoa’s', ['kiwi', kiwi]],
+  ['workplaces,', ['workplace', workplace]], ['professionals.', ['support', support]],
 ]);
-
-function kiwiIcon() {
-  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-  svg.setAttribute('viewBox', '0 0 32 32');
-  svg.setAttribute('fill', 'none');
-  svg.setAttribute('stroke', 'currentColor');
-  svg.setAttribute('stroke-linecap', 'round');
-  svg.setAttribute('stroke-linejoin', 'round');
-  svg.dataset.icon = 'kiwi';
-  svg.innerHTML = '<path d="M18 11C19 7 23 6 25 8C28 10 26 13 23 13L20 15C18 22 9 24 5 20C1 17 3 11 8 10C12 8 16 9 18 11Z"/><path d="m26 11 5 12M10 22l-1 6H6m10-6 1 6h3"/><circle cx="23" cy="9.5" r=".7" fill="currentColor" stroke="none"/>';
-  return svg;
-}
 
 export function setupStatementIcons(section, paused = false) {
   const copy = 'Resilience training set in Aotearoa’s unique cultural context, made practical for workplaces, leaders, and support professionals.';
@@ -38,9 +29,11 @@ export function setupStatementIcons(section, paused = false) {
       slot.className = 'statement-icon';
       slot.style.setProperty('--icon-reveal', '0');
       slot.dataset.statementIcon = text.replace(/[,.]/g, '');
-      const illustration = illustrations.get(text);
-      const svg = illustration === 'kiwi' ? kiwiIcon() : createElement(illustration);
-      svg.setAttribute('stroke-width', '1.5');
+      const [name, artwork] = illustrations.get(text);
+      const template = document.createElement('template');
+      template.innerHTML = artwork;
+      const svg = template.content.firstElementChild;
+      svg.dataset.icon = name;
       svg.setAttribute('aria-hidden', 'true');
       svg.setAttribute('focusable', 'false');
       slot.append(svg);

@@ -37,7 +37,7 @@ themeCSS+=brandCSS(colours);
 themeCSS+=`\n[data-component-palette]{${lightAliases.join(';')}}\nhtml[data-theme="dark"] [data-component-palette]{${darkAliases.join(';')}}`;
 await writeFile('assets/theme.css',themeCSS+'\n'+presentation+'\n'+await readFile('design/brand-colours.css','utf8')+'\n'+await readFile('design/header.css','utf8'));
 await build({entryPoints:['design/theme-init.js'],bundle:true,minify:true,format:'iife',target:['es2020'],outfile:'assets/theme-init.js'});
-await build({ entryPoints: ['design/site-layouts.jsx'], bundle: true, minify: true, format: 'iife', target: ['es2020'], outfile: 'assets/site-layouts.js', define: { 'process.env.NODE_ENV': '"production"' }, legalComments: 'linked' });
+await build({ entryPoints: ['design/site-layouts.jsx'], loader: { '.svg':'text' }, bundle: true, minify: true, format: 'iife', target: ['es2020'], outfile: 'assets/site-layouts.js', define: { 'process.env.NODE_ENV': '"production"' }, legalComments: 'linked' });
 await writeFile('assets/design-studio.css',studioCSS);
 await copyFile('design/LICENSE-MOTION-PRIMITIVES.txt','assets/LICENSE-MOTION-PRIMITIVES.txt');
 await copyFile('design/THEME-RESEARCH.md','assets/THEME-RESEARCH.md');
