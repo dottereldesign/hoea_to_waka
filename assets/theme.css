@@ -970,8 +970,8 @@ html[data-palette] :is(.home-cta-simple,.ds-component[data-component="home:7:cta
 .home-cta-orbit-pause:hover{background:var(--paint-eef1f9, #eef1f9);color:var(--paint-142044, #142044)}
 @keyframes cta-orbit{to{--cta-orbit-angle:360deg}}
 @media(max-width:1279px){.home-cta-orbit-layout{grid-template-columns:1fr;gap:0;max-width:820px}.home-cta-orbit-well{height:clamp(560px,80vw,760px)}.home-cta-copy{width:50%;max-width:390px}.home-cta-orbit img{width:calc(clamp(64px,var(--photo-width)*.85px,108px));transform:translate(-50%,-50%) translate(calc(cos(var(--theta))*49cqw),calc(sin(var(--theta))*39cqh))}.home-cta-body{padding:32px 24px 88px;max-width:650px;margin:auto}}
-@media(max-width:600px){.home-cta-orbit-well{height:560px}.home-cta-copy{width:67%;max-width:260px}.home-cta-simple .home-cta-copy .ds-kicker{font-size:9px!important;letter-spacing:.13em}.home-cta-orbit img{width:calc(var(--photo-width)*.58px);border-radius:10px;transform:translate(-50%,-50%) translate(calc(cos(var(--theta))*53cqw),calc(sin(var(--theta))*40cqh))}.home-cta-simple .home-cta-actions{flex-direction:column;align-items:flex-start}}
-@media(max-width:360px){.home-cta-orbit-well{height:600px}.home-cta-orbit img{width:calc(var(--photo-width)*.5px)}}
+@media(max-width:600px){.home-cta-orbit-well{height:640px}.home-cta-copy{width:67%;max-width:260px}.home-cta-orbit img{width:calc(var(--photo-width)*.58px);border-radius:10px;transform:translate(-50%,-50%) translate(calc(cos(var(--theta))*53cqw),calc(sin(var(--theta))*40cqh))}.home-cta-simple .home-cta-actions{flex-direction:column;align-items:flex-start}}
+@media(max-width:360px){.home-cta-orbit-well{height:660px}.home-cta-orbit img{width:calc(var(--photo-width)*.5px)}}
 @media(prefers-reduced-motion:reduce){.home-cta-orbit{animation:none!important}.home-cta-orbit-pause{display:none}}
 
 /* Forest green FAQs complement the homepage's navy and plum sections. */
@@ -1073,6 +1073,10 @@ html[data-palette][data-typography] body .brand-name-text *{font-family:'ABC Mar
 html[data-palette][data-typography] body :is(.site-brand,.footer-brand-lockup,.ds-brand,.home-hero) .brand-name-text{font-weight:600!important;font-synthesis:weight}
 /* Let Marist keep its natural proportions instead of the previous hero squeeze. */
 html[data-palette] .home-hero .home-hero-inner-photo h1.display-title{transform:none;line-height:1.05;letter-spacing:0}
+/* Larger serif overlines, including the labels above individual service cards. */
+html[data-palette][data-typography] body :is(.eyebrow,.section-eyebrow,.ds-kicker,.ds-number,.service-index,.info-card-number,.ds-facts dt,.pp-facts dt,[class*="eyebrow"],[class*="kicker"]){font-family:'ABC Marist',Georgia,serif!important;font-weight:350!important;font-synthesis:none;font-size:18px!important;line-height:1.35!important;letter-spacing:.06em}
+html[data-palette][data-typography] body :is(.eyebrow,.section-eyebrow,.ds-kicker,.ds-number,.service-index,.info-card-number,.ds-facts dt,.pp-facts dt,[class*="eyebrow"],[class*="kicker"]) *{font-family:'ABC Marist',Georgia,serif!important;font-weight:350!important;font-synthesis:none}
+@media(max-width:760px){html[data-palette][data-typography] body :is(.eyebrow,.section-eyebrow,.ds-kicker,.ds-number,.service-index,.info-card-number,.ds-facts dt,.pp-facts dt,[class*="eyebrow"],[class*="kicker"]){font-size:16px!important}}
 html[data-palette] .site-footer{background:var(--brand-ocean-900);color:var(--brand-paper)}
 html[data-palette] .site-footer :is(p,small,.footer-bottom){color:var(--brand-ocean-300)}
 html[data-palette] .site-footer a{color:var(--brand-paper)}

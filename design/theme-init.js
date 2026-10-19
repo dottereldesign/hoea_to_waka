@@ -9,7 +9,7 @@ function apply(){
   root.dataset.palette='hoea';
   root.dataset.typography='inter';
   // Typography is fixed site-wide, including browsers with older saved font choices.
-  for(const role of roles){root.style.setProperty(`--font-${role.id}`,'"Inter", Arial, sans-serif');root.style.setProperty(`--font-weight-${role.id}`,['display','heading'].includes(role.id)?600:500);}
+  for(const role of roles){root.style.setProperty(`--font-${role.id}`,role.id==='eyebrow'?'"ABC Marist", Georgia, serif':'"Inter", Arial, sans-serif');root.style.setProperty(`--font-weight-${role.id}`,role.id==='eyebrow'?350:['display','heading'].includes(role.id)?600:500);}
   applyBrandColours();
 }
 const syncMode=()=>{
