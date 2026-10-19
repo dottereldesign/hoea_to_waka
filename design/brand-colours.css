@@ -161,10 +161,10 @@ html[data-palette] .book-amazon-button:focus-visible{outline:3px solid var(--bra
 #home-faq :is(.ds-faq-editorial,.container.split){display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(40px,6vw,88px);align-items:start}
 #home-faq :is(.ds-section-heading,.home-faq-heading){grid-column:2;grid-row:1;margin:0;min-width:0}
 #home-faq .ds-faq-editorial>div,#home-faq .faq-list{grid-column:1;grid-row:1;min-width:0}
-#home-faq .home-faq-photo{display:block;width:100%;height:auto;aspect-ratio:1200/669;object-fit:cover;border-radius:20px;margin-top:32px}
+#home-faq .home-faq-photo{display:block;width:100%;height:auto;aspect-ratio:1200/669;object-fit:cover;border-radius:20px;margin:0 0 32px}
 @media(max-width:900px){
   #home-faq :is(.ds-faq-editorial,.container.split){grid-template-columns:minmax(0,1fr);gap:36px}
   #home-faq :is(.ds-section-heading,.home-faq-heading){grid-column:1;grid-row:1}
   #home-faq .ds-faq-editorial>div,#home-faq .faq-list{grid-column:1;grid-row:2}
-  #home-faq .home-faq-photo{margin-top:24px}
+  #home-faq .home-faq-photo{margin-bottom:24px}
 }

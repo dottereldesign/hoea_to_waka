@@ -13,7 +13,7 @@ export const link = (t, href = 'contact/', cls = '') => `<a class="ds-button ${c
 const photo = () => img('assets/placeholders/landscape.svg', 'Landscape image placeholder', 'ds-landscape');
 const mark = () => img('assets/logo-black.svg', '', 'ds-mark');
 const number = i => String(i + 1).padStart(2, '0');
-const intro = d => `<header class="ds-section-heading">${d.modelPhoto ? `<img class="model-section-photo" src="${esc(d.modelPhoto.src)}" alt="${esc(d.modelPhoto.alt)}" width="1021" height="572" loading="lazy" decoding="async">` : ''}${label(d.eyebrow || d.type)}${heading(d.title,d.type==='gallery'?1:2)}${para(d.lead)}${d.faqPhoto ? `<img class="home-faq-photo" src="${esc(d.faqPhoto.src)}" alt="${esc(d.faqPhoto.alt)}" width="1200" height="669" loading="lazy" decoding="async">` : ''}</header>`;
+const intro = d => `<header class="ds-section-heading">${d.faqPhoto ? `<img class="home-faq-photo" src="${esc(d.faqPhoto.src)}" alt="${esc(d.faqPhoto.alt)}" width="1200" height="669" loading="lazy" decoding="async">` : ''}${d.modelPhoto ? `<img class="model-section-photo" src="${esc(d.modelPhoto.src)}" alt="${esc(d.modelPhoto.alt)}" width="1021" height="572" loading="lazy" decoding="async">` : ''}${label(d.eyebrow || d.type)}${heading(d.title,d.type==='gallery'?1:2)}${para(d.lead)}</header>`;
 const body = d => `<div class="ds-prose">${d.prose}</div>`;
 const actions = () => `<div class="ds-actions">${link('Find your starting point','services/')}${link('Talk with Anna','contact/','ds-button-quiet')}</div>`;
 const orbit = () => `<div class="ds-orbit" aria-hidden="true"><i></i><i></i><i></i><span>${mark()}</span><b>VALUES</b><b>DIRECTION</b><b>CONNECTION</b></div>`;
