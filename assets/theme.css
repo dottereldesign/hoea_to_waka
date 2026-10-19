@@ -1444,7 +1444,6 @@ html:has(body.page-home){
 --brand-warning:#555555!important;
 --brand-error:#555555!important;
 }
-.page-home img{filter:grayscale(1)}
 html[data-palette] body.page-home>.site-header[data-morph-header]{--header-ink:#181818}
 html[data-palette] .page-home .site-menu-panel{color:#181818}
 .page-home .site-menu-service-links a{color:#555}
