@@ -60,7 +60,7 @@ export const renderers = {
     d => `<div class="ds-page-orbit"><div>${label(d.eyebrow)}${heading(d.title,1)}${para(d.lead)}${facts(d)}</div>${orbit()}</div>`
   ],
   statement: [
-    d => `<div class="ds-statement-editorial">${label('About Hoea tō Waka')}${heading(d.title)}<span class="ds-statement-rule"></span>${link('Meet the model','about/')}</div>`,
+    d => `<div class="ds-statement-editorial">${label('About Hoea tō Waka')}${heading(d.title)}<span class="ds-statement-rule"></span>${link('Discover more','about/')}</div>`,
     d => `<div class="ds-statement-water">${icon('Waves',64)}${heading(d.title)}${label('Notice the current. Choose your direction.')}</div>`,
     d => `<div class="ds-statement-poster">${label('Our purpose')}${heading('Resilience, made practical.')}<div>${para(d.title)}${link('Discover how','about/')}</div></div>`,
     d => `<div class="ds-statement-letter">${label('A belief we come back to')}${heading(d.title)}<div class="ds-signature">Hoea tō Waka</div></div>`,

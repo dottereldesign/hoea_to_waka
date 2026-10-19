@@ -99,7 +99,7 @@ function render(c,value,{initial=false}={}){
   if(c.el.classList.contains('subpage-hero'))c.el.dataset.colourInverse='true';
   setupButtons(c.el);
   if(c.type==='resources')setupBookLinks(c.el,c.data.items);
-  if(c.key==='home:2:statement')c.cleanup.push(setupModelButton(c.el));
+  if(c.key==='home:2:statement')c.cleanup.push(setupModelButton(c.el,url('about/')));
   setupBrandNames(c.el);
 
 }
