@@ -172,9 +172,10 @@ function gallery(d) { return d.items.map((c,i)=>`<figure data-card-unit><img src
 export function extract(el, type) {
   const text = (selector, from=el) => {const n=from.querySelector(selector)?.cloneNode(true);n?.querySelectorAll('span').forEach(s=>s.after(document.createTextNode(' ')));return (n?.textContent||'').replace(/\s+/g,' ').trim();};
   const primary = el.querySelector('h1,h2');
+  const breadcrumbs = [...el.querySelectorAll('.breadcrumbs li')].map(item=>({label:item.textContent.trim(),href:item.querySelector('a[href]')?.href}));
   const modelPhoto = el.querySelector('[data-model-photo]');
   const faqPhoto = el.querySelector('[data-faq-photo]');
-  const d = {type, faqPhoto:faqPhoto?{src:faqPhoto.src,alt:faqPhoto.alt}:null, modelPhoto:modelPhoto?{src:modelPhoto.src,alt:modelPhoto.alt}:null, title: primary?.getAttribute('aria-label') || primary?.textContent.replace(/\s+/g,' ').trim() || '', eyebrow: text('.eyebrow'), lead: text('.lead,.home-intro,.section-head p:not(.eyebrow),.cta-band-inner p'), items:[], facts:[], tags:[], quotes:[]};
+  const d = {type, breadcrumbs, faqPhoto:faqPhoto?{src:faqPhoto.src,alt:faqPhoto.alt}:null, modelPhoto:modelPhoto?{src:modelPhoto.src,alt:modelPhoto.alt}:null, title: primary?.getAttribute('aria-label') || primary?.textContent.replace(/\s+/g,' ').trim() || '', eyebrow: text('.eyebrow'), lead: text('.lead,.home-intro,.section-head p:not(.eyebrow),.cta-band-inner p'), items:[], facts:[], tags:[], quotes:[]};
   d.facts = [...el.querySelectorAll('.hero-fact')].map(f=>[f.children[0]?.textContent.trim(),f.children[1]?.textContent.trim()]);
   const selectors = {services:'.service-card',features:'.info-card',process:'.steps li,.step-list li',faq:'.faq-list details',resources:'.resource-feature',videos:'.video-card',gallery:'.illustration-card'};
   if (type==='process') selectors.process='ol li';

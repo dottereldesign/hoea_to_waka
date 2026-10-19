@@ -134,7 +134,13 @@ const serviceDetails = () => `<div class="pp-service-details">${[
 ].map(([name, label, path], i) => `<details ${i === 0 ? 'open' : ''}><summary>${esc(name)}${icon('Plus', 18)}</summary>${link(label, path)}</details>`).join('')}</div>`;
 const note = text => `<p class="pp-note">${esc(text)}</p>`;
 const facts = d => d.facts?.length ? `<dl class="pp-facts">${d.facts.map(([label, text]) => `<div><dt>${esc(label)}</dt><dd>${esc(text)}</dd></div>`).join('')}</dl>` : '';
-const breadcrumb = d => `<nav class="pp-breadcrumb" aria-label="Breadcrumb"><a href="${esc(url(''))}">Home</a><span aria-hidden="true">/</span><span aria-current="page">${esc(d.eyebrow || d.title || 'This page')}</span></nav>`;
+const breadcrumb = d => {
+  const crumbs = d.breadcrumbs?.length ? d.breadcrumbs : [{label:'Home',href:url('')},{label:d.title || 'This page'}];
+  return '<nav class="pp-breadcrumb" aria-label="Breadcrumb">' + crumbs.map((crumb,index)=>
+    (index ? '<span aria-hidden="true">/</span>' : '') +
+    (index < crumbs.length - 1 && crumb.href ? `<a href="${esc(crumb.href)}">${esc(crumb.label)}</a>` : `<span aria-current="page">${esc(crumb.label)}</span>`)
+  ).join('') + '</nav>';
+};
 const directory = () => `<nav class="pp-directory" aria-label="Explore the site"><a href="${esc(url('about/'))}">About</a><a href="${esc(url('services/'))}">Services</a><a href="${esc(url('resources/'))}">Resources</a><a href="${esc(url('contact/'))}">Contact</a></nav>`;
 const contacts = () => `<div class="pp-contacts">${contactLinks()}</div>`;
 const form = () => '<div class="pp-form" data-form-slot></div>';

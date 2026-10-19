@@ -62,6 +62,7 @@ nodes.forEach((el,index)=>{
 function cleanup(c){c.roots.forEach(r=>r.unmount());c.roots=[];c.cleanup.forEach(f=>f());c.cleanup=[];}
 function render(c,value,{initial=false}={}){
   if(c.type==='navbar'&&c.original.hasAttribute('data-morph-header'))value=0;
+  if(c.type==='header'&&c.original.classList.contains('subpage-hero'))value=127;
   if(!validLayout(c.type,value))return;
   // Clear transient atom presentation before relocating the preserved form.
   atomEntries.filter(a=>a.parent===c).forEach(a=>{applyAtom(a,0);clearColour(a.el);});
