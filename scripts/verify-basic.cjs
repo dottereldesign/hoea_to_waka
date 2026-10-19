@@ -27,7 +27,7 @@ const routes=['','about/','services/','services/in-house-workshops/','services/r
       if(routes.indexOf(route)<10)assert.match(await page.locator('h1').evaluate(el=>getComputedStyle(el).fontFamily),route===''?/ABC Marist/:/Inter/,route+' heading font');
       assert.deepEqual(await page.locator('img').evaluateAll(els=>els.filter(i=>i.currentSrc&&i.complete&&!i.naturalWidth).map(i=>i.currentSrc)),[],route+' broken images');
       if(routes.indexOf(route)<10){
-        assert.equal(components.length,Object.entries(baseline.effectiveChoices).filter(([k,v])=>v>0&&k.startsWith((route||'home')+':')&&k.split(':').length===3).length,route+' rendered sections');
+        assert.equal(components.length,Object.entries(baseline.effectiveChoices).filter(([k,v])=>v>0&&!k.endsWith(':utility')&&k.startsWith((route||'home')+':')&&k.split(':').length===3).length,route+' rendered sections');
         if(await page.locator('footer').count()){assert(await page.locator('footer a[href*="brand-guidelines"]').count(),route+' brand link');
         assert(await page.locator('footer a[href*="illustrations"]').count(),route+' illustrations link');
         assert(await page.locator('footer [data-shielded-site]').count(),route+' shielded link');}
@@ -42,7 +42,7 @@ const routes=['','about/','services/','services/in-house-workshops/','services/r
   await page.reload();
   await page.getByLabel('Name',{exact:true}).fill('Site verification');await page.getByLabel('Email',{exact:true}).fill('test@example.com');await page.getByLabel('How can Anna help?').fill('Testing the simplified site.');await page.getByRole('button',{name:'Prepare email',exact:true}).click();
   assert.match(await page.evaluate(()=>window.__preparedMailto),/^mailto:anna@hoeatowaka\.co\.nz/);
-  await page.locator('[data-quick-toggle]').click();assert(await page.locator('.ds-quick-panel').isVisible());await page.keyboard.press('Escape');assert.equal(await page.locator('.ds-quick-panel').isVisible(),false);
+  assert.equal(await page.locator('[data-quick-toggle],.site-utility-menu').count(),0);
   await page.locator('[data-menu-toggle]').click();assert(await page.locator('[data-site-header]').evaluate(el=>el.classList.contains('is-open')));await page.keyboard.press('Escape');assert.equal(await page.locator('[data-site-header]').evaluate(el=>el.classList.contains('is-open')),false);
   const saved=await browser.newContext({reducedMotion:'reduce'});await saved.addInitScript(()=>{
     localStorage.setItem('hoea-design-studio-draft-1',JSON.stringify({'home:2:statement':3,'colour:home:2:statement':'arctic-poppy'}));
@@ -51,5 +51,5 @@ const routes=['','about/','services/','services/in-house-workshops/','services/r
   assert.equal(await returning.locator('[data-component="home:2:statement"]').getAttribute('data-design'),'3');assert.equal(await returning.locator('[data-component="home:2:statement"]').getAttribute('data-component-palette'),'arctic-poppy');assert.equal(await returning.locator('html').getAttribute('data-palette'),'hoea');assert.match(await returning.locator('html').getAttribute('style'),/Inter/);
   await returning.emulateMedia({reducedMotion:'no-preference'});await returning.waitForTimeout(500);await returning.emulateMedia({reducedMotion:'reduce'});
   await saved.close();assert.deepEqual(errors,[]);
-  console.log('PASS: 15 routes at desktop/mobile, published layouts and palettes, removed editor UI/APIs, footer links, image loading, main-page overflow, contact email preparation, quick contact, mobile navigation, saved presentation and disabled query overrides.');
+  console.log('PASS: 15 routes at desktop/mobile, published layouts and palettes, removed editor UI/APIs, footer links, image loading, main-page overflow, contact email preparation, header contact details, mobile navigation, saved presentation and disabled query overrides.');
 }finally{await browser.close();server.close();}})().catch(e=>{console.error(e);process.exitCode=1;});

@@ -144,3 +144,15 @@ html:not(.js) [data-morph-header] .site-menu-toggle{display:none}
   html:not(.js)[data-palette] [data-morph-header] .site-nav{display:flex;flex-wrap:wrap;justify-content:center;order:3;width:100%}
   html:not(.js)[data-palette] [data-morph-header] .site-header-bar{display:contents}
 }
+
+/* Contact details and appearance live inside the navigation drawer. */
+.site-menu-utilities{margin-top:auto;display:grid;gap:28px;padding-top:28px;border-top:1px solid var(--brand-stone)}
+.site-menu-contact{display:grid;gap:16px}
+html[data-palette] .site-menu-contact h2{margin:0 0 2px;font-size:18px;line-height:1.35;color:var(--brand-ink)}
+html[data-palette] .site-menu-contact :is(a,p){display:flex;align-items:center;gap:12px;margin:0;font-size:14px;line-height:1.5;color:var(--brand-ink);text-decoration:none}
+.site-menu-contact svg{flex:none;width:20px;height:20px}
+.site-menu-contact a:hover span{text-decoration:underline;text-underline-offset:4px}
+.site-menu-appearance{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:24px;border-top:1px solid var(--brand-stone)}
+.site-menu-appearance p{margin:0 0 5px;font-size:14px;font-weight:600}
+.site-menu-appearance small{font-size:12px;line-height:1.5;color:var(--brand-slate)}
+html[data-palette] .site-menu-appearance .site-theme-toggle{display:inline-block;flex:none;position:relative;visibility:visible;opacity:1;pointer-events:auto}
