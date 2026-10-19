@@ -12,10 +12,7 @@ html[data-palette] [data-morph-header] .site-header-shell{
   transform:translateX(-50%);isolation:isolate;pointer-events:none;
   transition:max-width .52s cubic-bezier(.22,1,.36,1),top .52s cubic-bezier(.22,1,.36,1),height .52s cubic-bezier(.22,1,.36,1);
 }
-html[data-palette] [data-morph-header] .site-header-shell::before{
-  content:'';position:fixed;inset:0 calc((100vw - 100%)/-2);z-index:-1;
-  background:var(--header-paper);pointer-events:none;transition:opacity .4s ease;
-}
+/* The white strip belongs to the page; the fixed navigation has no white wrapper. */
 html[data-palette] [data-morph-header] .site-header-bar{
   position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);
   align-items:center;gap:24px;flex:1;min-width:0;height:64px;padding:8px 0 8px 12px;
@@ -78,7 +75,6 @@ html[data-palette] .site-menu-panel .site-menu-dots{
 .site-menu-dots i{display:block;width:3px;height:3px;border-radius:50%;background:currentColor}
 .site-menu-close .site-menu-dots i:is(:nth-child(2),:nth-child(4),:nth-child(6),:nth-child(8)){opacity:.15}
 html[data-palette] [data-morph-header].is-scrolled .site-header-shell{top:16px;max-width:1000px;height:52px}
-html[data-palette] [data-morph-header].is-scrolled .site-header-shell::before{opacity:0}
 html[data-palette] [data-morph-header].is-scrolled .site-header-bar{
   height:52px;padding:6px 6px 6px 16px;background:var(--header-glass);color:var(--header-paper);
   backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);box-shadow:0 6px 24px rgb(0 0 0 / .08);
@@ -118,7 +114,7 @@ html[data-palette] .site-menu-panel{
   html[data-palette] [data-morph-header] .site-header-shell{
     display:grid;grid-template-columns:68px minmax(0,1fr) 44px;gap:8px;width:calc(100% - 32px);max-width:none;height:76px;
   }
-  html[data-palette] [data-morph-header] .site-header-shell::before{background:rgb(255 255 255 / .94);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+  html[data-palette] [data-morph-header] .site-header-shell::before{content:'';position:fixed;inset:0 calc((100vw - 100%)/-2);z-index:-1;background:rgb(255 255 255 / .94);pointer-events:none;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
   html[data-palette] [data-morph-header] .site-header-bar{display:contents}
   html[data-palette] [data-morph-header] .site-nav{display:none}
   html[data-palette] [data-morph-header] .site-header-actions{grid-column:1;justify-self:start}
