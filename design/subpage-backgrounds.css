@@ -34,14 +34,8 @@
 [data-hero-palette="contact"] .coaching-hero__background:nth-child(3){--cloud-deep:#b27960;--cloud-mid:#805779;--cloud-wash:#493445;--cloud-paper:#2b202c}
 /* contact: 04 Rosewood night */
 [data-hero-palette="contact"] .coaching-hero__background:nth-child(4){--cloud-deep:#a5608a;--cloud-mid:#6d466e;--cloud-wash:#40304c;--cloud-paper:#261c32}
-/* workshops: 01 Peach iris */
-[data-hero-palette="workshops"] .coaching-hero__background:nth-child(1){--cloud-deep:#7352ae;--cloud-mid:#b49ad6;--cloud-wash:#f4cdb0;--cloud-paper:#fcf2e9}
-/* workshops: 02 Amber lavender */
-[data-hero-palette="workshops"] .coaching-hero__background:nth-child(2){--cloud-deep:#b27b51;--cloud-mid:#d3ae8d;--cloud-wash:#d6c6ed;--cloud-paper:#f8f0fa}
-/* workshops: 03 Violet ember */
-[data-hero-palette="workshops"] .coaching-hero__background:nth-child(3){--cloud-deep:#b77a51;--cloud-mid:#76538e;--cloud-wash:#3f3052;--cloud-paper:#251c37}
-/* workshops: 04 Aubergine copper */
-[data-hero-palette="workshops"] .coaching-hero__background:nth-child(4){--cloud-deep:#b87361;--cloud-mid:#7b4c7c;--cloud-wash:#49314c;--cloud-paper:#291c30}
+/* In-house workshops: chosen Aubergine copper background. */
+[data-hero-palette="workshops"] .coaching-hero__background{opacity:1;--cloud-deep:#b87361;--cloud-mid:#7b4c7c;--cloud-wash:#49314c;--cloud-paper:#291c30}
 /* support: 01 Coastal sage */
 [data-hero-palette="support"] .coaching-hero__background:nth-child(1){--cloud-deep:#397d8f;--cloud-mid:#88b8be;--cloud-wash:#c6dceb;--cloud-paper:#eef8f5}
 /* support: 02 Teal periwinkle */
