@@ -1,12 +1,12 @@
 # Model benefits artwork
 
-Created with the built-in image generation tool for the four rows on the Model page.
+The four 800 x 800 transparent WebP illustrations were extracted from the user-supplied four-panel artwork with the built-in image generation tool, then cropped and optimised with Sharp.
 
-- `evidence.webp`: research papers, a book and magnifying glass.
-- `aotearoa.webp`: plain wooden waka paddles and a river stone.
-- `applications.webp`: connected ceramic loops in ocean blue, lavender and ivory.
-- `everyday.webp`: an open notebook, pencil and ribbon bookmark.
+- `evidence.webp`: researcher, books, charts and magnifying glass.
+- `aotearoa.webp`: person with a paddle beside an Aotearoa landscape.
+- `applications.webp`: person with branching everyday applications.
+- `everyday.webp`: person taking learning from a workshop into daily life.
 
-The initial images used chroma-green backgrounds. A second image-generation edit removed the backgrounds and green spill, including the gaps between the objects. The final files retain real alpha transparency and are optimised to 800 pixels for the website.
+The cutouts preserve the black linework and light interior fills. All share matching canvas padding and a 160px display size. Desktop images sit within the row padding without making the text rows taller; mobile images occupy a compact dedicated area.
 
-The complete generation and background-removal prompts are recorded in `prompts.json`.
+`replacement-prompts.json` records the background-extraction and cleanup prompts. `prompts.json` records the earlier, replaced artwork.
