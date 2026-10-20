@@ -1,6 +1,6 @@
 /* The delivered HTML is the finished design, including typography. */
 html[data-palette][data-typography] body p:not(:is(.eyebrow,.section-eyebrow,.ds-kicker,[class*="eyebrow"],[class*="kicker"])){font-family:"Inter",Arial,sans-serif!important;font-size:1.1rem!important}
-:root{--font-display:"Inter",Arial,sans-serif;--font-heading:"Inter",Arial,sans-serif;--font-body:"Inter",Arial,sans-serif;--font-eyebrow:"ABC Marist",Georgia,serif;--font-ui:"Inter",Arial,sans-serif;--font-small:"Inter",Arial,sans-serif;--font-weight-display:600;--font-weight-heading:600;--font-weight-body:500;--font-weight-eyebrow:350;--font-weight-ui:500;--font-weight-small:500}
+:root{--font-display:"Inter",Arial,sans-serif;--font-heading:"Inter",Arial,sans-serif;--font-body:"Inter",Arial,sans-serif;--font-eyebrow:"Inter",Arial,sans-serif;--font-ui:"Inter",Arial,sans-serif;--font-small:"Inter",Arial,sans-serif;--font-weight-display:600;--font-weight-heading:600;--font-weight-body:500;--font-weight-eyebrow:400;--font-weight-ui:500;--font-weight-small:500}
 html.js [data-reveal],html.is-page-ready [data-reveal],html.js .page-home .home-hero :is(.home-hero-copy,.button-row){opacity:1!important;translate:none!important;filter:none!important;animation:none!important;transition:none!important}
 /* Collapse hidden illustrations completely; their spring opens the gaps on entrance. */
 .statement-icon{--icon-reveal:1;width:calc(clamp(0,var(--icon-reveal),1.1)*1.08em);margin-left:calc(clamp(0,var(--icon-reveal),1.1)*.16em);opacity:clamp(0,var(--icon-reveal),1)}

@@ -230,3 +230,7 @@ html[data-palette] [data-component="services/resilience-one-on-one/:3:features"]
 /* Resource enquiry CTA stays open on the page with no leading rule. */
 html[data-palette] [data-component="resources/:4:cta"]{background:transparent;--section-surface:transparent!important}
 [data-component="resources/:4:cta"] .ds-cta-editorial{border-top:0;padding-top:0}
+
+/* Eyebrow pills use Inter, including brand names nested inside them. */
+html[data-palette][data-typography] body [class]:is(.eyebrow,.section-eyebrow,.ds-kicker,[class*="eyebrow"],[class*="kicker"]),
+html[data-palette][data-typography] body [class]:is(.eyebrow,.section-eyebrow,.ds-kicker,[class*="eyebrow"],[class*="kicker"]) *{font-family:"Inter",Arial,sans-serif!important;font-weight:400!important}
