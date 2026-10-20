@@ -12,7 +12,7 @@ const routes=['about','model','services','resources','contact','services/in-hous
    for(const width of [1440,390,320]){
     await page.setViewportSize({width,height:1000});await page.goto(`http://127.0.0.1:8838/hoea_to_waka/${route}/`);await page.waitForLoadState('networkidle');
     const hero=page.locator('.subpage-hero'),buttons=hero.locator('[data-coaching-choice]');
-    if(['model','services/in-house-workshops','resources','services'].includes(route)){assert.equal(await buttons.count(),0);assert.equal(await hero.getAttribute('data-coaching-version'),['resources','services'].includes(route)?'01':'04');assert.equal(await hero.locator('.coaching-hero__background').count(),1);assert.equal(await hero.locator('.coaching-hero__background').evaluate(e=>getComputedStyle(e).opacity),'1');assert.equal(await hero.locator('h1').evaluate(e=>getComputedStyle(e).color),['resources','services'].includes(route)?'rgb(24, 32, 44)':'rgb(255, 255, 255)');continue;}
+    if(['model','services/in-house-workshops','resources','services','about'].includes(route)){assert.equal(await buttons.count(),0);assert.equal(await hero.getAttribute('data-coaching-version'),['resources','services','about'].includes(route)?'01':'04');assert.equal(await hero.locator('.coaching-hero__background').count(),1);assert.equal(await hero.locator('.coaching-hero__background').evaluate(e=>getComputedStyle(e).opacity),'1');assert.equal(await hero.locator('h1').evaluate(e=>getComputedStyle(e).color),['resources','services','about'].includes(route)?'rgb(24, 32, 44)':'rgb(255, 255, 255)');continue;}
     assert.equal(await buttons.count(),4);assert.equal(await hero.getAttribute('data-coaching-version'),'01');
     const height=await hero.evaluate(e=>e.getBoundingClientRect().height),gradients=new Set();
     for(let i=0;i<4;i++){
@@ -31,7 +31,7 @@ const routes=['about','model','services','resources','contact','services/in-hous
    }
    console.log('PASS: chosen background or variation controls, readable UI and stable layout',route);
   }
-  await page.emulateMedia({reducedMotion:'no-preference'});await page.goto('http://127.0.0.1:8838/hoea_to_waka/about/');await page.waitForLoadState('networkidle');
+  await page.emulateMedia({reducedMotion:'no-preference'});await page.goto('http://127.0.0.1:8838/hoea_to_waka/contact/');await page.waitForLoadState('networkidle');
   await page.locator('[data-coaching-choice="03"]').click();await page.waitForTimeout(200);
   const opacity=await page.locator('.coaching-hero__background').nth(2).evaluate(e=>parseFloat(getComputedStyle(e).opacity));assert(opacity>0&&opacity<1,'Backgrounds crossfade');
   await page.reload();assert.equal(await page.locator('.subpage-hero').getAttribute('data-coaching-version'),'01');

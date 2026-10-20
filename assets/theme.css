@@ -834,14 +834,8 @@ html[data-palette] .subpage-hero.coaching-hero :focus-visible{outline:2px solid 
 
 /* Page-specific cloud colours; shared grain, transitions and controls live in coaching-hero.css. */
 [data-hero-palette] .coaching-hero__background{background:radial-gradient(ellipse at 100% 114%,var(--cloud-deep) 0%,var(--cloud-mid) 22%,transparent 62%),radial-gradient(ellipse at 12% 108%,var(--cloud-wash) 0%,transparent 65%),radial-gradient(ellipse at 45% 0%,var(--cloud-paper) 0%,var(--cloud-paper) 32%,transparent 85%),var(--cloud-paper)}
-/* about: 01 Wisteria sky */
-[data-hero-palette="about"] .coaching-hero__background:nth-child(1){--cloud-deep:#7447b8;--cloud-mid:#aa8bd9;--cloud-wash:#c7d8f1;--cloud-paper:#f1eaf8}
-/* about: 02 Lilac dusk */
-[data-hero-palette="about"] .coaching-hero__background:nth-child(2){--cloud-deep:#525ba4;--cloud-mid:#9ca6dd;--cloud-wash:#e8c9e5;--cloud-paper:#f7eef8}
-/* about: 03 Velvet violet */
-[data-hero-palette="about"] .coaching-hero__background:nth-child(3){--cloud-deep:#7d5abb;--cloud-mid:#533f8e;--cloud-wash:#313651;--cloud-paper:#211b37}
-/* about: 04 Aubergine glow */
-[data-hero-palette="about"] .coaching-hero__background:nth-child(4){--cloud-deep:#9d568b;--cloud-mid:#66477d;--cloud-wash:#3d304c;--cloud-paper:#241a30}
+/* About: chosen Wisteria sky background. */
+[data-hero-palette="about"] .coaching-hero__background{opacity:1;--cloud-deep:#7447b8;--cloud-mid:#aa8bd9;--cloud-wash:#c7d8f1;--cloud-paper:#f1eaf8}
 /* Model: chosen Ultraviolet ink background. */
 [data-hero-palette="model"] .coaching-hero__background{opacity:1;--cloud-deep:#8253c5;--cloud-mid:#4b3e89;--cloud-wash:#363052;--cloud-paper:#211c37}
 /* Services: chosen Cobalt air background. */
