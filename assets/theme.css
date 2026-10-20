@@ -120,8 +120,9 @@ html[data-palette] main h2.statement-icon-copy{position:relative;font-size:clamp
 .is-measuring-icons .statement-icon{--icon-reveal:1!important}
 @media(prefers-reduced-motion:reduce){.statement-icon{--icon-reveal:1!important}}
 
-/* The initial HTML uses the current design; finish type/layout setup before showing it. */
+/* Prepare the animated line groups before painting the copy; no old wrapping flashes. */
 html.js [data-home-statement]:not(.statement-icons-ready){visibility:hidden}
+@media(prefers-reduced-motion:reduce){html.js [data-home-statement]:not(.statement-icons-ready){visibility:visible}}
 
 .model-section-photo{display:block;width:100%;height:auto;aspect-ratio:1021/572;object-fit:cover;border-radius:20px;margin:0 0 clamp(24px,3vw,36px)}
 :is([data-component="home:4:features"],[data-component="about/:3:features"]){border-radius:32px}
@@ -704,8 +705,8 @@ html[data-palette][data-typography] body.page-home p{font-size:1.1rem!important}
 /* The delivered HTML is the finished design, including typography. */
 :root{--font-display:"Inter",Arial,sans-serif;--font-heading:"Inter",Arial,sans-serif;--font-body:"Inter",Arial,sans-serif;--font-eyebrow:"ABC Marist",Georgia,serif;--font-ui:"Inter",Arial,sans-serif;--font-small:"Inter",Arial,sans-serif;--font-weight-display:600;--font-weight-heading:600;--font-weight-body:500;--font-weight-eyebrow:350;--font-weight-ui:500;--font-weight-small:500}
 html.js [data-reveal],html.is-page-ready [data-reveal],html.js .page-home .home-hero :is(.home-hero-copy,.button-row){opacity:1!important;translate:none!important;filter:none!important;animation:none!important;transition:none!important}
-/* Reserve each illustration's final slot from the first paint. */
-.statement-icon{--icon-reveal:1;width:1.08em;margin-left:.16em;opacity:1}
+/* Collapse hidden illustrations completely; their spring opens the gaps on entrance. */
+.statement-icon{--icon-reveal:1;width:calc(clamp(0,var(--icon-reveal),1.1)*1.08em);margin-left:calc(clamp(0,var(--icon-reveal),1.1)*.16em);opacity:clamp(0,var(--icon-reveal),1)}
 html.js:not(.ds-motion-paused) .statement-icon{--icon-reveal:0}
 .statement-icon svg{opacity:clamp(0,var(--icon-reveal),1);transform:scaleX(calc(.15 + var(--icon-reveal)*.85));transform-origin:left center}
 html:not(.js) .model-timeline article>:is(i,.ds-number,h3,p){opacity:1;transform:none}
