@@ -1,0 +1,4 @@
+{
+  "mode": "built-in image_gen",
+  "prompt": "Use case: precise-object-edit. Edit target: the provided transparent four-panel illustration sheet. Change ONLY every light beige, cream, ivory and light gray filled area inside these drawings to pure opaque white (#FFFFFF): clothing and sleeves, faces and hands, research papers and books, magnifying glass interior, paddle blade, mountains, hills, foliage interiors, circular application icon backplates, workshop board and shoes. Keep all black linework, black solid areas, tiny line details, positions, proportions and all four illustrations exactly as shown. Preserve genuine alpha transparency outside the drawings and in all the existing open gaps. White fills must be solid white, no beige tint, no gray tint, no shading or texture. Do not fill transparent background or open spaces. Clean antialiased outlines, no paper flecks, no new objects. Same 2 by 2 arrangement and canvas framing."
+}
