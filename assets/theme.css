@@ -258,7 +258,7 @@ html[data-palette] [data-component="home:6:testimonials"] blockquote{color:#000}
 /* Reserve the tallest quote's space so the controls and following section stay put. */
 [data-component="home:6:testimonials"] .ds-quote-slides{display:grid;grid-template-columns:minmax(0,1fr)}
 [data-component="home:6:testimonials"] .testimonial-opening{position:relative;display:inline-block;white-space:nowrap;padding-left:calc(clamp(42px,5vw,72px) + .18em)}
-[data-component="home:6:testimonials"] .testimonial-quote-mark{position:absolute;left:0;top:-.08em;display:block;width:clamp(42px,5vw,72px);height:auto;color:var(--brand-ink)}
+[data-component="home:6:testimonials"] .testimonial-quote-mark{position:absolute;left:0;top:calc(.5lh - .13em);transform:translateY(-91.6667%);display:block;width:clamp(42px,5vw,72px);height:auto;color:var(--brand-ink)}
 [data-component="home:6:testimonials"] .ds-quote-slides>figure{grid-area:1/1;align-self:center;min-width:0}
 [data-component="home:6:testimonials"] .ds-quote-slides>figure[hidden]{display:block!important;visibility:hidden;pointer-events:none}
 [data-component="home:6:testimonials"] figure[data-quote-length="long"] blockquote{font-size:clamp(22px,2.3vw,34px);line-height:1.4}
