@@ -1,3 +1,4 @@
+import { setupTestimonials } from './testimonials';
 import { setupHomeFaq } from './home-faq';
 import { setupStatementIcons } from './statement-icons';
 import { setupModelTimeline } from './model-timeline';
@@ -13,6 +14,7 @@ document.querySelectorAll('.model-timeline').forEach(path => setupModelTimeline(
 setupTopicMarquee(document.querySelector('[data-topic-marquee]'));
 document.querySelectorAll('[data-cta-orbit]').forEach(orbit => setupCtaOrbit(orbit.closest('section')));
 document.querySelectorAll('[data-carousel]').forEach(carousel => {
+ if (carousel.hasAttribute('data-testimonial-autoplay')) {setupTestimonials(carousel);return;}
  let index=0;const slides=[...carousel.querySelectorAll('figure')];
  const move=direction=>{index=(index+direction+slides.length)%slides.length;slides.forEach((slide,i)=>slide.hidden=i!==index);const status=carousel.querySelector('[aria-live]');if(status)status.textContent=(index+1)+' / '+slides.length;};
  carousel.querySelector('[data-next]')?.addEventListener('click',()=>move(1));

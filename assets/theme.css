@@ -459,6 +459,14 @@ html[data-palette] [data-component="resources/:4:cta"]{background:transparent;--
 html[data-palette][data-typography] body [class]:is(.eyebrow,.section-eyebrow,.ds-kicker,[class*="eyebrow"],[class*="kicker"]),
 html[data-palette][data-typography] body [class]:is(.eyebrow,.section-eyebrow,.ds-kicker,[class*="eyebrow"],[class*="kicker"]) *{font-family:"Inter",Arial,sans-serif!important;font-weight:400!important}
 
+/* Minimal testimonial playback controls and a soft crossfade within the reserved space. */
+[data-testimonial-autoplay].is-carousel-ready>figure:not([hidden]){animation:none}
+[data-component="home:6:testimonials"] [data-testimonial-autoplay]>figure.is-leaving[hidden]{visibility:visible}
+html[data-palette] [data-testimonial-autoplay] .ds-controls button{display:grid;place-items:center;padding:0;color:var(--brand-ink)}
+html[data-palette] [data-testimonial-autoplay] .ds-controls button:hover{background:var(--brand-ink);color:var(--brand-paper)}
+html[data-palette] [data-testimonial-autoplay] .ds-controls button[hidden]{display:none}
+[data-testimonial-pause] svg{width:20px;height:20px}
+
 /* White at the top; a charcoal glass pill while scrolling, as in the reference. */
 html:has([data-morph-header]){scrollbar-gutter:stable}
 html[data-palette] body > .site-header[data-morph-header]{

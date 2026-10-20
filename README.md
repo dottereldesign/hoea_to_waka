@@ -18,3 +18,5 @@ Run `npm run build` after changing styles or interaction modules. Run `npm run p
 The recent 01/02 hero comparison remains. Historical layout selectors, nested variations and the previous marquee comparison are removed. Brand colour previews remain on `about/brand-guidelines/`, and illustrations remain on `illustrations/`.
 
 `npm test` checks the public routes. `npm run test:first-paint` verifies that delayed JavaScript and old saved preferences cannot replace the published layouts. Changes pushed to `main` are staged by `scripts/stage-site.mjs` and published through GitHub Pages.
+
+- Homepage testimonials: `design/testimonials.js` adds a 650ms crossfade, pause/resume control, and word-count-based reading time (minimum 18 seconds). Rotation suspends offscreen, in background tabs, on hover and while a control has focus. Reduced-motion preferences start playback paused. Run `node scripts/testimonials.cjs` for stable layout and accessibility, and `node scripts/testimonial-autoplay.cjs` for timing, playback controls and transitions.

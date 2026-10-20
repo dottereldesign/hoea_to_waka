@@ -19,7 +19,8 @@
     "test:navigation": "node scripts/navigation.cjs",
     "test:subpage-backgrounds": "node scripts/subpage-backgrounds.cjs",
     "test:footer-versions": "node scripts/footer-versions.cjs",
-    "test:model-benefits": "node scripts/model-benefits.cjs"
+    "test:model-benefits": "node scripts/model-benefits.cjs",
+    "test:testimonial-autoplay": "node scripts/testimonial-autoplay.cjs"
   },
   "dependencies": {
     "motion": "^12.0.0"
