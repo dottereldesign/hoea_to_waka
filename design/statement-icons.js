@@ -8,33 +8,44 @@ export function setupStatementIcons(section) {
   const words = [...heading.querySelectorAll('.statement-icon-word')];
   const icons = [...heading.querySelectorAll('.statement-icon')];
   const preference = matchMedia('(prefers-reduced-motion: reduce)');
-  const animations = [];
-  let started = false, disposed = false, frame = 0, width = heading.clientWidth, entranceObserver;
+  let animations = [];
+  let revealed = false, disposed = false, frame = 0, width = heading.clientWidth, entranceObserver;
 
   function finish() {
-    started = true;
+    revealed = true;
     entranceObserver?.disconnect();
     animations.forEach(animation => animation.stop());
     icons.forEach(icon => icon.style.setProperty('--icon-reveal', '1'));
     section.dataset.statementRevealed = 'true';
     section.classList.add('statement-icons-ready');
   }
-  function reveal() {
-    if (started || disposed) return;
-    started = true;
-    entranceObserver?.disconnect();
-    section.dataset.statementRevealed = 'true';
-    icons.forEach((icon, i) => animations.push(animate(0, 1, {
-      type: 'spring', stiffness: 180, damping: 18, mass: .8, delay: i * .065,
-      onUpdate: value => icon.style.setProperty('--icon-reveal', value.toFixed(4)),
-      onComplete: () => icon.style.setProperty('--icon-reveal', '1'),
-    })));
+  function setRevealed(next) {
+    if (revealed === next || disposed || preference.matches) return;
+    revealed = next;
+    animations.forEach(animation => animation.stop());
+    animations = [];
+    section.dataset.statementRevealed = String(next);
+    icons.forEach((icon, i) => {
+      const current = parseFloat(icon.style.getPropertyValue('--icon-reveal')) || 0;
+      const target = next ? 1 : 0;
+      animations.push(animate(current, target, {
+        type: 'spring', stiffness: 180, damping: 18, mass: .8,
+        delay: (next ? i : icons.length - 1 - i) * .065,
+        onUpdate: value => icon.style.setProperty('--icon-reveal', value.toFixed(4)),
+        onComplete: () => icon.style.setProperty('--icon-reveal', String(target)),
+      }));
+    });
   }
   function watchEntrance() {
     entranceObserver?.disconnect();
-    if (started || disposed) return;
+    if (disposed || preference.matches) return;
     entranceObserver = new IntersectionObserver(entries => {
-      if (entries.some(entry => entry.isIntersecting)) reveal();
+      for (const entry of entries) {
+        if (entry.isIntersecting) setRevealed(true);
+        // Close only when the heading drops below the entrance boundary as the
+        // visitor returns upwards. Passing it on the way down keeps it open.
+        else if (entry.rootBounds && entry.boundingClientRect.top >= entry.rootBounds.bottom) setRevealed(false);
+      }
     }, { rootMargin: `0px 0px -${Math.round(innerHeight * .35)}px 0px` });
     entranceObserver.observe(heading);
   }
@@ -73,7 +84,7 @@ export function setupStatementIcons(section) {
     if (preference.matches) finish();
     else {layout();section.classList.add('statement-icons-ready');resize.observe(heading);watchEntrance();}
   });
-  const onPreference = () => {if (preference.matches) finish();};
+  const onPreference = () => {if (preference.matches) finish();else {layout();resize.observe(heading);watchEntrance();}};
   preference.addEventListener('change', onPreference);
   window.addEventListener('resize', watchEntrance, {passive:true});
   return () => {

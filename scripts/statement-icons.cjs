@@ -19,10 +19,21 @@ const{chromium}=require('playwright'),assert=require('node:assert/strict'),fs=re
   assert.equal(await page.evaluate(()=>scrollY),scroll,'animation completes without scrolling');
   assert.deepEqual(await icons.locator('svg').evaluateAll(es=>es.map(e=>e.dataset.icon)),['sprout','kiwi','workplace','support']);
   if([1689,390].includes(width))await section.screenshot({path:`tmp/statement-gap/open-${width}.png`,style:'.site-header{visibility:hidden!important}'});
-  await page.evaluate(()=>scrollTo({top:0,behavior:'instant'}));await page.waitForTimeout(100);assert(await icons.evaluateAll(es=>es.every(e=>getComputedStyle(e.querySelector('svg')).opacity==='1')),'no replay');
+  await page.evaluate(()=>scrollTo({top:0,behavior:'instant'}));
+  await page.waitForFunction(()=>[...document.querySelectorAll('.statement-icon')].some(e=>Number(e.style.getPropertyValue('--icon-reveal'))<.99));
+  await page.waitForFunction(()=>[...document.querySelectorAll('.statement-icon')].every(e=>e.style.getPropertyValue('--icon-reveal')==='0'));
+  assert(await icons.evaluateAll(es=>es.every(e=>e.getBoundingClientRect().width===0&&getComputedStyle(e.querySelector('svg')).opacity==='0')),'gaps close on upward return');
+  await heading.evaluate(e=>scrollTo({top:scrollY+e.getBoundingClientRect().top-innerHeight*.4,behavior:'instant'}));
+  await page.waitForFunction(()=>[...document.querySelectorAll('.statement-icon')].every(e=>e.style.getPropertyValue('--icon-reveal')==='1'));
+  await page.evaluate(()=>scrollTo({top:document.querySelector('[data-home-statement]').offsetTop+1000,behavior:'instant'}));await page.waitForTimeout(150);
+  assert(await icons.evaluateAll(es=>es.every(e=>e.style.getPropertyValue('--icon-reveal')==='1')),'passing below keeps icons revealed');
+  await page.evaluate(()=>scrollTo({top:0,behavior:'instant'}));await page.waitForTimeout(90);
+  await heading.evaluate(e=>scrollTo({top:scrollY+e.getBoundingClientRect().top-innerHeight*.4,behavior:'instant'}));
+  await page.waitForFunction(()=>[...document.querySelectorAll('.statement-icon')].every(e=>e.style.getPropertyValue('--icon-reveal')==='1'));
+  assert.deepEqual(await heading.locator('.statement-icon-line').allTextContents(),lines,'stable wrapping after replay and quick reversal');
   assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'no overflow '+width);console.log('Gap opening and spring passed '+width);
  }
  await page.emulateMedia({reducedMotion:'reduce'});await page.reload();await page.waitForLoadState('networkidle');assert(await page.locator('.statement-icon').evaluateAll(es=>es.every(e=>e.getBoundingClientRect().width>0&&getComputedStyle(e.querySelector('svg')).opacity==='1')));
  const plain=await browser.newPage({javaScriptEnabled:false});await plain.goto('http://127.0.0.1:8798/hoea_to_waka/');assert.equal(await plain.locator('.statement-icon svg').count(),4);assert(await plain.locator('.statement-icon').evaluateAll(es=>es.every(e=>e.getBoundingClientRect().width>0)));
- assert.deepEqual(errors,[]);console.log('PASS: zero gaps before entrance, fluid width and icon spring, stable line groups, once-only autonomous animation, responsive, reduced motion and no-JS');
+ assert.deepEqual(errors,[]);console.log('PASS: zero gaps before entrance, fluid width and icon spring, stable line groups, reversible autonomous animation and replay, responsive, reduced motion and no-JS');
 }finally{await browser.close();server.close()}})().catch(e=>{console.error(e);process.exit(1)});
