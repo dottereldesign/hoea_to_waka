@@ -1,0 +1,77 @@
+/* Four arrangements of the same links, contact details, wordmark and safety link. */
+html[data-palette] .site-footer[data-footer-version]{--footer-muted:#c3c5c9;--footer-line:#ffffff29;padding:72px 0 24px}
+.site-footer[data-footer-version]>.container{width:calc(100% - clamp(40px,8vw,112px));max-width:1280px;margin-inline:auto}
+.site-footer[data-footer-version] .footer-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.7fr) minmax(0,1fr) minmax(0,1.1fr);gap:clamp(28px,4vw,56px);align-items:start}
+.site-footer[data-footer-version] :is(.footer-brand,.footer-column){min-width:0;grid-column:auto;grid-row:auto;max-width:none}
+.site-footer[data-footer-version] .footer-brand-lockup{gap:12px;text-decoration:none;max-width:100%}
+.site-footer[data-footer-version] .footer-brand-lockup>span{font-size:12px;line-height:1.6;letter-spacing:.015em}
+.site-footer[data-footer-version] .footer-brand-lockup strong{font-size:clamp(26px,2.4vw,34px);line-height:1.15;letter-spacing:-.035em;margin-bottom:4px}
+html[data-palette] .site-footer[data-footer-version] .footer-brand p{max-width:33ch;margin:22px 0 0;color:var(--footer-muted);font-weight:400;line-height:1.65}
+.site-footer[data-footer-version] .footer-shielded-site{margin-top:24px;box-shadow:none}
+html[data-palette] .site-footer[data-footer-version] .footer-column h2{margin:0 0 18px;font-size:15px;font-weight:600!important;line-height:1.4;letter-spacing:0;text-transform:none;color:#fff}
+.site-footer[data-footer-version] .footer-links{gap:9px;font-size:15px;font-weight:400;line-height:1.65}
+html[data-palette] .site-footer[data-footer-version] .footer-links :is(a,li){color:var(--footer-muted);overflow-wrap:anywhere}
+.site-footer[data-footer-version] .footer-links a{display:inline-block;text-decoration:none;text-underline-offset:5px;text-decoration-thickness:1px;min-height:24px}
+html[data-palette] .site-footer[data-footer-version] .footer-links a:is(:hover,:focus-visible){color:#fff;text-decoration:underline}
+html[data-palette] .site-footer[data-footer-version] .footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:18px 28px;margin-top:56px;padding-top:24px;border-top:1px solid var(--footer-line);color:var(--footer-muted);font-size:12px;font-weight:400;line-height:1.6}
+.site-footer[data-footer-version] .footer-bottom::before{display:none}
+.site-footer[data-footer-version] .footer-bottom>:last-child{max-width:32ch;text-align:right}
+.site-footer[data-footer-version] .footer-creator-credit{font-size:12px;line-height:1.3;flex:none}
+.site-footer[data-footer-version] .footer-creator-credit img{height:28px}
+/* 02 — Editorial: a generous brand masthead above three navigation columns. */
+.site-footer[data-footer-version="02"] .footer-grid{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:48px}
+.site-footer[data-footer-version="02"] .footer-brand{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) auto;gap:40px;align-items:center;padding-bottom:36px;border-bottom:1px solid var(--footer-line)}
+.site-footer[data-footer-version="02"] .footer-brand-lockup strong{font-size:clamp(30px,3.2vw,44px)}
+html[data-palette] .site-footer[data-footer-version="02"] .footer-brand p{margin:0;max-width:40ch}
+.site-footer[data-footer-version="02"] .footer-shielded-site{margin:0}
+.site-footer[data-footer-version="02"] .footer-explore-column .footer-links{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:24px}
+/* 03 — Directory: a brand rail beside a compact directory and contact row. */
+.site-footer[data-footer-version="03"] .footer-grid{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr) minmax(0,1.1fr)}
+.site-footer[data-footer-version="03"] .footer-brand{grid-row:1/3;padding-right:36px;border-right:1px solid var(--footer-line)}
+.site-footer[data-footer-version="03"] .footer-contact-column{grid-column:2/4;padding-top:28px;border-top:1px solid var(--footer-line)}
+.site-footer[data-footer-version="03"] .footer-contact-column .footer-links{display:flex;flex-wrap:wrap;gap:12px 28px}
+.site-footer[data-footer-version="03"] .footer-explore-column .footer-links{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:20px}
+/* 04 — Contact first: the email leads, with the directory underneath. */
+.site-footer[data-footer-version="04"] .footer-grid{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) minmax(0,1fr);row-gap:44px}
+.site-footer[data-footer-version="04"] .footer-contact-column{grid-column:1/-1;grid-row:1;padding-bottom:36px;border-bottom:1px solid var(--footer-line)}
+.site-footer[data-footer-version="04"] .footer-contact-column .footer-links{display:flex;flex-wrap:wrap;gap:14px 32px}
+.site-footer[data-footer-version="04"] .footer-contact-column li:first-child{flex-basis:100%}
+html[data-palette] .site-footer[data-footer-version="04"] .footer-contact-column li:first-child a{color:#fff;font-size:clamp(24px,3.7vw,48px);line-height:1.2;letter-spacing:-.035em}
+.site-footer[data-footer-version="04"] .footer-explore-column .footer-links{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:20px}
+/* Preview controls sit apart from the footer content and never cover a link. */
+.footer-version-controls{display:flex;justify-content:flex-end;align-items:center;gap:5px;margin-top:28px;flex-wrap:wrap}
+.footer-version-label{margin-right:8px;font-size:12px;color:var(--footer-muted)}
+html[data-palette] .footer-version-controls button{display:grid;place-items:center;min-width:36px;min-height:36px;padding:5px;border:1px solid var(--footer-line);border-radius:999px;background:transparent;color:#fff;font:500 12px/1 Inter,Arial,sans-serif;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+html[data-palette] .footer-version-controls button:hover{border-color:#fff}
+html[data-palette] .footer-version-controls button[aria-pressed="true"]{background:#fff;color:#202329;border-color:#fff}
+.footer-version-status{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+html:not(.js) .footer-version-controls{display:none}
+@media(max-width:1000px){
+ .site-footer[data-footer-version] .footer-grid{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:40px}
+ .site-footer[data-footer-version] .footer-brand{grid-column:1/-1;grid-row:auto;max-width:600px;border:0;padding:0}
+ .site-footer[data-footer-version="02"] .footer-brand{max-width:none;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px}
+ .site-footer[data-footer-version="02"] .footer-shielded-site{justify-self:start}
+ .site-footer[data-footer-version="03"] .footer-contact-column{grid-column:auto;padding:0;border:0}
+ .site-footer[data-footer-version="03"] .footer-contact-column .footer-links{display:grid;gap:9px}
+ .site-footer[data-footer-version="04"] .footer-brand{grid-column:auto;grid-row:2}
+}
+@media(max-width:700px){
+ html[data-palette] .site-footer[data-footer-version]{padding-top:48px}
+ .site-footer[data-footer-version] .footer-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 24px}
+ .site-footer[data-footer-version] .footer-contact-column{grid-column:1/-1}
+ .site-footer[data-footer-version] .footer-brand-lockup strong{font-size:30px}
+ .site-footer[data-footer-version] .footer-links{font-size:14px}
+ .site-footer[data-footer-version] .footer-explore-column .footer-links{grid-template-columns:minmax(0,1fr)}
+ .site-footer[data-footer-version="02"] .footer-brand{display:flex;flex-direction:column;align-items:flex-start;gap:20px;padding-bottom:28px;border-bottom:1px solid var(--footer-line)}
+ .site-footer[data-footer-version="02"] .footer-brand-lockup strong{font-size:34px}
+ .site-footer[data-footer-version="03"] .footer-brand{padding-bottom:28px;border-bottom:1px solid var(--footer-line)}
+ .site-footer[data-footer-version="03"] .footer-contact-column{padding-top:24px;border-top:1px solid var(--footer-line)}
+ .site-footer[data-footer-version="04"] .footer-contact-column{padding-bottom:28px}
+ .site-footer[data-footer-version="04"] .footer-brand{grid-column:1/-1;grid-row:2}
+ html[data-palette] .site-footer[data-footer-version="04"] .footer-contact-column li:first-child a{font-size:clamp(21px,5.9vw,32px)}
+ html[data-palette] .site-footer[data-footer-version] .footer-bottom{margin-top:36px;display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
+ .site-footer[data-footer-version] .footer-bottom>:last-child{max-width:none;justify-self:start;text-align:left}
+ .site-footer[data-footer-version] .footer-creator-credit{justify-self:start}
+ .footer-version-controls{justify-content:flex-start}
+}
+@media(prefers-reduced-motion:reduce){.footer-version-controls button{transition:none}}
