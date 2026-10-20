@@ -178,3 +178,6 @@ html[data-palette] .book-amazon-button:focus-visible{outline:3px solid var(--bra
 /* Keep the resource invitation readable on its pale green surface. */
 html[data-palette] .ds-cta-editorial .ds-lead{color:var(--ds-ink)}
 html[data-palette] body:not(.page-home) .ds-component:not(.subpage-hero) .ds-lead{color:var(--ds-ink)}
+
+/* Coaching outcomes use the same inset, rounded surface as the model section. */
+html[data-palette] [data-component="services/resilience-one-on-one/:3:features"]{margin-inline:8px;width:auto;border-radius:32px;overflow:clip}
