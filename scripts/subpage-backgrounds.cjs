@@ -12,6 +12,7 @@ const routes=['about','model','services','resources','contact','services/in-hous
    for(const width of [1440,390,320]){
     await page.setViewportSize({width,height:1000});await page.goto(`http://127.0.0.1:8838/hoea_to_waka/${route}/`);await page.waitForLoadState('networkidle');
     const hero=page.locator('.subpage-hero'),buttons=hero.locator('[data-coaching-choice]');
+    if(route==='model'){assert.equal(await buttons.count(),0);assert.equal(await hero.getAttribute('data-coaching-version'),'04');assert.equal(await hero.locator('.coaching-hero__background').count(),1);assert.equal(await hero.locator('.coaching-hero__background').evaluate(e=>getComputedStyle(e).opacity),'1');assert.equal(await hero.locator('h1').evaluate(e=>getComputedStyle(e).color),'rgb(255, 255, 255)');continue;}
     assert.equal(await buttons.count(),4);assert.equal(await hero.getAttribute('data-coaching-version'),'01');
     const height=await hero.evaluate(e=>e.getBoundingClientRect().height),gradients=new Set();
     for(let i=0;i<4;i++){
@@ -28,7 +29,7 @@ const routes=['about','model','services','resources','contact','services/in-hous
     }
     assert.equal(gradients.size,4);
    }
-   console.log('PASS: four backgrounds, readable light/dark UI, stable layout and accessible controls',route);
+   console.log('PASS: chosen background or variation controls, readable UI and stable layout',route);
   }
   await page.emulateMedia({reducedMotion:'no-preference'});await page.goto('http://127.0.0.1:8838/hoea_to_waka/about/');await page.waitForLoadState('networkidle');
   await page.locator('[data-coaching-choice="03"]').click();await page.waitForTimeout(200);
