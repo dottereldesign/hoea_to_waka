@@ -45,7 +45,7 @@ const serve = require('./preview.cjs');
       await section.locator('img').evaluateAll(imgs => Promise.all(imgs.map(img => img.decode())));
       assert.equal(await section.locator('img').count(), 8);
       assert.equal(await section.locator('[data-cta-orbit]').getAttribute('aria-hidden'), 'true');
-      assert.equal(await section.locator('h2').textContent(), 'Bring the model into your organisation.');
+      assert.equal(await section.locator('h2').textContent(), 'Bring the model into your organisation');
       assert.deepEqual(await section.locator('.home-cta-actions a').allTextContents(), ['Start a conversation']);
       assert.deepEqual(await section.locator('.home-cta-actions a').evaluateAll(els => els.map(el => new URL(el.href).pathname)), ['/hoea_to_waka/contact/']);
       assert.equal(await section.locator('[data-cta-orbit]').evaluate(el => getComputedStyle(el).animationName), 'none');
