@@ -422,6 +422,10 @@ html[data-palette] [data-component="services/in-house-workshops/:2:features"]{--
 [data-component="services/in-house-workshops/:2:features"] .ds-card:nth-child(3){margin-top:calc(var(--card-step) * 2)}
 @media(max-width:760px){[data-component="services/in-house-workshops/:2:features"] .ds-card:nth-child(n){margin-top:0}}
 
+/* A light invitation at the end of the Model page. */
+html[data-palette] .ds-component[data-component="model/:4:cta"]{background:var(--brand-paper);color:var(--brand-ink);--ds-bg:var(--brand-paper)!important;--ds-ink:var(--brand-ink)!important;--ds-muted:var(--brand-ink)!important;--ds-line:var(--brand-stone)!important;--t-action:var(--brand-ink);--t-on-action:var(--brand-paper);--t-ink:var(--brand-ink);--t-bg:var(--brand-paper)}
+[data-component="model/:4:cta"] .ds-beacon{border-color:color-mix(in srgb,var(--brand-ink) 18%,transparent);background:transparent;box-shadow:0 0 0 60px color-mix(in srgb,var(--brand-ink) 2%,transparent),0 0 0 120px color-mix(in srgb,var(--brand-ink) 1%,transparent)}
+
 .coaching-photo-panel img,html[data-palette] [data-component="services/resilience-one-on-one/:2:story"] .ex-visual>img{display:block;width:100%;object-fit:cover;object-position:center;border-radius:20px}
 .coaching-photo-panel img{height:auto}
 
