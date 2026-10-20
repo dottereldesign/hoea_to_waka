@@ -90,9 +90,9 @@ html[data-palette] .site-menu-panel :is(a,button):focus-visible{outline:2px soli
 
 /* Native modal drawer: keyboard focus stays inside while the rest of the page is inert. */
 html[data-palette] .site-menu-panel{
-  position:fixed;inset:16px 16px 16px auto;box-sizing:border-box;width:min(440px,calc(100% - 32px));max-width:none;
-  height:calc(100dvh - 32px);max-height:none;margin:0;padding:24px 28px 32px;border:0;border-radius:24px;
-  background:#fff;color:#18181b;box-shadow:0 16px 64px rgb(0 0 0 / .16);overflow-y:auto;overscroll-behavior:contain;
+  position:fixed;inset:0 calc(100% - 100vw) 0 auto;box-sizing:border-box;width:min(440px,100vw);max-width:none;
+  height:100dvh;max-height:none;margin:0;padding:24px 28px 32px;border:0;border-radius:24px 0 0 24px;
+  background:#fff;color:#18181b;color-scheme:light;box-shadow:0 16px 64px rgb(0 0 0 / .16);overflow-y:auto;overscroll-behavior:contain;
 }
 .site-menu-panel:not([open]){display:none}
 .site-menu-panel[open]{display:flex;flex-direction:column;gap:36px;animation:header-drawer-in .4s cubic-bezier(.22,1,.36,1) both}
@@ -101,6 +101,8 @@ html[data-palette] .site-menu-panel{
 .site-menu-panel.is-closing::backdrop{animation:header-backdrop-out .3s ease both}
 .site-menu-heading{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .site-menu-heading p{font-size:24px;margin:0;line-height:1.2}
+.site-menu-heading #site-menu-title{display:flex;align-items:center;gap:10px}
+.site-menu-heading #site-menu-title::before{content:"";display:block;flex:none;width:40px;height:44px;background:currentColor;-webkit-mask:url("logo-white.svg") center/contain no-repeat;mask:url("logo-white.svg") center/contain no-repeat}
 .site-menu-links{display:flex;flex-direction:column;gap:18px}
 .site-menu-links>a,.site-menu-services>a{display:block;color:inherit;font-size:28px;line-height:1.2;letter-spacing:-.035em;text-decoration:none}
 .site-menu-links a:hover{text-decoration:underline;text-underline-offset:5px}
@@ -132,7 +134,7 @@ html[data-palette] .site-menu-panel{
   html[data-palette] [data-morph-header] .site-brand-line::before,
   html[data-palette] [data-morph-header] .site-brand-line::after{width:4px}
   html[data-palette] [data-morph-header] .site-header-cta{padding-inline:12px}
-  html[data-palette] .site-menu-panel{inset:8px 8px 8px auto;width:calc(100% - 16px);height:calc(100dvh - 16px);padding:20px 24px;border-radius:20px}
+  html[data-palette] .site-menu-panel{padding:20px 24px}
 }
 @media(prefers-reduced-motion:reduce){
   [data-morph-header] *,[data-morph-header] *::before,.site-menu-panel[open],.site-menu-panel::backdrop{animation:none!important;transition:none!important}
@@ -157,6 +159,9 @@ html[data-palette] .site-menu-contact :is(a,p){display:flex;align-items:center;g
 .site-menu-appearance p{margin:0 0 5px;font-size:14px;font-weight:600}
 .site-menu-appearance small{font-size:12px;line-height:1.5;color:var(--brand-slate)}
 html[data-palette] .site-menu-appearance .site-theme-toggle{display:inline-block;flex:none;position:relative;visibility:visible;opacity:1;pointer-events:auto}
+/* Give the little day/night scene its own colour even on the monochrome homepage. */
+.page-home .site-menu-appearance .site-theme-toggle{--brand-ocean-400:#a9c5ce;--brand-ocean-600:#607f9d;--brand-ocean-900:#1a2b3d;--brand-sandstone:#d6ba83;--brand-lavender-100:#fcfafc;--brand-lavender-300:#f0e9f2;--brand-paper:#fff}
+.site-menu-appearance .site-theme-toggle{--day-bg-color:var(--brand-ocean-400);--night-bg-color:var(--brand-ocean-900);--sun-color:var(--brand-sandstone);--moon-color:var(--brand-lavender-300);--cloud-color:var(--brand-paper);--star-color:var(--brand-lavender-100);--toggle-border-day:color-mix(in srgb,var(--brand-ocean-600) 40%,transparent);--toggle-border-night:color-mix(in srgb,var(--brand-lavender-300) 35%,transparent)}
 
 /* Keep glass in its own layer: the logo and links are rendered at their real size. */
 html[data-palette] [data-morph-header] .site-header-bar::before{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;background:transparent;pointer-events:none;transition:background-color .45s ease,box-shadow .45s ease}
