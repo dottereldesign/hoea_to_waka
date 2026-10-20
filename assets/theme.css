@@ -852,14 +852,8 @@ html[data-palette] .subpage-hero.coaching-hero :focus-visible{outline:2px solid 
 [data-hero-palette="services"] .coaching-hero__background:nth-child(3){--cloud-deep:#326ea0;--cloud-mid:#354e84;--cloud-wash:#243955;--cloud-paper:#14253b}
 /* services: 04 Cobalt midnight */
 [data-hero-palette="services"] .coaching-hero__background:nth-child(4){--cloud-deep:#465bb4;--cloud-mid:#354478;--cloud-wash:#29324d;--cloud-paper:#171f32}
-/* resources: 01 Mauve paper */
-[data-hero-palette="resources"] .coaching-hero__background:nth-child(1){--cloud-deep:#a84b85;--cloud-mid:#c98fb6;--cloud-wash:#ddc6ee;--cloud-paper:#faf0f7}
-/* resources: 02 Violet apricot */
-[data-hero-palette="resources"] .coaching-hero__background:nth-child(2){--cloud-deep:#a978c2;--cloud-mid:#d1a6cf;--cloud-wash:#f3d4bd;--cloud-paper:#fcf4ed}
-/* resources: 03 Mulberry ink */
-[data-hero-palette="resources"] .coaching-hero__background:nth-child(3){--cloud-deep:#a35890;--cloud-mid:#754975;--cloud-wash:#44304f;--cloud-paper:#291b33}
-/* resources: 04 Plum ember */
-[data-hero-palette="resources"] .coaching-hero__background:nth-child(4){--cloud-deep:#b47759;--cloud-mid:#785578;--cloud-wash:#473247;--cloud-paper:#281d2c}
+/* Books and resources: chosen Mauve paper background. */
+[data-hero-palette="resources"] .coaching-hero__background{opacity:1;--cloud-deep:#a84b85;--cloud-mid:#c98fb6;--cloud-wash:#ddc6ee;--cloud-paper:#faf0f7}
 /* contact: 01 Apricot violet */
 [data-hero-palette="contact"] .coaching-hero__background:nth-child(1){--cloud-deep:#b27bb7;--cloud-mid:#d4a3cf;--cloud-wash:#f1cfb9;--cloud-paper:#fff3e9}
 /* contact: 02 Rose quartz */
