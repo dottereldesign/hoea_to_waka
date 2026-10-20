@@ -28,7 +28,7 @@ html[data-palette] .site-header .site-nav>.site-nav-link:last-of-type{background
 html[data-palette] .site-header .site-nav>.site-nav-link:last-of-type:hover{background:var(--brand-ocean-700)}
 html[data-palette] :is(.site-menu-toggle,.ds-quick-trigger){background:var(--brand-ocean-800);color:var(--brand-paper);border-color:var(--brand-ocean-600)}
 html[data-palette] :is(.site-menu-toggle,.ds-quick-trigger):hover{background:var(--brand-ocean-700)}
-html[data-palette] .ds-component:is([data-component="home:4:features"],[data-component="about/:3:features"]){--t-inverse:var(--brand-aubergine-800);--t-on-inverse:var(--brand-paper);--t-inverse-muted:var(--brand-lavender-300);--ds-line:var(--brand-aubergine-600)!important}
+html[data-palette] .ds-component:is([data-component="home:4:features"],[data-component="about/:3:features"],[data-component="model/:2:features"]){--t-inverse:var(--brand-aubergine-800);--t-on-inverse:var(--brand-paper);--t-inverse-muted:var(--brand-lavender-300);--ds-line:var(--brand-aubergine-600)!important}
 html[data-palette] .ds-component[data-component="home:3:services"]{--t-inverse:var(--brand-ocean-800);--t-on-inverse:var(--brand-paper);--t-inverse-muted:var(--brand-ocean-300)}
 html[data-palette] [data-component="home:6:testimonials"] blockquote{color:#000}
 html[data-palette] :is(.ds-type-testimonials,.testimonial-carousel) blockquote,

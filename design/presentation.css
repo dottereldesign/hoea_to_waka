@@ -76,8 +76,8 @@ html.js [data-home-statement]:not(.statement-icons-ready){visibility:hidden}
 @media(prefers-reduced-motion:reduce){html.js [data-home-statement]:not(.statement-icons-ready){visibility:visible}}
 
 .model-section-photo{display:block;width:100%;height:auto;aspect-ratio:1021/572;object-fit:cover;border-radius:20px;margin:0 0 clamp(24px,3vw,36px)}
-:is([data-component="home:4:features"],[data-component="about/:3:features"]){border-radius:32px}
-:is([data-component="home:4:features"],[data-component="about/:3:features"]){margin-inline:8px}
+:is([data-component="home:4:features"],[data-component="about/:3:features"],[data-component="model/:2:features"]){border-radius:32px}
+:is([data-component="home:4:features"],[data-component="about/:3:features"],[data-component="model/:2:features"]){margin-inline:8px}
 
 /* Match the model section's inset frame, with an inverse navy palette. */
 html[data-palette] [data-component="home:3:services"]{margin-inline:8px;border-radius:32px;--ds-bg:var(--t-inverse)!important;--ds-ink:var(--t-on-inverse)!important;--ds-muted:var(--t-inverse-muted)!important;--ds-surface:var(--t-inverse)!important;--ds-line:color-mix(in srgb,var(--t-on-inverse) 30%,var(--t-inverse))!important}
@@ -89,7 +89,7 @@ html[data-palette] [data-component="home:3:services"]{margin-inline:8px;border-r
 .model-timeline article{border-left-color:transparent}
 .model-timeline article::before{content:"";position:absolute;left:-1px;top:26px;bottom:-26px;width:1px;background:var(--ds-line);transform:scaleY(var(--timeline-line,0));transform-origin:top;pointer-events:none}
 .model-timeline article:last-child::before{content:none}
-:is([data-component="home:4:features"],[data-component="about/:3:features"]) .ds-path-line article:last-child{border-left-color:transparent}
+:is([data-component="home:4:features"],[data-component="about/:3:features"],[data-component="model/:2:features"]) .ds-path-line article:last-child{border-left-color:transparent}
 .model-timeline article>i{z-index:1;opacity:0;transform:scale(.65)}
 .model-timeline article>:is(.ds-number,h3,p){opacity:0;transform:translateY(10px)}
 .model-timeline.is-timeline-complete article>:is(i,.ds-number,h3,p){opacity:1;transform:none}

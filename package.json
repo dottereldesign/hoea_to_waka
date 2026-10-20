@@ -15,7 +15,8 @@
     "test:header": "node scripts/header.cjs",
     "test:model-button": "node scripts/model-button.cjs",
     "test:home-variants": "node scripts/home-variants.cjs",
-    "test:faq": "node scripts/home-faq.cjs"
+    "test:faq": "node scripts/home-faq.cjs",
+    "test:navigation": "node scripts/navigation.cjs"
   },
   "dependencies": {
     "motion": "^12.0.0"

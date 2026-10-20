@@ -2,7 +2,7 @@ const {chromium}=require('playwright');
 const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const serve=require('./preview.cjs');
-const routes=['','about/','services/','services/in-house-workshops/','services/resilience-one-on-one/','services/workshops-for-support-professionals/','resources/','contact/','illustrations/','404.html','about/brand-guidelines/','about/jamies-workspace/','prompts/','brand/brand-system.html','pages/home.html'];
+const routes=['','about/','model/','services/','services/in-house-workshops/','services/resilience-one-on-one/','services/workshops-for-support-professionals/','resources/','contact/','illustrations/','404.html','about/brand-guidelines/','about/jamies-workspace/','prompts/','brand/brand-system.html','pages/home.html'];
 (async()=>{const server=serve(8791),browser=await chromium.launch({channel:'chrome',headless:true});const errors=[];try{
   const context=await browser.newContext({reducedMotion:'reduce'}),page=await context.newPage();
   page.on('pageerror',e=>errors.push(e.message));
@@ -22,9 +22,9 @@ const routes=['','about/','services/','services/in-house-workshops/','services/r
       const sectionHeadingSizes=await page.locator('main h2.ds-title:not(.statement-icon-copy),main h2.section-title').evaluateAll(els=>els.map(el=>({text:el.textContent.trim().slice(0,50),size:parseFloat(getComputedStyle(el).fontSize)})));
       const expectedH2=width<=760?Math.max(37,Math.min(width*.09,60)):Math.max(38,Math.min(width*.045,72));
       for(const h of sectionHeadingSizes)assert(Math.abs(h.size-expectedH2)<.02,route+' H2 scale: '+JSON.stringify(h));
-      if(routes.indexOf(route)<10)assert.match(await page.locator('h1').evaluate(el=>getComputedStyle(el).fontFamily),route===''?/ABC Marist/:/Inter/,route+' heading font');
+      if(routes.indexOf(route)<11)assert.match(await page.locator('h1').evaluate(el=>getComputedStyle(el).fontFamily),route===''?/ABC Marist/:/Inter/,route+' heading font');
       assert.deepEqual(await page.locator('img').evaluateAll(els=>els.filter(i=>i.currentSrc&&i.complete&&!i.naturalWidth).map(i=>i.currentSrc)),[],route+' broken images');
-      if(routes.indexOf(route)<10){
+      if(routes.indexOf(route)<11){
         if(await page.locator('footer').count()){assert(await page.locator('footer a[href*="brand-guidelines"]').count(),route+' brand link');
         assert(await page.locator('footer a[href*="illustrations"]').count(),route+' illustrations link');
         assert(await page.locator('footer [data-shielded-site]').count(),route+' shielded link');}
@@ -48,5 +48,5 @@ const routes=['','about/','services/','services/in-house-workshops/','services/r
   assert.equal(await returning.locator('[data-component="home:2:statement"]').getAttribute('data-design'),'1');assert.equal(await returning.locator('[data-component="home:2:statement"]').getAttribute('data-component-palette'),'cobalt-atelier');assert.equal(await returning.locator('html').getAttribute('data-palette'),'hoea');assert.match(await returning.locator('html').getAttribute('style'),/Inter/);
   await returning.emulateMedia({reducedMotion:'no-preference'});await returning.waitForTimeout(500);await returning.emulateMedia({reducedMotion:'reduce'});
   await saved.close();assert.deepEqual(errors,[]);
-  console.log('PASS: 15 routes at desktop/mobile, published layouts and palettes, removed editor UI/APIs, footer links, image loading, main-page overflow, contact email preparation, header contact details, mobile navigation, ignored legacy preferences and disabled query overrides.');
+  console.log('PASS: 16 routes at desktop/mobile, published layouts and palettes, removed editor UI/APIs, footer links, image loading, main-page overflow, contact email preparation, header contact details, mobile navigation, ignored legacy preferences and disabled query overrides.');
 }finally{await browser.close();server.close();}})().catch(e=>{console.error(e);process.exitCode=1;});
