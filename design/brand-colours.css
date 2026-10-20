@@ -193,6 +193,7 @@ html[data-palette][data-typography] :is(#home-faq,#contact-faq) .home-faq-eyebro
 /* Stagger the workshop cards without moving the editorial heading column. */
 html[data-palette] [data-component="services/in-house-workshops/:2:features"]{--section-surface:transparent;background:transparent}
 [data-component="services/in-house-workshops/:2:features"] .ds-feature-columns{align-items:start;--card-step:clamp(40px,4.5vw,64px)}
+[data-component="services/in-house-workshops/:2:features"] .ds-feature-columns .ds-card{border-top:0}
 [data-component="services/in-house-workshops/:2:features"] .ds-card:nth-child(2){margin-top:var(--card-step)}
 [data-component="services/in-house-workshops/:2:features"] .ds-card:nth-child(3){margin-top:calc(var(--card-step) * 2)}
 @media(max-width:760px){[data-component="services/in-house-workshops/:2:features"] .ds-card:nth-child(n){margin-top:0}}
