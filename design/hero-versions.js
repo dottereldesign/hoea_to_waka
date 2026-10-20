@@ -15,3 +15,18 @@ export function setupHeroVersions() {
     controls.querySelector('.hero-version-status').textContent = 'Hero version ' + version + ': ' + (version === '01' ? 'solid background' : 'original photo hero');
   });
 }
+
+export function setupCoachingHeroVersions() {
+  const hero = document.querySelector('[data-coaching-version]');
+  const controls = hero?.querySelector('.coaching-hero__controls');
+  if (!controls) return;
+  const names = {'01':'Sky haze','02':'Lavender mist','03':'Deep ocean','04':'Midnight plum'};
+  controls.hidden = false;
+  controls.addEventListener('click', event => {
+    const button = event.target.closest('[data-coaching-choice]');
+    if (!button || !names[button.dataset.coachingChoice]) return;
+    hero.dataset.coachingVersion = button.dataset.coachingChoice;
+    controls.querySelectorAll('button').forEach(choice => choice.setAttribute('aria-pressed', String(choice === button)));
+    hero.querySelector('[data-coaching-status]').textContent = 'Background ' + button.dataset.coachingChoice + ': ' + names[button.dataset.coachingChoice];
+  });
+}

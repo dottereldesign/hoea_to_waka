@@ -1,0 +1,28 @@
+/* Soft cloud gradients with fine, stationary grain; the content stays sharp. */
+html[data-palette] .site-main > .subpage-hero.coaching-hero{
+  --coaching-ink:#18202c;--coaching-muted:#303d50;
+  background:var(--coaching-surface,#e8f1f5);color:var(--coaching-ink);padding-bottom:80px;
+}
+.coaching-hero__backgrounds{position:absolute;inset:0;z-index:-1;pointer-events:none}
+.coaching-hero__background{position:absolute;inset:0;opacity:0;transition:opacity .65s ease}
+.coaching-hero__background:nth-child(1){background:radial-gradient(ellipse at 96% 112%,#29389d 0%,#516bd0 18%,#788edc88 36%,transparent 59%),radial-gradient(ellipse at 73% 43%,#a59bd9 0%,#c0c0e980 27%,transparent 57%),radial-gradient(ellipse at 34% 34%,#a9def5 0%,#cbe8f680 38%,transparent 65%),#eef6f8}
+.coaching-hero__background:nth-child(2){background:radial-gradient(ellipse at 105% 112%,#5c479b 0%,#a090d3 25%,transparent 63%),radial-gradient(ellipse at 12% 105%,#6ea9d3 0%,#bcdbed 32%,transparent 64%),radial-gradient(ellipse at 52% 2%,#f5effa 0%,#e9e4f5 42%,transparent 76%),#e3e8f4}
+.coaching-hero__background:nth-child(3){background:radial-gradient(ellipse at 102% 114%,#5140aa 0%,#363b8170 37%,transparent 68%),radial-gradient(ellipse at 14% 102%,#2c6c91 0%,#24496b 30%,transparent 67%),radial-gradient(ellipse at 54% 0%,#263a59 0%,#17273f 57%,transparent 85%),#121e33}
+.coaching-hero__background:nth-child(4){background:radial-gradient(ellipse at 100% 112%,#564493 0%,#3b2c6070 36%,transparent 65%),radial-gradient(ellipse at 2% 100%,#253954 0%,#1c293c80 35%,transparent 66%),radial-gradient(ellipse at 45% 0%,#2b233a 0%,#1c1a27 55%,transparent 85%),#14151e}
+.coaching-hero__backgrounds::after{content:"";position:absolute;inset:0;opacity:.32;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%23808080' filter='url(%23grain)' opacity='.7' d='M0 0h180v180H0z'/%3E%3C/svg%3E");background-size:180px 180px;mix-blend-mode:soft-light}
+.coaching-hero[data-coaching-version="01"] .coaching-hero__background:nth-child(1),.coaching-hero[data-coaching-version="02"] .coaching-hero__background:nth-child(2),.coaching-hero[data-coaching-version="03"] .coaching-hero__background:nth-child(3),.coaching-hero[data-coaching-version="04"] .coaching-hero__background:nth-child(4){opacity:1}
+html[data-palette] .site-main > .subpage-hero.coaching-hero:is([data-coaching-version="03"],[data-coaching-version="04"]){--coaching-ink:#fff;--coaching-muted:#e0e7f2;--coaching-surface:#18253c}
+html[data-palette] .subpage-hero.coaching-hero :is(h1,.ds-title,.ds-kicker,.pp-breadcrumb){color:var(--coaching-ink)}
+html[data-palette] .subpage-hero.coaching-hero .ds-lead{color:var(--coaching-muted)}
+html[data-palette] .subpage-hero.coaching-hero .pp-breadcrumb a:hover{color:var(--coaching-ink);text-decoration:underline;text-underline-offset:4px}
+.coaching-hero__controls{position:absolute;right:22px;bottom:16px;display:flex;gap:4px;padding:4px;border:1px solid color-mix(in srgb,var(--coaching-ink) 25%,transparent);border-radius:999px;background:color-mix(in srgb,var(--coaching-ink) 7%,transparent)}
+.coaching-hero__controls[hidden]{display:none}
+html[data-palette] .coaching-hero__controls button{width:38px;min-height:36px;padding:0;border:0;border-radius:999px;background:transparent;color:var(--coaching-ink);font-size:12px;font-weight:600;cursor:pointer;transition:background .2s,color .2s}
+html[data-palette] .coaching-hero__controls button:hover{background:color-mix(in srgb,var(--coaching-ink) 12%,transparent)}
+html[data-palette] .coaching-hero__controls button[aria-pressed="true"]{background:var(--coaching-ink);color:#fff}
+html[data-palette] .coaching-hero:is([data-coaching-version="03"],[data-coaching-version="04"]) .coaching-hero__controls button[aria-pressed="true"]{color:#18202c}
+html[data-palette] .subpage-hero.coaching-hero :focus-visible{outline:2px solid var(--coaching-ink)!important;outline-offset:3px!important;box-shadow:none!important}
+@media(max-width:760px){.coaching-hero__controls{right:16px;bottom:16px}}
+@media(prefers-reduced-motion:reduce){.coaching-hero__background,.coaching-hero__controls button{transition:none}}
+
+.coaching-hero [data-coaching-status]{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}

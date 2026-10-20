@@ -1,7 +1,7 @@
 const roles=['display','heading','body','eyebrow','ui','small'].map(id=>({id}));
 import { applyBrandColours, setupBrandEditor } from './brand-colours';
 import { setupSiteHeader } from './header';
-import { setupHeroVersions } from './hero-versions';
+import { setupHeroVersions, setupCoachingHeroVersions } from './hero-versions';
 
 const root=document.documentElement;
 function apply(){
@@ -22,4 +22,4 @@ apply();
 new MutationObserver(syncMode).observe(root,{attributes:true,attributeFilter:['data-theme']});
 window.addEventListener('hoea:brand-colours',syncMode);
 document.addEventListener('DOMContentLoaded',syncMode,{once:true});
-document.addEventListener('DOMContentLoaded',()=>{setupBrandEditor();setupSiteHeader();setupHeroVersions();},{once:true});
+document.addEventListener('DOMContentLoaded',()=>{setupBrandEditor();setupSiteHeader();setupHeroVersions();setupCoachingHeroVersions();},{once:true});
