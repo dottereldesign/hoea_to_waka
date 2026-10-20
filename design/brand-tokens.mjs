@@ -7,8 +7,8 @@ export const families = [
 ];
 const colour = (id,name,hex,role) => ({id,name,hex,role});
 export const neutrals = [
-  colour('paper','Paper','#FFFFFF','Cards and overlays'),
-  colour('warm-white','Warm White','#F8F8F6','Default page surface'),
+  colour('paper','Paper','#FFFFFF','Default page surface, cards and overlays'),
+  colour('warm-white','Warm White','#F8F8F6','Soft neutral accents and secondary surfaces'),
   colour('ivory','Ivory','#F5F3EE','Warm content sections'),
   colour('cool-mist','Cool Mist','#EDF1F3','Secondary surfaces'),
   colour('stone','Stone','#E3E1DD','Dividers and borders'),
@@ -38,7 +38,7 @@ export const variable = id => `--brand-${id}`;
 export const ref = id => `var(${variable(id)})`;
 export const roleAliases = {
   'brand-primary':'ocean-800','brand-secondary':'forest-800','brand-accent':'aubergine-800','brand-lavender':'lavender-500',
-  'surface-page':'warm-white','surface-card':'paper','surface-blue':'ocean-200','surface-green':'forest-200','surface-lavender':'aubergine-200',
+  'surface-page':'paper','surface-card':'paper','surface-blue':'ocean-200','surface-green':'forest-200','surface-lavender':'aubergine-200',
   'text-primary':'ink','text-muted':'slate','text-inverse':'paper','border-default':'stone',
 };
 export const validHex = value => /^#[0-9a-f]{6}$/i.test(value);
@@ -74,7 +74,7 @@ export function legacyToken(hex) {
 }
 export function semanticRoles(dark=false) {
   const ids=dark?{bg:'ocean-900',surface:'ocean-800',raised:'ocean-700',ink:'paper',muted:'ocean-300',action:'lavender-500','on-action':'aubergine-800',line:'ocean-600',soft:'ocean-800',accent:'forest-700','on-accent':'paper',highlight:'aubergine-700','on-highlight':'paper','component-accent':'aubergine-800','component-counter':'forest-800'}:
-    {bg:'warm-white',surface:'paper',raised:'cool-mist',ink:'ink',muted:'slate',action:'ocean-800','on-action':'paper',line:'stone',soft:'ocean-200',accent:'lavender-500','on-accent':'aubergine-800',highlight:'forest-200','on-highlight':'forest-800','component-accent':'lavender-500','component-counter':'forest-200'};
+    {bg:'paper',surface:'paper',raised:'cool-mist',ink:'ink',muted:'slate',action:'ocean-800','on-action':'paper',line:'stone',soft:'ocean-200',accent:'lavender-500','on-accent':'aubergine-800',highlight:'forest-200','on-highlight':'forest-800','component-accent':'lavender-500','component-counter':'forest-200'};
   Object.assign(ids,{inverse:'ocean-800','on-inverse':'paper','inverse-muted':'ocean-300',focus:'ocean-600',success:'success',error:'error',warning:'warning',information:'ocean-800'});
   return Object.entries(ids).map(([name,id])=>`--t-${name}:${ref(id)}`).join(';');
 }
