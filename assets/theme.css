@@ -725,3 +725,11 @@ html:not(.js) .kinetic-topics__controls{display:none}
 html:not(.js) [data-orbit-pause]{display:none}
 
 @media(prefers-reduced-motion:no-preference){html.js .kinetic-topics__pause{display:inline-flex}}
+
+/* Match the homepage model section at desktop, tablet and mobile sizes. */
+:root{--section-space:92px}
+@media(max-width:1100px){:root{--section-space:65px}}
+@media(max-width:760px){:root{--section-space:60px}}
+
+/* Page heroes retain their own height and navigation clearance. */
+html[data-palette] .site-main > :is(.ds-component,.section,.kinetic-topics):not(.subpage-hero):not(.home-hero){padding-block:var(--section-space)}
