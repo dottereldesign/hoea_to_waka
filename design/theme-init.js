@@ -1,7 +1,5 @@
-import { roles } from './theme-data.mjs';
-import { setupButtons } from './buttons';
+const roles=['display','heading','body','eyebrow','ui','small'].map(id=>({id}));
 import { applyBrandColours, setupBrandEditor } from './brand-colours';
-import { setupBrandNames } from './brand-name';
 import { setupSiteHeader } from './header';
 import { setupHeroVersions } from './hero-versions';
 
@@ -19,8 +17,9 @@ const syncMode=()=>{
   const meta=document.querySelector('meta[name="theme-color"]');if(meta)meta.content=getComputedStyle(root).getPropertyValue('--t-bg').trim();
   window.dispatchEvent(new CustomEvent('hoea:mode'));
 };
+try { localStorage.removeItem('hoea-design-studio-draft-1'); localStorage.removeItem('hoea-appearance-draft-1'); } catch {}
 apply();
 new MutationObserver(syncMode).observe(root,{attributes:true,attributeFilter:['data-theme']});
 window.addEventListener('hoea:brand-colours',syncMode);
 document.addEventListener('DOMContentLoaded',syncMode,{once:true});
-document.addEventListener('DOMContentLoaded',()=>{setupButtons();setupBrandEditor();setupBrandNames();setupSiteHeader();setupHeroVersions();},{once:true});
+document.addEventListener('DOMContentLoaded',()=>{setupBrandEditor();setupSiteHeader();setupHeroVersions();},{once:true});

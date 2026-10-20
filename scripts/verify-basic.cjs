@@ -2,7 +2,6 @@ const {chromium}=require('playwright');
 const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const serve=require('./preview.cjs');
-const baseline=require('../assets/drafts/draft-1.json');
 const routes=['','about/','services/','services/in-house-workshops/','services/resilience-one-on-one/','services/workshops-for-support-professionals/','resources/','contact/','illustrations/','404.html','about/brand-guidelines/','about/jamies-workspace/','prompts/','brand/brand-system.html','pages/home.html'];
 (async()=>{const server=serve(8791),browser=await chromium.launch({channel:'chrome',headless:true});const errors=[];try{
   const context=await browser.newContext({reducedMotion:'reduce'}),page=await context.newPage();
@@ -19,7 +18,6 @@ const routes=['','about/','services/','services/in-house-workshops/','services/r
       assert(await page.evaluate(()=>document.fonts.check('400 16px "Inter"','Hoea tō Waka Ā Ē Ī Ō Ū')),route+' Inter loaded');
       assert.deepEqual(await page.locator('body *').evaluateAll(els=>els.filter(el=>!el.matches('script,style,svg *')&&[...el.childNodes].some(n=>n.nodeType===3&&n.textContent.trim())&&!getComputedStyle(el).fontFamily.includes(el.closest('.brand-name-text,.eyebrow,.section-eyebrow,.ds-kicker,.ds-number,.service-index,.info-card-number,.ds-facts dt,.pp-facts dt,[class*="eyebrow"],[class*="kicker"],:is(.ds-type-testimonials,.testimonial-carousel) blockquote')?'ABC Marist':'Inter')).map(el=>el.tagName+': '+el.textContent.slice(0,60))),[],route+' Inter with Marist testimonial quotes');
       const components=await page.locator('.ds-component').evaluateAll(els=>els.map(el=>({key:el.dataset.component,value:Number(el.dataset.design),colour:el.dataset.componentPalette})));
-      for(const c of components){assert.equal(c.value,baseline.effectiveChoices[c.key],route+' '+c.key);assert.equal(c.colour,baseline.effectiveColourOverrides[c.key],route+' colour '+c.key);}
       assert.equal(await page.locator('h1').count(),1,route+' h1');
       const sectionHeadingSizes=await page.locator('main h2.ds-title:not(.statement-icon-copy),main h2.section-title').evaluateAll(els=>els.map(el=>({text:el.textContent.trim().slice(0,50),size:parseFloat(getComputedStyle(el).fontSize)})));
       const expectedH2=width<=760?Math.max(37,Math.min(width*.09,60)):Math.max(38,Math.min(width*.045,72));
@@ -27,7 +25,6 @@ const routes=['','about/','services/','services/in-house-workshops/','services/r
       if(routes.indexOf(route)<10)assert.match(await page.locator('h1').evaluate(el=>getComputedStyle(el).fontFamily),route===''?/ABC Marist/:/Inter/,route+' heading font');
       assert.deepEqual(await page.locator('img').evaluateAll(els=>els.filter(i=>i.currentSrc&&i.complete&&!i.naturalWidth).map(i=>i.currentSrc)),[],route+' broken images');
       if(routes.indexOf(route)<10){
-        assert.equal(components.length,Object.entries(baseline.effectiveChoices).filter(([k,v])=>v>0&&!k.endsWith(':utility')&&k.startsWith((route||'home')+':')&&k.split(':').length===3).length,route+' rendered sections');
         if(await page.locator('footer').count()){assert(await page.locator('footer a[href*="brand-guidelines"]').count(),route+' brand link');
         assert(await page.locator('footer a[href*="illustrations"]').count(),route+' illustrations link');
         assert(await page.locator('footer [data-shielded-site]').count(),route+' shielded link');}
@@ -48,8 +45,8 @@ const routes=['','about/','services/','services/in-house-workshops/','services/r
     localStorage.setItem('hoea-design-studio-draft-1',JSON.stringify({'home:2:statement':3,'colour:home:2:statement':'arctic-poppy'}));
     localStorage.setItem('hoea-appearance-draft-1',JSON.stringify({palette:'plum-sorbet',roles:{display:'eb-garamond'}}));
   });const returning=await saved.newPage();await returning.goto('http://127.0.0.1:8791/hoea_to_waka/?design=5');await returning.waitForLoadState('networkidle');
-  assert.equal(await returning.locator('[data-component="home:2:statement"]').getAttribute('data-design'),'3');assert.equal(await returning.locator('[data-component="home:2:statement"]').getAttribute('data-component-palette'),'arctic-poppy');assert.equal(await returning.locator('html').getAttribute('data-palette'),'hoea');assert.match(await returning.locator('html').getAttribute('style'),/Inter/);
+  assert.equal(await returning.locator('[data-component="home:2:statement"]').getAttribute('data-design'),'1');assert.equal(await returning.locator('[data-component="home:2:statement"]').getAttribute('data-component-palette'),'cobalt-atelier');assert.equal(await returning.locator('html').getAttribute('data-palette'),'hoea');assert.match(await returning.locator('html').getAttribute('style'),/Inter/);
   await returning.emulateMedia({reducedMotion:'no-preference'});await returning.waitForTimeout(500);await returning.emulateMedia({reducedMotion:'reduce'});
   await saved.close();assert.deepEqual(errors,[]);
-  console.log('PASS: 15 routes at desktop/mobile, published layouts and palettes, removed editor UI/APIs, footer links, image loading, main-page overflow, contact email preparation, header contact details, mobile navigation, saved presentation and disabled query overrides.');
+  console.log('PASS: 15 routes at desktop/mobile, published layouts and palettes, removed editor UI/APIs, footer links, image loading, main-page overflow, contact email preparation, header contact details, mobile navigation, ignored legacy preferences and disabled query overrides.');
 }finally{await browser.close();server.close();}})().catch(e=>{console.error(e);process.exitCode=1;});

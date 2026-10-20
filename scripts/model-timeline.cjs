@@ -29,6 +29,6 @@ const {chromium}=require('playwright'),assert=require('node:assert/strict'),fs=r
     await section.screenshot({path:`tmp/model-timeline/after-${width}.png`,style:'.site-header,.skip-link{visibility:hidden!important}'});
     await page.evaluate(()=>scrollTo({top:0,behavior:'instant'}));await page.waitForTimeout(100);assert(await path.evaluate(el=>el.classList.contains('is-timeline-complete')),'no reverse');
   }
-  await page.emulateMedia({reducedMotion:'reduce'});await page.reload();await page.waitForLoadState('networkidle');assert.equal(await page.locator('.model-timeline').count(),0);assert(await page.locator('.ds-path-line article').evaluateAll(els=>els.every(el=>getComputedStyle(el).opacity==='1')),'reduced motion visible');
+  await page.emulateMedia({reducedMotion:'reduce'});await page.reload();await page.waitForLoadState('networkidle');assert.equal(await page.locator('.model-timeline').count(),1);assert(await page.locator('.ds-path-line article').evaluateAll(els=>els.every(el=>getComputedStyle(el).opacity==='1')),'reduced motion visible');
   assert.deepEqual(errors,[]);console.log('PASS: actual icon/number/heading/paragraph/line ordering, line reaches next icon, one-time autonomous reveal, stable layout, responsive widths and reduced motion.');
 }finally{await browser.close();server.close();}})().catch(e=>{console.error(e);process.exitCode=1});

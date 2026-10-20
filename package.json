@@ -3,20 +3,10 @@
   "private": true,
   "scripts": {
     "build": "node scripts/build.mjs",
-    "test": "node scripts/verify-basic.cjs",
-    "test:interactions": "node scripts/interactions.cjs",
-    "test:accessibility": "node scripts/accessibility.cjs",
-    "test:expanded": "node scripts/verify-expanded.cjs",
-    "test:expanded-interactions": "node scripts/interactions-expanded.cjs",
-    "test:expanded-accessibility": "node scripts/accessibility-expanded.cjs",
-    "test:themes": "node scripts/verify-themes.cjs",
-    "test:themes-accessibility": "node scripts/accessibility-themes.cjs",
-    "test:handoff": "node scripts/handoff.cjs",
     "preview": "node scripts/preview.cjs",
-    "test:catalog": "node scripts/catalog.cjs",
-    "test:component-colours": "node scripts/component-colours.cjs",
-    "test:prompts": "node scripts/prompts.cjs",
-    "test:draft": "node scripts/draft.cjs",
+    "test": "node scripts/verify-basic.cjs",
+    "test:first-paint": "node scripts/verify-first-paint.cjs",
+    "test:accessibility": "node scripts/accessibility.cjs",
     "test:statement": "node scripts/statement-icons.cjs",
     "test:model-timeline": "node scripts/model-timeline.cjs",
     "test:marquee": "node scripts/topic-marquee.cjs",
@@ -27,10 +17,7 @@
     "test:home-variants": "node scripts/home-variants.cjs"
   },
   "dependencies": {
-    "lucide": "^0.468.0",
-    "motion": "^12.0.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "motion": "^12.0.0"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.13.0",

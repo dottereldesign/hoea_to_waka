@@ -1,17 +1,2 @@
-const {chromium}=require('playwright');const {default:AxeBuilder}=require('@axe-core/playwright');const serve=require('./preview.cjs');const fs=require('fs');
-(async()=>{const server=serve(8768);const browser=await chromium.launch({channel:'chrome',headless:true});const failures=[];try{
-  const context=await browser.newContext({reducedMotion:'reduce'});const page=await context.newPage();
-  for(const width of [320,768,1024]){
-    await page.setViewportSize({width,height:1000});
-    for(const route of ['','contact/','resources/']){
-      await page.goto(`http://127.0.0.1:8768/hoea_to_waka/${route}`);await page.waitForFunction(()=>window.HoeaDesignStudio);
-      for(let v=1;v<=5;v++){
-        await page.evaluate(v=>window.HoeaDesignStudio.all(v),v);await page.waitForTimeout(40);
-        const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+2);if(overflow)failures.push({width,route,v,error:'horizontal overflow'});
-        if(width===1024){const result=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();for(const violation of result.violations)failures.push({width,route,v,rule:violation.id,nodes:violation.nodes.map(n=>({html:n.html,summary:n.failureSummary}))});}
-      }
-    }
-    console.log(`Checked ${width}px`);
-  }
-  fs.writeFileSync('tmp/design-studio/accessibility.json',JSON.stringify(failures,null,2));console.log(JSON.stringify(failures,null,2));if(failures.length)process.exitCode=1;
-}finally{await browser.close();server.close();}})().catch(e=>{console.error(e);process.exitCode=1;});
+const{chromium}=require('playwright'),{default:AxeBuilder}=require('@axe-core/playwright'),assert=require('node:assert/strict');
+(async()=>{const server=require('./preview.cjs')(8806),browser=await chromium.launch({channel:'chrome',headless:true});try{const context=await browser.newContext({reducedMotion:'reduce'}),page=await context.newPage();for(const width of[1440,390]){await page.setViewportSize({width,height:1000});for(const route of['','about/','resources/','contact/','services/','services/in-house-workshops/','services/resilience-one-on-one/','services/workshops-for-support-professionals/']){await page.goto('http://127.0.0.1:8806/hoea_to_waka/'+route);await page.waitForLoadState('networkidle');const result=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();if(result.violations.length)console.log(JSON.stringify(result.violations.map(v=>({id:v.id,nodes:v.nodes.map(n=>({target:n.target,summary:n.failureSummary}))})),null,2));assert.deepEqual(result.violations.map(v=>({id:v.id,nodes:v.nodes.map(n=>n.target)})),[],route+' '+width);}console.log('Accessibility passed '+width);}await page.locator('[data-menu-toggle]').click();const menu=await new AxeBuilder({page}).include('.site-menu-panel').withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();assert.deepEqual(menu.violations,[]);console.log('PASS: fixed pages and header menu accessibility');}finally{await browser.close();server.close()}})().catch(e=>{console.error(e);process.exit(1)});

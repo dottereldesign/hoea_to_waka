@@ -8,7 +8,7 @@ const assert=require('node:assert/strict');
    await page.setViewportSize({width,height:1000});
    await page.goto('http://localhost:8800/hoea_to_waka/');
    await page.waitForLoadState('networkidle');
-   const button=page.locator('.model-button');
+   const button=page.locator('[data-home-statement] .model-button');
    await button.scrollIntoViewIfNeeded();
    assert.equal(await page.locator('.model-button-previews').count(),0);
    assert.equal(await button.evaluate(e=>new URL(e.href).pathname),'/hoea_to_waka/about/');
@@ -25,8 +25,8 @@ const assert=require('node:assert/strict');
    assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
   }
   await page.emulateMedia({reducedMotion:'reduce'});
-  await page.locator('.model-button').hover();
-  assert.equal(await page.locator('.model-button__icon').evaluate(e=>getComputedStyle(e).transform),'none');
+  await page.locator('[data-home-statement] .model-button').hover();
+  assert.equal(await page.locator('[data-home-statement] .model-button__icon').evaluate(e=>getComputedStyle(e).transform),'none');
   console.log('PASS: chosen arrow-disc button, no previews, Ink headings, consistent section spacing, responsive layouts and reduced motion');
  }finally{await browser.close();server.close()}
 })().catch(e=>{console.error(e);process.exit(1)});

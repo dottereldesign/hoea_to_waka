@@ -174,3 +174,7 @@ html[data-palette] .book-amazon-button:focus-visible{outline:3px solid var(--bra
 
 /* Align the coaching photograph with the start of the adjacent copy. */
 [data-component="services/resilience-one-on-one/:2:story"] .ex-breathing-view{padding-top:0}
+
+/* Keep the resource invitation readable on its pale green surface. */
+html[data-palette] .ds-cta-editorial .ds-lead{color:var(--ds-ink)}
+html[data-palette] body:not(.page-home) .ds-component:not(.subpage-hero) .ds-lead{color:var(--ds-ink)}

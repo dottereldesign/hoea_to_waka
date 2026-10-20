@@ -1,19 +1,22 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-typography="inter">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex,nofollow,noarchive">
     <title>Brand System | Hoea tō Waka</title>
+<link rel="preload" href="../assets/fonts/themes/inter-latin-3.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/themes/inter-latin-ext-2.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/ABCMarist-Book.woff2" as="font" type="font/woff2" crossorigin>
     <meta name="description" content="Working brand system extracted from the current Hoea tō Waka website.">
     <link rel="stylesheet" href="../assets/brand-palette.css?v=7">
-    <script src="../assets/theme-init.js?v=19"></script>
-    <link rel="stylesheet" href="../assets/theme.css?v=73">
+    <script src="../assets/theme-init.js?v=20"></script>
+    <link rel="stylesheet" href="../assets/theme.css?v=74">
   </head>
-  <body>
+  <body >
     <header class="site-header">
       <div class="site-header-inner">
-        <a class="brand-mark" href="../index.html">Hoea tō Waka</a>
+        <a class="brand-mark" href="../index.html"><span class="brand-name-text">Hoea tō Waka</span></a>
         <nav class="top-nav" aria-label="Page">
           <a href="../index.html">Hub</a>
           <a href="../pages/home.html">Homepage Map</a>
@@ -25,11 +28,11 @@
     <main class="doc-shell">
       <section class="doc-head">
         <div class="doc-nav">
-          <a class="button button-secondary" href="../index.html">Back to hub</a>
+          <a class="button button-secondary" href="../index.html" data-button-style="secondary">Back to hub</a>
         </div>
         <p class="eyebrow">Page</p>
         <h1>Brand System</h1>
-        <p class="lede">Working brand system for the Hoea tō Waka rebuild.</p>
+        <p class="lede">Working brand system for the <span class="brand-name-text">Hoea tō Waka</span> rebuild.</p>
       </section>
 
       <article class="prose">
@@ -191,5 +194,7 @@
         </ul>
       </article>
     </main>
-  </body>
+
+
+</body>
 </html>

@@ -1,4 +1,4 @@
-import { colourReference, normaliseColour } from '../design/theme-data.mjs';
+import { colourReference, normaliseColour } from './colour-css.mjs';
 // Replace declaration colour literals only, never selectors, content strings or URLs.
 export function tokeniseCSS(css,colours){
   return css.replace(/([\w-]+\s*:\s*)([^{};]+)(?=[;}])/g,(declaration,property,value)=>{

@@ -1,19 +1,22 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-typography="inter">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex,nofollow,noarchive">
     <title>Homepage Block Map | Hoea tō Waka</title>
+<link rel="preload" href="../assets/fonts/themes/inter-latin-3.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/themes/inter-latin-ext-2.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/ABCMarist-Book.woff2" as="font" type="font/woff2" crossorigin>
     <meta name="description" content="Homepage block map for the current Hoea tō Waka website.">
     <link rel="stylesheet" href="../assets/brand-palette.css?v=7">
-    <script src="../assets/theme-init.js?v=19"></script>
-    <link rel="stylesheet" href="../assets/theme.css?v=73">
+    <script src="../assets/theme-init.js?v=20"></script>
+    <link rel="stylesheet" href="../assets/theme.css?v=74">
   </head>
-  <body>
+  <body >
     <header class="site-header">
       <div class="site-header-inner">
-        <a class="brand-mark" href="../index.html">Hoea tō Waka</a>
+        <a class="brand-mark" href="../index.html"><span class="brand-name-text">Hoea tō Waka</span></a>
         <nav class="top-nav" aria-label="Page">
           <a href="../index.html">Hub</a>
           <a href="../brand/brand-system.html">Brand</a>
@@ -25,7 +28,7 @@
     <main class="doc-shell">
       <section class="doc-head">
         <div class="doc-nav">
-          <a class="button button-secondary" href="../index.html">Back to hub</a>
+          <a class="button button-secondary" href="../index.html" data-button-style="secondary">Back to hub</a>
         </div>
         <p class="eyebrow">Page</p>
         <h1>Homepage Block Map</h1>
@@ -99,14 +102,14 @@
                 <td>Site Parts</td>
                 <td>Heading</td>
                 <td>Brand title should be linked brand text or logo, not a page heading</td>
-                <td>Home, About Hoea tō Waka, Services, In-house Workshops, Resilience One on One, Workshops for Support Professionals, Resources, Contact</td>
+                <td>Home, About <span class="brand-name-text">Hoea tō Waka</span>, Services, In-house Workshops, Resilience One on One, Workshops for Support Professionals, Resources, Contact</td>
               </tr>
               <tr>
                 <td>2</td>
                 <td>Opening banner</td>
                 <td>Hero</td>
                 <td>Content, Image Box</td>
-                <td><code>h1</code> Hoea tō Waka: Strength in Aotearoa, supporting line as paragraph text</td>
+                <td><code>h1</code> <span class="brand-name-text">Hoea tō Waka</span>: Strength in Aotearoa, supporting line as paragraph text</td>
                 <td>No hero CTA button currently</td>
               </tr>
               <tr>
@@ -183,7 +186,7 @@
         <ul>
           <li>Block type: <code>Hero</code></li>
           <li>Supporting blocks: <code>Content</code>, <code>Image Box</code></li>
-          <li><code>h1</code>: Hoea tō Waka: Strength in Aotearoa</li>
+          <li><code>h1</code>: <span class="brand-name-text">Hoea tō Waka</span>: Strength in Aotearoa</li>
           <li>Supporting line stays the same, but should be paragraph text rather than a heading</li>
           <li>Full-width hero image</li>
           <li>No button currently</li>
@@ -216,7 +219,7 @@
 
         <h4>Service card 3</h4>
         <ul>
-          <li><code>h3</code>: The Hoea tō Waka model for support professionals</li>
+          <li><code>h3</code>: The <span class="brand-name-text">Hoea tō Waka</span> model for support professionals</li>
           <li>Button: More for support professionals</li>
         </ul>
 
@@ -241,7 +244,7 @@
           <li>Block type: <code>Contact</code></li>
           <li>Includes contact details and contact form</li>
           <li><code>h2</code>: Contact</li>
-          <li>Static text includes Hoea tō Waka: Strength in Aotearoa and Based in Ōtautahi Christchurch.</li>
+          <li>Static text includes <span class="brand-name-text">Hoea tō Waka</span>: Strength in Aotearoa and Based in Ōtautahi Christchurch.</li>
           <li>Fields: name, email, phone, message</li>
           <li>Button: Send</li>
         </ul>
@@ -274,5 +277,7 @@
         </ol>
       </article>
     </main>
-  </body>
+
+
+</body>
 </html>

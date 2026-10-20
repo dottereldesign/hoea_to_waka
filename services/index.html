@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html lang="en-NZ" data-palette="hoea">
+<html lang="en-NZ" data-palette="hoea" data-typography="inter">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Resilience Workshops &amp; Coaching | Hoea tō Waka</title>
+<link rel="preload" href="../assets/fonts/themes/inter-latin-3.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/themes/inter-latin-ext-2.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/ABCMarist-Book.woff2" as="font" type="font/woff2" crossorigin>
     <meta name="description" content="Explore Hoea tō Waka resilience workshops, individual coaching, and training for support professionals across Aotearoa.">
     <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
     <link rel="canonical" href="https://www.hoeatowaka.co.nz/services/">
@@ -24,7 +27,7 @@
     <meta name="theme-color" content="#F8F8F6">
     <script>
       (() => {
-        document.documentElement.classList.add("js");
+        document.documentElement.classList.add("js", "is-page-ready");
         let theme = "light";
         try {
           const savedTheme = window.localStorage.getItem("hoea-theme");
@@ -34,8 +37,8 @@
         document.documentElement.style.colorScheme = theme;
       })();
     </script>
-    <link rel="stylesheet" href="../assets/site-palette.css?v=9">
-    <link rel="stylesheet" href="../assets/design-studio.css?v=7">
+    <link rel="stylesheet" href="../assets/site-palette.css?v=10">
+    <link rel="stylesheet" href="../assets/components.css?v=1">
     <link rel="icon" href="../assets/favicon.png" type="image/png">
     <script type="application/ld+json">
       {
@@ -110,19 +113,19 @@
         ]
       }
     </script>
-    <script src="../assets/theme-init.js?v=19"></script>
-    <link rel="stylesheet" href="../assets/theme.css?v=73">
+    <script src="../assets/theme-init.js?v=20"></script>
+    <link rel="stylesheet" href="../assets/theme.css?v=74">
   </head>
-  <body>
+  <body class="ds-original-nav" style="--ds-nav-clearance: 114px;">
     <a class="skip-link" href="#main-content">Skip to main content</a>
-    <header class="site-header" data-site-header data-morph-header>
+    <header class="site-header" data-site-header="" data-morph-header="">
       <div class="site-header-shell">
         <div class="site-header-bar">
-          <nav class="site-nav" id="site-navigation" aria-label="Primary navigation" data-site-nav>
+          <nav class="site-nav" id="site-navigation" aria-label="Primary navigation" data-site-nav="">
         <a class="site-nav-link" href="../">Home</a>
         <a class="site-nav-link" href="../about/">About</a>
-        <div class="site-nav-dropdown" data-nav-dropdown>
-          <a class="site-nav-parent-link site-nav-services-link" href="../services/" aria-current="page" aria-haspopup="true" aria-controls="services-subnav">Services <span class="site-services-arrow" aria-hidden="true">→</span></a>
+        <div class="site-nav-dropdown" data-nav-dropdown="">
+          <a class="site-nav-parent-link site-nav-services-link" href="../services/" aria-current="page" aria-haspopup="true" aria-controls="services-subnav" aria-expanded="false">Services <span class="site-services-arrow" aria-hidden="true">→</span></a>
           <div class="site-subnav" id="services-subnav" role="group" aria-label="Services">
             <a href="../services/in-house-workshops/">In-house Workshops</a>
             <a href="../services/resilience-one-on-one/">Resilience One on One</a>
@@ -134,31 +137,25 @@
           <a class="site-brand" href="../">
         <img src="../assets/logo-white.svg" alt="" loading="lazy" decoding="async">
         <span class="site-brand-copy">
-          <span class="site-brand-name">Hoea tō Waka</span>
+          <span class="site-brand-name"><span class="brand-name-text">Hoea tō Waka</span></span>
           <span class="site-brand-line">Strength in Aotearoa</span>
         </span>
       </a>
           <div class="site-header-actions"><a class="site-header-cta" href="../contact/">Contact</a></div>
         </div>
-        <button class="site-menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="site-menu-panel" aria-expanded="false" data-menu-toggle><span class="site-menu-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></button>
+        <button class="site-menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="site-menu-panel" aria-expanded="false" data-menu-toggle=""><span class="site-menu-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></button>
       </div>
 
       <dialog class="site-menu-panel" id="site-menu-panel" aria-labelledby="site-menu-title">
-        <div class="site-menu-heading"><p id="site-menu-title">Hoea tō Waka</p><button class="site-menu-close" type="button" aria-label="Close navigation menu"><span class="site-menu-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></button></div>
+        <div class="site-menu-heading"><p id="site-menu-title"><span class="brand-name-text">Hoea tō Waka</span></p><button class="site-menu-close" type="button" aria-label="Close navigation menu"><span class="site-menu-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></button></div>
         <nav class="site-menu-links" aria-label="All pages"><a href="../">Home</a><a href="../about/">About</a><div class="site-menu-services"><a href="../services/" aria-current="page">Services</a><div class="site-menu-service-links"><a href="../services/in-house-workshops/">In-house Workshops</a><a href="../services/resilience-one-on-one/">Resilience One on One</a><a href="../services/workshops-for-support-professionals/">Workshops for Support Professionals</a></div></div><a href="../resources/">Resources</a><a href="../contact/">Contact</a></nav>
       <div class="site-menu-utilities">
           <section class="site-menu-contact" aria-labelledby="menu-contact-title"><h2 id="menu-contact-title">Contact Anna</h2>
-            <a href="mailto:anna@hoeatowaka.co.nz"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/></svg><span>anna@hoeatowaka.co.nz</span></a>
-            <a href="tel:+64272059520"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg><span>027 205 9520</span></a>
-            <p><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0z"/><circle cx="12" cy="10" r="2.5"/></svg><span>Ōtautahi Christchurch</span></p>
+            <a href="mailto:anna@hoeatowaka.co.nz"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 6 9 7 9-7"></path></svg><span>anna@hoeatowaka.co.nz</span></a>
+            <a href="tel:+64272059520"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"></path></svg><span>027 205 9520</span></a>
+            <p><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0z"></path><circle cx="12" cy="10" r="2.5"></circle></svg><span>Ōtautahi Christchurch</span></p>
           </section>
-          <div class="site-menu-appearance"><div><p>Change appearance</p><small>Switch between light and dark</small></div><button
-        class="theme-switcher-grid theme-switcher-grid--compact site-theme-toggle"
-        type="button"
-        aria-label="Switch to dark theme"
-        aria-pressed="false"
-        data-theme-toggle
-      >
+          <div class="site-menu-appearance"><div><p>Change appearance</p><small>Switch between light and dark</small></div><button class="theme-switcher-grid theme-switcher-grid--compact site-theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false" data-theme-toggle="">
         <svg class="orb" aria-hidden="true" viewBox="0 0 20 20">
           <defs>
             <mask id="hoea-crescent-mask" x="0" y="0" width="20" height="20" maskUnits="userSpaceOnUse" style="mask-type: luminance">
@@ -181,98 +178,28 @@
       </dialog>
     </header>
     <main class="site-main" id="main-content">
-      <section class="page-hero page-hero-dark subpage-hero">
-        <div class="container page-hero-grid">
-          <div data-reveal>
-            <nav class="breadcrumbs" aria-label="Breadcrumb">
-              <ol>
-                <li><a href="../">Home</a></li>
-                <li aria-current="page">Services</li>
-              </ol>
-            </nav>
-            <p class="eyebrow eyebrow-light">Training, coaching, and professional development</p>
-            <h1 class="page-title">Services</h1>
-            <p class="lead">Practical support for people and organisations navigating pressure, change, and complex work—grounded in the cultural context of Aotearoa.</p>
-            <div class="button-row"><a class="button button-light" href="../contact/">Talk with Anna</a></div>
-          </div>
-          <div class="hero-fact-card" data-reveal>
-            <div class="hero-fact"><span>For teams</span><span>Tailored in-house workshops</span></div>
-            <div class="hero-fact"><span>For individuals</span><span>Focused one-to-one coaching</span></div>
-            <div class="hero-fact"><span>For practitioners</span><span>Support professional training</span></div>
-          </div>
-        </div>
-      </section>
+      <section class="ds-component ds-v127 ds-type-header ds-purpose subpage-hero" data-purpose-layout="127" data-design="127" data-component="services/:1:header" data-colour-inverse="true"><div class="pp-shell pp-header-2"><nav class="pp-breadcrumb" aria-label="Breadcrumb"><a href="../">Home</a><span aria-hidden="true">/</span><span aria-current="page">Services</span></nav><header class="pp-intro"><p class="ds-kicker">Training, coaching, and professional development</p><h1 class="ds-title">Services</h1><p class="ds-lead">Practical support for people and organisations navigating pressure, change, and complex work—grounded in the cultural context of Aotearoa.</p></header></div></section>
 
-      <section class="home-services">
-        <div class="container">
-          <div class="home-services-head" data-reveal>
-            <div>
-              <p class="eyebrow">Choose your starting point</p>
-              <h2 class="section-title">Three ways to work together.</h2>
-            </div>
-            <p class="lead">Each service uses the Hoea tō Waka model to turn complex ideas into clear, useful tools people can apply in real life.</p>
-          </div>
-          <div class="service-grid">
-            <article class="service-card" data-reveal>
-              <span class="service-index">01 / In-house</span>
-              <h3><span>Workshops</span></h3>
-              <p>Tailored half-day resilience training for teams and organisations.</p>
-              <a class="button button-light" href="../services/in-house-workshops/">View workshops</a>
-            </article>
-            <article class="service-card" data-reveal>
-              <span class="service-index">02 / One-to-one</span>
-              <h3><span>Individual</span> coaching</h3>
-              <p>Focused one-to-one support for leaders or team members who need practical direction.</p>
-              <a class="button button-light" href="../services/resilience-one-on-one/">View coaching</a>
-            </article>
-            <article class="service-card" data-reveal>
-              <span class="service-index">03 / Practice</span>
-              <h3>Support professional training</h3>
-              <p>Training for people supporting clients, whānau, and communities in complex settings.</p>
-              <a class="button button-light" href="../services/workshops-for-support-professionals/">View training</a>
-            </article>
-          </div>
-        </div>
-      </section>
+      <section class="ds-component ds-v1 ds-type-services" data-design="1" data-component="services/:2:services"><header class="ds-section-heading"><p class="ds-kicker">Choose your starting point</p><h2 class="ds-title">Three ways to work together.</h2><p class="ds-lead">Each service uses the <span class="brand-name-text">Hoea tō Waka</span> model to turn complex ideas into clear, useful tools people can apply in real life.</p></header><div class="ds-service-editorial"><article class="ds-card " data-card-unit="" data-atom-variant="0"><img src="../assets/service-in-house-1200.webp" alt="A contemporary workplace" loading="lazy"><div class="ds-card-copy"><span class="ds-number">01 / In-house</span><h3>Workshops</h3><p class="ds-lead">Tailored half-day resilience training for teams and organisations.</p><div class="ds-card-actions"><a class="ds-button " href="../services/in-house-workshops/" data-atom-variant="0" data-button-style="secondary"><span>Explore this option</span><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" data-button-icon="next"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></a></div></div></article><article class="ds-card " data-card-unit="" data-atom-variant="0"><img src="../assets/service-individual-1200.webp" alt="An individual coaching conversation" loading="lazy"><div class="ds-card-copy"><span class="ds-number">02 / One-to-one</span><h3>Individual coaching</h3><p class="ds-lead">Focused one-to-one support for leaders or team members who need practical direction.</p><div class="ds-card-actions"><a class="ds-button " href="../services/resilience-one-on-one/" data-atom-variant="0" data-button-style="secondary"><span>Explore this option</span><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" data-button-icon="next"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></a></div></div></article><article class="ds-card " data-card-unit="" data-atom-variant="0"><img src="../assets/service-support-1200.webp" alt="Resources for support professionals" loading="lazy"><div class="ds-card-copy"><span class="ds-number">03 / Practice</span><h3>Support professional training</h3><p class="ds-lead">Training for people supporting clients, whānau, and communities in complex settings.</p><div class="ds-card-actions"><a class="ds-button " href="../services/workshops-for-support-professionals/" data-atom-variant="0" data-button-style="secondary"><span>Explore this option</span><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" data-button-icon="next"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg></a></div></div></article></div></section>
 
-      <section class="section section-sky">
-        <div class="container split split-top">
-          <div data-reveal>
-            <p class="eyebrow">A flexible approach</p>
-            <h2 class="section-title section-title-small">Built around the people in front of us.</h2>
-          </div>
-          <div class="prose" data-reveal>
-            <p>Hoea tō Waka is designed to make resilience practical without reducing people or their circumstances to a simple formula. Anna adapts the focus, examples, and delivery to the needs of each person, team, or professional group.</p>
-            <p>If you are unsure which format fits, begin with a conversation. You do not need to have the programme fully worked out before getting in touch.</p>
-            <div class="button-row"><a class="button button-primary" href="../contact/">Find the right fit</a></div>
-          </div>
-        </div>
-      </section>
+      <section class="ds-component ds-v1 ds-type-story" data-design="1" data-component="services/:3:story"><div class="ds-story-editorial"><header class="ds-section-heading"><p class="ds-kicker">A flexible approach</p><h2 class="ds-title">Built around the people in front of us.</h2></header><div><div class="ds-prose"><p><span class="brand-name-text">Hoea tō Waka</span> is designed to make resilience practical without reducing people or their circumstances to a simple formula. Anna adapts the focus, examples, and delivery to the needs of each person, team, or professional group.</p><p>If you are unsure which format fits, begin with a conversation. You do not need to have the programme fully worked out before getting in touch.</p><a href="../contact/">Find the right fit</a></div><img class="ds-landscape" src="../assets/placeholders/landscape.svg" alt="Landscape image placeholder" loading="lazy" decoding="async"></div></div></section>
 
-      <section class="cta-band">
-        <div class="container cta-band-inner" data-reveal>
-          <div>
-            <h2>Start with what your people need.</h2>
-            <p>Share the context, audience, and outcome you have in mind. Anna can help shape the most useful next step.</p>
-          </div>
-          <a class="button button-light" href="../contact/">Start a conversation</a>
-        </div>
-      </section>
+      <section class="ds-component ds-v1 ds-type-cta" data-design="1" data-component="services/:4:cta"><div class="ds-cta-editorial"><p class="ds-kicker">Let’s find a useful next step</p><h2 class="ds-title">Start with what your people need.</h2><div><p class="ds-lead">Share the context, audience, and outcome you have in mind. Anna can help shape the most useful next step.</p><a class="ds-button " href="../contact/" data-atom-variant="0" data-button-style="primary"><span>Talk with Anna</span></a></div></div></section>
     </main>
     <footer class="site-footer">
       <div class="container">
         <div class="footer-grid">
-          <div class="footer-brand">
+          <div class="footer-brand is-visible" data-reveal="" style="--reveal-delay: 0ms;">
             <a class="footer-brand-lockup" href="../">
               <img src="../assets/logo-white.svg" alt="" loading="lazy" decoding="async">
-              <span><strong>Hoea tō Waka</strong>Strength in Aotearoa</span>
+              <span><strong><span class="brand-name-text">Hoea tō Waka</span></strong>Strength in Aotearoa</span>
             </a>
             <p>Practical resilience training and resources, grounded in the cultural context of Aotearoa.</p>
-            <a class="footer-shielded-site" href="https://shielded.co.nz/" id="shielded-logo" data-shielded-site aria-label="Open the Women’s Refuge Shielded Site" target="_blank" rel="noopener">
+            <a class="footer-shielded-site" href="https://shielded.co.nz/" id="shielded-logo" data-shielded-site="" aria-label="Open the Women’s Refuge Shielded Site" target="_blank" rel="noopener">
               <img src="../assets/shielded-site.png" alt="" width="60" height="60">
             </a>
           </div>
-          <div class="footer-column">
+          <div class="footer-column is-visible" data-reveal="" style="--reveal-delay: 90ms;">
             <h2>Explore</h2>
             <ul class="footer-links">
               <li><a href="../">Home</a></li>
@@ -284,7 +211,7 @@
               <li><a href="../about/brand-guidelines/">Brand guidelines</a></li>
             </ul>
           </div>
-          <div class="footer-column">
+          <div class="footer-column is-visible" data-reveal="" style="--reveal-delay: 180ms;">
             <h2>Services</h2>
             <ul class="footer-links">
               <li><a href="../services/in-house-workshops/">In-house workshops</a></li>
@@ -292,7 +219,7 @@
               <li><a href="../services/workshops-for-support-professionals/">Support professional training</a></li>
             </ul>
           </div>
-          <div class="footer-column">
+          <div class="footer-column is-visible" data-reveal="" style="--reveal-delay: 270ms;">
             <h2>Contact</h2>
             <ul class="footer-links">
               <li><a href="mailto:anna@hoeatowaka.co.nz">anna@hoeatowaka.co.nz</a></li>
@@ -301,13 +228,15 @@
             </ul>
           </div>
         </div>
-        <div class="footer-bottom">
-          <span>© <span data-year>2026</span> Hoea tō Waka Training Ltd.</span>
+        <div class="footer-bottom is-visible" data-reveal="" style="--reveal-delay: 120ms;">
+          <span>© <span data-year="">2026</span> <span class="brand-name-text">Hoea tō Waka</span> Training Ltd.</span>
           <span>People-first resilience training for Aotearoa.</span>
         </div>
       </div>
     </footer>
-    <script src="../site.js?v=5"></script>
-    <script src="../assets/site-layouts.js?v=30" defer></script>
-  </body>
+    <script src="../site.js?v=6"></script>
+    <script src="../assets/site-interactions.js?v=1" defer=""></script>
+
+
+</body>
 </html>

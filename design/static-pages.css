@@ -1,0 +1,31 @@
+/* The delivered HTML is the finished design, including typography. */
+:root{--font-display:"Inter",Arial,sans-serif;--font-heading:"Inter",Arial,sans-serif;--font-body:"Inter",Arial,sans-serif;--font-eyebrow:"ABC Marist",Georgia,serif;--font-ui:"Inter",Arial,sans-serif;--font-small:"Inter",Arial,sans-serif;--font-weight-display:600;--font-weight-heading:600;--font-weight-body:500;--font-weight-eyebrow:350;--font-weight-ui:500;--font-weight-small:500}
+html.js [data-reveal],html.is-page-ready [data-reveal],html.js .page-home .home-hero :is(.home-hero-copy,.button-row){opacity:1!important;translate:none!important;filter:none!important;animation:none!important;transition:none!important}
+/* Reserve each illustration's final slot from the first paint. */
+.statement-icon{--icon-reveal:1;width:1.08em;margin-left:.16em;opacity:1}
+html.js:not(.ds-motion-paused) .statement-icon{--icon-reveal:0}
+.statement-icon svg{opacity:clamp(0,var(--icon-reveal),1);transform:scaleX(calc(.15 + var(--icon-reveal)*.85));transform-origin:left center}
+html:not(.js) .model-timeline article>:is(i,.ds-number,h3,p){opacity:1;transform:none}
+html:not(.js) .model-timeline article::before{transform:scaleY(1)}
+/* The three marquee rows exist before JavaScript; only their motion is enhanced. */
+.kinetic-topics{--marquee-font-size:clamp(5.5rem,8vw,7.2rem)}
+html.js .kinetic-topics__list{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+html.js .kinetic-topics__rows{display:block}
+.kinetic-topics__track{animation:topics-right var(--marquee-duration,80s) linear infinite}
+.kinetic-topics__row--reverse .kinetic-topics__track{animation-name:topics-left}
+.kinetic-topics:is(.is-paused,.is-offscreen) .kinetic-topics__track{animation-play-state:paused}
+html:not(.js) .kinetic-topics__controls{display:none}
+@keyframes topics-right{from{transform:translateX(-33.333333%)}to{transform:translateX(0)}}
+@keyframes topics-left{from{transform:translateX(0)}to{transform:translateX(-33.333333%)}}
+@media(max-width:760px){.kinetic-topics{--marquee-font-size:clamp(2rem,11.5vw,4.5rem)}}
+@media(prefers-reduced-motion:reduce){
+ .statement-icon{--icon-reveal:1!important}
+ .model-timeline article>:is(i,.ds-number,h3,p){opacity:1;transform:none}
+ .model-timeline article::before{transform:scaleY(1)}
+ html.js .kinetic-topics__list{position:static;width:auto;height:auto;margin:0 auto;padding:0 22px;overflow:visible;clip-path:none;white-space:normal}
+ html.js .kinetic-topics__rows,.kinetic-topics__controls{display:none}
+}
+
+html:not(.js) [data-orbit-pause]{display:none}
+
+@media(prefers-reduced-motion:no-preference){html.js .kinetic-topics__pause{display:inline-flex}}
