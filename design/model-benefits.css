@@ -1,41 +1,26 @@
-/* Editorial rows: all the copy stays readable while the selected illustration comes forward. */
+/* Static editorial rows with permanently visible illustrations. */
 html[data-palette] .ds-component.model-benefits{background:var(--brand-paper);color:var(--brand-ink);--ds-ink:var(--brand-ink)!important;--ds-muted:var(--brand-ink)!important}
 .model-benefits .model-benefits-heading{max-width:960px;margin:0 auto 64px;text-align:center}
 .model-benefits-heading .ds-kicker{margin-inline:auto}
 .model-benefits .model-benefits-heading h2{line-height:1.08;text-wrap:balance}
 .model-benefit-list{max-width:1360px;margin-inline:auto}
-.model-benefit-row{display:grid;grid-template-columns:40px minmax(0,1.5fr) minmax(180px,.65fr) 44px;gap:28px;align-items:start;padding:36px clamp(20px,3vw,44px);border-top:1px solid var(--brand-stone);color:var(--brand-ink);transition:background .4s ease,color .4s ease,border-color .4s ease;border-radius:0}
+.model-benefit-row{display:grid;grid-template-columns:40px minmax(0,1.5fr) minmax(180px,.65fr);gap:28px;align-items:start;padding:36px clamp(20px,3vw,44px);border-top:1px solid var(--brand-stone);color:var(--brand-ink);border-radius:0}
 .model-benefit-row:last-child{border-bottom:1px solid var(--brand-stone)}
-.model-benefit-row.is-active{background:var(--brand-ink);color:var(--brand-paper);border-color:transparent;border-radius:24px}
-.model-benefit-row.is-active+.model-benefit-row{border-top-color:transparent}
 .model-benefit-number{padding-top:5px;font:400 20px/1.4 Inter,Arial,sans-serif;letter-spacing:-.04em;color:var(--brand-slate)}
-.model-benefit-row.is-active .model-benefit-number{color:#c3c5c9}
 .model-benefit-copy{min-width:0}
 .model-benefits .model-benefit-copy h3{margin:0;font-size:clamp(25px,2.2vw,34px);font-weight:500!important;line-height:1.2;letter-spacing:-.035em;color:inherit}
 .model-benefits .model-benefit-copy p{margin:16px 0 0;line-height:1.75;color:inherit;font-weight:400}
 .model-benefits .model-benefit-art{position:relative;align-self:stretch;margin:0;width:100%;min-height:0;pointer-events:none}
-.model-benefits .model-benefit-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transform:translateY(10px) scale(.94);transition:opacity .4s ease,transform .55s cubic-bezier(.22,1,.36,1)}
-.model-benefits .is-active .model-benefit-art img{opacity:1;transform:none}
-html[data-palette] .model-benefit-select{display:grid;place-items:center;width:44px;height:44px;min-width:44px;padding:0;border:1px solid color-mix(in srgb,currentColor 24%,transparent);border-radius:50%;background:transparent;color:inherit;cursor:pointer;transition:background .3s,color .3s,transform .3s,border-color .3s}
-html[data-palette] .is-active .model-benefit-select{background:var(--brand-paper);border-color:var(--brand-paper);color:var(--brand-ink)}
-.model-benefit-select svg{display:block;width:19px;height:19px;transition:transform .3s cubic-bezier(.22,1,.36,1)}
-.model-benefit-select:hover svg{transform:translateX(2px)}
-html[data-palette] .model-benefit-select:focus-visible{outline:2px solid currentColor!important;outline-offset:5px!important;box-shadow:none!important}
-html[data-palette] .is-active .model-benefit-select:focus-visible{outline-color:var(--brand-paper)!important}
-html:not(.js) .model-benefit-select{visibility:hidden}
+.model-benefits .model-benefit-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:1}
 @media(max-width:1100px){
- .model-benefit-row{grid-template-columns:30px minmax(0,1fr) 160px 40px;gap:20px;padding:30px 24px}
- html[data-palette] .model-benefit-select{width:40px;height:40px;min-width:40px}
+ .model-benefit-row{grid-template-columns:30px minmax(0,1fr) 160px;gap:20px;padding:30px 24px}
 }
 @media(max-width:760px){
  .model-benefits .model-benefits-heading{margin-bottom:40px}
- .model-benefit-row{grid-template-columns:minmax(0,1fr) 36px;gap:18px;padding:26px 20px}
+ .model-benefit-row{grid-template-columns:minmax(0,1fr);gap:18px;padding:26px 20px}
  .model-benefit-number{grid-column:1;grid-row:1;padding-top:3px}
  .model-benefit-copy{grid-column:1/-1;grid-row:2}
  .model-benefits .model-benefit-copy h3{font-size:26px}
  .model-benefits .model-benefit-art{grid-column:1/-1;grid-row:3;justify-self:center;width:180px;height:160px;aspect-ratio:auto;margin-top:4px}
  .model-benefits .model-benefit-art img{opacity:1;transform:none}
- html[data-palette] .model-benefit-select{grid-column:2;grid-row:1;width:36px;height:36px;min-width:36px}
- .model-benefit-row.is-active{border-radius:24px}
 }
-@media(prefers-reduced-motion:reduce){.model-benefit-row,.model-benefit-art img,.model-benefit-select,.model-benefit-select svg{transition:none!important;transform:none!important}}

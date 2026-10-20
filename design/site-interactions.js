@@ -3,7 +3,6 @@ import { setupStatementIcons } from './statement-icons';
 import { setupModelTimeline } from './model-timeline';
 import { setupTopicMarquee } from './topic-marquee';
 import { setupCtaOrbit } from './cta-orbit';
-import { setupModelBenefits } from './model-benefits';
 
 // Enhance the published HTML; never replace page sections or select a design.
 const preference = matchMedia('(prefers-reduced-motion: reduce)');
@@ -13,7 +12,6 @@ document.querySelectorAll('[data-home-statement]').forEach(section => setupState
 document.querySelectorAll('.model-timeline').forEach(path => setupModelTimeline(path.closest('section')));
 setupTopicMarquee(document.querySelector('[data-topic-marquee]'));
 document.querySelectorAll('[data-cta-orbit]').forEach(orbit => setupCtaOrbit(orbit.closest('section')));
-setupModelBenefits(document.querySelector('[data-model-benefits]'));
 document.querySelectorAll('[data-carousel]').forEach(carousel => {
  let index=0;const slides=[...carousel.querySelectorAll('figure')];
  const move=direction=>{index=(index+direction+slides.length)%slides.length;slides.forEach((slide,i)=>slide.hidden=i!==index);const status=carousel.querySelector('[aria-live]');if(status)status.textContent=(index+1)+' / '+slides.length;};
