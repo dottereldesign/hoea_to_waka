@@ -4,11 +4,13 @@ import assert from 'node:assert/strict';
 import { tokeniseCSS } from './theme-css.mjs';
 import { brandCSS } from './brand-css.mjs';
 import { renderBrandGuidelines } from './brand-guidelines.mjs';
+import { updateServiceLinkIcons } from './service-link-icons.mjs';
 
 // HTML contains the final layouts. This build only compiles their styles and interactions.
 const guidePath='about/brand-guidelines/index.html';
 const guide=await readFile(guidePath,'utf8');
 if(guide.includes('<!-- brand-colours:start -->'))await writeFile(guidePath,guide.replace(/<!-- brand-colours:start -->[\s\S]*?<!-- brand-colours:end -->/,renderBrandGuidelines()));
+await updateServiceLinkIcons();
 assert.equal(tokeniseCSS('.sample{color:var(--white);background:var(--black)}',new Set()),'.sample{color:var(--white);background:var(--black)}');
 const colours=new Set();
 for(const[source,target]of[['site.css','assets/site-palette.css'],['styles.css','assets/brand-palette.css'],['design/components.css','assets/components.css']]){

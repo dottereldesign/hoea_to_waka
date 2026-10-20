@@ -161,3 +161,10 @@ html[data-palette] .site-menu-appearance .site-theme-toggle{display:inline-block
 /* Keep glass in its own layer: the logo and links are rendered at their real size. */
 html[data-palette] [data-morph-header] .site-header-bar::before{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;background:transparent;pointer-events:none;transition:background-color .45s ease,box-shadow .45s ease}
 html[data-palette] [data-morph-header].is-scrolled .site-header-bar::before{background:var(--header-glass);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);box-shadow:0 6px 24px rgb(0 0 0 / .08)}
+
+/* Bespoke service marks: a shared waka, a paddle through a current, and sheltered growth. */
+html[data-palette] :is(.site-subnav,.site-menu-service-links,.site-preview-subnav) a{display:flex;align-items:center;gap:12px;white-space:normal}
+.service-link-icon{display:block;flex:0 0 28px;width:28px;height:28px;overflow:visible;color:inherit;transition:transform .3s cubic-bezier(.22,1,.36,1)}
+.service-link-label{min-width:0;line-height:1.5}
+:is(.site-subnav,.site-menu-service-links,.site-preview-subnav) a:is(:hover,:focus-visible) .service-link-icon{transform:translateY(-1px) rotate(-3deg)}
+@media(prefers-reduced-motion:reduce){.service-link-icon{transition:none;transform:none!important}}

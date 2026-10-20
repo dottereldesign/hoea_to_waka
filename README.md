@@ -9,6 +9,7 @@ Run `npm run build` after changing styles or interaction modules. Run `npm run p
 - Brand colours: `design/brand-tokens.mjs` and `design/brand-colours.css`.
 - Typography: `design/theme-fonts.css` and `design/static-pages.css`.
 - Navigation: `design/header.js` and `design/header.css`.
+- Service menu icons: `assets/icons/services/`; the build embeds these SVGs directly into each page's navigation.
 - Page interactions: `design/site-interactions.js`, with modules for statement icons, timelines, the marquee and the photo orbit.
 
 The recent 01/02 hero comparison remains. Historical layout selectors, nested variations and the previous marquee comparison are removed. Brand colour previews remain on `about/brand-guidelines/`, and illustrations remain on `illustrations/`.
