@@ -411,6 +411,11 @@ html[data-palette] body:not(.page-home) .ds-component:not(.subpage-hero) .ds-lea
 /* Coaching outcomes use the same inset, rounded surface as the model section. */
 html[data-palette] [data-component="services/resilience-one-on-one/:3:features"]{margin-inline:8px;width:auto;border-radius:32px;overflow:clip}
 
+/* Centre Anna's original content column after removing its decorative sidebar. */
+[data-component="about/:2:story"] .ds-story-blueprint{display:block;width:calc(100% - 320px);margin-inline:auto}
+@media(max-width:1100px){[data-component="about/:2:story"] .ds-story-blueprint{width:calc(100% - 185px)}}
+@media(max-width:760px){[data-component="about/:2:story"] .ds-story-blueprint{width:100%}}
+
 /* White at the top; a charcoal glass pill while scrolling, as in the reference. */
 html:has([data-morph-header]){scrollbar-gutter:stable}
 html[data-palette] body > .site-header[data-morph-header]{
