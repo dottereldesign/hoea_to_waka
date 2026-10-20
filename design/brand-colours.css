@@ -157,13 +157,21 @@ html[data-palette] .book-amazon-button:hover{background:var(--brand-ink);color:v
 html[data-palette] .book-amazon-button:focus-visible{outline:3px solid var(--brand-ocean-600);outline-offset:4px}
 @media(prefers-reduced-motion:reduce){.book-amazon-button,.book-amazon-button>svg{transition:none!important;transform:none!important}}
 
-/* One centred column keeps the FAQ heading and accordion together. */
-#home-faq .ds-faq-editorial{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(32px,4vw,48px);max-width:900px;margin-inline:auto;align-items:start}
+/* The introduction stays centred over two independent FAQ columns. */
+#home-faq .ds-faq-editorial{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(32px,4vw,48px);max-width:1200px;margin-inline:auto;align-items:start}
 #home-faq .ds-section-heading{max-width:none;margin:0;min-width:0;text-align:center}
-#home-faq .ds-faq-editorial>div{min-width:0;width:100%}
+#home-faq .home-faq-columns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(32px,5vw,72px);min-width:0;width:100%;align-items:start}
+#home-faq .home-faq-column{min-width:0;--faq-number-width:24px;--faq-gap:16px;--faq-text-inset:calc(var(--faq-number-width) + var(--faq-gap))}
 html[data-palette][data-typography] #home-faq .home-faq-eyebrow{display:table;margin:0 auto 24px!important;padding:9px 18px;border:1px solid var(--brand-stone);border-radius:999px;background:transparent;color:var(--brand-ink)}
-#home-faq .ds-answer{max-width:none}
-@media(max-width:760px){#home-faq summary{gap:12px}#home-faq .ds-answer{padding-inline:0}}
+#home-faq summary{display:grid;grid-template-columns:var(--faq-number-width) minmax(0,1fr) 24px;column-gap:var(--faq-gap);align-items:center;line-height:1.6}
+#home-faq summary>.home-faq-question{font:inherit;min-width:0}
+#home-faq summary>svg:last-child{margin-left:0}
+#home-faq .ds-answer{max-width:none;padding:0 var(--faq-text-inset) 26px}
+#home-faq details[open] .ds-answer{animation:none}
+#home-faq details.is-closing summary>svg:last-child{rotate:0deg}
+@media(max-width:760px){#home-faq .home-faq-columns{grid-template-columns:minmax(0,1fr);gap:0}#home-faq .home-faq-column{--faq-number-width:20px;--faq-gap:12px}}
+@media(prefers-reduced-motion:reduce){#home-faq summary,#home-faq summary>svg{transition:none}}
+
 .coaching-photo-panel img,html[data-palette] [data-component="services/resilience-one-on-one/:2:story"] .ex-visual>img{display:block;width:100%;object-fit:cover;object-position:center;border-radius:20px}
 .coaching-photo-panel img{height:auto}
 
