@@ -389,7 +389,7 @@ html[data-palette] .book-amazon-button:focus-visible{outline:3px solid var(--bra
 #home-faq .home-faq-columns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(32px,5vw,72px);min-width:0;width:100%;align-items:start}
 #home-faq .home-faq-column{min-width:0;--faq-number-width:24px;--faq-gap:16px;--faq-text-inset:calc(var(--faq-number-width) + var(--faq-gap))}
 html[data-palette][data-typography] #home-faq .home-faq-eyebrow{margin:0 auto 24px!important;color:var(--brand-ink)}
-#home-faq summary{display:grid;grid-template-columns:var(--faq-number-width) minmax(0,1fr) 24px;column-gap:var(--faq-gap);align-items:center;line-height:1.6}
+#home-faq summary{display:grid;grid-template-columns:var(--faq-number-width) minmax(0,1fr) 24px;column-gap:var(--faq-gap);align-items:center;font-size:1.1rem;line-height:1.6}
 #home-faq summary>.home-faq-question{font:inherit;min-width:0}
 #home-faq summary>svg:last-child{margin-left:0}
 #home-faq .ds-answer{max-width:none;padding:0 var(--faq-text-inset) 26px}
