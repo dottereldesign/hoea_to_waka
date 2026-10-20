@@ -606,6 +606,10 @@ html[data-palette] .model-button.model-button-inverse{--model-ink:var(--brand-pa
  .page-home .home-hero .home-hero-inner-photo .button-row .button{width:100%;white-space:nowrap;min-height:48px}
 }
 
+/* Compact, unfilled companion to the hero's arrow capsule. */
+html[data-palette] .model-button.model-button-outline{min-width:0;width:fit-content;min-height:56px;padding:15px 22px;gap:0;justify-content:center;background:transparent;color:var(--model-ink);border-color:var(--model-ink)}
+html[data-palette] .model-button.model-button-outline:is(:hover,:focus-visible){background:transparent;box-shadow:inset 0 0 0 1px var(--model-ink)}
+
 /* A homepage-only monochrome study. Original brand colours remain on other pages. */
 html:has(body.page-home){
 --brand-ocean-100:#f7f7f7!important;
