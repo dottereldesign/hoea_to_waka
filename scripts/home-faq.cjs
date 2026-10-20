@@ -1,7 +1,7 @@
 const {chromium}=require('playwright');
 const assert=require('node:assert/strict');
 const fs=require('node:fs');
-const isContact=process.argv.includes('--contact'),port=isContact?8821:8820,faqSelector=isContact?'#contact-faq':'#home-faq',url='http://127.0.0.1:'+port+'/hoea_to_waka/'+(isContact?'contact/':'');
+const port=8820,faqSelector='#home-faq',url='http://127.0.0.1:'+port+'/hoea_to_waka/';
 (async()=>{
  const server=require('./preview.cjs')(port),browser=await chromium.launch({channel:'chrome',headless:true});
  try{
@@ -26,7 +26,7 @@ const isContact=process.argv.includes('--contact'),port=isContact?8821:8820,faqS
    const expanded=await first.evaluate(e=>e.getBoundingClientRect().height);assert(expanded>mid,'opening finishes smoothly');
    const alignment=await first.evaluate(e=>Math.abs(e.querySelector('.ds-answer p').getBoundingClientRect().x-e.querySelector('.home-faq-question').getBoundingClientRect().x));assert(alignment<1,'answer aligned with question '+width);
    if(width>760)assert.equal(await faq.locator('.home-faq-column').nth(1).evaluate(e=>e.getBoundingClientRect().y),columns[1].y+(await page.evaluate(()=>0))- (await page.evaluate(()=>scrollY)),'right column remains anchored');
-   if([1440,390].includes(width))await faq.screenshot({path:`tmp/home-faq-motion/open-${isContact?'contact-':''}${width}.png`,style:'.site-header{visibility:hidden!important}'});
+   if([1440,390].includes(width))await faq.screenshot({path:`tmp/home-faq-motion/open-${width}.png`,style:'.site-header{visibility:hidden!important}'});
    await summary.click();await page.waitForFunction(h=>document.querySelector('.home-faq-column details').getBoundingClientRect().height<h-1,expanded);assert(await first.evaluate(e=>e.open),'stays open while closing');
    const closing=await first.evaluate(e=>e.getBoundingClientRect().height);assert(closing<expanded&&closing>collapsed,'closing has intermediate height');
    await page.waitForTimeout(400);assert.equal(await first.evaluate(e=>e.open),false);
