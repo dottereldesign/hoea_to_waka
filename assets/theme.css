@@ -844,14 +844,8 @@ html[data-palette] .subpage-hero.coaching-hero :focus-visible{outline:2px solid 
 [data-hero-palette="about"] .coaching-hero__background:nth-child(4){--cloud-deep:#9d568b;--cloud-mid:#66477d;--cloud-wash:#3d304c;--cloud-paper:#241a30}
 /* Model: chosen Ultraviolet ink background. */
 [data-hero-palette="model"] .coaching-hero__background{opacity:1;--cloud-deep:#8253c5;--cloud-mid:#4b3e89;--cloud-wash:#363052;--cloud-paper:#211c37}
-/* services: 01 Cobalt air */
-[data-hero-palette="services"] .coaching-hero__background:nth-child(1){--cloud-deep:#2254a7;--cloud-mid:#7797d5;--cloud-wash:#beddf0;--cloud-paper:#edf5fb}
-/* services: 02 Blue lilac */
-[data-hero-palette="services"] .coaching-hero__background:nth-child(2){--cloud-deep:#5051ac;--cloud-mid:#a2a4de;--cloud-wash:#c9d8f1;--cloud-paper:#f0f1fa}
-/* services: 03 Atlantic blue */
-[data-hero-palette="services"] .coaching-hero__background:nth-child(3){--cloud-deep:#326ea0;--cloud-mid:#354e84;--cloud-wash:#243955;--cloud-paper:#14253b}
-/* services: 04 Cobalt midnight */
-[data-hero-palette="services"] .coaching-hero__background:nth-child(4){--cloud-deep:#465bb4;--cloud-mid:#354478;--cloud-wash:#29324d;--cloud-paper:#171f32}
+/* Services: chosen Cobalt air background. */
+[data-hero-palette="services"] .coaching-hero__background{opacity:1;--cloud-deep:#2254a7;--cloud-mid:#7797d5;--cloud-wash:#beddf0;--cloud-paper:#edf5fb}
 /* Books and resources: chosen Mauve paper background. */
 [data-hero-palette="resources"] .coaching-hero__background{opacity:1;--cloud-deep:#a84b85;--cloud-mid:#c98fb6;--cloud-wash:#ddc6ee;--cloud-paper:#faf0f7}
 /* contact: 01 Apricot violet */
