@@ -9,6 +9,7 @@ Run `npm run build` after changing styles or interaction modules. Run `npm run p
 - Brand colours: `design/brand-tokens.mjs` and `design/brand-colours.css`.
 - Typography: `design/theme-fonts.css` and `design/static-pages.css`.
 - Navigation: `design/header.js` and `design/header.css`.
+- Subpage background comparisons: `design/subpage-backgrounds.css` defines each page's four cloud palettes; `design/coaching-hero.css` shares the grain and controls. Labels live in each page's HTML. Run `npm run test:subpage-backgrounds` to check all four options across screen sizes.
 - Service menu icons: `assets/icons/services/`; the build embeds these SVGs directly into each page's navigation.
 - Page interactions: `design/site-interactions.js`, with modules for statement icons, timelines, the marquee and the photo orbit.
 

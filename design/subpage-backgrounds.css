@@ -1,0 +1,58 @@
+/* Page-specific cloud colours; shared grain, transitions and controls live in coaching-hero.css. */
+[data-hero-palette] .coaching-hero__background{background:radial-gradient(ellipse at 100% 114%,var(--cloud-deep) 0%,var(--cloud-mid) 22%,transparent 62%),radial-gradient(ellipse at 12% 108%,var(--cloud-wash) 0%,transparent 65%),radial-gradient(ellipse at 45% 0%,var(--cloud-paper) 0%,var(--cloud-paper) 32%,transparent 85%),var(--cloud-paper)}
+/* about: 01 Wisteria sky */
+[data-hero-palette="about"] .coaching-hero__background:nth-child(1){--cloud-deep:#7447b8;--cloud-mid:#aa8bd9;--cloud-wash:#c7d8f1;--cloud-paper:#f1eaf8}
+/* about: 02 Lilac dusk */
+[data-hero-palette="about"] .coaching-hero__background:nth-child(2){--cloud-deep:#525ba4;--cloud-mid:#9ca6dd;--cloud-wash:#e8c9e5;--cloud-paper:#f7eef8}
+/* about: 03 Velvet violet */
+[data-hero-palette="about"] .coaching-hero__background:nth-child(3){--cloud-deep:#7d5abb;--cloud-mid:#533f8e;--cloud-wash:#313651;--cloud-paper:#211b37}
+/* about: 04 Aubergine glow */
+[data-hero-palette="about"] .coaching-hero__background:nth-child(4){--cloud-deep:#9d568b;--cloud-mid:#66477d;--cloud-wash:#3d304c;--cloud-paper:#241a30}
+/* model: 01 Iris blue */
+[data-hero-palette="model"] .coaching-hero__background:nth-child(1){--cloud-deep:#4343af;--cloud-mid:#7883d3;--cloud-wash:#bfd7f0;--cloud-paper:#eff1fc}
+/* model: 02 Periwinkle cloud */
+[data-hero-palette="model"] .coaching-hero__background:nth-child(2){--cloud-deep:#6267d0;--cloud-mid:#a7a9e4;--cloud-wash:#c4e5ef;--cloud-paper:#f1f6fb}
+/* model: 03 Deep indigo */
+[data-hero-palette="model"] .coaching-hero__background:nth-child(3){--cloud-deep:#5752b9;--cloud-mid:#3b4b94;--cloud-wash:#263757;--cloud-paper:#161d39}
+/* model: 04 Ultraviolet ink */
+[data-hero-palette="model"] .coaching-hero__background:nth-child(4){--cloud-deep:#8253c5;--cloud-mid:#4b3e89;--cloud-wash:#363052;--cloud-paper:#211c37}
+/* services: 01 Cobalt air */
+[data-hero-palette="services"] .coaching-hero__background:nth-child(1){--cloud-deep:#2254a7;--cloud-mid:#7797d5;--cloud-wash:#beddf0;--cloud-paper:#edf5fb}
+/* services: 02 Blue lilac */
+[data-hero-palette="services"] .coaching-hero__background:nth-child(2){--cloud-deep:#5051ac;--cloud-mid:#a2a4de;--cloud-wash:#c9d8f1;--cloud-paper:#f0f1fa}
+/* services: 03 Atlantic blue */
+[data-hero-palette="services"] .coaching-hero__background:nth-child(3){--cloud-deep:#326ea0;--cloud-mid:#354e84;--cloud-wash:#243955;--cloud-paper:#14253b}
+/* services: 04 Cobalt midnight */
+[data-hero-palette="services"] .coaching-hero__background:nth-child(4){--cloud-deep:#465bb4;--cloud-mid:#354478;--cloud-wash:#29324d;--cloud-paper:#171f32}
+/* resources: 01 Mauve paper */
+[data-hero-palette="resources"] .coaching-hero__background:nth-child(1){--cloud-deep:#a84b85;--cloud-mid:#c98fb6;--cloud-wash:#ddc6ee;--cloud-paper:#faf0f7}
+/* resources: 02 Violet apricot */
+[data-hero-palette="resources"] .coaching-hero__background:nth-child(2){--cloud-deep:#a978c2;--cloud-mid:#d1a6cf;--cloud-wash:#f3d4bd;--cloud-paper:#fcf4ed}
+/* resources: 03 Mulberry ink */
+[data-hero-palette="resources"] .coaching-hero__background:nth-child(3){--cloud-deep:#a35890;--cloud-mid:#754975;--cloud-wash:#44304f;--cloud-paper:#291b33}
+/* resources: 04 Plum ember */
+[data-hero-palette="resources"] .coaching-hero__background:nth-child(4){--cloud-deep:#b47759;--cloud-mid:#785578;--cloud-wash:#473247;--cloud-paper:#281d2c}
+/* contact: 01 Apricot violet */
+[data-hero-palette="contact"] .coaching-hero__background:nth-child(1){--cloud-deep:#b27bb7;--cloud-mid:#d4a3cf;--cloud-wash:#f1cfb9;--cloud-paper:#fff3e9}
+/* contact: 02 Rose quartz */
+[data-hero-palette="contact"] .coaching-hero__background:nth-child(2){--cloud-deep:#aa659b;--cloud-mid:#cb9ec5;--cloud-wash:#e4d3ef;--cloud-paper:#fbf0f6}
+/* contact: 03 Twilight copper */
+[data-hero-palette="contact"] .coaching-hero__background:nth-child(3){--cloud-deep:#b27960;--cloud-mid:#805779;--cloud-wash:#493445;--cloud-paper:#2b202c}
+/* contact: 04 Rosewood night */
+[data-hero-palette="contact"] .coaching-hero__background:nth-child(4){--cloud-deep:#a5608a;--cloud-mid:#6d466e;--cloud-wash:#40304c;--cloud-paper:#261c32}
+/* workshops: 01 Peach iris */
+[data-hero-palette="workshops"] .coaching-hero__background:nth-child(1){--cloud-deep:#7352ae;--cloud-mid:#b49ad6;--cloud-wash:#f4cdb0;--cloud-paper:#fcf2e9}
+/* workshops: 02 Amber lavender */
+[data-hero-palette="workshops"] .coaching-hero__background:nth-child(2){--cloud-deep:#b27b51;--cloud-mid:#d3ae8d;--cloud-wash:#d6c6ed;--cloud-paper:#f8f0fa}
+/* workshops: 03 Violet ember */
+[data-hero-palette="workshops"] .coaching-hero__background:nth-child(3){--cloud-deep:#b77a51;--cloud-mid:#76538e;--cloud-wash:#3f3052;--cloud-paper:#251c37}
+/* workshops: 04 Aubergine copper */
+[data-hero-palette="workshops"] .coaching-hero__background:nth-child(4){--cloud-deep:#b87361;--cloud-mid:#7b4c7c;--cloud-wash:#49314c;--cloud-paper:#291c30}
+/* support: 01 Coastal sage */
+[data-hero-palette="support"] .coaching-hero__background:nth-child(1){--cloud-deep:#397d8f;--cloud-mid:#88b8be;--cloud-wash:#c6dceb;--cloud-paper:#eef8f5}
+/* support: 02 Teal periwinkle */
+[data-hero-palette="support"] .coaching-hero__background:nth-child(2){--cloud-deep:#5867ad;--cloud-mid:#a0b2d7;--cloud-wash:#bce4da;--cloud-paper:#eff8f7}
+/* support: 03 Deep tidal */
+[data-hero-palette="support"] .coaching-hero__background:nth-child(3){--cloud-deep:#417e91;--cloud-mid:#375774;--cloud-wash:#223f4b;--cloud-paper:#152d38}
+/* support: 04 Forest violet */
+[data-hero-palette="support"] .coaching-hero__background:nth-child(4){--cloud-deep:#6b5da5;--cloud-mid:#435b73;--cloud-wash:#2b4448;--cloud-paper:#192e32}
