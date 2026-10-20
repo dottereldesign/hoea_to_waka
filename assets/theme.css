@@ -414,6 +414,13 @@ html[data-palette][data-typography] :is(#home-faq,#contact-faq) .home-faq-eyebro
 [data-component="contact/:2:contact"] .ds-preserved-form textarea{border-radius:24px;padding:18px 20px}
 [data-component="contact/:2:contact"] .ds-preserved-form .model-button{justify-self:start;cursor:pointer}
 
+/* Stagger the workshop cards without moving the editorial heading column. */
+html[data-palette] [data-component="services/in-house-workshops/:2:features"]{--section-surface:transparent;background:transparent}
+[data-component="services/in-house-workshops/:2:features"] .ds-feature-columns{align-items:start;--card-step:clamp(40px,4.5vw,64px)}
+[data-component="services/in-house-workshops/:2:features"] .ds-card:nth-child(2){margin-top:var(--card-step)}
+[data-component="services/in-house-workshops/:2:features"] .ds-card:nth-child(3){margin-top:calc(var(--card-step) * 2)}
+@media(max-width:760px){[data-component="services/in-house-workshops/:2:features"] .ds-card:nth-child(n){margin-top:0}}
+
 .coaching-photo-panel img,html[data-palette] [data-component="services/resilience-one-on-one/:2:story"] .ex-visual>img{display:block;width:100%;object-fit:cover;object-position:center;border-radius:20px}
 .coaching-photo-panel img{height:auto}
 
