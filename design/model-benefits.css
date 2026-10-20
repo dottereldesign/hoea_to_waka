@@ -5,7 +5,7 @@ html[data-palette] .ds-component.model-benefits{background:var(--brand-paper);co
 .model-benefits .model-benefits-heading h2{line-height:1.08;text-wrap:balance}
 .model-benefit-list{max-width:1360px;margin-inline:auto}
 .model-benefit-row{display:grid;grid-template-columns:40px minmax(0,1.5fr) minmax(180px,.65fr);gap:28px;align-items:start;padding:36px clamp(20px,3vw,44px);border-top:1px solid var(--brand-stone);color:var(--brand-ink);border-radius:0}
-.model-benefit-row:last-child{border-bottom:1px solid var(--brand-stone)}
+.model-benefit-row:first-child{border-top:0}
 .model-benefit-number{padding-top:5px;font:400 20px/1.4 Inter,Arial,sans-serif;letter-spacing:-.04em;color:var(--brand-slate)}
 .model-benefit-copy{min-width:0}
 .model-benefits .model-benefit-copy h3{margin:0;font-size:clamp(25px,2.2vw,34px);font-weight:500!important;line-height:1.2;letter-spacing:-.035em;color:inherit}
