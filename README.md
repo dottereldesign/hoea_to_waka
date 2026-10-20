@@ -13,6 +13,7 @@ Run `npm run build` after changing styles or interaction modules. Run `npm run p
 - Subpage background comparisons: `design/subpage-backgrounds.css` defines each page's four cloud palettes; `design/coaching-hero.css` shares the grain and controls. Labels live in each page's HTML. Run `npm run test:subpage-backgrounds` to check all four options across screen sizes.
 - Service menu icons: `assets/icons/services/`; the build embeds these SVGs directly into each page's navigation.
 - Page interactions: `design/site-interactions.js`, with modules for statement icons, timelines, the marquee and the photo orbit.
+- Model benefits: `design/model-benefits.css` and `design/model-benefits.js`. Transparent artwork and generation prompts are in `assets/model-benefits/`; run `npm run test:model-benefits` to check row selection, responsive layout and accessibility.
 
 The recent 01/02 hero comparison remains. Historical layout selectors, nested variations and the previous marquee comparison are removed. Brand colour previews remain on `about/brand-guidelines/`, and illustrations remain on `illustrations/`.
 
