@@ -852,14 +852,8 @@ html[data-palette] .subpage-hero.coaching-hero :focus-visible{outline:2px solid 
 [data-hero-palette="contact"] .coaching-hero__background:nth-child(4){--cloud-deep:#a5608a;--cloud-mid:#6d466e;--cloud-wash:#40304c;--cloud-paper:#261c32}
 /* In-house workshops: chosen Aubergine copper background. */
 [data-hero-palette="workshops"] .coaching-hero__background{opacity:1;--cloud-deep:#b87361;--cloud-mid:#7b4c7c;--cloud-wash:#49314c;--cloud-paper:#291c30}
-/* support: 01 Coastal sage */
-[data-hero-palette="support"] .coaching-hero__background:nth-child(1){--cloud-deep:#397d8f;--cloud-mid:#88b8be;--cloud-wash:#c6dceb;--cloud-paper:#eef8f5}
-/* support: 02 Teal periwinkle */
-[data-hero-palette="support"] .coaching-hero__background:nth-child(2){--cloud-deep:#5867ad;--cloud-mid:#a0b2d7;--cloud-wash:#bce4da;--cloud-paper:#eff8f7}
-/* support: 03 Deep tidal */
-[data-hero-palette="support"] .coaching-hero__background:nth-child(3){--cloud-deep:#417e91;--cloud-mid:#375774;--cloud-wash:#223f4b;--cloud-paper:#152d38}
-/* support: 04 Forest violet */
-[data-hero-palette="support"] .coaching-hero__background:nth-child(4){--cloud-deep:#6b5da5;--cloud-mid:#435b73;--cloud-wash:#2b4448;--cloud-paper:#192e32}
+/* Support professional training: chosen Coastal sage background. */
+[data-hero-palette="support"] .coaching-hero__background{opacity:1;--cloud-deep:#397d8f;--cloud-mid:#88b8be;--cloud-wash:#c6dceb;--cloud-paper:#eef8f5}
 
 /* Four arrangements of the same links, contact details, wordmark and safety link. */
 html[data-palette] .site-footer[data-footer-version]{--footer-muted:#c3c5c9;--footer-line:#ffffff29;padding:72px 0 24px}
