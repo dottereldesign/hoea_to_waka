@@ -265,6 +265,8 @@ html[data-palette][data-typography] body :is(.site-brand,.footer-brand-lockup,.d
 html[data-palette] .home-hero .home-hero-inner-photo h1.display-title{transform:none;line-height:1.05;letter-spacing:0}
 /* Larger serif overlines, including the labels above individual service cards. */
 html[data-palette][data-typography] body :is(.eyebrow,.section-eyebrow,.ds-kicker,.ds-number,.service-index,.info-card-number,.ds-facts dt,.pp-facts dt,[class*="eyebrow"],[class*="kicker"]){font-family:'ABC Marist',Georgia,serif!important;font-weight:350!important;font-synthesis:none;font-size:18px!important;line-height:1.35!important;text-transform:none!important;letter-spacing:.01em}
+/* Shared outlined pills for eyebrow labels, with contrast inherited from each surface. */
+html[data-palette][data-typography] body :is(.eyebrow,.section-eyebrow,.ds-kicker,[class*="eyebrow"],[class*="kicker"]){display:inline-block;width:fit-content;max-width:100%;box-sizing:border-box;padding:9px 18px;border:1px solid color-mix(in srgb,currentColor 22%,transparent);border-radius:999px;background:transparent!important;vertical-align:middle;overflow-wrap:anywhere}
 html[data-palette][data-typography] body :is(.eyebrow,.section-eyebrow,.ds-kicker,.ds-number,.service-index,.info-card-number,.ds-facts dt,.pp-facts dt,[class*="eyebrow"],[class*="kicker"]) *{text-transform:none!important;font-family:'ABC Marist',Georgia,serif!important;font-weight:350!important;font-synthesis:none}
 @media(max-width:760px){html[data-palette][data-typography] body :is(.eyebrow,.section-eyebrow,.ds-kicker,.ds-number,.service-index,.info-card-number,.ds-facts dt,.pp-facts dt,[class*="eyebrow"],[class*="kicker"]){font-size:16px!important}}
 html[data-palette] .site-footer{background:var(--brand-ink);color:var(--brand-paper);margin:0 8px 8px;width:auto;border-radius:32px;overflow:clip}
@@ -385,7 +387,7 @@ html[data-palette] .book-amazon-button:focus-visible{outline:3px solid var(--bra
 #home-faq .ds-section-heading{max-width:none;margin:0;min-width:0;text-align:center}
 #home-faq .home-faq-columns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(32px,5vw,72px);min-width:0;width:100%;align-items:start}
 #home-faq .home-faq-column{min-width:0;--faq-number-width:24px;--faq-gap:16px;--faq-text-inset:calc(var(--faq-number-width) + var(--faq-gap))}
-html[data-palette][data-typography] #home-faq .home-faq-eyebrow{display:table;margin:0 auto 24px!important;padding:9px 18px;border:1px solid var(--brand-stone);border-radius:999px;background:transparent;color:var(--brand-ink)}
+html[data-palette][data-typography] #home-faq .home-faq-eyebrow{margin:0 auto 24px!important;color:var(--brand-ink)}
 #home-faq summary{display:grid;grid-template-columns:var(--faq-number-width) minmax(0,1fr) 24px;column-gap:var(--faq-gap);align-items:center;line-height:1.6}
 #home-faq summary>.home-faq-question{font:inherit;min-width:0}
 #home-faq summary>svg:last-child{margin-left:0}
