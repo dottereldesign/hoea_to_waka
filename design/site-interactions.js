@@ -24,4 +24,4 @@ document.querySelectorAll('[data-tabs]').forEach(tabs=>{
  buttons.forEach((button,i)=>{button.addEventListener('click',()=>activate(i));button.addEventListener('keydown',event=>{let index;if(event.key==='ArrowRight')index=(i+1)%buttons.length;if(event.key==='ArrowLeft')index=(i+buttons.length-1)%buttons.length;if(event.key==='Home')index=0;if(event.key==='End')index=buttons.length-1;if(index!==undefined){event.preventDefault();activate(index);buttons[index].focus();}});});
 });
 
-setupHomeFaq(document.querySelector('#home-faq'));
+document.querySelectorAll('#home-faq,#contact-faq').forEach(setupHomeFaq);

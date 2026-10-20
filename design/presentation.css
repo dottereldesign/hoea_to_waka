@@ -119,12 +119,12 @@ html[data-palette] :is(.home-cta-simple,.ds-component[data-component="home:7:cta
 @media(prefers-reduced-motion:reduce){.home-cta-orbit{animation:none!important}.home-cta-orbit-pause{display:none}}
 
 /* A light, centred FAQ section with the shared dark ink. */
-#home-faq{margin-inline:8px;border-radius:32px;overflow:clip}
-html[data-palette] .ds-component[data-component="home:8:faq"]{background:var(--brand-paper);color:var(--brand-ink);--ds-bg:var(--brand-paper)!important;--ds-ink:var(--brand-ink)!important;--ds-muted:var(--brand-ink)!important;--ds-surface:var(--brand-paper)!important;--ds-accent:var(--brand-warm-white)!important;--ds-line:var(--brand-stone)!important}
-#home-faq :is(.ds-title,summary,.ds-answer){color:var(--ds-ink)}
-#home-faq summary{border-radius:4px;transition:background .2s}
-#home-faq summary:hover{background:var(--ds-accent)}
-html[data-palette] #home-faq summary:focus-visible{outline:2px solid var(--brand-ink)!important;outline-offset:4px!important;box-shadow:none!important}
+:is(#home-faq,#contact-faq){margin-inline:8px;border-radius:32px;overflow:clip}
+html[data-palette] .ds-component:is([data-component="home:8:faq"],[data-component="contact/:3:faq"]){background:var(--brand-paper);color:var(--brand-ink);--ds-bg:var(--brand-paper)!important;--ds-ink:var(--brand-ink)!important;--ds-muted:var(--brand-ink)!important;--ds-surface:var(--brand-paper)!important;--ds-accent:var(--brand-warm-white)!important;--ds-line:var(--brand-stone)!important}
+:is(#home-faq,#contact-faq) :is(.ds-title,summary,.ds-answer){color:var(--ds-ink)}
+:is(#home-faq,#contact-faq) summary{border-radius:4px;transition:background .2s}
+:is(#home-faq,#contact-faq) summary:hover{background:var(--ds-accent)}
+html[data-palette] :is(#home-faq,#contact-faq) summary:focus-visible{outline:2px solid var(--brand-ink)!important;outline-offset:4px!important;box-shadow:none!important}
 /* Homepage testimonials use a white canvas with navy copy and controls. */
 html[data-palette] .ds-component[data-component="home:6:testimonials"]{--ds-bg:#fff!important;--ds-ink:#142044!important;--ds-muted:#526078!important;--ds-surface:#fff!important;--ds-accent:#eef1f9!important;--ds-line:#c7cede!important}
 [data-component="home:6:testimonials"] :is(figcaption,.ds-carousel-status){color:var(--ds-muted)}

@@ -1,4 +1,4 @@
-// Native details remain usable without JavaScript; enhance only the homepage FAQ.
+// The shared homepage and Contact FAQ remains usable without JavaScript.
 export function setupHomeFaq(section) {
   if (!section) return;
   const preference = matchMedia('(prefers-reduced-motion: reduce)');
