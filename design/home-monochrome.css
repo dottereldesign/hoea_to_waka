@@ -86,7 +86,7 @@ html[data-palette] :is([data-component="home:4:features"],[data-component="about
  background:#281a2c;--ds-bg:#281a2c!important;--ds-ink:#fff!important;--ds-muted:#f0e9f2!important;--ds-line:#806788!important;
 }
 
-/* Services and questions share the solid hero's charcoal surface. */
-html[data-palette] .page-home :is([data-component="home:3:services"],#home-faq){
+/* Services share the solid hero's charcoal surface. */
+html[data-palette] .page-home [data-component="home:3:services"]{
  background:#202020;--ds-bg:#202020!important;--ds-surface:#202020!important;--ds-ink:#fff!important;--ds-muted:#d5d5d5!important;
 }

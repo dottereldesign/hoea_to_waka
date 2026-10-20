@@ -157,18 +157,13 @@ html[data-palette] .book-amazon-button:hover{background:var(--brand-ink);color:v
 html[data-palette] .book-amazon-button:focus-visible{outline:3px solid var(--brand-ocean-600);outline-offset:4px}
 @media(prefers-reduced-motion:reduce){.book-amazon-button,.book-amazon-button>svg{transition:none!important;transform:none!important}}
 
-/* The homepage questions sit beside a welcoming photograph and introduction. */
-#home-faq :is(.ds-faq-editorial,.container.split){display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(40px,6vw,88px);align-items:start}
-#home-faq :is(.ds-section-heading,.home-faq-heading){grid-column:2;grid-row:1;margin:0;min-width:0}
-#home-faq .ds-faq-editorial>div,#home-faq .faq-list{grid-column:1;grid-row:1;min-width:0}
-#home-faq .home-faq-photo{display:block;width:100%;height:auto;aspect-ratio:1200/669;object-fit:cover;border-radius:20px;margin:0 0 32px}
-@media(max-width:900px){
-  #home-faq :is(.ds-faq-editorial,.container.split){grid-template-columns:minmax(0,1fr);gap:36px}
-  #home-faq :is(.ds-section-heading,.home-faq-heading){grid-column:1;grid-row:1}
-  #home-faq .ds-faq-editorial>div,#home-faq .faq-list{grid-column:1;grid-row:2}
-  #home-faq .home-faq-photo{margin-bottom:24px}
-}
-
+/* One centred column keeps the FAQ heading and accordion together. */
+#home-faq .ds-faq-editorial{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(32px,4vw,48px);max-width:900px;margin-inline:auto;align-items:start}
+#home-faq .ds-section-heading{max-width:none;margin:0;min-width:0;text-align:center}
+#home-faq .ds-faq-editorial>div{min-width:0;width:100%}
+html[data-palette][data-typography] #home-faq .home-faq-eyebrow{display:table;margin:0 auto 24px!important;padding:9px 18px;border:1px solid var(--brand-stone);border-radius:999px;background:transparent;color:var(--brand-ink)}
+#home-faq .ds-answer{max-width:none}
+@media(max-width:760px){#home-faq summary{gap:12px}#home-faq .ds-answer{padding-inline:0}}
 .coaching-photo-panel img,html[data-palette] [data-component="services/resilience-one-on-one/:2:story"] .ex-visual>img{display:block;width:100%;object-fit:cover;object-position:center;border-radius:20px}
 .coaching-photo-panel img{height:auto}
 

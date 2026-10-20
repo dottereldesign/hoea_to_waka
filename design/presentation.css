@@ -117,17 +117,13 @@ html[data-palette] :is(.home-cta-simple,.ds-component[data-component="home:7:cta
 @media(max-width:360px){.home-cta-orbit-well{height:660px}.home-cta-orbit img{width:calc(var(--photo-width)*.5px)}}
 @media(prefers-reduced-motion:reduce){.home-cta-orbit{animation:none!important}.home-cta-orbit-pause{display:none}}
 
-/* Forest green FAQs complement the homepage's navy and plum sections. */
+/* A light, centred FAQ section with the shared dark ink. */
 #home-faq{margin-inline:8px;border-radius:32px;overflow:clip}
-html[data-palette] :is(.home-faq-section,.ds-component[data-component="home:8:faq"]){background:#153e35;color:#f5f8f4;--ds-bg:#153e35!important;--ds-ink:#f5f8f4!important;--ds-muted:#d0ded5!important;--ds-surface:#1e4b40!important;--ds-accent:#29584b!important;--ds-line:#54776a!important}
-#home-faq .ds-answer{color:var(--ds-muted)}
-#home-faq .faq-list p{color:#d0ded5}
-#home-faq .faq-list details{border-color:#54776a}
-#home-faq :is(.eyebrow,.section-title,.faq-list summary){color:#f5f8f4}
+html[data-palette] .ds-component[data-component="home:8:faq"]{background:var(--brand-paper);color:var(--brand-ink);--ds-bg:var(--brand-paper)!important;--ds-ink:var(--brand-ink)!important;--ds-muted:var(--brand-ink)!important;--ds-surface:var(--brand-paper)!important;--ds-accent:var(--brand-warm-white)!important;--ds-line:var(--brand-stone)!important}
+#home-faq :is(.ds-title,summary,.ds-answer){color:var(--ds-ink)}
 #home-faq summary{border-radius:4px;transition:background .2s}
-#home-faq summary:hover{background:var(--ds-accent,#29584b)}
-html[data-palette] #home-faq summary:focus-visible{outline-color:#d6e8bd;outline-offset:4px}
-
+#home-faq summary:hover{background:var(--ds-accent)}
+html[data-palette] #home-faq summary:focus-visible{outline:2px solid var(--brand-ink)!important;outline-offset:4px!important;box-shadow:none!important}
 /* Homepage testimonials use a white canvas with navy copy and controls. */
 html[data-palette] .ds-component[data-component="home:6:testimonials"]{--ds-bg:#fff!important;--ds-ink:#142044!important;--ds-muted:#526078!important;--ds-surface:#fff!important;--ds-accent:#eef1f9!important;--ds-line:#c7cede!important}
 [data-component="home:6:testimonials"] :is(figcaption,.ds-carousel-status){color:var(--ds-muted)}
