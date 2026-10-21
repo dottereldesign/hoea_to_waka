@@ -1,3 +1,4 @@
+import { setupResourcesNav } from './resources-nav';
 import { setupTestimonials } from './testimonials';
 import { setupHomeFaq } from './home-faq';
 import { setupStatementIcons } from './statement-icons';
@@ -27,3 +28,5 @@ document.querySelectorAll('[data-tabs]').forEach(tabs=>{
 });
 
 document.querySelectorAll('#home-faq,#contact-faq').forEach(setupHomeFaq);
+
+setupResourcesNav(document.querySelector("[data-resources-browser]"));

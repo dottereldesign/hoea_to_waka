@@ -35,7 +35,7 @@ let theme=await readFile('design/theme-fonts.css','utf8');
 theme+=brandCSS(colours);
 theme+='\n[data-component-palette]{'+lightAliases.join(';')+'}\nhtml[data-theme="dark"] [data-component-palette]{'+darkAliases.join(';')+'}';
 theme+='\n'+presentation;
-for(const file of['brand-colours','header','model-button','home-monochrome','static-pages','section-spacing','coaching-hero','subpage-backgrounds','footer-versions','model-benefits','brand-contents','hero-illustrations'])theme+='\n'+await readFile('design/'+file+'.css','utf8');
+for(const file of['brand-colours','header','model-button','home-monochrome','static-pages','section-spacing','coaching-hero','subpage-backgrounds','footer-versions','model-benefits','brand-contents','hero-illustrations','resources-nav'])theme+='\n'+await readFile('design/'+file+'.css','utf8');
 await writeFile('assets/theme.css',theme);
 await build({entryPoints:['design/theme-init.js'],bundle:true,minify:true,format:'iife',target:['es2020'],outfile:'assets/theme-init.js'});
 await build({entryPoints:['design/site-interactions.js'],bundle:true,minify:true,format:'iife',target:['es2020'],outfile:'assets/site-interactions.js',legalComments:'linked'});

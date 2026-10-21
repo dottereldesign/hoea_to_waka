@@ -26,3 +26,5 @@ The homepage hero comparison keeps 01/02 and adds illustrated SVG studies 03/04/
 - Brand guidelines contents is a normal section above Brand Overview, with a two-column index that stacks on mobile. The guide has no sticky sidebar, and Discover links to the contents. Styles live in `design/brand-contents.css`; run `node scripts/brand-contents.cjs` to check navigation, responsive layout, dark theme and accessibility.
 
 - Illustrated hero studies: `assets/hero-studies/` contains the editable SVG scenes and separate grain overlay. Styling is in `design/hero-illustrations.css`. Run `node scripts/hero-illustrations.cjs` for the scene controls, grain comparison, accessibility and responsive checks.
+
+- Resource browsing: `design/resources-nav.css` and `design/resources-nav.js` provide a sticky desktop index, swipeable mobile links, animated active markers and section tracking. Books, purchase links and embedded videos stay in the normal document flow. Run `node scripts/resources-nav.cjs` for responsive navigation, keyboard, reduced-motion and smooth-transition checks.
