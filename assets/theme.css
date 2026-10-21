@@ -1001,6 +1001,15 @@ html[data-palette] .brand-guide-contents__link:is(:hover,:focus-visible){backgro
 @media(max-width:760px){.brand-guide-contents__grid{grid-template-columns:minmax(0,1fr)}html[data-palette] .brand-guide-contents__link:nth-last-child(2){border-bottom:1px solid var(--t-line)}html[data-palette] .brand-guide-contents__link{grid-template-columns:24px minmax(0,1fr) 20px;gap:6px 10px;padding:18px 0}.brand-guide-contents__title{font-size:18px}.brand-guide-contents__note{font-size:15px}}
 @media(prefers-reduced-motion:reduce){.brand-guide-contents__link,.brand-guide-contents__arrow{transition:none!important;transform:none!important}}
 
+/* The guide uses the shared full-width site shell. */
+.brand-guidelines > .page-shell{width:100%;max-width:none;margin:0;padding-top:0}
+.brand-guidelines .site-preview-guide-cover{margin:0 8px}
+@media(max-width:760px){.brand-guidelines .site-preview h1.site-preview-guide-cover-title{font-size:clamp(40px,13vw,72px)}}
+
+.brand-guidelines .site-preview-guide-cover,.brand-guidelines .site-preview-guide-cover-shell,.brand-guidelines .site-preview-brand-hero-shell,.brand-guidelines .site-preview-brand-hero-lockup{min-width:0;max-width:100%}
+.brand-guidelines .site-preview-guide-cover{width:calc(100% - 16px);box-sizing:border-box;justify-self:start}
+@media(max-width:760px){.brand-guidelines .site-preview-brand-hero-subtitle{white-space:normal;overflow-wrap:anywhere}}
+
 /* Reference-inspired vector studies; these colours are intentionally local to 03-05. */
 .home-hero-art{display:none;position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;background:#633cff;isolation:isolate}
 .home-hero-art__scene{display:none;position:absolute;inset:auto 0 0;width:100%;height:auto;max-width:none;aspect-ratio:708/390;object-fit:contain}
