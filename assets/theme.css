@@ -467,6 +467,10 @@ html[data-palette] [data-testimonial-autoplay] .ds-controls button:hover{backgro
 html[data-palette] [data-testimonial-autoplay] .ds-controls button[hidden]{display:none}
 [data-testimonial-pause] svg{width:20px;height:20px}
 
+/* Calm, rounded outcome cards with plain ink icons. */
+html[data-palette] [data-component="services/resilience-one-on-one/:3:features"] .pp-feature{border-radius:24px}
+html[data-palette] [data-component="services/resilience-one-on-one/:3:features"] .pp-feature-marker{background:transparent;color:var(--brand-ink)}
+
 /* White at the top; a charcoal glass pill while scrolling, as in the reference. */
 html:has([data-morph-header]){scrollbar-gutter:stable}
 html[data-palette] body > .site-header[data-morph-header]{

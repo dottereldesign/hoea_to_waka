@@ -242,3 +242,7 @@ html[data-palette] [data-testimonial-autoplay] .ds-controls button{display:grid;
 html[data-palette] [data-testimonial-autoplay] .ds-controls button:hover{background:var(--brand-ink);color:var(--brand-paper)}
 html[data-palette] [data-testimonial-autoplay] .ds-controls button[hidden]{display:none}
 [data-testimonial-pause] svg{width:20px;height:20px}
+
+/* Calm, rounded outcome cards with plain ink icons. */
+html[data-palette] [data-component="services/resilience-one-on-one/:3:features"] .pp-feature{border-radius:24px}
+html[data-palette] [data-component="services/resilience-one-on-one/:3:features"] .pp-feature-marker{background:transparent;color:var(--brand-ink)}
