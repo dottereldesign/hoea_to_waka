@@ -119,8 +119,8 @@
         ]
       }
     </script>
-    <script src="assets/theme-init.js?v=25"></script>
-    <link rel="stylesheet" href="assets/theme.css?v=116">
+    <script src="assets/theme-init.js?v=26"></script>
+    <link rel="stylesheet" href="assets/theme.css?v=120">
   </head>
   <body class="page-home ds-original-nav" style="--ds-nav-clearance: 114px;">
     <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -185,6 +185,11 @@
     </header>
     <main class="site-main" id="main-content">
       <section class="home-hero" data-hero-version="01" aria-labelledby="home-hero-title">
+        <div class="home-hero-art" aria-hidden="true">
+          <img class="home-hero-art__scene home-hero-art__wander" src="assets/hero-studies/wander.svg" alt="" width="1416" height="780" loading="lazy" decoding="async">
+          <img class="home-hero-art__scene home-hero-art__landscape" src="assets/hero-studies/landscape.svg" alt="" width="1416" height="1010" loading="lazy" decoding="async">
+          <span class="home-hero-art__grain"></span>
+        </div>
         <div class="home-hero-photo" aria-hidden="true">
           <picture>
             <source srcset="assets/hero-collaboration-900.webp 900w, assets/hero-collaboration.webp 1448w" sizes="100vw" type="image/webp">
@@ -230,6 +235,9 @@
       <div class="hero-version-controls" role="group" aria-label="Hero versions" hidden="">
           <button type="button" data-hero-choice="01" aria-label="Version 01: solid background" aria-pressed="true" title="Solid background">01</button>
           <button type="button" data-hero-choice="02" aria-label="Version 02: original photo hero" aria-pressed="false" title="Original photo hero">02</button>
+          <button type="button" data-hero-choice="03" aria-label="Version 03: illustrated wander scene with grain" aria-pressed="false" title="Wander scene with grain">03</button>
+          <button type="button" data-hero-choice="04" aria-label="Version 04: illustrated wander scene without grain" aria-pressed="false" title="Wander scene without grain">04</button>
+          <button type="button" data-hero-choice="05" aria-label="Version 05: illustrated landscape with grain" aria-pressed="false" title="Landscape with grain">05</button>
           <span class="hero-version-status" aria-live="polite"></span>
         </div>
       </section>

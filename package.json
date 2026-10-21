@@ -22,7 +22,8 @@
     "test:model-benefits": "node scripts/model-benefits.cjs",
     "test:testimonial-autoplay": "node scripts/testimonial-autoplay.cjs",
     "test:brand-hero": "node scripts/brand-hero.cjs",
-    "test:brand-contents": "node scripts/brand-contents.cjs"
+    "test:brand-contents": "node scripts/brand-contents.cjs",
+    "test:hero-illustrations": "node scripts/hero-illustrations.cjs"
   },
   "dependencies": {
     "motion": "^12.0.0"

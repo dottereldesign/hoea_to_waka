@@ -5,14 +5,15 @@ export function setupHeroVersions() {
   if (!controls || controls.dataset.bound) return;
   controls.dataset.bound = 'true';
   controls.hidden = false;
+  const versions = {'01':'solid background','02':'original photo hero','03':'illustrated wander scene with grain','04':'illustrated wander scene without grain','05':'illustrated landscape with grain'};
   controls.addEventListener('click', event => {
     const choice = event.target.closest('[data-hero-choice]');
     if (!choice) return;
     const version = choice.dataset.heroChoice;
-    if (!['01', '02'].includes(version)) return;
+    if (!Object.hasOwn(versions, version)) return;
     hero.dataset.heroVersion = version;
     controls.querySelectorAll('button').forEach(button => button.setAttribute('aria-pressed', String(button === choice)));
-    controls.querySelector('.hero-version-status').textContent = 'Hero version ' + version + ': ' + (version === '01' ? 'solid background' : 'original photo hero');
+    controls.querySelector('.hero-version-status').textContent = 'Hero version ' + version + ': ' + versions[version];
   });
 }
 

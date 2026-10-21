@@ -15,7 +15,7 @@ Run `npm run build` after changing styles or interaction modules. Run `npm run p
 - Page interactions: `design/site-interactions.js`, with modules for statement icons, timelines, the marquee and the photo orbit.
 - Model benefits: `design/model-benefits.css`. Transparent artwork and generation prompts are in `assets/model-benefits/`; run `npm run test:model-benefits` to check visible artwork, responsive layout and accessibility.
 
-The recent 01/02 hero comparison remains. Historical layout selectors, nested variations and the previous marquee comparison are removed. Brand colour previews remain on `about/brand-guidelines/`, and illustrations remain on `illustrations/`.
+The homepage hero comparison keeps 01/02 and adds illustrated SVG studies 03/04/05. Historical layout selectors, nested variations and the previous marquee comparison are removed. Brand colour previews remain on `about/brand-guidelines/`, and illustrations remain on `illustrations/`.
 
 `npm test` checks the public routes. `npm run test:first-paint` verifies that delayed JavaScript and old saved preferences cannot replace the published layouts. Changes pushed to `main` are staged by `scripts/stage-site.mjs` and published through GitHub Pages.
 
@@ -24,3 +24,5 @@ The recent 01/02 hero comparison remains. Historical layout selectors, nested va
 - Brand guidelines logo introduction retains the original staged construction-guide, circle and sketch reveal. Do not save `site-preview-brand-hero-is-complete` in its authored HTML: the runtime adds it after the four-second sequence. Run `node scripts/brand-hero.cjs` to verify scroll triggering, fresh-load replay, desktop/mobile motion and reduced-motion/no-JavaScript fallbacks.
 
 - Brand guidelines contents is a normal section above Brand Overview, with a two-column index that stacks on mobile. The guide has no sticky sidebar, and Discover links to the contents. Styles live in `design/brand-contents.css`; run `node scripts/brand-contents.cjs` to check navigation, responsive layout, dark theme and accessibility.
+
+- Illustrated hero studies: `assets/hero-studies/` contains the editable SVG scenes and separate grain overlay. Styling is in `design/hero-illustrations.css`. Run `node scripts/hero-illustrations.cjs` for the scene controls, grain comparison, accessibility and responsive checks.
