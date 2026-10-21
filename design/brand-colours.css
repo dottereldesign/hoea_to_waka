@@ -246,3 +246,6 @@ html[data-palette] [data-testimonial-autoplay] .ds-controls button[hidden]{displ
 /* Calm, rounded outcome cards with plain ink icons. */
 html[data-palette] [data-component="services/resilience-one-on-one/:3:features"] .pp-feature{border-radius:24px}
 html[data-palette] [data-component="services/resilience-one-on-one/:3:features"] .pp-feature-marker{background:transparent;color:var(--brand-ink)}
+
+/* Service enquiry CTA blends into the page. */
+html[data-palette] [data-component="services/:4:cta"]{background:transparent;--section-surface:transparent!important}
