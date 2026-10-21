@@ -976,3 +976,20 @@ html[data-palette] .ds-component.model-benefits{background:var(--brand-paper);co
  .model-benefits .model-benefit-art{grid-column:1/-1;grid-row:3;justify-self:center;width:180px;height:180px;aspect-ratio:auto;margin-top:4px}
  .model-benefits .model-benefit-art img{opacity:1}
 }
+
+/* The contents is a normal section in the reading flow, above Brand Overview. */
+.brand-guide-layout{width:100%;min-width:0;padding-top:var(--section-space)}
+html[data-palette] .brand-guide-contents{position:static;scroll-margin-top:calc(var(--site-preview-header-offset,80px) + 16px);min-width:0;margin-inline:8px;padding:clamp(28px,4vw,56px);border:1px solid var(--t-line);border-radius:32px;background:var(--t-surface);color:var(--t-ink);font-family:Inter,Arial,sans-serif}
+html[data-palette] .brand-guide-contents h2{margin:0 0 24px;font-family:Inter,Arial,sans-serif;font-size:clamp(30px,3.2vw,46px);font-weight:600;line-height:1.15;letter-spacing:-.035em}
+.brand-guide-contents__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 40px}
+html[data-palette] .brand-guide-contents__link{display:grid;grid-template-columns:30px minmax(0,1fr) 20px;gap:8px 14px;align-items:baseline;min-width:0;padding:22px 8px;border-bottom:1px solid var(--t-line);color:inherit;text-decoration:none;border-radius:10px;transition:background .2s ease}
+html[data-palette] .brand-guide-contents__link:nth-last-child(-n+2){border-bottom:0}
+.brand-guide-contents__number{grid-column:1;grid-row:1;font-size:13px;font-weight:500;font-variant-numeric:tabular-nums;color:var(--t-muted)}
+.brand-guide-contents__title{grid-column:2;grid-row:1;font-size:19px;font-weight:500;line-height:1.35;letter-spacing:-.015em}
+.brand-guide-contents__note{grid-column:2;grid-row:2;font-size:16px;font-weight:400;line-height:1.5;color:var(--t-muted)}
+.brand-guide-contents__arrow{grid-column:3;grid-row:1;align-self:center;transition:transform .25s ease}
+html[data-palette] .brand-guide-contents__link:is(:hover,:focus-visible){background:color-mix(in srgb,currentColor 4%,transparent)}
+.brand-guide-contents__link:hover .brand-guide-contents__arrow{transform:translateX(3px)}
+.brand-guide-contents__link:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+@media(max-width:760px){.brand-guide-contents__grid{grid-template-columns:minmax(0,1fr)}html[data-palette] .brand-guide-contents__link:nth-last-child(2){border-bottom:1px solid var(--t-line)}html[data-palette] .brand-guide-contents__link{grid-template-columns:24px minmax(0,1fr) 20px;gap:6px 10px;padding:18px 0}.brand-guide-contents__title{font-size:18px}.brand-guide-contents__note{font-size:15px}}
+@media(prefers-reduced-motion:reduce){.brand-guide-contents__link,.brand-guide-contents__arrow{transition:none!important;transform:none!important}}
