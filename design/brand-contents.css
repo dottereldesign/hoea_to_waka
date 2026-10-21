@@ -38,3 +38,23 @@ html[data-palette] .brand-chapter-cover--06{background:radial-gradient(ellipse a
 html[data-palette] .brand-chapter-cover--07{background:radial-gradient(ellipse at 80% 90%,#7486b4 0,transparent 68%),radial-gradient(ellipse at 0 10%,#644d8d 0,transparent 65%),#29365c}
 html[data-palette] .brand-chapter-cover--08{background:radial-gradient(ellipse at 75% 5%,#a6828e 0,transparent 65%),radial-gradient(ellipse at 5% 100%,#5a6785 0,transparent 70%),#393348}
 @media(max-width:760px){html[data-palette] .brand-chapter-cover{height:280px;border-radius:24px;scroll-margin-top:92px}.brand-chapter-cover__number{font-size:240px}.brand-chapter-cover__mark{width:52px;height:64px}html[data-palette] .brand-chapter-cover h2.brand-chapter-cover__title{font-size:clamp(42px,12vw,72px);max-width:calc(100% - 32px);right:16px;bottom:16px}}
+
+/* Six current logo applications, with a 30/70 editorial split. */
+html[data-palette] .site-preview-logo-backgrounds-sheet{grid-template-columns:minmax(0,3fr) minmax(0,7fr);gap:clamp(28px,4vw,64px);padding:clamp(24px,3vw,40px);border:0;background:transparent;box-shadow:none;align-items:start}
+.site-preview-logo-backgrounds-copy{max-width:none;min-width:0;gap:18px}
+html[data-palette] .site-preview-logo-backgrounds-copy h3{font-size:clamp(28px,3vw,42px);font-weight:500;line-height:1.08;letter-spacing:-.04em;margin:0}
+html[data-palette] .site-preview-logo-backgrounds-copy p:last-child{color:var(--t-muted);line-height:1.65;margin:0}
+.site-preview-logo-backgrounds-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;min-width:0}
+.site-preview-logo-backgrounds-grid .preview-logo-tile{min-height:0;aspect-ratio:1.8;box-sizing:border-box;padding:24px;border-radius:16px;box-shadow:none;isolation:isolate}
+.site-preview-logo-backgrounds-grid .preview-logo-image{width:clamp(64px,7vw,110px);max-width:70%;height:auto;max-height:110px;position:relative;z-index:1;filter:none}
+html[data-palette] .brand-logo-example--white{background:#fff;border-color:#dedfe1}
+html[data-palette] .brand-logo-example--black{background:#202329;border-color:transparent}
+.site-preview-logo-backgrounds-grid :is(.brand-logo-example--cobalt,.brand-logo-example--ultraviolet,.brand-logo-example--mauve,.brand-logo-example--copper){background:radial-gradient(ellipse at 100% 114%,var(--sample-deep) 0%,var(--sample-mid) 22%,transparent 62%),radial-gradient(ellipse at 12% 108%,var(--sample-wash) 0%,transparent 65%),radial-gradient(ellipse at 45% 0%,var(--sample-paper) 0%,var(--sample-paper) 32%,transparent 85%),var(--sample-paper);border-color:transparent}
+.brand-logo-example--cobalt{--sample-deep:#2254a7;--sample-mid:#7797d5;--sample-wash:#beddf0;--sample-paper:#edf5fb}
+.brand-logo-example--ultraviolet{--sample-deep:#8253c5;--sample-mid:#4b3e89;--sample-wash:#363052;--sample-paper:#211c37}
+.brand-logo-example--mauve{--sample-deep:#a84b85;--sample-mid:#c98fb6;--sample-wash:#ddc6ee;--sample-paper:#faf0f7}
+.brand-logo-example--copper{--sample-deep:#b87361;--sample-mid:#7b4c7c;--sample-wash:#49314c;--sample-paper:#291c30}
+.site-preview-logo-backgrounds-grid :is(.brand-logo-example--cobalt,.brand-logo-example--ultraviolet,.brand-logo-example--mauve,.brand-logo-example--copper)::after{content:"";position:absolute;inset:0;pointer-events:none;background:url('hero-studies/grain.svg') repeat;background-size:180px;opacity:.4;mix-blend-mode:soft-light}
+@media(max-width:760px){html[data-palette] .site-preview-logo-backgrounds-sheet{grid-template-columns:minmax(0,1fr);gap:28px;padding:24px 16px}.site-preview-logo-backgrounds-grid .preview-logo-tile{padding:16px;aspect-ratio:1.45;border-radius:12px}.site-preview-logo-backgrounds-grid .preview-logo-image{width:64px;max-height:72px}.site-preview-logo-backgrounds-copy{max-width:60ch}}
+
+html[data-palette] .site-preview-section.site-preview-logo-backgrounds{min-height:0}
