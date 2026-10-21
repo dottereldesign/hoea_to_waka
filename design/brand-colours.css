@@ -45,10 +45,10 @@ html[data-palette] :is(.ds-type-testimonials,.testimonial-carousel) blockquote,
 html[data-palette] :is(.ds-type-testimonials,.testimonial-carousel) blockquote *{font-family:'ABC Marist',Georgia,serif!important;font-weight:350!important;font-synthesis:none}
 html[data-palette] .home-cta-simple .home-cta-body :is(.ds-lead,.home-cta-support){color:var(--brand-ink)}
 html[data-palette][data-typography] body .brand-name-text,
-html[data-palette][data-typography] body .brand-name-text *{font-family:'ABC Marist',Georgia,serif!important;font-weight:350!important;font-synthesis:none}
-/* Use browser-generated bold for the wordmarks; the supplied webfont is Book. */
-html[data-palette][data-typography] body :is(.site-brand,.footer-brand-lockup,.ds-brand,.home-hero) .brand-name-text{font-weight:600!important;font-synthesis:weight}
-/* Let Marist keep its natural proportions instead of the previous hero squeeze. */
+html[data-palette][data-typography] body .brand-name-text *{font-family:'Inter',Arial,sans-serif!important;font-weight:400!important;font-synthesis:none}
+/* Inter semibold keeps the wordmarks distinct from body mentions. */
+html[data-palette][data-typography] body :is(.site-brand,.footer-brand-lockup,.ds-brand,.home-hero) .brand-name-text{font-weight:600!important;font-synthesis:none}
+/* Keep the hero wordmark at its natural proportions. */
 html[data-palette] .home-hero .home-hero-inner-photo h1.display-title{transform:none;line-height:1.05;letter-spacing:0}
 /* Larger serif overlines, including the labels above individual service cards. */
 html[data-palette][data-typography] body :is(.eyebrow,.section-eyebrow,.ds-kicker,.ds-number,.service-index,.info-card-number,.ds-facts dt,.pp-facts dt,[class*="eyebrow"],[class*="kicker"]){font-family:'ABC Marist',Georgia,serif!important;font-weight:350!important;font-synthesis:none;font-size:18px!important;line-height:1.35!important;text-transform:none!important;letter-spacing:.01em}
@@ -249,3 +249,7 @@ html[data-palette] [data-component="services/resilience-one-on-one/:3:features"]
 
 /* Service enquiry CTA blends into the page. */
 html[data-palette] [data-component="services/:4:cta"]{background:transparent;--section-surface:transparent!important}
+
+/* Brand names stay in Inter within every typography context. */
+html[data-palette][data-typography] body [class].brand-name-text,
+html[data-palette][data-typography] body [class].brand-name-text *{font-family:"Inter",Arial,sans-serif!important}
