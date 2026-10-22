@@ -119,19 +119,21 @@ The full-logo downloads include the text and both rules as shapes, so no font in
 
 A favicon is the small picture beside a website’s name in a browser tab. It also appears when someone saves the site as a bookmark. It helps people find Hoea tō Waka again among their open tabs and saved pages.
 
-Use the square icon supplied below in your website’s favicon or site-icon setting. It uses the symbol on its own because the full name would be too small to read. Keep the white background and the space around the symbol.
+Use the square icon supplied below in your website’s favicon or site-icon setting. It uses the symbol on its own because the full name would be too small to read. Use black on a light background and white on a dark background. The SVG adapts to the system’s light or dark preference; PNG and ICO keep the light treatment for consistent fallback and touch icons. Keep the space around the symbol.
 
 ### Download the website icon
 
-5 essentials: SVG, multi-size ICO and PNGs for browser, touch and app icons.
+5 essentials: adaptive SVG, multi-size ICO and PNGs for browser, touch and app icons.
 
 ICO includes 16, 32 and 48px in one file. PNG and WebP are square; 180px suits an Apple touch icon.
+
+Light · Black symbol on a light background. 16, 32 and 48px at actual size; 80px for a closer look.
+
+Dark · White symbol on a dark background. 16, 32 and 48px at actual size; 80px for a closer look.
 
 Chrome-style browser · Light theme
 
 Chrome-style browser · Dark theme
-
-The same icon shown enlarged and at 16, 32 and 48 pixels. Check the small versions to see what a visitor will actually see.
 
 ## Typography
 
@@ -1450,9 +1452,7 @@ DTCG 2025.10 JSON follows. Colour components use sRGB values from 0 to 1. Alias 
 - [Download Logo pack ↓](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-logo-pack.zip)
 - [Download Symbol pack](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-symbol-pack.zip)
 - [Download SVG](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-symbol-black.svg)
-- [White SVG](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-symbol-white.svg)
 - [Download SVG](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-horizontal-black.svg)
-- [White SVG](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-horizontal-white.svg)
 - [Download Favicon pack](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-favicon-pack.zip)
 - [Download SVG](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-favicon.svg)
 - [Download Font pack](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-font-pack.zip)
