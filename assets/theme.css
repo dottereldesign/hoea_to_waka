@@ -1194,8 +1194,6 @@ html[data-palette][data-typography] body .brand-chrome-window,html[data-palette]
 .brand-chrome-address>span{flex:1;min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
 .brand-chrome-profile{width:24px;height:24px;border:1px solid var(--chrome-muted);border-radius:50%;color:var(--chrome-muted)}
 .brand-chrome-profile svg{width:14px;height:14px}
-.brand-chrome-page{display:flex;align-items:center;gap:8px;padding:24px;background:#fff;color:#202329;border-top:1px solid #eeeeef;font-size:16px;font-weight:600}
-.brand-chrome-page img{width:28px;height:28px;object-fit:contain}
 html[data-palette] .brand-chrome-preview figcaption{margin-top:12px;color:var(--t-muted);font:400 15px/1.6 Inter,Arial,sans-serif}
 @container favicon-browser (max-width:520px){.brand-chrome-tab--inactive{display:none}}
 @container favicon-browser (max-width:420px){.brand-chrome-window-controls{display:none}.brand-chrome-tab--active{flex:1}.brand-chrome-toolbar{gap:10px}.brand-chrome-profile,.brand-chrome-bookmark{display:none!important}}
