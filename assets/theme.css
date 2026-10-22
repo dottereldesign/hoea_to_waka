@@ -1140,6 +1140,18 @@ html[data-palette][data-typography] body .brand-social-post p.brand-social-post_
 .brand-social-post__note{font:400 16px/1.5 Inter,Arial,sans-serif;color:#fff}
 @media(max-width:760px){.brand-favicon-sizes{padding:24px;gap:24px;flex-wrap:wrap}.brand-favicon-sizes>div{gap:24px}.brand-social-profile{grid-template-columns:minmax(0,1fr);gap:24px}.brand-social-avatar{width:112px;height:112px}.brand-social-avatar img{width:80px;height:80px}.brand-social-post__art{min-height:320px;padding:24px}.brand-social-post__brand{font-size:18px}}
 
+/* Full header-style logo lockups scale with each background example. */
+.site-preview-logo-backgrounds-grid .preview-logo-tile{container-type:inline-size}
+html[data-palette] .site-preview-logo-backgrounds-grid .preview-logo-tile{color:#18181b}
+html[data-palette] .site-preview-logo-backgrounds-grid :is(.brand-logo-example--black,.brand-logo-example--ultraviolet,.brand-logo-example--copper){color:#fff}
+.brand-logo-lockup{position:relative;z-index:1;display:inline-flex;align-items:center;justify-content:center;gap:clamp(8px,3cqw,12px);max-width:100%;width:max-content}
+.site-preview-logo-backgrounds-grid .brand-logo-lockup .preview-logo-image{width:clamp(32px,16cqw,56px);max-width:none;max-height:none;height:auto;flex-shrink:0}
+.brand-logo-lockup__copy{display:grid;gap:6px;min-width:0}
+html[data-palette][data-typography] body .brand-logo-lockup__name{font:600 clamp(18px,8cqw,28px)/1.12 Inter,Arial,sans-serif!important;letter-spacing:-.035em;white-space:nowrap;color:inherit}
+.brand-logo-lockup__tagline{display:flex;align-items:center;justify-content:center;gap:6px;font:500 clamp(6px,2cqw,8px)/1.2 Inter,Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap;color:inherit}
+.brand-logo-lockup__tagline::before,.brand-logo-lockup__tagline::after{content:"";display:block;width:7px;height:1px;background:currentColor;flex-shrink:0}
+@media(max-width:600px){.site-preview-logo-backgrounds-grid{grid-template-columns:minmax(0,1fr)}.site-preview-logo-backgrounds-grid .preview-logo-tile{aspect-ratio:2.2;padding:24px}}
+
 /* Reference-inspired vector studies; these colours are intentionally local to 03-05. */
 .home-hero-art{display:none;position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;background:#633cff;isolation:isolate}
 .home-hero-art__scene{display:none;position:absolute;inset:auto 0 0;width:100%;height:auto;max-width:none;aspect-ratio:708/390;object-fit:contain}
