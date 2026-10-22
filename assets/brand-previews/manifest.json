@@ -1,0 +1,50 @@
+{
+  "hero_sketch": {
+    "width": 1254,
+    "height": 1254,
+    "originalBytes": 739376,
+    "previewBytes": 470612
+  },
+  "shirt-example": {
+    "width": 1200,
+    "height": 800,
+    "originalBytes": 2534916,
+    "previewBytes": 124216
+  },
+  "travel-mug": {
+    "width": 960,
+    "height": 1156,
+    "originalBytes": 2009355,
+    "previewBytes": 68786
+  },
+  "stickers-mockup": {
+    "width": 1200,
+    "height": 900,
+    "originalBytes": 2248643,
+    "previewBytes": 113892
+  },
+  "totebag-mockup": {
+    "width": 960,
+    "height": 1200,
+    "originalBytes": 2006193,
+    "previewBytes": 73526
+  },
+  "lanyard-mockup": {
+    "width": 960,
+    "height": 1200,
+    "originalBytes": 2306826,
+    "previewBytes": 130020
+  },
+  "enamel-mockup": {
+    "width": 960,
+    "height": 1200,
+    "originalBytes": 2820181,
+    "previewBytes": 245162
+  },
+  "business-cards": {
+    "width": 1200,
+    "height": 600,
+    "originalBytes": 1598360,
+    "previewBytes": 24174
+  }
+}

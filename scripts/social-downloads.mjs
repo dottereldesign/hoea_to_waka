@@ -17,4 +17,8 @@ console.log('Social downloads: 12 curated platform sizes, PNG plus editable SVG 
 // Approved supplied photograph: preserve the portrait composition for Instagram.
 const coast=new URL('../assets/social/coastal-post.png',import.meta.url);
 await sharp(fileURLToPath(coast)).resize(1080,1440,{fit:'cover'}).png().toFile(fileURLToPath(new URL('instagram-coastal-post-1080x1440.png',out)));
-await sharp(fileURLToPath(coast)).resize(810,1080,{fit:'cover'}).webp({quality:90}).toFile(fileURLToPath(new URL('../assets/social/coastal-post.webp',import.meta.url)));
+await sharp(fileURLToPath(coast)).resize(720,960,{fit:'cover'}).webp({quality:85}).toFile(fileURLToPath(new URL('../assets/social/coastal-post.webp',import.meta.url)));
+
+const strength=new URL('../design/source-images/strength-in-aotearoa.png',import.meta.url);
+await sharp(fileURLToPath(strength)).resize(1080,1440,{fit:'cover'}).png().toFile(fileURLToPath(new URL('instagram-strength-post-1080x1440.png',out)));
+await sharp(fileURLToPath(strength)).resize(720,960,{fit:'cover'}).webp({quality:90}).toFile(fileURLToPath(new URL('../assets/social/strength-post.webp',import.meta.url)));

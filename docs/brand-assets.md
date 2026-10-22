@@ -60,3 +60,14 @@ References checked 22 October 2026:
 Run `node scripts/social-previews.cjs` for interaction, accessibility, responsive fit, download pixel dimensions, reduced motion and no-JavaScript checks. Screenshots are saved under ignored `tmp/social-previews/`.
 
 The Instagram preview's coastal post uses the supplied portrait photograph in assets/social/coastal-post.png. Its optimized WebP preview preserves the composition; the separate coastal photo download is a ready-to-post 1080 × 1440 PNG. The blank post template remains available.
+
+
+## Guideline image performance
+
+The supplied Strength in Aotearoa artwork is the middle Instagram post. Its original lives in `design/source-images/`, outside the public site staging allowlist. `scripts/social-downloads.mjs` produces a 720 × 960 WebP preview and a separate 1080 × 1440 PNG download. The coastal preview also uses 720 × 960 WebP. High-resolution PNG downloads are links, not image sources, so they are fetched only when requested.
+
+`scripts/brand-previews.mjs` generates WebP previews for the sketch, six merchandise mockups and business-card photo. Logos remain SVG. The sketch uses lossless WebP to preserve its fine lines; photographs use quality 85 with suitable pixel widths. Their combined source size is 16,263,850 bytes versus 1,250,388 bytes for previews, a 92% reduction. Originals remain available in the repository.
+
+Off-screen images use native lazy loading and asynchronous decoding. Preview dimensions reserve their layout space. The sketch remains eager/high priority for its animation. Local Chrome checks at 1440px and 390px fetched 478,702 image bytes initially, with no mockup or download PNG requests until needed. These figures measure image payloads, not total page transfer or a guarantee of frame rates on every device. The staged and reversible logo-animation tests still pass after the changes.
+
+Run `node scripts/brand-image-performance.cjs` to check the image budget, initial requests, responsive layout, image decoding and ready-to-post download dimensions.
