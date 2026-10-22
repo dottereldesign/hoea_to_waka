@@ -1010,7 +1010,7 @@ html[data-palette] .brand-guide-contents__link:is(:hover,:focus-visible){backgro
 @media(max-width:760px){.brand-guidelines .site-preview-brand-hero-subtitle{white-space:normal;overflow-wrap:anywhere}}
 
 /* Numbered chapter covers: generous editorial dividers, shorter than the viewport. */
-html[data-palette] .brand-chapter-cover{position:relative;isolation:isolate;overflow:hidden;box-sizing:border-box;min-width:0;margin-inline:8px;height:clamp(300px,32vw,480px);border-radius:32px;scroll-margin-top:96px;background:radial-gradient(ellipse at 70% 20%,#6179bf 0,transparent 60%),radial-gradient(ellipse at 10% 95%,#b69ed6 0,transparent 65%),#253f75;color:#fff}
+html[data-palette] .brand-chapter-cover{position:relative;isolation:isolate;overflow:hidden;box-sizing:border-box;min-width:0;margin-inline:8px;height:clamp(300px,32vw,480px);border-radius:32px;scroll-margin-top:8px;background:radial-gradient(ellipse at 70% 20%,#6179bf 0,transparent 60%),radial-gradient(ellipse at 10% 95%,#b69ed6 0,transparent 65%),#253f75;color:#fff}
 .brand-chapter-cover::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,#080b202b,transparent 60%)}
 .brand-chapter-cover::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:url('hero-studies/grain.svg') repeat;background-size:180px;opacity:.42;mix-blend-mode:soft-light}
 
@@ -1023,7 +1023,7 @@ html[data-palette] .brand-chapter-cover--05{background:radial-gradient(ellipse a
 html[data-palette] .brand-chapter-cover--06{background:radial-gradient(ellipse at 15% 95%,#7c979b 0,transparent 65%),radial-gradient(ellipse at 80% 10%,#3c788b 0,transparent 70%),#173e50}
 html[data-palette] .brand-chapter-cover--07{background:radial-gradient(ellipse at 80% 90%,#7486b4 0,transparent 68%),radial-gradient(ellipse at 0 10%,#644d8d 0,transparent 65%),#29365c}
 html[data-palette] .brand-chapter-cover--08{background:radial-gradient(ellipse at 75% 5%,#a6828e 0,transparent 65%),radial-gradient(ellipse at 5% 100%,#5a6785 0,transparent 70%),#393348}
-@media(max-width:760px){html[data-palette] .brand-chapter-cover{height:280px;border-radius:24px;scroll-margin-top:92px}.brand-chapter-cover__number{font-size:240px}html[data-palette] .brand-chapter-cover h2.brand-chapter-cover__title{font-size:clamp(42px,12vw,72px);max-width:calc(100% - 32px);right:16px;bottom:16px}}
+@media(max-width:760px){html[data-palette] .brand-chapter-cover{height:280px;border-radius:24px;scroll-margin-top:8px}.brand-chapter-cover__number{font-size:240px}html[data-palette] .brand-chapter-cover h2.brand-chapter-cover__title{font-size:clamp(42px,12vw,72px);max-width:calc(100% - 32px);right:16px;bottom:16px}}
 
 /* Six current logo applications, with a 30/70 editorial split. */
 html[data-palette] .site-preview-logo-backgrounds-sheet{grid-template-columns:minmax(0,3fr) minmax(0,7fr);gap:clamp(28px,4vw,64px);padding:clamp(24px,3vw,40px);border:0;background:transparent;box-shadow:none;align-items:start}
@@ -1107,6 +1107,9 @@ html[data-palette] .brand-guidelines .site-preview-brand-overview-card{border:0;
 html[data-palette] .brand-guidelines .site-preview-brand-overview-card h3{font-size:clamp(22px,2.1vw,32px);font-weight:600!important;line-height:1.18;letter-spacing:-.035em;text-transform:none;color:var(--t-ink);margin:0}
 html[data-palette] .brand-guidelines .site-preview-brand-overview-card p{font-size:1.1rem;line-height:1.75;color:var(--t-ink);margin:0}
 @media(max-width:760px){.brand-guidelines .site-preview-brand-overview-grid{gap:28px}}
+
+/* Chapter links leave an 8px viewport inset, with the floating menu over the cover. */
+html:has(body.brand-guidelines){scroll-padding-top:0}
 
 /* Reference-inspired vector studies; these colours are intentionally local to 03-05. */
 .home-hero-art{display:none;position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;background:#633cff;isolation:isolate}
