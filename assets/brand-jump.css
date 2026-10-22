@@ -3,8 +3,9 @@
 .brand-guidelines .brand-jump__panel{position:absolute;right:0;bottom:0;box-sizing:border-box;width:min(344px,calc(100vw - 48px));max-height:calc(100dvh - 32px);padding:30px 28px 76px;background:var(--t-ink,#202329);color:var(--t-surface,#fff);border-radius:28px;clip-path:inset(calc(100% - 56px) 0 0 calc(100% - 56px) round 28px);transition:clip-path 620ms cubic-bezier(.22,1,.36,1);pointer-events:none;will-change:clip-path}
 .brand-guidelines .brand-jump[data-open="true"] .brand-jump__panel{clip-path:inset(0 0 0 0 round 28px);pointer-events:auto}
 html[data-palette] .brand-guidelines .brand-jump__heading{margin:0 0 24px;font-size:12px;font-weight:500;line-height:1.5;letter-spacing:.14em;text-transform:uppercase;color:inherit;opacity:.6}
-.brand-guidelines .brand-jump__links{display:grid;gap:2px;max-height:calc(100dvh - 190px);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}
-html[data-palette] .brand-guidelines .brand-jump__link{display:grid;grid-template-columns:24px 1fr;gap:16px;align-items:center;min-height:40px;padding:2px 0;color:inherit;text-decoration:none;font-size:16px;font-weight:400;line-height:1.35;letter-spacing:-.025em;border-radius:6px}
+.brand-guidelines .brand-jump__links{display:grid;gap:2px;max-height:calc(100dvh - 190px);overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none;padding:4px 6px;margin:-4px -6px}
+html[data-palette] .brand-guidelines .brand-jump__link{display:grid;grid-template-columns:24px minmax(0,1fr);gap:16px;align-items:center;min-height:40px;padding:2px 0;color:inherit;text-decoration:none;font-size:16px;font-weight:400;line-height:1.35;letter-spacing:-.025em;border-radius:6px}
+.brand-guidelines .brand-jump__links::-webkit-scrollbar{display:none;width:0;height:0}
 .brand-guidelines .brand-jump__number{font-size:11px;letter-spacing:.04em;opacity:.8;font-variant-numeric:tabular-nums}
 .brand-guidelines .brand-jump__title{transition:transform 200ms ease}
 .brand-guidelines .brand-jump__link:hover .brand-jump__title{transform:translateX(5px)}
