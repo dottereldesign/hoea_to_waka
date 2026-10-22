@@ -22,6 +22,7 @@
     "test:model-benefits": "node scripts/model-benefits.cjs",
     "test:testimonial-autoplay": "node scripts/testimonial-autoplay.cjs",
     "test:brand-hero": "node scripts/brand-hero.cjs",
+    "test:brand-ai": "node scripts/brand-ai.cjs",
     "test:brand-jump": "node scripts/brand-jump.cjs",
     "test:brand-contents": "node scripts/brand-contents.cjs",
     "test:hero-illustrations": "node scripts/hero-illustrations.cjs",
@@ -42,10 +43,12 @@
     "esbuild": "^0.25.0",
     "fflate": "^0.8.3",
     "fontkit": "^2.0.4",
+    "linkedom": "0.18.12",
     "pdfkit": "^0.20.2",
     "playwright": "^1.51.0",
     "qrcode": "^1.5.4",
     "sharp": "^0.35.5",
+    "simple-icons": "^16.35.0",
     "svgpath": "^2.6.0",
     "wawoff2": "^2.0.1"
   }

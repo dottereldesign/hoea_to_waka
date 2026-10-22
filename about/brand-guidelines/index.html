@@ -47,6 +47,8 @@
   <link rel="stylesheet" href="../../assets/theme.css?v=155">
     <link rel="stylesheet" href="../../assets/brand-jump.css?v=2">
     <script src="../../assets/brand-jump.js?v=1" defer></script>
+    <link rel="stylesheet" href="../../assets/brand-ai.css?v=1">
+    <script src="../../assets/brand-ai.js?v=1" defer></script>
   </head>
   <body class="brand-guidelines ds-original-nav">
     <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -132,6 +134,28 @@
 	                  </div>
 	                </div>
 	              </section>
+
+
+                  <section class="brand-ai" data-brand-context aria-labelledby="brand-ai-title">
+                    <div class="brand-ai__intro">
+                      <h2 id="brand-ai-title">Give your AI the full picture.</h2>
+                      <div class="brand-ai__description">Bring the brand story, writing guidance, artwork links and design tokens into your next idea.</div>
+                      <div class="brand-ai__tools">
+                        <button type="button" class="brand-ai__copy" data-ai-provider="generic" hidden>Copy brand context <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M15 4H6a2 2 0 0 0-2 2v9"/></svg></button>
+                        <details class="brand-ai__downloads"><summary>Files &amp; details</summary><div class="brand-ai__files"><span>One published brand. Ready for your next brief.</span><a href="brand-context.md" target="_blank" rel="noopener">Read full context ↗</a><a href="brand-context.md" download="hoea-to-waka-brand-context.md">Download context · Markdown</a><a href="figma-context.md" download="hoea-to-waka-figma-brief.md">Download Figma brief · Markdown</a><a href="brand-tokens.json" download="hoea-to-waka-brand-tokens.json">Download design tokens · JSON</a><small>Figma copies a brief for Make or a design handoff. Use a compatible importer for the tokens. Colour previews made in this browser are excluded.</small></div></details>
+                      </div>
+                    </div>
+                    <div class="brand-ai__actions">
+                      <div class="brand-ai__providers" role="group" aria-label="Copy context for your app" hidden><button type="button" class="brand-ai__provider" data-ai-provider="chatgpt" aria-label="Copy brand context for ChatGPT"><span class="brand-ai__circle"><img src="../../assets/ai-icons/chatgpt.svg" width="23" height="23" alt="" decoding="async"></span><span>ChatGPT</span></button><button type="button" class="brand-ai__provider" data-ai-provider="claude" aria-label="Copy brand context for Claude"><span class="brand-ai__circle"><img src="../../assets/ai-icons/claude.svg" width="23" height="23" alt="" decoding="async"></span><span>Claude</span></button><button type="button" class="brand-ai__provider" data-ai-provider="gemini" aria-label="Copy brand context for Gemini"><span class="brand-ai__circle"><img src="../../assets/ai-icons/gemini.svg" width="23" height="23" alt="" decoding="async"></span><span>Gemini</span></button><button type="button" class="brand-ai__provider" data-ai-provider="deepseek" aria-label="Copy brand context for DeepSeek"><span class="brand-ai__circle"><img src="../../assets/ai-icons/deepseek.svg" width="23" height="23" alt="" decoding="async"></span><span>DeepSeek</span></button><button type="button" class="brand-ai__provider" data-ai-provider="figma" aria-label="Copy brand context for Figma"><span class="brand-ai__circle"><img src="../../assets/ai-icons/figma.svg" width="23" height="23" alt="" decoding="async"></span><span>Figma</span></button></div>
+                      <div class="brand-ai__hint" hidden>Choose an app. Copy, open, then paste.</div>
+                      <div class="brand-ai__feedback" hidden>
+                        <button type="button" class="brand-ai__dismiss" aria-label="Dismiss copy instructions">×</button>
+                        <div class="brand-ai__status" role="status" aria-live="polite" aria-atomic="true"></div>
+                        <label class="brand-ai__manual" hidden>Brand context<textarea readonly rows="5" spellcheck="false"></textarea></label>
+                        <a class="brand-ai__open" target="_blank" rel="noopener noreferrer" hidden></a>
+                      </div>
+                    </div>
+                  </section>
 
 	              <section class="site-preview-hero site-preview-brand-hero" id="cover">
 	                <div class="site-preview-brand-hero-shell">

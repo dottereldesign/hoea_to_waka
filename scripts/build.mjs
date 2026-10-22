@@ -46,3 +46,5 @@ for(const file of['brand-colours','header','model-button','home-monochrome','sta
 await writeFile('assets/theme.css',theme);
 await build({entryPoints:['design/theme-init.js'],bundle:true,minify:true,format:'iife',target:['es2020'],outfile:'assets/theme-init.js'});
 await build({entryPoints:['design/site-interactions.js'],bundle:true,minify:true,format:'iife',target:['es2020'],outfile:'assets/site-interactions.js',legalComments:'linked'});
+
+await import('./brand-context.mjs');

@@ -1,0 +1,980 @@
+{
+  "$description": "Hoea tō Waka published design tokens. DTCG 2025.10 values; browser-only colour previews are excluded. Importer support varies.",
+  "brand": {
+    "ocean-100": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.94117647,
+          0.95686275,
+          0.97254902
+        ],
+        "alpha": 1
+      },
+      "$description": "Ocean 100: 100 tonal level. HEX #F0F4F8"
+    },
+    "ocean-200": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.91372549,
+          0.93333333,
+          0.95686275
+        ],
+        "alpha": 1
+      },
+      "$description": "Ocean 200: 200 tonal level. HEX #E9EEF4"
+    },
+    "ocean-300": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.78431373,
+          0.83529412,
+          0.87843137
+        ],
+        "alpha": 1
+      },
+      "$description": "Ocean 300: 300 tonal level. HEX #C8D5E0"
+    },
+    "ocean-400": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.6627451,
+          0.77254902,
+          0.80784314
+        ],
+        "alpha": 1
+      },
+      "$description": "Coastal Mist: Pale blue · Illustrations and diagrams. HEX #A9C5CE"
+    },
+    "ocean-500": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.50980392,
+          0.62352941,
+          0.69803922
+        ],
+        "alpha": 1
+      },
+      "$description": "Ocean 500: 500 tonal level. HEX #829FB2"
+    },
+    "ocean-600": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.37647059,
+          0.49803922,
+          0.61568627
+        ],
+        "alpha": 1
+      },
+      "$description": "Focus ring: Shows which control is selected by the keyboard. HEX #607F9D"
+    },
+    "ocean-700": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.24705882,
+          0.35686275,
+          0.47058824
+        ],
+        "alpha": 1
+      },
+      "$description": "Ocean 700: 700 tonal level. HEX #3F5B78"
+    },
+    "ocean-800": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.14117647,
+          0.22745098,
+          0.3254902
+        ],
+        "alpha": 1
+      },
+      "$description": "Information: Helpful information or a neutral notice. HEX #243A53"
+    },
+    "ocean-900": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.10196078,
+          0.16862745,
+          0.23921569
+        ],
+        "alpha": 1
+      },
+      "$description": "Ocean Night: Deep blue · Available dark background. HEX #1A2B3D"
+    },
+    "forest-100": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.94509804,
+          0.96078431,
+          0.94117647
+        ],
+        "alpha": 1
+      },
+      "$description": "Forest 100: 100 tonal level. HEX #F1F5F0"
+    },
+    "forest-200": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.90980392,
+          0.93333333,
+          0.91372549
+        ],
+        "alpha": 1
+      },
+      "$description": "Forest 200: 200 tonal level. HEX #E8EEE9"
+    },
+    "forest-300": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.79607843,
+          0.85882353,
+          0.80392157
+        ],
+        "alpha": 1
+      },
+      "$description": "Forest 300: 300 tonal level. HEX #CBDBCD"
+    },
+    "forest-400": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.67058824,
+          0.76862745,
+          0.68235294
+        ],
+        "alpha": 1
+      },
+      "$description": "Forest 400: 400 tonal level. HEX #ABC4AE"
+    },
+    "forest-500": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.52941176,
+          0.65490196,
+          0.54901961
+        ],
+        "alpha": 1
+      },
+      "$description": "Forest 500: 500 tonal level. HEX #87A78C"
+    },
+    "forest-600": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.41960784,
+          0.56862745,
+          0.43529412
+        ],
+        "alpha": 1
+      },
+      "$description": "Forest 600: 600 tonal level. HEX #6B916F"
+    },
+    "forest-700": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.29803922,
+          0.43921569,
+          0.32941176
+        ],
+        "alpha": 1
+      },
+      "$description": "Forest 700: 700 tonal level. HEX #4C7054"
+    },
+    "forest-800": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.20392157,
+          0.29019608,
+          0.22745098
+        ],
+        "alpha": 1
+      },
+      "$description": "Forest 800: 800 tonal level. HEX #344A3A"
+    },
+    "forest-900": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.14117647,
+          0.21176471,
+          0.16470588
+        ],
+        "alpha": 1
+      },
+      "$description": "Forest 900: 900 tonal level. HEX #24362A"
+    },
+    "aubergine-100": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.98039216,
+          0.96862745,
+          0.98431373
+        ],
+        "alpha": 1
+      },
+      "$description": "Aubergine 100: 100 tonal level. HEX #FAF7FB"
+    },
+    "aubergine-200": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.94509804,
+          0.91764706,
+          0.94901961
+        ],
+        "alpha": 1
+      },
+      "$description": "Aubergine 200: 200 tonal level. HEX #F1EAF2"
+    },
+    "aubergine-300": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.88627451,
+          0.83529412,
+          0.89803922
+        ],
+        "alpha": 1
+      },
+      "$description": "Aubergine 300: 300 tonal level. HEX #E2D5E5"
+    },
+    "aubergine-400": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.78431373,
+          0.70588235,
+          0.80784314
+        ],
+        "alpha": 1
+      },
+      "$description": "Aubergine 400: 400 tonal level. HEX #C8B4CE"
+    },
+    "aubergine-500": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.63137255,
+          0.54117647,
+          0.6627451
+        ],
+        "alpha": 1
+      },
+      "$description": "Aubergine 500: 500 tonal level. HEX #A18AA9"
+    },
+    "aubergine-600": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.50196078,
+          0.40392157,
+          0.53333333
+        ],
+        "alpha": 1
+      },
+      "$description": "Aubergine 600: 600 tonal level. HEX #806788"
+    },
+    "aubergine-700": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.34509804,
+          0.25490196,
+          0.37254902
+        ],
+        "alpha": 1
+      },
+      "$description": "Aubergine 700: 700 tonal level. HEX #58415F"
+    },
+    "aubergine-800": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.15686275,
+          0.10196078,
+          0.17254902
+        ],
+        "alpha": 1
+      },
+      "$description": "Aubergine 800: 800 tonal level. HEX #281A2C"
+    },
+    "aubergine-900": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.1254902,
+          0.07843137,
+          0.1372549
+        ],
+        "alpha": 1
+      },
+      "$description": "Plum Night: Deep purple · Available dark background. HEX #201423"
+    },
+    "lavender-100": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.98823529,
+          0.98039216,
+          0.98823529
+        ],
+        "alpha": 1
+      },
+      "$description": "Lavender 100: 100 tonal level. HEX #FCFAFC"
+    },
+    "lavender-200": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.96862745,
+          0.94901961,
+          0.97254902
+        ],
+        "alpha": 1
+      },
+      "$description": "Lavender 200: 200 tonal level. HEX #F7F2F8"
+    },
+    "lavender-300": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.94117647,
+          0.91372549,
+          0.94901961
+        ],
+        "alpha": 1
+      },
+      "$description": "Lavender 300: 300 tonal level. HEX #F0E9F2"
+    },
+    "lavender-400": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.90196078,
+          0.85882353,
+          0.91372549
+        ],
+        "alpha": 1
+      },
+      "$description": "Lavender 400: 400 tonal level. HEX #E6DBE9"
+    },
+    "lavender-500": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.84705882,
+          0.79607843,
+          0.86666667
+        ],
+        "alpha": 1
+      },
+      "$description": "Lavender 500: 500 tonal level. HEX #D8CBDD"
+    },
+    "lavender-600": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.7254902,
+          0.6627451,
+          0.75294118
+        ],
+        "alpha": 1
+      },
+      "$description": "Lavender 600: 600 tonal level. HEX #B9A9C0"
+    },
+    "lavender-700": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.59607843,
+          0.52156863,
+          0.62352941
+        ],
+        "alpha": 1
+      },
+      "$description": "Lavender 700: 700 tonal level. HEX #98859F"
+    },
+    "lavender-800": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.45490196,
+          0.39215686,
+          0.49019608
+        ],
+        "alpha": 1
+      },
+      "$description": "Lavender 800: 800 tonal level. HEX #74647D"
+    },
+    "lavender-900": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.31764706,
+          0.26666667,
+          0.34901961
+        ],
+        "alpha": 1
+      },
+      "$description": "Lavender 900: 900 tonal level. HEX #514459"
+    },
+    "paper": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          1,
+          1,
+          1
+        ],
+        "alpha": 1
+      },
+      "$description": "Paper: Default page surface, cards and overlays. HEX #FFFFFF"
+    },
+    "warm-white": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.97254902,
+          0.97254902,
+          0.96470588
+        ],
+        "alpha": 1
+      },
+      "$description": "Warm White: Soft neutral accents and secondary surfaces. HEX #F8F8F6"
+    },
+    "ivory": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.96078431,
+          0.95294118,
+          0.93333333
+        ],
+        "alpha": 1
+      },
+      "$description": "Ivory: Warm content sections. HEX #F5F3EE"
+    },
+    "cool-mist": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.92941176,
+          0.94509804,
+          0.95294118
+        ],
+        "alpha": 1
+      },
+      "$description": "Cool Mist: Secondary surfaces. HEX #EDF1F3"
+    },
+    "stone": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.89019608,
+          0.88235294,
+          0.86666667
+        ],
+        "alpha": 1
+      },
+      "$description": "Stone: Dividers and borders. HEX #E3E1DD"
+    },
+    "slate": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.41960784,
+          0.44313725,
+          0.47058824
+        ],
+        "alpha": 1
+      },
+      "$description": "Slate: Supporting labels. HEX #6B7178"
+    },
+    "ink": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.1254902,
+          0.1372549,
+          0.16078431
+        ],
+        "alpha": 1
+      },
+      "$description": "Ink: High-contrast text. HEX #202329"
+    },
+    "dusty-rose": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.78431373,
+          0.56078431,
+          0.6
+        ],
+        "alpha": 1
+      },
+      "$description": "Dusty Rose: Muted pink · Small illustration details. HEX #C88F99"
+    },
+    "sandstone": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.83921569,
+          0.72941176,
+          0.51372549
+        ],
+        "alpha": 1
+      },
+      "$description": "Sandstone: Small warm details and diagrams. HEX #D6BA83"
+    },
+    "soft-sage": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.72156863,
+          0.78823529,
+          0.70980392
+        ],
+        "alpha": 1
+      },
+      "$description": "Soft Sage: Pale green · Illustrations and backgrounds. HEX #B8C9B5"
+    },
+    "success": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.20392157,
+          0.47843137,
+          0.3372549
+        ],
+        "alpha": 1
+      },
+      "$description": "Success: A completed or successful action. HEX #347A56"
+    },
+    "warning": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.65882353,
+          0.40784314,
+          0.1372549
+        ],
+        "alpha": 1
+      },
+      "$description": "Warning: A caution message · explain what needs attention. HEX #A86823"
+    },
+    "error": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.71764706,
+          0.28235294,
+          0.33333333
+        ],
+        "alpha": 1
+      },
+      "$description": "Error: An error message · explain how to fix it. HEX #B74855"
+    }
+  },
+  "semantic": {
+    "brand-primary": {
+      "$type": "color",
+      "$value": "{brand.ocean-800}"
+    },
+    "brand-secondary": {
+      "$type": "color",
+      "$value": "{brand.forest-800}"
+    },
+    "brand-accent": {
+      "$type": "color",
+      "$value": "{brand.aubergine-800}"
+    },
+    "brand-lavender": {
+      "$type": "color",
+      "$value": "{brand.lavender-500}"
+    },
+    "surface-page": {
+      "$type": "color",
+      "$value": "{brand.paper}"
+    },
+    "surface-card": {
+      "$type": "color",
+      "$value": "{brand.paper}"
+    },
+    "surface-blue": {
+      "$type": "color",
+      "$value": "{brand.ocean-200}"
+    },
+    "surface-green": {
+      "$type": "color",
+      "$value": "{brand.forest-200}"
+    },
+    "surface-lavender": {
+      "$type": "color",
+      "$value": "{brand.aubergine-200}"
+    },
+    "text-primary": {
+      "$type": "color",
+      "$value": "{brand.ink}"
+    },
+    "text-muted": {
+      "$type": "color",
+      "$value": "{brand.slate}"
+    },
+    "text-inverse": {
+      "$type": "color",
+      "$value": "{brand.paper}"
+    },
+    "border-default": {
+      "$type": "color",
+      "$value": "{brand.stone}"
+    }
+  },
+  "theme": {
+    "light": {
+      "bg": {
+        "$type": "color",
+        "$value": "{brand.paper}"
+      },
+      "surface": {
+        "$type": "color",
+        "$value": "{brand.paper}"
+      },
+      "raised": {
+        "$type": "color",
+        "$value": "{brand.cool-mist}"
+      },
+      "ink": {
+        "$type": "color",
+        "$value": "{brand.ink}"
+      },
+      "muted": {
+        "$type": "color",
+        "$value": "{brand.slate}"
+      },
+      "action": {
+        "$type": "color",
+        "$value": "{brand.ocean-800}"
+      },
+      "on-action": {
+        "$type": "color",
+        "$value": "{brand.paper}"
+      },
+      "line": {
+        "$type": "color",
+        "$value": "{brand.stone}"
+      },
+      "soft": {
+        "$type": "color",
+        "$value": "{brand.ocean-200}"
+      },
+      "accent": {
+        "$type": "color",
+        "$value": "{brand.lavender-500}"
+      },
+      "on-accent": {
+        "$type": "color",
+        "$value": "{brand.aubergine-800}"
+      },
+      "highlight": {
+        "$type": "color",
+        "$value": "{brand.forest-200}"
+      },
+      "on-highlight": {
+        "$type": "color",
+        "$value": "{brand.forest-800}"
+      },
+      "component-accent": {
+        "$type": "color",
+        "$value": "{brand.lavender-500}"
+      },
+      "component-counter": {
+        "$type": "color",
+        "$value": "{brand.forest-200}"
+      },
+      "inverse": {
+        "$type": "color",
+        "$value": "{brand.ocean-800}"
+      },
+      "on-inverse": {
+        "$type": "color",
+        "$value": "{brand.paper}"
+      },
+      "inverse-muted": {
+        "$type": "color",
+        "$value": "{brand.ocean-300}"
+      },
+      "focus": {
+        "$type": "color",
+        "$value": "{brand.ocean-600}"
+      },
+      "success": {
+        "$type": "color",
+        "$value": "{brand.success}"
+      },
+      "error": {
+        "$type": "color",
+        "$value": "{brand.error}"
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "{brand.warning}"
+      },
+      "information": {
+        "$type": "color",
+        "$value": "{brand.ocean-800}"
+      }
+    },
+    "dark": {
+      "bg": {
+        "$type": "color",
+        "$value": "{brand.ocean-900}"
+      },
+      "surface": {
+        "$type": "color",
+        "$value": "{brand.ocean-800}"
+      },
+      "raised": {
+        "$type": "color",
+        "$value": "{brand.ocean-700}"
+      },
+      "ink": {
+        "$type": "color",
+        "$value": "{brand.paper}"
+      },
+      "muted": {
+        "$type": "color",
+        "$value": "{brand.ocean-300}"
+      },
+      "action": {
+        "$type": "color",
+        "$value": "{brand.lavender-500}"
+      },
+      "on-action": {
+        "$type": "color",
+        "$value": "{brand.aubergine-800}"
+      },
+      "line": {
+        "$type": "color",
+        "$value": "{brand.ocean-600}"
+      },
+      "soft": {
+        "$type": "color",
+        "$value": "{brand.ocean-800}"
+      },
+      "accent": {
+        "$type": "color",
+        "$value": "{brand.forest-700}"
+      },
+      "on-accent": {
+        "$type": "color",
+        "$value": "{brand.paper}"
+      },
+      "highlight": {
+        "$type": "color",
+        "$value": "{brand.aubergine-700}"
+      },
+      "on-highlight": {
+        "$type": "color",
+        "$value": "{brand.paper}"
+      },
+      "component-accent": {
+        "$type": "color",
+        "$value": "{brand.aubergine-800}"
+      },
+      "component-counter": {
+        "$type": "color",
+        "$value": "{brand.forest-800}"
+      },
+      "inverse": {
+        "$type": "color",
+        "$value": "{brand.ocean-800}"
+      },
+      "on-inverse": {
+        "$type": "color",
+        "$value": "{brand.paper}"
+      },
+      "inverse-muted": {
+        "$type": "color",
+        "$value": "{brand.ocean-300}"
+      },
+      "focus": {
+        "$type": "color",
+        "$value": "{brand.ocean-600}"
+      },
+      "success": {
+        "$type": "color",
+        "$value": "{brand.success}"
+      },
+      "error": {
+        "$type": "color",
+        "$value": "{brand.error}"
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "{brand.warning}"
+      },
+      "information": {
+        "$type": "color",
+        "$value": "{brand.ocean-800}"
+      }
+    }
+  },
+  "font": {
+    "primary": {
+      "$type": "fontFamily",
+      "$value": [
+        "Inter",
+        "Arial",
+        "sans-serif"
+      ]
+    },
+    "testimonial": {
+      "$type": "fontFamily",
+      "$value": [
+        "ABC Marist",
+        "Georgia",
+        "serif"
+      ],
+      "$description": "ABC Marist Book 350 is licensed separately. Use for testimonial quotes; keep headings, attribution and controls in Inter."
+    },
+    "weight": {
+      "display": {
+        "$type": "fontWeight",
+        "$value": 600
+      },
+      "heading": {
+        "$type": "fontWeight",
+        "$value": 600
+      },
+      "body": {
+        "$type": "fontWeight",
+        "$value": 500
+      },
+      "eyebrow": {
+        "$type": "fontWeight",
+        "$value": 400
+      },
+      "ui": {
+        "$type": "fontWeight",
+        "$value": 500
+      },
+      "small": {
+        "$type": "fontWeight",
+        "$value": 500
+      }
+    }
+  },
+  "radius": {
+    "sm": {
+      "$type": "dimension",
+      "$value": {
+        "value": 16,
+        "unit": "px"
+      }
+    },
+    "md": {
+      "$type": "dimension",
+      "$value": {
+        "value": 24,
+        "unit": "px"
+      }
+    },
+    "lg": {
+      "$type": "dimension",
+      "$value": {
+        "value": 36,
+        "unit": "px"
+      }
+    }
+  },
+  "sectionSpacing": {
+    "desktop": {
+      "$type": "dimension",
+      "$value": {
+        "value": 92,
+        "unit": "px"
+      },
+      "$description": "Above 1100px"
+    },
+    "tablet": {
+      "$type": "dimension",
+      "$value": {
+        "value": 65,
+        "unit": "px"
+      },
+      "$description": "761–1100px"
+    },
+    "mobile": {
+      "$type": "dimension",
+      "$value": {
+        "value": 60,
+        "unit": "px"
+      },
+      "$description": "760px and below"
+    }
+  }
+}
