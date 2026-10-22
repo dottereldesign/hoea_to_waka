@@ -743,7 +743,7 @@ html[data-theme="dark"] .theme-switcher-grid[data-theme-toggle] .star-4 { transf
 }
 
 .site-preview-brand-hero {
-  --brand-hero-draw-duration: 520ms;
+  --brand-hero-draw-duration: 420ms;
   --brand-hero-draw-ease: cubic-bezier(0.22, 1, 0.36, 1);
   --brand-hero-reveal-duration: 760ms;
   --brand-hero-reveal-ease: cubic-bezier(0.16, 1, 0.3, 1);
@@ -1032,7 +1032,7 @@ html[data-theme="dark"] .theme-switcher-grid[data-theme-toggle] .star-4 { transf
   left: 48%;
   width: 52%;
   aspect-ratio: 1;
-  --draw-delay: 180ms;
+  --draw-delay: 45ms;
 }
 
 .site-preview-brand-hero-circle-wahine {
@@ -1040,7 +1040,7 @@ html[data-theme="dark"] .theme-switcher-grid[data-theme-toggle] .star-4 { transf
   left: 25%;
   width: 34%;
   aspect-ratio: 1;
-  --draw-delay: 300ms;
+  --draw-delay: 90ms;
 }
 
 .site-preview-brand-hero-circle-core {
@@ -1048,7 +1048,7 @@ html[data-theme="dark"] .theme-switcher-grid[data-theme-toggle] .star-4 { transf
   left: 42%;
   width: 21%;
   aspect-ratio: 1;
-  --draw-delay: 420ms;
+  --draw-delay: 135ms;
 }
 
 .site-preview-brand-hero-circle-body {
@@ -1056,7 +1056,7 @@ html[data-theme="dark"] .theme-switcher-grid[data-theme-toggle] .star-4 { transf
   left: 18%;
   width: 34%;
   aspect-ratio: 1;
-  --draw-delay: 540ms;
+  --draw-delay: 180ms;
 }
 
 .site-preview-brand-hero-circle-keel {
@@ -1064,7 +1064,7 @@ html[data-theme="dark"] .theme-switcher-grid[data-theme-toggle] .star-4 { transf
   left: 11%;
   width: 21%;
   aspect-ratio: 1;
-  --draw-delay: 660ms;
+  --draw-delay: 225ms;
 }
 
 .site-preview-brand-hero-guide {
@@ -1538,64 +1538,64 @@ html[data-theme="dark"] .theme-switcher-grid[data-theme-toggle] .star-4 { transf
 }
 
 .js .site-preview-brand-hero-is-ready .site-preview-brand-hero-logo-study::after {
-  animation: previewBrandGridReveal 640ms var(--brand-hero-draw-ease) 760ms both;
+  animation: previewBrandGridReveal 400ms var(--brand-hero-draw-ease) 0ms both;
 }
 
 .js .site-preview-brand-hero-is-ready .site-preview-brand-hero-circle {
   animation: previewBrandCircleDraw var(--brand-hero-draw-duration) var(--brand-hero-draw-ease)
-    calc(var(--draw-delay) + 860ms) both;
+    var(--draw-delay) both;
 }
 
 .js .site-preview-brand-hero-is-ready .site-preview-brand-hero-guide-horizontal {
-  animation: previewBrandGuideDrawX var(--brand-hero-draw-duration) var(--brand-hero-draw-ease) 1060ms both;
+  animation: previewBrandGuideDrawX var(--brand-hero-draw-duration) var(--brand-hero-draw-ease) 100ms both;
 }
 
 .js .site-preview-brand-hero-is-ready .site-preview-brand-hero-guide-vertical {
-  animation: previewBrandGuideDrawY var(--brand-hero-draw-duration) var(--brand-hero-draw-ease) 940ms both;
+  animation: previewBrandGuideDrawY var(--brand-hero-draw-duration) var(--brand-hero-draw-ease) 50ms both;
 }
 
 .js .site-preview-brand-hero-is-ready .site-preview-brand-hero-logo {
-  animation: previewRevealUp 700ms cubic-bezier(0.22, 1, 0.36, 1) 2120ms both;
+  animation: previewRevealUp 480ms cubic-bezier(0.22, 1, 0.36, 1) 120ms both;
 }
 
 .js .site-preview-brand-hero-is-ready h2 {
-  animation: previewRevealUp 700ms cubic-bezier(0.22, 1, 0.36, 1) 2580ms both;
+  animation: previewRevealUp 480ms cubic-bezier(0.22, 1, 0.36, 1) 220ms both;
 }
 
 .js .site-preview-brand-hero-is-ready .site-preview-brand-hero-subtitle {
-  animation: previewRevealUp 640ms cubic-bezier(0.22, 1, 0.36, 1) 2700ms both;
+  animation: previewRevealUp 440ms cubic-bezier(0.22, 1, 0.36, 1) 280ms both;
 }
 
 .js .site-preview-brand-hero-is-ready .site-preview-brand-hero-subtitle::before,
 .js .site-preview-brand-hero-is-ready .site-preview-brand-hero-subtitle::after {
-  animation: previewBarReveal 520ms cubic-bezier(0.22, 1, 0.36, 1) 2800ms both;
+  animation: previewBarReveal 400ms cubic-bezier(0.22, 1, 0.36, 1) 300ms both;
 }
 
 .js .site-preview-brand-hero-is-ready .site-preview-brand-hero-note {
-  animation: previewRevealUp 620ms cubic-bezier(0.22, 1, 0.36, 1) 2840ms both;
+  animation: previewRevealUp 400ms cubic-bezier(0.22, 1, 0.36, 1) 340ms both;
 }
 
 .js .site-preview-brand-hero-is-ready .site-preview-brand-hero-cta {
   animation:
-    previewVisibilityReveal 0s linear 3000ms both,
-    previewRevealUpTransformOnly 680ms var(--brand-hero-reveal-ease) 3000ms both;
+    previewVisibilityReveal 0s linear 380ms both,
+    previewRevealUpTransformOnly 460ms var(--brand-hero-reveal-ease) 380ms both;
   pointer-events: none;
 }
 
 .js .site-preview-brand-hero-is-ready .site-preview-brand-hero-meta::before {
-  animation: previewBarReveal 420ms cubic-bezier(0.22, 1, 0.36, 1) 3260ms both;
+  animation: previewBarReveal 420ms cubic-bezier(0.22, 1, 0.36, 1) 400ms both;
 }
 
 .js .site-preview-brand-hero-is-ready .site-preview-brand-hero-meta span:nth-child(1) {
-  animation: previewRevealUp 320ms cubic-bezier(0.22, 1, 0.36, 1) 3400ms both;
+  animation: previewRevealUp 320ms cubic-bezier(0.22, 1, 0.36, 1) 440ms both;
 }
 
 .js .site-preview-brand-hero-is-ready .site-preview-brand-hero-meta span:nth-child(2) {
-  animation: previewRevealUp 320ms cubic-bezier(0.22, 1, 0.36, 1) 3540ms both;
+  animation: previewRevealUp 320ms cubic-bezier(0.22, 1, 0.36, 1) 480ms both;
 }
 
 .js .site-preview-brand-hero-is-ready .site-preview-brand-hero-meta span:nth-child(3) {
-  animation: previewRevealUp 320ms cubic-bezier(0.22, 1, 0.36, 1) 3680ms both;
+  animation: previewRevealUp 320ms cubic-bezier(0.22, 1, 0.36, 1) 520ms both;
 }
 
 .site-preview-brand-hero-cta:hover,

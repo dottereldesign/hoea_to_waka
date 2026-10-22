@@ -41,7 +41,7 @@
       })();
     </script>
     <link rel="stylesheet" href="../../assets/site-palette.css?v=10">
-    <link rel="stylesheet" href="../../assets/brand-palette.css?v=7">
+    <link rel="stylesheet" href="../../assets/brand-palette.css?v=8">
     <link rel="icon" href="../../assets/favicon.png?v=2" type="image/png">
     <script src="../../assets/theme-init.js?v=32"></script>
   <link rel="stylesheet" href="../../assets/theme.css?v=153">
@@ -744,7 +744,7 @@
         // Keep the original staggered CSS sequence on one reversible timeline.
         // A shared playhead preserves the drawing order in both directions,
         // including when someone changes direction halfway through the reveal.
-        const setupReversibleSequence = (section, trigger, activeClass, completeClass) => {
+        const setupReversibleSequence = (section, trigger, activeClass, completeClass, enterRatio = 0.58) => {
           if (!section || !trigger) return;
           section.classList.add(activeClass);
           if (prefersReducedMotion) {
@@ -775,7 +775,7 @@
           };
           const tick = time => {
             frame = 0;
-            const delta = previousTime === null ? 0 : Math.min(time - previousTime, 50);
+            const delta = previousTime === null ? 0 : time - previousTime;
             previousTime = time;
             playhead = Math.max(0, Math.min(duration, playhead + (expanded ? delta : -delta)));
             render();
@@ -788,11 +788,11 @@
           const check = () => {
             const top = trigger.getBoundingClientRect().top;
             // Separate enter/leave lines avoid flicker around the trigger point.
-            const enterLine = Math.min(innerHeight * 0.58, top + scrollY - 64);
+            const enterLine = innerHeight * enterRatio;
             if (top <= enterLine) expanded = true;
             else if (top > enterLine + 40) expanded = false;
             if (!frame && (expanded ? playhead < duration : playhead > 0)) {
-              previousTime = null;
+              previousTime = performance.now();
               frame = requestAnimationFrame(tick);
             }
           };
@@ -803,7 +803,7 @@
         };
 
         const startSequence = () => setupReversibleSequence(
-          hero, hero, "site-preview-brand-hero-is-ready", "site-preview-brand-hero-is-complete"
+          hero, hero, "site-preview-brand-hero-is-ready", "site-preview-brand-hero-is-complete", 0.9
         );
 
         const startBrandOverviewSequence = () => {

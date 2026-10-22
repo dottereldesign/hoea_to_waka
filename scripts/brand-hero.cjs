@@ -1,2 +1,52 @@
-const {chromium}=require('playwright'),assert=require('assert/strict'),fs=require('fs');
-(async()=>{const server=require('./preview.cjs')(8879),browser=await chromium.launch({channel:'chrome',headless:true});try{fs.mkdirSync('tmp/brand-hero',{recursive:true});const context=await browser.newContext({reducedMotion:'no-preference'}),page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));for(const width of [1440,390]){await page.setViewportSize({width,height:1000});await page.goto('http://127.0.0.1:8879/hoea_to_waka/about/brand-guidelines/');await page.waitForLoadState('networkidle');const hero=page.locator('#cover'),logo=hero.locator('.site-preview-brand-hero-logo');assert.equal(await logo.evaluate(e=>getComputedStyle(e).opacity),'0','Wait for the logo section to enter');assert(!(await hero.getAttribute('class')).includes('is-complete'));await page.evaluate(()=>{window.__brandFrames=[];window.__recordBrand=true;const hero=document.querySelector('#cover');function sample(t){if(!window.__recordBrand)return;window.__brandFrames.push({t,circles:[...hero.querySelectorAll('.site-preview-brand-hero-circle')].map(e=>parseFloat(getComputedStyle(e).opacity)),logo:parseFloat(getComputedStyle(hero.querySelector('img')).opacity),title:parseFloat(getComputedStyle(hero.querySelector('h2')).opacity)});requestAnimationFrame(sample)}requestAnimationFrame(sample)});await hero.evaluate(e=>scrollTo({top:scrollY+e.getBoundingClientRect().top-innerHeight*.35,behavior:'instant'}));await page.waitForFunction(()=>document.querySelector('#cover').classList.contains('site-preview-brand-hero-is-ready'));await page.waitForTimeout(1400);await hero.locator('.site-preview-brand-hero-logo-study').screenshot({path:`tmp/brand-hero/mid-${width}.png`});await page.waitForFunction(()=>document.querySelector('#cover').classList.contains('site-preview-brand-hero-is-complete'));const frames=await page.evaluate(()=>{window.__recordBrand=false;return window.__brandFrames});for(let i=0;i<6;i++)assert(frames.some(f=>f.circles[i]>0&&f.circles[i]<1),'Circle animates gradually '+i);assert(frames.some(f=>f.logo>0&&f.logo<1),'Logo fades in smoothly');assert(frames.some(f=>f.title>0&&f.title<1),'Title follows');const first=key=>frames.findIndex(f=>key(f)>.01);assert(first(f=>f.circles[0])<first(f=>f.circles[5]),'Circle build-up is staggered');assert(first(f=>f.circles[0])<first(f=>f.logo),'Construction guides precede logo');assert(first(f=>f.logo)<first(f=>f.title),'Logo precedes text');assert.equal(await logo.evaluate(e=>getComputedStyle(e).opacity),'1');assert.equal(await hero.locator('.site-preview-brand-hero-cta').evaluate(e=>getComputedStyle(e).pointerEvents),'auto');await hero.screenshot({path:`tmp/brand-hero/after-${width}.png`});await page.reload();await page.waitForLoadState('networkidle');assert(!(await hero.getAttribute('class')).includes('is-complete'),'Fresh load can replay');console.log('PASS: original staged logo sequence and fresh-load replay',width);}const reduced=await browser.newPage({reducedMotion:'reduce'});await reduced.goto('http://127.0.0.1:8879/hoea_to_waka/about/brand-guidelines/');await reduced.waitForLoadState('networkidle');assert.equal(await reduced.locator('#cover img').evaluate(e=>getComputedStyle(e).opacity),'1');assert.equal(await reduced.locator('#cover img').evaluate(e=>getComputedStyle(e).animationName),'none');const plain=await browser.newPage({javaScriptEnabled:false});await plain.goto('http://127.0.0.1:8879/hoea_to_waka/about/brand-guidelines/');assert.equal(await plain.locator('#cover img').evaluate(e=>getComputedStyle(e).opacity),'1');assert.deepEqual(errors,[]);console.log('PASS: reduced motion and no-JavaScript reading');}finally{await browser.close();server.close()}})().catch(e=>{console.error(e);process.exitCode=1});
+const {chromium}=require('playwright');
+const assert=require('assert/strict');
+const fs=require('fs');
+(async()=>{
+  const server=require('./preview.cjs')(8879),browser=await chromium.launch({channel:'chrome',headless:true});
+  try{
+    fs.mkdirSync('tmp/brand-hero',{recursive:true});
+    const errors=[];
+    for(const width of [1440,390]){
+      const page=await browser.newPage({viewport:{width,height:1000},reducedMotion:'no-preference'});
+      page.on('pageerror',e=>errors.push(e.message));
+      await page.addInitScript(()=>{
+        window.__brandFrames=[];
+        const sample=t=>{
+          const hero=document.querySelector('#cover');
+          if(hero?.classList.contains('site-preview-brand-hero-is-ready')){
+            window.__brandFrames.push({t,circle:parseFloat(getComputedStyle(hero.querySelector('.site-preview-brand-hero-circle')).opacity),logo:parseFloat(getComputedStyle(hero.querySelector('img')).opacity),title:parseFloat(getComputedStyle(hero.querySelector('h2')).opacity)});
+          }
+          requestAnimationFrame(sample);
+        };
+        requestAnimationFrame(sample);
+      });
+      await page.goto('http://127.0.0.1:8879/about/brand-guidelines/');
+      const hero=page.locator('#cover');
+      await hero.evaluate(e=>scrollTo({top:Math.max(0,scrollY+e.getBoundingClientRect().top-innerHeight*.85),behavior:'instant'}));
+      await page.waitForTimeout(350);
+      await page.screenshot({path:`tmp/brand-hero/mid-${width}.png`});
+      await page.waitForFunction(()=>document.querySelector('#cover').classList.contains('site-preview-brand-hero-is-complete'));
+      const frames=await page.evaluate(()=>window.__brandFrames);
+      const first=key=>frames.find(f=>f[key]>.01);
+      assert(first('circle')&&first('logo')&&first('title'));
+      assert(first('logo').t-first('circle').t<300,'Logo starts within 300ms of drawing');
+      assert(first('title').t-first('circle').t<400,'Title starts within 400ms of drawing');
+      assert(frames.find(f=>f.logo===1&&f.title===1).t-first('circle').t<1200,'Main content completes within 1.2 seconds');
+      assert(frames.some(f=>f.logo>0&&f.logo<1),'Logo fades smoothly');
+      assert.equal(await hero.locator('img').evaluate(e=>getComputedStyle(e).opacity),'1');
+      assert.equal(await hero.locator('.site-preview-brand-hero-cta').evaluate(e=>getComputedStyle(e).pointerEvents),'auto');
+      await hero.screenshot({path:`tmp/brand-hero/after-${width}.png`});
+      await page.close();
+      console.log('PASS: immediate viewport entry, smooth reveal and timing',width);
+    }
+    const reduced=await browser.newPage({reducedMotion:'reduce'});
+    await reduced.goto('http://127.0.0.1:8879/about/brand-guidelines/');
+    assert.equal(await reduced.locator('#cover img').evaluate(e=>getComputedStyle(e).opacity),'1');
+    assert.equal(await reduced.locator('#cover img').evaluate(e=>getComputedStyle(e).animationName),'none');
+    const plain=await browser.newPage({javaScriptEnabled:false});
+    await plain.goto('http://127.0.0.1:8879/about/brand-guidelines/');
+    assert.equal(await plain.locator('#cover img').evaluate(e=>getComputedStyle(e).opacity),'1');
+    assert.deepEqual(errors,[]);
+    console.log('PASS: reduced motion and no-JavaScript reading');
+  }finally{await browser.close();server.close();}
+})().catch(e=>{console.error(e);process.exitCode=1;});
