@@ -58,3 +58,5 @@ References checked 22 October 2026:
 - Instagram photo resolution guidance: https://help.instagram.com/1631821640426723 (portrait canvas chosen at 3:4).
 
 Run `node scripts/social-previews.cjs` for interaction, accessibility, responsive fit, download pixel dimensions, reduced motion and no-JavaScript checks. Screenshots are saved under ignored `tmp/social-previews/`.
+
+The Instagram preview's coastal post uses the supplied portrait photograph in assets/social/coastal-post.png. Its optimized WebP preview preserves the composition; the separate coastal photo download is a ready-to-post 1080 × 1440 PNG. The blank post template remains available.

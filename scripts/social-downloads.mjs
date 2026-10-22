@@ -13,3 +13,8 @@ for(const [platform,items] of Object.entries(specs))for(const [type,w,h] of item
  await sharp(Buffer.from(svg)).png().toFile(fileURLToPath(base)+'.png');
 }
 console.log('Social downloads: 12 curated platform sizes, PNG plus editable SVG layouts');
+
+// Approved supplied photograph: preserve the portrait composition for Instagram.
+const coast=new URL('../assets/social/coastal-post.png',import.meta.url);
+await sharp(fileURLToPath(coast)).resize(1080,1440,{fit:'cover'}).png().toFile(fileURLToPath(new URL('instagram-coastal-post-1080x1440.png',out)));
+await sharp(fileURLToPath(coast)).resize(810,1080,{fit:'cover'}).webp({quality:90}).toFile(fileURLToPath(new URL('../assets/social/coastal-post.webp',import.meta.url)));
