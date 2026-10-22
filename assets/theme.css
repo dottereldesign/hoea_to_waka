@@ -1013,7 +1013,7 @@ html[data-palette] .brand-guide-contents__link:is(:hover,:focus-visible){backgro
 html[data-palette] .brand-chapter-cover{position:relative;isolation:isolate;overflow:hidden;box-sizing:border-box;min-width:0;margin-inline:8px;height:clamp(300px,32vw,480px);border-radius:32px;scroll-margin-top:96px;background:radial-gradient(ellipse at 70% 20%,#6179bf 0,transparent 60%),radial-gradient(ellipse at 10% 95%,#b69ed6 0,transparent 65%),#253f75;color:#fff}
 .brand-chapter-cover::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,#080b202b,transparent 60%)}
 .brand-chapter-cover::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:url('hero-studies/grain.svg') repeat;background-size:180px;opacity:.42;mix-blend-mode:soft-light}
-.brand-chapter-cover__mark{position:absolute;top:clamp(24px,3vw,40px);left:clamp(24px,3vw,40px);width:64px;height:80px;object-fit:contain;filter:none}
+
 .brand-chapter-cover__number{position:absolute;bottom:-.16em;left:-.055em;font:400 clamp(220px,31vw,440px)/1 Inter,Arial,sans-serif;letter-spacing:-.08em;color:#ffffff40;user-select:none}
 html[data-palette] .brand-chapter-cover h2.brand-chapter-cover__title{position:absolute;right:24px;bottom:16px;max-width:calc(100% - 48px);margin:0;font:400 clamp(64px,9vw,144px)/1 Inter,Arial,sans-serif;font-weight:400!important;letter-spacing:-.045em;text-align:right;color:#fff;overflow-wrap:normal;text-wrap:balance}
 html[data-palette] .brand-chapter-cover--02{background:radial-gradient(ellipse at 80% 90%,#9b59b5 0,transparent 55%),radial-gradient(ellipse at 48% 40%,#f33d10 0,transparent 65%),radial-gradient(ellipse at 0 100%,#ffb133 0,transparent 65%),#f49b79}
@@ -1023,7 +1023,7 @@ html[data-palette] .brand-chapter-cover--05{background:radial-gradient(ellipse a
 html[data-palette] .brand-chapter-cover--06{background:radial-gradient(ellipse at 15% 95%,#7c979b 0,transparent 65%),radial-gradient(ellipse at 80% 10%,#3c788b 0,transparent 70%),#173e50}
 html[data-palette] .brand-chapter-cover--07{background:radial-gradient(ellipse at 80% 90%,#7486b4 0,transparent 68%),radial-gradient(ellipse at 0 10%,#644d8d 0,transparent 65%),#29365c}
 html[data-palette] .brand-chapter-cover--08{background:radial-gradient(ellipse at 75% 5%,#a6828e 0,transparent 65%),radial-gradient(ellipse at 5% 100%,#5a6785 0,transparent 70%),#393348}
-@media(max-width:760px){html[data-palette] .brand-chapter-cover{height:280px;border-radius:24px;scroll-margin-top:92px}.brand-chapter-cover__number{font-size:240px}.brand-chapter-cover__mark{width:52px;height:64px}html[data-palette] .brand-chapter-cover h2.brand-chapter-cover__title{font-size:clamp(42px,12vw,72px);max-width:calc(100% - 32px);right:16px;bottom:16px}}
+@media(max-width:760px){html[data-palette] .brand-chapter-cover{height:280px;border-radius:24px;scroll-margin-top:92px}.brand-chapter-cover__number{font-size:240px}html[data-palette] .brand-chapter-cover h2.brand-chapter-cover__title{font-size:clamp(42px,12vw,72px);max-width:calc(100% - 32px);right:16px;bottom:16px}}
 
 /* Six current logo applications, with a 30/70 editorial split. */
 html[data-palette] .site-preview-logo-backgrounds-sheet{grid-template-columns:minmax(0,3fr) minmax(0,7fr);gap:clamp(28px,4vw,64px);padding:clamp(24px,3vw,40px);border:0;background:transparent;box-shadow:none;align-items:start}
