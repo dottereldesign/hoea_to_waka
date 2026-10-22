@@ -24,11 +24,13 @@
   };
   const feedback = section.querySelector('.brand-ai__feedback');
   const status = section.querySelector('.brand-ai__status');
-  const opener = section.querySelector('.brand-ai__open');
+  const opener = section.querySelector('.brand-ai__open:not([data-ai-image-download])');
   const manual = section.querySelector('.brand-ai__manual');
   const textarea = manual.querySelector('textarea');
   const dismiss = section.querySelector('.brand-ai__dismiss');
   const buttons = [...section.querySelectorAll('[data-ai-provider]')];
+  const imageButtons = [...section.querySelectorAll('[data-ai-image]')];
+  const imageDownload = section.querySelector('[data-ai-image-download]');
   const actions = section.querySelector('.brand-ai__actions');
   const placeFeedback = () => {
     if (feedback.hidden) return;
@@ -47,7 +49,7 @@
   let busy = false;
   const close = (restore = false) => {
     feedback.hidden = true;
-    buttons.forEach(button => button.removeAttribute('aria-pressed'));
+    [...buttons, ...imageButtons].forEach(button => button.removeAttribute('aria-pressed'));
     if (restore) activeButton?.focus({preventScroll: true});
   };
   const message = (heading, body) => {
@@ -87,6 +89,7 @@
       feedback.hidden = false;
       manual.hidden = true;
       opener.hidden = true;
+      imageDownload.hidden = true;
       message('Preparing your brand context…', 'Collecting the published guide and design tokens.');
       placeFeedback();
       try {
@@ -117,6 +120,45 @@
         placeFeedback();
         busy = false;
         button.removeAttribute('aria-busy');
+      }
+    });
+  });
+  imageButtons.forEach(button => {
+    button.hidden = false;
+    button.addEventListener('click', async () => {
+      if (busy) return;
+      busy = true;
+      close();
+      files.open = false;
+      activeButton = button;
+      const name = button.dataset.aiImage === 'symbol' ? 'Symbol' : 'Full logo';
+      const source = button.dataset.aiImageSrc;
+      button.setAttribute('aria-busy', 'true');
+      feedback.hidden = false;
+      manual.hidden = true;
+      opener.hidden = true;
+      imageDownload.hidden = true;
+      message(`Copying ${name.toLowerCase()}…`, 'Preparing the transparent PNG.');
+      placeFeedback();
+      try {
+        if (!navigator.clipboard?.write || !window.ClipboardItem) throw Error('Image clipboard unavailable');
+        // Start the write in the click gesture. Promise-backed data retains Safari user activation.
+        await navigator.clipboard.write([new ClipboardItem({'image/png': fetch(source).then(response => {
+          if (!response.ok) throw Error('Logo image could not be loaded');
+          return response.blob();
+        })})]);
+        button.setAttribute('aria-pressed', 'true');
+        message(`${name} image copied.`, 'Paste into your AI chat or design tool. Paste the brand context and each image separately: every copy replaces the clipboard.');
+      } catch {
+        message('Save the image instead.', 'Image copying is unavailable in this browser or was blocked. Download the transparent PNG, then attach it to your chat or design file.');
+        imageDownload.href = source;
+        imageDownload.download = `hoea-to-waka-${button.dataset.aiImage}.png`;
+        imageDownload.textContent = `Download ${name.toLowerCase()} PNG ↓`;
+        imageDownload.hidden = false;
+      } finally {
+        busy = false;
+        button.removeAttribute('aria-busy');
+        placeFeedback();
       }
     });
   });
