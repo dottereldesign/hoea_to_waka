@@ -1058,6 +1058,12 @@ html[data-palette] .brand-guidelines .dashboard-content>.section{height:auto;min
 .brand-guidelines .site-preview-guide-cover-title,.brand-guidelines .site-preview-guide-cover-meta{grid-row:auto}
 .brand-guidelines .site-preview-typeface-sheet{min-height:0}
 
+/* A black guideline cover and a compact handoff from Discover to the index. */
+html[data-palette] .brand-guidelines #brand-guide-cover{background:var(--brand-ink)}
+.brand-guidelines #brand-guide-cover::before{background:none}
+html[data-palette] .brand-guidelines #cover{padding-bottom:0!important}
+html[data-palette] .brand-guidelines #contents{padding-top:32px!important}
+
 /* Reference-inspired vector studies; these colours are intentionally local to 03-05. */
 .home-hero-art{display:none;position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;background:#633cff;isolation:isolate}
 .home-hero-art__scene{display:none;position:absolute;inset:auto 0 0;width:100%;height:auto;max-width:none;aspect-ratio:708/390;object-fit:contain}

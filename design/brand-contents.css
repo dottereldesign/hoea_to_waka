@@ -71,3 +71,9 @@ html[data-palette] .brand-guidelines .dashboard-content>.section{height:auto;min
 .brand-guidelines .site-preview-guide-cover-shell{gap:32px}
 .brand-guidelines .site-preview-guide-cover-title,.brand-guidelines .site-preview-guide-cover-meta{grid-row:auto}
 .brand-guidelines .site-preview-typeface-sheet{min-height:0}
+
+/* A black guideline cover and a compact handoff from Discover to the index. */
+html[data-palette] .brand-guidelines #brand-guide-cover{background:var(--brand-ink)}
+.brand-guidelines #brand-guide-cover::before{background:none}
+html[data-palette] .brand-guidelines #cover{padding-bottom:0!important}
+html[data-palette] .brand-guidelines #contents{padding-top:32px!important}
