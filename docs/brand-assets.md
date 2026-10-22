@@ -71,3 +71,16 @@ The supplied Strength in Aotearoa artwork is the middle Instagram post. Its orig
 Off-screen images use native lazy loading and asynchronous decoding. Preview dimensions reserve their layout space. The sketch remains eager/high priority for its animation. Local Chrome checks at 1440px and 390px fetched 478,702 image bytes initially, with no mockup or download PNG requests until needed. These figures measure image payloads, not total page transfer or a guarantee of frame rates on every device. The staged and reversible logo-animation tests still pass after the changes.
 
 Run `node scripts/brand-image-performance.cjs` to check the image budget, initial requests, responsive layout, image decoding and ready-to-post download dimensions.
+
+
+## Focused packs and construction study
+
+The Symbol panel downloads `hoea-to-waka-symbol-pack.zip`: four files, black and white SVGs and 1024px PNGs. The Favicon panel downloads `hoea-to-waka-favicon-pack.zip`: SVG, multi-size ICO, and 32/180/512px PNGs. The Logo panel and social shortcut retain the existing eight-file Logo pack.
+
+Typography offers `hoea-to-waka-font-pack.zip`, containing Inter Variable in TTF for desktop apps and WOFF2 for the web, plus the OFL licence and a short installation/use note. Full fonts include the macrons needed for te reo Māori. Source files are kept in `design/source-fonts/`, excluded from public staging; the ZIP is only fetched on download. Source: https://github.com/rsms/inter/tree/master/docs/font-files and https://github.com/rsms/inter/blob/master/LICENSE.txt. ABC Marist is not redistributed or converted; the guide links to https://abcdinamo.com/typefaces/marist. Dinamo's restrictions are at https://abcdinamo.com/licenses.
+
+The business-card construction study is native SVG with a faint paper grid, sketch strokes, bleed boundary, crop marks, trim line, safe area and dimension annotations. The 90 × 55 mm / 3 mm bleed setup is an illustrative example to confirm with the printer. It is not a production artwork download. A small scoped Web Animations controller draws the guides and reveals the mark as the diagram enters view; it reverses smoothly when the diagram goes back below the trigger. There is no continuous JavaScript animation loop. Reduced motion and no-JavaScript both show the completed diagram.
+
+The logo study regression came from HTML height=1254 combined with a CSS width of 77% and no automatic height. Its study became 340 × 1254 instead of 340 × 340. An explicit automatic image height and square aspect ratio restore the correct geometry, with paint contained to the study. The test now checks the square dimensions and every guide's bounds as well as the existing staged/reversible animation tests.
+
+Run `node scripts/brand-packs-card.cjs` for pack contents/actual browser downloads, Inter macrons, sketch drawing/reversal/replay, bounded logo guides, accessibility and responsive layout.
