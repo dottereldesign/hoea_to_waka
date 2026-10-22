@@ -42,7 +42,7 @@ export function setupBrandEditor() {
       result.dataset.pass=String(ratio>=4.5);
     });
     const count=Object.keys(overrides).length;
-    status.textContent=count?`${count} colour${count===1?'':'s'} changed · preview saved in this browser.`:'Published colours · no preview changes.';
+    status.textContent=count?`${count} colour${count===1?'':'s'} changed · preview saved in this browser.`:'Original palette · no preview changes.';
   }
   function update(id,value) {
     const valid=sanitiseOverrides({[id]:value});
@@ -60,7 +60,7 @@ export function setupBrandEditor() {
     input.addEventListener('change',()=>{
       if(!update(input.dataset.colourHex,input.value.trim())) {
         input.setAttribute('aria-invalid','true');
-        status.textContent='Enter a six-digit hex colour, for example #243A53.';
+        status.textContent='Enter # followed by six letters or numbers for the colour, for example #243A53.';
       }
     });
   });
@@ -70,8 +70,8 @@ export function setupBrandEditor() {
   editor.querySelector('[data-brand-reset]').addEventListener('click',()=>{overrides={};save();apply();sync();});
   editor.querySelector('[data-brand-copy]').addEventListener('click',async()=>{
     const css=':root {\n'+colours.map(c=>`  ${variable(c.id)}: ${current(c.id)};`).join('\n')+'\n\n'+Object.entries(roleAliases).map(([name,id])=>`  --${name}: ${ref(id)};`).join('\n')+'\n}';
-    try { await navigator.clipboard.writeText(css); status.textContent='Current CSS colour tokens copied.'; }
-    catch { status.textContent='Clipboard unavailable. Select and copy the hex values beside each swatch.'; }
+    try { await navigator.clipboard.writeText(css); status.textContent='Website colour values copied as CSS.'; }
+    catch { status.textContent='Copying is unavailable. Select and copy the colour codes below the tiles instead.'; }
   });
   window.addEventListener('hoea:brand-colours',sync);
   sync();

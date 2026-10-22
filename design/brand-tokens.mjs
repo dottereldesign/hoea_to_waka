@@ -1,9 +1,9 @@
 export const brandStorageKey = 'hoea-brand-colours-v1';
 export const families = [
-  { id:'ocean', name:'Ocean', base:800, role:'Primary · Brand recognition, hero and navigation', values:['#F0F4F8','#E9EEF4','#C8D5E0','#A9C5CE','#829FB2','#607F9D','#3F5B78','#243A53','#1A2B3D'] },
-  { id:'forest', name:'Forest', base:800, role:'Secondary · Grounding, cards and feature sections', values:['#F1F5F0','#E8EEE9','#CBDBCD','#ABC4AE','#87A78C','#6B916F','#4C7054','#344A3A','#24362A'] },
-  { id:'aubergine', name:'Aubergine', base:800, role:'Secondary · Depth, storytelling and editorial sections', values:['#FAF7FB','#F1EAF2','#E2D5E5','#C8B4CE','#A18AA9','#806788','#58415F','#281A2C','#201423'] },
-  { id:'lavender', name:'Lavender', base:500, role:'Supporting · Light panels and highlights', values:['#FCFAFC','#F7F2F8','#F0E9F2','#E6DBE9','#D8CBDD','#B9A9C0','#98859F','#74647D','#514459'] },
+  { id:'ocean', name:'Ocean', base:800, role:'Dark blue · Interior headers and colour accents', values:['#F0F4F8','#E9EEF4','#C8D5E0','#A9C5CE','#829FB2','#607F9D','#3F5B78','#243A53','#1A2B3D'] },
+  { id:'forest', name:'Forest', base:800, role:'Dark green · Supporting colour for sections and graphics', values:['#F1F5F0','#E8EEE9','#CBDBCD','#ABC4AE','#87A78C','#6B916F','#4C7054','#344A3A','#24362A'] },
+  { id:'aubergine', name:'Aubergine', base:800, role:'Dark purple · Model sections and supporting backgrounds', values:['#FAF7FB','#F1EAF2','#E2D5E5','#C8B4CE','#A18AA9','#806788','#58415F','#281A2C','#201423'] },
+  { id:'lavender', name:'Lavender', base:500, role:'Pale purple · Supporting backgrounds and highlights', values:['#FCFAFC','#F7F2F8','#F0E9F2','#E6DBE9','#D8CBDD','#B9A9C0','#98859F','#74647D','#514459'] },
 ];
 const colour = (id,name,hex,role) => ({id,name,hex,role});
 export const neutrals = [
@@ -14,21 +14,21 @@ export const neutrals = [
   colour('stone','Stone','#E3E1DD','Dividers and borders'),
   colour('slate','Slate','#6B7178','Supporting labels'),
   colour('ink','Ink','#202329','High-contrast text'),
-  colour('ocean-900','Ocean Night','#1A2B3D','Deep footer and dark UI'),
-  colour('aubergine-900','Plum Night','#201423','Alternate dark UI'),
+  colour('ocean-900','Ocean Night','#1A2B3D','Deep blue · Available dark background'),
+  colour('aubergine-900','Plum Night','#201423','Deep purple · Available dark background'),
 ];
 export const accents = [
-  colour('ocean-400','Coastal Mist','#A9C5CE','Wave imagery and infographic fills'),
-  colour('dusty-rose','Dusty Rose','#C88F99','Human warmth and small editorial highlights'),
+  colour('ocean-400','Coastal Mist','#A9C5CE','Pale blue · Illustrations and diagrams'),
+  colour('dusty-rose','Dusty Rose','#C88F99','Muted pink · Small illustration details'),
   colour('sandstone','Sandstone','#D6BA83','Small warm details and diagrams'),
-  colour('soft-sage','Soft Sage','#B8C9B5','Land imagery and calm surfaces'),
+  colour('soft-sage','Soft Sage','#B8C9B5','Pale green · Illustrations and backgrounds'),
 ];
 export const semantics = [
-  colour('success','Success','#347A56','Positive outcomes · pair with Forest 200'),
-  colour('warning','Warning','#A86823','Caution · use a dedicated pale surface'),
-  colour('error','Error','#B74855','Errors · use a dedicated pale surface'),
-  colour('ocean-800','Information','#243A53','Information · pair with Ocean 200'),
-  colour('ocean-600','Focus ring','#607F9D','Visible keyboard focus'),
+  colour('success','Success','#347A56','A completed or successful action'),
+  colour('warning','Warning','#A86823','A caution message · explain what needs attention'),
+  colour('error','Error','#B74855','An error message · explain how to fix it'),
+  colour('ocean-800','Information','#243A53','Helpful information or a neutral notice'),
+  colour('ocean-600','Focus ring','#607F9D','Shows which control is selected by the keyboard'),
 ];
 export const scales = families.flatMap(f=>f.values.map((hex,i)=>colour(`${f.id}-${(i+1)*100}`,`${f.name} ${(i+1)*100}`,hex,`${(i+1)*100} tonal level`)));
 export const colours = [...new Map([...scales,...neutrals,...accents,...semantics].map(c=>[c.id,c])).values()];
