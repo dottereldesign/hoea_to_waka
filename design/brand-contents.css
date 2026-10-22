@@ -131,11 +131,7 @@ html[data-palette] #typeface .site-preview-typeface-sheet-supporting{padding:0;b
 /* Digital logo use and chapter 09 social media examples. */
 html[data-palette] .brand-chapter-cover--09{background:radial-gradient(ellipse at 10% 95%,#6e7eae 0,transparent 65%),radial-gradient(ellipse at 85% 10%,#765f9a 0,transparent 70%),#243a53}
 .brand-favicon-preview,.brand-social-post{margin:0;min-width:0}
-.brand-favicon-browser{padding:14px 18px 0;background:var(--t-surface);border:1px solid var(--t-line);border-radius:18px 18px 0 0}
-.brand-favicon-tab{display:flex;align-items:center;gap:12px;max-width:280px;padding:14px 16px;border-radius:12px 12px 0 0;background:var(--t-bg);color:var(--t-ink);font:400 14px/1.4 Inter,Arial,sans-serif}
-.brand-favicon-tab>span:last-child{margin-left:auto;color:var(--t-muted)}
-.brand-favicon-tab img{width:16px;height:16px;flex-shrink:0}
-.brand-favicon-sizes{display:flex;align-items:center;gap:clamp(28px,4vw,64px);padding:36px;border:1px solid var(--t-line);border-top:0;border-radius:0 0 18px 18px}
+.brand-favicon-sizes{display:flex;align-items:center;gap:clamp(28px,4vw,64px);padding:36px;border:1px solid var(--t-line);border-radius:18px}
 .brand-favicon-sizes>img{width:80px;height:80px;flex-shrink:0}
 .brand-favicon-sizes>div{display:flex;align-items:end;gap:28px;flex-wrap:wrap}
 .brand-favicon-sizes span{display:grid;justify-items:center;gap:12px;font:400 13px/1.4 Inter,Arial,sans-serif;color:var(--t-muted)}
@@ -183,3 +179,37 @@ html[data-palette] .brand-guidelines #mockups>.brand-guide-application-row{grid-
 .brand-statement-copy[aria-busy="true"]{cursor:wait;opacity:.6}
 .brand-copy-status{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
 @media(prefers-reduced-motion:reduce){.brand-statement-copy{transition:none}}
+
+/* Chrome-style tab and toolbar studies keep browser themes independent of the page theme. */
+.brand-chrome-preview{margin:0;min-width:0}
+.brand-chrome-window{--chrome-strip:#dfe3eb;--chrome-toolbar:#fff;--chrome-address:#edf0f7;--chrome-ink:#202124;--chrome-muted:#5f6368;--chrome-border:#dadce0;container: favicon-browser / inline-size;border:1px solid var(--chrome-border);border-radius:12px;overflow:hidden;background:var(--chrome-toolbar);color:var(--chrome-ink)}
+.brand-chrome-window--dark{--chrome-strip:#202124;--chrome-toolbar:#35363a;--chrome-address:#202124;--chrome-ink:#e8eaed;--chrome-muted:#bdc1c6;--chrome-border:#45474a}
+html[data-palette][data-typography] body .brand-chrome-window,html[data-palette][data-typography] body .brand-chrome-window *{font-family:"Segoe UI",Arial,sans-serif!important}
+.brand-chrome-tabs{display:flex;align-items:end;gap:6px;height:46px;padding:8px 8px 0;background:var(--chrome-strip)}
+.brand-chrome-tabs svg,.brand-chrome-toolbar svg{display:block;flex-shrink:0;width:16px;height:16px}
+.brand-chrome-search,.brand-chrome-new{display:grid;place-items:center;flex:0 0 28px;height:28px;align-self:center;color:var(--chrome-ink)}
+.brand-chrome-search{background:color-mix(in srgb,var(--chrome-toolbar) 50%,transparent);border-radius:8px}
+.brand-chrome-tab{position:relative;display:flex;align-items:center;gap:9px;min-width:0;height:36px;padding:0 12px;font-size:12px;line-height:1;color:var(--chrome-ink)}
+.brand-chrome-tab--active{flex:0 1 240px;border-radius:12px 12px 0 0;background:var(--chrome-toolbar);z-index:1}
+.brand-chrome-tab--active::before,.brand-chrome-tab--active::after{content:"";position:absolute;bottom:0;width:8px;height:8px}
+.brand-chrome-tab--active::before{left:-8px;background:radial-gradient(circle at 0 0,transparent 8px,var(--chrome-toolbar) 8.5px)}
+.brand-chrome-tab--active::after{right:-8px;background:radial-gradient(circle at 100% 0,transparent 8px,var(--chrome-toolbar) 8.5px)}
+.brand-chrome-tab img{width:16px;height:16px;flex-shrink:0;object-fit:contain}
+.brand-chrome-tab>span{flex:1;min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.brand-chrome-tab>svg{width:12px;height:12px}
+.brand-chrome-tab--inactive{flex:0 1 160px;color:var(--chrome-muted)}
+.brand-chrome-window-controls{display:flex;align-self:start;gap:4px;margin-left:auto;color:var(--chrome-ink)}
+.brand-chrome-window-controls>span{display:grid;place-items:center;width:28px;height:28px}
+.brand-chrome-window-controls svg{width:12px;height:12px}
+.brand-chrome-toolbar{display:flex;align-items:center;gap:14px;padding:8px 12px;background:var(--chrome-toolbar);color:var(--chrome-ink);height:48px;box-sizing:border-box}
+.brand-chrome-toolbar>span{display:grid;place-items:center;flex-shrink:0}
+.brand-chrome-forward{opacity:.4}
+.brand-chrome-address{display:flex;align-items:center;gap:10px;flex:1;min-width:0;height:32px;padding:0 12px;border-radius:999px;background:var(--chrome-address);color:var(--chrome-ink);font-size:13px}
+.brand-chrome-address>span{flex:1;min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.brand-chrome-profile{width:24px;height:24px;border:1px solid var(--chrome-muted);border-radius:50%;color:var(--chrome-muted)}
+.brand-chrome-profile svg{width:14px;height:14px}
+.brand-chrome-page{display:flex;align-items:center;gap:8px;padding:24px;background:#fff;color:#202329;border-top:1px solid #eeeeef;font-size:16px;font-weight:600}
+.brand-chrome-page img{width:28px;height:28px;object-fit:contain}
+html[data-palette] .brand-chrome-preview figcaption{margin-top:12px;color:var(--t-muted);font:400 15px/1.6 Inter,Arial,sans-serif}
+@container favicon-browser (max-width:520px){.brand-chrome-tab--inactive{display:none}}
+@container favicon-browser (max-width:420px){.brand-chrome-window-controls{display:none}.brand-chrome-tab--active{flex:1}.brand-chrome-toolbar{gap:10px}.brand-chrome-profile,.brand-chrome-bookmark{display:none!important}}
