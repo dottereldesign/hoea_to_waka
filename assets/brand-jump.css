@@ -1,0 +1,23 @@
+/* The panel and button share one origin: the clipped surface begins as the button's circle. */
+.brand-guidelines .brand-jump{position:fixed;right:max(24px,env(safe-area-inset-right));bottom:max(24px,env(safe-area-inset-bottom));z-index:120;isolation:isolate;width:56px;height:56px;font-family:Inter,Arial,sans-serif}
+.brand-guidelines .brand-jump__panel{position:absolute;right:0;bottom:0;box-sizing:border-box;width:min(344px,calc(100vw - 48px));max-height:calc(100dvh - 32px);padding:30px 28px 76px;background:var(--t-ink,#202329);color:var(--t-surface,#fff);border-radius:28px;clip-path:inset(calc(100% - 56px) 0 0 calc(100% - 56px) round 28px);transition:clip-path 620ms cubic-bezier(.22,1,.36,1);pointer-events:none;will-change:clip-path}
+.brand-guidelines .brand-jump[data-open="true"] .brand-jump__panel{clip-path:inset(0 0 0 0 round 28px);pointer-events:auto}
+html[data-palette] .brand-guidelines .brand-jump__heading{margin:0 0 24px;font-size:12px;font-weight:500;line-height:1.5;letter-spacing:.14em;text-transform:uppercase;color:inherit;opacity:.6}
+.brand-guidelines .brand-jump__links{display:grid;gap:2px;max-height:calc(100dvh - 190px);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}
+html[data-palette] .brand-guidelines .brand-jump__link{display:grid;grid-template-columns:24px 1fr;gap:16px;align-items:center;min-height:40px;padding:2px 0;color:inherit;text-decoration:none;font-size:16px;font-weight:400;line-height:1.35;letter-spacing:-.025em;border-radius:6px}
+.brand-guidelines .brand-jump__number{font-size:11px;letter-spacing:.04em;opacity:.8;font-variant-numeric:tabular-nums}
+.brand-guidelines .brand-jump__title{transition:transform 200ms ease}
+.brand-guidelines .brand-jump__link:hover .brand-jump__title{transform:translateX(5px)}
+.brand-guidelines .brand-jump__link:focus-visible{outline:1px solid currentColor;outline-offset:3px}
+.brand-guidelines .brand-jump__heading,html[data-palette] .brand-guidelines .brand-jump__link{opacity:0;transform:translateY(14px);transition:opacity 120ms ease,transform 180ms cubic-bezier(.22,1,.36,1)}
+.brand-guidelines .brand-jump[data-open="true"] :is(.brand-jump__heading,.brand-jump__link){opacity:1;transform:translateY(0);transition-duration:400ms,520ms;transition-delay:calc(110ms + var(--jump-index,0)*28ms)}
+.brand-guidelines .brand-jump__toggle{position:absolute;right:0;bottom:0;width:56px;height:56px;display:grid;place-content:center;gap:5px;padding:0;border:0;border-radius:50%;background:var(--t-ink,#202329);color:var(--t-surface,#fff);box-shadow:0 6px 24px #0000001a;cursor:pointer;transition:box-shadow 300ms ease;-webkit-tap-highlight-color:transparent}
+.brand-guidelines .brand-jump[data-open="true"] .brand-jump__toggle{box-shadow:none}
+.brand-guidelines .brand-jump__toggle:focus-visible{outline:2px solid var(--t-surface,#fff);outline-offset:-6px}
+.brand-guidelines .brand-jump__toggle span{display:block;width:18px;height:1px;background:currentColor;transform-origin:center;transition:transform 520ms cubic-bezier(.22,1,.36,1),opacity 180ms ease}
+.brand-guidelines .brand-jump__toggle span:nth-child(2){width:12px}
+.brand-guidelines .brand-jump[data-open="true"] .brand-jump__toggle span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.brand-guidelines .brand-jump[data-open="true"] .brand-jump__toggle span:nth-child(2){opacity:0;transform:scaleX(0)}
+.brand-guidelines .brand-jump[data-open="true"] .brand-jump__toggle span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+@media(max-width:600px){.brand-guidelines .brand-jump{right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom))}}
+@media(prefers-reduced-motion:reduce){.brand-guidelines .brand-jump *{transition:none!important}}
