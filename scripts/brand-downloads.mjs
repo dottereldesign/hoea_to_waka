@@ -1,8 +1,8 @@
-import {readFile,writeFile,mkdir,readdir} from 'node:fs/promises';
+import {readFile,writeFile,mkdir} from 'node:fs/promises';
 import {createRequire} from 'node:module';
 import {fileURLToPath} from 'node:url';
 const require=createRequire(import.meta.url),sharp=require('sharp'),fontkit=require('fontkit'),PDFDocument=require('pdfkit'),svgpath=require('svgpath');
-const {zipSync,strToU8}=require('fflate');
+const {zipSync}=require('fflate');
 const out=new URL('../assets/brand-downloads/',import.meta.url);await mkdir(out,{recursive:true});
 const {decompress}=require('wawoff2');
 const latin=fontkit.create(Buffer.from(await decompress(await readFile(new URL('../assets/fonts/themes/inter-latin-3.woff2',import.meta.url)))));
@@ -41,29 +41,15 @@ const header=Buffer.alloc(6+16*iconImages.length);header.writeUInt16LE(1,2);head
 await writeFile(new URL('manifest.json',out),JSON.stringify(manifest,null,2)+'\n');
 console.log('Brand exports: outlined SVG/PDF/EPS, transparent PNG/WebP, JPG and multi-size ICO');
 
-// One complete, deterministic pack shared by all three download panels.
+// A curated pack: one scalable vector and one high-resolution PNG per logo.
 const archive={};
 const archiveOptions={mtime:new Date('2026-10-22T00:00:00Z')};
-archive['README.txt']=[strToU8(`HOEA TO WAKA - FULL LOGO PACK
-
-Symbols: symbol artwork without text, in black and white.
-Full Logos: symbol, Hoea tō Waka name, Strength in Aotearoa and both rules.
-Favicons: square website icons, including a multi-size ICO.
-
-SVG, PDF and EPS are vector files and can be resized in design software.
-PNG and WebP preserve transparency. JPG has a contrasting solid background.
-White artwork is intended for a dark surface; a white PDF may look blank in a white viewer.
-The full-logo text is outlined, so you do not need to install the font.
-
-Symbol image widths: 256, 512 and 1024px.
-Full-logo image widths: 640, 1280 and 2560px.
-Favicon sizes: 16, 32, 48, 64, 128, 180, 192 and 512px.
-ICO includes 16, 32 and 48px in one file.
-`),archiveOptions];
-for(const file of (await readdir(out)).sort()){
-  const match=file.match(/^hoea-to-waka-(symbol|horizontal|favicon)(?:-(black|white))?.*\.(svg|pdf|eps|png|webp|jpg|ico)$/);
-  if(!match)continue;
-  const folder=match[1]==='favicon'?'Favicons':`${match[1]==='symbol'?'Symbols':'Full Logos'}/${match[2]==='black'?'Black':'White'}`;
-  archive[`${folder}/${file}`]=[new Uint8Array(await readFile(new URL(file,out))),archiveOptions];
+for(const [type,folder,size] of [['symbol','Symbols',1024],['horizontal','Full Logos',2560]]){
+  for(const colour of ['black','white']){
+    const base=`hoea-to-waka-${type}-${colour}`;
+    for(const [source,target] of [[base+'.svg',base+'.svg'],[base+'-'+size+'.png',base+'.png']]){
+      archive[`${folder}/${target}`]=[new Uint8Array(await readFile(new URL(source,out))),archiveOptions];
+    }
+  }
 }
-await writeFile(new URL('hoea-to-waka-full-logo-pack.zip',out),zipSync(archive,{level:6}));
+await writeFile(new URL('hoea-to-waka-logo-pack.zip',out),zipSync(archive,{level:6}));

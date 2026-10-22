@@ -31,6 +31,6 @@ Reference material reviewed for platform structure:
 
 UI details can vary by account, viewport and platform update. Keep the coded examples consistent with the profile treatments being reviewed rather than presenting them as live account screenshots.
 
-## Complete pack
+## Logo pack
 
-Each download panel also offers `hoea-to-waka-full-logo-pack.zip` as its main action. The archive contains all 66 artwork files in Symbols, Full Logos and Favicons folders, plus a plain-text usage guide. It is generated with stable file dates by the same export script. The green CTA uses Forest 800 with white text and Forest 700 on hover, with reduced-motion support.
+Each download panel offers “Download Logo pack” as its main action. The ZIP contains eight essential files in two folders: Symbols and Full Logos. Each includes black and white artwork as scalable SVG and transparent high-resolution PNG. Symbol PNGs are 1024px wide and full-logo PNGs are 2560px wide. There are no duplicate sizes or extra formats in the pack. Other formats and favicons remain available through the individual download controls. The archive uses stable file dates. The green CTA uses Forest 800 with white text and Forest 700 on hover, with reduced-motion support.
