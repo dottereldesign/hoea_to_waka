@@ -532,3 +532,36 @@ html[data-palette] .brand-card-study figcaption{margin:0;padding:16px 0 0;font-s
 .brand-guidelines .site-preview-guide-cover-meta{grid-area:2/1}
 
 .bc-service-pill{fill:none;stroke:#838582;stroke-width:1;opacity:.55}
+
+/* A dated project appraisal is separate from the brand's operating guidance. */
+html[data-palette] .brand-guidelines #guide-valuation{border-top:1px solid var(--t-line);background:var(--t-surface);color:var(--t-ink)}
+.guide-valuation .brand-guide-editorial__content{gap:28px}
+.guide-valuation__price{display:grid;gap:14px;padding:clamp(24px,3vw,40px);border-radius:24px;background:radial-gradient(ellipse at 100% 110%,#4a4166,transparent 68%),radial-gradient(ellipse at 0 0,#29485a,transparent 75%),#202329;color:#fff}
+.guide-valuation__price>span{font:400 13px/1.6 Inter,Arial,sans-serif}
+html[data-palette] .guide-valuation__price>strong{font:500 clamp(30px,4vw,56px)/1.1 Inter,Arial,sans-serif;letter-spacing:-.045em;color:inherit}
+.guide-valuation__price small{display:block;margin-top:10px;font:400 13px/1.5 Inter,Arial,sans-serif;letter-spacing:0}
+html[data-palette] .brand-guidelines .guide-valuation :is(p,caption){margin:0;font:400 15px/1.75 Inter,Arial,sans-serif!important;color:var(--t-muted)}
+html[data-palette] .brand-guidelines .guide-valuation__price p{color:#fff;font-size:14px!important;max-width:65ch}
+.guide-valuation__assessment,.guide-valuation__detail-body{display:grid;gap:18px;min-width:0}
+html[data-palette] .brand-guidelines .guide-valuation h3{margin:0;font:500 22px/1.3 Inter,Arial,sans-serif!important;letter-spacing:-.025em;color:var(--t-ink)}
+.guide-valuation__details{border-top:1px solid var(--t-line);min-width:0}
+.guide-valuation__details summary{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 0;list-style:none;cursor:pointer;font:500 16px/1.5 Inter,Arial,sans-serif}
+.guide-valuation__details summary::-webkit-details-marker{display:none}
+.guide-valuation__details summary>span{font-size:24px;font-weight:300;flex-shrink:0;transition:transform 240ms ease}
+.guide-valuation__details[open] summary>span{transform:rotate(45deg)}
+.guide-valuation__detail-body{padding-bottom:8px}
+.guide-valuation__working{border-collapse:collapse;width:100%;font:400 13px/1.6 Inter,Arial,sans-serif;font-variant-numeric:tabular-nums}
+html[data-palette] .brand-guidelines .guide-valuation caption{text-align:left;padding-bottom:14px;font-size:13px!important}
+.guide-valuation__working :is(th,td){padding:12px 8px;border-bottom:1px solid var(--t-line);text-align:right;vertical-align:top}
+.guide-valuation__working tr>:first-child{text-align:left;padding-left:0}
+.guide-valuation__working tr>:last-child{padding-right:0;white-space:nowrap}
+.guide-valuation__working th{font-weight:500}
+.guide-valuation__working tfoot tr:last-child{font-weight:600}
+.guide-valuation__benchmarks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+.guide-valuation__benchmarks article{display:grid;align-content:start;gap:12px;padding:20px 0;border-top:1px solid var(--t-line);min-width:0}
+html[data-palette] .brand-guidelines .guide-valuation h4{font:500 16px/1.5 Inter,Arial,sans-serif!important;margin:0;color:var(--t-ink)}
+.guide-valuation__benchmarks article>strong{font:500 18px/1.5 Inter,Arial,sans-serif}
+html[data-palette] .brand-guidelines .guide-valuation a{color:var(--t-ink);text-decoration:underline;text-underline-offset:4px;overflow-wrap:anywhere}
+.guide-valuation :is(summary,a):focus-visible{outline:2px solid var(--t-ink);outline-offset:4px;border-radius:4px}
+@media(max-width:760px){.guide-valuation__benchmarks{grid-template-columns:minmax(0,1fr);gap:4px}.guide-valuation__working{font-size:12px}.guide-valuation__working :is(th,td){padding-inline:5px}}
+@media(prefers-reduced-motion:reduce){.guide-valuation__details summary>span{transition:none}}
