@@ -1114,6 +1114,32 @@ html:has(body.brand-guidelines){scroll-padding-top:0}
 /* Open typography specimens without repeated eyebrow pills or a surrounding card. */
 html[data-palette] #typeface .site-preview-typeface-sheet-supporting{padding:0;border:0;border-radius:0;background:transparent;box-shadow:none}
 
+/* Digital logo use and chapter 09 social media examples. */
+html[data-palette] .brand-chapter-cover--09{background:radial-gradient(ellipse at 10% 95%,#6e7eae 0,transparent 65%),radial-gradient(ellipse at 85% 10%,#765f9a 0,transparent 70%),#243a53}
+.brand-favicon-preview,.brand-social-post{margin:0;min-width:0}
+.brand-favicon-browser{padding:14px 18px 0;background:var(--t-surface);border:1px solid var(--t-line);border-radius:18px 18px 0 0}
+.brand-favicon-tab{display:flex;align-items:center;gap:12px;max-width:280px;padding:14px 16px;border-radius:12px 12px 0 0;background:var(--t-bg);color:var(--t-ink);font:400 14px/1.4 Inter,Arial,sans-serif}
+.brand-favicon-tab>span:last-child{margin-left:auto;color:var(--t-muted)}
+.brand-favicon-tab img{width:16px;height:16px;flex-shrink:0}
+.brand-favicon-sizes{display:flex;align-items:center;gap:clamp(28px,4vw,64px);padding:36px;border:1px solid var(--t-line);border-top:0;border-radius:0 0 18px 18px}
+.brand-favicon-sizes>img{width:80px;height:80px;flex-shrink:0}
+.brand-favicon-sizes>div{display:flex;align-items:end;gap:28px;flex-wrap:wrap}
+.brand-favicon-sizes span{display:grid;justify-items:center;gap:12px;font:400 13px/1.4 Inter,Arial,sans-serif;color:var(--t-muted)}
+.brand-favicon-sizes span img{object-fit:contain}
+html[data-palette] :is(.brand-favicon-preview,.brand-social-post) figcaption{display:block;margin-top:14px;font:400 15px/1.6 Inter,Arial,sans-serif;color:var(--t-muted)}
+.brand-asset-link{display:inline-flex;align-items:center;gap:10px;width:fit-content;color:var(--t-ink);font:500 15px/1.5 Inter,Arial,sans-serif;text-underline-offset:5px}
+.brand-social-profile{display:grid;grid-template-columns:132px minmax(0,1fr);gap:28px;align-items:center}
+.brand-social-avatar{display:grid;place-items:center;width:132px;height:132px;border-radius:50%;background:var(--brand-ink)}
+.brand-social-avatar img{width:96px;height:96px;object-fit:contain}
+html[data-palette] :is(.brand-social-profile,.brand-social-guidance) h3{font-size:clamp(22px,2.1vw,32px);line-height:1.18;letter-spacing:-.035em;margin:0 0 12px;color:var(--t-ink)}
+html[data-palette] :is(.brand-social-profile,.brand-social-guidance) p{margin:0;line-height:1.75;color:var(--t-ink)}
+.brand-social-post__art{display:flex;flex-direction:column;justify-content:space-between;gap:36px;min-height:360px;padding:clamp(28px,4vw,56px);border-radius:24px;color:#fff;background:radial-gradient(ellipse at 100% 110%,#8253c5 0,#4b3e89 30%,transparent 70%),#211c37}
+.brand-social-post__brand{display:flex;align-items:center;gap:12px;font:600 20px/1.2 Inter,Arial,sans-serif}
+.brand-social-post__brand img{width:44px;height:44px;object-fit:contain}
+html[data-palette][data-typography] body .brand-social-post p.brand-social-post__message{font:500 clamp(40px,5.5vw,80px)/1.05 Inter,Arial,sans-serif!important;letter-spacing:-.045em;margin:0;color:#fff}
+.brand-social-post__note{font:400 16px/1.5 Inter,Arial,sans-serif;color:#fff}
+@media(max-width:760px){.brand-favicon-sizes{padding:24px;gap:24px;flex-wrap:wrap}.brand-favicon-sizes>div{gap:24px}.brand-social-profile{grid-template-columns:minmax(0,1fr);gap:24px}.brand-social-avatar{width:112px;height:112px}.brand-social-avatar img{width:80px;height:80px}.brand-social-post__art{min-height:320px;padding:24px}.brand-social-post__brand{font-size:18px}}
+
 /* Reference-inspired vector studies; these colours are intentionally local to 03-05. */
 .home-hero-art{display:none;position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;background:#633cff;isolation:isolate}
 .home-hero-art__scene{display:none;position:absolute;inset:auto 0 0;width:100%;height:auto;max-width:none;aspect-ratio:708/390;object-fit:contain}
