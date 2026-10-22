@@ -31,6 +31,7 @@
     "test:brand-assets": "node scripts/brand-assets.cjs",
     "test:brand-image-performance": "node scripts/brand-image-performance.cjs",
     "test:social-previews": "node scripts/social-previews.cjs && node scripts/social-touch.cjs",
+    "build:guide-qr": "node scripts/guide-qr.mjs",
     "build:brand-assets": "node scripts/brand-downloads.mjs"
   },
   "dependencies": {
@@ -43,6 +44,7 @@
     "fontkit": "^2.0.4",
     "pdfkit": "^0.20.2",
     "playwright": "^1.51.0",
+    "qrcode": "^1.5.4",
     "sharp": "^0.35.5",
     "svgpath": "^2.6.0",
     "wawoff2": "^2.0.1"
