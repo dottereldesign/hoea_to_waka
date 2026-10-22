@@ -14,6 +14,11 @@ html[data-palette] .brand-guidelines .brand-jump__link{display:grid;grid-templat
 .brand-guidelines .brand-jump[data-open="true"] :is(.brand-jump__heading,.brand-jump__link){opacity:1;transform:translateY(0);transition-duration:400ms,520ms;transition-delay:calc(110ms + var(--jump-index,0)*28ms)}
 .brand-guidelines .brand-jump__toggle{position:absolute;right:0;bottom:0;width:56px;height:56px;display:grid;place-content:center;gap:5px;padding:0;border:0;border-radius:50%;background:var(--t-ink,#202329);color:var(--t-surface,#fff);box-shadow:0 6px 24px #0000001a;cursor:pointer;transition:box-shadow 300ms ease;-webkit-tap-highlight-color:transparent}
 .brand-guidelines .brand-jump[data-open="true"] .brand-jump__toggle{box-shadow:none}
+html[data-palette] .brand-guidelines .brand-jump__top{position:absolute;right:68px;bottom:6px;display:grid;place-items:center;width:44px;height:44px;padding:0;border:1px solid var(--t-line);border-radius:50%;background:var(--t-surface,#fff);color:var(--t-ink,#202329);box-shadow:0 3px 16px #0000000f;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(6px);pointer-events:none;transition:opacity 240ms ease,transform 320ms cubic-bezier(.22,1,.36,1),visibility 240ms;-webkit-tap-highlight-color:transparent}
+html[data-palette] .brand-guidelines .brand-jump__top[data-visible="true"]{opacity:1;visibility:visible;transform:translateY(0);pointer-events:auto}
+.brand-guidelines .brand-jump__top svg{transition:transform 240ms cubic-bezier(.22,1,.36,1)}
+.brand-guidelines .brand-jump__top:hover svg{transform:translateY(-2px)}
+.brand-guidelines .brand-jump__top:focus-visible{outline:2px solid var(--t-ink,#202329);outline-offset:3px}
 .brand-guidelines .brand-jump__toggle:focus-visible{outline:2px solid var(--t-surface,#fff);outline-offset:-6px}
 .brand-guidelines .brand-jump__toggle span{display:block;width:18px;height:1px;background:currentColor;transform-origin:center;transition:transform 520ms cubic-bezier(.22,1,.36,1),opacity 180ms ease}
 .brand-guidelines .brand-jump__toggle span:nth-child(2){width:12px}

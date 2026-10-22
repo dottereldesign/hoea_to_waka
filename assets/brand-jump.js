@@ -22,11 +22,44 @@
     links.append(link);
   });
   document.body.append(jump);
+  const top = document.createElement('button');
+  top.type = 'button';
+  top.className = 'brand-jump__top';
+  top.title = 'Back to top';
+  top.setAttribute('aria-label', 'Back to top');
+  top.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5m-6 6 6-6 6 6"/></svg>';
+  jump.append(top);
+  const syncTop = () => {
+    const visible = scrollY > Math.max(400, innerHeight * .6) && jump.dataset.open !== 'true';
+    top.dataset.visible = String(visible);
+    top.inert = !visible;
+    top.setAttribute('aria-hidden', String(!visible));
+  };
+  let topFrame;
+  const requestTop = () => {
+    if (topFrame) return;
+    topFrame = requestAnimationFrame(() => {topFrame = null;syncTop();});
+  };
+  addEventListener('scroll', requestTop, {passive:true});
+  addEventListener('resize', requestTop, {passive:true});
+  syncTop();
+  top.addEventListener('click', () => {
+    const heading = document.querySelector('.site-preview-guide-cover-title');
+    if (heading) {
+      const temporary = !heading.hasAttribute('tabindex');
+      if (temporary) heading.tabIndex = -1;
+      heading.focus({preventScroll:true});
+      if (temporary) heading.addEventListener('blur', () => heading.removeAttribute('tabindex'), {once:true});
+    }
+    if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+    scrollTo({top:0, behavior:matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'});
+  });
   const setOpen = (open, restoreFocus = false) => {
     jump.dataset.open = String(open);
     toggle.setAttribute('aria-expanded', String(open));
     toggle.setAttribute('aria-label', `${open ? 'Close' : 'Open'} table of contents`);
     panel.inert = !open;
+    syncTop();
     if (restoreFocus) toggle.focus({preventScroll: true});
   };
   toggle.addEventListener('click', () => setOpen(jump.dataset.open !== 'true'));
