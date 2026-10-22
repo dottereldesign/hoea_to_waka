@@ -8,6 +8,7 @@ import { renderBrandGuidelines } from './brand-guidelines.mjs';
 import { updateServiceLinkIcons } from './service-link-icons.mjs';
 
 await import('./brand-downloads.mjs');
+await import('./social-downloads.mjs');
 
 // HTML contains the final layouts. This build only compiles their styles and interactions.
 const guidePath='about/brand-guidelines/index.html';

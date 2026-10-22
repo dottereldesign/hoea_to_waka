@@ -34,3 +34,27 @@ UI details can vary by account, viewport and platform update. Keep the coded exa
 ## Logo pack
 
 Each download panel offers “Download Logo pack” as its main action. The ZIP contains eight essential files in two folders: Symbols and Full Logos. Each includes black and white artwork as scalable SVG and transparent high-resolution PNG. Symbol PNGs are 1024px wide and full-logo PNGs are 2560px wide. There are no duplicate sizes or extra formats in the pack. Other formats and favicons remain available through the individual download controls. The archive uses stable file dates. The CTA uses vibrant lime (#A8F000) with Ink text and a dark icon circle. Its hover colour is #BEFF24, with reduced-motion support.
+
+
+## Social platform gallery and downloads
+
+The Social Media chapter has four platform previews: LinkedIn, Facebook, Instagram and X. Large icon tabs, previous/next buttons, keyboard arrows (plus Home/End) and horizontal drag/swipe select the platform. Selection also changes the downloads in the left column. The track and viewport height animate without autoplay; reduced motion removes transitions. Inactive slides are inert and hidden from assistive technology. Without JavaScript all previews and downloads remain visible.
+
+`scripts/social-downloads.mjs` runs during the normal build. It exports one 400 × 400 PNG profile logo per platform and these blank branded starting layouts, as PNG and editable SVG:
+
+| Platform | Banner | Post | Story |
+| --- | --- | --- | --- |
+| LinkedIn | 1512 × 256 | 1200 × 1200 | - |
+| Facebook | 851 × 315 | 1080 × 1080 | - |
+| Instagram | - | 1080 × 1440 | 1080 × 1920 |
+| X | 1500 × 500 | 1600 × 900 | - |
+
+Sizes are practical export choices, not claims that platforms accept only these dimensions. Keep important artwork clear of crop edges and check each platform's upload preview. Profile PNGs contain the white symbol on dark ink. Templates have a purple background and small white symbol, leaving room for the user's content. The original eight-file Logo pack remains unchanged and has a quiet download link in this chapter.
+
+References checked 22 October 2026:
+- LinkedIn Page logo/cover guidance: https://www.linkedin.com/help/linkedin/answer/a563309/image-specifications-for-your-linkedin-pages-and-career-pages?lang=en
+- X profile/header guidance: https://help.x.com/en/managing-your-account/common-issues-when-uploading-profile-photo.html
+- Facebook Page image guidance: https://www.facebook.com/help/125379114252045 (login restricted in this environment; 851 × 315 used as the working cover canvas).
+- Instagram photo resolution guidance: https://help.instagram.com/1631821640426723 (portrait canvas chosen at 3:4).
+
+Run `node scripts/social-previews.cjs` for interaction, accessibility, responsive fit, download pixel dimensions, reduced motion and no-JavaScript checks. Screenshots are saved under ignored `tmp/social-previews/`.

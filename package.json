@@ -26,6 +26,7 @@
     "test:hero-illustrations": "node scripts/hero-illustrations.cjs",
     "test:resources-nav": "node scripts/resources-nav.cjs",
     "test:brand-assets": "node scripts/brand-assets.cjs",
+    "test:social-previews": "node scripts/social-previews.cjs && node scripts/social-touch.cjs",
     "build:brand-assets": "node scripts/brand-downloads.mjs"
   },
   "dependencies": {
