@@ -1199,6 +1199,7 @@ html[data-palette][data-typography] body .brand-chrome-window,html[data-palette]
 html[data-palette] .brand-chrome-preview figcaption{margin-top:12px;color:var(--t-muted);font:400 15px/1.6 Inter,Arial,sans-serif}
 @container favicon-browser (max-width:520px){.brand-chrome-tab--inactive{display:none}}
 @container favicon-browser (max-width:420px){.brand-chrome-window-controls{display:none}.brand-chrome-tab--active{flex:1}.brand-chrome-toolbar{gap:10px}.brand-chrome-profile,.brand-chrome-bookmark{display:none!important}}
+html[data-palette] .brand-guidelines :is(#logo,.site-preview-logo-backgrounds){padding-bottom:0!important}
 
 /* Reference-inspired vector studies; these colours are intentionally local to 03-05. */
 .home-hero-art{display:none;position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;background:#633cff;isolation:isolate}
