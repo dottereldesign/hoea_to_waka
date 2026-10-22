@@ -1580,70 +1580,67 @@
           });
         };
 
-	        const startSequence = () => {
-	          if (!hero || hero.classList.contains("site-preview-brand-hero-is-ready") || hero.classList.contains("site-preview-brand-hero-is-complete")) {
-	            return;
-	          }
-	          let sequenceStarted = false;
-	          let ticking = false;
+        // Keep the original staggered CSS sequence on one reversible timeline.
+        // A shared playhead preserves the drawing order in both directions,
+        // including when someone changes direction halfway through the reveal.
+        const setupReversibleSequence = (section, trigger, activeClass, completeClass) => {
+          if (!section || !trigger) return;
+          section.classList.add(activeClass);
+          if (prefersReducedMotion) {
+            if (completeClass) section.classList.add(completeClass);
+            return;
+          }
 
-	          const runSequence = () => {
-	            if (sequenceStarted) {
-	              return;
-	            }
+          const animations = section.getAnimations({ subtree: true })
+            .filter(animation => animation.animationName?.startsWith("preview"));
+          if (!animations.length) return;
+          const duration = Math.max(...animations.map(animation => animation.effect.getComputedTiming().endTime));
+          animations.forEach(animation => {
+            animation.pause();
+            animation.currentTime = 0;
+          });
+          let playhead = 0;
+          let expanded = false;
+          let frame = 0;
+          let previousTime = null;
+          const cta = section.querySelector(".site-preview-brand-hero-cta");
+          const render = () => {
+            animations.forEach(animation => { animation.currentTime = playhead; });
+            if (completeClass) section.classList.toggle(completeClass, playhead >= duration);
+            if (cta) cta.style.pointerEvents = playhead >= duration ? "auto" : "none";
+          };
+          const tick = time => {
+            frame = 0;
+            const delta = previousTime === null ? 0 : Math.min(time - previousTime, 50);
+            previousTime = time;
+            playhead = Math.max(0, Math.min(duration, playhead + (expanded ? delta : -delta)));
+            render();
+            if (expanded ? playhead < duration : playhead > 0) {
+              frame = requestAnimationFrame(tick);
+            } else {
+              previousTime = null;
+            }
+          };
+          const check = () => {
+            const top = trigger.getBoundingClientRect().top;
+            // Separate enter/leave lines avoid flicker around the trigger point.
+            const enterLine = Math.min(innerHeight * 0.58, top + scrollY - 64);
+            if (top <= enterLine) expanded = true;
+            else if (top > enterLine + 40) expanded = false;
+            if (!frame && (expanded ? playhead < duration : playhead > 0)) {
+              previousTime = null;
+              frame = requestAnimationFrame(tick);
+            }
+          };
+          render();
+          window.addEventListener("scroll", check, { passive: true });
+          window.addEventListener("resize", check, { passive: true });
+          check();
+        };
 
-	            sequenceStarted = true;
-	            window.removeEventListener("scroll", requestSequenceCheck);
-	            window.removeEventListener("resize", requestSequenceCheck);
-
-	            requestAnimationFrame(() => {
-	              requestAnimationFrame(() => {
-	                hero.classList.add("site-preview-brand-hero-is-ready");
-
-                window.setTimeout(() => {
-                  hero.classList.add("site-preview-brand-hero-is-complete");
-                  hero.classList.remove("site-preview-brand-hero-is-ready");
-                }, 4000);
-              });
-            });
-	          };
-
-	          const isHeroInStartZone = () => {
-	            const rect = hero.getBoundingClientRect();
-	            const headerBottom = header?.getBoundingClientRect().bottom ?? 0;
-	            const startLine = Math.max(headerBottom + 96, window.innerHeight * 0.58);
-
-	            return rect.top <= startLine && rect.bottom >= headerBottom + 180;
-	          };
-
-	          const checkSequenceStart = () => {
-	            ticking = false;
-
-	            if (sequenceStarted || !isHeroInStartZone()) {
-	              return;
-	            }
-
-	            runSequence();
-	          };
-
-	          function requestSequenceCheck() {
-	            if (ticking) {
-	              return;
-	            }
-
-	            ticking = true;
-	            requestAnimationFrame(checkSequenceStart);
-	          }
-
-	          if (prefersReducedMotion) {
-	            hero.classList.add("site-preview-brand-hero-is-complete");
-	            return;
-	          }
-
-	          window.addEventListener("scroll", requestSequenceCheck, { passive: true });
-	          window.addEventListener("resize", requestSequenceCheck, { passive: true });
-	          requestSequenceCheck();
-	        };
+        const startSequence = () => setupReversibleSequence(
+          hero, hero, "site-preview-brand-hero-is-ready", "site-preview-brand-hero-is-complete"
+        );
 
         const startBrandOverviewSequence = () => {
           if (!brandOverview || brandOverview.classList.contains("site-preview-brand-overview-is-animated")) {
@@ -1675,35 +1672,9 @@
           observer.observe(brandOverview);
         };
 
-        const startAnatomySequence = () => {
-          if (!anatomy || !anatomyTrigger || anatomy.classList.contains("site-preview-logo-anatomy-is-animated")) {
-            return;
-          }
-
-          if (prefersReducedMotion || !("IntersectionObserver" in window)) {
-            anatomy.classList.add("site-preview-logo-anatomy-is-animated");
-            return;
-          }
-
-          const observer = new IntersectionObserver(
-            (entries) => {
-              entries.forEach((entry) => {
-                if (!entry.isIntersecting) {
-                  return;
-                }
-
-                anatomy.classList.add("site-preview-logo-anatomy-is-animated");
-                observer.disconnect();
-              });
-            },
-            {
-              threshold: 0.55,
-              rootMargin: "0px 0px -14% 0px",
-            }
-          );
-
-          observer.observe(anatomyTrigger);
-        };
+        const startAnatomySequence = () => setupReversibleSequence(
+          anatomy, anatomyTrigger, "site-preview-logo-anatomy-is-animated"
+        );
 
         if (document.readyState === "loading") {
           document.addEventListener(
