@@ -1459,10 +1459,10 @@ DTCG 2025.10 JSON follows. Colour components use sRGB values from 0 to 1. Alias 
 
 ## Supplied assets and downloads
 
+- [Download Logo pack ↓](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-logo-pack.zip)
 - [Download Symbol pack](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-symbol-pack.zip)
 - [Download SVG](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-symbol-black.svg)
 - [White SVG](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-symbol-white.svg)
-- [Download Logo pack ↓](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-logo-pack.zip)
 - [Download SVG](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-horizontal-black.svg)
 - [White SVG](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-horizontal-white.svg)
 - [Download Favicon pack](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-favicon-pack.zip)
