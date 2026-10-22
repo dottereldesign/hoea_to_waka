@@ -77,3 +77,14 @@ html[data-palette] .brand-guidelines #brand-guide-cover{background:var(--brand-i
 .brand-guidelines #brand-guide-cover::before{background:none}
 html[data-palette] .brand-guidelines #cover{padding-bottom:0!important}
 html[data-palette] .brand-guidelines #contents{padding-top:32px!important}
+
+/* Match the background showcase's editorial introduction and content split. */
+.brand-logo-anatomy-sheet{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,7fr);gap:clamp(28px,4vw,64px);align-items:start;padding:clamp(24px,3vw,40px);min-width:0}
+.brand-logo-anatomy-sheet .site-preview-logo-anatomy-head{max-width:none;min-width:0;gap:18px;align-content:start}
+html[data-palette] .brand-logo-anatomy-sheet .site-preview-logo-anatomy-head h2{font-size:clamp(28px,3vw,42px);font-weight:500!important;line-height:1.08;letter-spacing:-.04em;margin:0;max-width:none;color:var(--t-ink)}
+html[data-palette] .brand-logo-anatomy-sheet .site-preview-logo-anatomy-head p:last-child{color:var(--t-muted);line-height:1.65;margin:0}
+.brand-logo-anatomy-sheet .site-preview-logo-anatomy-layout{min-width:0;width:100%;grid-template-columns:minmax(0,.85fr) minmax(0,.35fr) minmax(0,1.25fr)}
+.brand-logo-anatomy-sheet .site-preview-logo-anatomy-copy{padding-left:24px}
+.brand-logo-anatomy-sheet .site-preview-logo-anatomy-item{max-width:none}
+@media(max-width:1100px){.brand-logo-anatomy-sheet{grid-template-columns:minmax(0,1fr);gap:36px}.brand-logo-anatomy-sheet .site-preview-logo-anatomy-head{max-width:65ch}}
+@media(max-width:760px){.brand-logo-anatomy-sheet{padding:24px 16px;gap:32px}.brand-logo-anatomy-sheet .site-preview-logo-anatomy-layout{grid-template-columns:minmax(0,1fr);min-height:0;gap:28px}.brand-logo-anatomy-sheet .site-preview-logo-anatomy-visual{min-height:0;padding:0}.brand-logo-anatomy-sheet .site-preview-logo-anatomy-logo{max-width:240px;width:80%;margin-inline:auto}.brand-logo-anatomy-sheet .site-preview-logo-anatomy-copy{min-height:0;padding-left:0;gap:28px}.brand-logo-anatomy-sheet .site-preview-logo-anatomy-item h3{line-height:1.1}}
