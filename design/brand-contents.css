@@ -520,17 +520,6 @@ html[data-palette] .brand-card-study figcaption{margin:0;padding:18px 24px;font-
 
 .brand-card-study .bc-dimensions{opacity:1}
 
-/* A small scan card occupies the cover's negative space, like a note tucked into a guide. */
+/* The cover title and publication details frame the primary sharing action. */
 .brand-guidelines .site-preview-guide-cover-title{grid-area:1/1}
 .brand-guidelines .site-preview-guide-cover-meta{grid-area:2/1}
-.brand-guidelines .brand-guide-pocket{grid-area:1/1;justify-self:start;align-self:center;display:flex;align-items:center;gap:10px;margin:8px 0 8px 8px;color:#fff;text-decoration:none;max-width:260px;position:relative;z-index:1}
-.brand-guidelines .brand-guide-pocket__card{display:block;flex:none;box-sizing:border-box;width:168px;padding:12px;background:#fff;border-radius:10px;transform:rotate(-4deg);box-shadow:0 10px 30px #00000024;transition:transform 300ms cubic-bezier(.22,1,.36,1)}
-.brand-guidelines .brand-guide-pocket__card img{display:block;width:144px;height:144px;max-width:none;filter:none}
-html[data-palette] .brand-guidelines .brand-guide-pocket__caption{display:flex;justify-content:space-between;align-items:center;gap:6px;padding:6px 4px 2px;color:#202329;font:500 9px/1.4 Inter,Arial,sans-serif;letter-spacing:.02em;white-space:nowrap}
-.brand-guidelines .brand-guide-pocket__caption>span{font-size:16px;line-height:1}
-html[data-palette] .brand-guidelines .brand-guide-pocket__note{align-self:start;margin-top:12px;color:#ffffffb8;font:400 12px/1.4 Inter,Arial,sans-serif;letter-spacing:-.01em;transform:rotate(-5deg)}
-.brand-guidelines .brand-guide-pocket__note svg{display:block;width:50px;height:48px;margin:0 0 8px -6px}
-.brand-guidelines .brand-guide-pocket:hover .brand-guide-pocket__card{transform:rotate(-1deg) translateY(-3px)}
-.brand-guidelines .brand-guide-pocket:focus-visible{outline:2px solid #fff;outline-offset:12px;border-radius:8px}
-@media(max-width:1280px){.brand-guidelines .brand-guide-pocket{grid-area:2/1;align-self:start}.brand-guidelines .site-preview-guide-cover-meta{grid-area:3/1}.brand-guidelines .brand-guide-pocket__note{align-self:center;margin-top:0}}
-@media(prefers-reduced-motion:reduce){.brand-guidelines .brand-guide-pocket__card{transition:none}}

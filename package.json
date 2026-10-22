@@ -22,6 +22,7 @@
     "test:model-benefits": "node scripts/model-benefits.cjs",
     "test:testimonial-autoplay": "node scripts/testimonial-autoplay.cjs",
     "test:brand-hero": "node scripts/brand-hero.cjs",
+    "test:brand-share": "node scripts/brand-share.cjs && node scripts/brand-share-fallback.cjs",
     "test:brand-ai": "node scripts/brand-ai.cjs",
     "test:brand-jump": "node scripts/brand-jump.cjs",
     "test:brand-contents": "node scripts/brand-contents.cjs",
