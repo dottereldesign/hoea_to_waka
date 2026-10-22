@@ -1045,6 +1045,19 @@ html[data-palette] .brand-logo-example--black{background:#202329;border-color:tr
 
 html[data-palette] .site-preview-section.site-preview-logo-backgrounds{min-height:0}
 
+/* Use the homepage rhythm instead of viewport-sized guideline panels. */
+.brand-guidelines .site-preview{--site-preview-panel-min-height:0px}
+.brand-guidelines>.page-shell{padding-bottom:0}
+.brand-guidelines :is(.dashboard-layout,.dashboard-content){row-gap:0}
+.brand-guidelines .brand-guide-layout{padding-top:0}
+.brand-guidelines .site-preview-guideline-main{gap:0}
+html[data-palette] .brand-guidelines .site-preview :is(.site-preview-hero,.site-preview-section,.brand-guide-contents),
+html[data-palette] .brand-guidelines .dashboard-content>.section{height:auto;min-height:0;padding-block:var(--section-space)!important;margin-block:0;align-content:start}
+.brand-guidelines :is(.site-preview-guide-cover-shell,.site-preview-brand-hero-shell,.site-preview-brand-overview-shell){min-height:0;padding-block:0;grid-template-rows:auto;align-content:start}
+.brand-guidelines .site-preview-guide-cover-shell{gap:32px}
+.brand-guidelines .site-preview-guide-cover-title,.brand-guidelines .site-preview-guide-cover-meta{grid-row:auto}
+.brand-guidelines .site-preview-typeface-sheet{min-height:0}
+
 /* Reference-inspired vector studies; these colours are intentionally local to 03-05. */
 .home-hero-art{display:none;position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;background:#633cff;isolation:isolate}
 .home-hero-art__scene{display:none;position:absolute;inset:auto 0 0;width:100%;height:auto;max-width:none;aspect-ratio:708/390;object-fit:contain}
