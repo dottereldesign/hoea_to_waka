@@ -1,3 +1,4 @@
+import './favicon.mjs';
 import { build } from 'esbuild';
 import { readFile, writeFile, readdir } from 'node:fs/promises';
 import assert from 'node:assert/strict';
