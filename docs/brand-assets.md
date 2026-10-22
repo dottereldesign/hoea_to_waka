@@ -30,3 +30,7 @@ Reference material reviewed for platform structure:
 - [Instagram web-profile layout reference](https://igfoexport.com/guide/export-instagram-following)
 
 UI details can vary by account, viewport and platform update. Keep the coded examples consistent with the profile treatments being reviewed rather than presenting them as live account screenshots.
+
+## Complete pack
+
+Each download panel also offers `hoea-to-waka-full-logo-pack.zip` as its main action. The archive contains all 66 artwork files in Symbols, Full Logos and Favicons folders, plus a plain-text usage guide. It is generated with stable file dates by the same export script. The green CTA uses Forest 800 with white text and Forest 700 on hover, with reduced-motion support.

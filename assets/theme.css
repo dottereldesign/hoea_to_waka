@@ -1418,6 +1418,17 @@ html[data-palette] .platform-preview,html[data-palette] .platform-preview *{font
 @container(max-width:360px){.platform-nav-icons{gap:14px}.li-top,.fb-top,.ig-top{padding-inline:12px}.social-actions>span{padding:6px 12px}.li-secondary svg{display:none}.fb-name{min-width:120px}.fb-tabs{gap:16px;font-size:11px}.ig-profile{grid-template-columns:64px minmax(0,1fr);gap:16px;padding-inline:14px}.ig-avatar{width:60px;height:60px}.ig-handle>svg{display:none}.ig-stats{gap:8px;font-size:11px}.ig-top .platform-nav-icons{gap:16px}.ig-platform{font-size:16px}.ig-tabs{gap:30px}}
 
 .brand-gallery-controls[hidden]{display:none!important}
+/* The complete ZIP is the primary action; individual files remain secondary. */
+html[data-palette] .brand-pack-cta{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;max-width:100%;box-sizing:border-box;min-height:56px;padding:7px 8px 7px 20px;border:1px solid var(--brand-forest-800);border-radius:999px;background:var(--brand-forest-800);color:var(--brand-paper);font-size:14px;font-weight:600;line-height:1.4;text-decoration:none;transition:background .32s ease,border-color .32s ease,box-shadow .32s ease,transform .32s cubic-bezier(.22,1,.36,1)}
+.brand-pack-cta>span:first-child{min-width:0}
+.brand-pack-cta__icon{display:grid;place-items:center;flex-shrink:0;width:40px;height:40px;border-radius:50%;background:var(--brand-paper);color:var(--brand-forest-800);transition:transform .32s cubic-bezier(.22,1,.36,1),color .32s ease}
+html[data-palette] .brand-pack-cta:hover{background:var(--brand-forest-700);border-color:var(--brand-forest-700);transform:translateY(-2px);box-shadow:0 8px 20px color-mix(in srgb,var(--brand-forest-800) 18%,transparent)}
+.brand-pack-cta:hover .brand-pack-cta__icon{transform:translateY(2px);color:var(--brand-forest-700)}
+html[data-palette] .brand-pack-cta:focus-visible{outline:3px solid var(--brand-forest-700);outline-offset:4px}
+html[data-palette] .brand-pack-cta:active{transform:translateY(0);box-shadow:none}
+.brand-pack-note{display:block;font-size:13px;line-height:1.65;color:var(--t-muted)}
+.brand-single-file-label{display:block;padding-top:12px;border-top:1px solid var(--t-line);font-size:13px;line-height:1.5;color:var(--t-muted)}
+@media(prefers-reduced-motion:reduce){html[data-palette] .brand-pack-cta,.brand-pack-cta__icon{transition:none;transform:none!important}}
 
 /* Reference-inspired vector studies; these colours are intentionally local to 03-05. */
 .home-hero-art{display:none;position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;background:#633cff;isolation:isolate}
