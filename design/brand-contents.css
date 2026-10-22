@@ -101,7 +101,7 @@ html[data-palette] .site-preview-brand-overview-sheet .site-preview-brand-overvi
 /* Shared editorial layout for typography and the full applications collection. */
 .brand-guide-editorial{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,7fr);gap:clamp(28px,4vw,64px);align-items:start;padding:clamp(24px,3vw,40px);min-width:0}
 .brand-guide-editorial__intro{display:grid;align-content:start;gap:18px;min-width:0}
-html[data-palette] .brand-guide-editorial__intro h2{font:500 clamp(28px,3vw,42px)/1.08 Inter,Arial,sans-serif;font-weight:500!important;letter-spacing:-.04em;margin:0;max-width:none;color:var(--t-ink)}
+html[data-palette] .brand-guide-editorial__intro :is(h2,h3){font:500 clamp(28px,3vw,42px)/1.08 Inter,Arial,sans-serif;font-weight:500!important;letter-spacing:-.04em;margin:0;max-width:none;color:var(--t-ink)}
 html[data-palette] .brand-guide-editorial__intro>p:not(.site-preview-typeface-eyebrow){color:var(--t-muted);line-height:1.65;margin:0}
 .brand-guide-editorial__content{display:grid;gap:36px;min-width:0}
 .brand-guide-editorial .site-preview-typeface-sheet-body{grid-template-columns:minmax(0,1fr)}
@@ -165,3 +165,10 @@ html[data-palette][data-typography] body .brand-logo-lockup__name{font:600 clamp
 .brand-logo-lockup__tagline{display:flex;align-items:center;justify-content:center;gap:6px;font:500 clamp(6px,2cqw,8px)/1.2 Inter,Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap;color:inherit}
 .brand-logo-lockup__tagline::before,.brand-logo-lockup__tagline::after{content:"";display:block;width:7px;height:1px;background:currentColor;flex-shrink:0}
 @media(max-width:600px){.site-preview-logo-backgrounds-grid{grid-template-columns:minmax(0,1fr)}.site-preview-logo-backgrounds-grid .preview-logo-tile{aspect-ratio:2.2;padding:24px}}
+
+/* Each application has its own left introduction and right-hand examples. */
+.brand-guidelines #mockups{gap:var(--section-space)}
+html[data-palette] .brand-guidelines #mockups>.brand-guide-application-row{grid-template-columns:minmax(0,3fr) minmax(0,7fr);gap:clamp(28px,4vw,64px);padding:clamp(24px,3vw,40px);border:0;border-radius:0;background:transparent;box-shadow:none;align-items:start}
+@media(max-width:760px){html[data-palette] .brand-guidelines #mockups>.brand-guide-application-row{grid-template-columns:minmax(0,1fr);padding:24px 16px;gap:28px}}
+
+.brand-guidelines #mockups .preview-email-window-meta strong{width:72px;white-space:nowrap}
