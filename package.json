@@ -24,7 +24,9 @@
     "test:brand-hero": "node scripts/brand-hero.cjs",
     "test:brand-contents": "node scripts/brand-contents.cjs",
     "test:hero-illustrations": "node scripts/hero-illustrations.cjs",
-    "test:resources-nav": "node scripts/resources-nav.cjs"
+    "test:resources-nav": "node scripts/resources-nav.cjs",
+    "test:brand-assets": "node scripts/brand-assets.cjs",
+    "build:brand-assets": "node scripts/brand-downloads.mjs"
   },
   "dependencies": {
     "motion": "^12.0.0"
@@ -32,7 +34,11 @@
   "devDependencies": {
     "@axe-core/playwright": "^4.13.0",
     "esbuild": "^0.25.0",
+    "fontkit": "^2.0.4",
+    "pdfkit": "^0.20.2",
     "playwright": "^1.51.0",
-    "sharp": "^0.35.4"
+    "sharp": "^0.35.5",
+    "svgpath": "^2.6.0",
+    "wawoff2": "^2.0.1"
   }
 }

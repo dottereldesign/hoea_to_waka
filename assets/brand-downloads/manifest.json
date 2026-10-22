@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "artwork": {
+    "symbol": {
+      "width": 385,
+      "height": 384,
+      "sizes": [
+        256,
+        512,
+        1024
+      ],
+      "formats": [
+        "svg",
+        "pdf",
+        "eps",
+        "png",
+        "webp",
+        "jpg"
+      ],
+      "colours": [
+        "black",
+        "white"
+      ]
+    },
+    "horizontal": {
+      "width": 1324,
+      "height": 380,
+      "sizes": [
+        640,
+        1280,
+        2560
+      ],
+      "formats": [
+        "svg",
+        "pdf",
+        "eps",
+        "png",
+        "webp",
+        "jpg"
+      ],
+      "colours": [
+        "black",
+        "white"
+      ]
+    }
+  },
+  "favicon": {
+    "sizes": [
+      16,
+      32,
+      48,
+      64,
+      128,
+      180,
+      192,
+      512
+    ],
+    "formats": [
+      "svg",
+      "png",
+      "webp",
+      "ico"
+    ]
+  }
+}

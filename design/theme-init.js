@@ -5,6 +5,7 @@ import { setupHeroVersions, setupCoachingHeroVersions } from './hero-versions';
 import { setupFooterVersions } from './footer-versions';
 import { setupStatementCopy } from './statement-copy';
 import { setupTypographyStudies } from './typography-studies';
+import { setupBrandDownloads, setupBrandGalleries } from './brand-assets';
 
 const root=document.documentElement;
 function apply(){
@@ -25,4 +26,4 @@ apply();
 new MutationObserver(syncMode).observe(root,{attributes:true,attributeFilter:['data-theme']});
 window.addEventListener('hoea:brand-colours',syncMode);
 document.addEventListener('DOMContentLoaded',syncMode,{once:true});
-document.addEventListener('DOMContentLoaded',()=>{setupBrandEditor();setupSiteHeader();setupHeroVersions();setupCoachingHeroVersions();setupFooterVersions();setupStatementCopy();setupTypographyStudies();},{once:true});
+document.addEventListener('DOMContentLoaded',()=>{setupBrandEditor();setupSiteHeader();setupHeroVersions();setupCoachingHeroVersions();setupFooterVersions();setupStatementCopy();setupTypographyStudies();setupBrandDownloads();setupBrandGalleries();},{once:true});

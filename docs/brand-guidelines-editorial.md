@@ -31,3 +31,7 @@ Remove the hidden project brief, former site audit and private correspondence no
 ## Maintenance
 
 Keep the rendered colour chapter and `scripts/brand-guidelines.mjs` aligned. The source palette labels live in `design/brand-tokens.mjs`. When a website decision changes, update the matching rule and visual example together. Recheck wording, small-screen layout and relevant interactions before publishing.
+
+## Later requested adjustments
+
+The separate “How we speak” block was removed at the user’s request. The symbol, full-logo and favicon chapters now offer size/format downloads in their left columns. Email signatures have five layout choices, and the social chapter includes three coded platform previews. See [Brand assets](brand-assets.md) for generation, format and verification details.
