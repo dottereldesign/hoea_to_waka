@@ -1478,9 +1478,7 @@ html[data-palette] .social-logo-pack{display:inline-flex;align-items:center;gap:
 .brand-guidelines .site-preview-brand-hero-logo{height:auto;aspect-ratio:1;align-self:center}
 .brand-font-download{display:grid;justify-items:start;gap:14px;margin-top:28px}
 html[data-palette] .brand-font-source{font-size:14px;font-weight:500;color:var(--t-ink);text-underline-offset:4px}
-.brand-card-study{margin:0 0 32px;border:1px solid var(--t-line);border-radius:24px;overflow:hidden;background:var(--t-surface)}
-.brand-card-study__heading{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;padding:20px 24px;border-bottom:1px solid var(--t-line);font-size:14px;color:var(--t-ink)}
-.brand-card-study__heading>span{font-size:12px;color:var(--t-muted)}
+.brand-card-study{margin:0 0 32px;border:0;border-radius:0;overflow:visible;background:transparent}
 .brand-card-study__diagram{display:block;width:100%;height:auto;background:#faf9f6;color:#32363c;overflow:hidden}
 .brand-card-study__diagram text{font-family:Inter,Arial,sans-serif;font-size:19px;fill:currentColor;stroke:none;letter-spacing:.01em}
 .bc-pencil{fill:none;stroke:#838582;stroke-width:1.5;stroke-linejoin:round;stroke-linecap:round}
@@ -1489,10 +1487,9 @@ html[data-palette] .brand-font-source{font-size:14px;font-weight:500;color:var(-
 .bc-crop{stroke:#444b52;stroke-width:1.5}
 .bc-measure{stroke-width:1;opacity:.6}
 .bc-dimensions{opacity:.7}
-.bc-sketch-stroke{fill:none;stroke:#555b5e;stroke-width:1;opacity:.16}
 .bc-annotations{stroke:#7b7e80;stroke-width:1;color:#60686e}
-html[data-palette] .brand-card-study figcaption{margin:0;padding:18px 24px;font-size:13px;line-height:1.65;color:var(--t-muted);border-top:1px solid var(--t-line)}
-@media(max-width:760px){.brand-card-study{border-radius:18px}.brand-card-study__heading{padding:16px}.brand-card-study__heading>span{display:none}html[data-palette] .brand-card-study figcaption{padding:16px}}
+html[data-palette] .brand-card-study figcaption{margin:0;padding:16px 0 0;font-size:13px;line-height:1.65;color:var(--t-muted);border:0}
+
 
 .bc-hand{stroke-width:.7;opacity:.26}
 
@@ -1509,6 +1506,8 @@ html[data-palette] .brand-card-study figcaption{margin:0;padding:18px 24px;font-
 /* The cover title and publication details frame the primary sharing action. */
 .brand-guidelines .site-preview-guide-cover-title{grid-area:1/1}
 .brand-guidelines .site-preview-guide-cover-meta{grid-area:2/1}
+
+.bc-service-pill{fill:none;stroke:#838582;stroke-width:1;opacity:.55}
 
 /* Reference-inspired vector studies; these colours are intentionally local to 03-05. */
 .home-hero-art{display:none;position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;background:#633cff;isolation:isolate}

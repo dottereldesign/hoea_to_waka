@@ -159,7 +159,9 @@ Print
 
 A business card should make it easy to recognise Anna and contact her. Keep the front focused on the logo. Put her name, role, phone, email and website on the back, with enough space to read each detail. Check the contact details and request a print proof before production.
 
-Example setup: 90 × 55 mm finished card, with 3 mm bleed. Extend backgrounds to the bleed edge and keep text inside the safe area. Confirm dimensions with your printer.
+Front · 90 × 55 mm finished card with 3 mm bleed. Keep the logo inside the safe area and confirm the setup with your printer.
+
+Back · Name, role and contact details, with the same bleed, trim and safe-area guides. Check every contact detail before printing.
 
 Anna Brown
 
