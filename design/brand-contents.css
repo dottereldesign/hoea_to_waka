@@ -124,3 +124,6 @@ html[data-palette] .brand-guidelines .site-preview-brand-overview-card p{font-si
 
 /* Chapter links leave an 8px viewport inset, with the floating menu over the cover. */
 html:has(body.brand-guidelines){scroll-padding-top:0}
+
+/* Open typography specimens without repeated eyebrow pills or a surrounding card. */
+html[data-palette] #typeface .site-preview-typeface-sheet-supporting{padding:0;border:0;border-radius:0;background:transparent;box-shadow:none}

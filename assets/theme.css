@@ -1111,6 +1111,9 @@ html[data-palette] .brand-guidelines .site-preview-brand-overview-card p{font-si
 /* Chapter links leave an 8px viewport inset, with the floating menu over the cover. */
 html:has(body.brand-guidelines){scroll-padding-top:0}
 
+/* Open typography specimens without repeated eyebrow pills or a surrounding card. */
+html[data-palette] #typeface .site-preview-typeface-sheet-supporting{padding:0;border:0;border-radius:0;background:transparent;box-shadow:none}
+
 /* Reference-inspired vector studies; these colours are intentionally local to 03-05. */
 .home-hero-art{display:none;position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;background:#633cff;isolation:isolate}
 .home-hero-art__scene{display:none;position:absolute;inset:auto 0 0;width:100%;height:auto;max-width:none;aspect-ratio:708/390;object-fit:contain}
