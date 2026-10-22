@@ -6,15 +6,30 @@ export function setupCardStudy() {
       animations.forEach(animation => animation.cancel());
       animations = [];
       if (preference.matches) { study.dataset.cardState = 'complete';return; }
+      // Read styles together before creating animations to avoid repeated layout work.
+      const opacities = new Map([...study.querySelectorAll('[data-bc-draw], [data-bc-pencil]')]
+        .map(element => [element, getComputedStyle(element).opacity]));
       const drawings = [...study.querySelectorAll('[data-bc-draw]')];
       drawings.forEach((element, index) => {
         // CSS retains the dashed safe-area line; animate its opacity instead of its dash pattern.
         const dashed = element.classList.contains('bc-safe');
-        const opacity = getComputedStyle(element).opacity;
+        const opacity = opacities.get(element);
         const animation = element.animate(dashed ? [{ opacity: 0 }, { opacity }] : [
           { strokeDasharray: '1', strokeDashoffset: '1', opacity: 0 },
           { strokeDasharray: '1', strokeDashoffset: '0', opacity }
         ], { duration: 1200, delay: index * 110, easing: 'cubic-bezier(.22,1,.36,1)', fill: 'both' });
+        animation.pause();animation.currentTime = 0;animations.push(animation);
+      });
+      // Trace contours and shade with actual pencil strokes, on the same reversible clock.
+      study.querySelectorAll('[data-bc-pencil]').forEach(element => {
+        const opacity = opacities.get(element);
+        const animation = element.animate([
+          { strokeDasharray: '1', strokeDashoffset: '1', opacity: 0 },
+          { strokeDasharray: '1', strokeDashoffset: '0', opacity }
+        ], {
+          duration: Number(element.dataset.pencilDuration), delay: Number(element.dataset.pencilDelay),
+          easing: element.dataset.pencilPass === 'shade' ? 'linear' : 'cubic-bezier(.37,0,.63,1)', fill: 'both'
+        });
         animation.pause();animation.currentTime = 0;animations.push(animation);
       });
       study.querySelectorAll('[data-bc-reveal]').forEach((element, index) => {
