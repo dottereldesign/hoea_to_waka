@@ -1,3 +1,4 @@
+import { setupBrandInfo } from './brand-info';
 import { setupEmailPreviews } from './email-preview';
 import { setupCardStudy } from './card-study';
 import { setupModelButtons } from './model-button';
@@ -30,4 +31,4 @@ apply();
 new MutationObserver(syncMode).observe(root,{attributes:true,attributeFilter:['data-theme']});
 window.addEventListener('hoea:brand-colours',syncMode);
 document.addEventListener('DOMContentLoaded',syncMode,{once:true});
-document.addEventListener('DOMContentLoaded',()=>{setupBrandEditor();setupSiteHeader();setupHeroVersions();setupCoachingHeroVersions();setupFooterVersions();setupStatementCopy();setupTypographyStudies();setupBrandDownloads();setupEmailPreviews();setupSocialPreviews();setupCardStudy();setupModelButtons();},{once:true});
+document.addEventListener('DOMContentLoaded',()=>{setupBrandEditor();setupSiteHeader();setupHeroVersions();setupCoachingHeroVersions();setupFooterVersions();setupStatementCopy();setupBrandInfo();setupTypographyStudies();setupBrandDownloads();setupEmailPreviews();setupSocialPreviews();setupCardStudy();setupModelButtons();},{once:true});

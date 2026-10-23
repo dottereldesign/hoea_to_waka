@@ -26,6 +26,7 @@
     "test:brand-ai": "node scripts/brand-ai.cjs",
     "test:brand-jump": "node scripts/brand-jump.cjs",
     "test:brand-contents": "node scripts/brand-contents.cjs",
+    "test:brand-info": "node scripts/brand-info.cjs",
     "test:hero-illustrations": "node scripts/hero-illustrations.cjs",
     "test:resources-nav": "node scripts/resources-nav.cjs",
     "test:card-pencil": "node scripts/card-pencil.cjs",
