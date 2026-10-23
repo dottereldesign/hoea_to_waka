@@ -1,5 +1,5 @@
 import './favicon.mjs';
-import { build } from 'esbuild';
+import { build, transform } from 'esbuild';
 import { readFile, writeFile, readdir } from 'node:fs/promises';
 import assert from 'node:assert/strict';
 import { tokeniseCSS } from './theme-css.mjs';
@@ -23,7 +23,8 @@ assert.equal(tokeniseCSS('.sample{color:var(--white);background:var(--black)}',n
 const colours=new Set();
 for(const[source,target]of[['site.css','assets/site-palette.css'],['styles.css','assets/brand-palette.css'],['design/components.css','assets/components.css']]){
  const css=tokeniseCSS(await readFile(source,'utf8'),colours).replaceAll('url("assets/','url("').replaceAll("url('assets/","url('").replaceAll('url(assets/','url(');
- await writeFile(target,css);
+ // Only remove whitespace/comments: preserve selectors, declarations and motion values.
+ await writeFile(target,(await transform(css,{loader:'css',minifyWhitespace:true})).code);
 }
 const siteSource=await readFile('site.css','utf8');
 const aliases=source=>tokeniseCSS(source,new Set()).match(/--[\w-]+\s*:[^;{}]*var\(--paint-[^;{}]+/g)||[];
@@ -44,7 +45,7 @@ theme+=brandCSS(colours);
 theme+='\n[data-component-palette]{'+lightAliases.join(';')+'}\nhtml[data-theme="dark"] [data-component-palette]{'+darkAliases.join(';')+'}';
 theme+='\n'+presentation;
 for(const file of['brand-colours','header','model-button','home-monochrome','static-pages','section-spacing','coaching-hero','subpage-backgrounds','footer-versions','model-benefits','brand-contents','hero-illustrations','resources-nav'])theme+='\n'+await readFile('design/'+file+'.css','utf8');
-await writeFile('assets/theme.css',theme);
+await writeFile('assets/theme.css',(await transform(theme,{loader:'css',minifyWhitespace:true})).code);
 await build({entryPoints:['design/theme-init.js'],bundle:true,minify:true,format:'iife',target:['es2020'],outfile:'assets/theme-init.js'});
 await build({entryPoints:['design/site-interactions.js'],bundle:true,minify:true,format:'iife',target:['es2020'],outfile:'assets/site-interactions.js',legalComments:'linked'});
 

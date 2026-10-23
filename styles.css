@@ -1914,6 +1914,7 @@ html[data-theme="dark"] .theme-switcher-grid[data-theme-toggle] .star-4 { transf
   object-fit: contain;
   z-index: 2;
   transform: var(--anatomy-logo-rest-transform);
+  height: auto;
 }
 
 .site-preview-logo-anatomy-router {
@@ -3021,6 +3022,7 @@ html[data-theme="dark"] .theme-switcher-grid[data-theme-toggle] .star-4 { transf
   max-width: 290px;
   max-height: 112px;
   object-fit: contain;
+  height: auto;
 }
 
 .preview-business-card-top,
