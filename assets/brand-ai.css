@@ -6,7 +6,7 @@ html[data-palette] .brand-guidelines .brand-ai__copy{display:inline-flex;align-i
 .brand-guidelines .brand-ai__copy>span{font-size:18px}
 html[data-palette] .brand-guidelines .brand-ai__copy--symbol{background:#e8def0;color:#33263f}
 html[data-palette] .brand-guidelines .brand-ai__copy--logo{background:#dce9f1;color:#243a53}
-.brand-guidelines .brand-ai__copy{transition:transform 220ms cubic-bezier(.22,1,.36,1),filter 220ms ease}
+.brand-guidelines .brand-ai__copy{transition:transform 220ms cubic-bezier(.22,1,.36,1),filter 220ms ease,opacity 120ms ease}
 .brand-guidelines .brand-ai__copy:hover{transform:translateY(-2px);filter:brightness(.96)}
 .brand-guidelines .brand-ai__copy:active{transform:translateY(0)}
 .brand-guidelines .brand-ai__image-hint{margin:12px 0 0;font:400 12px/1.6 Inter,Arial,sans-serif!important;color:var(--t-muted);max-width:54ch}
@@ -37,6 +37,13 @@ html[data-palette] .brand-guidelines .brand-ai__open{display:inline-flex;align-i
 .brand-guidelines .brand-ai__manual textarea{display:block;box-sizing:border-box;width:100%;margin-top:8px;padding:10px;border:1px solid currentColor;border-radius:8px;background:var(--t-surface);color:var(--t-ink);font:12px/1.5 Inter,Arial,sans-serif;resize:vertical}
 .brand-guidelines .brand-ai :is(button,a,summary):focus-visible{outline:2px solid currentColor;outline-offset:4px;border-radius:6px}
 .brand-guidelines .brand-ai [hidden]{display:none!important}
+/* Reserve enhancement slots from first paint; revealing controls must not move the guide. */
+.js .brand-guidelines .brand-ai :is(.brand-ai__copy,.brand-ai__providers,.brand-ai__hint,.brand-ai__doodle)[hidden]{visibility:hidden;pointer-events:none}
+.js .brand-guidelines .brand-ai .brand-ai__copy[hidden]{display:inline-flex!important}
+.js .brand-guidelines .brand-ai .brand-ai__providers[hidden]{display:grid!important}
+.js .brand-guidelines .brand-ai :is(.brand-ai__hint,.brand-ai__doodle)[hidden]{display:block!important}
+.js .brand-guidelines .brand-ai :is(.brand-ai__copy,.brand-ai__providers,.brand-ai__hint)[hidden]{opacity:0}
+.brand-guidelines .brand-ai__providers,.brand-guidelines .brand-ai__hint{transition:opacity 120ms ease}
 .brand-guidelines .brand-ai button:disabled{cursor:wait;opacity:.6}
 @keyframes brandAiFeedback{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
 @media(max-width:900px){.brand-guidelines .brand-ai{grid-template-columns:minmax(0,1fr);gap:24px;padding:24px}.brand-guidelines .brand-ai__actions{max-width:400px;width:100%}.brand-guidelines .brand-ai__feedback{left:0;right:auto}}
