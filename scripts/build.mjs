@@ -11,6 +11,7 @@ await import('./brand-downloads.mjs');
 await import('./social-downloads.mjs');
 await import('./brand-previews.mjs');
 await import('./card-pencil.mjs');
+await import('./hero-pencil.mjs');
 await import('./guide-qr.mjs');
 
 // HTML contains the final layouts. This build only compiles their styles and interactions.

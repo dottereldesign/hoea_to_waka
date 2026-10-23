@@ -1,0 +1,14 @@
+import {readFile,writeFile} from 'node:fs/promises';
+import {hatch} from './pencil-paths.mjs';
+const path='about/brand-guidelines/index.html';let html=await readFile(path,'utf8');
+const source=await readFile('assets/logo-black.svg','utf8');
+const paths=[...source.matchAll(/<path[^>]* d="([^"]+)"/g)].map(match=>match[1]);
+if(!paths.length)throw Error('Approved symbol paths missing');
+const logo=`<svg class="site-preview-brand-hero-logo" viewBox="0 0 385 384" width="385" height="384" role="img" aria-labelledby="hero-pencil-title hero-pencil-desc"><title id="hero-pencil-title">Hoea tō Waka logo — from pencil to ink</title><desc id="hero-pencil-desc">The approved wahine, waves and paddle symbol, traced and shaded before resolving into the final artwork.</desc>${paths.map((d,i)=>`<g class="hero-pencil-shape" style="--pencil-index:${i}"><defs><clipPath id="hero-pencil-clip-${i}"><path d="${d}"/></clipPath></defs><path class="hero-pencil-contour" pathLength="1" d="${d}"/><path class="hero-pencil-echo" pathLength="1" transform="translate(.45 -.3)" d="${d}"/><g clip-path="url(#hero-pencil-clip-${i})"><path class="hero-pencil-shade" pathLength="1" d="${hatch(d,i)}"/></g><path class="hero-pencil-ink" d="${d}"/></g>`).join('')}</svg>`;
+const guides=['vertical','horizontal'].map(direction=>`<svg class="site-preview-brand-hero-guide site-preview-brand-hero-guide-${direction}" viewBox="${direction==='vertical'?'0 0 2 100':'0 0 100 2'}" preserveAspectRatio="none" aria-hidden="true"><path class="hero-pencil-construction" pathLength="1" d="${direction==='vertical'?'M1 0V100':'M0 1H100'}"/></svg>`).join('');
+const circles=['outer','wave','wahine','core','body','keel'].map((name,i)=>`<svg class="site-preview-brand-hero-circle site-preview-brand-hero-circle-${name}" viewBox="0 0 100 100" aria-hidden="true" style="--circle-index:${i}"><g transform="rotate(${-90+i*27} 50 50)"><circle class="hero-pencil-construction" pathLength="1" cx="50" cy="50" r="48.9"/><circle class="hero-pencil-construction hero-pencil-construction--echo" pathLength="1" cx="50.35" cy="49.7" r="48.6"/></g></svg>`).join('');
+const study=`<div class="site-preview-brand-hero-logo-study" data-hero-pencil>${logo}${guides}${circles}</div>`;
+if(html.includes('<!-- hero-pencil:start -->'))html=html.replace(/<!-- hero-pencil:start -->[\s\S]*?<!-- hero-pencil:end -->/,`<!-- hero-pencil:start -->${study}<!-- hero-pencil:end -->`);
+else html=html.replace(/<div class="site-preview-brand-hero-logo-study">[\s\S]*?<\/div>/,`<!-- hero-pencil:start -->${study}<!-- hero-pencil:end -->`);
+await writeFile(path,html);
+console.log(`Hero pencil: ${paths.length} approved symbol paths, 6 drawn construction circles`);

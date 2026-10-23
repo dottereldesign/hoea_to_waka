@@ -1552,6 +1552,35 @@ html[data-palette] .brand-guidelines .guide-valuation a{color:var(--t-ink);text-
 @media(max-width:760px){.guide-valuation__benchmarks{grid-template-columns:minmax(0,1fr);gap:4px}.guide-valuation__working{font-size:12px}.guide-valuation__working :is(th,td){padding-inline:5px}}
 @media(prefers-reduced-motion:reduce){.guide-valuation__details summary>span{transition:none}}
 
+/* Real pencil strokes: viewport entry starts the clock, independently of its pace. */
+.brand-guidelines #cover .site-preview-brand-hero-logo-study{contain:layout paint}
+.brand-guidelines #cover .site-preview-brand-hero-logo{animation:none!important;opacity:1!important;transform:none!important;aspect-ratio:385/384}
+.brand-guidelines #cover :is(.site-preview-brand-hero-circle,.site-preview-brand-hero-guide){animation:none!important;opacity:1;transform:none!important;border:0;box-shadow:none;background:none;overflow:visible}
+.brand-guidelines #cover .site-preview-brand-hero-logo-study::after{animation:none!important;opacity:.8;transform:none!important}
+.brand-guidelines #cover .hero-pencil-construction{fill:none;stroke:#343a37;stroke-width:1;stroke-opacity:.24;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.brand-guidelines #cover .hero-pencil-construction--echo{stroke-width:.6;stroke-opacity:.12}
+.brand-guidelines #cover .hero-pencil-contour{fill:none;stroke:#535953;stroke-width:1;stroke-opacity:.9;stroke-linecap:round;stroke-linejoin:round}
+.brand-guidelines #cover .hero-pencil-echo{fill:none;stroke:#687067;stroke-width:.7;stroke-opacity:.3;stroke-linecap:round;stroke-linejoin:round}
+.brand-guidelines #cover .hero-pencil-shade{fill:none;stroke:#535953;stroke-width:.8;stroke-opacity:.6;stroke-linecap:round;stroke-linejoin:round}
+.brand-guidelines #cover .hero-pencil-ink{fill:#191919}
+.js .brand-guidelines #cover.site-preview-brand-hero-is-ready .hero-pencil-construction{animation:previewHeroStrokeDraw 1400ms cubic-bezier(.37,0,.63,1) calc(var(--circle-index,0)*170ms) both}
+.js .brand-guidelines #cover.site-preview-brand-hero-is-ready .hero-pencil-construction--echo{animation-delay:calc(100ms + var(--circle-index,0)*170ms)}
+.js .brand-guidelines #cover.site-preview-brand-hero-is-ready .site-preview-brand-hero-guide .hero-pencil-construction{animation-duration:950ms;animation-delay:0ms}
+.js .brand-guidelines #cover.site-preview-brand-hero-is-ready .hero-pencil-contour{animation:previewHeroStrokeDraw 1600ms cubic-bezier(.37,0,.63,1) calc(80ms + var(--pencil-index)*170ms) both}
+.js .brand-guidelines #cover.site-preview-brand-hero-is-ready .hero-pencil-echo{animation:previewHeroStrokeDraw 1650ms cubic-bezier(.37,0,.63,1) calc(180ms + var(--pencil-index)*170ms) both}
+.js .brand-guidelines #cover.site-preview-brand-hero-is-ready .hero-pencil-shade{animation:previewHeroStrokeDraw 2000ms linear calc(450ms + var(--pencil-index)*170ms) both}
+.js .brand-guidelines #cover.site-preview-brand-hero-is-ready .hero-pencil-ink{animation:previewHeroInkReveal 650ms ease-in-out calc(2450ms + var(--pencil-index)*100ms) both}
+.js .brand-guidelines #cover.site-preview-brand-hero-is-ready h2{animation-duration:700ms;animation-delay:400ms}
+.js .brand-guidelines #cover.site-preview-brand-hero-is-ready .site-preview-brand-hero-subtitle{animation-duration:650ms;animation-delay:600ms}
+.js .brand-guidelines #cover.site-preview-brand-hero-is-ready .site-preview-brand-hero-note{animation-duration:600ms;animation-delay:800ms}
+@keyframes previewHeroStrokeDraw{from{stroke-dasharray:1;stroke-dashoffset:1}to{stroke-dasharray:1;stroke-dashoffset:0}}
+@keyframes previewHeroInkReveal{from{opacity:0}to{opacity:1}}
+@media(prefers-reduced-motion:reduce){.js .brand-guidelines #cover.site-preview-brand-hero-is-ready :is(.hero-pencil-construction,.hero-pencil-contour,.hero-pencil-echo,.hero-pencil-shade,.hero-pencil-ink){animation:none}}
+.js .brand-guidelines #cover:not(.site-preview-brand-hero-is-ready):not(.site-preview-brand-hero-is-complete) :is(.hero-pencil-construction,.hero-pencil-contour,.hero-pencil-echo,.hero-pencil-shade){stroke-dasharray:1;stroke-dashoffset:1}
+.js .brand-guidelines #cover:not(.site-preview-brand-hero-is-ready):not(.site-preview-brand-hero-is-complete) .hero-pencil-ink{opacity:0}
+html[data-theme="dark"] .brand-guidelines #cover :is(.site-preview-brand-hero-circle,.site-preview-brand-hero-guide){mix-blend-mode:normal}
+html[data-theme="dark"] .brand-guidelines #cover .hero-pencil-construction{stroke:#e2f0f7}
+
 /* Reference-inspired vector studies; these colours are intentionally local to 03-05. */
 .home-hero-art{display:none;position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;background:#633cff;isolation:isolate}
 .home-hero-art__scene{display:none;position:absolute;inset:auto 0 0;width:100%;height:auto;max-width:none;aspect-ratio:708/390;object-fit:contain}
