@@ -25,24 +25,3 @@ export function setupBrandDownloads() {
     update();
   });
 }
-
-export function setupBrandGalleries() {
-  document.querySelectorAll('[data-brand-gallery]').forEach(gallery => {
-    const controls = gallery.querySelector('.brand-gallery-controls');
-    controls.hidden = false;
-    let fade;
-    controls.addEventListener('click', event => {
-      const choice = event.target.closest('[data-brand-choice]');
-      if (!choice || choice.getAttribute('aria-pressed') === 'true') return;
-      const selected = gallery.querySelector(`[data-brand-panel="${choice.dataset.brandChoice}"]`);
-      if (!selected) return;
-      fade?.cancel();
-      gallery.querySelectorAll('[data-brand-panel]').forEach(panel => { panel.hidden = panel !== selected; });
-      controls.querySelectorAll('button').forEach(button => button.setAttribute('aria-pressed', String(button === choice)));
-      controls.querySelector('[role="status"]').textContent = choice.getAttribute('aria-label');
-      if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        fade = selected.animate([{ opacity: .4 }, { opacity: 1 }], { duration: 200, easing: 'ease-out' });
-      }
-    });
-  });
-}

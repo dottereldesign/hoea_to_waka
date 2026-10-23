@@ -1,0 +1,5 @@
+Gmail: https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_default_1x_r5.png
+Symbol cropped from official Google artwork without recolouring.
+Microsoft Outlook: https://static2.sharepointonline.com/files/fabric/assets/brand-icons/product/svg/outlook_48x1.svg
+Official Microsoft Fluent UI product icon.
+Used to identify illustrative email-client previews. Trademarks belong to their respective owners.

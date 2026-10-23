@@ -31,6 +31,7 @@
     "test:card-pencil": "node scripts/card-pencil.cjs",
     "test:brand-packs-card": "node scripts/brand-packs-card.cjs",
     "test:brand-assets": "node scripts/brand-assets.cjs",
+    "test:email-previews": "node scripts/email-previews.cjs",
     "test:brand-image-performance": "node scripts/brand-image-performance.cjs",
     "test:social-previews": "node scripts/social-previews.cjs && node scripts/social-touch.cjs",
     "build:guide-qr": "node scripts/guide-qr.mjs",

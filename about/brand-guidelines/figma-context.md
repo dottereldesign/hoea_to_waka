@@ -195,9 +195,7 @@ Digital
 
 ### Email Signature
 
-An email signature is the contact block below a message. These five layouts use the same name, role and contact details. Choose a treatment that is easy to read in your email app, and test it on a phone before using it.
-
-Example message and signature layouts. Contact details remain selectable and the links work in these previews.
+Keep your name, role and contact details together in one compact signature. Preview it in Gmail or Microsoft Outlook, then compare light and dark appearances. Check the signature in your own email app before using it.
 
 ## Services
 
