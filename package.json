@@ -13,6 +13,7 @@
     "test:cta-orbit": "node scripts/cta-orbit.cjs",
     "test:brand-colours": "node scripts/brand-colours.cjs",
     "test:header": "node scripts/header.cjs",
+    "test:site-menu-morph": "node scripts/site-menu-morph.cjs",
     "test:model-button": "node scripts/model-button.cjs",
     "test:home-variants": "node scripts/home-variants.cjs",
     "test:faq": "node scripts/home-faq.cjs",
