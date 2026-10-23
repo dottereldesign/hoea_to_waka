@@ -9,15 +9,13 @@ html[data-palette] .model-button{
 }
 .model-button__label{position:relative;z-index:1;display:block;overflow:hidden;line-height:22px}
 .model-button__icon{position:relative;z-index:1;display:grid;place-items:center;flex:none;width:22px;height:22px;transition:transform .4s cubic-bezier(.22,1,.36,1),background .3s,color .3s}
-.model-button__icon svg{display:block;width:18px;height:18px;transition:transform .4s cubic-bezier(.22,1,.36,1),opacity .3s ease}
+.model-button__icon svg{display:block;width:18px;height:18px;transform-origin:center}
 html[data-palette] .model-button:focus-visible{outline:3px solid var(--model-ink)!important;outline-offset:5px!important}
 html[data-palette] .model-button:active{transform:scale(.98)}
 
 /* 2 — a bright arrow disc nestled inside the black capsule. */
 html[data-palette] .model-button{padding:6px 7px 6px 26px;gap:24px;justify-content:space-between}
-.model-button .model-button__icon{width:42px;height:42px;border-radius:50%;background:var(--model-paper);color:var(--model-ink)}
-.model-button:is(:hover,:focus-visible) .model-button__icon{transform:scale(.91)}
-.model-button:is(:hover,:focus-visible) svg{transform:translateX(3px)}
+.model-button .model-button__icon{width:42px;height:42px;overflow:hidden;border-radius:50%;background:var(--model-paper);color:var(--model-ink)}
 @media(prefers-reduced-motion:reduce){
   html[data-palette] .model-button,.model-button *{transition:none!important;transform:none!important}
 }

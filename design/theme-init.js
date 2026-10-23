@@ -1,4 +1,5 @@
 import { setupCardStudy } from './card-study';
+import { setupModelButtons } from './model-button';
 import { setupSocialPreviews } from './social-previews';
 const roles=['display','heading','body','eyebrow','ui','small'].map(id=>({id}));
 import { applyBrandColours, setupBrandEditor } from './brand-colours';
@@ -28,4 +29,4 @@ apply();
 new MutationObserver(syncMode).observe(root,{attributes:true,attributeFilter:['data-theme']});
 window.addEventListener('hoea:brand-colours',syncMode);
 document.addEventListener('DOMContentLoaded',syncMode,{once:true});
-document.addEventListener('DOMContentLoaded',()=>{setupBrandEditor();setupSiteHeader();setupHeroVersions();setupCoachingHeroVersions();setupFooterVersions();setupStatementCopy();setupTypographyStudies();setupBrandDownloads();setupBrandGalleries();setupSocialPreviews();setupCardStudy();},{once:true});
+document.addEventListener('DOMContentLoaded',()=>{setupBrandEditor();setupSiteHeader();setupHeroVersions();setupCoachingHeroVersions();setupFooterVersions();setupStatementCopy();setupTypographyStudies();setupBrandDownloads();setupBrandGalleries();setupSocialPreviews();setupCardStudy();setupModelButtons();},{once:true});
