@@ -157,6 +157,64 @@ Inter in two useful formats: TTF for design and office apps, WOFF2 for websites.
 
 Marist is licensed separately and isn’t included in the public pack.
 
+## UI Icons
+
+Interface essentials
+
+Small, clear symbols help people find their way around the website. Use a consistent outline style for familiar actions, with a short text label whenever the meaning could be unclear.
+
+These are interface symbols. Use the supplied Hoea tō Waka artwork for the brand logo and favicon.
+
+Arrow right Move forward or discover more.
+
+Chevron down Expand a list or reveal more detail.
+
+Close Dismiss an open panel.
+
+Search Find a page, topic or resource.
+
+Download Save a supplied file.
+
+Share Send a page to someone else.
+
+Copy Copy text or artwork to the clipboard.
+
+Check Confirm that an action succeeded.
+
+Email Start an email conversation.
+
+Phone Call the contact number.
+
+External link Open a destination outside this site.
+
+Back to top Return to the start of the page.
+
+### One clear visual language
+
+#### Shape & stroke
+
+Build on a 24 × 24 viewBox with no fill, rounded caps and rounded joins. Use a light, consistent outline; the examples use a 1.6-unit stroke.
+
+#### Size & spacing
+
+Use 18px for compact actions and 24px where more emphasis is needed. Keep the proportions intact and centre the artwork within its control. Small artwork still needs a generous hit area: aim for at least 44 × 44px for touch controls.
+
+#### Colour & state
+
+Let icons inherit the text colour. Use dark marks on light surfaces and light marks on dark surfaces, with enough contrast to stay visible. Pair success or error colours with a symbol and words.
+
+#### Labels & meaning
+
+Keep the same symbol for the same action. Hide decorative icons from screen readers; give an icon-only button a clear accessible name. Label unfamiliar actions in visible text rather than relying on hover.
+
+### Small artwork, comfortable controls
+
+18px icon / 44px control
+
+24px icon / 48px control
+
+Size examples are static illustrations. In a working interface, the whole control should be clickable and have a visible keyboard focus state.
+
 ## Brand Applications
 
 In practice

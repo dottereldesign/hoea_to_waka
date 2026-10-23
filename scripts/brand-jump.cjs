@@ -14,7 +14,7 @@ const Axe=require('@axe-core/playwright').default;
    await page.waitForLoadState('networkidle');
    const toggle=page.locator('.brand-jump__toggle'),panel=page.locator('.brand-jump__panel');
    assert.equal(await panel.evaluate(e=>e.inert),true);
-   assert.equal(await panel.getByRole('link').count(),9);
+   assert.equal(await panel.getByRole('link').count(),10);
    await page.screenshot({path:`tmp/brand-jump/closed-${width}.png`});
    await toggle.click();
    await page.waitForTimeout(950);
@@ -34,7 +34,7 @@ const Axe=require('@axe-core/playwright').default;
    await page.keyboard.press('Enter');
    await page.keyboard.press('Tab');
    assert(await panel.locator('a').first().evaluate(e=>e===document.activeElement),'Keyboard enters chapter links');
-   for(let i=0;i<8;i++) await page.keyboard.press('Tab');
+   for(let i=1;i<await panel.locator('a').count();i++) await page.keyboard.press('Tab');
    assert(await panel.locator('a').last().evaluate(e=>e===document.activeElement));
    await page.keyboard.press('Tab');
    assert.equal(await toggle.getAttribute('aria-expanded'),'false','Tab can leave the menu');
@@ -72,7 +72,7 @@ const Axe=require('@axe-core/playwright').default;
   await reduced.goto('http://127.0.0.1:8898/about/brand-guidelines/');
   await reduced.locator('.brand-jump__toggle').click();
   assert.equal(await reduced.locator('.brand-jump__panel').evaluate(e=>getComputedStyle(e).transitionDuration),'0s');
-  for(let i=0;i<9;i++){
+  for(let i=0;i<10;i++){
    if(i)await reduced.locator('.brand-jump__toggle').click();
    const link=reduced.locator('.brand-jump__link').nth(i),href=await link.getAttribute('href');
    await link.click();assert.equal(await reduced.evaluate(()=>location.hash),href);
