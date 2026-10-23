@@ -1,7 +1,7 @@
 /* The contents is a normal section in the reading flow, above Brand Overview. */
 .brand-guide-layout{width:100%;min-width:0;padding-top:var(--section-space)}
 html[data-palette] .brand-guide-contents{position:static;scroll-margin-top:calc(var(--site-preview-header-offset,80px) + 16px);min-width:0;margin-inline:8px;padding:clamp(28px,4vw,56px);border:0;border-radius:32px;background:var(--t-surface);color:var(--t-ink);font-family:Inter,Arial,sans-serif}
-html[data-palette] .brand-guide-contents h2{margin:0 0 24px;font-family:Inter,Arial,sans-serif;font-size:clamp(30px,3.2vw,46px);font-weight:600;line-height:1.15;letter-spacing:-.035em}
+html[data-palette] .brand-guide-contents h2{margin:0 0 24px;font-family:Inter,Arial,sans-serif;font-size:clamp(30px,3.2vw,46px);font-weight:600;line-height:1.15;letter-spacing:-.035em;text-align:center}
 .brand-guide-contents__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 40px}
 html[data-palette] .brand-guide-contents__link{display:grid;grid-template-columns:30px minmax(0,1fr) 20px;gap:8px 14px;align-items:baseline;min-width:0;padding:22px 8px;border-bottom:1px solid var(--t-line);color:inherit;text-decoration:none;border-radius:0;transition:background .2s ease}
 .brand-guide-contents__number{grid-column:1;grid-row:1;font-size:13px;font-weight:500;font-variant-numeric:tabular-nums;color:var(--t-muted)}
@@ -63,7 +63,7 @@ html[data-palette] .site-preview-section.site-preview-logo-backgrounds{min-heigh
 .brand-guidelines .site-preview{--site-preview-panel-min-height:0px}
 .brand-guidelines>.page-shell{padding-bottom:0}
 .brand-guidelines :is(.dashboard-layout,.dashboard-content){row-gap:0}
-.brand-guidelines .brand-guide-layout{padding-top:0}
+.brand-guidelines .brand-guide-layout{padding-top:96px}
 .brand-guidelines .site-preview-guideline-main{gap:0}
 html[data-palette] .brand-guidelines .site-preview :is(.site-preview-hero,.site-preview-section,.brand-guide-contents),
 html[data-palette] .brand-guidelines .dashboard-content>.section{height:auto;min-height:0;padding-block:var(--section-space)!important;margin-block:0;align-content:start}
@@ -72,11 +72,13 @@ html[data-palette] .brand-guidelines .dashboard-content>.section{height:auto;min
 .brand-guidelines .site-preview-guide-cover-title,.brand-guidelines .site-preview-guide-cover-meta{grid-row:auto}
 .brand-guidelines .site-preview-typeface-sheet{min-height:0}
 
-/* A black guideline cover and a compact handoff from Discover to the index. */
+/* Give Discover a clear, responsive handoff to the contents heading. */
 html[data-palette] .brand-guidelines #brand-guide-cover{background:var(--brand-ink)}
 .brand-guidelines #brand-guide-cover::before{background:none}
 html[data-palette] .brand-guidelines #cover{padding-bottom:0!important}
 html[data-palette] .brand-guidelines #contents{padding-top:32px!important}
+@media(max-width:1100px){.brand-guidelines .brand-guide-layout{padding-top:64px}}
+@media(max-width:760px){.brand-guidelines .brand-guide-layout{padding-top:48px}}
 
 /* Match the background showcase's editorial introduction and content split. */
 .brand-logo-anatomy-sheet{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,7fr);gap:clamp(28px,4vw,64px);align-items:start;padding:clamp(24px,3vw,40px);min-width:0}
@@ -610,3 +612,6 @@ html[data-palette] .brand-guidelines .brand-guide-audience-grid>article>p:last-c
  html[data-palette] .brand-guidelines :is(.site-preview-brand-overview-grid,.brand-guide-audience-grid)>article:first-child{padding-top:0}
  html[data-palette] .brand-guidelines :is(.site-preview-brand-overview-grid,.brand-guide-audience-grid)>article:last-child{padding-bottom:0}
 }
+
+/* Presenter notes sit outside the numbered brand chapters. */
+html[data-palette] .brand-guidelines #presentation{border-top:1px solid var(--t-line);background:var(--t-bg);color:var(--t-ink)}
