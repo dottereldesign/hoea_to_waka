@@ -1579,6 +1579,22 @@ html[data-palette] .brand-guidelines .guide-valuation a{color:var(--t-ink);text-
 html[data-theme="dark"] .brand-guidelines #cover :is(.site-preview-brand-hero-circle,.site-preview-brand-hero-guide){mix-blend-mode:normal}
 html[data-theme="dark"] .brand-guidelines #cover .hero-pencil-construction{stroke:#e2f0f7}
 
+/* Interior dividers borrow the contents list's fine rule, with no outer frame. */
+html[data-palette] .brand-guidelines :is(.site-preview-brand-overview-grid,.brand-guide-audience-grid){grid-template-columns:repeat(2,minmax(0,1fr));gap:0;align-items:stretch}
+html[data-palette] .brand-guidelines :is(.site-preview-brand-overview-grid,.brand-guide-audience-grid)>article{min-width:0;border:0;padding:0 24px 32px 0}
+html[data-palette] .brand-guidelines :is(.site-preview-brand-overview-grid,.brand-guide-audience-grid)>article:nth-child(odd){border-right:1px solid var(--t-line)}
+html[data-palette] .brand-guidelines :is(.site-preview-brand-overview-grid,.brand-guide-audience-grid)>article:nth-child(even){padding-right:0;padding-left:24px}
+html[data-palette] .brand-guidelines :is(.site-preview-brand-overview-grid,.brand-guide-audience-grid)>article:nth-child(-n+2){border-bottom:1px solid var(--t-line)}
+html[data-palette] .brand-guidelines :is(.site-preview-brand-overview-grid,.brand-guide-audience-grid)>article:nth-child(n+3){padding-top:32px;padding-bottom:0}
+html[data-palette] .brand-guidelines .brand-guide-audience-grid>article>p:last-child{margin-bottom:0}
+@media(max-width:760px){
+ html[data-palette] .brand-guidelines :is(.site-preview-brand-overview-grid,.brand-guide-audience-grid){grid-template-columns:minmax(0,1fr)}
+ html[data-palette] .brand-guidelines :is(.site-preview-brand-overview-grid,.brand-guide-audience-grid)>article:nth-child(n){padding:28px 0;border:0}
+ html[data-palette] .brand-guidelines :is(.site-preview-brand-overview-grid,.brand-guide-audience-grid)>article:not(:last-child){border-bottom:1px solid var(--t-line)}
+ html[data-palette] .brand-guidelines :is(.site-preview-brand-overview-grid,.brand-guide-audience-grid)>article:first-child{padding-top:0}
+ html[data-palette] .brand-guidelines :is(.site-preview-brand-overview-grid,.brand-guide-audience-grid)>article:last-child{padding-bottom:0}
+}
+
 /* Reference-inspired vector studies; these colours are intentionally local to 03-05. */
 .home-hero-art{display:none;position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;background:#633cff;isolation:isolate}
 .home-hero-art__scene{display:none;position:absolute;inset:auto 0 0;width:100%;height:auto;max-width:none;aspect-ratio:708/390;object-fit:contain}
