@@ -535,6 +535,38 @@ html[data-palette] .brand-card-study figcaption{margin:0;padding:16px 0 0;font-s
 
 .bc-service-pill{fill:none;stroke:#838582;stroke-width:1;opacity:.55}
 
+/* External research stays outside the brand's own operating guidance. */
+html[data-palette] .brand-guidelines #brand-references{border-top:1px solid var(--t-line);background:var(--t-surface);color:var(--t-ink)}
+.brand-references__inner{padding:clamp(24px,3vw,40px);min-width:0}
+.brand-references__intro{display:grid;gap:18px;max-width:70ch;margin-bottom:36px}
+html[data-palette] .brand-guidelines .brand-references h2{font:500 clamp(28px,3vw,42px)/1.1 Inter,Arial,sans-serif!important;letter-spacing:-.04em;margin:0;color:var(--t-ink)}
+html[data-palette] #brand-references :is(p,caption){font:400 14px/1.75 Inter,Arial,sans-serif!important;color:var(--t-muted);margin:0}
+html[data-palette] #brand-references .eyebrow{font-size:11px!important}
+.brand-references__table{width:100%;border-collapse:collapse;table-layout:fixed;font:400 14px/1.7 Inter,Arial,sans-serif;color:var(--t-ink)}
+html[data-palette] .brand-guidelines .brand-references caption{text-align:left;padding-bottom:20px;font-size:12px!important}
+.brand-references__table :is(th,td){padding:24px 24px 24px 0;text-align:left;vertical-align:top;border-bottom:1px solid var(--t-line);overflow-wrap:anywhere}
+.brand-references__table tr>:last-child{padding-right:0}
+.brand-references__table thead th{padding-top:0;padding-bottom:16px;font-size:12px;font-weight:500;color:var(--t-muted)}
+.brand-references__table tr>:nth-child(1){width:28%}
+.brand-references__table tr>:nth-child(2){width:22%}
+.brand-references__table tbody th{font-size:16px;font-weight:500}
+.brand-references__table small{display:block;font-size:12px;font-weight:400;color:var(--t-muted);margin-top:5px}
+html[data-palette] .brand-guidelines .brand-references a{color:var(--t-ink);text-decoration:underline;text-decoration-color:var(--t-line);text-underline-offset:5px;text-decoration-thickness:1px}
+.brand-references a:hover{text-decoration-color:currentColor!important}
+.brand-references a:focus-visible{outline:2px solid var(--t-ink);outline-offset:5px;border-radius:2px}
+.brand-references__table a>span{display:inline-block;margin-left:3px;font-size:.85em}
+html[data-palette] #brand-references .brand-references__note{margin-top:24px;font-size:12px!important;max-width:85ch}
+@media(max-width:760px){
+ .brand-references__table,.brand-references__table tbody{display:block}
+ .brand-references__table caption{display:block}
+ .brand-references__table thead{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+ .brand-references__table tbody tr{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;padding:24px 0;border-top:1px solid var(--t-line)}
+ .brand-references__table tbody tr:last-child{border-bottom:1px solid var(--t-line)}
+ .brand-references__table tbody tr>:nth-child(n){display:block;width:auto;padding:0;border:0}
+ .brand-references__table td::before{content:attr(data-label);display:block;font-size:11px;color:var(--t-muted);margin-bottom:4px}
+ .brand-references__intro{margin-bottom:24px}
+}
+
 /* A dated project appraisal is separate from the brand's operating guidance. */
 html[data-palette] .brand-guidelines #guide-valuation{border-top:1px solid var(--t-line);background:var(--t-surface);color:var(--t-ink)}
 .guide-valuation .brand-guide-editorial__content{gap:28px}
