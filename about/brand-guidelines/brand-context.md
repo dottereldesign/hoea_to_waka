@@ -119,17 +119,17 @@ The full-logo downloads include the text and both rules as shapes, so no font in
 
 A favicon is the small picture beside a website’s name in a browser tab. It also appears when someone saves the site as a bookmark. It helps people find Hoea tō Waka again among their open tabs and saved pages.
 
-Use the square icon supplied below in your website’s favicon or site-icon setting. It uses the symbol on its own because the full name would be too small to read. Use black on a light background and white on a dark background. The SVG adapts to the system’s light or dark preference; PNG and ICO keep the light treatment for consistent fallback and touch icons. Keep the space around the symbol.
+Use the symbol on its own, with a transparent background and a tight crop. At browser-tab sizes, every pixel matters: skip the surrounding tile, border and extra padding. The SVG switches between a black mark for light mode and a white mark for dark mode. Keep the symbol’s proportions and use the supplied files.
 
 ### Download the website icon
 
-5 essentials: adaptive SVG, multi-size ICO and PNGs for browser, touch and app icons.
+5 essentials: adaptive SVG, multi-size ICO, transparent PNGs and a separate Apple touch icon.
 
-ICO includes 16, 32 and 48px in one file. PNG and WebP are square; 180px suits an Apple touch icon.
+ICO includes transparent 16, 32 and 48px versions. PNG and WebP exports are transparent too. For a home-screen shortcut, use the separate 180px Apple touch icon, which keeps a white surface so the black mark stays visible.
 
-Light · Black symbol on a light background. 16, 32 and 48px at actual size; 80px for a closer look.
+Light · Transparent black mark, tightly cropped. 16, 32 and 48px at actual size; 80px for a closer look.
 
-Dark · White symbol on a dark background. 16, 32 and 48px at actual size; 80px for a closer look.
+Dark · Transparent white mark, tightly cropped. 16, 32 and 48px at actual size; 80px for a closer look.
 
 Chrome-style browser · Light theme
 
@@ -1455,6 +1455,7 @@ DTCG 2025.10 JSON follows. Colour components use sRGB values from 0 to 1. Alias 
 - [Download SVG](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-horizontal-black.svg)
 - [Download Favicon pack](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-favicon-pack.zip)
 - [Download SVG](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-favicon.svg)
+- [180px Apple touch icon](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-apple-touch-icon.png)
 - [Download Font pack](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-font-pack.zip)
 - [Get ABC Marist from Dinamo ↗](https://abcdinamo.com/typefaces/marist)
 - [PNG ↓](https://dottereldesign.github.io/hoea_to_waka/assets/social-downloads/linkedin-profile-400x400.png)

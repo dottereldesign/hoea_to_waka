@@ -57,7 +57,7 @@ await writeFile(new URL('hoea-to-waka-logo-pack.zip',out),zipSync(archive,{level
 // Small, purpose-specific packs keep each download easy to use.
 for(const [pack,files] of [
  ['symbol',[['hoea-to-waka-symbol-black.svg','symbol-black.svg'],['hoea-to-waka-symbol-white.svg','symbol-white.svg'],['hoea-to-waka-symbol-black-1024.png','symbol-black.png'],['hoea-to-waka-symbol-white-1024.png','symbol-white.png']]],
- ['favicon',[['hoea-to-waka-favicon.svg','favicon.svg'],['hoea-to-waka-favicon.ico','favicon.ico'],['hoea-to-waka-favicon-32.png','favicon-32.png'],['hoea-to-waka-favicon-180.png','apple-touch-icon.png'],['hoea-to-waka-favicon-512.png','favicon-512.png']]]
+ ['favicon',[['hoea-to-waka-favicon.svg','favicon.svg'],['hoea-to-waka-favicon.ico','favicon.ico'],['hoea-to-waka-favicon-32.png','favicon-32.png'],['hoea-to-waka-apple-touch-icon.png','apple-touch-icon.png'],['hoea-to-waka-favicon-512.png','favicon-512.png']]]
 ]){const entries={};for(const[source,target]of files)entries[target]=[new Uint8Array(await readFile(new URL(source,out))),archiveOptions];await writeFile(new URL(`hoea-to-waka-${pack}-pack.zip`,out),zipSync(entries,{level:6}));}
 const fontEntries={};
 for(const[source,target]of [['InterVariable.ttf','Desktop/InterVariable.ttf'],['InterVariable.woff2','Web/InterVariable.woff2'],['Inter-LICENSE.txt','LICENSE.txt']])fontEntries[target]=[new Uint8Array(await readFile(new URL('../design/source-fonts/'+source,import.meta.url))),archiveOptions];
