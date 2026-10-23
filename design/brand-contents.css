@@ -597,18 +597,23 @@ html[data-palette] .brand-guidelines .guide-valuation a{color:var(--t-ink);text-
 html[data-theme="dark"] .brand-guidelines #cover :is(.site-preview-brand-hero-circle,.site-preview-brand-hero-guide){mix-blend-mode:normal}
 html[data-theme="dark"] .brand-guidelines #cover .hero-pencil-construction{stroke:#e2f0f7}
 
-/* Interior dividers borrow the contents list's fine rule, with no outer frame. */
-html[data-palette] .brand-guidelines :is(.site-preview-brand-overview-grid,.brand-guide-audience-grid){grid-template-columns:repeat(2,minmax(0,1fr));gap:0;align-items:stretch}
-html[data-palette] .brand-guidelines :is(.site-preview-brand-overview-grid,.brand-guide-audience-grid)>article{min-width:0;border:0;padding:0 24px 32px 0}
-html[data-palette] .brand-guidelines :is(.site-preview-brand-overview-grid,.brand-guide-audience-grid)>article:nth-child(odd){border-right:1px solid var(--t-line)}
+/* Fine dashed interior rules: 8px round-ended strokes, 8px gaps, existing line colour. */
+html[data-palette] .brand-guidelines :is(.site-preview-brand-overview-grid,.brand-guide-audience-grid){position:relative;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;align-items:stretch}
+html[data-palette] .brand-guidelines :is(.site-preview-brand-overview-grid,.brand-guide-audience-grid)::before{content:"";position:absolute;top:0;bottom:0;left:calc(50% - 1px);width:1px;background:var(--t-line);mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%221%22%20height%3D%2216%22%3E%3Cpath%20d%3D%22M.5%20.5v7%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E");mask-size:1px 16px;mask-repeat:repeat-y;pointer-events:none}
+html[data-palette] .brand-guidelines :is(.site-preview-brand-overview-grid,.brand-guide-audience-grid)>article{position:relative;min-width:0;border:0;padding:0 24px 32px 0}
+html[data-palette] .brand-guidelines :is(.site-preview-brand-overview-grid,.brand-guide-audience-grid)>article::after{content:none;position:absolute;left:0;right:0;bottom:-1px;height:1px;background:var(--t-line);mask-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%221%22%3E%3Cpath%20d%3D%22M.5%20.5h7%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%221%22%20stroke-linecap%3D%22round%22%2F%3E%3C%2Fsvg%3E");mask-size:16px 1px;mask-repeat:repeat-x;pointer-events:none}
+html[data-palette] .brand-guidelines :is(.site-preview-brand-overview-grid,.brand-guide-audience-grid)>article:nth-child(odd){border-right:1px solid transparent}
 html[data-palette] .brand-guidelines :is(.site-preview-brand-overview-grid,.brand-guide-audience-grid)>article:nth-child(even){padding-right:0;padding-left:24px}
-html[data-palette] .brand-guidelines :is(.site-preview-brand-overview-grid,.brand-guide-audience-grid)>article:nth-child(-n+2){border-bottom:1px solid var(--t-line)}
+html[data-palette] .brand-guidelines :is(.site-preview-brand-overview-grid,.brand-guide-audience-grid)>article:nth-child(-n+2){border-bottom:1px solid transparent}
+html[data-palette] .brand-guidelines :is(.site-preview-brand-overview-grid,.brand-guide-audience-grid)>article:nth-child(-n+2)::after{content:""}
 html[data-palette] .brand-guidelines :is(.site-preview-brand-overview-grid,.brand-guide-audience-grid)>article:nth-child(n+3){padding-top:32px;padding-bottom:0}
 html[data-palette] .brand-guidelines .brand-guide-audience-grid>article>p:last-child{margin-bottom:0}
 @media(max-width:760px){
  html[data-palette] .brand-guidelines :is(.site-preview-brand-overview-grid,.brand-guide-audience-grid){grid-template-columns:minmax(0,1fr)}
+ html[data-palette] .brand-guidelines :is(.site-preview-brand-overview-grid,.brand-guide-audience-grid)::before{content:none}
  html[data-palette] .brand-guidelines :is(.site-preview-brand-overview-grid,.brand-guide-audience-grid)>article:nth-child(n){padding:28px 0;border:0}
- html[data-palette] .brand-guidelines :is(.site-preview-brand-overview-grid,.brand-guide-audience-grid)>article:not(:last-child){border-bottom:1px solid var(--t-line)}
+ html[data-palette] .brand-guidelines :is(.site-preview-brand-overview-grid,.brand-guide-audience-grid)>article:not(:last-child){border-bottom:1px solid transparent}
+ html[data-palette] .brand-guidelines :is(.site-preview-brand-overview-grid,.brand-guide-audience-grid)>article:not(:last-child)::after{content:""}
  html[data-palette] .brand-guidelines :is(.site-preview-brand-overview-grid,.brand-guide-audience-grid)>article:first-child{padding-top:0}
  html[data-palette] .brand-guidelines :is(.site-preview-brand-overview-grid,.brand-guide-audience-grid)>article:last-child{padding-bottom:0}
 }
