@@ -177,4 +177,47 @@
   section.querySelector('.brand-ai__copy').hidden = false;
   section.querySelector('.brand-ai__providers').hidden = false;
   section.querySelector('.brand-ai__hint').hidden = false;
+  const doodle = section.querySelector('.brand-ai__doodle');
+  if (doodle) {
+    const preference = matchMedia('(prefers-reduced-motion: reduce)');
+    const providerRow = section.querySelector('.brand-ai__providers');
+    let metaReady = false, inView = false, drawn = false, observer;
+    const drawing = [];
+    doodle.dataset.draw = 'waiting';
+    doodle.hidden = false;
+    const reveal = () => {
+      if (drawn || (!preference.matches && !(metaReady && inView))) return;
+      drawn = true;
+      observer?.disconnect();
+      if (preference.matches) {doodle.dataset.draw = 'complete';return;}
+      drawing.push(doodle.querySelector('span').animate([{opacity:0},{opacity:1}], {duration:260,fill:'both'}));
+      for (const [selector, duration, delay] of [['.brand-ai__doodle-line',1000,100],['.brand-ai__doodle-head',200,1080]]) {
+        drawing.push(doodle.querySelector(selector).animate([{strokeDashoffset:1},{strokeDashoffset:0}], {
+          duration,delay,easing:'cubic-bezier(.37,0,.63,1)',fill:'both'
+        }));
+      }
+      Promise.allSettled(drawing.map(animation => animation.finished)).then(() => {
+        doodle.dataset.draw = 'complete';
+        drawing.forEach(animation => animation.cancel());
+      });
+    };
+    observer = new IntersectionObserver(entries => {
+      inView = entries.some(entry => entry.isIntersecting && entry.intersectionRatio >= .8);
+      reveal();
+    }, {threshold:[0,.8],rootMargin:'0px 0px -24px 0px'});
+    observer.observe(providerRow);
+    // Follow the actual publication-detail animations, including the final "2026" reveal.
+    const metadata = document.querySelector('.site-preview-guide-cover-meta');
+    Promise.allSettled((metadata?.getAnimations({subtree:true}) || []).map(animation => animation.finished))
+      .then(() => {metaReady = true;reveal();});
+    preference.addEventListener('change', () => {
+      if (preference.matches) {
+        drawing.forEach(animation => animation.cancel());
+        doodle.dataset.draw = 'complete';
+        drawn = true;
+        observer.disconnect();
+      }
+    });
+    reveal();
+  }
 })();
