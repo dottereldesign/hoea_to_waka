@@ -79,8 +79,6 @@ Logo
 
 The logo’s symbol brings together a wahine (woman), ngaru (waves) and hoe (paddle). The diagram identifies these three parts so you can recognise the detail in the finished artwork. Use the supplied logo file rather than drawing or rearranging the parts yourself.
 
-### Download the symbol
-
 4 files: black and white symbols, as SVG and high-resolution PNG.
 
 SVG, PDF and EPS are vector files: resize them without losing sharpness. PNG and WebP have transparent backgrounds. JPG includes a contrasting solid background.
@@ -109,8 +107,6 @@ Choose the black logo for a light background or white for a dark background. The
 
 Keep the logo in proportion and leave space around it. Avoid cropping, shadows or placing it over a busy part of a photograph.
 
-### Download the full logo
-
 8 essential files: black and white symbols and full logos, as SVG and high-resolution PNG.
 
 The full-logo downloads include the text and both rules as shapes, so no font installation is needed. White artwork is intended for dark backgrounds.
@@ -120,8 +116,6 @@ The full-logo downloads include the text and both rules as shapes, so no font in
 A favicon is the small picture beside a website’s name in a browser tab. It also appears when someone saves the site as a bookmark. It helps people find Hoea tō Waka again among their open tabs and saved pages.
 
 Use the symbol on its own, with a transparent background and a tight crop. At browser-tab sizes, every pixel matters: skip the surrounding tile, border and extra padding. The SVG switches between a black mark for light mode and a white mark for dark mode. Keep the symbol’s proportions and use the supplied files.
-
-### Download the website icon
 
 5 essentials: adaptive SVG, multi-size ICO, transparent PNGs and a separate Apple touch icon.
 
