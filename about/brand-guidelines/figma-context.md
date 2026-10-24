@@ -115,6 +115,10 @@ Paddle
 
 The paddle connects the symbol to direction and movement. Leave room around its full outline so it is not cut off.
 
+## Logomarks
+
+The symbol on its own. Choose black on white, or white on a black or dark blue background. Keep the complete outline visible and leave space around it.
+
 ### Logo Backgrounds
 
 Choose the black logo for a light background or white for a dark background. These examples show the full horizontal logo: symbol, name and Strength in Aotearoa with both rules.
@@ -125,23 +129,19 @@ Keep the logo in proportion and leave space around it. Avoid cropping, shadows o
 
 The full-logo downloads include the text and both rules as shapes, so no font installation is needed. White artwork is intended for dark backgrounds.
 
-## Choose a lockup
+## Logo Lock-ups
 
-A lockup is a fixed arrangement of the symbol and lettering. Start with the horizontal full logo, then choose a stacked or tagline-free version to suit the available space.
+A lock-up keeps the symbol and name together in one fixed arrangement. Use the horizontal version for wide spaces and the stacked version when the layout is narrow or square.
 
-Use the supplied layout as a whole. Keep the symbol upright, preserve the macron and leave space around the artwork. When the brand line is included, keep both of its rules.
+The pack includes both layouts, with and without the brand line, in black and white.
 
-Four layouts · black & white · RGB & CMYK
+Primary horizontal lock-up Use the symbol on the left and the name on the right, as in the website header. This version leaves out Strength in Aotearoa.
 
-Horizontal with brand line The default for wide placements when Strength in Aotearoa remains easy to read.
+Stacked lock-up Use the symbol above the name for narrow or square placements. Keep the supplied arrangement and spacing intact.
 
-Horizontal without brand line For compact headers and partner rows where the small brand line would be difficult to read.
+## URL Wordmarks
 
-Stacked with brand line For narrow or square placements with enough room to read the brand line.
-
-Stacked without brand line For compact, square placements where the brand name needs more emphasis.
-
-These examples switch between black and white artwork with the page theme. Both colour versions are supplied in the pack; choose the one with clear contrast against your final background.
+Use the website address as artwork when directing people online. Keep the supplied lettering intact. In digital materials, link the artwork to hoeatowaka.co.nz so people can open the website.
 
 ## Favicon
 
@@ -1533,8 +1533,8 @@ DTCG 2025.10 JSON follows. Colour components use sRGB values from 0 to 1. Alias 
 
 ## Supplied assets and downloads
 
-- [Download Logomarks Symbol only SVG + PNG · RGB / CMYK](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-logomarks-pack.zip)
-- [Download URL wordmarks Website address SVG + PNG · RGB / CMYK](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-url-wordmarks-pack.zip)
+- [Download Logomarks↓](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-logomarks-pack.zip)
+- [Download URL wordmarks↓](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-url-wordmarks-pack.zip)
 - [Download Images Seven mockup previews WebP · reference images](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-images-pack.zip)
 - [Download Wordmarks Brand name only SVG + PNG · RGB / CMYK](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-wordmarks-pack.zip)
 - [Download Lockups↓](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-lockups-pack.zip)

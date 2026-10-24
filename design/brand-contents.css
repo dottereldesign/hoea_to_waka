@@ -535,6 +535,20 @@ html[data-palette] .brand-card-study figcaption{margin:0;padding:16px 0 0;font-s
 
 .bc-service-pill{fill:none;stroke:#838582;stroke-width:1;opacity:.55}
 
+/* Symbol specimens share a row; URL wordmarks each get their own full-width row. */
+html[data-palette] .brand-guidelines :is(#logomarks,#url-wordmarks){background:var(--t-surface);color:var(--t-ink)}
+.brand-mark-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(8px,1.5vw,20px)}
+.brand-mark-card,.brand-url-row{display:grid;place-items:center;box-sizing:border-box;min-width:0;margin:0;border:1px solid var(--t-line);border-radius:20px}
+.brand-art-surface--white{background:#fff}
+.brand-art-surface--black{background:#202329}
+.brand-art-surface--blue{background:#243a53}
+.brand-mark-card{aspect-ratio:1;padding:clamp(12px,3vw,36px)}
+.brand-mark-card img{display:block;width:100%;max-width:140px;height:auto}
+.brand-url-stack{display:grid;gap:16px}
+.brand-url-row{min-height:160px;padding:32px}
+.brand-url-row img{display:block;width:100%;max-width:520px;height:auto}
+@media(max-width:600px){.brand-mark-card{padding:14px;border-radius:14px}.brand-url-row{min-height:112px;padding:24px;border-radius:16px}}
+
 /* Fixed lockup variants use real outlined download artwork in both themes. */
 html[data-palette] #logo-lockups{background:var(--t-surface);color:var(--t-ink)}
 .brand-lockup-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 24px}
