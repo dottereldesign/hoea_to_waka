@@ -167,7 +167,7 @@ Type system
 
 Typography means the fonts and text styles we use. Inter is the main font for the Hoea tō Waka name, headings, paragraphs, menus and buttons. Use a heavier weight for headings so readers can quickly see what matters.
 
-ABC Marist Book is the serif font used for testimonial quotes. Its letter shapes give people’s words a distinct voice. Keep the quote heading, person’s name and controls in Inter. The four examples show these roles using text from the site.
+ABC Marist Book is the serif font used for testimonial quotes. Its letter shapes give people’s words a distinct voice. Keep the quote heading, person’s name and controls in Inter. The font specimens and usage guide show these roles using text from the site.
 
 Regular 400, Semibold 600 and Book 350 name the font weights: how light or heavy the letters look. A serif font has small finishing strokes on its letters; Inter has simpler ends. Compare the samples to see the difference.
 
