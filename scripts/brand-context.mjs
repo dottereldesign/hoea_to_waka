@@ -5,7 +5,7 @@ const guideURL='https://dottereldesign.github.io/hoea_to_waka/about/brand-guidel
 const {document}=parseHTML(await readFile('about/brand-guidelines/index.html','utf8'));
 const root=document.querySelector('.site-preview');
 const text=element=>element.textContent.replace(/\s+/g,' ').trim();
-const excluded='#brand-guide-cover,#cover,#contents,#guide-valuation,#presentation,#brand-references,.brand-ai,.brand-preview-tools,.brand-preview-status,.platform-preview,.brand-email-body,.bt-panel,.brand-swatch,.brand-tonal-tile,[role="status"],svg,button,script,style';
+const excluded='#brand-guide-cover,#cover,#contents,#guide-valuation,#presentation,#brand-references,.brand-ai-context,.brand-ai,.brand-preview-tools,.brand-preview-status,.platform-preview,.brand-email-body,.bt-panel,.brand-swatch,.brand-tonal-tile,[role="status"],svg,button,script,style';
 const seen=new Set();
 const sections=[...root.querySelectorAll('h2,h3,h4,p,li,figcaption,.brand-guide-help,.brand-pack-note,.social-preview-disclaimer')].flatMap(element=>{
  if(element.closest(excluded))return [];
@@ -14,7 +14,7 @@ const sections=[...root.querySelectorAll('h2,h3,h4,p,li,figcaption,.brand-guide-
  const level=element.tagName.match(/^H([2-4])$/)?.[1];
  return [(level?'#'.repeat(Number(level))+' ':element.tagName==='LI'?'- ':'')+value];
 }).join('\n\n');
-const assets=[...root.querySelectorAll('a[download],.brand-font-source,.brand-download-quick a')].filter(a=>!a.closest('.brand-ai')).map(a=>({name:text(a),url:new URL(a.getAttribute('href'),guideURL).href}));
+const assets=[...root.querySelectorAll('a[download],.brand-font-source,.brand-download-quick a')].filter(a=>!a.closest('.brand-ai-context,.brand-ai')).map(a=>({name:text(a),url:new URL(a.getAttribute('href'),guideURL).href}));
 const uniqueAssets=[...new Map(assets.map(a=>[a.url,a])).values()];
 const typeCSS=await readFile('design/static-pages.css','utf8');
 const typeWeights=Object.fromEntries([...typeCSS.matchAll(/--font-weight-(display|heading|body|eyebrow|ui|small):(\d+)/g)].map(m=>[m[1],Number(m[2])]));

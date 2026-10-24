@@ -39,7 +39,7 @@ html[data-palette] .brand-guidelines .brand-ai__open{display:inline-flex;align-i
 .brand-guidelines .brand-ai [hidden]{display:none!important}
 /* Reserve enhancement slots from first paint; revealing controls must not move the guide. */
 .js .brand-guidelines .brand-ai :is(.brand-ai__copy,.brand-ai__providers,.brand-ai__hint,.brand-ai__doodle)[hidden]{visibility:hidden;pointer-events:none}
-.js .brand-guidelines .brand-ai .brand-ai__copy[hidden]{display:inline-flex!important}
+.js .brand-guidelines :is(.brand-ai,.brand-ai-images) .brand-ai__copy[hidden]{display:inline-flex!important}
 .js .brand-guidelines .brand-ai .brand-ai__providers[hidden]{display:grid!important}
 .js .brand-guidelines .brand-ai :is(.brand-ai__hint,.brand-ai__doodle)[hidden]{display:block!important}
 .js .brand-guidelines .brand-ai :is(.brand-ai__copy,.brand-ai__providers,.brand-ai__hint)[hidden]{opacity:0}
@@ -55,3 +55,20 @@ html[data-palette] .brand-guidelines .brand-ai__open{display:inline-flex;align-i
 .brand-guidelines .brand-ai__feedback::-webkit-scrollbar{display:none}
 
 .brand-guidelines .brand-ai button[aria-busy="true"]{opacity:.6;cursor:progress}
+
+/* A separate second step keeps image references available without crowding app choice. */
+.brand-guidelines .brand-ai{border-bottom:0}
+.brand-ai-context{min-width:0}
+.brand-guidelines .brand-ai-images{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,400px);gap:32px;align-items:center;margin:0 8px;padding:28px 32px 32px;border-top:1px solid var(--t-line);border-bottom:1px solid var(--t-line);color:var(--t-ink);font-family:Inter,Arial,sans-serif;scroll-margin-top:120px}
+html[data-palette] .brand-guidelines .brand-ai-images h3{font:500 clamp(20px,1.8vw,25px)/1.25 Inter,Arial,sans-serif!important;letter-spacing:-.035em;margin:0 0 10px;color:var(--t-ink)}
+html[data-palette] .brand-guidelines .brand-ai-images p{font:400 14px/1.7 Inter,Arial,sans-serif!important;margin:0;max-width:65ch;color:var(--t-muted)}
+.brand-ai__image-buttons{display:flex;flex-wrap:wrap;gap:12px;align-items:center;min-width:0}
+.brand-ai__image-buttons>small{flex-basis:100%;font:400 11px/1.6 Inter,Arial,sans-serif;color:var(--t-muted)}
+.brand-ai-images [hidden]{display:none!important}
+.js .brand-guidelines .brand-ai-images .brand-ai__copy[hidden]{display:inline-flex!important;visibility:hidden;pointer-events:none;opacity:0}
+.brand-ai-images :is(button,a):focus-visible{outline:2px solid currentColor;outline-offset:4px;border-radius:6px}
+html[data-palette] .brand-guidelines .brand-ai__image-jump{display:block;margin-top:10px;text-align:center;color:var(--t-ink);font:400 11px/1.6 Inter,Arial,sans-serif;text-underline-offset:4px}
+html[data-palette] .brand-guidelines .brand-ai__add-reference{display:block;margin-top:14px;color:inherit;font:400 12px/1.6 Inter,Arial,sans-serif;text-underline-offset:4px}
+@media(max-width:900px){.brand-guidelines .brand-ai-images{grid-template-columns:minmax(0,1fr);gap:20px;padding:24px}}
+@media(max-width:400px){.brand-guidelines .brand-ai-images{padding-inline:16px}}
+@media(prefers-reduced-motion:reduce){.brand-ai-images *{animation:none!important;transition:none!important}}

@@ -1,7 +1,7 @@
 # Hoea tō Waka — full brand context
 
 Source: https://dottereldesign.github.io/hoea_to_waka/about/brand-guidelines/
-Publication: Created by Jamie Wilson Version 2.0 2026
+Publication: Created by Jamie Wilson Version 2.0 Year 2026
 Scope: published brand guidelines and repository design tokens; browser-only colour previews are excluded.
 
 ## Working instructions

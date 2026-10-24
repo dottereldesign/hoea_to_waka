@@ -31,16 +31,18 @@
   const buttons = [...section.querySelectorAll('[data-ai-provider]')];
   const imageButtons = [...section.querySelectorAll('[data-ai-image]')];
   const imageDownload = section.querySelector('[data-ai-image-download]');
+  const addReference = section.querySelector('.brand-ai__add-reference');
   const actions = section.querySelector('.brand-ai__actions');
+  let feedbackAnchor = actions;
   const placeFeedback = () => {
     if (feedback.hidden) return;
-    const bounds = actions.getBoundingClientRect();
+    const bounds = feedbackAnchor.getBoundingClientRect();
     if (bounds.bottom < 0 || bounds.top > innerHeight) {close();return;}
     const height = feedback.offsetHeight;
     const below = bounds.bottom + 18;
     const preferred = below + height <= innerHeight - 16 ? below : bounds.top - height - 14;
     const top = Math.max(16, Math.min(preferred, innerHeight - height - 16));
-    feedback.style.top = `${top - bounds.top}px`;
+    feedback.style.top = `${top - actions.getBoundingClientRect().top}px`;
   };
   addEventListener('resize', placeFeedback, {passive:true});
   addEventListener('scroll', placeFeedback, {passive:true});
@@ -84,12 +86,14 @@
       if (busy) return;
       busy = true;
       activeButton = button;
+      feedbackAnchor = actions;
       const provider = providers[button.dataset.aiProvider];
       button.setAttribute('aria-busy', 'true');
       feedback.hidden = false;
       manual.hidden = true;
       opener.hidden = true;
       imageDownload.hidden = true;
+      addReference.hidden = true;
       message('Preparing your brand context…', 'Collecting the published guide and design tokens.');
       placeFeedback();
       try {
@@ -98,6 +102,7 @@
         close();
         files.open = false;
         feedback.hidden = false;
+        addReference.hidden = false;
         button.setAttribute('aria-pressed', 'true');
         manual.hidden = copied;
         opener.hidden = !provider.href;
@@ -132,12 +137,14 @@
       files.open = false;
       activeButton = button;
       const name = button.dataset.aiImage === 'symbol' ? 'Symbol' : 'Full logo';
+      feedbackAnchor = button.closest('.brand-ai__image-buttons') || actions;
       const source = button.dataset.aiImageSrc;
       button.setAttribute('aria-busy', 'true');
       feedback.hidden = false;
       manual.hidden = true;
       opener.hidden = true;
       imageDownload.hidden = true;
+      addReference.hidden = true;
       message(`Copying ${name.toLowerCase()}…`, 'Preparing the transparent PNG.');
       placeFeedback();
       try {
@@ -163,6 +170,7 @@
     });
   });
   dismiss.addEventListener('click', () => close(true));
+  addReference.addEventListener('click', () => close());
   document.addEventListener('keydown', event => {
     if (event.key === 'Escape' && (!feedback.hidden || files.open)) {
       event.preventDefault();
