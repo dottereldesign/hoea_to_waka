@@ -119,11 +119,13 @@ The full-logo downloads include the text and both rules as shapes, so no font in
 
 A lock-up keeps the symbol and name together in one fixed arrangement. Use the horizontal version for wide spaces and the stacked version when the layout is narrow or square.
 
+H is the full height of the symbol. Our spacing unit, x, is H ÷ 4. The dotted outer frame shows the minimum clear space: keep at least x free around the artwork. These proportions scale with the logo. Name height includes the macron.
+
 The pack includes both layouts, with and without the brand line, in black and white.
 
-Primary horizontal lock-up Use the symbol on the left and the name on the right, as in the website header. This version leaves out Strength in Aotearoa.
+Primary horizontal lock-up Symbol on the left, name on the right, aligned to a shared horizontal centre line. The brand line is left out.Gap = xName height = H/2Clear space ≥ x
 
-Stacked lock-up Use the symbol above the name for narrow or square placements. Keep the supplied arrangement and spacing intact.
+Stacked lock-up Symbol above the name, aligned to a shared vertical centre line. The brand line is left out.Gap = xName height = H/3Clear space ≥ x
 
 ## URL Wordmarks
 
