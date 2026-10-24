@@ -535,6 +535,26 @@ html[data-palette] .brand-card-study figcaption{margin:0;padding:16px 0 0;font-s
 
 .bc-service-pill{fill:none;stroke:#838582;stroke-width:1;opacity:.55}
 
+/* Purpose-specific asset downloads are available immediately in the guide cover. */
+.brand-guidelines .brand-hero-assets{grid-column:1/-1;grid-row:2;width:100%;min-width:0;display:grid;gap:18px;margin-top:32px;position:relative;z-index:2;color:#fff}
+.brand-hero-assets__heading{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px 24px;font:400 12px/1.6 Inter,Arial,sans-serif;color:#fff}
+.brand-hero-assets__heading>span:first-child{font-weight:600}
+.brand-hero-assets__heading>span:last-child{opacity:.8}
+.brand-hero-assets__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+html[data-palette] .brand-guidelines .brand-hero-assets__link{display:flex;justify-content:space-between;align-items:center;gap:16px;min-width:0;min-height:108px;padding:20px 22px;border:1px solid #ffffff80;border-radius:20px;background:#141b2d38;color:#fff;text-decoration:none;box-sizing:border-box}
+.brand-hero-assets__copy{display:grid;gap:5px;min-width:0}
+.brand-hero-assets__copy strong{font:500 15px/1.4 Inter,Arial,sans-serif}
+.brand-hero-assets__copy>span{font:400 12px/1.6 Inter,Arial,sans-serif}
+.brand-hero-assets__copy small{font:400 11px/1.6 Inter,Arial,sans-serif;opacity:.8}
+.brand-hero-assets__link>svg{flex-shrink:0}
+.brand-hero-assets__link:hover{background:#141b2d80!important;border-color:#fff!important}
+.brand-hero-assets__link:focus-visible{outline:2px solid #fff;outline-offset:4px}
+html[data-palette] #brand-guide-cover .brand-hero-assets__note{font:400 12px/1.7 Inter,Arial,sans-serif!important;color:#fff;opacity:.85;margin:0;max-width:90ch}
+.brand-guidelines #brand-guide-cover .site-preview-guide-cover-meta{grid-row:3}
+@media(max-width:1280px){.brand-guidelines .brand-hero-assets{grid-row:3}.brand-guidelines #brand-guide-cover .site-preview-guide-cover-meta{grid-row:4}}
+@media(max-width:900px){.brand-hero-assets__grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:540px){.brand-hero-assets__grid{grid-template-columns:minmax(0,1fr);gap:10px}html[data-palette] .brand-guidelines .brand-hero-assets__link{min-height:96px;padding:18px 20px}.brand-guidelines .brand-hero-assets{margin-top:16px}}
+
 /* UI icon specimens follow the same light outline language as site controls. */
 html[data-palette] .brand-chapter-cover--icons{background:radial-gradient(ellipse at 80% 15%,#607f9d,transparent 65%),radial-gradient(ellipse at 10% 100%,#6c608b,transparent 70%),#243a53}
 html[data-palette] #ui-icons{background:var(--t-surface);color:var(--t-ink)}

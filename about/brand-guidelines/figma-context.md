@@ -1513,14 +1513,19 @@ DTCG 2025.10 JSON follows. Colour components use sRGB values from 0 to 1. Alias 
 
 ## Supplied assets and downloads
 
-- [Download Logo pack ↓](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-logo-pack.zip)
+- [Download Logomarks Symbol only SVG + PNG · RGB / CMYK](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-logomarks-pack.zip)
+- [Download URL wordmarks Website address SVG + PNG · RGB / CMYK](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-url-wordmarks-pack.zip)
+- [Download Images Seven mockup previews WebP · reference images](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-images-pack.zip)
+- [Download Wordmarks Brand name only SVG + PNG · RGB / CMYK](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-wordmarks-pack.zip)
+- [Download Lockups Symbol, name & brand line SVG + PNG · RGB / CMYK](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-lockups-pack.zip)
+- [Download Font pack](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-font-pack.zip)
 - [Download Symbol pack](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-symbol-pack.zip)
 - [Download SVG](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-symbol-black.svg)
+- [Download Logo pack ↓](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-logo-pack.zip)
 - [Download SVG](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-horizontal-black.svg)
 - [Download Favicon pack](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-favicon-pack.zip)
 - [Download SVG](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-favicon.svg)
 - [180px Apple touch icon](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-apple-touch-icon.png)
-- [Download Font pack](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-font-pack.zip)
 - [Get ABC Marist from Dinamo ↗](https://abcdinamo.com/typefaces/marist)
 - [PNG ↓](https://dottereldesign.github.io/hoea_to_waka/assets/social-downloads/linkedin-profile-400x400.png)
 - [PNG ↓](https://dottereldesign.github.io/hoea_to_waka/assets/social-downloads/linkedin-banner-1512x256.png)

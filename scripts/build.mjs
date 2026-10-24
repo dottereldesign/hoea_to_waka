@@ -10,6 +10,7 @@ import { updateServiceLinkIcons } from './service-link-icons.mjs';
 await import('./brand-downloads.mjs');
 await import('./social-downloads.mjs');
 await import('./brand-previews.mjs');
+await import('./brand-hero-packs.mjs');
 await import('./card-pencil.mjs');
 await import('./hero-pencil.mjs');
 await import('./guide-qr.mjs');

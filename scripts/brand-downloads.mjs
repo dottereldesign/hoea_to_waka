@@ -41,6 +41,9 @@ const header=Buffer.alloc(6+16*iconImages.length);header.writeUInt16LE(1,2);head
 await writeFile(new URL('manifest.json',out),JSON.stringify(manifest,null,2)+'\n');
 console.log('Brand exports: outlined SVG/PDF/EPS, transparent PNG/WebP, JPG and multi-size ICO');
 
+// Shared outlined source geometry for the purpose-specific hero library.
+export {symbol,wordmark,width,height,lettering,svg,eps};
+
 // A curated pack: one scalable vector and one high-resolution PNG per logo.
 const archive={};
 const archiveOptions={mtime:new Date('2026-10-22T00:00:00Z')};
