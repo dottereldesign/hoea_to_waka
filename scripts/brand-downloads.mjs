@@ -42,7 +42,7 @@ await writeFile(new URL('manifest.json',out),JSON.stringify(manifest,null,2)+'\n
 console.log('Brand exports: outlined SVG/PDF/EPS, transparent PNG/WebP, JPG and multi-size ICO');
 
 // Shared outlined source geometry for the purpose-specific hero library.
-export {symbol,wordmark,width,height,lettering,svg,eps};
+export {symbol,wordmark,width,height,lettering,svg,eps,name,taglineX,taglineWidth};
 
 // A curated pack: one scalable vector and one high-resolution PNG per logo.
 const archive={};
@@ -63,6 +63,9 @@ for(const [pack,files] of [
  ['favicon',[['hoea-to-waka-favicon.svg','favicon.svg'],['hoea-to-waka-favicon.ico','favicon.ico'],['hoea-to-waka-favicon-32.png','favicon-32.png'],['hoea-to-waka-apple-touch-icon.png','apple-touch-icon.png'],['hoea-to-waka-favicon-512.png','favicon-512.png']]]
 ]){const entries={};for(const[source,target]of files)entries[target]=[new Uint8Array(await readFile(new URL(source,out))),archiveOptions];await writeFile(new URL(`hoea-to-waka-${pack}-pack.zip`,out),zipSync(entries,{level:6}));}
 const fontEntries={};
-for(const[source,target]of [['InterVariable.ttf','Desktop/InterVariable.ttf'],['InterVariable.woff2','Web/InterVariable.woff2'],['Inter-LICENSE.txt','LICENSE.txt']])fontEntries[target]=[new Uint8Array(await readFile(new URL('../design/source-fonts/'+source,import.meta.url))),archiveOptions];
-fontEntries['READ ME.txt']=[new TextEncoder().encode('Inter font pack\n\nInstall Desktop/InterVariable.ttf for design and office apps. Use Web/InterVariable.woff2 on websites. These variable fonts contain the full weight range in one file. Use Regular 400 for paragraphs and Semibold 600 for headings and buttons. Both include macrons.\n\nSource: https://github.com/rsms/inter/tree/master/docs/font-files\nLicence: SIL Open Font License 1.1 (included).\n\nABC Marist is not included. Obtain a suitable licence and font files from https://abcdinamo.com/typefaces/marist\n'),archiveOptions];
+for(const[source,target]of [
+ ['Inter-Regular.ttf','Desktop/Static/Inter-Regular.ttf'],['Inter-SemiBold.ttf','Desktop/Static/Inter-SemiBold.ttf'],['Inter-Italic.ttf','Desktop/Static/Inter-Italic.ttf'],['Inter-SemiBoldItalic.ttf','Desktop/Static/Inter-SemiBoldItalic.ttf'],
+ ['InterVariable.ttf','Desktop/Variable/InterVariable.ttf'],['InterVariable-Italic.ttf','Desktop/Variable/InterVariable-Italic.ttf'],['InterVariable.woff2','Web/InterVariable.woff2'],['InterVariable-Italic.woff2','Web/InterVariable-Italic.woff2'],['LICENSE.txt','LICENSE.txt'],['SOURCE.txt','SOURCE.txt']
+])fontEntries[target]=[new Uint8Array(await readFile(new URL('../design/source-fonts/inter-4.1/'+source,import.meta.url))),archiveOptions];
+fontEntries['READ ME.txt']=[new TextEncoder().encode('Hoea tō Waka — Inter font pack (official Inter 4.1)\n\nSTART HERE\nFor office and design apps, install the four TTF files in Desktop/Static: Regular 400, SemiBold 600, Italic 400 and SemiBold Italic 600. Use the actual italic files rather than a software slant.\n\nIf your app supports variable fonts, you can choose Desktop/Variable instead. The upright and true italic fonts include the full weight range. Choose either the Static or Variable desktop set for a project to avoid font-menu confusion.\n\nFor websites use Web/InterVariable.woff2 (normal) and Web/InterVariable-Italic.woff2 (italic). Declare them as separate @font-face rules with font-style: normal and italic, font-weight: 100 900. Include font-display: swap.\n\nBRAND USAGE\nRegular 400: body copy. Semibold 600: headings and actions. Italics: short emphasis or a title within running text; do not italicise the logo or whole paragraphs. The available variable weights do not change the approved brand roles. All supplied styles support Māori macrons.\n\nABC Marist Book 350 remains the testimonial font and is not included. Obtain the appropriate licence and files from https://abcdinamo.com/typefaces/marist\n\nSource: https://github.com/rsms/inter/releases/tag/v4.1\nLicence: SIL Open Font License 1.1 (included). Font files are unmodified.\n'),archiveOptions];
 await writeFile(new URL('hoea-to-waka-font-pack.zip',out),zipSync(fontEntries,{level:6}));

@@ -125,6 +125,24 @@ Keep the logo in proportion and leave space around it. Avoid cropping, shadows o
 
 The full-logo downloads include the text and both rules as shapes, so no font installation is needed. White artwork is intended for dark backgrounds.
 
+## Choose a lockup
+
+A lockup is a fixed arrangement of the symbol and lettering. Start with the horizontal full logo, then choose a stacked or tagline-free version to suit the available space.
+
+Use the supplied layout as a whole. Keep the symbol upright, preserve the macron and leave space around the artwork. When the brand line is included, keep both of its rules.
+
+Four layouts · black & white · RGB & CMYK
+
+Horizontal with brand line The default for wide placements when Strength in Aotearoa remains easy to read.
+
+Horizontal without brand line For compact headers and partner rows where the small brand line would be difficult to read.
+
+Stacked with brand line For narrow or square placements with enough room to read the brand line.
+
+Stacked without brand line For compact, square placements where the brand name needs more emphasis.
+
+These examples switch between black and white artwork with the page theme. Both colour versions are supplied in the pack; choose the one with clear contrast against your final background.
+
 ## Favicon
 
 A favicon is the small picture beside a website’s name in a browser tab. It also appears when someone saves the site as a bookmark. It helps people find Hoea tō Waka again among their open tabs and saved pages.
@@ -153,7 +171,9 @@ ABC Marist Book is the serif font used for testimonial quotes. Its letter shapes
 
 Regular 400, Semibold 600 and Book 350 name the font weights: how light or heavy the letters look. A serif font has small finishing strokes on its letters; Inter has simpler ends. Compare the samples to see the difference.
 
-Inter in two useful formats: TTF for design and office apps, WOFF2 for websites. Includes macrons, all weights and the font licence.
+Inter 4.1: four static TTF styles, upright and italic variable TTFs, and two web WOFF2 files. Licence and installation notes included.
+
+For office and design apps, choose Desktop/Static for Regular 400, Semibold 600 and their true italics. Choose Desktop/Variable instead if your app supports variable fonts; Web contains the WOFF2 versions. Use italics for short emphasis within text, and keep logo lettering upright. ABC Marist Book 350 remains the testimonial font.
 
 Marist is licensed separately and isn’t included in the public pack.
 
@@ -1517,7 +1537,7 @@ DTCG 2025.10 JSON follows. Colour components use sRGB values from 0 to 1. Alias 
 - [Download URL wordmarks Website address SVG + PNG · RGB / CMYK](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-url-wordmarks-pack.zip)
 - [Download Images Seven mockup previews WebP · reference images](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-images-pack.zip)
 - [Download Wordmarks Brand name only SVG + PNG · RGB / CMYK](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-wordmarks-pack.zip)
-- [Download Lockups Symbol, name & brand line SVG + PNG · RGB / CMYK](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-lockups-pack.zip)
+- [Download Lockups↓](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-lockups-pack.zip)
 - [Download Font pack](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-font-pack.zip)
 - [Download Symbol pack](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-symbol-pack.zip)
 - [Download SVG](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-symbol-black.svg)

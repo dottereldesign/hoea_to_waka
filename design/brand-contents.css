@@ -535,6 +535,20 @@ html[data-palette] .brand-card-study figcaption{margin:0;padding:16px 0 0;font-s
 
 .bc-service-pill{fill:none;stroke:#838582;stroke-width:1;opacity:.55}
 
+/* Fixed lockup variants use real outlined download artwork in both themes. */
+html[data-palette] #logo-lockups{background:var(--t-surface);color:var(--t-ink)}
+.brand-lockup-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 24px}
+.brand-lockup-grid figure{margin:0;min-width:0;display:grid;align-content:start;gap:16px}
+.brand-lockup-preview{display:grid;place-items:center;height:240px;padding:24px;border:1px solid var(--t-line);border-radius:20px;background:var(--t-bg);box-sizing:border-box}
+.brand-lockup-preview img{display:block;width:100%;height:auto;max-height:190px;object-fit:contain}
+.brand-lockup-preview img.brand-lockup-preview__white{display:none}
+html[data-theme=dark] .brand-lockup-preview img.brand-lockup-preview__white{display:block}
+html[data-theme=dark] .brand-lockup-preview img.brand-lockup-preview__black{display:none}
+.brand-lockup-grid figcaption{display:grid;gap:7px}
+html[data-palette] #logo-lockups figcaption strong{font:500 15px/1.5 Inter,Arial,sans-serif;color:var(--t-ink)}
+html[data-palette] #logo-lockups figcaption span{font:400 14px/1.7 Inter,Arial,sans-serif;color:var(--t-muted)}
+@media(max-width:600px){.brand-lockup-grid{grid-template-columns:minmax(0,1fr)}.brand-lockup-preview{height:220px;padding:20px}}
+
 /* Purpose-specific asset downloads are available immediately in the guide cover. */
 .brand-guidelines .brand-hero-assets{grid-column:1/-1;grid-row:2;width:100%;min-width:0;display:grid;gap:18px;margin-top:32px;position:relative;z-index:2;color:#fff}
 .brand-hero-assets__heading{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px 24px;font:400 12px/1.6 Inter,Arial,sans-serif;color:#fff}
