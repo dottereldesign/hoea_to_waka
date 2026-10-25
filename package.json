@@ -38,7 +38,7 @@
     "test:brand-contents": "node scripts/brand-contents.cjs",
     "test:brand-info": "node scripts/brand-info.cjs",
     "test:hero-illustrations": "node scripts/hero-illustrations.cjs",
-    "test:resources-nav": "node scripts/resources-nav.cjs",
+    "test:resources-layout": "node scripts/resources-layout.cjs",
     "test:card-pencil": "node scripts/card-pencil.cjs",
     "test:brand-packs-card": "node scripts/brand-packs-card.cjs",
     "test:brand-assets": "node scripts/brand-assets.cjs",
