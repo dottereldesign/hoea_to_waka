@@ -1,0 +1,16 @@
+.brand-door-study{width:min(100% - 32px,720px);margin:24px auto 0;min-width:0;color:var(--t-ink);font-family:Inter,Arial,sans-serif}
+.brand-door-study__title{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.brand-door-study__stage{width:min(100%,520px);aspect-ratio:1;margin:0 auto;isolation:isolate;contain:layout paint;overflow:hidden;background:#fff;border-radius:20px}
+.brand-door-study svg{display:block;width:100%;height:100%}
+.brand-door-study__controls{display:grid;justify-items:center;gap:14px;margin:8px 0 0}
+.brand-door-study__choices{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+html[data-palette] .brand-door-study button{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:40px;box-sizing:border-box;padding:9px 15px;border:1px solid var(--t-line);border-radius:999px;background:transparent;color:var(--t-ink);font:400 11px/1.4 Inter,Arial,sans-serif;cursor:pointer;transition:background 200ms,color 200ms}
+html[data-palette] .brand-door-study button[aria-pressed=true]{background:var(--t-ink);color:var(--t-surface);border-color:var(--t-ink)}
+.brand-door-study__playback{display:flex;align-items:center;justify-content:center;gap:16px;min-height:36px}
+html[data-palette] .brand-door-study__playback button{min-height:36px;border:0;padding:6px 8px;text-decoration:underline;text-underline-offset:4px}
+.brand-door-study button:focus-visible{outline:2px solid currentColor;outline-offset:4px}
+.brand-door-study__name{font:400 11px/1.5 Inter,Arial,sans-serif;color:var(--t-muted)}
+.brand-door-study [hidden]{display:none!important}
+.js .brand-door-study__controls[hidden]{display:grid!important;visibility:hidden}
+@media(max-width:400px){.brand-door-study__choices{gap:6px}html[data-palette] .brand-door-study__choices button{padding:8px 11px}}
+@media(prefers-reduced-motion:reduce){.brand-door-study *{transition:none!important}}
