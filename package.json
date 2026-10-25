@@ -39,6 +39,7 @@
     "test:brand-info": "node scripts/brand-info.cjs",
     "test:hero-illustrations": "node scripts/hero-illustrations.cjs",
     "test:resources-layout": "node scripts/resources-layout.cjs",
+    "test:resource-videos": "node scripts/resource-videos.cjs",
     "test:card-pencil": "node scripts/card-pencil.cjs",
     "test:brand-packs-card": "node scripts/brand-packs-card.cjs",
     "test:brand-assets": "node scripts/brand-assets.cjs",

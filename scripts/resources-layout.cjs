@@ -31,7 +31,8 @@ const Axe=require('@axe-core/playwright').default;
       else assert(geometry[0].bottom<=geometry[1].y,'Books stack on phones');
       for(const item of geometry){assert(item.contained,'Book content stays within its column');assert(width>1279?item.imageRight<=item.copyX:item.imageBottom<=item.copyY,'Artwork and copy do not overlap');}
       assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'No horizontal overflow');
-      assert.equal(await page.locator('#resource-videos iframe').count(),2);
+      assert.equal(await page.locator('#resource-videos iframe').count(),0);
+      assert.equal(await page.locator('#resource-videos .resource-song-cover').count(),2);
       if([1440,390].includes(width))assert.deepEqual((await new Axe({page}).include('#resource-books').withTags(['wcag2a','wcag2aa','wcag21aa']).analyze()).violations,[]);
       if([1920,1440,900,390].includes(width))await books.screenshot({path:`tmp/books-pair/after-${width}.png`,style:'.site-header{visibility:hidden!important}'});
       console.log('PASS paired books, readable reflow, artwork/copy separation, purchase links and videos',width);
