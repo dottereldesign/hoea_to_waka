@@ -34,8 +34,63 @@
   const addReference = section.querySelector('.brand-ai__add-reference');
   const actions = section.querySelector('.brand-ai__actions');
   let feedbackAnchor = actions;
+  let dismissTimer, remaining = 0, timerStarted = 0, arrowAnimation;
+  const motion = matchMedia('(prefers-reduced-motion: reduce)');
+  const launchLabel = document.createElement('span');
+  launchLabel.className = 'brand-ai__launch-label';
+  const launchIcon = document.createElement('span');
+  launchIcon.className = 'brand-ai__launch-icon';
+  launchIcon.setAttribute('aria-hidden', 'true');
+  launchIcon.innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg>';
+  opener.replaceChildren(launchLabel, launchIcon);
+  opener.classList.add('brand-ai__launch');
+  const arrow = launchIcon.firstElementChild;
+  const fly = () => {
+    if (motion.matches || arrowAnimation) return;
+    const transform = (x, stretch = 0) => `translate(${x}px,${-x}px) scale(${1 + stretch})`;
+    const duration = 761;
+    const frames = [
+      {offset: 0, transform: transform(0), easing: 'cubic-bezier(.45,0,.8,.5)'},
+      {offset: 160 / duration, transform: transform(34, .12)},
+      {offset: 161 / duration, transform: transform(-34, .12)}
+    ];
+    const decay = .68 * 17, oscillation = 17 * Math.sqrt(1 - .68 ** 2);
+    const sineWeight = (280 - decay * 34) / oscillation;
+    for (let i = 1; i <= 36; i++) {
+      const time = i / 60;
+      const x = Math.exp(-decay * time) * (-34 * Math.cos(oscillation * time) + sineWeight * Math.sin(oscillation * time));
+      frames.push({offset: (161 + time * 1000) / duration, transform: i === 36 ? transform(0) : transform(x, .12 * Math.exp(-12 * time) * Math.cos(15 * time))});
+    }
+    arrowAnimation = arrow.animate(frames, {duration, easing: 'linear'});
+    arrowAnimation.finished.catch(() => {}).finally(() => {arrowAnimation = null;});
+  };
+  opener.addEventListener('pointerenter', event => {if (event.pointerType !== 'touch') fly();});
+  opener.addEventListener('focus', () => {if (opener.matches(':focus-visible')) fly();});
+  motion.addEventListener('change', () => {if (motion.matches) arrowAnimation?.cancel();});
+  const pauseDismiss = () => {
+    if (!dismissTimer) return;
+    clearTimeout(dismissTimer); dismissTimer = undefined;
+    remaining = Math.max(0, remaining - (performance.now() - timerStarted));
+  };
+  const resumeDismiss = () => {
+    if (!remaining || dismissTimer || feedback.hidden || feedback.matches(':hover') || feedback.contains(document.activeElement) || document.hidden) return;
+    timerStarted = performance.now();
+    dismissTimer = setTimeout(() => close(), remaining);
+  };
+  const scheduleDismiss = () => {remaining = 12000; resumeDismiss();};
+  feedback.addEventListener('pointerenter', pauseDismiss);
+  feedback.addEventListener('pointerleave', resumeDismiss);
+  feedback.addEventListener('focusin', pauseDismiss);
+  feedback.addEventListener('focusout', () => queueMicrotask(resumeDismiss));
+  document.addEventListener('visibilitychange', () => document.hidden ? pauseDismiss() : resumeDismiss());
   const placeFeedback = () => {
     if (feedback.hidden) return;
+    if (feedback.dataset.toast === 'true') {
+      feedback.style.removeProperty('top');
+      feedback.style.removeProperty('left');
+      feedback.style.removeProperty('right');
+      return;
+    }
     const bounds = feedbackAnchor.getBoundingClientRect();
     if (bounds.bottom < 0 || bounds.top > innerHeight) {close();return;}
     const height = feedback.offsetHeight;
@@ -55,9 +110,21 @@
   let activeButton;
   let busy = false;
   const close = (restore = false) => {
+    clearTimeout(dismissTimer); dismissTimer = undefined; remaining = 0;
+    arrowAnimation?.cancel();
+    if (feedback.hasAttribute('popover') && feedback.matches(':popover-open')) feedback.hidePopover();
     feedback.hidden = true;
     [...buttons, ...imageButtons].forEach(button => button.removeAttribute('aria-pressed'));
     if (restore) activeButton?.focus({preventScroll: true});
+  };
+  const showFeedback = toast => {
+    close();
+    feedback.dataset.toast = String(toast);
+    feedback.dataset.tone = 'pending';
+    if (toast && typeof feedback.showPopover === 'function') feedback.setAttribute('popover', 'manual');
+    else feedback.removeAttribute('popover');
+    feedback.hidden = false;
+    if (feedback.hasAttribute('popover')) feedback.showPopover();
   };
   const message = (heading, body) => {
     const title = document.createElement('strong');
@@ -94,7 +161,7 @@
       feedbackAnchor = actions;
       const provider = providers[button.dataset.aiProvider];
       button.setAttribute('aria-busy', 'true');
-      feedback.hidden = false;
+      showFeedback(Boolean(provider.href));
       manual.hidden = true;
       opener.hidden = true;
       imageDownload.hidden = true;
@@ -104,17 +171,19 @@
       try {
         const context = await getContext(provider.file);
         const copied = await copyText(context);
-        close();
         files.open = false;
         feedback.hidden = false;
         addReference.hidden = false;
         button.setAttribute('aria-pressed', 'true');
         manual.hidden = copied;
         opener.hidden = !provider.href;
-        if (provider.href) {opener.href = provider.href;opener.textContent = `Open ${provider.name} ↗`;}
+        if (provider.href) {opener.href = provider.href;launchLabel.textContent = `Open ${provider.name}`;}
         if (copied) {
+          feedback.dataset.tone = 'success';
           message(`Copied${provider.href ? ' for ' + provider.name : ' — full brand context'}.`, provider.href ? `Open ${provider.name}, paste into a new ${provider.name === 'Figma Make' ? 'prompt' : 'chat'}, then describe what you want to create.` : 'Paste into your AI or design brief, then describe what you want to create.');
+          if (provider.href) scheduleDismiss();
         } else {
+          feedback.dataset.tone = 'notice';
           message('Copy the context below.', `Automatic copying is unavailable. Select and copy this text, then paste it into ${provider.name}.`);
           textarea.value = context;
           placeFeedback();
@@ -122,10 +191,12 @@
           textarea.select();
         }
       } catch {
+        feedback.dataset.tone = 'notice';
         feedback.hidden = false;
         manual.hidden = true;
         opener.hidden = true;
         message('The context could not be loaded.', 'Try again, or open Files & details to download the brand context.');
+        if (provider.href) scheduleDismiss();
       } finally {
         placeFeedback();
         busy = false;
@@ -138,7 +209,7 @@
     button.addEventListener('click', async () => {
       if (busy) return;
       busy = true;
-      close();
+      showFeedback(false);
       files.open = false;
       activeButton = button;
       const name = button.dataset.aiImage === 'symbol' ? 'Symbol' : 'Full logo';
@@ -175,6 +246,7 @@
     });
   });
   dismiss.addEventListener('click', () => close(true));
+  opener.addEventListener('click', () => close());
   addReference.addEventListener('click', () => close());
   document.addEventListener('keydown', event => {
     if (event.key === 'Escape' && (!feedback.hidden || files.open)) {
@@ -184,7 +256,10 @@
     }
   });
   document.addEventListener('pointerdown', event => {
-    if (!section.contains(event.target)) {close();files.open = false;}
+    if (!section.contains(event.target)) {
+      if (feedback.dataset.toast !== 'true') close();
+      files.open = false;
+    }
   });
   files.addEventListener('toggle', () => {if (files.open) close();});
   section.querySelector('.brand-ai__copy').hidden = false;

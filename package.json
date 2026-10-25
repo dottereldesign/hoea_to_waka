@@ -26,6 +26,7 @@
     "test:brand-hero": "node scripts/brand-hero.cjs",
     "test:brand-share": "node scripts/brand-share.cjs && node scripts/brand-share-fallback.cjs",
     "test:brand-ai": "node scripts/brand-ai.cjs",
+    "test:brand-ai-toast": "node scripts/brand-ai-toast.cjs",
     "test:brand-logo-studies": "node scripts/brand-logo-studies.cjs",
     "test:brand-jump": "node scripts/brand-jump.cjs",
     "test:brand-contents": "node scripts/brand-contents.cjs",

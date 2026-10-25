@@ -53,6 +53,18 @@ html[data-palette] .brand-guidelines .brand-ai__open{display:inline-flex;align-i
 @media(prefers-reduced-motion:reduce){.brand-guidelines .brand-ai__doodle[data-draw="waiting"]>span{opacity:1}.brand-guidelines .brand-ai__doodle[data-draw="waiting"] path{stroke-dashoffset:0}}
 
 .brand-guidelines .brand-ai__feedback::-webkit-scrollbar{display:none}
+.brand-guidelines .brand-ai__feedback[data-toast="true"]{position:fixed;inset:auto auto max(80px,calc(env(safe-area-inset-bottom) + 80px)) max(16px,env(safe-area-inset-left));margin:0;width:min(380px,calc(100vw - 32px));max-height:calc(100dvh - 112px);padding:26px;border:1px solid #ffffff25;background:#243a53;color:#fff;box-shadow:0 16px 60px #071f2d30;z-index:150;animation:brandAiToast 420ms cubic-bezier(.22,1,.36,1) both}
+.brand-guidelines .brand-ai__feedback[data-toast="true"][data-tone="success"]{background:#153e32;color:#f1fff5}
+.brand-guidelines .brand-ai__feedback[data-toast="true"][data-tone="notice"]{background:#453c26;color:#fff9e9}
+.brand-guidelines .brand-ai__feedback[data-toast="true"]:popover-open{display:block}
+.brand-guidelines .brand-ai__feedback[hidden],.brand-ai__feedback [hidden]{display:none!important}
+html[data-palette] .brand-guidelines .brand-ai__open.brand-ai__launch{display:inline-flex;align-items:center;justify-content:space-between;gap:20px;min-height:54px;max-width:100%;box-sizing:border-box;margin-top:20px;padding:6px 7px 6px 22px;border:1px solid #f1fff5;border-radius:999px;background:#f1fff5;color:#153e32;text-decoration:none;font:500 13px/1.35 Inter,Arial,sans-serif;transition:box-shadow 250ms,transform 250ms}
+.brand-ai__launch-label{min-width:0}
+.brand-ai__launch-icon{display:grid;place-items:center;flex:none;width:40px;height:40px;overflow:hidden;border-radius:50%;background:#153e32;color:#f1fff5}
+.brand-ai__launch-icon svg{display:block;transform-origin:center}
+.brand-guidelines .brand-ai__launch:hover{box-shadow:0 4px 18px #00000018}
+.brand-guidelines .brand-ai__launch:active{transform:scale(.98)}
+@keyframes brandAiToast{from{opacity:0;transform:translateY(16px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
 
 .brand-guidelines .brand-ai button[aria-busy="true"]{opacity:.6;cursor:progress}
 
