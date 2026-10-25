@@ -57,8 +57,7 @@ gap prevents boundary flicker. The homepage has no symbol or playback button.
 Menu coverage, hidden-tab suspension and reduced motion are supported.
 Reduced motion and the no-JavaScript fallback show the open Moon arch.
 
-The original rotating-photo CTA now follows Meet Anna Brown on About, retaining
-its eight photos, upright rotation, copy and contact link. Image and link paths
-are relative to About. Its rotation also pauses while the header menu is open.
-`scripts/home-moon-door.cjs` checks the production layout, timed opening, closing and re-entry;
-`scripts/cta-orbit.cjs` now checks the moved section on About.
+The rotating-photo organisation CTA has been removed from About. The homepage
+Moon arch CTA remains in place. `scripts/home-moon-door.cjs` checks its production
+layout, timed opening, closing and re-entry, and confirms About retains the founder
+section without the removed CTA.

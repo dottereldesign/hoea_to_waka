@@ -73,19 +73,13 @@ const Axe=require('@axe-core/playwright').default;
     await motion.close();
 
     const aboutContext=await browser.newContext({reducedMotion:'reduce'}),about=await aboutContext.newPage();await about.goto('http://127.0.0.1:8885/about/');
-    const moved=about.locator('[data-component="about/:3:cta"]');
-    assert.equal(await moved.evaluate(e=>e.previousElementSibling.getAttribute('data-component')),'about/:2:story');
-    assert.equal(await moved.locator('[data-cta-orbit] img').count(),8);
-    assert.equal(await moved.locator('.model-button').getAttribute('href'),'../contact/');
-    assert.equal(await about.locator('[data-moon-door]').count(),0);
-    await moved.scrollIntoViewIfNeeded();
-    await moved.locator('img').evaluateAll(images=>Promise.all(images.map(image=>image.decode())));
-    assert.deepEqual((await new Axe({page:about}).include('[data-component="about/:3:cta"]').withTags(['wcag2a','wcag2aa','wcag21aa']).analyze()).violations,[]);
+    assert.equal(await about.locator('[data-component="about/:3:cta"],[data-cta-orbit],[data-moon-door]').count(),0);
+    assert.equal(await about.getByRole('heading',{name:'Meet Anna Brown'}).count(),1);
     await aboutContext.close();
     const plain=await browser.newPage({javaScriptEnabled:false});await plain.goto('http://127.0.0.1:8885/');
     assert(await plain.locator('[data-moon-door] > svg').isVisible());assert.equal(await plain.locator('[data-moon-door] [data-door-pause]').count(),0);
     assert.equal(await plain.locator('[data-moon-door] [data-door-tide]').getAttribute('display'),'inline');
     assert.deepEqual(errors,[]);
-    console.log('PASS exact About placement, eight real image assets, contact link, accessibility and no-JavaScript open-door fallback');
+    console.log('PASS About CTA removal, retained founder section and no-JavaScript homepage door fallback');
   }finally{await browser.close();server.close();}
 })().catch(error=>{console.error(error);process.exitCode=1});
