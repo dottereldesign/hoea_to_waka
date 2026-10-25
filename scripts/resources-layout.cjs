@@ -33,6 +33,14 @@ const Axe=require('@axe-core/playwright').default;
       assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'No horizontal overflow');
       assert.equal(await page.locator('#resource-videos iframe').count(),0);
       assert.equal(await page.locator('#resource-videos .resource-song-cover').count(),2);
+      const separation=await page.locator('#resource-videos').evaluate(video=>{
+        const books=document.querySelector('#resource-books'),box=video.getBoundingClientRect(),parent=video.parentElement.getBoundingClientRect(),style=getComputedStyle(video);
+        return {direct:video.parentElement===document.querySelector('main')&&books.parentElement===video.parentElement,
+          gap:box.top-Math.max(...[...books.querySelectorAll('article')].map(e=>e.getBoundingClientRect().bottom)),
+          left:box.left-parent.left,right:parent.right-box.right,background:style.backgroundColor,radius:style.borderTopLeftRadius};
+      });
+      assert(separation.direct,'Books and videos are independent main sections');assert(separation.gap>=63,'Clear spacing after the books');
+      assert.equal(separation.left,8);assert.equal(separation.right,8);assert.equal(separation.background,'rgb(32, 32, 32)');assert.equal(separation.radius,'32px');
       if([1440,390].includes(width))assert.deepEqual((await new Axe({page}).include('#resource-books').withTags(['wcag2a','wcag2aa','wcag21aa']).analyze()).violations,[]);
       if([1920,1440,900,390].includes(width))await books.screenshot({path:`tmp/books-pair/after-${width}.png`,style:'.site-header{visibility:hidden!important}'});
       console.log('PASS paired books, readable reflow, artwork/copy separation, purchase links and videos',width);

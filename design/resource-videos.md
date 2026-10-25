@@ -1,5 +1,9 @@
 # Song-cover previews
 
+Books and songs are independent main sections. Books have responsive spacing
+below their catalogue; the video section uses #202020, light text, a 32px radius
+and 8px side margins. Its inner content stays centred at wide screen sizes.
+
 The Resources songs use local ocean and forest artwork with editable cover
 typography and a YouTube play icon. They load no YouTube iframe before activation.
 The old WATCH numbers are removed; the complete waiata heading uses one font.
