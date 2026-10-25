@@ -13,11 +13,5 @@
 #resource-videos .resource-song-cover:hover .resource-song-play{transform:translate(-50%,-50%) scale(1.06)}
 html[data-palette] #resource-videos .resource-song-cover:focus-visible{outline:3px solid #fff!important;outline-offset:-7px!important;box-shadow:none!important}
 #resource-videos .ds-video-card h3{margin-top:24px}
-html[data-palette] #resource-videos .resource-video-link{display:inline-flex;align-items:center;justify-content:center;gap:11px;min-height:56px;padding:12px 20px;border:1px solid #c90028;border-radius:999px;background:#c90028;color:#fff;font:600 13px/1.4 Inter,Arial,sans-serif;text-decoration:none;box-shadow:0 2px 4px #0f111118;transition:background .25s,transform .3s cubic-bezier(.22,1,.36,1)}
-#resource-videos .resource-video-link>svg:first-child{flex:none;width:24px;height:24px}
-#resource-videos .resource-video-link>svg:last-child{flex:none;width:16px;height:16px;transition:transform .3s cubic-bezier(.22,1,.36,1)}
-html[data-palette] #resource-videos .resource-video-link:hover{background:#ad0022;border-color:#ad0022;transform:translateY(-2px)}
-#resource-videos .resource-video-link:hover>svg:last-child{transform:translate(2px,-2px)}
-html[data-palette] #resource-videos .resource-video-link:focus-visible{outline:3px solid #0d4687;outline-offset:4px}
 @media(max-width:600px){#resource-videos .resource-song-edition{top:16px;left:16px;font-size:9px}#resource-videos .resource-song-copy{left:16px;right:16px;bottom:16px}#resource-videos .resource-song-copy small{font-size:11px;margin-top:6px}#resource-videos .resource-song-play{width:60px;height:43px}}
-@media(prefers-reduced-motion:reduce){#resource-videos .resource-song-cover>img,#resource-videos .resource-song-play,#resource-videos .resource-video-link,#resource-videos .resource-video-link>svg{transition:none!important}}
+@media(prefers-reduced-motion:reduce){#resource-videos .resource-song-cover>img,#resource-videos .resource-song-play{transition:none!important}}

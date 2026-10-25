@@ -3,13 +3,13 @@
 The Resources songs use local ocean and forest artwork with editable cover
 typography and a YouTube play icon. They load no YouTube iframe before activation.
 The old WATCH numbers are removed; the complete waiata heading uses one font.
-Separate YouTube links use a darker red fill for white-text contrast.
+The separate Watch on YouTube buttons are removed; the cover play buttons remain.
 
 Click, Enter or Space replaces a cover with its privacy-enhanced YouTube embed.
 Supported parameters are `autoplay=1`, `playsinline=1` and `rel=0`; the iframe keeps
 its referrer policy, autoplay permission, native controls and fullscreen support.
 Starting another song unloads the previous player and restores its cover.
-Without JavaScript, both covers and the buttons open their normal YouTube links.
+Without JavaScript, both covers open their normal YouTube links.
 
 Custom covers hide thumbnails, channel images and copy/share overlays before
 playback. During playback YouTube owns its interface. `showinfo` and
