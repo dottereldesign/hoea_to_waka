@@ -23,3 +23,25 @@ Four options: Reference (video), Mirror (screenshot orientation), Ocean (brand
 colours), Midnight (dark screenshot treatment). Pause and Replay are provided;
 reduced motion uses a static open door. Animation suspends offscreen and in hidden
 tabs. The entire study is excluded from exported AI brand instructions.
+
+## Moonlit ocean alternatives
+
+Options 05–08 add a semicircular arch, a circular portal, a full-height oval and
+a door with clipped corners. Each leaf and its fixed opening share the same
+sampled outline when closed. Projection changes the full outline and its return;
+the lever and plate are positioned proportionally, while the latch follows the
+curved edge at handle height.
+
+These four options reveal an ocean whose main fill is exactly `#0D4687`, a masked
+crescent moon, 75 deterministic stars and the cached grain texture. Two independent
+wave surfaces, a fine crest and short moon reflections move inside the opening's
+clip. Their eight-second cycle holds the door open longer than the original
+six-second studies. Reduced motion freezes the complete open composition; Pause
+freezes both door and scenery. Selecting an ocean option while paused resumes
+from the open pose without snapping closed.
+
+`scripts/brand-door-tides.cjs` checks the four unique outlines, matching closed
+geometry, no blue leaking from a closed door, rendered `#0D4687` pixels, hardware
+placement, continuous wave movement during the open hold, playback and keyboard
+selection. `scripts/brand-door.cjs` covers all eight options across screen sizes
+and themes, and retains the original reference geometry and timing checks.

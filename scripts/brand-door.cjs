@@ -17,10 +17,17 @@ const Axe = require('@axe-core/playwright').default;
       await page.evaluate(theme => localStorage.setItem('hoea-theme',theme),theme); await page.reload();
       const study = page.locator('#brand-door-study');
       await study.scrollIntoViewIfNeeded();
-      for (const variant of ['reference','mirror','ocean','midnight']) {
+      for (const variant of ['reference','mirror','ocean','midnight','arch','round','oval','facet']) {
         await page.locator(`[data-door-variant=${variant}]`).click();
         assert.equal(await study.locator('[aria-pressed=true]').count(),1);
-        assert.equal(await study.locator('svg').getAttribute('data-angle'),variant === 'mirror' || variant === 'midnight' ? '45.000' : '54.700');
+        const angles={reference:'54.700',mirror:'45.000',ocean:'54.700',midnight:'45.000',arch:'67.000',round:'66.000',oval:'68.000',facet:'64.000'};
+        assert.equal(await study.locator('svg').getAttribute('data-angle'),angles[variant]);
+        if(['arch','round','oval','facet'].includes(variant)){
+          assert.equal(await study.locator('[data-sea-front]').getAttribute('fill'),'#0D4687');
+          assert.equal(await study.locator('[data-door-tide]').getAttribute('display'),'inline');
+          assert.equal(await study.locator('[data-tide-stars] circle').count(),75);
+          assert(await study.locator('[data-door-moon]').isVisible());
+        }
         if ([1440,390].includes(width)) await study.screenshot({path:`tmp/door-render/${theme}-${width}-${variant}.png`,style:'.site-header,.brand-jump,.header-motion-lab{visibility:hidden!important}'});
       }
       assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
@@ -28,7 +35,7 @@ const Axe = require('@axe-core/playwright').default;
       assert(placement.top >= placement.cta && placement.next > placement.bottom);
       assert.deepEqual((await new Axe({page}).include('#brand-door-study').withTags(['wcag2a','wcag2aa','wcag21aa']).analyze()).violations,[]);
       assert(await page.locator('[data-door-pause]').evaluate(e => e.hidden));
-      console.log('PASS four variants, placement, responsive fit, reduced motion and accessibility',width,theme);
+      console.log('PASS eight variants, moon/ocean artwork, placement, responsive fit, reduced motion and accessibility',width,theme);
     }
     await page.setViewportSize({width:1000,height:1000});
     if (process.argv.includes('--runtime-only')) await page.goto('http://127.0.0.1:8894/about/brand-guidelines/');
