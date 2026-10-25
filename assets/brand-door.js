@@ -32,6 +32,7 @@
   let current = standalone ? variants.arch : variants.reference;
   let frame, lastTime, elapsed = 0, inView = false, stopped = false, menuBlocked = false;
   const ns = 'http://www.w3.org/2000/svg';
+  const homeSymbol = standalone ? svg.querySelector('[data-door-symbol]') : null;
   const tide = svg.querySelector('[data-door-tide]') || document.createElementNS(ns,'g');
   tide.setAttribute('data-door-tide','');
   tide.setAttribute('display','none');
@@ -44,6 +45,8 @@
   const seaFront = tide.querySelector('[data-sea-front]');
   const seaFoam = tide.querySelector('[data-sea-foam]');
   const reflection = tide.querySelector('[data-sea-reflection]');
+  if (homeSymbol) seaBack.before(homeSymbol);
+  let doorProgress = 0, doorTarget = 0, scrollFrame = 0;
   let profile;
   const shapeProfile = shape => {
     const box = shape === 'round' ? {left:182,top:241,width:360,height:360} : {left:239,top:105,width:245,height:496};
@@ -71,6 +74,7 @@
     const shapeName={arch:'arched',round:'circular',oval:'oval',facet:'faceted'}[current.shape];
     svg.querySelector('title').textContent=current.tide?`Moonlit ocean — ${shapeName} door`:'A door to possibility';
     svg.querySelector('desc').textContent=current.tide?`A white ${shapeName} door with a lever handle opens onto moving ocean waves, a crescent moon and a starry night sky.`:originalDescription;
+    if (homeSymbol) svg.querySelector('desc').textContent='A white arched door opens onto a moonlit sea. The glowing Hoea tō Waka symbol sits above the water, partly hidden behind the door.';
     tide.setAttribute('display',current.tide?'inline':'none');
     stars.style.display=current.tide?'none':'';
     const b=profile||{left:239,top:105,width:245,height:496};
@@ -196,12 +200,17 @@
   };
   const cancel = () => {cancelAnimationFrame(frame); frame = undefined; lastTime = undefined;};
   const tick = time => {
-    if (lastTime !== undefined) elapsed += Math.min(time - lastTime, 100);
+    const delta = lastTime === undefined ? 0 : Math.min(time - lastTime, 100);
+    elapsed += delta;
     lastTime = time;
     const seconds = standalone ? elapsed/1000 : elapsed % (current.tide?8000:6000) / 1000;
-    const motionSeconds=standalone?Math.min(seconds,1.4):current.tide?(seconds<=1.4?seconds:seconds<6?1.4+(seconds-1.4)*2.6/4.6:seconds-2):seconds;
+    if (standalone) {
+      doorProgress += (doorTarget-doorProgress)*(1-Math.exp(-delta/140));
+      if (Math.abs(doorTarget-doorProgress)<.0001) doorProgress=doorTarget;
+    }
+    const motionSeconds=standalone?doorProgress*1.4:current.tide?(seconds<=1.4?seconds:seconds<6?1.4+(seconds-1.4)*2.6/4.6:seconds-2):seconds;
     draw(angleAt(motionSeconds), seconds);
-    if (standalone) section.dataset.doorState=motionSeconds>=1.4?'open':'opening';
+    if (standalone) {section.dataset.doorProgress=doorProgress.toFixed(4);section.dataset.doorState=doorProgress>=.999?'open':doorProgress<=.001?'closed':doorTarget<doorProgress?'closing':'opening';}
     frame = requestAnimationFrame(tick);
   };
   const sync = () => {
@@ -211,7 +220,7 @@
     pause.hidden = preference.matches;
     const replay=section.querySelector('[data-door-replay]');
     if (replay) replay.hidden = preference.matches;
-    if (preference.matches) {draw(current.angle, 1.4);if(standalone){elapsed=Math.max(elapsed,1400);section.dataset.doorState='open';}}
+    if (preference.matches) {draw(current.angle, 1.4);if(standalone){doorProgress=1;section.dataset.doorProgress='1';section.dataset.doorState='open';}}
     else if (inView && !document.hidden && !stopped && !menuBlocked) frame = requestAnimationFrame(tick);
   };
   choices.forEach(button => button.addEventListener('click', () => {
@@ -226,11 +235,26 @@
   }));
   pause.addEventListener('click', () => {stopped = !stopped; sync();});
   section.querySelector('[data-door-replay]')?.addEventListener('click', () => {elapsed = 0; stopped = false; draw(0,0); sync();});
-  const observer = new IntersectionObserver(entries => {inView = entries[0].isIntersecting && (!standalone || entries[0].intersectionRatio>=.18); sync();}, {threshold:standalone?[0,.18]:.1});
+  function measureScroll() {
+    scrollFrame=0;
+    const box=svg.getBoundingClientRect();
+    const overlap=Math.max(0,Math.min(box.bottom,innerHeight)-Math.max(box.top,0));
+    inView=overlap/box.height>=.18;
+    doorTarget=Math.max(0,Math.min(1,(innerHeight*.84-box.top)/Math.min(innerHeight*.5,box.height*.72)));
+    if (preference.matches) {sync();return;}
+    if (!inView) {
+      cancel();doorProgress=doorTarget;
+      draw(angleAt(doorProgress*1.4),elapsed/1000);
+      section.dataset.doorProgress=doorProgress.toFixed(4);section.dataset.doorState=doorProgress>=.999?'open':'closed';
+    } else if (!frame) sync();
+  }
+  const requestScroll=()=>{if(!scrollFrame)scrollFrame=requestAnimationFrame(measureScroll);};
+  const observer = new IntersectionObserver(entries => {if(standalone)measureScroll();else{inView=entries[0].isIntersecting;sync();}}, {threshold:standalone?[0,.18]:.1});
   observer.observe(svg);
   document.addEventListener('visibilitychange', sync);
   document.addEventListener('hoea:site-menu', event => {menuBlocked=event.detail.open;sync();});
-  preference.addEventListener('change', sync);
+  preference.addEventListener('change', standalone?measureScroll:sync);
+  if (standalone) {addEventListener('scroll',requestScroll,{passive:true});addEventListener('resize',requestScroll,{passive:true});}
   addEventListener('pagehide', cancel);
   addEventListener('pageshow', sync);
   if (standalone) {configurePortal();section.dataset.doorState='closed';}
