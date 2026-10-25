@@ -45,3 +45,18 @@ geometry, no blue leaking from a closed door, rendered `#0D4687` pixels, hardwar
 placement, continuous wave movement during the open hold, playback and keyboard
 selection. `scripts/brand-door.cjs` covers all eight options across screen sizes
 and themes, and retains the original reference geometry and timing checks.
+
+## Homepage use
+
+The homepage organisation CTA reuses the Moon arch through `[data-moon-door]`.
+It remains closed until at least 18% of the illustration enters the viewport,
+then opens once and stays open. The moonlit water continues while visible;
+leaving and returning resumes the scenery without closing or replaying the door.
+Pause/Play, menu coverage, hidden-tab suspension and reduced motion are supported.
+Reduced motion and the no-JavaScript fallback show the open Moon arch.
+
+The original rotating-photo CTA now follows Meet Anna Brown on About, retaining
+its eight photos, upright rotation, copy and contact link. Image and link paths
+are relative to About. Its rotation also pauses while the header menu is open.
+`scripts/home-moon-door.cjs` checks the production layout and one-time reveal;
+`scripts/cta-orbit.cjs` now checks the moved section on About.

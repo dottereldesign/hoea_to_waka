@@ -11,6 +11,7 @@
     "test:model-timeline": "node scripts/model-timeline.cjs",
     "test:marquee": "node scripts/topic-marquee.cjs",
     "test:cta-orbit": "node scripts/cta-orbit.cjs",
+    "test:home-moon-door": "node scripts/home-moon-door.cjs",
     "test:brand-colours": "node scripts/brand-colours.cjs",
     "test:header": "node scripts/header.cjs",
     "test:header-entrance": "node scripts/header-entrance.cjs && node scripts/header-entrance-stress.cjs",

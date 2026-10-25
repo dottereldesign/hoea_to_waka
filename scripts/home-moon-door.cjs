@@ -1,0 +1,77 @@
+const {chromium}=require('playwright');
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const Axe=require('@axe-core/playwright').default;
+
+(async()=>{
+  const server=require('./preview.cjs')(8885),browser=await chromium.launch({channel:'chrome'});
+  fs.mkdirSync('tmp/home-door',{recursive:true});
+  try{
+    const context=await browser.newContext({reducedMotion:'reduce'}),page=await context.newPage(),errors=[];
+    page.on('pageerror',error=>errors.push(error.message));
+    for(const width of process.argv.includes('--runtime-only')?[]:[1440,1100,900,768,390,320])for(const theme of ['light','dark']){
+      await page.setViewportSize({width,height:1000});await page.goto('http://127.0.0.1:8885/');
+      await page.evaluate(theme=>localStorage.setItem('hoea-theme',theme),theme);await page.reload();
+      const cta=page.locator('[data-component="home:7:cta"]'),door=cta.locator('[data-moon-door]');
+      await cta.scrollIntoViewIfNeeded();
+      assert.equal(await page.locator('[data-cta-orbit]').count(),0);
+      assert.equal(await door.locator('svg').getAttribute('data-angle'),'67.000');
+      assert.equal(await door.getAttribute('data-door-state'),'open');
+      assert.equal(await cta.locator('h2').textContent(),'Bring the model into your organisation');
+      assert.equal(await cta.locator('.model-button').getAttribute('href'),'contact/');
+      assert.equal(await door.locator('[data-sea-front]').getAttribute('fill'),'#0D4687');
+      assert(await door.locator('[data-door-pause]').evaluate(e=>e.hidden));
+      assert.equal(await door.locator('#door-moon-mask').count(),1);
+      assert.equal(await door.locator('[data-door-tide]').count(),1);
+      assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+      const geometry=await cta.evaluate(e=>{const a=e.querySelector('[data-moon-door]').getBoundingClientRect(),b=e.querySelector('.home-cta-body').getBoundingClientRect();return{art:{right:a.right,bottom:a.bottom},copy:{x:b.x,y:b.y}}});
+      assert(width>900?geometry.art.right<=geometry.copy.x:geometry.art.bottom<=geometry.copy.y,'Artwork and copy do not overlap');
+      assert.deepEqual((await new Axe({page}).include('[data-component="home:7:cta"]').withTags(['wcag2a','wcag2aa','wcag21aa']).analyze()).violations,[]);
+      if([1440,390].includes(width))await cta.screenshot({path:`tmp/home-door/${theme}-${width}.png`,style:'.site-header,.header-motion-lab{visibility:hidden!important}'});
+      console.log('PASS Moon arch, copy/link preservation, responsive layout, reduced motion and accessibility',width,theme);
+    }
+    await context.close();
+    const motion=await browser.newPage({viewport:{width:1440,height:1000}});
+    motion.on('pageerror',error=>errors.push(error.message));
+    await motion.clock.install({time:new Date('2026-10-26T00:00:00Z')});
+    await motion.goto('http://127.0.0.1:8885/');await motion.clock.pauseAt(new Date('2026-10-26T00:00:05Z'));
+    const door=motion.locator('[data-moon-door]'),svg=door.locator('svg');
+    assert.equal(await svg.getAttribute('data-angle'),'0.000');
+    await motion.clock.runFor(2000);assert.equal(await svg.getAttribute('data-angle'),'0.000','Door waits for its first viewport entry');
+    await svg.scrollIntoViewIfNeeded();await motion.waitForTimeout(60);await motion.clock.runFor(550);
+    assert(Number(await svg.getAttribute('data-angle'))>0&&Number(await svg.getAttribute('data-angle'))<67);
+    await svg.screenshot({path:'tmp/home-door/opening.png',style:'.site-header,.header-motion-lab{visibility:hidden!important}'});
+    await motion.clock.runFor(1100);assert.equal(await svg.getAttribute('data-angle'),'67.000');
+    const face=await svg.locator('[data-door-panel]').getAttribute('d'),water=await svg.locator('[data-sea-front]').getAttribute('d');
+    await motion.clock.runFor(11000);
+    assert.equal(await svg.locator('[data-door-panel]').getAttribute('d'),face,'Door stays open beyond the guide loop duration');
+    assert.notEqual(await svg.locator('[data-sea-front]').getAttribute('d'),water,'Ocean keeps moving inside the open door');
+    await motion.evaluate(()=>scrollTo(0,0));await motion.waitForTimeout(60);
+    const phase=await svg.getAttribute('data-phase');await motion.clock.runFor(2500);assert.equal(await svg.getAttribute('data-phase'),phase);
+    await svg.scrollIntoViewIfNeeded();await motion.waitForTimeout(60);await motion.clock.runFor(200);
+    assert.equal(await svg.locator('[data-door-panel]').getAttribute('d'),face,'Re-entry resumes the sea without reopening the door');
+    await door.locator('[data-door-pause]').focus();await motion.keyboard.press('Enter');
+    const frozen=await svg.innerHTML();await motion.clock.runFor(2000);assert.equal(await svg.innerHTML(),frozen);
+    await motion.keyboard.press('Enter');await motion.clock.runFor(150);assert.notEqual(await svg.innerHTML(),frozen);
+    await motion.locator('[data-menu-toggle]').click();const covered=await svg.getAttribute('data-phase');await motion.clock.runFor(500);assert.equal(await svg.getAttribute('data-phase'),covered);
+    await motion.keyboard.press('Escape');await motion.clock.runFor(850);assert.equal(await svg.getAttribute('data-angle'),'67.000');
+    console.log('PASS first-entry opening, permanent open hold, moving sea, offscreen/menu pause, keyboard playback and no replay on re-entry');
+    await motion.close();
+
+    const aboutContext=await browser.newContext({reducedMotion:'reduce'}),about=await aboutContext.newPage();await about.goto('http://127.0.0.1:8885/about/');
+    const moved=about.locator('[data-component="about/:3:cta"]');
+    assert.equal(await moved.evaluate(e=>e.previousElementSibling.getAttribute('data-component')),'about/:2:story');
+    assert.equal(await moved.locator('[data-cta-orbit] img').count(),8);
+    assert.equal(await moved.locator('.model-button').getAttribute('href'),'../contact/');
+    assert.equal(await about.locator('[data-moon-door]').count(),0);
+    await moved.scrollIntoViewIfNeeded();
+    await moved.locator('img').evaluateAll(images=>Promise.all(images.map(image=>image.decode())));
+    assert.deepEqual((await new Axe({page:about}).include('[data-component="about/:3:cta"]').withTags(['wcag2a','wcag2aa','wcag21aa']).analyze()).violations,[]);
+    await aboutContext.close();
+    const plain=await browser.newPage({javaScriptEnabled:false});await plain.goto('http://127.0.0.1:8885/');
+    assert(await plain.locator('[data-moon-door] svg').isVisible());assert(await plain.locator('[data-moon-door] [data-door-pause]').evaluate(e=>e.hidden));
+    assert.equal(await plain.locator('[data-moon-door] [data-door-tide]').getAttribute('display'),'inline');
+    assert.deepEqual(errors,[]);
+    console.log('PASS exact About placement, eight real image assets, contact link, accessibility and no-JavaScript open-door fallback');
+  }finally{await browser.close();server.close();}
+})().catch(error=>{console.error(error);process.exitCode=1});

@@ -1,6 +1,7 @@
 (() => {
-  const section = document.querySelector('#brand-door-study');
+  const section = document.querySelector('#brand-door-study,[data-moon-door]');
   if (!section) return;
+  const standalone = section.hasAttribute('data-moon-door');
   const svg = section.querySelector('svg');
   const scene = svg.querySelector('[data-door-scene]');
   const panel = svg.querySelector('[data-door-panel]');
@@ -28,14 +29,14 @@
     oval: {name: '07 · Oval tide', shape:'oval', tide:true, flip:false, angle:68, paper:'#ffffff', ink:'#243a53', floor:'#8c9da9', sky:'#061628', haze:'#0D4687'},
     facet: {name: '08 · Coastal facet', shape:'facet', tide:true, flip:false, angle:64, paper:'#ffffff', ink:'#243a53', floor:'#8c9da9', sky:'#061628', haze:'#0D4687'}
   };
-  let current = variants.reference;
+  let current = standalone ? variants.arch : variants.reference;
   let frame, lastTime, elapsed = 0, inView = false, stopped = false, menuBlocked = false;
   const ns = 'http://www.w3.org/2000/svg';
-  const tide = document.createElementNS(ns,'g');
+  const tide = svg.querySelector('[data-door-tide]') || document.createElementNS(ns,'g');
   tide.setAttribute('data-door-tide','');
   tide.setAttribute('display','none');
   tide.innerHTML = '<g data-tide-stars></g><g data-door-moon><circle r="33" fill="url(#door-moon-halo)"/><circle r="18" fill="#f2f1dc" mask="url(#door-moon-mask)"/></g><path data-sea-back fill="#0D4687" opacity=".7"/><path data-sea-front fill="#0D4687"/><path data-sea-foam fill="none" stroke="#aacbe7" stroke-width="1.1" opacity=".6"/><path data-sea-reflection fill="none" stroke="#e6ecd9" stroke-width="1.2" stroke-linecap="round" opacity=".3"/>';
-  svg.querySelector('defs').insertAdjacentHTML('beforeend','<radialGradient id="door-moon-halo"><stop stop-color="#e1e8dc" stop-opacity=".13"/><stop offset="1" stop-color="#e1e8dc" stop-opacity="0"/></radialGradient><mask id="door-moon-mask" maskUnits="userSpaceOnUse" x="-35" y="-35" width="70" height="70"><circle r="18" fill="white"/><circle cx="8" cy="-5" r="17" fill="black"/></mask>');
+  if (!svg.querySelector('#door-moon-mask')) svg.querySelector('defs').insertAdjacentHTML('beforeend','<radialGradient id="door-moon-halo"><stop stop-color="#e1e8dc" stop-opacity=".13"/><stop offset="1" stop-color="#e1e8dc" stop-opacity="0"/></radialGradient><mask id="door-moon-mask" maskUnits="userSpaceOnUse" x="-35" y="-35" width="70" height="70"><circle r="18" fill="white"/><circle cx="8" cy="-5" r="17" fill="black"/></mask>');
   portal.append(tide);
   const tideStars = tide.querySelector('[data-tide-stars]');
   const moon = tide.querySelector('[data-door-moon]');
@@ -197,18 +198,20 @@
   const tick = time => {
     if (lastTime !== undefined) elapsed += Math.min(time - lastTime, 100);
     lastTime = time;
-    const seconds = elapsed % (current.tide?8000:6000) / 1000;
-    const motionSeconds=current.tide?(seconds<=1.4?seconds:seconds<6?1.4+(seconds-1.4)*2.6/4.6:seconds-2):seconds;
+    const seconds = standalone ? elapsed/1000 : elapsed % (current.tide?8000:6000) / 1000;
+    const motionSeconds=standalone?Math.min(seconds,1.4):current.tide?(seconds<=1.4?seconds:seconds<6?1.4+(seconds-1.4)*2.6/4.6:seconds-2):seconds;
     draw(angleAt(motionSeconds), seconds);
+    if (standalone) section.dataset.doorState=motionSeconds>=1.4?'open':'opening';
     frame = requestAnimationFrame(tick);
   };
   const sync = () => {
     cancel();
-    pause.textContent = stopped ? 'Play' : 'Pause';
+    pause.textContent = standalone ? (stopped?'Play animation':'Pause animation') : (stopped ? 'Play' : 'Pause');
     pause.setAttribute('aria-pressed', String(stopped));
     pause.hidden = preference.matches;
-    section.querySelector('[data-door-replay]').hidden = preference.matches;
-    if (preference.matches) draw(current.angle, 1.4);
+    const replay=section.querySelector('[data-door-replay]');
+    if (replay) replay.hidden = preference.matches;
+    if (preference.matches) {draw(current.angle, 1.4);if(standalone){elapsed=Math.max(elapsed,1400);section.dataset.doorState='open';}}
     else if (inView && !document.hidden && !stopped && !menuBlocked) frame = requestAnimationFrame(tick);
   };
   choices.forEach(button => button.addEventListener('click', () => {
@@ -222,14 +225,16 @@
     draw(preference.matches || stopped ? current.angle : 0, 0); sync();
   }));
   pause.addEventListener('click', () => {stopped = !stopped; sync();});
-  section.querySelector('[data-door-replay]').addEventListener('click', () => {elapsed = 0; stopped = false; draw(0,0); sync();});
-  const observer = new IntersectionObserver(entries => {inView = entries[0].isIntersecting; sync();}, {threshold:.1});
+  section.querySelector('[data-door-replay]')?.addEventListener('click', () => {elapsed = 0; stopped = false; draw(0,0); sync();});
+  const observer = new IntersectionObserver(entries => {inView = entries[0].isIntersecting && (!standalone || entries[0].intersectionRatio>=.18); sync();}, {threshold:standalone?[0,.18]:.1});
   observer.observe(svg);
   document.addEventListener('visibilitychange', sync);
   document.addEventListener('hoea:site-menu', event => {menuBlocked=event.detail.open;sync();});
   preference.addEventListener('change', sync);
   addEventListener('pagehide', cancel);
   addEventListener('pageshow', sync);
-  controls.hidden = false;
+  if (standalone) {configurePortal();section.dataset.doorState='closed';}
+  if (controls) controls.hidden = false;
+  pause.hidden = preference.matches;
   draw(preference.matches ? current.angle : 0, 0); sync();
 })();
