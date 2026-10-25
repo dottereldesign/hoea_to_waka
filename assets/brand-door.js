@@ -32,7 +32,6 @@
   let current = standalone ? variants.arch : variants.reference;
   let frame, lastTime, elapsed = 0, inView = false, stopped = false, menuBlocked = false;
   const ns = 'http://www.w3.org/2000/svg';
-  const homeSymbol = standalone ? svg.querySelector('[data-door-symbol]') : null;
   const tide = svg.querySelector('[data-door-tide]') || document.createElementNS(ns,'g');
   tide.setAttribute('data-door-tide','');
   tide.setAttribute('display','none');
@@ -45,8 +44,7 @@
   const seaFront = tide.querySelector('[data-sea-front]');
   const seaFoam = tide.querySelector('[data-sea-foam]');
   const reflection = tide.querySelector('[data-sea-reflection]');
-  if (homeSymbol) seaBack.before(homeSymbol);
-  let doorProgress = 0, doorTarget = 0, scrollFrame = 0;
+  let doorTime = 0, doorTarget = 0, scrollFrame = 0;
   let profile;
   const shapeProfile = shape => {
     const box = shape === 'round' ? {left:182,top:241,width:360,height:360} : {left:239,top:105,width:245,height:496};
@@ -74,7 +72,6 @@
     const shapeName={arch:'arched',round:'circular',oval:'oval',facet:'faceted'}[current.shape];
     svg.querySelector('title').textContent=current.tide?`Moonlit ocean — ${shapeName} door`:'A door to possibility';
     svg.querySelector('desc').textContent=current.tide?`A white ${shapeName} door with a lever handle opens onto moving ocean waves, a crescent moon and a starry night sky.`:originalDescription;
-    if (homeSymbol) svg.querySelector('desc').textContent='A white arched door opens onto a moonlit sea. The glowing Hoea tō Waka symbol sits above the water, partly hidden behind the door.';
     tide.setAttribute('display',current.tide?'inline':'none');
     stars.style.display=current.tide?'none':'';
     const b=profile||{left:239,top:105,width:245,height:496};
@@ -205,23 +202,26 @@
     lastTime = time;
     const seconds = standalone ? elapsed/1000 : elapsed % (current.tide?8000:6000) / 1000;
     if (standalone) {
-      doorProgress += (doorTarget-doorProgress)*(1-Math.exp(-delta/140));
-      if (Math.abs(doorTarget-doorProgress)<.0001) doorProgress=doorTarget;
+      // Scroll only triggers a complete timed reveal or its reverse.
+      doorTime = doorTarget ? Math.min(1400,doorTime+delta) : Math.max(0,doorTime-delta);
     }
-    const motionSeconds=standalone?doorProgress*1.4:current.tide?(seconds<=1.4?seconds:seconds<6?1.4+(seconds-1.4)*2.6/4.6:seconds-2):seconds;
+    const motionSeconds=standalone?doorTime/1000:current.tide?(seconds<=1.4?seconds:seconds<6?1.4+(seconds-1.4)*2.6/4.6:seconds-2):seconds;
     draw(angleAt(motionSeconds), seconds);
-    if (standalone) {section.dataset.doorProgress=doorProgress.toFixed(4);section.dataset.doorState=doorProgress>=.999?'open':doorProgress<=.001?'closed':doorTarget<doorProgress?'closing':'opening';}
-    frame = requestAnimationFrame(tick);
+    if (standalone) section.dataset.doorState=doorTime===1400?'open':doorTime===0?'closed':doorTarget?'opening':'closing';
+    if (!standalone || inView || doorTime!==doorTarget*1400) frame = requestAnimationFrame(tick);
+    else cancel();
   };
   const sync = () => {
     cancel();
-    pause.textContent = standalone ? (stopped?'Play animation':'Pause animation') : (stopped ? 'Play' : 'Pause');
-    pause.setAttribute('aria-pressed', String(stopped));
-    pause.hidden = preference.matches;
+    if (pause) {
+      pause.textContent = stopped ? 'Play' : 'Pause';
+      pause.setAttribute('aria-pressed', String(stopped));
+      pause.hidden = preference.matches;
+    }
     const replay=section.querySelector('[data-door-replay]');
     if (replay) replay.hidden = preference.matches;
-    if (preference.matches) {draw(current.angle, 1.4);if(standalone){doorProgress=1;section.dataset.doorProgress='1';section.dataset.doorState='open';}}
-    else if (inView && !document.hidden && !stopped && !menuBlocked) frame = requestAnimationFrame(tick);
+    if (preference.matches) {draw(current.angle, 1.4);if(standalone){doorTime=1400;section.dataset.doorState='open';}}
+    else if ((inView || standalone&&doorTime!==doorTarget*1400) && !document.hidden && !stopped && !menuBlocked) frame = requestAnimationFrame(tick);
   };
   choices.forEach(button => button.addEventListener('click', () => {
     current = variants[button.dataset.doorVariant]; elapsed = current.tide&&(preference.matches||stopped)?1400:0;
@@ -233,20 +233,18 @@
     section.querySelector('output').textContent = current.name;
     draw(preference.matches || stopped ? current.angle : 0, 0); sync();
   }));
-  pause.addEventListener('click', () => {stopped = !stopped; sync();});
+  pause?.addEventListener('click', () => {stopped = !stopped; sync();});
   section.querySelector('[data-door-replay]')?.addEventListener('click', () => {elapsed = 0; stopped = false; draw(0,0); sync();});
   function measureScroll() {
     scrollFrame=0;
     const box=svg.getBoundingClientRect();
     const overlap=Math.max(0,Math.min(box.bottom,innerHeight)-Math.max(box.top,0));
     inView=overlap/box.height>=.18;
-    doorTarget=Math.max(0,Math.min(1,(innerHeight*.84-box.top)/Math.min(innerHeight*.5,box.height*.72)));
+    // A small trigger gap prevents repeated toggles around the entry boundary.
+    if (box.top<=innerHeight*.82) doorTarget=1;
+    else if (box.top>=innerHeight*.88) doorTarget=0;
     if (preference.matches) {sync();return;}
-    if (!inView) {
-      cancel();doorProgress=doorTarget;
-      draw(angleAt(doorProgress*1.4),elapsed/1000);
-      section.dataset.doorProgress=doorProgress.toFixed(4);section.dataset.doorState=doorProgress>=.999?'open':'closed';
-    } else if (!frame) sync();
+    if (!frame) sync();
   }
   const requestScroll=()=>{if(!scrollFrame)scrollFrame=requestAnimationFrame(measureScroll);};
   const observer = new IntersectionObserver(entries => {if(standalone)measureScroll();else{inView=entries[0].isIntersecting;sync();}}, {threshold:standalone?[0,.18]:.1});
@@ -259,6 +257,6 @@
   addEventListener('pageshow', sync);
   if (standalone) {configurePortal();section.dataset.doorState='closed';}
   if (controls) controls.hidden = false;
-  pause.hidden = preference.matches;
+  if (pause) pause.hidden = preference.matches;
   draw(preference.matches ? current.angle : 0, 0); sync();
 })();

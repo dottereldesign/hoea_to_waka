@@ -49,17 +49,16 @@ and themes, and retains the original reference geometry and timing checks.
 ## Homepage use
 
 The homepage organisation CTA reuses the Moon arch through `[data-moon-door]`.
-The opening follows scroll position through the viewport, with 140 ms exponential
-smoothing and the existing measured door easing. Scrolling back up reverses the
-reveal, including partway through opening. Animation pauses below 18% visibility.
-The approved symbol artwork is centred within the fixed doorway above the water,
-uses the moon’s ivory fill and a soft static glow, and is naturally occluded by
-the foreground leaf. The moon remains above and to its right.
-Pause/Play, menu coverage, hidden-tab suspension and reduced motion are supported.
+Crossing the entry threshold starts the original 1.4-second opening, which runs
+to completion even if scrolling stops. Scrolling back above the section triggers
+the same motion in reverse; returning triggers a fresh opening. Scroll position
+only triggers open/close and never sets the angle. A small entry/exit threshold
+gap prevents boundary flicker. The homepage has no symbol or playback button.
+Menu coverage, hidden-tab suspension and reduced motion are supported.
 Reduced motion and the no-JavaScript fallback show the open Moon arch.
 
 The original rotating-photo CTA now follows Meet Anna Brown on About, retaining
 its eight photos, upright rotation, copy and contact link. Image and link paths
 are relative to About. Its rotation also pauses while the header menu is open.
-`scripts/home-moon-door.cjs` checks the production layout, symbol artwork and reversible reveal;
+`scripts/home-moon-door.cjs` checks the production layout, timed opening, closing and re-entry;
 `scripts/cta-orbit.cjs` now checks the moved section on About.

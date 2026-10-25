@@ -1,11 +1,7 @@
 .home-cta-door-layout{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:clamp(28px,4vw,64px);align-items:center;max-width:1280px;margin:auto;padding-inline:clamp(20px,4vw,56px)}
 .home-moon-door{width:100%;max-width:650px;min-width:0;margin:auto;contain:layout}
 .home-moon-door>svg{display:block;width:100%;height:auto;aspect-ratio:1;overflow:hidden;background:#fff}
-.home-moon-door__playback{display:flex;justify-content:center;align-items:center;min-height:40px;margin-top:8px}
-html[data-palette] .home-moon-door__playback button{padding:8px 12px;min-height:40px;border:0;border-radius:999px;background:transparent;color:#243a53;font:400 11px/1.5 Inter,Arial,sans-serif;text-decoration:underline;text-underline-offset:4px;cursor:pointer}
 .home-moon-door [hidden]{display:none!important}
-.js .home-moon-door [data-door-pause][hidden]{display:inline-flex!important;visibility:hidden;pointer-events:none}
-.home-moon-door button:focus-visible{outline:2px solid currentColor;outline-offset:4px}
 .home-cta-door .home-cta-body{padding:0;min-width:0}
 html[data-palette] .home-cta-door .home-cta-door-copy .ds-kicker{margin:0 0 18px!important;color:var(--brand-ink)}
 html[data-palette] .home-cta-door .home-cta-door-copy .ds-title{font-size:clamp(32px,3.3vw,52px);font-weight:500;line-height:1.08;letter-spacing:-.04em;margin:0 0 26px;max-width:18ch;color:var(--brand-ink);text-wrap:balance}
@@ -13,4 +9,3 @@ html[data-palette] .home-cta-door .home-cta-body .ds-lead{font-size:clamp(18px,1
 .home-cta-door .home-cta-support{max-width:44ch}
 @media(max-width:900px){.home-cta-door-layout{grid-template-columns:minmax(0,1fr);gap:32px;padding-inline:24px}.home-moon-door{max-width:500px}.home-cta-door .home-cta-body{width:100%;max-width:580px;margin:auto}.home-cta-door-copy .ds-title{max-width:20ch}}
 @media(max-width:400px){.home-cta-door-layout{padding-inline:14px;gap:24px}}
-@media(prefers-reduced-motion:reduce){.home-moon-door button{transition:none!important}}
