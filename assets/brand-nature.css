@@ -1,0 +1,21 @@
+.brand-nature{width:min(1080px,calc(100% - 48px));margin:88px auto 0;color:var(--t-ink);font-family:Inter,Arial,sans-serif;scroll-margin-top:100px}
+.brand-nature__layout{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(280px,.85fr);gap:clamp(28px,5vw,72px);align-items:center}
+.brand-nature__stage{aspect-ratio:1;min-width:0;width:100%;max-width:560px;margin:auto;background:#fff;border-radius:24px;overflow:hidden;contain:layout paint}
+.brand-nature__stage>svg{display:block;width:100%;height:100%;color:#263f3c}
+html[data-palette] #brand-nature-studies h2{margin:0 0 12px;font:500 clamp(28px,3vw,40px)/1.12 Inter,Arial,sans-serif!important;letter-spacing:-.04em;color:var(--t-ink)}
+html[data-palette] #brand-nature-studies .brand-nature__intro{margin:0 0 24px;font:400 13px/1.7 Inter,Arial,sans-serif!important;color:var(--t-muted);max-width:36ch}
+.brand-nature__choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+html[data-palette] #brand-nature-studies .brand-nature__choice{display:flex;align-items:center;gap:9px;min-width:0;min-height:46px;padding:10px 12px;border:1px solid var(--t-line);border-radius:14px;background:transparent;color:var(--t-ink);font:400 11px/1.45 Inter,Arial,sans-serif;cursor:pointer;text-align:left;transition:background 220ms,color 220ms,border-color 220ms,transform 220ms}
+.brand-nature__choice>span:first-child{opacity:.65;font-size:10px;font-variant-numeric:tabular-nums;flex:none}
+html[data-palette] #brand-nature-studies .brand-nature__choice[aria-pressed=true]{background:var(--t-ink);color:var(--t-surface);border-color:var(--t-ink)}
+#brand-nature-studies .brand-nature__choice:hover{transform:translateY(-1px);border-color:var(--t-muted)}
+.brand-nature__caption{min-height:100px;box-sizing:border-box;padding-top:22px}
+html[data-palette] #brand-nature-studies .brand-nature__caption h3{margin:0 0 6px;font:500 15px/1.4 Inter,Arial,sans-serif!important;letter-spacing:-.02em;color:var(--t-ink)}
+html[data-palette] #brand-nature-studies .brand-nature__caption p{margin:0;font:400 12px/1.65 Inter,Arial,sans-serif!important;color:var(--t-muted)}
+.brand-nature__playback{display:flex;align-items:center;gap:20px;min-height:40px}
+html[data-palette] #brand-nature-studies .brand-nature__playback button{min-height:40px;padding:8px 0;border:0;background:transparent;color:var(--t-ink);font:400 11px/1.5 Inter,Arial,sans-serif;text-decoration:underline;text-underline-offset:4px;cursor:pointer}
+.brand-nature button:focus-visible{outline:2px solid currentColor;outline-offset:4px}
+.brand-nature [hidden]{display:none!important}
+.js .brand-nature__enhancement[hidden]{display:block!important;visibility:hidden}
+@media(max-width:760px){.brand-nature{width:calc(100% - 32px);margin-top:64px}.brand-nature__layout{grid-template-columns:minmax(0,1fr);gap:28px}.brand-nature__stage{max-width:480px}.brand-nature__aside{width:min(100%,480px);margin:auto}.brand-nature__caption{min-height:96px}.brand-nature__choices{grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}html[data-palette] #brand-nature-studies .brand-nature__choice{flex-direction:column;justify-content:center;gap:3px;min-height:64px;padding:8px 3px;text-align:center;font-size:9px;letter-spacing:-.02em;overflow-wrap:anywhere}}
+@media(prefers-reduced-motion:reduce){.brand-nature *{animation:none!important;transition:none!important}}
