@@ -59,9 +59,13 @@ html[data-palette] .brand-guidelines .brand-ai__open{display:inline-flex;align-i
 /* A separate second step keeps image references available without crowding app choice. */
 .brand-guidelines .brand-ai{border-bottom:0}
 .brand-ai-context{min-width:0}
-.brand-guidelines .brand-ai-images{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,400px);gap:32px;align-items:center;margin:0 8px;padding:28px 32px 32px;border-top:1px solid var(--t-line);border-bottom:1px solid var(--t-line);color:var(--t-ink);font-family:Inter,Arial,sans-serif;scroll-margin-top:120px}
-html[data-palette] .brand-guidelines .brand-ai-images h3{font:500 clamp(20px,1.8vw,25px)/1.25 Inter,Arial,sans-serif!important;letter-spacing:-.035em;margin:0 0 10px;color:var(--t-ink)}
-html[data-palette] .brand-guidelines .brand-ai-images p{font:400 14px/1.7 Inter,Arial,sans-serif!important;margin:0;max-width:65ch;color:var(--t-muted)}
+.brand-guidelines .brand-ai-images{display:grid;grid-template-columns:minmax(300px,400px) minmax(0,1fr);gap:32px;align-items:center;margin:0 8px;padding:32px;border-top:1px solid var(--t-line);border-bottom:1px solid var(--t-line);color:var(--t-ink);font-family:Inter,Arial,sans-serif;scroll-margin-top:120px}
+#brand-ai-images .brand-ai-images__intro{grid-column:2;grid-row:1;position:relative;isolation:isolate;overflow:hidden;border-radius:24px;min-height:380px;box-sizing:border-box;padding:36px;display:flex;flex-direction:column;justify-content:center;background:#071f2d}
+#brand-ai-images .brand-ai-images__art{position:absolute;inset:0 0 0 auto;width:380px;max-width:100%;height:100%;object-fit:cover;object-position:right center;mask-image:linear-gradient(90deg,transparent,#000 35%);z-index:-2}
+#brand-ai-images .brand-ai-images__intro:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#071f2df5,#071f2dc9 60%,#071f2d99);z-index:-1}
+html[data-palette] #brand-ai-images h2{font:500 clamp(28px,3vw,42px)/1.1 Inter,Arial,sans-serif!important;letter-spacing:-.04em;margin:0 0 18px;color:#fff;max-width:17ch}
+html[data-palette] #brand-ai-images p{font:400 14px/1.7 Inter,Arial,sans-serif!important;margin:0;max-width:44ch;color:#f0f4f6}
+.brand-ai-images__controls{grid-column:1;grid-row:1;min-width:0}
 .brand-ai__image-buttons{display:flex;flex-wrap:wrap;gap:12px;align-items:center;min-width:0}
 .brand-ai__image-buttons>small{flex-basis:100%;font:400 11px/1.6 Inter,Arial,sans-serif;color:var(--t-muted)}
 .brand-ai-images [hidden]{display:none!important}
@@ -69,6 +73,45 @@ html[data-palette] .brand-guidelines .brand-ai-images p{font:400 14px/1.7 Inter,
 .brand-ai-images :is(button,a):focus-visible{outline:2px solid currentColor;outline-offset:4px;border-radius:6px}
 html[data-palette] .brand-guidelines .brand-ai__image-jump{display:block;margin-top:10px;text-align:center;color:var(--t-ink);font:400 11px/1.6 Inter,Arial,sans-serif;text-underline-offset:4px}
 html[data-palette] .brand-guidelines .brand-ai__add-reference{display:block;margin-top:14px;color:inherit;font:400 12px/1.6 Inter,Arial,sans-serif;text-underline-offset:4px}
-@media(max-width:900px){.brand-guidelines .brand-ai-images{grid-template-columns:minmax(0,1fr);gap:20px;padding:24px}}
+@media(max-width:900px){.brand-guidelines .brand-ai-images{grid-template-columns:minmax(0,1fr);gap:24px;padding:24px}#brand-ai-images .brand-ai-images__intro{grid-column:1;grid-row:1;min-height:340px;padding:28px}.brand-ai-images__controls{grid-column:1;grid-row:2}}
 @media(max-width:400px){.brand-guidelines .brand-ai-images{padding-inline:16px}}
 @media(prefers-reduced-motion:reduce){.brand-ai-images *{animation:none!important;transition:none!important}}
+
+/* The photo wash stays clipped to each button; labels remain above its wave. */
+.logo-copy-studies{border:0;padding:0;margin:0 0 24px;min-width:0}
+.js .logo-copy-studies[hidden]{display:block!important;visibility:hidden}
+.logo-copy-studies legend{font:500 11px/1.5 Inter,Arial,sans-serif;padding:0;margin-bottom:10px;color:var(--t-muted)}
+.logo-copy-studies__choices{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px}
+html[data-palette] .logo-copy-studies__choices button{border:1px solid var(--t-line);border-radius:50%;aspect-ratio:1;max-width:42px;min-height:36px;background:transparent;color:var(--t-ink);font:500 11px Inter,Arial,sans-serif;cursor:pointer;transition:background 220ms,color 220ms,transform 220ms}
+html[data-palette] .logo-copy-studies__choices button[aria-pressed=true]{background:var(--t-ink);color:var(--t-surface);border-color:var(--t-ink)}
+.logo-copy-studies__choices button:hover{transform:translateY(-2px)}
+.logo-copy-studies__name{display:block;margin-top:10px;font:400 11px/1.5 Inter,Arial,sans-serif;color:var(--t-muted)}
+#brand-ai-images .brand-ai__image-buttons{display:grid;grid-template-columns:1fr;gap:12px;min-height:208px;align-content:center}
+#brand-ai-images .brand-ai__image-buttons>small{grid-column:1/-1;margin-top:4px}
+html[data-palette] #brand-ai-images .brand-ai__copy{position:relative;isolation:isolate;overflow:hidden;filter:none;min-width:0;gap:14px;justify-content:space-between;min-height:54px;padding:16px 20px;transition:transform 500ms cubic-bezier(.22,1,.36,1),box-shadow 500ms}
+#brand-ai-images .logo-copy__label{position:relative;z-index:2;font:500 12px/1.4 Inter,Arial,sans-serif}
+#brand-ai-images .brand-ai__copy>svg{position:relative;z-index:2;flex:none}
+#brand-ai-images .logo-copy__wash{position:absolute;inset:-30px -8px -8px;z-index:-1;pointer-events:none;background:#102c3c;transform:translateY(110%);transition:transform 1100ms cubic-bezier(.2,.75,.2,1);mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 124' preserveAspectRatio='none'%3E%3Cpath fill='white' d='M0 12C16-2 32 26 50 12S83-2 100 12V124H0Z'/%3E%3C/svg%3E") 0 0/100% 100%}
+#brand-ai-images .logo-copy__wash:before{content:"";position:absolute;inset:0;background-image:linear-gradient(#071f2dd9,#071f2dd9),var(--logo-photo);background-size:cover;background-position:center;transform:scale(1.06);transition:transform 1400ms cubic-bezier(.2,.75,.2,1)}
+#brand-ai-images .brand-ai__copy:is(:hover,:focus-visible) .logo-copy__wash{transform:translateY(0)}
+#brand-ai-images .brand-ai__copy:is(:hover,:focus-visible) .logo-copy__wash:before{transform:scale(1)}
+#brand-ai-images .logo-copy__wash{mask-size:200% 100%;animation:logoCopySurface 3600ms ease-in-out infinite alternate;animation-play-state:paused}
+#brand-ai-images .brand-ai__copy:is(:hover,:focus-visible) .logo-copy__wash{animation-play-state:running}
+@keyframes logoCopySurface{from{mask-position:0 0}to{mask-position:100% 0}}
+/* A soft light label capsule maintains contrast throughout the rising edge. */
+#brand-ai-images .logo-copy__label{background:inherit;border-radius:6px;box-shadow:0 0 0 5px var(--logo-label-bg,#e8def0);background:var(--logo-label-bg,#e8def0)}
+#brand-ai-images .brand-ai__copy--logo{--logo-label-bg:#dce9f1}
+#brand-ai-images .brand-ai__copy>svg{background:var(--logo-label-bg,#e8def0);box-shadow:0 0 0 5px var(--logo-label-bg,#e8def0);border-radius:3px}
+#brand-ai-images [data-logo-style="2"]{grid-template-columns:1fr 1fr}
+html[data-palette] #brand-ai-images [data-logo-style="2"] .brand-ai__copy{min-height:150px;border-radius:20px;flex-direction:column;align-items:flex-start;justify-content:space-between;padding:22px 16px}
+html[data-palette] #brand-ai-images [data-logo-style="3"] .brand-ai__copy{border-radius:0;background:transparent;border-bottom:1px dashed var(--t-muted);min-height:76px;padding-inline:8px;--logo-label-bg:var(--t-surface);color:var(--t-ink)}
+html[data-palette] #brand-ai-images [data-logo-style="4"] .brand-ai__copy{min-height:88px;border-radius:18px 4px 4px 18px;border-left:6px solid #779694;padding-left:24px}
+html[data-palette] #brand-ai-images [data-logo-style="4"] .brand-ai__copy--logo{margin-left:24px;border-left-color:#929cc1;border-radius:4px 18px 18px 4px}
+html[data-palette] #brand-ai-images [data-logo-style="5"] .brand-ai__copy{min-height:80px;border-radius:16px;box-shadow:0 5px 0 color-mix(in srgb,var(--t-ink) 12%,transparent);transform:rotate(-1deg)}
+html[data-palette] #brand-ai-images [data-logo-style="5"] .brand-ai__copy--logo{transform:rotate(1deg);margin-left:12px}
+html[data-palette] #brand-ai-images [data-logo-style="5"] .brand-ai__copy:is(:hover,:focus-visible){transform:rotate(0) translateY(-2px)}
+#brand-ai-images [data-logo-style="6"]{grid-template-columns:1fr 1fr;gap:8px;padding:12px;border:1px solid var(--t-line);border-radius:32px;background:var(--t-surface)}
+html[data-palette] #brand-ai-images [data-logo-style="6"] .brand-ai__copy{min-height:130px;flex-direction:column;justify-content:center;gap:24px;border-radius:24px;padding-inline:10px;text-align:center}
+#brand-ai-images [data-logo-style="6"]>small{padding:4px 8px}
+@media(max-width:400px){#brand-ai-images .brand-ai-images__intro{padding:24px;min-height:380px}#brand-ai-images .logo-copy__label{font-size:11px}}
+@media(prefers-reduced-motion:reduce){#brand-ai-images .logo-copy__wash{transition:none;mask:none}#brand-ai-images .brand-ai__copy{transform:none!important}}

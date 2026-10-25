@@ -1,0 +1,104 @@
+{
+  "tool": "Built-in image_gen",
+  "date": "2026-10-25",
+  "sources": [
+    {
+      "grid": "grid-1.webp",
+      "original": "exec-56cb0600-4882-4a72-853a-024f873b12c3.png",
+      "tiles": [
+        "study-1-1.webp",
+        "study-1-2.webp",
+        "study-1-3.webp",
+        "study-1-4.webp",
+        "study-1-5.webp",
+        "study-1-6.webp",
+        "study-1-7.webp",
+        "study-1-8.webp",
+        "study-1-9.webp"
+      ]
+    },
+    {
+      "grid": "grid-2.webp",
+      "original": "exec-b7062cf3-a31b-4135-8b62-506e0541fd0c.png",
+      "tiles": [
+        "study-2-1.webp",
+        "study-2-2.webp",
+        "study-2-3.webp",
+        "study-2-4.webp",
+        "study-2-5.webp",
+        "study-2-6.webp",
+        "study-2-7.webp",
+        "study-2-8.webp",
+        "study-2-9.webp"
+      ]
+    },
+    {
+      "grid": "grid-3.webp",
+      "original": "exec-8da0aac3-b94c-40b9-98e0-90c0180dacf8.png",
+      "tiles": [
+        "study-3-1.webp",
+        "study-3-2.webp",
+        "study-3-3.webp",
+        "study-3-4.webp",
+        "study-3-5.webp",
+        "study-3-6.webp",
+        "study-3-7.webp",
+        "study-3-8.webp",
+        "study-3-9.webp"
+      ]
+    },
+    {
+      "grid": "grid-4.webp",
+      "original": "exec-2c7ae97f-8c72-482b-a9b0-d19f84fa2867.png",
+      "tiles": [
+        "study-4-1.webp",
+        "study-4-2.webp",
+        "study-4-3.webp",
+        "study-4-4.webp",
+        "study-4-5.webp",
+        "study-4-6.webp",
+        "study-4-7.webp",
+        "study-4-8.webp",
+        "study-4-9.webp"
+      ]
+    },
+    {
+      "grid": "grid-5.webp",
+      "original": "exec-8ae78c74-79a4-4cda-8cd4-3a184303b015.png",
+      "tiles": [
+        "study-5-1.webp",
+        "study-5-2.webp",
+        "study-5-3.webp",
+        "study-5-4.webp",
+        "study-5-5.webp",
+        "study-5-6.webp",
+        "study-5-7.webp",
+        "study-5-8.webp",
+        "study-5-9.webp"
+      ]
+    },
+    {
+      "grid": "grid-6.webp",
+      "original": "exec-b6c4ec12-41af-4034-b8d6-e92b18a79972.png",
+      "tiles": [
+        "study-6-1.webp",
+        "study-6-2.webp",
+        "study-6-3.webp",
+        "study-6-4.webp",
+        "study-6-5.webp",
+        "study-6-6.webp",
+        "study-6-7.webp",
+        "study-6-8.webp",
+        "study-6-9.webp"
+      ]
+    }
+  ],
+  "prompts": [
+    "Use case: photorealistic-natural. Asset type: 3 by 3 square photographic contact sheet, grid 1 of 6 for subtle website hover backgrounds. Create EXACTLY nine equally sized square photographs arranged in a perfectly aligned 3x3 edge-to-edge grid with no gutters, no margins, no borders. Each cell is an independent close-focused artistic editorial macro photo. Subjects in reading order: Ocean studies: sea foam edge on dark teal water, rippled harbour water, rain on glass, tide across black sand, water droplets on flax, river stone underwater, misty ripple reflections, macro bubble edge, shallow wave over stone. Real materials, organic detail, elegant minimal composition and negative space. Natural cool/neutral daylight, authentic true-to-life colour, no yellow tint, no warm cinematic filter, no lettering, logos, watermarks, UI or people. All nine cell compositions must survive independent square cropping. Quiet New Zealand wellbeing brand aesthetic. Keep natural photograph tones; dark overlay will be added in CSS, do not bake in a heavy filter. Output square.",
+    "Use case: photorealistic-natural. Asset type: 3 by 3 square photographic contact sheet, grid 2 of 6 for subtle website hover backgrounds. Create EXACTLY nine equally sized square photographs arranged in a perfectly aligned 3x3 edge-to-edge grid with no gutters, no margins, no borders. Each cell is an independent close-focused artistic editorial macro photo. Subjects in reading order: Paper and ink studies: graphite dust on paper, pencil tip touching textured paper, folded uncoated ivory paper, embossed blank cotton paper, black ink soaking into paper, charcoal mark macro, paper deckle edge, stacked paper edges, soft shadow on blank notebook. Real materials, organic detail, elegant minimal composition and negative space. Natural cool/neutral daylight, authentic true-to-life colour, no yellow tint, no warm cinematic filter, no lettering, logos, watermarks, UI or people. All nine cell compositions must survive independent square cropping. Quiet New Zealand wellbeing brand aesthetic. Keep natural photograph tones; dark overlay will be added in CSS, do not bake in a heavy filter. Output square.",
+    "Use case: photorealistic-natural. Asset type: 3 by 3 square photographic contact sheet, grid 3 of 6 for subtle website hover backgrounds. Create EXACTLY nine equally sized square photographs arranged in a perfectly aligned 3x3 edge-to-edge grid with no gutters, no margins, no borders. Each cell is an independent close-focused artistic editorial macro photo. Subjects in reading order: Botanical studies: close-up native flax leaf, fern unfurling, dew on a leaf edge, leaf veins, pale seed pod, bark texture, fern shadow on grey stone, moss on damp stone, silver-green foliage. Real materials, organic detail, elegant minimal composition and negative space. Natural cool/neutral daylight, authentic true-to-life colour, no yellow tint, no warm cinematic filter, no lettering, logos, watermarks, UI or people. All nine cell compositions must survive independent square cropping. Quiet New Zealand wellbeing brand aesthetic. Keep natural photograph tones; dark overlay will be added in CSS, do not bake in a heavy filter. Output square.",
+    "Use case: photorealistic-natural. Asset type: 3 by 3 square photographic contact sheet, grid 4 of 6 for subtle website hover backgrounds. Create EXACTLY nine equally sized square photographs arranged in a perfectly aligned 3x3 edge-to-edge grid with no gutters, no margins, no borders. Each cell is an independent close-focused artistic editorial macro photo. Subjects in reading order: Material studies: dark carved timber grain without cultural motifs, smooth stone on linen, natural woven fibre close up, neutral linen folds, black volcanic sand, pale clay surface, dark wet pebble, timber end grain, canvas texture. Real materials, organic detail, elegant minimal composition and negative space. Natural cool/neutral daylight, authentic true-to-life colour, no yellow tint, no warm cinematic filter, no lettering, logos, watermarks, UI or people. All nine cell compositions must survive independent square cropping. Quiet New Zealand wellbeing brand aesthetic. Keep natural photograph tones; dark overlay will be added in CSS, do not bake in a heavy filter. Output square.",
+    "Use case: photorealistic-natural. Asset type: 3 by 3 square photographic contact sheet, grid 5 of 6 for subtle website hover backgrounds. Create EXACTLY nine equally sized square photographs arranged in a perfectly aligned 3x3 edge-to-edge grid with no gutters, no margins, no borders. Each cell is an independent close-focused artistic editorial macro photo. Subjects in reading order: Light studies: soft window reflection on dark water, diffused glass ripple, rain shadow on grey wall, refracted cool daylight on paper, soft leaf shadows, silver highlights on wet stone, fogged glass, gentle water caustics, overcast shoreline reflection. Real materials, organic detail, elegant minimal composition and negative space. Natural cool/neutral daylight, authentic true-to-life colour, no yellow tint, no warm cinematic filter, no lettering, logos, watermarks, UI or people. All nine cell compositions must survive independent square cropping. Quiet New Zealand wellbeing brand aesthetic. Keep natural photograph tones; dark overlay will be added in CSS, do not bake in a heavy filter. Output square.",
+    "Use case: photorealistic-natural. Asset type: 3 by 3 square photographic contact sheet, grid 6 of 6 for subtle website hover backgrounds. Create EXACTLY nine equally sized square photographs arranged in a perfectly aligned 3x3 edge-to-edge grid with no gutters, no margins, no borders. Each cell is an independent close-focused artistic editorial macro photo. Subjects in reading order: Creative desk studies: crop of graphite pencil on white paper, clean blank folded card on grey desk, paintbrush bristles macro, black ink edge on matte paper, scissors shadow on paper, blank cotton label on linen, sketchbook paper corner, mechanical pencil tip, stacked blank business cards. Real materials, organic detail, elegant minimal composition and negative space. Natural cool/neutral daylight, authentic true-to-life colour, no yellow tint, no warm cinematic filter, no lettering, logos, watermarks, UI or people. All nine cell compositions must survive independent square cropping. Quiet New Zealand wellbeing brand aesthetic. Keep natural photograph tones; dark overlay will be added in CSS, do not bake in a heavy filter. Output square."
+  ]
+}

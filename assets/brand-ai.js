@@ -42,7 +42,12 @@
     const below = bounds.bottom + 18;
     const preferred = below + height <= innerHeight - 16 ? below : bounds.top - height - 14;
     const top = Math.max(16, Math.min(preferred, innerHeight - height - 16));
-    feedback.style.top = `${top - actions.getBoundingClientRect().top}px`;
+    const origin = actions.getBoundingClientRect();
+    const preferredLeft = feedbackAnchor === actions ? bounds.right - feedback.offsetWidth : bounds.left;
+    const left = Math.max(16, Math.min(preferredLeft, innerWidth - feedback.offsetWidth - 16));
+    feedback.style.top = `${top - origin.top}px`;
+    feedback.style.left = `${left - origin.left}px`;
+    feedback.style.right = 'auto';
   };
   addEventListener('resize', placeFeedback, {passive:true});
   addEventListener('scroll', placeFeedback, {passive:true});
