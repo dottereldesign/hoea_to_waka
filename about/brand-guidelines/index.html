@@ -46,6 +46,30 @@
     <link rel="icon" href="../../assets/favicon.svg?v=4" type="image/svg+xml" sizes="any">
     <script src="../../assets/theme-init.js?v=30"></script>
   <link rel="stylesheet" href="../../assets/theme.css?v=177">
+    <link rel="preload" href="../../assets/logo-white.svg" as="image">
+    <link rel="stylesheet" href="../../assets/header-entrance.css?v=1">
+    <script>
+      (() => {
+        if (matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+        const root = document.documentElement;
+        root.classList.add('header-entrance-pending');
+        try {
+          const navigation = performance.getEntriesByType('navigation')[0]?.type;
+          const saved = Number(sessionStorage.getItem('hoea-header-scroll:' + location.pathname));
+          if ((navigation === 'reload' || navigation === 'back_forward') && (saved > 48 || (saved > 24 && sessionStorage.getItem('hoea-header-scroll:' + location.pathname + ':pill') === 'true')) && matchMedia('(min-width:1100px)').matches) {
+            const restore = () => { const header = document.querySelector('[data-header-entrance]'); if (!header) return false; header.dataset.entrancePlacing = 'true'; header.classList.add('is-scrolled'); return true; };
+            const observer = new MutationObserver(() => {if (restore()) observer.disconnect();});
+            observer.observe(root, {childList:true,subtree:true});
+            document.addEventListener('DOMContentLoaded', () => {if (scrollY < 24) restore();}, {once:true});
+          }
+        } catch {}
+        const show = () => root.classList.remove('header-entrance-pending');
+        setTimeout(show, 800);
+        document.addEventListener('keydown', show, {once:true,capture:true});
+        document.addEventListener('pointerdown', show, {once:true,capture:true});
+      })();
+    </script>
+    <script src="../../assets/header-entrance.js?v=1" async></script>
     <link rel="stylesheet" href="../../assets/brand-ai.css?v=5">
     <script src="../../assets/brand-ai.js?v=4" defer></script>
     <link rel="stylesheet" href="../../assets/brand-jump.css?v=3">
@@ -55,7 +79,7 @@
   </head>
   <body class="brand-guidelines ds-original-nav">
     <a class="skip-link" href="#main-content">Skip to main content</a>
-    <header class="site-header" data-site-header="" data-morph-header="">
+    <header class="site-header" data-site-header="" data-morph-header="" data-header-entrance="">
       <div class="site-header-shell">
         <div class="site-header-bar">
           <nav class="site-nav" id="site-navigation" aria-label="Primary navigation" data-site-nav="">
