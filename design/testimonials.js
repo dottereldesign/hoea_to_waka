@@ -1,4 +1,4 @@
-// Reading time is deliberately generous; rotation runs only while the quote is in view.
+// Allow 200 words per minute plus settling time; rotate only while in view.
 export function setupTestimonials(carousel) {
   const slides = [...carousel.querySelectorAll('figure')];
   const pause = carousel.querySelector('[data-testimonial-pause]');
@@ -7,7 +7,7 @@ export function setupTestimonials(carousel) {
   const status = carousel.querySelector('[aria-live]');
   let index = 0, paused = preference.matches, visible = false, hovered = false, focused = false;
   let timer = 0, deadline = 0, transitions = [], generation = 0;
-  const readingTime = () => Math.max(18000, slides[index].querySelector('blockquote').textContent.trim().split(/\s+/).length * 450 + 6500);
+  const readingTime = () => Math.max(9000, slides[index].querySelector('blockquote').textContent.trim().split(/\s+/).length * 300 + 3000);
   let remaining = readingTime();
   const running = () => !paused && visible && !document.hidden && !hovered && !focused;
   function stopTimer() {
