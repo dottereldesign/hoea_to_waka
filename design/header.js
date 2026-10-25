@@ -10,6 +10,60 @@ export function setupSiteHeader() {
   let frame = 0, closing = 0, opening = 0, anchorFrame = 0, anchorUntil = 0;
   let menuOpen = false, lastAnchor = '';
   const content = dialog.querySelector('.site-menu-content');
+  // A top-layer popover avoids native :modal's document-wide inert restyle.
+  // Keep equivalent modal focus, pointer and accessibility isolation explicitly.
+  const layered = typeof dialog.showPopover === 'function';
+  const scrim = layered ? document.createElement('div') : null;
+  if (scrim) {
+    scrim.className = 'site-menu-scrim';
+    scrim.setAttribute('popover','manual');
+    scrim.setAttribute('aria-hidden','true');
+    scrim.dataset.open = 'false';
+    document.body.append(scrim);
+    scrim.addEventListener('click',closeMenu);
+  }
+  if (layered) dialog.setAttribute('popover', 'manual');
+  dialog.setAttribute('aria-modal', 'true');
+  document.body.append(dialog);
+  let backgroundBlocked = false, scrollLock, hiddenSiblings = [], pausedAnimations = [], backgroundTabs = [];
+  function blockBackground(blocked) {
+    if (backgroundBlocked === blocked) return;
+    backgroundBlocked = blocked;
+    if (blocked) {
+      scrollLock = {value:document.body.style.getPropertyValue('overflow'), priority:document.body.style.getPropertyPriority('overflow')};
+      document.body.style.setProperty('overflow', 'hidden');
+      hiddenSiblings = [...document.body.children].filter(node => node !== dialog && node !== scrim && !node.matches('script,style,link')).map(node => [node,node.getAttribute('aria-hidden')]);
+      hiddenSiblings.forEach(([node]) => node.setAttribute('aria-hidden','true'));
+      backgroundTabs = [...document.body.querySelectorAll('a[href],button,input,select,textarea,summary,iframe,[tabindex],[contenteditable="true"]')]
+        .filter(node => !dialog.contains(node) && !node.disabled && (node.tabIndex >= 0 || node.isContentEditable))
+        .map(node => [node,node.getAttribute('tabindex')]);
+      backgroundTabs.forEach(([node]) => node.setAttribute('tabindex','-1'));
+      document.dispatchEvent(new CustomEvent('hoea:site-menu',{detail:{open:true}}));
+      pausedAnimations = document.getAnimations().filter(animation => {
+        const target = animation.effect?.target;
+        return animation.playState === 'running' && target instanceof Element && !target.closest('.site-menu-panel,.site-menu-scrim,[data-morph-header]');
+      }).map(animation => {const time=animation.currentTime;animation.pause();if(time!==null)animation.currentTime=time;return [animation,time];});
+    } else {
+      if (scrollLock?.value) document.body.style.setProperty('overflow',scrollLock.value,scrollLock.priority);
+      else document.body.style.removeProperty('overflow');
+      scrollLock = undefined;
+      hiddenSiblings.forEach(([node,value]) => {
+        if (node.getAttribute('aria-hidden') !== 'true') return;
+        if (value === null) node.removeAttribute('aria-hidden'); else node.setAttribute('aria-hidden',value);
+      });
+      hiddenSiblings = [];
+      backgroundTabs.forEach(([node,value]) => {
+        if (node.getAttribute('tabindex') !== '-1') return;
+        if (value === null) node.removeAttribute('tabindex'); else node.setAttribute('tabindex',value);
+      });
+      backgroundTabs = [];
+      if (!reduced.matches) pausedAnimations.forEach(([animation,time]) => {
+        if (animation.playState === 'paused' && animation.currentTime === time && animation.effect?.target?.isConnected) animation.play();
+      });
+      pausedAnimations = [];
+      document.dispatchEvent(new CustomEvent('hoea:site-menu',{detail:{open:false}}));
+    }
+  }
   dialog.querySelectorAll('.site-menu-links a').forEach((link, index) => link.style.setProperty('--menu-item-index', index + 1));
 
   function syncScroll() {
@@ -59,15 +113,17 @@ export function setupSiteHeader() {
     menuOpen = false;
     dialog.classList.remove('is-closing');
     delete dialog.dataset.placing;
-    dialog.dataset.open = 'false';
+    paintOpen(false);
     header.classList.remove('is-open');
-    document.body.classList.remove('menu-open');
+    blockBackground(false);
     content.inert = false;
     toggle.setAttribute('aria-expanded', 'false');
     toggle.setAttribute('aria-label', 'Open navigation menu');
   }
   function finishClose() {
+    if (layered && dialog.matches(':popover-open')) dialog.hidePopover();
     if (dialog.open) dialog.close();
+    if (scrim?.matches(':popover-open')) scrim.hidePopover();
     resetMenu();
     toggle.focus({preventScroll:true});
   }
@@ -75,7 +131,7 @@ export function setupSiteHeader() {
     if (!dialog.open || !menuOpen) return;
     menuOpen = false;
     cancelAnimationFrame(opening);
-    dialog.dataset.open = 'false';
+    paintOpen(false);
     dialog.classList.add('is-closing');
     content.inert = true;
     trackAnchor();
@@ -94,22 +150,23 @@ export function setupSiteHeader() {
       dialog.style.setProperty('--menu-origin-bg', appearance.backgroundColor === 'rgba(0, 0, 0, 0)' ? '#fff' : appearance.backgroundColor);
       dialog.style.setProperty('--menu-origin-ink', appearance.color);
       dialog.dataset.placing = 'true';
-      dialog.dataset.open = 'false';
+      paintOpen(false);
       header.classList.add('is-open');
-      document.body.classList.add('menu-open');
-      dialog.showModal();
+      if (layered) {scrim.showPopover();dialog.showPopover();dialog.setAttribute('open','');}
+      else dialog.showModal();
       content.scrollTop = 0;
       placeMenu(bounds);
       // Commit the measured button circle before enabling the first transition.
       getComputedStyle(dialog).clipPath;
       delete dialog.dataset.placing;
       getComputedStyle(dialog).clipPath;
-      if (reduced.matches) dialog.dataset.open = 'true';
-      else opening = requestAnimationFrame(() => {if (menuOpen) dialog.dataset.open = 'true';});
-    } else dialog.dataset.open = 'true';
+      if (reduced.matches) paintOpen(true);
+      else opening = requestAnimationFrame(() => {if (menuOpen) paintOpen(true);});
+    } else paintOpen(true);
     toggle.setAttribute('aria-expanded', 'true');
     toggle.setAttribute('aria-label', 'Close navigation menu');
     close.focus({preventScroll:true});
+    blockBackground(true);
     trackAnchor();
   }
   toggle.addEventListener('click', openMenu);
@@ -124,15 +181,23 @@ export function setupSiteHeader() {
     if (event.target.closest('a[href]')) finishClose();
   });
   dialog.addEventListener('close', () => {if (!dialog.open) resetMenu();});
+  dialog.addEventListener('toggle', event => {if (event.newState === 'closed' && dialog.open) finishClose();});
+  document.addEventListener('focusin', event => {if (dialog.open && !dialog.contains(event.target)) close.focus({preventScroll:true});});
+  addEventListener('pagehide', () => {if (dialog.open) finishClose();});
   addEventListener('resize', () => {if (dialog.open) trackAnchor();}, {passive:true});
   reduced.addEventListener('change', () => {
     if (!reduced.matches || !dialog.open) return;
     if (!menuOpen) finishClose();
-    else {dialog.dataset.open = 'true';placeMenu();}
+    else {paintOpen(true);placeMenu();}
   });
+  function paintOpen(value) {
+    dialog.dataset.open = String(value);
+    if (scrim) scrim.dataset.open = String(value);
+  }
 
-  // Native modal dialogs keep keyboard focus inside and make the page inert.
+  // Keep keyboard focus within the visible modal, including its closing morph.
   dialog.addEventListener('keydown', event => {
+    if (event.key === 'Escape') {event.preventDefault();event.stopPropagation();closeMenu();return;}
     if (event.key !== 'Tab') return;
     const items = [...dialog.querySelectorAll('a[href],button')].filter(item => !item.closest('[inert]') && !item.disabled);
     const first = items[0], last = items[items.length - 1];

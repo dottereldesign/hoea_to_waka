@@ -90,7 +90,7 @@
       return(t,still)=>{reveal(lines,t,2.3);branch.setAttribute('transform',`rotate(${still?0:f(Math.sin(t*.6)*.8)} 204 220)`);nodes.forEach((node,i)=>node.setAttribute('opacity',grow(t,.3+i*.12,1.2)));motes.setAttribute('transform',`translate(${still?0:f(Math.sin(t*.4)*5)} ${still?0:f(-6*Math.sin(t*.4))})`);};
     }}
   ];
-  let selected=studies[0],update,art,frameID,lastTime,elapsed=0,paused=false,inView=false;
+  let selected=studies[0],update,art,frameID,lastTime,elapsed=0,paused=false,inView=false,menuBlocked=false;
   const cancel = () => {cancelAnimationFrame(frameID);frameID=undefined;lastTime=undefined;};
   const render = () => {
     const still=preference.matches,t=still?3.7:elapsed%8000/1000;
@@ -99,7 +99,7 @@
     stage.dataset.phase=f(t);stage.dataset.study=selected.id;
   };
   const tick = time => {if(lastTime!==undefined)elapsed+=Math.min(time-lastTime,100);lastTime=time;render();frameID=requestAnimationFrame(tick);};
-  const sync = () => {cancel();pause.hidden=preference.matches;replay.hidden=preference.matches;pause.textContent=paused?'Play':'Pause';pause.setAttribute('aria-pressed',String(paused));render();if(inView&&!paused&&!preference.matches&&!document.hidden)frameID=requestAnimationFrame(tick);};
+  const sync = () => {cancel();pause.hidden=preference.matches;replay.hidden=preference.matches;pause.textContent=paused?'Play':'Pause';pause.setAttribute('aria-pressed',String(paused));render();if(inView&&!paused&&!preference.matches&&!document.hidden&&!menuBlocked)frameID=requestAnimationFrame(tick);};
   const choose = study => {
     cancel();selected=study;elapsed=paused?3700:0;update=study.build();art=stage.querySelector('[data-nature-art]');
     section.querySelector('[data-nature-title]').textContent=study.name;
@@ -113,5 +113,6 @@
   choose(selected);section.querySelector('.brand-nature__enhancement').hidden=false;
   new IntersectionObserver(entries=>{inView=entries[0].isIntersecting;sync();},{threshold:.08}).observe(stage);
   preference.addEventListener('change',sync);document.addEventListener('visibilitychange',sync);
+  document.addEventListener('hoea:site-menu',event=>{menuBlocked=event.detail.open;sync();});
   addEventListener('pagehide',cancel);addEventListener('pageshow',sync);
 })();

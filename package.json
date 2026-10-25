@@ -15,6 +15,7 @@
     "test:header": "node scripts/header.cjs",
     "test:header-entrance": "node scripts/header-entrance.cjs && node scripts/header-entrance-stress.cjs",
     "test:site-menu-morph": "node scripts/site-menu-morph.cjs",
+    "test:site-menu-performance": "node scripts/site-menu-performance.cjs",
     "test:model-button": "node scripts/model-button.cjs",
     "test:home-variants": "node scripts/home-variants.cjs",
     "test:faq": "node scripts/home-faq.cjs",

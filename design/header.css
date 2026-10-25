@@ -99,8 +99,12 @@ html[data-palette] .site-menu-panel{
 .site-menu-panel:not([open]){display:none}
 .site-menu-panel[open]{display:flex;flex-direction:column;gap:0}
 html[data-palette] .site-menu-panel[data-open=true]{clip-path:inset(0 0 0 0 round 28px);background:#fff;color:#18181b}
-.site-menu-panel::backdrop{background:rgb(0 0 0 / .35);backdrop-filter:blur(5px);opacity:0;transition:opacity 400ms ease}
+.site-menu-panel::backdrop{background:rgb(0 0 0 / .35);backdrop-filter:blur(5px);opacity:0;transition:opacity 400ms ease;pointer-events:auto}
 .site-menu-panel[data-open=true]::backdrop{opacity:1}
+.site-menu-panel[popover]::backdrop{background:transparent;backdrop-filter:none;opacity:0}
+.site-menu-scrim{position:fixed;inset:0;box-sizing:border-box;width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;background:rgb(0 0 0 / .35);backdrop-filter:blur(5px);opacity:0;transition:opacity 400ms ease;overflow:hidden}
+.site-menu-scrim[data-open=true]{opacity:1}
+.site-menu-scrim::backdrop{background:transparent;backdrop-filter:none}
 .site-menu-panel[data-placing=true],.site-menu-panel[data-placing=true] *,.site-menu-panel[data-placing=true]::backdrop{transition:none!important}
 .site-menu-controls{position:relative;flex:0 0 calc(var(--menu-origin-top,12px) + var(--menu-toggle-height,48px) + 24px)}
 html[data-palette] .site-menu-panel .site-menu-close{position:absolute;left:var(--menu-origin-left,0px);top:var(--menu-origin-top,0px);width:var(--menu-toggle-width,48px);height:var(--menu-toggle-height,48px);min-width:var(--menu-toggle-width,48px);color:inherit;flex-basis:auto}
@@ -151,7 +155,7 @@ html[data-palette] [data-morph-header].is-open .site-menu-toggle{opacity:0;point
   .site-menu-content{padding-inline:24px}
 }
 @media(prefers-reduced-motion:reduce){
-  [data-morph-header] *,[data-morph-header] *::before,.site-menu-panel[open],.site-menu-panel::backdrop{animation:none!important;transition:none!important}
+  [data-morph-header] *,[data-morph-header] *::before,.site-menu-panel[open],.site-menu-panel *,.site-menu-panel *::before,.site-menu-panel::backdrop,.site-menu-scrim{animation:none!important;transition:none!important}
 }
 /* Keep navigation usable when scripting is unavailable. */
 html:not(.js) [data-morph-header] .site-menu-toggle{display:none}

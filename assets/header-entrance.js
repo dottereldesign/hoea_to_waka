@@ -39,8 +39,10 @@
   }
   place(true);
   function finish(reason = 'complete') {
+    if (!running.length && !startFrame && !root.classList.contains('header-entrance-pending')) return;
     generation++;
     cancelAnimationFrame(startFrame);
+    startFrame = 0;
     running.forEach(animation => animation.cancel());
     running = [];
     root.classList.remove('header-entrance-pending');

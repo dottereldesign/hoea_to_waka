@@ -29,7 +29,7 @@
     facet: {name: '08 · Coastal facet', shape:'facet', tide:true, flip:false, angle:64, paper:'#ffffff', ink:'#243a53', floor:'#8c9da9', sky:'#061628', haze:'#0D4687'}
   };
   let current = variants.reference;
-  let frame, lastTime, elapsed = 0, inView = false, stopped = false;
+  let frame, lastTime, elapsed = 0, inView = false, stopped = false, menuBlocked = false;
   const ns = 'http://www.w3.org/2000/svg';
   const tide = document.createElementNS(ns,'g');
   tide.setAttribute('data-door-tide','');
@@ -209,7 +209,7 @@
     pause.hidden = preference.matches;
     section.querySelector('[data-door-replay]').hidden = preference.matches;
     if (preference.matches) draw(current.angle, 1.4);
-    else if (inView && !document.hidden && !stopped) frame = requestAnimationFrame(tick);
+    else if (inView && !document.hidden && !stopped && !menuBlocked) frame = requestAnimationFrame(tick);
   };
   choices.forEach(button => button.addEventListener('click', () => {
     current = variants[button.dataset.doorVariant]; elapsed = current.tide&&(preference.matches||stopped)?1400:0;
@@ -226,6 +226,7 @@
   const observer = new IntersectionObserver(entries => {inView = entries[0].isIntersecting; sync();}, {threshold:.1});
   observer.observe(svg);
   document.addEventListener('visibilitychange', sync);
+  document.addEventListener('hoea:site-menu', event => {menuBlocked=event.detail.open;sync();});
   preference.addEventListener('change', sync);
   addEventListener('pagehide', cancel);
   addEventListener('pageshow', sync);
