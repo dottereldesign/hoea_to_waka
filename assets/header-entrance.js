@@ -35,7 +35,6 @@
   function place(restoring = false) {
     const threshold=header.classList.contains('is-scrolled')?24:48;
     header.classList.toggle('is-scrolled', desktop.matches && (scrollY > threshold || (restoring && restoredPill)));
-    getComputedStyle(shell).maxWidth;
   }
   place(true);
   function finish(reason = 'complete') {
@@ -82,10 +81,9 @@
     return [header.querySelector('.site-brand'),...header.querySelectorAll('.site-nav > .site-nav-link,.site-nav > .site-nav-dropdown'),header.querySelector('.site-header-cta'),header.querySelector('.site-menu-toggle')]
       .filter(element => element && element.getClientRects().length && getComputedStyle(element).display !== 'none');
   }
-  function frames(element,preset,index,compact,travel=1) {
+  function frames(bounds,preset,index,compact,travel=1) {
     const distance = compact ? .65 : desktop.matches ? 1 : .75;
     const direction = index % 2 ? -1 : 1;
-    const bounds = element.getBoundingClientRect();
     const gather = Math.max(-48,Math.min(48,(innerWidth / 2 - bounds.left - bounds.width / 2) * .14));
     const x = preset.magnetic ? gather : preset.x * (preset.arc ? direction : 1);
     return Array.from({length:61},(_,i) => {
@@ -115,8 +113,11 @@
     header.dataset.entranceShape = compact ? 'pill' : 'full';
     header.dataset.entranceReason = reason;
     const items = targets();
+    // Read every target before starting any animation. Reading the next target
+    // after animating the previous one forced repeated style/layout flushes.
+    const geometry = new Map(items.map(element=>[element,element.getBoundingClientRect()]));
     const bounds = new Map(items.map(element => {
-      let box=element.getBoundingClientRect();
+      let box=geometry.get(element);
       if (element.matches('.site-nav-link,.site-nav-dropdown')) {
         const range=document.createRange();range.selectNodeContents(element.querySelector('.site-nav-parent-link')||element);box=range.getBoundingClientRect();
       }
@@ -135,7 +136,7 @@
     ],{duration:520,easing:'cubic-bezier(.22,1,.36,1)',fill:'both'});
     carrier.id = 'header-entrance-shell';
     running = [carrier,...items.map((element,index) => {
-      const animation = element.animate(frames(element,preset,index,compact,travel.get(element)),{duration:preset.duration,delay:35+index*preset.stagger,easing:'linear',fill:'both'});
+      const animation = element.animate(frames(geometry.get(element),preset,index,compact,travel.get(element)),{duration:preset.duration,delay:35+index*preset.stagger,easing:'linear',fill:'both'});
       animation.id = 'header-entrance-item-' + index;
       return animation;
     })];
@@ -161,6 +162,7 @@
   const replay = lab.querySelector('.header-motion-lab__replay');
   function updateStatus() {
     lab.querySelector('.header-motion-lab__toggle b').textContent = String(selected+1).padStart(2,'0');
+    lab.querySelector('.header-motion-lab__toggle').setAttribute('aria-label',`Header motion ${String(selected+1).padStart(2,'0')}: choose a header entrance animation`);
     lab.querySelectorAll('[data-header-motion-choice]').forEach(button => button.setAttribute('aria-pressed', String(Number(button.dataset.headerMotionChoice) === selected)));
     replay.disabled = reduced.matches;
     lab.querySelector('[role=status]').textContent = reduced.matches ? 'Reduced motion: header stays still.' : `${presets[selected].name}${running.length?' · playing':''}`;

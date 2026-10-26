@@ -1,5 +1,8 @@
 export function setupCardStudy() {
   document.querySelectorAll('[data-card-study]').forEach(study => {
+    const initialise=()=>{
+    if(study.dataset.cardBound)return;
+    study.dataset.cardBound='true';
     const preference = matchMedia('(prefers-reduced-motion: reduce)');
     let animations = [], active = false, frame;
     const start = () => {
@@ -53,5 +56,13 @@ export function setupCardStudy() {
     addEventListener('resize', requestSync, { passive: true });
     preference.addEventListener('change', start);
     start();
+    };
+    const preference=matchMedia('(prefers-reduced-motion: reduce)');
+    if(preference.matches)initialise();
+    else{
+      const observer=new IntersectionObserver(entries=>{if(entries.some(entry=>entry.isIntersecting)){observer.disconnect();initialise();}},{rootMargin:'800px 0px'});
+      observer.observe(study);
+      preference.addEventListener('change',()=>{if(preference.matches){observer.disconnect();initialise();}},{once:true});
+    }
   });
 }

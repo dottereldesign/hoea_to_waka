@@ -1,18 +1,12 @@
 import { setupResourcesNav } from './resources-nav';
 import { setupTestimonials } from './testimonials';
 import { setupHomeFaq } from './home-faq';
-import { setupStatementIcons } from './statement-icons';
-import { setupModelTimeline } from './model-timeline';
-import { setupTopicMarquee } from './topic-marquee';
 import { setupCtaOrbit } from './cta-orbit';
 
 // Enhance the published HTML; never replace page sections or select a design.
 const preference = matchMedia('(prefers-reduced-motion: reduce)');
 const syncMotion = () => document.documentElement.classList.toggle('ds-motion-paused', preference.matches);
 syncMotion();preference.addEventListener('change', syncMotion);
-document.querySelectorAll('[data-home-statement]').forEach(section => setupStatementIcons(section));
-document.querySelectorAll('.model-timeline').forEach(path => setupModelTimeline(path.closest('section')));
-setupTopicMarquee(document.querySelector('[data-topic-marquee]'));
 document.querySelectorAll('[data-cta-orbit]').forEach(orbit => setupCtaOrbit(orbit.closest('section')));
 document.querySelectorAll('[data-carousel]').forEach(carousel => {
  if (carousel.hasAttribute('data-testimonial-autoplay')) {setupTestimonials(carousel);return;}

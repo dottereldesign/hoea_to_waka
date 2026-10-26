@@ -10,6 +10,16 @@ export function setupStatementIcons(section) {
   const preference = matchMedia('(prefers-reduced-motion: reduce)');
   let animations = [];
   let revealed = false, disposed = false, frame = 0, width = heading.clientWidth, entranceObserver;
+  let menuBlocked=false;
+  const syncPlayback=()=>animations.forEach(animation=>{
+    if(animation.state==='finished')return;
+    if(menuBlocked||document.hidden){if(animation.state==='running')animation.pause();}
+    else if(animation.state==='paused')animation.play();
+  });
+  const onMenu=event=>{menuBlocked=event.detail.open;syncPlayback();};
+  const onVisibility=()=>syncPlayback();
+  document.addEventListener('hoea:site-menu',onMenu);
+  document.addEventListener('visibilitychange',onVisibility);
 
   function finish() {
     revealed = true;
@@ -35,6 +45,7 @@ export function setupStatementIcons(section) {
         onComplete: () => icon.style.setProperty('--icon-reveal', String(target)),
       }));
     });
+    if(menuBlocked||document.hidden)syncPlayback();
   }
   function watchEntrance() {
     entranceObserver?.disconnect();
@@ -92,5 +103,7 @@ export function setupStatementIcons(section) {
     cancelAnimationFrame(frame);animations.forEach(animation => animation.stop());
     preference.removeEventListener('change', onPreference);
     window.removeEventListener('resize', watchEntrance);
+    document.removeEventListener('hoea:site-menu',onMenu);
+    document.removeEventListener('visibilitychange',onVisibility);
   };
 }

@@ -14,11 +14,12 @@
     const nextTheme = theme === "dark" ? "dark" : "light";
     const isDark = nextTheme === "dark";
 
-    root.dataset.theme = nextTheme;
-    root.style.colorScheme = nextTheme;
+    if(root.dataset.theme!==nextTheme)root.dataset.theme = nextTheme;
+    if(root.style.colorScheme!==nextTheme)root.style.colorScheme = nextTheme;
     themeToggle?.setAttribute("aria-pressed", String(isDark));
     themeToggle?.setAttribute("aria-label", isDark ? "Switch to light theme" : "Switch to dark theme");
-    if (themeColorMeta) themeColorMeta.content = getComputedStyle(root).getPropertyValue(isDark ? '--brand-ocean-900' : '--brand-warm-white').trim();
+    // The initial theme is already authored in the head; do not force layout to read it again.
+    if (persist && themeColorMeta) themeColorMeta.content = getComputedStyle(root).getPropertyValue(isDark ? '--brand-ocean-900' : '--brand-warm-white').trim();
 
     if (persist) {
       try {

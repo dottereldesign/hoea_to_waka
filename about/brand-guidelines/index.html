@@ -44,8 +44,9 @@
     <link rel="stylesheet" href="../../assets/brand-palette.css?v=9">
     <link rel="icon" href="../../assets/favicon.png?v=4" type="image/png">
     <link rel="icon" href="../../assets/favicon.svg?v=4" type="image/svg+xml" sizes="any">
-    <script src="../../assets/theme-init.js?v=31"></script>
-  <link rel="stylesheet" href="../../assets/theme.css?v=178">
+    <script src="../../assets/theme-init.js?v=32"></script>
+  <link rel="stylesheet" href="../../assets/theme.css?v=179">
+    <link rel="stylesheet" href="../../assets/brand-guide-components.css?v=1">
     <link rel="preload" href="../../assets/logo-white.svg" as="image">
     <link rel="stylesheet" href="../../assets/header-entrance.css?v=1">
     <script>
@@ -64,18 +65,18 @@
           }
         } catch {}
         const show = () => root.classList.remove('header-entrance-pending');
-        setTimeout(show, 800);
+        requestAnimationFrame(() => setTimeout(show, 800));
         document.addEventListener('keydown', show, {once:true,capture:true});
         document.addEventListener('pointerdown', show, {once:true,capture:true});
       })();
     </script>
-    <script src="../../assets/header-entrance.js?v=2" async></script>
+    <script src="../../assets/header-entrance.js?v=3" async></script>
     <link rel="stylesheet" href="../../assets/brand-nature.css?v=1">
     <script src="../../assets/brand-nature.js?v=2" defer></script>
     <link rel="stylesheet" href="../../assets/brand-door.css?v=2">
-    <script src="../../assets/brand-door.js?v=6" defer></script>
+    <script src="../../assets/brand-door.js?v=7" defer></script>
     <link rel="stylesheet" href="../../assets/brand-ai.css?v=7">
-    <script src="../../assets/brand-ai.js?v=6" defer></script>
+    <script src="../../assets/brand-ai.js?v=7" defer></script>
     <script src="../../assets/brand-logo-studies.js?v=1" defer></script>
     <link rel="stylesheet" href="../../assets/brand-jump.css?v=3">
     <script src="../../assets/brand-jump.js?v=2" defer></script>
@@ -974,7 +975,7 @@
     </div>
 
     <div class="grain-overlay" aria-hidden="true"></div>
-    <script src="../../site.js?v=6"></script>
+    <script src="../../site.js?v=7"></script>
     <script>
       (() => {
         const header = document.querySelector(".site-header-shell");

@@ -1,0 +1,1683 @@
+{
+  "date": "2026-10-26",
+  "baseline": "61dc963",
+  "environment": "Local preview; Lighthouse 13.4.1; Node 24; default simulated profiles",
+  "pages": [
+    {
+      "file": "404.html-desktop.json",
+      "mode": "desktop",
+      "page": "/404.html",
+      "before": {
+        "scores": {
+          "performance": 93,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 63
+        },
+        "metrics": {
+          "first-contentful-paint": 1060.54655,
+          "largest-contentful-paint": 1460.54655,
+          "total-blocking-time": 0,
+          "cumulative-layout-shift": 0.0001499345039355838,
+          "speed-index": 1060.54655
+        }
+      },
+      "after": {
+        "scores": {
+          "performance": 96,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 63
+        },
+        "metrics": {
+          "first-contentful-paint": 940.70225,
+          "largest-contentful-paint": 1180.70225,
+          "total-blocking-time": 20,
+          "cumulative-layout-shift": 0.0001499345039355838,
+          "speed-index": 940.70225
+        }
+      }
+    },
+    {
+      "file": "404.html-mobile.json",
+      "mode": "mobile",
+      "page": "/404.html",
+      "before": {
+        "scores": {
+          "performance": 62,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 63
+        },
+        "metrics": {
+          "first-contentful-paint": 5272.1484,
+          "largest-contentful-paint": 7372.1484,
+          "total-blocking-time": 49,
+          "cumulative-layout-shift": 0,
+          "speed-index": 5441.183353971248
+        }
+      },
+      "after": {
+        "scores": {
+          "performance": 61,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 63
+        },
+        "metrics": {
+          "first-contentful-paint": 4374.8901,
+          "largest-contentful-paint": 5874.890099999999,
+          "total-blocking-time": 252,
+          "cumulative-layout-shift": 0,
+          "speed-index": 5238.542826955626
+        }
+      }
+    },
+    {
+      "file": "about-desktop.json",
+      "mode": "desktop",
+      "page": "/about/",
+      "before": {
+        "scores": {
+          "performance": 99,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "metrics": {
+          "first-contentful-paint": 626.659,
+          "largest-contentful-paint": 946.659,
+          "total-blocking-time": 52.32949999999994,
+          "cumulative-layout-shift": 0,
+          "speed-index": 1070.2958666631241
+        }
+      },
+      "after": {
+        "scores": {
+          "performance": 99,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "metrics": {
+          "first-contentful-paint": 572.5465,
+          "largest-contentful-paint": 828.5929999999998,
+          "total-blocking-time": 33.499999999999886,
+          "cumulative-layout-shift": 0,
+          "speed-index": 615.9489243428836
+        }
+      }
+    },
+    {
+      "file": "about-mobile.json",
+      "mode": "mobile",
+      "page": "/about/",
+      "before": {
+        "scores": {
+          "performance": 73,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "metrics": {
+          "first-contentful-paint": 2917.8881503260754,
+          "largest-contentful-paint": 5017.8881503260745,
+          "total-blocking-time": 93.5,
+          "cumulative-layout-shift": 0,
+          "speed-index": 4550.586330825879
+        }
+      },
+      "after": {
+        "scores": {
+          "performance": 73,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "metrics": {
+          "first-contentful-paint": 2566.4578,
+          "largest-contentful-paint": 4141.4578,
+          "total-blocking-time": 312,
+          "cumulative-layout-shift": 0,
+          "speed-index": 4613.7697913009
+        }
+      }
+    },
+    {
+      "file": "about_brand-guidelines-desktop.json",
+      "mode": "desktop",
+      "page": "/about/brand-guidelines/",
+      "before": {
+        "scores": {
+          "performance": 65,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 69
+        },
+        "metrics": {
+          "first-contentful-paint": 1416.6779000000001,
+          "largest-contentful-paint": 1921.3726499999996,
+          "total-blocking-time": 473.6610499999995,
+          "cumulative-layout-shift": 0,
+          "speed-index": 1671.2561096122417
+        }
+      },
+      "after": {
+        "scores": {
+          "performance": 66,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 69
+        },
+        "metrics": {
+          "first-contentful-paint": 1412.8912999999998,
+          "largest-contentful-paint": 1976.7826,
+          "total-blocking-time": 414.00000000000045,
+          "cumulative-layout-shift": 0,
+          "speed-index": 1691.7680328489637
+        }
+      }
+    },
+    {
+      "file": "about_brand-guidelines-mobile.json",
+      "mode": "mobile",
+      "page": "/about/brand-guidelines/",
+      "before": {
+        "scores": {
+          "performance": 29,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 69
+        },
+        "metrics": {
+          "first-contentful-paint": 7531.701300000001,
+          "largest-contentful-paint": 9331.7013,
+          "total-blocking-time": 3386.149349999998,
+          "cumulative-layout-shift": 0,
+          "speed-index": 7531.701300000001
+        }
+      },
+      "after": {
+        "scores": {
+          "performance": 30,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 69
+        },
+        "metrics": {
+          "first-contentful-paint": 7702.0558,
+          "largest-contentful-paint": 9678.1395,
+          "total-blocking-time": 1849.9581499999977,
+          "cumulative-layout-shift": 0,
+          "speed-index": 7702.0558
+        }
+      }
+    },
+    {
+      "file": "about_jamies-workspace-desktop.json",
+      "mode": "desktop",
+      "page": "/about/jamies-workspace/",
+      "before": {
+        "scores": {
+          "performance": 100,
+          "accessibility": 96,
+          "best-practices": 100,
+          "seo": 69
+        },
+        "metrics": {
+          "first-contentful-paint": 530.4558,
+          "largest-contentful-paint": 810.4558000000001,
+          "total-blocking-time": 17,
+          "cumulative-layout-shift": 0,
+          "speed-index": 530.4558
+        }
+      },
+      "after": {
+        "scores": {
+          "performance": 99,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 69
+        },
+        "metrics": {
+          "first-contentful-paint": 511.6955,
+          "largest-contentful-paint": 760.6955,
+          "total-blocking-time": 66.84775000000008,
+          "cumulative-layout-shift": 0,
+          "speed-index": 619.4977456101586
+        }
+      }
+    },
+    {
+      "file": "about_jamies-workspace-mobile.json",
+      "mode": "mobile",
+      "page": "/about/jamies-workspace/",
+      "before": {
+        "scores": {
+          "performance": 77,
+          "accessibility": 96,
+          "best-practices": 100,
+          "seo": 69
+        },
+        "metrics": {
+          "first-contentful-paint": 2565.3769,
+          "largest-contentful-paint": 4140.3769,
+          "total-blocking-time": 226.68844999999965,
+          "cumulative-layout-shift": 0,
+          "speed-index": 4176.523787273294
+        }
+      },
+      "after": {
+        "scores": {
+          "performance": 76,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 69
+        },
+        "metrics": {
+          "first-contentful-paint": 2111.0306,
+          "largest-contentful-paint": 3732.0306,
+          "total-blocking-time": 390,
+          "cumulative-layout-shift": 0,
+          "speed-index": 4125.136189511629
+        }
+      }
+    },
+    {
+      "file": "brand_brand-system.html-desktop.json",
+      "mode": "desktop",
+      "page": "/brand/brand-system.html",
+      "before": {
+        "scores": {
+          "performance": 99,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 63
+        },
+        "metrics": {
+          "first-contentful-paint": 554.1023,
+          "largest-contentful-paint": 794.1023,
+          "total-blocking-time": 0,
+          "cumulative-layout-shift": 0,
+          "speed-index": 562.3400058004315
+        }
+      },
+      "after": {
+        "scores": {
+          "performance": 100,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 63
+        },
+        "metrics": {
+          "first-contentful-paint": 492.0897,
+          "largest-contentful-paint": 692.0897,
+          "total-blocking-time": 0,
+          "cumulative-layout-shift": 0,
+          "speed-index": 492.0897
+        }
+      }
+    },
+    {
+      "file": "brand_brand-system.html-mobile.json",
+      "mode": "mobile",
+      "page": "/brand/brand-system.html",
+      "before": {
+        "scores": {
+          "performance": 82,
+          "accessibility": 100,
+          "best-practices": 96,
+          "seo": 63
+        },
+        "metrics": {
+          "first-contentful-paint": 2717.1492,
+          "largest-contentful-paint": 3917.1492000000003,
+          "total-blocking-time": 0,
+          "cumulative-layout-shift": 0,
+          "speed-index": 4115.1478801161575
+        }
+      },
+      "after": {
+        "scores": {
+          "performance": 84,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 63
+        },
+        "metrics": {
+          "first-contentful-paint": 2268.1844,
+          "largest-contentful-paint": 3618.1844,
+          "total-blocking-time": 150,
+          "cumulative-layout-shift": 0,
+          "speed-index": 3966.8337601335143
+        }
+      }
+    },
+    {
+      "file": "contact-desktop.json",
+      "mode": "desktop",
+      "page": "/contact/",
+      "before": {
+        "scores": {
+          "performance": 98,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "metrics": {
+          "first-contentful-paint": 583.2632,
+          "largest-contentful-paint": 923.2631999999999,
+          "total-blocking-time": 107.99999999999989,
+          "cumulative-layout-shift": 0,
+          "speed-index": 733.3727007647819
+        }
+      },
+      "after": {
+        "scores": {
+          "performance": 99,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "metrics": {
+          "first-contentful-paint": 536.6216360593435,
+          "largest-contentful-paint": 776.6216360593435,
+          "total-blocking-time": 66,
+          "cumulative-layout-shift": 0,
+          "speed-index": 601.9540812642733
+        }
+      }
+    },
+    {
+      "file": "contact-mobile.json",
+      "mode": "mobile",
+      "page": "/contact/",
+      "before": {
+        "scores": {
+          "performance": 60,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "metrics": {
+          "first-contentful-paint": 2883.9992,
+          "largest-contentful-paint": 4833.9992,
+          "total-blocking-time": 568,
+          "cumulative-layout-shift": 0,
+          "speed-index": 4681.570532199741
+        }
+      },
+      "after": {
+        "scores": {
+          "performance": 74,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "metrics": {
+          "first-contentful-paint": 2410.7194,
+          "largest-contentful-paint": 3985.7194,
+          "total-blocking-time": 338,
+          "cumulative-layout-shift": 0,
+          "speed-index": 4300.269202588084
+        }
+      }
+    },
+    {
+      "file": "home-desktop.json",
+      "mode": "desktop",
+      "page": "/",
+      "before": {
+        "scores": {
+          "performance": 97,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "metrics": {
+          "first-contentful-paint": 747.4974611436551,
+          "largest-contentful-paint": 1207.497461143655,
+          "total-blocking-time": 0,
+          "cumulative-layout-shift": 0,
+          "speed-index": 816.1734325473551
+        }
+      },
+      "after": {
+        "scores": {
+          "performance": 98,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "metrics": {
+          "first-contentful-paint": 662.8212,
+          "largest-contentful-paint": 1114.2318,
+          "total-blocking-time": 1.5,
+          "cumulative-layout-shift": 0,
+          "speed-index": 840.3587076156884
+        }
+      }
+    },
+    {
+      "file": "home-mobile.json",
+      "mode": "mobile",
+      "page": "/",
+      "before": {
+        "scores": {
+          "performance": 40,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "metrics": {
+          "first-contentful-paint": 3471.7067792724765,
+          "largest-contentful-paint": 6396.706779272477,
+          "total-blocking-time": 1402.0000000000014,
+          "cumulative-layout-shift": 0,
+          "speed-index": 6198.458768049486
+        }
+      },
+      "after": {
+        "scores": {
+          "performance": 68,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "metrics": {
+          "first-contentful-paint": 3037.284856219796,
+          "largest-contentful-paint": 5062.284856219796,
+          "total-blocking-time": 336,
+          "cumulative-layout-shift": 0,
+          "speed-index": 3037.284856219796
+        }
+      }
+    },
+    {
+      "file": "illustrations-desktop.json",
+      "mode": "desktop",
+      "page": "/illustrations/",
+      "before": {
+        "scores": {
+          "performance": 97,
+          "accessibility": 98,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "metrics": {
+          "first-contentful-paint": 584.2873,
+          "largest-contentful-paint": 1164.2873,
+          "total-blocking-time": 0,
+          "cumulative-layout-shift": 0,
+          "speed-index": 584.2873
+        }
+      },
+      "after": {
+        "scores": {
+          "performance": 98,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "metrics": {
+          "first-contentful-paint": 541.114,
+          "largest-contentful-paint": 1041.728,
+          "total-blocking-time": 37,
+          "cumulative-layout-shift": 0,
+          "speed-index": 627.6021849304316
+        }
+      }
+    },
+    {
+      "file": "illustrations-mobile.json",
+      "mode": "mobile",
+      "page": "/illustrations/",
+      "before": {
+        "scores": {
+          "performance": 69,
+          "accessibility": 98,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "metrics": {
+          "first-contentful-paint": 3009.0756,
+          "largest-contentful-paint": 6384.0756,
+          "total-blocking-time": 114,
+          "cumulative-layout-shift": 0,
+          "speed-index": 4199.895704726034
+        }
+      },
+      "after": {
+        "scores": {
+          "performance": 76,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "metrics": {
+          "first-contentful-paint": 2457.0998,
+          "largest-contentful-paint": 4632.0998,
+          "total-blocking-time": 158,
+          "cumulative-layout-shift": 0,
+          "speed-index": 4160.15378853014
+        }
+      }
+    },
+    {
+      "file": "model-desktop.json",
+      "mode": "desktop",
+      "page": "/model/",
+      "before": {
+        "scores": {
+          "performance": 97,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "metrics": {
+          "first-contentful-paint": 588.987083787858,
+          "largest-contentful-paint": 908.987083787858,
+          "total-blocking-time": 138.5,
+          "cumulative-layout-shift": 0,
+          "speed-index": 720.7117565651984
+        }
+      },
+      "after": {
+        "scores": {
+          "performance": 99,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "metrics": {
+          "first-contentful-paint": 620.1451999999999,
+          "largest-contentful-paint": 994.2904,
+          "total-blocking-time": 30,
+          "cumulative-layout-shift": 0,
+          "speed-index": 642.641130359379
+        }
+      }
+    },
+    {
+      "file": "model-mobile.json",
+      "mode": "mobile",
+      "page": "/model/",
+      "before": {
+        "scores": {
+          "performance": 55,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "metrics": {
+          "first-contentful-paint": 2874.1378999999997,
+          "largest-contentful-paint": 5949.1379,
+          "total-blocking-time": 621,
+          "cumulative-layout-shift": 0,
+          "speed-index": 4872.015658290958
+        }
+      },
+      "after": {
+        "scores": {
+          "performance": 63,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "metrics": {
+          "first-contentful-paint": 2911.2781,
+          "largest-contentful-paint": 5454.556199999999,
+          "total-blocking-time": 390.5,
+          "cumulative-layout-shift": 0,
+          "speed-index": 4617.810808236478
+        }
+      }
+    },
+    {
+      "file": "pages_home.html-desktop.json",
+      "mode": "desktop",
+      "page": "/pages/home.html",
+      "before": {
+        "scores": {
+          "performance": 100,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 63
+        },
+        "metrics": {
+          "first-contentful-paint": 535.8415,
+          "largest-contentful-paint": 775.8415,
+          "total-blocking-time": 0,
+          "cumulative-layout-shift": 0,
+          "speed-index": 535.8415
+        }
+      },
+      "after": {
+        "scores": {
+          "performance": 100,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 63
+        },
+        "metrics": {
+          "first-contentful-paint": 497.97929999999997,
+          "largest-contentful-paint": 697.9793000000001,
+          "total-blocking-time": 0,
+          "cumulative-layout-shift": 0,
+          "speed-index": 497.97929999999997
+        }
+      }
+    },
+    {
+      "file": "pages_home.html-mobile.json",
+      "mode": "mobile",
+      "page": "/pages/home.html",
+      "before": {
+        "scores": {
+          "performance": 82,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 63
+        },
+        "metrics": {
+          "first-contentful-paint": 2716.5975,
+          "largest-contentful-paint": 3916.5975,
+          "total-blocking-time": 0,
+          "cumulative-layout-shift": 0,
+          "speed-index": 4122.834400118828
+        }
+      },
+      "after": {
+        "scores": {
+          "performance": 86,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 63
+        },
+        "metrics": {
+          "first-contentful-paint": 2263.7817999999997,
+          "largest-contentful-paint": 3613.7817999999997,
+          "total-blocking-time": 0,
+          "cumulative-layout-shift": 0,
+          "speed-index": 3943.0045201174926
+        }
+      }
+    },
+    {
+      "file": "prompts-desktop.json",
+      "mode": "desktop",
+      "page": "/prompts/",
+      "before": {
+        "scores": {
+          "performance": 98,
+          "accessibility": 96,
+          "best-practices": 100,
+          "seo": 63
+        },
+        "metrics": {
+          "first-contentful-paint": 735.4708499999999,
+          "largest-contentful-paint": 975.4708500000002,
+          "total-blocking-time": 73.00000000000011,
+          "cumulative-layout-shift": 0,
+          "speed-index": 783.1263706375316
+        }
+      },
+      "after": {
+        "scores": {
+          "performance": 99,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 63
+        },
+        "metrics": {
+          "first-contentful-paint": 651.7085500000001,
+          "largest-contentful-paint": 891.7085500000001,
+          "total-blocking-time": 57,
+          "cumulative-layout-shift": 0,
+          "speed-index": 657.3006983162575
+        }
+      }
+    },
+    {
+      "file": "prompts-mobile.json",
+      "mode": "mobile",
+      "page": "/prompts/",
+      "before": {
+        "scores": {
+          "performance": 67,
+          "accessibility": 96,
+          "best-practices": 100,
+          "seo": 63
+        },
+        "metrics": {
+          "first-contentful-paint": 3329.1051,
+          "largest-contentful-paint": 4679.1051,
+          "total-blocking-time": 334,
+          "cumulative-layout-shift": 0,
+          "speed-index": 4601.239295538462
+        }
+      },
+      "after": {
+        "scores": {
+          "performance": 70,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 63
+        },
+        "metrics": {
+          "first-contentful-paint": 3017.7925840042835,
+          "largest-contentful-paint": 4517.7925840042835,
+          "total-blocking-time": 289,
+          "cumulative-layout-shift": 0,
+          "speed-index": 4498.11263628904
+        }
+      }
+    },
+    {
+      "file": "resources-desktop.json",
+      "mode": "desktop",
+      "page": "/resources/",
+      "before": {
+        "scores": {
+          "performance": 98,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "metrics": {
+          "first-contentful-paint": 617.8028,
+          "largest-contentful-paint": 1117.8028,
+          "total-blocking-time": 46.90139999999985,
+          "cumulative-layout-shift": 0,
+          "speed-index": 746.8173012744069
+        }
+      },
+      "after": {
+        "scores": {
+          "performance": 98,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "metrics": {
+          "first-contentful-paint": 573.6451,
+          "largest-contentful-paint": 892.378925,
+          "total-blocking-time": 87,
+          "cumulative-layout-shift": 0,
+          "speed-index": 683.5575469130488
+        }
+      }
+    },
+    {
+      "file": "resources-mobile.json",
+      "mode": "mobile",
+      "page": "/resources/",
+      "before": {
+        "scores": {
+          "performance": 62,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "metrics": {
+          "first-contentful-paint": 2867.5373,
+          "largest-contentful-paint": 6167.5373,
+          "total-blocking-time": 330,
+          "cumulative-layout-shift": 0,
+          "speed-index": 4870.036208450419
+        }
+      },
+      "after": {
+        "scores": {
+          "performance": 70,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "metrics": {
+          "first-contentful-paint": 2562.4651,
+          "largest-contentful-paint": 4512.4651,
+          "total-blocking-time": 362.00000000000045,
+          "cumulative-layout-shift": 0,
+          "speed-index": 4439.502709804708
+        }
+      }
+    },
+    {
+      "file": "services-desktop.json",
+      "mode": "desktop",
+      "page": "/services/",
+      "before": {
+        "scores": {
+          "performance": 99,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "metrics": {
+          "first-contentful-paint": 593.293,
+          "largest-contentful-paint": 943.9395,
+          "total-blocking-time": 33,
+          "cumulative-layout-shift": 0,
+          "speed-index": 768.0891959897002
+        }
+      },
+      "after": {
+        "scores": {
+          "performance": 99,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "metrics": {
+          "first-contentful-paint": 547.1735,
+          "largest-contentful-paint": 871.053625,
+          "total-blocking-time": 51.293375000000026,
+          "cumulative-layout-shift": 0,
+          "speed-index": 614.6750058691861
+        }
+      }
+    },
+    {
+      "file": "services-mobile.json",
+      "mode": "mobile",
+      "page": "/services/",
+      "before": {
+        "scores": {
+          "performance": 68,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "metrics": {
+          "first-contentful-paint": 2878.0467,
+          "largest-contentful-paint": 5428.0467,
+          "total-blocking-time": 216.5,
+          "cumulative-layout-shift": 0,
+          "speed-index": 4853.592919498242
+        }
+      },
+      "after": {
+        "scores": {
+          "performance": 78,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "metrics": {
+          "first-contentful-paint": 2410.8282,
+          "largest-contentful-paint": 4330.8282,
+          "total-blocking-time": 162,
+          "cumulative-layout-shift": 0,
+          "speed-index": 4263.768626521193
+        }
+      }
+    },
+    {
+      "file": "services_in-house-workshops-desktop.json",
+      "mode": "desktop",
+      "page": "/services/in-house-workshops/",
+      "before": {
+        "scores": {
+          "performance": 99,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "metrics": {
+          "first-contentful-paint": 575.3747000000001,
+          "largest-contentful-paint": 947.7494,
+          "total-blocking-time": 33.5,
+          "cumulative-layout-shift": 0,
+          "speed-index": 721.4248707278052
+        }
+      },
+      "after": {
+        "scores": {
+          "performance": 99,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "metrics": {
+          "first-contentful-paint": 543.748,
+          "largest-contentful-paint": 805.3090000000002,
+          "total-blocking-time": 79.00000000000006,
+          "cumulative-layout-shift": 0,
+          "speed-index": 677.5459300964038
+        }
+      }
+    },
+    {
+      "file": "services_in-house-workshops-mobile.json",
+      "mode": "mobile",
+      "page": "/services/in-house-workshops/",
+      "before": {
+        "scores": {
+          "performance": 68,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "metrics": {
+          "first-contentful-paint": 2877.4827,
+          "largest-contentful-paint": 4827.482699999999,
+          "total-blocking-time": 307.75864999999976,
+          "cumulative-layout-shift": 0,
+          "speed-index": 4733.51813696033
+        }
+      },
+      "after": {
+        "scores": {
+          "performance": 77,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "metrics": {
+          "first-contentful-paint": 2414.1368,
+          "largest-contentful-paint": 4064.1368,
+          "total-blocking-time": 237,
+          "cumulative-layout-shift": 0,
+          "speed-index": 4318.852533713886
+        }
+      }
+    },
+    {
+      "file": "services_resilience-one-on-one-desktop.json",
+      "mode": "desktop",
+      "page": "/services/resilience-one-on-one/",
+      "before": {
+        "scores": {
+          "performance": 99,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "metrics": {
+          "first-contentful-paint": 581.0715848059982,
+          "largest-contentful-paint": 981.0715848059981,
+          "total-blocking-time": 0,
+          "cumulative-layout-shift": 0,
+          "speed-index": 677.268810257178
+        }
+      },
+      "after": {
+        "scores": {
+          "performance": 99,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "metrics": {
+          "first-contentful-paint": 569.2359,
+          "largest-contentful-paint": 861.2358999999999,
+          "total-blocking-time": 50,
+          "cumulative-layout-shift": 0,
+          "speed-index": 569.9875725718726
+        }
+      }
+    },
+    {
+      "file": "services_resilience-one-on-one-mobile.json",
+      "mode": "mobile",
+      "page": "/services/resilience-one-on-one/",
+      "before": {
+        "scores": {
+          "performance": 53,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "metrics": {
+          "first-contentful-paint": 3027.3094593828164,
+          "largest-contentful-paint": 5052.309459382816,
+          "total-blocking-time": 1108.6547296914077,
+          "cumulative-layout-shift": 0,
+          "speed-index": 3215.268107996528
+        }
+      },
+      "after": {
+        "scores": {
+          "performance": 63,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "metrics": {
+          "first-contentful-paint": 2559.6986,
+          "largest-contentful-paint": 4134.698599999999,
+          "total-blocking-time": 693.9999999999995,
+          "cumulative-layout-shift": 0,
+          "speed-index": 4399.660731637395
+        }
+      }
+    },
+    {
+      "file": "services_workshops-for-support-professionals-desktop.json",
+      "mode": "desktop",
+      "page": "/services/workshops-for-support-professionals/",
+      "before": {
+        "scores": {
+          "performance": 98,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "metrics": {
+          "first-contentful-paint": 656.2792,
+          "largest-contentful-paint": 996.2792,
+          "total-blocking-time": 87,
+          "cumulative-layout-shift": 0,
+          "speed-index": 690.9214519691075
+        }
+      },
+      "after": {
+        "scores": {
+          "performance": 98,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "metrics": {
+          "first-contentful-paint": 624.8076,
+          "largest-contentful-paint": 884.8076,
+          "total-blocking-time": 106,
+          "cumulative-layout-shift": 0,
+          "speed-index": 692.6157653533905
+        }
+      }
+    },
+    {
+      "file": "services_workshops-for-support-professionals-mobile.json",
+      "mode": "mobile",
+      "page": "/services/workshops-for-support-professionals/",
+      "before": {
+        "scores": {
+          "performance": 62,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "metrics": {
+          "first-contentful-paint": 3187.707445027891,
+          "largest-contentful-paint": 4912.707445027891,
+          "total-blocking-time": 535.4999999999995,
+          "cumulative-layout-shift": 0,
+          "speed-index": 3187.707445027891
+        }
+      },
+      "after": {
+        "scores": {
+          "performance": 67,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100
+        },
+        "metrics": {
+          "first-contentful-paint": 2720.10255,
+          "largest-contentful-paint": 4370.10255,
+          "total-blocking-time": 477,
+          "cumulative-layout-shift": 0,
+          "speed-index": 4304.301841341078
+        }
+      }
+    }
+  ],
+  "motion": [
+    {
+      "name": "home",
+      "version": "before",
+      "phase": "pill-in",
+      "p95": 140,
+      "over25": 6,
+      "longTasks": 4,
+      "layoutCount": 7,
+      "layoutMs": 296.19399999999985,
+      "styleMs": 158.1030000000001
+    },
+    {
+      "name": "home",
+      "version": "before",
+      "phase": "pill-out",
+      "p95": 169.59999999999945,
+      "over25": 6,
+      "longTasks": 5,
+      "layoutCount": 7,
+      "layoutMs": 343.82500000000005,
+      "styleMs": 221.00199999999992
+    },
+    {
+      "name": "home",
+      "version": "before",
+      "phase": "menu-open",
+      "p95": 110,
+      "over25": 17,
+      "longTasks": 2,
+      "layoutCount": 3,
+      "layoutMs": 144.4860000000001,
+      "styleMs": 527.814,
+      "clickMs": 412.89999997615814
+    },
+    {
+      "name": "home",
+      "version": "before",
+      "phase": "menu-close",
+      "p95": 30,
+      "over25": 5,
+      "longTasks": 2,
+      "layoutCount": 2,
+      "layoutMs": 2.942,
+      "styleMs": 275.0189999999999
+    },
+    {
+      "name": "home",
+      "version": "after",
+      "phase": "pill-in",
+      "p95": 60,
+      "over25": 10,
+      "longTasks": 3,
+      "layoutCount": 4,
+      "layoutMs": 69.65500000000003,
+      "styleMs": 307.975
+    },
+    {
+      "name": "home",
+      "version": "after",
+      "phase": "pill-out",
+      "p95": 40,
+      "over25": 11,
+      "longTasks": 1,
+      "layoutCount": 5,
+      "layoutMs": 7.304999999999895,
+      "styleMs": 388.9010000000002
+    },
+    {
+      "name": "home",
+      "version": "after",
+      "phase": "menu-open",
+      "p95": 100.10000000000036,
+      "over25": 10,
+      "longTasks": 2,
+      "layoutCount": 3,
+      "layoutMs": 138.81900000000002,
+      "styleMs": 524.8380000000002,
+      "clickMs": 345.2000000476837
+    },
+    {
+      "name": "home",
+      "version": "after",
+      "phase": "menu-close",
+      "p95": 40,
+      "over25": 8,
+      "longTasks": 3,
+      "layoutCount": 2,
+      "layoutMs": 3.146000000000093,
+      "styleMs": 321.05000000000007
+    },
+    {
+      "name": "home-mobile",
+      "version": "before",
+      "phase": "pill-in",
+      "p95": 10.100000000000364,
+      "over25": 0,
+      "longTasks": 0,
+      "layoutCount": 0,
+      "layoutMs": 0,
+      "styleMs": 0
+    },
+    {
+      "name": "home-mobile",
+      "version": "before",
+      "phase": "pill-out",
+      "p95": 10.100000000000364,
+      "over25": 0,
+      "longTasks": 0,
+      "layoutCount": 0,
+      "layoutMs": 0,
+      "styleMs": 0
+    },
+    {
+      "name": "home-mobile",
+      "version": "before",
+      "phase": "menu-open",
+      "p95": 50.100000000000364,
+      "over25": 10,
+      "longTasks": 2,
+      "layoutCount": 3,
+      "layoutMs": 99.53900000000004,
+      "styleMs": 468.67400000000004,
+      "clickMs": 295.10000002384186
+    },
+    {
+      "name": "home-mobile",
+      "version": "before",
+      "phase": "menu-close",
+      "p95": 30,
+      "over25": 8,
+      "longTasks": 2,
+      "layoutCount": 2,
+      "layoutMs": 2.9759999999998676,
+      "styleMs": 283.482
+    },
+    {
+      "name": "home-mobile",
+      "version": "after",
+      "phase": "pill-in",
+      "p95": 10.100000000000364,
+      "over25": 0,
+      "longTasks": 0,
+      "layoutCount": 0,
+      "layoutMs": 0,
+      "styleMs": 0
+    },
+    {
+      "name": "home-mobile",
+      "version": "after",
+      "phase": "pill-out",
+      "p95": 10.100000000000364,
+      "over25": 0,
+      "longTasks": 0,
+      "layoutCount": 0,
+      "layoutMs": 0,
+      "styleMs": 0
+    },
+    {
+      "name": "home-mobile",
+      "version": "after",
+      "phase": "menu-open",
+      "p95": 100.09999999999945,
+      "over25": 14,
+      "longTasks": 2,
+      "layoutCount": 3,
+      "layoutMs": 90.1019999999999,
+      "styleMs": 458.08699999999993,
+      "clickMs": 239.29999995231628
+    },
+    {
+      "name": "home-mobile",
+      "version": "after",
+      "phase": "menu-close",
+      "p95": 30.100000000000364,
+      "over25": 8,
+      "longTasks": 1,
+      "layoutCount": 2,
+      "layoutMs": 2.3530000000000495,
+      "styleMs": 284.9769999999998
+    },
+    {
+      "name": "guide",
+      "version": "before",
+      "phase": "pill-in",
+      "p95": 150.09999999999854,
+      "over25": 7,
+      "longTasks": 5,
+      "layoutCount": 5,
+      "layoutMs": 220.72900000000038,
+      "styleMs": 182.3239999999995
+    },
+    {
+      "name": "guide",
+      "version": "before",
+      "phase": "pill-out",
+      "p95": 150.09999999999854,
+      "over25": 6,
+      "longTasks": 5,
+      "layoutCount": 5,
+      "layoutMs": 252.90999999999997,
+      "styleMs": 218.77100000000027
+    },
+    {
+      "name": "guide",
+      "version": "before",
+      "phase": "menu-open",
+      "p95": 160,
+      "over25": 19,
+      "longTasks": 3,
+      "layoutCount": 5,
+      "layoutMs": 111.62399999999994,
+      "styleMs": 486.0600000000002,
+      "clickMs": 479.6999999284744
+    },
+    {
+      "name": "guide",
+      "version": "before",
+      "phase": "menu-close",
+      "p95": 30.100000000002183,
+      "over25": 6,
+      "longTasks": 3,
+      "layoutCount": 2,
+      "layoutMs": 27.37400000000001,
+      "styleMs": 242.29400000000024
+    },
+    {
+      "name": "guide",
+      "version": "after",
+      "phase": "pill-in",
+      "p95": 50,
+      "over25": 12,
+      "longTasks": 3,
+      "layoutCount": 4,
+      "layoutMs": 35.42199999999962,
+      "styleMs": 322.905
+    },
+    {
+      "name": "guide",
+      "version": "after",
+      "phase": "pill-out",
+      "p95": 90.10000000000036,
+      "over25": 10,
+      "longTasks": 8,
+      "layoutCount": 5,
+      "layoutMs": 13.44999999999974,
+      "styleMs": 345.21999999999986
+    },
+    {
+      "name": "guide",
+      "version": "after",
+      "phase": "menu-open",
+      "p95": 190,
+      "over25": 22,
+      "longTasks": 3,
+      "layoutCount": 4,
+      "layoutMs": 149.61299999999954,
+      "styleMs": 516.5139999999999,
+      "clickMs": 424
+    },
+    {
+      "name": "guide",
+      "version": "after",
+      "phase": "menu-close",
+      "p95": 30,
+      "over25": 7,
+      "longTasks": 3,
+      "layoutCount": 2,
+      "layoutMs": 38.41099999999997,
+      "styleMs": 277.8900000000002
+    },
+    {
+      "name": "guide-mobile",
+      "version": "before",
+      "phase": "pill-in",
+      "p95": 10.100000000000364,
+      "over25": 0,
+      "longTasks": 0,
+      "layoutCount": 0,
+      "layoutMs": 0,
+      "styleMs": 3.7330000000004304
+    },
+    {
+      "name": "guide-mobile",
+      "version": "before",
+      "phase": "pill-out",
+      "p95": 10.100000000000364,
+      "over25": 0,
+      "longTasks": 0,
+      "layoutCount": 0,
+      "layoutMs": 0,
+      "styleMs": 4.224999999999923
+    },
+    {
+      "name": "guide-mobile",
+      "version": "before",
+      "phase": "menu-open",
+      "p95": 140,
+      "over25": 11,
+      "longTasks": 3,
+      "layoutCount": 5,
+      "layoutMs": 157.31099999999998,
+      "styleMs": 499.9960000000003,
+      "clickMs": 483.2000000476837
+    },
+    {
+      "name": "guide-mobile",
+      "version": "before",
+      "phase": "menu-close",
+      "p95": 30,
+      "over25": 8,
+      "longTasks": 3,
+      "layoutCount": 2,
+      "layoutMs": 33.84600000000049,
+      "styleMs": 237.82499999999996
+    },
+    {
+      "name": "guide-mobile",
+      "version": "after",
+      "phase": "pill-in",
+      "p95": 10.100000000000364,
+      "over25": 0,
+      "longTasks": 0,
+      "layoutCount": 0,
+      "layoutMs": 0,
+      "styleMs": 1.4840000000000408
+    },
+    {
+      "name": "guide-mobile",
+      "version": "after",
+      "phase": "pill-out",
+      "p95": 10.100000000000364,
+      "over25": 0,
+      "longTasks": 0,
+      "layoutCount": 0,
+      "layoutMs": 0,
+      "styleMs": 1.459000000000099
+    },
+    {
+      "name": "guide-mobile",
+      "version": "after",
+      "phase": "menu-open",
+      "p95": 100,
+      "over25": 15,
+      "longTasks": 3,
+      "layoutCount": 4,
+      "layoutMs": 127.13100000000033,
+      "styleMs": 467.8230000000001,
+      "clickMs": 378.5
+    },
+    {
+      "name": "guide-mobile",
+      "version": "after",
+      "phase": "menu-close",
+      "p95": 30,
+      "over25": 5,
+      "longTasks": 3,
+      "layoutCount": 2,
+      "layoutMs": 24.314999999999642,
+      "styleMs": 236.47399999999942
+    }
+  ],
+  "links": {
+    "pages": 16,
+    "localDestinations": 223,
+    "externalDestinations": 28,
+    "homepageExternalChecks": 2,
+    "failures": [],
+    "external": [
+      {
+        "url": "https://shielded.co.nz/",
+        "pages": [
+          "/",
+          "about/",
+          "model/",
+          "services/",
+          "services/in-house-workshops/",
+          "services/resilience-one-on-one/",
+          "services/workshops-for-support-professionals/",
+          "resources/",
+          "contact/",
+          "about/brand-guidelines/",
+          "about/jamies-workspace/"
+        ],
+        "status": 200,
+        "final": "https://shielded.co.nz/",
+        "result": "reachable"
+      },
+      {
+        "url": "https://dottereldesign.github.io/portfolio/",
+        "pages": [
+          "/"
+        ],
+        "status": 200,
+        "final": "https://dottereldesign.github.io/portfolio/",
+        "result": "reachable"
+      },
+      {
+        "url": "https://www.amazon.com.au/dp/B0CJXDSMDG",
+        "pages": [
+          "resources/"
+        ]
+      },
+      {
+        "url": "https://www.amazon.com.au/dp/047373883X",
+        "pages": [
+          "resources/"
+        ]
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=PDqjgS_BJso",
+        "pages": [
+          "resources/"
+        ]
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=pNmZhLGvAS4",
+        "pages": [
+          "resources/"
+        ]
+      },
+      {
+        "url": "https://chatgpt.com/",
+        "pages": [
+          "about/brand-guidelines/"
+        ]
+      },
+      {
+        "url": "https://abcdinamo.com/typefaces/marist",
+        "pages": [
+          "about/brand-guidelines/"
+        ]
+      },
+      {
+        "url": "https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html",
+        "pages": [
+          "about/brand-guidelines/"
+        ]
+      },
+      {
+        "url": "https://www.nokostudio.com/pricing",
+        "pages": [
+          "about/brand-guidelines/",
+          "about/brand-guidelines/"
+        ]
+      },
+      {
+        "url": "https://seedstudio.co.nz/terms-of-engagement/",
+        "pages": [
+          "about/brand-guidelines/"
+        ]
+      },
+      {
+        "url": "https://www.createdigital.nz/brand-design",
+        "pages": [
+          "about/brand-guidelines/"
+        ]
+      },
+      {
+        "url": "https://www.jenclarkdesign.com.au/packages/",
+        "pages": [
+          "about/brand-guidelines/"
+        ]
+      },
+      {
+        "url": "https://tdsaustralia.com.au/brand-design-pricing-australia/",
+        "pages": [
+          "about/brand-guidelines/"
+        ]
+      },
+      {
+        "url": "https://www.rbnz.govt.nz/statistics/series/exchange-and-interest-rates/exchange-rates-and-the-trade-weighted-index",
+        "pages": [
+          "about/brand-guidelines/"
+        ]
+      },
+      {
+        "url": "https://brand.squarespace.com/",
+        "pages": [
+          "about/brand-guidelines/"
+        ]
+      },
+      {
+        "url": "https://newsroom.squarespace.com/blog/introducing-foundations-squarespaces-updated-brand-guidelines",
+        "pages": [
+          "about/brand-guidelines/"
+        ]
+      },
+      {
+        "url": "https://brand.github.com/",
+        "pages": [
+          "about/brand-guidelines/"
+        ]
+      },
+      {
+        "url": "https://brand.github.com/GitHub-BrandGuidelines-2025.pdf",
+        "pages": [
+          "about/brand-guidelines/"
+        ]
+      },
+      {
+        "url": "https://brand.github.com/GitHub-BrandGuidelines-2026.pdf",
+        "pages": [
+          "about/brand-guidelines/"
+        ]
+      },
+      {
+        "url": "https://brandguidelines.webjet.com/",
+        "pages": [
+          "about/brand-guidelines/"
+        ]
+      },
+      {
+        "url": "https://brand.design-system.service.gov.uk/",
+        "pages": [
+          "about/brand-guidelines/"
+        ]
+      },
+      {
+        "url": "https://www.gov.uk/government/publications/govuk-brand-guidelines",
+        "pages": [
+          "about/brand-guidelines/"
+        ]
+      },
+      {
+        "url": "https://brandguidelines.bracco.com/",
+        "pages": [
+          "about/brand-guidelines/"
+        ]
+      },
+      {
+        "url": "https://www.ucf.edu/brand/web-and-digital/",
+        "pages": [
+          "about/brand-guidelines/"
+        ]
+      },
+      {
+        "url": "https://brand.dropbox.com/",
+        "pages": [
+          "about/brand-guidelines/"
+        ]
+      },
+      {
+        "url": "https://wa.me/?text=https%3A%2F%2Fdottereldesign.github.io%2Fhoea_to_waka%2Fabout%2Fbrand-guidelines",
+        "pages": [
+          "about/brand-guidelines/"
+        ]
+      },
+      {
+        "url": "https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdottereldesign.github.io%2Fhoea_to_waka%2Fabout%2Fbrand-guidelines",
+        "pages": [
+          "about/brand-guidelines/"
+        ]
+      }
+    ]
+  }
+}

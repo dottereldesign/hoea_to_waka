@@ -129,7 +129,10 @@
     buttons.forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.annaStudy===id)));
     const [name,description]=studies[id];root.querySelector('[data-anna-study-name]').textContent=name;root.querySelector('[data-anna-study-description]').textContent=description;
     states.forEach(state=>{snap(state.reveal,preference.matches?1:0);snap(state.node,preference.matches?1:0);snap(state.cover,0);});snap(progress,0);snap(pan,0);
-    list.scrollLeft=0;configure();paint();
+    // Initial markup already starts at zero. Reset only when switching studies;
+    // a redundant initial scroll write forced layout after all SVG updates.
+    if(scroll)list.scrollLeft=0;
+    configure();paint();
     if(scroll){const target=root.querySelector('.anna-studies');window.scrollTo({top:target.getBoundingClientRect().top+scrollY-128,behavior:'instant'});buttons.find(button=>button.dataset.annaStudy===id)?.focus({preventScroll:true});}
     queue(true);
   }

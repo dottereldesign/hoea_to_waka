@@ -1,6 +1,9 @@
 (() => {
   const section = document.querySelector('#brand-door-study,[data-moon-door]');
   if (!section) return;
+  const initialise=()=>{
+  if(section.dataset.doorBound)return;
+  section.dataset.doorBound='true';
   const standalone = section.hasAttribute('data-moon-door');
   const svg = section.querySelector('svg');
   const scene = svg.querySelector('[data-door-scene]');
@@ -258,5 +261,20 @@
   if (standalone) {configurePortal();section.dataset.doorState='closed';}
   if (controls) controls.hidden = false;
   if (pause) pause.hidden = preference.matches;
-  draw(preference.matches ? current.angle : 0, 0); sync();
+  draw(preference.matches ? current.angle : 0, 0);
+  if(standalone)measureScroll();else sync();
+  };
+  if(section.hasAttribute('data-moon-door')&&!matchMedia('(prefers-reduced-motion:reduce)').matches){
+    // The homepage door sits well below the fold. Prepare its SVG ahead of
+    // entry, rather than building an unseen ocean during the header entrance.
+    section.querySelector('svg').setAttribute('data-angle','0.000');
+    section.dataset.doorState='closed';
+    let prepareFrame=0;
+    const activate=()=>{observer.disconnect();removeEventListener('scroll',prepare);cancelAnimationFrame(prepareFrame);initialise();};
+    const prepare=()=>{if(!prepareFrame)prepareFrame=requestAnimationFrame(()=>{prepareFrame=0;const bounds=section.getBoundingClientRect();if(bounds.top<innerHeight+1000&&bounds.bottom>-1000)activate();});};
+    const observer=new IntersectionObserver(entries=>{if(entries.some(entry=>entry.isIntersecting))activate();},{rootMargin:'1000px 0px'});
+    observer.observe(section);
+    addEventListener('scroll',prepare,{passive:true});
+    matchMedia('(prefers-reduced-motion:reduce)').addEventListener('change',event=>{if(event.matches)activate();},{once:true});
+  }else initialise();
 })();

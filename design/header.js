@@ -7,6 +7,30 @@ export function setupSiteHeader() {
   const close = header.querySelector('.site-menu-close');
   const desktop = matchMedia('(min-width:1100px)');
   const reduced = matchMedia('(prefers-reduced-motion:reduce)');
+  const bar=header.querySelector('.site-header-bar'),brand=header.querySelector('.site-brand');
+  const glass=document.createElement('span');glass.className='site-header-glass';glass.setAttribute('aria-hidden','true');bar.prepend(glass);
+  const symbol=document.createElement('span');symbol.className='site-brand-symbol';symbol.setAttribute('aria-hidden','true');brand.prepend(symbol);
+  header.classList.add('header-compositor');
+  let morphs=[],morphGeneration=0,placed=false;
+  const morphTargets=()=>[glass,symbol,brand.querySelector('.site-brand-name'),brand.querySelector('.site-brand-line'),header.querySelector('.site-nav'),header.querySelector('.site-header-cta'),toggle].filter(node=>node?.getClientRects().length&&getComputedStyle(node).display!=='none');
+  function stopMorph(){morphGeneration++;morphs.forEach(animation=>animation.cancel());morphs=[];header.dataset.headerMorph='idle';}
+  function compactHeader(next){
+    if(header.classList.contains('is-scrolled')===next){placed=true;return;}
+    const targets=morphTargets();
+    const first=new Map(targets.map(node=>[node,node.getBoundingClientRect()]));
+    stopMorph();header.classList.toggle('is-scrolled',next);
+    if(!placed||reduced.matches||!desktop.matches){placed=true;return;}
+    const last=new Map(targets.map(node=>[node,node.getBoundingClientRect()]));
+    const token=++morphGeneration;header.dataset.headerMorph='moving';
+    morphs=targets.map(node=>{
+      const a=first.get(node),b=last.get(node),dx=a.x+a.width/2-b.x-b.width/2,dy=a.y+a.height/2-b.y-b.height/2;
+      if(!a.width||!a.height||!b.width||!b.height)return null;
+      const sx=a.width/b.width,sy=node===symbol?sx:a.height/b.height;
+      return node.animate([{transform:`translate(${dx}px,${dy}px) scale(${sx},${sy})`},{transform:'translate(0px,0px) scale(1,1)'}],{duration:520,easing:'cubic-bezier(.22,1,.36,1)',fill:'both'});
+    }).filter(Boolean);
+    Promise.allSettled(morphs.map(animation=>animation.finished)).then(()=>{if(token===morphGeneration)stopMorph();});
+    placed=true;
+  }
   let frame = 0, closing = 0, opening = 0, anchorFrame = 0, anchorUntil = 0;
   let menuOpen = false, lastAnchor = '';
   const content = dialog.querySelector('.site-menu-content');
@@ -30,6 +54,11 @@ export function setupSiteHeader() {
     if (backgroundBlocked === blocked) return;
     backgroundBlocked = blocked;
     if (blocked) {
+      // Snapshot/pause before changing page attributes; avoid a second whole-page flush.
+      pausedAnimations = document.getAnimations().filter(animation => {
+        const target=animation.effect?.target;
+        return animation.playState==='running'&&target instanceof Element&&!target.closest('.site-menu-panel,.site-menu-scrim,[data-morph-header]');
+      }).map(animation=>{const time=animation.currentTime;animation.pause();if(time!==null)animation.currentTime=time;return[animation,time];});
       scrollLock = {value:document.body.style.getPropertyValue('overflow'), priority:document.body.style.getPropertyPriority('overflow')};
       document.body.style.setProperty('overflow', 'hidden');
       hiddenSiblings = [...document.body.children].filter(node => node !== dialog && node !== scrim && !node.matches('script,style,link')).map(node => [node,node.getAttribute('aria-hidden')]);
@@ -39,10 +68,6 @@ export function setupSiteHeader() {
         .map(node => [node,node.getAttribute('tabindex')]);
       backgroundTabs.forEach(([node]) => node.setAttribute('tabindex','-1'));
       document.dispatchEvent(new CustomEvent('hoea:site-menu',{detail:{open:true}}));
-      pausedAnimations = document.getAnimations().filter(animation => {
-        const target = animation.effect?.target;
-        return animation.playState === 'running' && target instanceof Element && !target.closest('.site-menu-panel,.site-menu-scrim,[data-morph-header]');
-      }).map(animation => {const time=animation.currentTime;animation.pause();if(time!==null)animation.currentTime=time;return [animation,time];});
     } else {
       if (scrollLock?.value) document.body.style.setProperty('overflow',scrollLock.value,scrollLock.priority);
       else document.body.style.removeProperty('overflow');
@@ -70,7 +95,7 @@ export function setupSiteHeader() {
     frame = 0;
     // Hysteresis prevents flickering when scrolling near the changeover point.
     const compact = header.classList.contains('is-scrolled');
-    header.classList.toggle('is-scrolled', desktop.matches && scrollY > (compact ? 24 : 48));
+    compactHeader(desktop.matches && scrollY > (compact ? 24 : 48));
     if (dialog.open) trackAnchor();
   }
   const onScroll = () => { if (!frame) frame = requestAnimationFrame(syncScroll); };
@@ -78,8 +103,11 @@ export function setupSiteHeader() {
   window.addEventListener('scroll', onScroll, { passive:true });
   window.addEventListener('pageshow', syncScroll);
   desktop.addEventListener('change', syncScroll);
+  addEventListener('resize',stopMorph,{passive:true});
+  reduced.addEventListener('change',()=>{if(reduced.matches)stopMorph();});
 
   function placeMenu(bounds = toggle.getBoundingClientRect()) {
+    lastAnchor=[bounds.x,bounds.y,bounds.width,bounds.height,innerWidth,innerHeight].join(',');
     const viewport = document.documentElement.clientWidth;
     const width = Math.min(440, viewport - 32);
     const left = Math.max(16, Math.min(bounds.right + 20 - width, viewport - width - 16));
@@ -134,7 +162,7 @@ export function setupSiteHeader() {
     paintOpen(false);
     dialog.classList.add('is-closing');
     content.inert = true;
-    trackAnchor();
+    if(header.dataset.headerMorph==='moving'||header.dataset.entranceState==='playing')trackAnchor();
     if (reduced.matches) finishClose();
     else closing = setTimeout(finishClose, 660);
   }
@@ -143,12 +171,17 @@ export function setupSiteHeader() {
     clearTimeout(closing);
     closing = 0;
     menuOpen = true;
-    content.inert = false;
-    dialog.classList.remove('is-closing');
     if (!dialog.open) {
       const bounds = toggle.getBoundingClientRect(), appearance = getComputedStyle(toggle);
-      dialog.style.setProperty('--menu-origin-bg', appearance.backgroundColor === 'rgba(0, 0, 0, 0)' ? '#fff' : appearance.backgroundColor);
-      dialog.style.setProperty('--menu-origin-ink', appearance.color);
+      const originBackground=appearance.backgroundColor,originInk=appearance.color;
+      // Pause and isolate the page before committing the opening geometry. This
+      // shares its style/layout flush with placement instead of forcing another
+      // document pass after focusing the close control.
+      blockBackground(true);
+      content.inert = false;
+      dialog.classList.remove('is-closing');
+      dialog.style.setProperty('--menu-origin-bg', originBackground === 'rgba(0, 0, 0, 0)' ? '#fff' : originBackground);
+      dialog.style.setProperty('--menu-origin-ink', originInk);
       dialog.dataset.placing = 'true';
       paintOpen(false);
       header.classList.add('is-open');
@@ -156,18 +189,18 @@ export function setupSiteHeader() {
       else dialog.showModal();
       content.scrollTop = 0;
       placeMenu(bounds);
+      close.focus({preventScroll:true});
       // Commit the measured button circle before enabling the first transition.
       getComputedStyle(dialog).clipPath;
       delete dialog.dataset.placing;
-      getComputedStyle(dialog).clipPath;
       if (reduced.matches) paintOpen(true);
       else opening = requestAnimationFrame(() => {if (menuOpen) paintOpen(true);});
-    } else paintOpen(true);
+    } else {content.inert=false;dialog.classList.remove('is-closing');paintOpen(true);}
     toggle.setAttribute('aria-expanded', 'true');
     toggle.setAttribute('aria-label', 'Close navigation menu');
-    close.focus({preventScroll:true});
+    if(document.activeElement!==close)close.focus({preventScroll:true});
     blockBackground(true);
-    trackAnchor();
+    if(header.dataset.headerMorph==='moving'||header.dataset.entranceState==='playing')trackAnchor();
   }
   toggle.addEventListener('click', openMenu);
   close.addEventListener('click', () => menuOpen ? closeMenu() : openMenu());

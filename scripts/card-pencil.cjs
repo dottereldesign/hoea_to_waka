@@ -6,7 +6,7 @@ const{chromium}=require('playwright');const assert=require('assert/strict');cons
   await page.goto('http://127.0.0.1:8912/about/brand-guidelines/');await page.waitForLoadState('networkidle');assert.equal(await page.locator('[data-card-study]').count(),2);
   assert.equal(await page.locator('.brand-card-study__heading,.bc-sketch-stroke').count(),0,'No outer heading or stray logo underline');
   const ids=await page.locator('[data-card-study] [id]').evaluateAll(es=>es.map(e=>e.id));assert.equal(ids.length,new Set(ids).size,'Both drawings have unique SVG references');
-  const waitReset=side=>page.waitForFunction(side=>document.querySelector(`[data-card-side=${side}]`).getAnimations({subtree:true}).every(a=>a.currentTime===0),side);
+  const waitReset=side=>page.waitForFunction(side=>(()=>{const animations=document.querySelector(`[data-card-side=${side}]`).getAnimations({subtree:true});return animations.length>0&&animations.every(a=>a.currentTime===0);})(),side);
   const waitComplete=side=>page.waitForFunction(side=>document.querySelector(`[data-card-side=${side}]`).getAnimations({subtree:true}).every(a=>a.currentTime>=a.effect.getComputedTiming().endTime),side);
   for(const side of['front','back']){
    const card=page.locator(`[data-card-side=${side}]`),scroll=ratio=>card.evaluate((e,ratio)=>scrollTo({top:scrollY+e.getBoundingClientRect().top-innerHeight*ratio,behavior:'instant'}),ratio);
@@ -16,7 +16,7 @@ const{chromium}=require('playwright');const assert=require('assert/strict');cons
    assert.equal(await card.locator('[data-bc-pencil]').count(),side==='front'?129:54);
    assert(await card.locator('[data-pencil-pass=shade]').evaluateAll(es=>es.every(e=>(e.getAttribute('d').match(/M/g)||[]).length===1)),'Pencil shading follows continuous strokes');
    const state=()=>card.evaluate(e=>[...e.querySelectorAll('[data-bc-pencil]')].map(p=>({pass:p.dataset.pencilPass,offset:parseFloat(getComputedStyle(p).strokeDashoffset),opacity:Number(getComputedStyle(p).opacity)})));
-   assert((await state()).some(p=>p.offset>0&&p.offset<1),'Contours draw gradually');
+   if(!(await state()).some(p=>p.offset>0&&p.offset<1))console.log('DRAW DEBUG',side,await card.evaluate(e=>({state:e.dataset.cardState,top:e.getBoundingClientRect().top,animations:e.getAnimations({subtree:true}).slice(0,8).map(a=>({state:a.playState,time:a.currentTime})),paths:[...e.querySelectorAll('[data-bc-pencil]')].slice(0,8).map(p=>({opacity:getComputedStyle(p).opacity,offset:getComputedStyle(p).strokeDashoffset}))})));assert((await state()).some(p=>p.offset>0&&p.offset<1),'Contours draw gradually');
    await card.evaluate(e=>{window.__pencilAnimations=e.getAnimations({subtree:true});window.__pencilAnimations.forEach(a=>a.pause());});
    for(const time of [700,1200,2300]){await page.evaluate(t=>window.__pencilAnimations.forEach(a=>a.currentTime=t),time);if(time===1200)assert((await state()).some(p=>p.pass==='shade'&&p.offset>0&&p.offset<1));await card.screenshot({path:`tmp/card-sides/${side}-${width}-${time}.png`,style:'.site-header,.brand-jump{visibility:hidden!important}'});}
    assert((await state()).every(p=>p.offset===0&&p.opacity>0),'All pencil strokes finish');

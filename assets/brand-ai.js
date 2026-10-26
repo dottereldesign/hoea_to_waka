@@ -289,15 +289,22 @@
         drawing.forEach(animation => animation.cancel());
       });
     };
+    let followingMetadata=false;
+    const followMetadata=()=>{
+      if(followingMetadata)return;
+      followingMetadata=true;
+      // Resolve the real publication animations when the arrow can be seen.
+      // Reading them during initial DOM writes forced a full-guide style pass.
+      const metadata=document.querySelector('.site-preview-guide-cover-meta');
+      Promise.allSettled((metadata?.getAnimations({subtree:true})||[]).map(animation=>animation.finished))
+        .then(()=>{metaReady=true;reveal();});
+    };
     observer = new IntersectionObserver(entries => {
       inView = entries.some(entry => entry.isIntersecting && entry.intersectionRatio >= .8);
+      if(inView&&!preference.matches)followMetadata();
       reveal();
     }, {threshold:[0,.8],rootMargin:'0px 0px -24px 0px'});
     observer.observe(providerRow);
-    // Follow the actual publication-detail animations, including the final "2026" reveal.
-    const metadata = document.querySelector('.site-preview-guide-cover-meta');
-    Promise.allSettled((metadata?.getAnimations({subtree:true}) || []).map(animation => animation.finished))
-      .then(() => {metaReady = true;reveal();});
     preference.addEventListener('change', () => {
       if (preference.matches) {
         drawing.forEach(animation => animation.cancel());

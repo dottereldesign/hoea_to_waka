@@ -40,8 +40,9 @@ const Axe=require('@axe-core/playwright').default;
     assert.equal(await svg.getAttribute('data-angle'),'0.000');
     await motion.clock.runFor(2000);assert.equal(await svg.getAttribute('data-angle'),'0.000','Door waits for its first viewport entry');
     const setDoorTop=async fraction=>{
-      await svg.evaluate((e,fraction)=>scrollTo({top:scrollY+e.getBoundingClientRect().top-innerHeight*fraction,behavior:'instant'}),fraction);
-      await motion.waitForTimeout(60);
+      await svg.evaluate((e,fraction)=>{scrollTo({top:scrollY+e.getBoundingClientRect().top-innerHeight*fraction,behavior:'instant'});dispatchEvent(new Event('scroll'));},fraction);
+      // Deliver viewport observers before sampling the deferred scene's clock.
+      await motion.clock.runFor(32);await motion.waitForTimeout(60);
     };
     await setDoorTop(.75);await motion.clock.runFor(550);
     assert(Number(await svg.getAttribute('data-angle'))>0&&Number(await svg.getAttribute('data-angle'))<67);

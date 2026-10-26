@@ -13,6 +13,9 @@ import { setupTypographyStudies } from './typography-studies';
 import { setupBrandDownloads } from './brand-assets';
 
 const root=document.documentElement;
+// Establish reduced-motion layout before the body is parsed, including when
+// the deferred interaction bundle is delayed or unavailable.
+root.classList.toggle('ds-motion-paused',matchMedia('(prefers-reduced-motion:reduce)').matches);
 function apply(){
   root.dataset.palette='hoea';
   root.dataset.typography='inter';

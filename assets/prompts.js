@@ -187,7 +187,7 @@
     const prompt = node('p', 'prompt-full-text', fullPrompt(item));
     details.append(summary, prompt);
     const button = node('button', 'prompt-copy'); button.type = 'button';
-    button.setAttribute('aria-label', `Copy prompt: ${item.title}`);
+    button.setAttribute('aria-label', `Copy complete prompt: ${item.title}`);
     button.append(node('span', '', 'Copy complete prompt'));
     const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     svg.setAttribute('viewBox', '0 0 24 24'); svg.setAttribute('aria-hidden', 'true');
