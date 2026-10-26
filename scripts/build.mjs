@@ -51,5 +51,6 @@ await writeFile('assets/brand-guide-components.css',(await transform(await readF
 await build({entryPoints:['design/theme-init.js'],bundle:true,minify:true,format:'iife',target:['es2020'],outfile:'assets/theme-init.js'});
 await build({entryPoints:['design/site-interactions.js'],bundle:true,minify:true,format:'iife',target:['es2020'],outfile:'assets/site-interactions.js',legalComments:'linked'});
 await build({entryPoints:['design/motion-sections.js'],bundle:true,minify:true,format:'iife',target:['es2020'],outfile:'assets/motion-sections.js',legalComments:'linked'});
+await build({entryPoints:['design/anna-timelines.js'],bundle:true,minify:true,format:'iife',target:['es2020'],outfile:'assets/anna-timelines-runtime.js'});
 
 await import('./brand-context.mjs');

@@ -98,3 +98,52 @@ html[data-palette] #anna-story .anna-milestone p{color:var(--story-muted);font-s
 #anna-story[data-motion-reduced=true][data-timeline-variant=stack] .anna-milestone{position:relative;top:auto}
 #anna-story[data-motion-reduced=true][data-timeline-variant=stack] .anna-list{padding-bottom:0}
 @media(prefers-reduced-motion:reduce){#anna-story *,#anna-story *::before{scroll-behavior:auto!important;transition:none!important}}
+
+/* 01 — two pencil banks, a small kayak, and quiet landings along the story. */
+#anna-story .anna-river{display:none;position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;z-index:2;color:var(--story-ink)}
+#anna-story[data-timeline-variant=thread] .anna-river{display:block}
+#anna-story[data-timeline-variant=thread] .anna-route{display:none}
+#anna-story[data-timeline-variant=thread] .anna-list{gap:76px;padding-block:56px;z-index:1}
+#anna-story[data-timeline-variant=thread] .anna-milestone{grid-template-columns:minmax(0,1fr) 220px minmax(0,1fr);min-height:360px}
+#anna-story[data-timeline-variant=thread] .anna-milestone__copy{background:transparent;padding:28px 16px 28px 0;--river-slide:34px}
+#anna-story[data-timeline-variant=thread] .anna-milestone:nth-child(even) .anna-milestone__copy{padding:28px 0 28px 16px;--river-slide:-34px}
+#anna-story.is-enhanced[data-timeline-variant=thread] .anna-milestone__copy{opacity:clamp(0,var(--tl-p),1);transform:translateX(calc((1 - var(--tl-p))*var(--river-slide)));transform-origin:center}
+#anna-story[data-timeline-variant=thread] .anna-node{left:calc(50% + var(--river-node-x,0px) - 7px);top:calc(50% - 7px);background:#f5f8f5;border-color:#526b68}
+#anna-story[data-timeline-variant=thread] .anna-node::after{background:#526b68}
+#anna-story[data-timeline-variant=thread] .anna-node::before{content:"";position:absolute;inset:-8px;border:1px solid #526b6866;border-radius:50%;opacity:0}
+#anna-story[data-timeline-variant=thread] .river-node-hit .anna-node{animation:riverLanding 640ms cubic-bezier(.22,1,.36,1)}
+#anna-story[data-timeline-variant=thread] .river-node-hit .anna-node::before{animation:riverLandingRing 820ms ease-out}
+#anna-story[data-timeline-variant=thread] .anna-milestone::after{content:"";position:absolute;left:calc(50% - 114px);top:50%;width:calc(95px + var(--river-node-x,0px));height:1px;background:repeating-linear-gradient(90deg,#526b6866 0 4px,transparent 4px 8px);transform:scaleX(clamp(0,var(--tl-p),1));transform-origin:right;opacity:.55}
+#anna-story[data-timeline-variant=thread] .anna-milestone:nth-child(even)::after{left:calc(50% + var(--river-node-x,0px) + 19px);width:calc(95px - var(--river-node-x,0px));transform-origin:left}
+.anna-river path,.anna-river ellipse{stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.river-water path{fill:url(#anna-river-water);opacity:.65}
+.river-banks path{fill:none;stroke:url(#anna-river-bank);stroke-width:1.15;opacity:.73}
+.river-banks .river-pencil{stroke-width:.6;opacity:.22}
+.river-shore{stroke:#6b7b70;fill:none;stroke-width:.9;opacity:.5}
+.river-shore .river-pencil{opacity:.45;stroke-width:.65}
+.river-currents path{fill:none;stroke:#829b98;stroke-width:.75;stroke-dasharray:7 13 3 20;opacity:.32;animation:none}
+.river-is-active .river-currents path{animation:riverCurrent 5.6s linear var(--current-delay) infinite}
+.river-kayak__hull{fill:#faf8ef;stroke:#243a53;stroke-width:1.3}
+.river-kayak__seam{fill:none;stroke:#526b68;stroke-width:.7;opacity:.65}
+.river-kayak__cockpit{fill:#b9ccc5;stroke:#243a53;stroke-width:.85}
+.river-kayak__person{fill:#526b68;stroke:none}
+.river-kayak__head{fill:#bba78f;stroke:#243a53;stroke-width:.6}
+.river-paddle{fill:none;stroke:#243a53;stroke-width:1.1}
+.river-paddle__blade{fill:#d5dfd9;stroke-width:.8}
+.river-wake{fill:none;stroke:#829b98;stroke-width:.8;opacity:calc(var(--river-speed,0)*.5);stroke-dasharray:8 5;animation:none}
+.river-is-active.river-is-moving .river-wake{animation:riverWake 1.6s linear infinite}
+@keyframes riverCurrent{to{stroke-dashoffset:-43}}
+@keyframes riverWake{to{stroke-dashoffset:26}}
+@keyframes riverLanding{0%{transform:scale(1)}42%{transform:scale(1.5)}72%{transform:scale(.95)}100%{transform:scale(1)}}
+@keyframes riverLandingRing{0%{opacity:.65;transform:scale(.65)}100%{opacity:0;transform:scale(1.65)}}
+@media(max-width:760px){
+  #anna-story[data-timeline-variant=thread] .anna-list{gap:64px;padding-block:56px}
+  #anna-story[data-timeline-variant=thread] .anna-milestone{display:block;min-height:300px;padding-left:100px}
+  #anna-story[data-timeline-variant=thread] .anna-milestone__copy,#anna-story[data-timeline-variant=thread] .anna-milestone:nth-child(even) .anna-milestone__copy{padding:24px 0;--river-slide:-24px}
+  #anna-story[data-timeline-variant=thread] .anna-node{left:calc(40px + var(--river-node-x,0px) - 7px);top:calc(50% - 7px)}
+  #anna-story[data-timeline-variant=thread] .anna-milestone:nth-child(n)::after{left:calc(40px + var(--river-node-x,0px) + 18px);width:calc(34px - var(--river-node-x,0px));transform-origin:left}
+  html[data-palette] #anna-story[data-timeline-variant=thread] .anna-milestone h3{font-size:clamp(25px,5vw,34px)}
+}
+#anna-story[data-motion-reduced=true] .anna-river *{animation:none!important}
+#anna-story[data-motion-reduced=true] .anna-node{animation:none!important}
+@media(prefers-reduced-motion:reduce){#anna-story .anna-river *,#anna-story .anna-node,#anna-story .anna-node::before{animation:none!important}}

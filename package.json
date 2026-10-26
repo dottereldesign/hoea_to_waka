@@ -12,6 +12,7 @@
     "test:marquee": "node scripts/topic-marquee.cjs",
     "test:home-moon-door": "node scripts/home-moon-door.cjs",
     "test:anna-timelines": "node scripts/anna-timelines.cjs",
+    "test:anna-river": "node scripts/anna-river.cjs",
     "test:brand-colours": "node scripts/brand-colours.cjs",
     "test:header": "node scripts/header.cjs",
     "test:header-entrance": "node scripts/header-entrance.cjs && node scripts/header-entrance-stress.cjs",

@@ -6,7 +6,7 @@
   const route=root.querySelector('.anna-route'),ink=route.querySelector('.anna-route__ink');
   const preference=matchMedia('(prefers-reduced-motion: reduce)');
   const studies={
-    thread:['01 · Drawn thread','An ink line finds its way between the chapters, with little elastic landings.'],
+    thread:['01 · Drawn thread','Follow a sketched river through Anna’s story. Scroll gently: each landing gives the next chapter a little room.'],
     stack:['02 · Paper chapters','One paper chapter makes room for the next. Scroll gently through the stack.'],
     worlds:['03 · Small worlds','Little scenes draw themselves into place, each grounded on the page.'],
     horizon:['04 · The horizon','A wide view of the story. Scroll down to travel along it, or use the chapter arrows.'],
@@ -18,7 +18,7 @@
     strokes:[...item.querySelectorAll('[data-draw]')],leaves:[...item.querySelectorAll('[data-leaf]')],
     chairs:[...item.querySelectorAll('[data-chair]')],books:[...item.querySelectorAll('[data-book]')],beam:item.querySelector('[data-beam]')}));
   const progress=spring(),pan=spring();
-  let variant=root.dataset.timelineVariant,frame=0,measureFrame=0,lastTime,blocked=false,horizon=false,chapter=0,paintCount=0,needsRoute=false;
+  let variant=root.dataset.timelineVariant,frame=0,measureFrame=0,lastTime,blocked=false,horizon=false,chapter=0,paintCount=0,needsRoute=false,river;
   const f=n=>Number(n.toFixed(4));
   states.forEach(state=>state.strokes.forEach(path=>{path.setAttribute('pathLength','1');path.style.strokeDasharray='1';}));
   ink.style.strokeDasharray='1';
@@ -50,19 +50,25 @@
     });
     ink.style.strokeDashoffset=f(1-clamp(progress.x));
     list.style.transform=horizon?`translate3d(${f(pan.x)}px,0,0)`:'';
+    if(variant==='thread')river?.paint();
     root.dataset.timelineFrame=String(++paintCount);
   }
   function tick(time){
     frame=0;if(blocked||document.hidden)return;
     const dt=lastTime===undefined?1/60:Math.min((time-lastTime)/1000,.04);lastTime=time;
     let running=false;
+    if(variant==='thread'&&river){
+      running=river.step(dt)||running;
+      states.forEach((state,i)=>{state.reveal.t=state.node.t=Number(river.reached(i));});
+    }
     states.forEach(state=>{running=integrate(state.reveal,dt)||running;running=integrate(state.node,dt,200,14)||running;running=integrate(state.cover,dt,90,18)||running;});
     running=integrate(progress,dt,80,17)||running;running=integrate(pan,dt,65,16)||running;
     paint();root.dataset.timelineState=running?'running':'settled';
     if(running)frame=requestAnimationFrame(tick);else lastTime=undefined;
   }
   function run(){if(!frame&&!blocked&&!document.hidden){lastTime=undefined;frame=requestAnimationFrame(tick);}}
-  function buildRoute(){
+  function buildRoute(bounds){
+    if(variant==='thread'&&river){river.build(bounds,pin.getBoundingClientRect());return;}
     if(!['thread','constellation'].includes(variant))return;
     const box=pin.getBoundingClientRect();if(!box.width||!box.height)return;
     route.setAttribute('viewBox',`0 0 ${f(box.width)} ${f(box.height)}`);
@@ -79,6 +85,8 @@
     route.querySelector('.anna-stars').innerHTML=stars.map(star=>`<circle cx="${f(star.x*box.width)}" cy="${f(star.y*box.height)}" r="${star.r}"/>`).join('');
   }
   function configure(){
+    if(variant==='thread'&&!river)river=window.createAnnaRiver?.(root,items);
+    if(variant!=='thread')river?.pause();
     horizon=variant==='horizon'&&innerWidth>900&&innerHeight>700&&!preference.matches;
     root.classList.toggle('is-horizon-scroll',horizon);
     root.dataset.motionReduced=String(preference.matches);
@@ -95,11 +103,12 @@
     measureFrame=0;
     if(blocked||document.hidden)return;
     const box=stage.getBoundingClientRect(),visible=box.bottom>0&&box.top<innerHeight;
-    if(rebuild)buildRoute();
     const bounds=items.map(item=>item.getBoundingClientRect());
+    if(rebuild)buildRoute(bounds);
+    if(variant==='thread'&&river)river.setScroll(scrollY,visible,preference.matches);
     let reached=0;
     states.forEach((state,i)=>{
-      const target=preference.matches||variant==='horizon'?1:Number(bounds[i].top<innerHeight*.91);
+      const target=preference.matches||variant==='horizon'?1:variant==='thread'&&river?Number(river.reached(i)):Number(bounds[i].top<innerHeight*.91);
       state.reveal.t=target;state.node.t=target;
       const next=bounds[i+1];state.cover.t=variant==='stack'&&innerWidth>760&&next?clamp((124+i*12+250-next.top)/250):0;
       if(target)reached=(i+1)/items.length;
@@ -126,6 +135,7 @@
     if(!studies[id])return;
     cancelAnimationFrame(frame);frame=0;lastTime=undefined;
     variant=id;root.dataset.timelineVariant=id;
+    if(id==='thread')river?.reset();
     buttons.forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.annaStudy===id)));
     const [name,description]=studies[id];root.querySelector('[data-anna-study-name]').textContent=name;root.querySelector('[data-anna-study-description]').textContent=description;
     states.forEach(state=>{snap(state.reveal,preference.matches?1:0);snap(state.node,preference.matches?1:0);snap(state.cover,0);});snap(progress,0);snap(pan,0);
@@ -148,7 +158,7 @@
   list.addEventListener('scroll',()=>queue(),{passive:true});
   addEventListener('scroll',()=>queue(),{passive:true});
   addEventListener('resize',()=>{configure();queue(true);},{passive:true});
-  const suspend=()=>{cancelAnimationFrame(frame);cancelAnimationFrame(measureFrame);frame=measureFrame=0;lastTime=undefined;root.dataset.timelineState='suspended';};
+  const suspend=()=>{cancelAnimationFrame(frame);cancelAnimationFrame(measureFrame);frame=measureFrame=0;lastTime=undefined;river?.pause();root.dataset.timelineState='suspended';};
   document.addEventListener('hoea:site-menu',event=>{blocked=event.detail.open;if(blocked)suspend();else queue(true);});
   document.addEventListener('visibilitychange',()=>{if(document.hidden)suspend();else queue(true);});
   preference.addEventListener('change',()=>{configure();queue(true);});
