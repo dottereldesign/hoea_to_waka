@@ -88,8 +88,12 @@ html[data-palette] :is([data-component="home:4:features"],[data-component="about
 
 /* Services share the solid hero's charcoal surface. */
 html[data-palette] .page-home [data-component="home:3:services"]{
+ /* Native anchors add the root scroll padding (110px desktop, 88px mobile). */
+ scroll-margin-top:-102px;
  background:#202020;--ds-bg:#202020!important;--ds-surface:#202020!important;--ds-ink:#fff!important;--ds-muted:#d5d5d5!important;
 }
 
 /* A consistent paragraph size throughout the homepage. */
 html[data-palette][data-typography] body.page-home p{font-size:1.1rem!important}
+
+@media(max-width:760px){html[data-palette] .page-home #services{scroll-margin-top:-80px}}
