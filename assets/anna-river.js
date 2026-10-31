@@ -19,7 +19,7 @@
     pin.prepend(svg);
     const ocean=document.createElementNS(ns,'svg');
     ocean.classList.add('anna-ocean-cut');ocean.setAttribute('aria-hidden','true');
-    ocean.innerHTML='<defs><clipPath id="anna-ocean-crack"><path/></clipPath><linearGradient id="anna-ocean-shade" x2="0" y2="1"><stop stop-color="#071f30" stop-opacity=".62"/><stop offset=".28" stop-color="#071f30" stop-opacity=".15"/><stop offset="1" stop-color="#071f30" stop-opacity=".3"/></linearGradient></defs><g clip-path="url(#anna-ocean-crack)"><image href="../assets/anna-ocean-passage.webp" preserveAspectRatio="xMidYMid slice"/><rect fill="url(#anna-ocean-shade)"/></g>';
+    ocean.innerHTML='<defs><clipPath id="anna-ocean-crack"><path/></clipPath></defs><rect clip-path="url(#anna-ocean-crack)" fill="#0D4687"/>';
     root.prepend(ocean);
     const boat=svg.querySelector('.river-kayak'),paddle=svg.querySelector('.river-paddle');
     const clamp=(n,a=0,b=1)=>Math.min(b,Math.max(a,n)),f=n=>Number(n.toFixed(3));
@@ -59,7 +59,6 @@
       // One continuous silhouette: broad ocean above, fractured shoulders, narrow passage below.
       const rootBox=root.getBoundingClientRect(),ox=box.left-rootBox.left,oy=box.top-rootBox.top,rw=rootBox.width,rh=rootBox.height;
       ocean.setAttribute('viewBox',`0 0 ${rw} ${rh}`);
-      ocean.querySelector('image').setAttribute('width',rw);ocean.querySelector('image').setAttribute('height',rh);
       ocean.querySelector('rect').setAttribute('width',rw);ocean.querySelector('rect').setAttribute('height',rh);
       const banks=[[],[]];
       for(let y=0;y<=height;y+=10){
