@@ -7,6 +7,7 @@
   const preference=matchMedia('(prefers-reduced-motion: reduce)');
   const studies={
     thread:['01 · Drawn thread','Follow a sketched river through Anna’s story. Scroll gently: each landing gives the next chapter a little room.'],
+    thread2:['01 pt 2 \u00b7 Ocean passage','An ocean passage cut through white paper. Follow the waka down Anna\u2019s story.'],
     stack:['02 · Paper chapters','One paper chapter makes room for the next. Scroll gently through the stack.'],
     worlds:['03 · Small worlds','Little scenes draw themselves into place, each grounded on the page.'],
     horizon:['04 · The horizon','A wide view of the story. Scroll down to travel along it, or use the chapter arrows.'],
@@ -50,14 +51,14 @@
     });
     ink.style.strokeDashoffset=f(1-clamp(progress.x));
     list.style.transform=horizon?`translate3d(${f(pan.x)}px,0,0)`:'';
-    if(variant==='thread')river?.paint();
+    if(['thread','thread2'].includes(variant))river?.paint();
     root.dataset.timelineFrame=String(++paintCount);
   }
   function tick(time){
     frame=0;if(blocked||document.hidden)return;
     const dt=lastTime===undefined?1/60:Math.min((time-lastTime)/1000,.04);lastTime=time;
     let running=false;
-    if(variant==='thread'&&river){
+    if(['thread','thread2'].includes(variant)&&river){
       running=river.step(dt)||running;
       states.forEach((state,i)=>{state.reveal.t=state.node.t=Number(river.reached(i));});
     }
@@ -68,8 +69,8 @@
   }
   function run(){if(!frame&&!blocked&&!document.hidden){lastTime=undefined;frame=requestAnimationFrame(tick);}}
   function buildRoute(bounds){
-    if(variant==='thread'&&river){river.build(bounds,pin.getBoundingClientRect());return;}
-    if(!['thread','constellation'].includes(variant))return;
+    if(['thread','thread2'].includes(variant)&&river){river.build(bounds,pin.getBoundingClientRect());return;}
+    if(!['thread','thread2','constellation'].includes(variant))return;
     const box=pin.getBoundingClientRect();if(!box.width||!box.height)return;
     route.setAttribute('viewBox',`0 0 ${f(box.width)} ${f(box.height)}`);
     const points=items.map(item=>{const b=item.querySelector('.anna-node').getBoundingClientRect();return[b.left+b.width/2-box.left,b.top+b.height/2-box.top];});
@@ -77,7 +78,7 @@
     d+=`L${points[0].map(f).join(' ')}`;
     for(let i=1;i<points.length;i++){
       const [x,y]=points[i-1],[nx,ny]=points[i];
-      if(variant==='thread'){const bend=innerWidth>760?70:12,mid=(y+ny)/2;d+=`C${f(x+bend)} ${f(mid)} ${f(nx-bend)} ${f(mid)} ${f(nx)} ${f(ny)}`;}
+      if(['thread','thread2'].includes(variant)){const bend=innerWidth>760?70:12,mid=(y+ny)/2;d+=`C${f(x+bend)} ${f(mid)} ${f(nx-bend)} ${f(mid)} ${f(nx)} ${f(ny)}`;}
       else{const mid=(x+nx)/2;d+=`C${f(mid)} ${f(y)} ${f(mid)} ${f(ny)} ${f(nx)} ${f(ny)}`;}
     }
     const end=points.at(-1);d+=`L${f(end[0])} ${f(Math.min(box.height,end[1]+52))}`;
@@ -85,8 +86,8 @@
     route.querySelector('.anna-stars').innerHTML=stars.map(star=>`<circle cx="${f(star.x*box.width)}" cy="${f(star.y*box.height)}" r="${star.r}"/>`).join('');
   }
   function configure(){
-    if(variant==='thread'&&!river)river=window.createAnnaRiver?.(root,items);
-    if(variant!=='thread')river?.pause();
+    if(['thread','thread2'].includes(variant)&&!river)river=window.createAnnaRiver?.(root,items);
+    if(!['thread','thread2'].includes(variant))river?.pause();
     horizon=variant==='horizon'&&innerWidth>900&&innerHeight>700&&!preference.matches;
     root.classList.toggle('is-horizon-scroll',horizon);
     root.dataset.motionReduced=String(preference.matches);
@@ -105,10 +106,10 @@
     const box=stage.getBoundingClientRect(),visible=box.bottom>0&&box.top<innerHeight;
     const bounds=items.map(item=>item.getBoundingClientRect());
     if(rebuild)buildRoute(bounds);
-    if(variant==='thread'&&river)river.setScroll(scrollY,visible,preference.matches);
+    if(['thread','thread2'].includes(variant)&&river)river.setScroll(scrollY,visible,preference.matches);
     let reached=0;
     states.forEach((state,i)=>{
-      const target=preference.matches||variant==='horizon'?1:variant==='thread'&&river?Number(river.reached(i)):Number(bounds[i].top<innerHeight*.91);
+      const target=preference.matches||variant==='horizon'?1:['thread','thread2'].includes(variant)&&river?Number(river.reached(i)):Number(bounds[i].top<innerHeight*.91);
       state.reveal.t=target;state.node.t=target;
       const next=bounds[i+1];state.cover.t=variant==='stack'&&innerWidth>760&&next?clamp((124+i*12+250-next.top)/250):0;
       if(target)reached=(i+1)/items.length;
@@ -135,7 +136,7 @@
     if(!studies[id])return;
     cancelAnimationFrame(frame);frame=0;lastTime=undefined;
     variant=id;root.dataset.timelineVariant=id;
-    if(id==='thread')river?.reset();
+    if(['thread','thread2'].includes(id))river?.reset();
     buttons.forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.annaStudy===id)));
     const [name,description]=studies[id];root.querySelector('[data-anna-study-name]').textContent=name;root.querySelector('[data-anna-study-description]').textContent=description;
     states.forEach(state=>{snap(state.reveal,preference.matches?1:0);snap(state.node,preference.matches?1:0);snap(state.cover,0);});snap(progress,0);snap(pan,0);

@@ -17,6 +17,10 @@
         </g>
       </g>`;
     pin.prepend(svg);
+    const ocean=document.createElementNS(ns,'svg');
+    ocean.classList.add('anna-ocean-cut');ocean.setAttribute('aria-hidden','true');
+    ocean.innerHTML='<defs><clipPath id="anna-ocean-crack"><path/></clipPath><linearGradient id="anna-ocean-shade" x2="0" y2="1"><stop stop-color="#071f30" stop-opacity=".62"/><stop offset=".28" stop-color="#071f30" stop-opacity=".15"/><stop offset="1" stop-color="#071f30" stop-opacity=".3"/></linearGradient></defs><g clip-path="url(#anna-ocean-crack)"><image href="../assets/anna-ocean-passage.webp" preserveAspectRatio="xMidYMid slice"/><rect fill="url(#anna-ocean-shade)"/></g>';
+    root.prepend(ocean);
     const boat=svg.querySelector('.river-kayak'),paddle=svg.querySelector('.river-paddle');
     const clamp=(n,a=0,b=1)=>Math.min(b,Math.max(a,n)),f=n=>Number(n.toFixed(3));
     const smooth=t=>t*t*t*(t*(t*6-15)+10);
@@ -52,6 +56,28 @@
         left.push([x-half*normal,y+half*slope*normal]);right.push([x+half*normal,y-half*slope*normal]);
       }
       svg.setAttribute('viewBox',`0 0 ${f(width)} ${f(height)}`);
+      // One continuous silhouette: broad ocean above, fractured shoulders, narrow passage below.
+      const rootBox=root.getBoundingClientRect(),ox=box.left-rootBox.left,oy=box.top-rootBox.top,rw=rootBox.width,rh=rootBox.height;
+      ocean.setAttribute('viewBox',`0 0 ${rw} ${rh}`);
+      ocean.querySelector('image').setAttribute('width',rw);ocean.querySelector('image').setAttribute('height',rh);
+      ocean.querySelector('rect').setAttribute('width',rw);ocean.querySelector('rect').setAttribute('height',rh);
+      const banks=[[],[]];
+      for(let y=0;y<=height;y+=10){
+        const taper=Math.max(0,1-y/(mobile?110:340)),half=((mobile?23:38)+taper*(mobile?rw*.2:rw*.28))*Math.min(1,(height-y)/170+.025);
+        for(let side=0;side<2;side++){
+          const sign=side?1:-1;
+          const rough=(Math.sin(y*.071+side*7)*5+Math.sin(y*.193+side*3)*3+Math.sin(y*.047)*7)*(mobile?.55:1);
+          banks[side].push([ox+xAt(y)+sign*(half+rough),oy+y]);
+        }
+      }
+      const shoulder=oy-180;
+      const cutLeft=[[0,0],[0,shoulder+55],[rw*.08,shoulder+62],[rw*.12,shoulder+21],[rw*.16,shoulder+32],[rw*.19,shoulder-5],[rw*.23,shoulder+53],[rw*.27,shoulder+69],[rw*.3,shoulder+43],[rw*.34,shoulder+101],...banks[0]];
+      const cutRight=[...banks[1].reverse(),[rw*.74,shoulder+77],[rw*.77,shoulder+38],[rw*.81,shoulder+52],[rw*.85,shoulder+6],[rw*.89,shoulder+25],[rw*.93,shoulder+17],[rw,shoulder+49],[rw,0]];
+      const outline=[...cutLeft,...cutRight];
+      const fractured=[];
+      outline.forEach((p,i)=>{const previous=outline[i-1];if(previous&&p[1]>shoulder-10&&previous[1]>shoulder-10&&Math.hypot(p[0]-previous[0],p[1]-previous[1])>45){const steps=Math.ceil(Math.hypot(p[0]-previous[0],p[1]-previous[1])/16);for(let j=1;j<steps;j++){const t=j/steps;fractured.push([previous[0]+(p[0]-previous[0])*t+Math.sin(i*7+j*3)*3,previous[1]+(p[1]-previous[1])*t+Math.sin(i*3+j*7)*4]);}}fractured.push(p);});
+      ocean.querySelector('clipPath path').setAttribute('d','M'+fractured.map(p=>p.map(f).join(' ')).join('L')+'Z');
+
       const ld=curve(left),rd=curve(right),water=ld+'L'+right.at(-1).map(f).join(' ')+curve([...right].reverse()).replace(/^M[^C]+/,'')+'Z';
       svg.querySelector('.river-water').innerHTML=`<path d="${water}"/>`;
       svg.querySelector('.river-banks').innerHTML=`<path d="${ld}"/><path d="${rd}"/><path class="river-pencil" d="${ld}" transform="translate(1.1 -.5)"/><path class="river-pencil" d="${rd}" transform="translate(-.8 .7)"/>`;
