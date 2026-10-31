@@ -155,10 +155,12 @@ html[data-palette] #anna-story .anna-milestone p{color:var(--story-muted);font-s
 #anna-story[data-timeline-variant=thread2] .anna-story__heading{position:relative;z-index:3;padding:36px 20px 64px;margin-bottom:32px;max-width:900px;text-shadow:0 2px 20px #061e2d80}
 html[data-palette] #anna-story[data-timeline-variant=thread2] .anna-story__heading :is(h2,p){color:#fff}
 #anna-story[data-timeline-variant=thread2] :is(.anna-studies,.anna-study-caption,.anna-timeline-footer){position:relative;z-index:3}
-#anna-story[data-timeline-variant=thread2] .anna-study-caption{background:#fff;padding:16px 24px;border-radius:4px}
+#anna-story[data-timeline-variant=thread2] .anna-study-caption{display:none}
 #anna-story[data-timeline-variant=thread2] .anna-stage{z-index:1}
 #anna-story[data-timeline-variant=thread2] :is(.river-water,.river-banks,.river-shore,.river-currents){visibility:hidden}
 #anna-story[data-timeline-variant=thread2] .river-kayak__hull{fill:#f6e7c7;stroke:#342a22;stroke-width:1.8}
 #anna-story[data-timeline-variant=thread2] .river-wake{stroke:#fff;stroke-width:1.2}
 #anna-story[data-timeline-variant=thread2] .anna-node{background:#fff;border-color:#fff}
 @media(max-width:760px){#anna-story[data-timeline-variant=thread2] .anna-story__heading{padding:16px 0 40px}#anna-story[data-timeline-variant=thread2] .anna-study-caption{padding:12px}}
+
+#anna-story[data-timeline-variant=thread2] .anna-studies{margin-bottom:48px}
