@@ -13,7 +13,8 @@
           <path class="river-kayak__seam" d="M0 24V13M0-15V-25M-5 15 5 20M5 15-4 20M-5-17 5-21M5-17-4-21"/>
           <ellipse class="river-kayak__cockpit" cx="0" cy="-1" rx="4.8" ry="9"/>
           <path class="river-kayak__person" d="M-3-4Q0-7 3-4L2 3H-2Z"/><circle class="river-kayak__head" cx="0" cy="5" r="2.5"/>
-          <g class="river-paddle"><path d="M-19-9 19 9"/><path class="river-paddle__blade" d="M-22-12Q-27-10-21-6L-16-5-16-8ZM22 12Q27 10 21 6L16 5 16 8Z"/></g>
+          <g class="river-paddle-splashes" fill="none" stroke="#b8d9e9" stroke-width=".8"><path data-paddle-splash="left" d="M-27-5Q-31 0-27 5M-30-7Q-35 0-30 7"/><path data-paddle-splash="right" d="M27-5Q31 0 27 5M30-7Q35 0 30 7"/></g>
+          <g class="river-paddle"><path d="M-20 0H20"/><path class="river-paddle__blade" data-paddle-blade="left" d="M-18-1.2L-23-3Q-29-3-28 0Q-29 3-23 3L-18 1.2Z"/><path class="river-paddle__blade" data-paddle-blade="right" d="M18-1.2L23-3Q29-3 28 0Q29 3 23 3L18 1.2Z"/></g>
         </g>
       </g>`;
     pin.prepend(svg);
@@ -22,6 +23,8 @@
     ocean.innerHTML='<defs><clipPath id="anna-ocean-crack"><path/></clipPath></defs><rect clip-path="url(#anna-ocean-crack)" fill="#0D4687"/>';
     root.prepend(ocean);
     const boat=svg.querySelector('.river-kayak'),paddle=svg.querySelector('.river-paddle');
+    const blades=[...svg.querySelectorAll('[data-paddle-blade]')],splashes=[...svg.querySelectorAll('[data-paddle-splash]')];
+    let paddlePhase=0;
     const clamp=(n,a=0,b=1)=>Math.min(b,Math.max(a,n)),f=n=>Number(n.toFixed(3));
     const smooth=t=>t*t*t*(t*(t*6-15)+10);
     let samples=[],stops=[],length=0,armedAt=null,visible=false,reduced=false,angle=0,angularVelocity=0;
@@ -151,6 +154,8 @@
       if(!passage&&Math.abs(distance-previous)>max){distance=previous+Math.sign(distance-previous)*max;velocity=Math.sign(velocity)*(mobile?950:1200);}
       distance=clamp(distance,0,length);
       if(Math.abs(distance-target)<.015&&Math.abs(velocity)<.1){distance=target;velocity=0;}
+      // A timed left/right cadence avoids frantic strokes during fast scrolls.
+      paddlePhase+=dt*(3.5+1.5*clamp(Math.abs(velocity)/600))*clamp(Math.abs(velocity)/45);
       const tangent=-Math.atan(pointAt(distance).slope)*180/Math.PI;
       [angle,angularVelocity]=critical(angle,angularVelocity,tangent,passage?26:17,dt);
       if(Math.abs(angle-tangent)<.005&&Math.abs(angularVelocity)<.02){angle=tangent;angularVelocity=0;}
@@ -161,10 +166,15 @@
       if(!samples.length)return;
       const p=pointAt(distance),speed=clamp(Math.abs(velocity)/200),rock=Math.sin(distance*.055)*.7*speed;
       boat.setAttribute('transform',`translate(${f(p.x)} ${f(p.y)}) rotate(${f(angle+rock)}) scale(${mobile?.8:1})`);
-      paddle.setAttribute('transform',`rotate(${f(Math.sin(distance*.085)*12*speed)})`);
+      const sweep=Math.sin(paddlePhase),stroke=Math.cos(paddlePhase);
+      paddle.setAttribute('transform',`rotate(${f(-sweep*34)}) scale(${f(.88+.12*Math.abs(stroke))} 1)`);
+      // Opposite blade feathers out of the water during each power stroke.
+      blades.forEach((blade,i)=>{const immersion=clamp((i?stroke:-stroke)*2+.5);blade.setAttribute('transform',`scale(1 ${f(.38+.62*immersion)})`);});
+      splashes.forEach((splash,i)=>{const pull=clamp(i?stroke:-stroke);splash.setAttribute('opacity',f(pull*speed*.65));splash.setAttribute('transform',`translate(0 ${f((i?-1:1)*sweep*14)})`);});
+      paddle.dataset.phase=String(f(paddlePhase));
       svg.style.setProperty('--river-speed',f(speed));svg.classList.toggle('river-is-moving',speed>.015);
       svg.dataset.distance=String(f(distance));svg.dataset.target=String(f(target));svg.dataset.angle=String(f(angle));
     }
-    return {build,setScroll,step,paint,reached:i=>reached[i],reset(){armedAt=null;distance=target=launch;velocity=angle=angularVelocity=0;reached.fill(false);items.forEach(item=>item.classList.remove('river-node-hit'));},pause(){svg.classList.remove('river-is-active','river-is-moving');}};
+    return {build,setScroll,step,paint,reached:i=>reached[i],reset(){armedAt=null;distance=target=launch;velocity=angle=angularVelocity=paddlePhase=0;reached.fill(false);items.forEach(item=>item.classList.remove('river-node-hit'));},pause(){svg.classList.remove('river-is-active','river-is-moving');}};
   };
 })();

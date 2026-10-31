@@ -1,0 +1,11 @@
+﻿const {chromium}=require('playwright'),assert=require('node:assert/strict'),fs=require('node:fs');
+(async()=>{const server=require('./preview.cjs')(8918),browser=await chromium.launch({channel:'chrome'});try{
+fs.mkdirSync('tmp/anna-paddle',{recursive:true});
+const page=await browser.newPage({viewport:{width:1440,height:1000}});
+await page.goto('http://127.0.0.1:8918/about/');await page.locator('[data-anna-study=thread2]').click();await page.waitForFunction(()=>!!document.querySelector('.anna-river')?.dataset.stops);
+const result=await page.evaluate(async()=>{const svg=document.querySelector('.anna-river'),paddle=svg.querySelector('.river-paddle'),samples=[];const start=+svg.dataset.release;scrollTo({top:start,behavior:'instant'});await new Promise(r=>setTimeout(r,700));let began;await new Promise(resolve=>{function frame(t){began??=t;scrollTo({top:start+(t-began)*.55,behavior:'instant'});samples.push({phase:+paddle.dataset.phase,transform:paddle.getAttribute('transform'),splashes:[...svg.querySelectorAll('[data-paddle-splash]')].map(e=>+e.getAttribute('opacity')),blades:[...svg.querySelectorAll('[data-paddle-blade]')].map(e=>e.getAttribute('transform'))});if(t-began>4200)resolve();else requestAnimationFrame(frame);}requestAnimationFrame(frame);});return samples;});
+assert(result.some(s=>s.splashes[0]>.2&&s.splashes[1]===0),'Left power stroke');assert(result.some(s=>s.splashes[1]>.2&&s.splashes[0]===0),'Right power stroke');assert(result.some(s=>s.transform.includes('rotate(-')),'Paddle crosses to opposite side');assert(result.at(-1).phase-result[0].phase<24,'Cadence remains controlled');
+await page.locator('.river-kayak').screenshot({path:'tmp/anna-paddle/boat.png'});
+const stop=await page.locator('.anna-river').evaluate(e=>JSON.parse(e.dataset.stops)[4]);await page.evaluate(y=>scrollTo({top:y,behavior:'instant'}),stop.arrival+25);await page.waitForTimeout(1000);const phase=await page.locator('.river-paddle').getAttribute('data-phase');await page.waitForTimeout(300);assert.equal(await page.locator('.river-paddle').getAttribute('data-phase'),phase,'Paddle rests at landing');
+console.log('PASS alternating left/right strokes, blade recovery, controlled cadence and resting paddle');
+}finally{await browser.close();server.close();}})().catch(e=>{console.error(e);process.exitCode=1;});
