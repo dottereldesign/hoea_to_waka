@@ -171,10 +171,10 @@ html[data-palette] #anna-story[data-timeline-variant=thread2] .anna-story__headi
 /* Let the blue opening reach the viewport edges while preserving the story column. */
 html[data-palette] #anna-story[data-timeline-variant=thread2]{max-width:none;width:100%;padding-inline:max(clamp(22px,5vw,72px),calc((100% - 1296px)/2))}
 
-#anna-story .anna-breadcrumb{position:relative;z-index:3;display:flex;align-items:center;gap:12px;margin-bottom:28px;font:500 12px/1.5 Inter,Arial,sans-serif}
+#anna-story .anna-breadcrumb{position:relative;z-index:3;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px 12px;margin-bottom:26px;font:400 11px/1.5 Inter,Arial,sans-serif}
 #anna-story .anna-breadcrumb a{color:inherit;text-underline-offset:4px}
 #anna-story[data-timeline-variant=thread2] .anna-breadcrumb{color:#fff}
-@media(max-width:760px){html[data-palette] #anna-story{padding-top:112px}}
+@media(max-width:760px){html[data-palette] #anna-story{padding-top:64px}#anna-story .anna-breadcrumb{font-size:10px;margin-bottom:22px}}
 
 #anna-story[data-timeline-variant=thread2]:not(.is-enhanced) .anna-story__heading{background:#0D4687}
 #anna-story[data-timeline-variant=thread2]:not(.is-enhanced) .anna-breadcrumb{color:var(--story-ink)}
