@@ -138,7 +138,7 @@
     variant=id;root.dataset.timelineVariant=id;
     if(['thread','thread2'].includes(id))river?.reset();
     buttons.forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.annaStudy===id)));
-    const [name,description]=studies[id];root.querySelector('[data-anna-study-name]').textContent=name;root.querySelector('[data-anna-study-description]').textContent=description;
+    const [name,description]=studies[id];if(root.querySelector('[data-anna-study-name]'))root.querySelector('[data-anna-study-name]').textContent=name;if(root.querySelector('[data-anna-study-description]'))root.querySelector('[data-anna-study-description]').textContent=description;
     states.forEach(state=>{snap(state.reveal,preference.matches?1:0);snap(state.node,preference.matches?1:0);snap(state.cover,0);});snap(progress,0);snap(pan,0);
     // Initial markup already starts at zero. Reset only when switching studies;
     // a redundant initial scroll write forced layout after all SVG updates.
@@ -148,14 +148,14 @@
     queue(true);
   }
   buttons.forEach(button=>button.addEventListener('click',()=>choose(button.dataset.annaStudy,true)));
-  root.querySelector('[data-anna-next-study]').addEventListener('click',()=>{const ids=Object.keys(studies);choose(ids[(ids.indexOf(variant)+1)%ids.length],true);});
+  root.querySelector('[data-anna-next-study]')?.addEventListener('click',()=>{const ids=Object.keys(studies);choose(ids[(ids.indexOf(variant)+1)%ids.length],true);});
   function go(direction){
     const index=clamp(chapter+direction,0,4);
     if(horizon){const box=stage.getBoundingClientRect();window.scrollTo({top:box.top+scrollY-124+index/4*(box.height-pin.offsetHeight),behavior:'smooth'});}
     else list.scrollTo({left:items[index].offsetLeft-items[0].offsetLeft,behavior:preference.matches?'instant':'smooth'});
   }
-  root.querySelector('[data-anna-prev]').addEventListener('click',()=>go(-1));
-  root.querySelector('[data-anna-next]').addEventListener('click',()=>go(1));
+  root.querySelector('[data-anna-prev]')?.addEventListener('click',()=>go(-1));
+  root.querySelector('[data-anna-next]')?.addEventListener('click',()=>go(1));
   list.addEventListener('scroll',()=>queue(),{passive:true});
   addEventListener('scroll',()=>queue(),{passive:true});
   addEventListener('resize',()=>{configure();queue(true);},{passive:true});
@@ -168,6 +168,6 @@
   new ResizeObserver(entries=>{const {width,height}=entries[0].contentRect;if(Math.abs(width-oldWidth)>.5||Math.abs(height-oldHeight)>.5){oldWidth=width;oldHeight=height;queue(true);}}).observe(stage);
   document.fonts.ready.then(()=>queue(true));
   buttons.forEach(button=>button.disabled=false);
-  root.querySelector('[data-anna-next-study]').disabled=false;
+
   root.classList.add('is-enhanced');choose(variant);
 })();
