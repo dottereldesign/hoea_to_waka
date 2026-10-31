@@ -193,3 +193,7 @@ html[data-palette] #anna-story .anna-waka-options button[aria-pressed=true]{back
 :is(.anna-river,.anna-waka-preview) .river-paddle{stroke:var(--waka-edge,#342a22)}
 :is(.anna-river,.anna-waka-preview) .river-paddle__blade{fill:var(--waka-fill,#f6e7c7)}
 @media(max-width:760px){#anna-story[data-timeline-variant=thread2] .anna-waka-controls{top:86px;padding:8px;gap:10px}.anna-waka-options{grid-template-columns:repeat(5,30px);gap:4px}.anna-waka-preview{width:62px;height:78px}.anna-waka-controls__title span{display:block;margin-left:0}}
+
+/* Keep the breadcrumb-to-pill gap identical to the other subpage headers. */
+html[data-palette] #anna-story[data-timeline-variant=thread2] .anna-story__heading{padding-top:0}
+html[data-palette] #anna-story .anna-story__heading>.ds-kicker{margin-top:0}
