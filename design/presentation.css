@@ -79,8 +79,8 @@ html.js [data-home-statement]:not(.statement-icons-ready){visibility:hidden}
 :is([data-component="home:4:features"],[data-component="about/:3:features"],[data-component="model/:2:features"]){border-radius:32px}
 :is([data-component="home:4:features"],[data-component="about/:3:features"],[data-component="model/:2:features"]){margin-inline:8px}
 
-/* Match the model section's inset frame, with an inverse navy palette. */
-html[data-palette] [data-component="home:3:services"]{margin-inline:8px;border-radius:32px;--ds-bg:var(--t-inverse)!important;--ds-ink:var(--t-on-inverse)!important;--ds-muted:var(--t-inverse-muted)!important;--ds-surface:var(--t-inverse)!important;--ds-line:color-mix(in srgb,var(--t-on-inverse) 30%,var(--t-inverse))!important}
+/* Services use the page's light surface and readable neutral colours. */
+html[data-palette] [data-component="home:3:services"]{margin-inline:8px;--ds-bg:var(--brand-paper)!important;--ds-ink:var(--brand-ink)!important;--ds-muted:var(--brand-slate)!important;--ds-surface:var(--brand-paper)!important;--ds-line:var(--brand-stone)!important}
 [data-component="home:3:services"] .ds-service-editorial .ds-card>img{border-radius:20px}
 [data-component="home:3:services"] .ds-service-editorial .ds-card-copy{border-bottom:0}
 [data-component="home:3:services"] .ds-card-actions{margin-top:28px;padding-top:24px;border-top:1px solid var(--ds-line)}

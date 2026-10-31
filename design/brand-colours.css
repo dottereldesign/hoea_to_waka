@@ -63,7 +63,7 @@ html[data-palette] :is(.field-error,.form-error,[role="alert"]){color:var(--bran
 html[data-palette] :is(input,textarea,select){accent-color:var(--brand-ocean-800)}
 html[data-palette] :is(a,button,input,textarea,select,summary):focus-visible{outline-color:var(--brand-ocean-600)}
 html[data-palette] :is(#home-faq,#contact-faq) summary:focus-visible{outline-color:var(--brand-ocean-600)}
-html[data-palette] :is(.home-hero,.subpage-hero,:is(#home-faq,#contact-faq),[data-colour-inverse="true"],[data-component="home:3:services"],.site-footer) :focus-visible{outline:3px solid var(--brand-ocean-600)!important;outline-offset:4px!important;box-shadow:0 0 0 8px var(--brand-paper)!important}
+html[data-palette] :is(.home-hero,.subpage-hero,:is(#home-faq,#contact-faq),[data-colour-inverse="true"],.site-footer) :focus-visible{outline:3px solid var(--brand-ocean-600)!important;outline-offset:4px!important;box-shadow:0 0 0 8px var(--brand-paper)!important}
 
 /* The photograph stays intact; the colour washes and SVG waves use shared tokens. */
 .home-hero-photo-wash{background:linear-gradient(180deg,color-mix(in srgb,var(--brand-ocean-800) 8%,transparent),color-mix(in srgb,var(--brand-ocean-900) 20%,transparent) 36%,color-mix(in srgb,var(--brand-ocean-900) 55%,transparent) 72%,color-mix(in srgb,var(--brand-ocean-900) 85%,transparent)),linear-gradient(90deg,var(--brand-ocean-800),color-mix(in srgb,var(--brand-ocean-800) 98%,transparent) 28%,color-mix(in srgb,var(--brand-ocean-800) 48%,transparent) 48%,color-mix(in srgb,var(--brand-ocean-800) 10%,transparent) 66%,transparent)}
@@ -82,10 +82,10 @@ html[data-palette] body :is(.button,.ds-button)[data-button-style="secondary"]:h
 html[data-palette] body :is(.button,.ds-button)[data-button-style="secondary"]:active{background:var(--brand-forest-900)!important;border-color:var(--brand-forest-900)!important;color:var(--brand-paper)!important}
 html[data-palette] body :is(.button,.ds-button)[data-button-style]:disabled{background:var(--brand-ocean-300)!important;border-color:var(--brand-ocean-300)!important;color:var(--brand-ocean-700)!important;opacity:1;pointer-events:none}
 html[data-palette] body :is(.button,.ds-button)[data-button-style]:focus-visible{outline-color:var(--brand-ocean-600)!important}
-html[data-palette] :is(.home-hero,.subpage-hero,[data-colour-inverse="true"],[data-component="home:3:services"],.ds-v2) :is(.button,.ds-button)[data-button-style]{--button-fill:var(--brand-lavender-500);--button-ink:var(--brand-lavender-500)!important;--button-on-fill:var(--brand-aubergine-800)}
-html[data-palette] :is(.home-hero,.subpage-hero,[data-colour-inverse="true"],[data-component="home:3:services"],.ds-v2) :is(.button,.ds-button)[data-button-style="primary"]:hover{background:var(--brand-lavender-400)!important;border-color:var(--brand-lavender-400)!important}
-html[data-palette] :is(.home-hero,.subpage-hero,[data-colour-inverse="true"],[data-component="home:3:services"],.ds-v2) :is(.button,.ds-button)[data-button-style="secondary"]:hover{background:color-mix(in srgb,var(--brand-lavender-500) 15%,transparent)!important;border-color:var(--brand-lavender-500)!important}
-html[data-palette] :is(.home-hero,.subpage-hero,[data-colour-inverse="true"],[data-component="home:3:services"],.ds-v2) :is(.button,.ds-button)[data-button-style]:active{background:var(--brand-lavender-600)!important;border-color:var(--brand-lavender-600)!important;color:var(--brand-aubergine-800)!important}
+html[data-palette] :is(.home-hero,.subpage-hero,[data-colour-inverse="true"],.ds-v2) :is(.button,.ds-button)[data-button-style]{--button-fill:var(--brand-lavender-500);--button-ink:var(--brand-lavender-500)!important;--button-on-fill:var(--brand-aubergine-800)}
+html[data-palette] :is(.home-hero,.subpage-hero,[data-colour-inverse="true"],.ds-v2) :is(.button,.ds-button)[data-button-style="primary"]:hover{background:var(--brand-lavender-400)!important;border-color:var(--brand-lavender-400)!important}
+html[data-palette] :is(.home-hero,.subpage-hero,[data-colour-inverse="true"],.ds-v2) :is(.button,.ds-button)[data-button-style="secondary"]:hover{background:color-mix(in srgb,var(--brand-lavender-500) 15%,transparent)!important;border-color:var(--brand-lavender-500)!important}
+html[data-palette] :is(.home-hero,.subpage-hero,[data-colour-inverse="true"],.ds-v2) :is(.button,.ds-button)[data-button-style]:active{background:var(--brand-lavender-600)!important;border-color:var(--brand-lavender-600)!important;color:var(--brand-aubergine-800)!important}
 
 /* A single neutral ink for filled words, outlines, fallback topics and controls. */
 .kinetic-topics,.kinetic-topics__list li,.kinetic-topics__group>span{color:var(--brand-ink)}
