@@ -99,13 +99,15 @@
         return {distance:p.s,y:p.y,globalY:globalTop+p.y};
       });
       if(armedAt===null)armedAt=scrollY;
-      const release=Math.max(globalTop+28-innerHeight*.34,armedAt+48);
+      const passage=root.dataset.timelineVariant==='thread2';
+      const release=passage?globalTop+28-innerHeight*.92:Math.max(globalTop+28-innerHeight*.34,armedAt+48);
       // Landings own a span of scrolling. Elapsed time only smooths tracking;
       // it never advances the boat beyond a stop by itself.
       stops.forEach((stop,i)=>{
-        const arrival=stop.globalY-innerHeight*.46;
-        stop.arrival=i?Math.max(arrival,stops[i-1].departure+100):Math.max(arrival,release+130);
-        stop.departure=stop.arrival+Math.min(mobile?88:110,(bounds[i].height+56)*.26);
+        const arrival=stop.globalY-innerHeight*(passage?(mobile?.9:.82):.46);
+        stop.arrival=passage?arrival:i?Math.max(arrival,stops[i-1].departure+100):Math.max(arrival,release+130);
+        // Arrive in the lower reading area, then hold while the chapter moves toward centre.
+        stop.departure=stop.arrival+(passage?Math.min(innerHeight*.18,(bounds[i].height+76)*.42):Math.min(mobile?88:110,(bounds[i].height+56)*.26));
       });
       svg.dataset.stops=JSON.stringify(stops);svg.dataset.release=String(release);
       distance=clamp(distance,0,length);target=clamp(target,0,length);
@@ -143,13 +145,14 @@
     function step(dt){
       if(!samples.length||reduced)return false;
       const previous=distance;
-      [distance,velocity]=critical(distance,velocity,target,15,dt);
+      const passage=root.dataset.timelineVariant==='thread2';
+      [distance,velocity]=critical(distance,velocity,target,passage?46:15,dt);
       const max=(mobile?950:1200)*dt;
-      if(Math.abs(distance-previous)>max){distance=previous+Math.sign(distance-previous)*max;velocity=Math.sign(velocity)*(mobile?950:1200);}
+      if(!passage&&Math.abs(distance-previous)>max){distance=previous+Math.sign(distance-previous)*max;velocity=Math.sign(velocity)*(mobile?950:1200);}
       distance=clamp(distance,0,length);
       if(Math.abs(distance-target)<.015&&Math.abs(velocity)<.1){distance=target;velocity=0;}
       const tangent=-Math.atan(pointAt(distance).slope)*180/Math.PI;
-      [angle,angularVelocity]=critical(angle,angularVelocity,tangent,17,dt);
+      [angle,angularVelocity]=critical(angle,angularVelocity,tangent,passage?26:17,dt);
       if(Math.abs(angle-tangent)<.005&&Math.abs(angularVelocity)<.02){angle=tangent;angularVelocity=0;}
       arrivals();
       return Math.abs(distance-target)>.01||Math.abs(velocity)>.1||Math.abs(angle-tangent)>.005;

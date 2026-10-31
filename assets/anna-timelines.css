@@ -165,5 +165,5 @@ html[data-palette] #anna-story[data-timeline-variant=thread2] .anna-story__headi
 
 #anna-story[data-timeline-variant=thread2] .anna-studies{margin-bottom:48px}
 
-/* Reveal reading copy as it enters view; waka landings retain their own timing. */
-#anna-story.is-enhanced[data-timeline-variant=thread2] .anna-milestone__copy{transform:translateY(calc((1 - var(--tl-p))*18px))}
+/* A short, settled reveal follows each waka landing. */
+#anna-story.is-enhanced[data-timeline-variant=thread2] .anna-milestone__copy{transform:translateY(calc((1 - var(--tl-p))*12px))}

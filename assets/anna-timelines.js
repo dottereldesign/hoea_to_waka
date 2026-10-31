@@ -60,9 +60,9 @@
     let running=false;
     if(['thread','thread2'].includes(variant)&&river){
       running=river.step(dt)||running;
-      states.forEach((state,i)=>{state.node.t=Number(river.reached(i));if(variant==='thread')state.reveal.t=state.node.t;});
+      states.forEach((state,i)=>{state.reveal.t=state.node.t=Number(river.reached(i));});
     }
-    states.forEach(state=>{running=(variant==='thread2'?integrate(state.reveal,dt,150,25):integrate(state.reveal,dt))||running;running=integrate(state.node,dt,200,14)||running;running=integrate(state.cover,dt,90,18)||running;});
+    states.forEach(state=>{running=(variant==='thread2'?integrate(state.reveal,dt,400,40):integrate(state.reveal,dt))||running;running=integrate(state.node,dt,200,14)||running;running=integrate(state.cover,dt,90,18)||running;});
     running=integrate(progress,dt,80,17)||running;running=integrate(pan,dt,65,16)||running;
     paint();root.dataset.timelineState=running?'running':'settled';
     if(running)frame=requestAnimationFrame(tick);else lastTime=undefined;
@@ -110,12 +110,10 @@
     let reached=0;
     states.forEach((state,i)=>{
       const target=preference.matches||variant==='horizon'?1:['thread','thread2'].includes(variant)&&river?Number(river.reached(i)):Number(bounds[i].top<innerHeight*.91);
-      // Reading follows the viewport; the landing marker still follows the waka.
-      const revealTarget=variant==='thread2'?Math.max(state.reveal.t,Number(bounds[i].top<innerHeight*.88)):target;
-      state.reveal.t=revealTarget;state.node.t=target;
+      state.reveal.t=target;state.node.t=target;
       const next=bounds[i+1];state.cover.t=variant==='stack'&&innerWidth>760&&next?clamp((124+i*12+250-next.top)/250):0;
       if(target)reached=(i+1)/items.length;
-      if(preference.matches||!visible){snap(state.reveal,revealTarget);snap(state.node,target);snap(state.cover,state.cover.t);}
+      if(preference.matches||!visible){snap(state.reveal,target);snap(state.node,target);snap(state.cover,state.cover.t);}
     });
     progress.t=reached;
     if(horizon){
