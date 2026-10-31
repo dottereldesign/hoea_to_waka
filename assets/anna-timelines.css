@@ -208,3 +208,12 @@ html[data-palette] #anna-story .anna-story__heading>.ds-kicker{margin-top:0}
 
 /* Preserve the blue opening below the intro after removing the study controls. */
 #anna-story[data-timeline-variant=thread2] .anna-stage{padding-top:180px}
+
+/* On phones, keep the river left and stack each illustration above its copy. */
+@media(max-width:760px){
+ #anna-story[data-timeline-variant=thread2] .anna-milestone{display:grid;grid-template-columns:100px minmax(0,1fr);grid-template-rows:auto auto;align-content:center;min-height:0;padding-left:0;row-gap:12px}
+ #anna-story[data-timeline-variant=thread2] .anna-milestone:nth-child(n) .anna-world{grid-column:2;grid-row:1;max-width:250px}
+ #anna-story[data-timeline-variant=thread2] .anna-milestone:nth-child(n) .anna-milestone__copy{grid-column:2;grid-row:2;padding:12px 0 24px}
+ #anna-story[data-timeline-variant=thread2] .anna-node{left:calc(40px + var(--river-node-x,0px) - 7px)}
+ #anna-story[data-timeline-variant=thread2] .anna-milestone:nth-child(n)::after{left:calc(40px + var(--river-node-x,0px) + 18px);width:calc(34px - var(--river-node-x,0px))}
+}

@@ -54,7 +54,7 @@
     function build(bounds,box){
       width=box.width;height=box.height;mobile=innerWidth<=760;
       if(!width||!height)return;
-      const centre=mobile?(root.dataset.timelineVariant==='thread2'?(width-56)*.65/1.65+28:40):width/2,amplitude=mobile?(root.dataset.timelineVariant==='thread2'?4:10):38,period=Math.max(600,height/2.35);
+      const centre=mobile?40:width/2,amplitude=mobile?(root.dataset.timelineVariant==='thread2'?4:10):38,period=Math.max(600,height/2.35);
       root.style.setProperty('--river-centre',`${centre}px`);
       const xAt=y=>centre+amplitude*Math.sin(y/period*Math.PI*2+.2)+(mobile?2:7)*Math.sin(y/period*Math.PI*4+.7);
       const slopeAt=y=>amplitude*Math.cos(y/period*Math.PI*2+.2)*Math.PI*2/period+(mobile?2:7)*Math.cos(y/period*Math.PI*4+.7)*Math.PI*4/period;
