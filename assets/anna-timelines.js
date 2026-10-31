@@ -47,7 +47,7 @@
       state.item.style.setProperty('--tl-p',f(state.reveal.x));
       state.item.style.setProperty('--tl-node',f(.72+.28*state.node.x));
       state.item.style.setProperty('--tl-cover',f(state.cover.x));
-      if(variant==='worlds')drawWorld(state);
+      if(['worlds','thread2'].includes(variant))drawWorld(state);
     });
     ink.style.strokeDashoffset=f(1-clamp(progress.x));
     list.style.transform=horizon?`translate3d(${f(pan.x)}px,0,0)`:'';

@@ -90,7 +90,8 @@
     function build(bounds,box){
       width=box.width;height=box.height;mobile=innerWidth<=760;
       if(!width||!height)return;
-      const centre=mobile?40:width/2,amplitude=mobile?10:38,period=Math.max(600,height/2.35);
+      const centre=mobile?(root.dataset.timelineVariant==='thread2'?(width-56)*.65/1.65+28:40):width/2,amplitude=mobile?(root.dataset.timelineVariant==='thread2'?4:10):38,period=Math.max(600,height/2.35);
+      root.style.setProperty('--river-centre',`${centre}px`);
       const xAt=y=>centre+amplitude*Math.sin(y/period*Math.PI*2+.2)+(mobile?2:7)*Math.sin(y/period*Math.PI*4+.7);
       const slopeAt=y=>amplitude*Math.cos(y/period*Math.PI*2+.2)*Math.PI*2/period+(mobile?2:7)*Math.cos(y/period*Math.PI*4+.7)*Math.PI*4/period;
       const halfAt=y=>(mobile?22:31)+Math.sin(y/period*5+.3)*(mobile?1.5:4);
@@ -108,10 +109,10 @@
       ocean.querySelector('rect').setAttribute('width',rw);ocean.querySelector('rect').setAttribute('height',rh);
       const banks=[[],[]];
       for(let y=0;y<=height;y+=10){
-        const taper=Math.max(0,1-y/(mobile?110:340)),half=((mobile?23:38)+taper*(mobile?rw*.14:rw*.16))*Math.min(1,(height-y)/170+.025);
+        const taper=mobile?0:Math.max(0,1-y/340),half=((mobile?17:38)+taper*(mobile?rw*.14:rw*.16))*Math.min(1,(height-y)/170+.025);
         for(let side=0;side<2;side++){
           const sign=side?1:-1;
-          const rough=(Math.sin(y*.071+side*7)*5+Math.sin(y*.193+side*3)*3+Math.sin(y*.047)*7)*(mobile?.55:1);
+          const rough=(Math.sin(y*.071+side*7)*5+Math.sin(y*.193+side*3)*3+Math.sin(y*.047)*7)*(mobile?.3:1);
           banks[side].push([ox+xAt(y)+sign*(half+rough),oy+y]);
         }
       }
@@ -141,7 +142,7 @@
       stops=bounds.map((b,i)=>{
         const y=b.top+b.height/2-box.top,index=clamp(Math.floor((y-28)/8),0,samples.length-2),a=samples[index],beyond=samples[index+1],t=clamp((y-a.y)/(beyond.y-a.y));
         const p={y,x:a.x+(beyond.x-a.x)*t,s:a.s+(beyond.s-a.s)*t};
-        items[i].style.setProperty('--river-node-x',`${f(p.x-(mobile?40:width/2))}px`);
+        items[i].style.setProperty('--river-node-x',`${f(p.x-centre)}px`);
         return {distance:p.s,y:p.y,globalY:globalTop+p.y};
       });
       if(armedAt===null)armedAt=scrollY;

@@ -197,3 +197,20 @@ html[data-palette] #anna-story .anna-waka-options button[aria-pressed=true]{back
 /* Keep the breadcrumb-to-pill gap identical to the other subpage headers. */
 html[data-palette] #anna-story[data-timeline-variant=thread2] .anna-story__heading{padding-top:0}
 html[data-palette] #anna-story .anna-story__heading>.ds-kicker{margin-top:0}
+
+/* Each illustrated world shares its chapter's reveal on the opposite bank. */
+#anna-story[data-timeline-variant=thread2] .anna-world{display:block;grid-column:3;grid-row:1;min-width:0;width:100%;max-width:420px;justify-self:center;aspect-ratio:1.3}
+#anna-story[data-timeline-variant=thread2] .anna-world svg{display:block;width:100%;height:100%;overflow:visible}
+#anna-story[data-timeline-variant=thread2] .anna-milestone__copy{grid-row:1}
+#anna-story[data-timeline-variant=thread2] .anna-milestone:nth-child(even) .anna-world{grid-column:1}
+#anna-story.is-enhanced[data-timeline-variant=thread2] .anna-world{opacity:clamp(0,var(--tl-p),1);transform:translateY(calc((1 - var(--tl-p))*12px))}
+#anna-story[data-motion-reduced=true] .anna-world{opacity:1!important;transform:none!important}
+@media(max-width:760px){
+ #anna-story[data-timeline-variant=thread2] .anna-milestone{display:grid;grid-template-columns:minmax(0,.65fr) 56px minmax(0,1fr);padding-left:0;min-height:380px}
+ #anna-story[data-timeline-variant=thread2] .anna-milestone:nth-child(n) .anna-world{grid-column:1}
+ #anna-story[data-timeline-variant=thread2] .anna-milestone:nth-child(n) .anna-milestone__copy{grid-column:3;padding:24px 0}
+ #anna-story[data-timeline-variant=thread2] .anna-node{left:calc(var(--river-centre) + var(--river-node-x,0px) - 7px)}
+ #anna-story[data-timeline-variant=thread2] .anna-milestone:nth-child(n)::after{left:calc(var(--river-centre) + var(--river-node-x,0px) + 18px);width:calc(10px - var(--river-node-x,0px))}
+ html[data-palette] #anna-story[data-timeline-variant=thread2] .anna-milestone h3{font-size:clamp(23px,5vw,30px)}
+ html[data-palette] #anna-story[data-timeline-variant=thread2] .anna-milestone p{font-size:15px;line-height:1.7}
+}
