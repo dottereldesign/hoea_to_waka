@@ -8,7 +8,7 @@ Write for someone making material for the brand who may have no design backgroun
 
 Keep established names, the vision, mission, contact details, logo artwork and palette values. Describe actual website use rather than inventing brand strategy, cultural authority, minimum logo sizes or print colour specifications. The drawings identify existing logo elements; they do not claim a wider cultural meaning.
 
-Keep the four typography comparison layouts. Explain Inter and ABC Marist by role, define weight numbers and show real site copy. The comparison controls are presentation choices, not four competing brand standards.
+Keep the four typography comparison layouts. Explain Inter as the single typeface across all roles, define weight numbers and show real site copy. The comparison controls are presentation choices, not four competing brand standards.
 
 Distinguish published design from experimentation: the colour editor is a browser-local preview, supporting swatches are options, and mockups are examples rather than production-ready artwork. Remove arbitrary colour percentages and outdated blue/green button rules. Explain the current Ink/white capsule buttons instead.
 

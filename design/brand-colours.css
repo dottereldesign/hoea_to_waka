@@ -42,7 +42,7 @@ html[data-palette] [data-component="home:6:testimonials"] blockquote{color:#000}
 @keyframes quote-arrive{from{opacity:0}to{opacity:1}}
 @media(prefers-reduced-motion:reduce){[data-component="home:6:testimonials"] .ds-quote-slides>figure:not([hidden]){animation:none}}
 html[data-palette] :is(.ds-type-testimonials,.testimonial-carousel) blockquote,
-html[data-palette] :is(.ds-type-testimonials,.testimonial-carousel) blockquote *{font-family:'ABC Marist',Georgia,serif!important;font-weight:350!important;font-synthesis:none}
+html[data-palette] :is(.ds-type-testimonials,.testimonial-carousel) blockquote *{font-family:'Inter',Arial,sans-serif!important;font-weight:400!important;font-synthesis:none}
 html[data-palette] .home-cta-simple .home-cta-body :is(.ds-lead,.home-cta-support){color:var(--brand-ink)}
 html[data-palette][data-typography] body .brand-name-text,
 html[data-palette][data-typography] body .brand-name-text *{font-family:'Inter',Arial,sans-serif!important;font-weight:400!important;font-synthesis:none}
@@ -50,11 +50,11 @@ html[data-palette][data-typography] body .brand-name-text *{font-family:'Inter',
 html[data-palette][data-typography] body :is(.site-brand,.footer-brand-lockup,.ds-brand,.home-hero) .brand-name-text{font-weight:600!important;font-synthesis:none}
 /* Keep the hero wordmark at its natural proportions. */
 html[data-palette] .home-hero .home-hero-inner-photo h1.display-title{transform:none;line-height:1.05;letter-spacing:0}
-/* Larger serif overlines, including the labels above individual service cards. */
-html[data-palette][data-typography] body :is(.eyebrow,.section-eyebrow,.ds-kicker,.ds-number,.service-index,.info-card-number,.ds-facts dt,.pp-facts dt,[class*="eyebrow"],[class*="kicker"]){font-family:'ABC Marist',Georgia,serif!important;font-weight:350!important;font-synthesis:none;font-size:18px!important;line-height:1.35!important;text-transform:none!important;letter-spacing:.01em}
+/* Larger Inter overlines, including the labels above individual service cards. */
+html[data-palette][data-typography] body :is(.eyebrow,.section-eyebrow,.ds-kicker,.ds-number,.service-index,.info-card-number,.ds-facts dt,.pp-facts dt,[class*="eyebrow"],[class*="kicker"]){font-family:'Inter',Arial,sans-serif!important;font-weight:400!important;font-synthesis:none;font-size:18px!important;line-height:1.35!important;text-transform:none!important;letter-spacing:.01em}
 /* Shared outlined pills for eyebrow labels, with contrast inherited from each surface. */
 html[data-palette][data-typography] body :is(.eyebrow,.section-eyebrow,.ds-kicker,[class*="eyebrow"],[class*="kicker"]){display:inline-block;width:fit-content;max-width:100%;box-sizing:border-box;padding:9px 18px;border:1px solid color-mix(in srgb,currentColor 22%,transparent);border-radius:999px;background:transparent!important;vertical-align:middle;overflow-wrap:anywhere}
-html[data-palette][data-typography] body :is(.eyebrow,.section-eyebrow,.ds-kicker,.ds-number,.service-index,.info-card-number,.ds-facts dt,.pp-facts dt,[class*="eyebrow"],[class*="kicker"]) *{text-transform:none!important;font-family:'ABC Marist',Georgia,serif!important;font-weight:350!important;font-synthesis:none}
+html[data-palette][data-typography] body :is(.eyebrow,.section-eyebrow,.ds-kicker,.ds-number,.service-index,.info-card-number,.ds-facts dt,.pp-facts dt,[class*="eyebrow"],[class*="kicker"]) *{text-transform:none!important;font-family:'Inter',Arial,sans-serif!important;font-weight:400!important;font-synthesis:none}
 @media(max-width:760px){html[data-palette][data-typography] body :is(.eyebrow,.section-eyebrow,.ds-kicker,.ds-number,.service-index,.info-card-number,.ds-facts dt,.pp-facts dt,[class*="eyebrow"],[class*="kicker"]){font-size:16px!important}}
 html[data-palette] .site-footer{background:var(--brand-ink);color:var(--brand-paper);margin:0 8px 8px;width:auto;border-radius:32px;overflow:clip}
 html[data-palette] .site-footer :is(p,small,.footer-bottom){color:var(--brand-ocean-300)}

@@ -186,7 +186,7 @@ html[data-palette] .brand-guidelines #mockups>.brand-guide-application-row{grid-
 .brand-chrome-preview{margin:0;min-width:0}
 .brand-chrome-window{--chrome-strip:#dfe3eb;--chrome-toolbar:#fff;--chrome-address:#edf0f7;--chrome-ink:#202124;--chrome-muted:#5f6368;--chrome-border:#dadce0;container: favicon-browser / inline-size;border:1px solid var(--chrome-border);border-radius:12px;overflow:hidden;background:var(--chrome-toolbar);color:var(--chrome-ink)}
 .brand-chrome-window--dark{--chrome-strip:#202124;--chrome-toolbar:#35363a;--chrome-address:#202124;--chrome-ink:#e8eaed;--chrome-muted:#bdc1c6;--chrome-border:#45474a}
-html[data-palette][data-typography] body .brand-chrome-window,html[data-palette][data-typography] body .brand-chrome-window *{font-family:"Segoe UI",Arial,sans-serif!important}
+html[data-palette][data-typography] body .brand-chrome-window,html[data-palette][data-typography] body .brand-chrome-window *{font-family:Inter,Arial,sans-serif!important}
 .brand-chrome-tabs{display:flex;align-items:end;gap:6px;height:46px;padding:8px 8px 0;background:var(--chrome-strip)}
 .brand-chrome-tabs svg,.brand-chrome-toolbar svg{display:block;flex-shrink:0;width:16px;height:16px}
 .brand-chrome-search,.brand-chrome-new{display:grid;place-items:center;flex:0 0 28px;height:28px;align-self:center;color:var(--chrome-ink)}
@@ -238,7 +238,7 @@ html[data-palette] #typeface .bt-panel-heading h3{margin:0;font:600 clamp(22px,2
 #typeface .bt-interface>div{display:grid;align-content:start;justify-items:start;gap:12px}
 #typeface .ds-kicker{margin:0;justify-self:start;align-self:start;width:fit-content}
 #typeface .bt-quote-block{display:grid;gap:16px;padding-top:24px;border-top:1px solid var(--t-line)}
-html[data-palette] #typeface :is(.bt-serif,.bt-quote){font-family:'ABC Marist',Georgia,serif!important;font-weight:350!important}
+html[data-palette] #typeface :is(.bt-serif,.bt-quote){font-family:'Inter',Arial,sans-serif!important;font-weight:400!important}
 html[data-palette] #typeface .bt-quote{font-size:clamp(27px,2.8vw,42px);line-height:1.35;letter-spacing:-.025em;color:var(--t-ink);margin:0;padding:0;border:0;max-width:30ch}
 #typeface .bt-quote::before,#typeface .bt-quote::after{content:none}
 #typeface .bt-credit{font-size:14px;line-height:1.5;color:var(--t-muted)}
@@ -361,7 +361,7 @@ html[data-palette] .brand-email-body>p{font-size:15px!important;line-height:1.7!
 .brand-social-previews{display:grid;gap:32px;min-width:0}
 .social-example{margin:0;min-width:0}
 html[data-palette] .social-example figcaption{font-size:14px;line-height:1.7;color:var(--t-muted);margin-top:14px}
-html[data-palette] .platform-preview,html[data-palette] .platform-preview *{font-family:Arial,Helvetica,sans-serif!important;box-sizing:border-box}
+html[data-palette] .platform-preview,html[data-palette] .platform-preview *{font-family:Inter,Arial,sans-serif!important;box-sizing:border-box}
 .platform-preview{border:1px solid #d9dde3;border-radius:12px;overflow:hidden;background:#fff;color:#191919;font-size:14px;line-height:1.45;min-width:0;container-type:inline-size}
 .platform-preview svg{flex-shrink:0;display:inline-block;vertical-align:middle;width:20px;height:20px}
 .platform-preview img{display:block;max-width:100%;object-fit:cover}
@@ -754,7 +754,7 @@ html[data-palette] .email-app-tabs button[aria-selected=true]{box-shadow:inset 0
 html[data-palette] .email-mode-group button{display:flex;justify-content:center;align-items:center;gap:5px;min-width:0;min-height:42px;padding:8px 4px;border:1px solid var(--t-line);border-radius:10px;background:transparent;color:var(--t-ink);font:500 12px/1.3 Inter,Arial,sans-serif;cursor:pointer}
 html[data-palette] .email-mode-group button[aria-pressed=true]{background:var(--t-ink);color:var(--t-bg);border-color:var(--t-ink)}
 .email-preview-controls button:focus-visible,.brand-email-window:focus-visible{outline:2px solid var(--t-ink);outline-offset:4px}
-.brand-email-window{--mail-bg:#fff;--mail-ink:#202124;--mail-muted:#5f6368;--mail-line:#dadce0;--mail-chrome:#f2f5fa;--mail-search:#e9eef6;--mail-accent:#0b57d0;--mail-accent-ink:#fff;background:var(--mail-bg);color:var(--mail-ink);border-color:var(--mail-line);font-family:Arial,Helvetica,sans-serif;color-scheme:light}
+.brand-email-window{--mail-bg:#fff;--mail-ink:#202124;--mail-muted:#5f6368;--mail-line:#dadce0;--mail-chrome:#f2f5fa;--mail-search:#e9eef6;--mail-accent:#0b57d0;--mail-accent-ink:#fff;background:var(--mail-bg);color:var(--mail-ink);border-color:var(--mail-line);font-family:Inter,Arial,sans-serif;color-scheme:light}
 .brand-email-window[data-email-appearance=dark]{--mail-bg:#1f1f1f;--mail-ink:#e3e3e3;--mail-muted:#b4b9bf;--mail-line:#494b4e;--mail-chrome:#292a2d;--mail-search:#34363a;--mail-accent:#a8c7fa;--mail-accent-ink:#062e6f;color-scheme:dark}
 .brand-email-window[data-email-client=outlook]{--mail-chrome:#f5f5f5;--mail-search:#eef4fa;--mail-accent:#0f6cbd}
 .brand-email-window[data-email-client=outlook][data-email-appearance=dark]{--mail-bg:#202020;--mail-ink:#f1f1f1;--mail-muted:#c5c5c5;--mail-line:#484848;--mail-chrome:#292929;--mail-search:#383838;--mail-accent:#479ef5;--mail-accent-ink:#082540}
@@ -777,8 +777,8 @@ html[data-palette] .email-mode-group button[aria-pressed=true]{background:var(--
 .email-window-controls{display:flex;gap:16px;color:var(--mail-muted);font-size:15px;font-weight:400}
 .brand-email-meta{border-color:var(--mail-line)}
 .brand-email-meta>span:nth-child(odd){color:var(--mail-muted)}
-html[data-palette] .brand-email-window .brand-email-body>p{color:var(--mail-ink);font-family:Arial,Helvetica,sans-serif}
-.brand-email-window .signature{color:var(--mail-ink);font-family:Arial,Helvetica,sans-serif}
+html[data-palette] .brand-email-window .brand-email-body>p{color:var(--mail-ink);font-family:Inter,Arial,sans-serif}
+.brand-email-window .signature{color:var(--mail-ink);font-family:Inter,Arial,sans-serif}
 .brand-email-window .signature--5 .sig-person>span,.brand-email-window .signature--5 .sig-bottom>div>span{color:var(--mail-muted)}
 .brand-email-window .signature--5 .sig-bottom{border-color:var(--mail-line)}
 .email-compose-tools{display:flex;align-items:center;gap:20px;padding:0 24px 24px;color:var(--mail-muted)}

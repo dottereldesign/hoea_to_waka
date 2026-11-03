@@ -7,7 +7,7 @@ for(const c of colours){const value=tokens.brand[c.id].$value;assert.equal(value
 for(const[key,id]of Object.entries(roleAliases))assert.equal(tokens.semantic[key].$value,`{brand.${id}}`);
 assert.deepEqual(Object.values(tokens.sectionSpacing).map(t=>t.$value.value),[92,65,60]);
 assert(!expected.includes('<svg')&&!expected.includes('248 Followers')&&!expected.includes('Give your AI the full picture')&&!expected.includes('undefined'));
-for(const content of ['Hoea tō Waka','Strength in Aotearoa','## Audience','## Typography','## Section Spacing','## Social Media','## Colours','ABC Marist','licensed separately','https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/'])assert(expected.includes(content),'Export includes '+content);
+for(const content of ['Hoea tō Waka','Strength in Aotearoa','## Audience','## Typography','## Section Spacing','## Social Media','## Colours','Inter','single typeface','https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/'])assert(expected.includes(content),'Export includes '+content);
 assert(figma.includes('auto layout')&&figma.endsWith(expected));console.log('PASS published token fidelity, macrons, guide coverage, real asset URLs and Figma brief');
 
 for(const width of[1440,1100,760,390,320]){

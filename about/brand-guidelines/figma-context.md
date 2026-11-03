@@ -4,7 +4,7 @@ Use the complete brand context below to prepare my next design. Ask for the scre
 
 - Use auto layout, reusable components, descriptive layer names and responsive constraints.
 - Map the supplied colour tokens to named variables and semantic roles, with light and dark modes where needed.
-- Use Inter for the brand name, headings, body, buttons and controls. Use ABC Marist Book 350 only for testimonial quotes if the separately licensed font is available; otherwise flag the missing font and use a clearly marked temporary serif fallback.
+- Use Inter for the brand name, headings, body, buttons and controls. Use Inter Regular 400 for testimonial quotes too. Inter is the only current brand typeface.
 - Use the linked supplied SVG logo artwork. Preserve the macron in Hoea tō Waka.
 - Use the supplied section spacing and radius tokens. The main site uses white/Paper with Ink text and actions; supporting colours are available for specific sections.
 - Check phone readability, keyboard focus, colour contrast and reduced motion for interactive concepts.
@@ -169,15 +169,13 @@ Type system
 
 Typography means the fonts and text styles we use. Inter is the main font for the Hoea tō Waka name, headings, paragraphs, menus and buttons. Use a heavier weight for headings so readers can quickly see what matters.
 
-ABC Marist Book is the serif font used for testimonial quotes. Its letter shapes give people’s words a distinct voice. Keep the quote heading, person’s name and controls in Inter. The font specimens and usage guide show these roles using text from the site.
+Inter is our single typeface for now, including testimonials, labels and previews. Create hierarchy through size, spacing and weight rather than a second font. The specimens and usage guide show these roles using text from the site.
 
-Regular 400, Semibold 600 and Book 350 name the font weights: how light or heavy the letters look. A serif font has small finishing strokes on its letters; Inter has simpler ends. Compare the samples to see the difference.
+Regular 400 and Semibold 600 name the font weights: how light or heavy the letters look. Use Regular for paragraphs and quotes, and Semibold for headings and actions.
 
 Inter 4.1: four static TTF styles, upright and italic variable TTFs, and two web WOFF2 files. Licence and installation notes included.
 
-For office and design apps, choose Desktop/Static for Regular 400, Semibold 600 and their true italics. Choose Desktop/Variable instead if your app supports variable fonts; Web contains the WOFF2 versions. Use italics for short emphasis within text, and keep logo lettering upright. ABC Marist Book 350 remains the testimonial font.
-
-Marist is licensed separately and isn’t included in the public pack.
+For office and design apps, choose Desktop/Static for Regular 400, Semibold 600 and their true italics. Choose Desktop/Variable instead if your app supports variable fonts; Web contains the WOFF2 versions. Use italics for short emphasis within text, and keep logo lettering upright. Use Inter Regular 400 for testimonial quotes.
 
 ## UI Icons
 
@@ -1448,11 +1446,11 @@ DTCG 2025.10 JSON follows. Colour components use sRGB values from 0 to 1. Alias 
     "testimonial": {
       "$type": "fontFamily",
       "$value": [
-        "ABC Marist",
-        "Georgia",
-        "serif"
+        "Inter",
+        "Arial",
+        "sans-serif"
       ],
-      "$description": "ABC Marist Book 350 is licensed separately. Use for testimonial quotes; keep headings, attribution and controls in Inter."
+      "$description": "Inter Regular 400 for testimonial quotes. All typography uses Inter."
     },
     "weight": {
       "display": {
@@ -1548,7 +1546,6 @@ DTCG 2025.10 JSON follows. Colour components use sRGB values from 0 to 1. Alias 
 - [Download Favicon pack](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-favicon-pack.zip)
 - [Download SVG](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-favicon.svg)
 - [180px Apple touch icon](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-apple-touch-icon.png)
-- [Get ABC Marist from Dinamo ↗](https://abcdinamo.com/typefaces/marist)
 - [PNG ↓](https://dottereldesign.github.io/hoea_to_waka/assets/social-downloads/linkedin-profile-400x400.png)
 - [PNG ↓](https://dottereldesign.github.io/hoea_to_waka/assets/social-downloads/linkedin-banner-1512x256.png)
 - [SVG ↓](https://dottereldesign.github.io/hoea_to_waka/assets/social-downloads/linkedin-banner-1512x256.svg)

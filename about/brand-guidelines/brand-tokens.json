@@ -895,11 +895,11 @@
     "testimonial": {
       "$type": "fontFamily",
       "$value": [
-        "ABC Marist",
-        "Georgia",
-        "serif"
+        "Inter",
+        "Arial",
+        "sans-serif"
       ],
-      "$description": "ABC Marist Book 350 is licensed separately. Use for testimonial quotes; keep headings, attribution and controls in Inter."
+      "$description": "Inter Regular 400 for testimonial quotes. All typography uses Inter."
     },
     "weight": {
       "display": {
