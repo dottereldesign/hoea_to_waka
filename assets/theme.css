@@ -78,3 +78,7 @@ html.js .page-home [data-component="home:3:services"] .ds-card-copy > h3{transit
 html.js .page-home [data-component="home:3:services"] .ds-card-copy > .ds-lead{transition-delay:560ms}
 html.js .page-home [data-component="home:3:services"] .ds-card-copy > .ds-card-actions{transition-delay:700ms}
 @media(prefers-reduced-motion:reduce){html.js .page-home [data-component="home:3:services"] .ds-card > img{clip-path:none!important;transition:none!important}html.js .page-home [data-component="home:3:services"] :is(.ds-section-heading,.ds-card-copy) > :is(.ds-kicker,.ds-title,.ds-number,h3,.ds-lead,.ds-card-actions){opacity:1!important;translate:none!important;transition:none!important}}
+/* Lift the model photo into the white space while its column copy follows it. */
+.page-home [data-component="home:4:features"]{margin-top:80px;overflow:visible}
+.page-home [data-component="home:4:features"] .model-section-photo{margin-top:-168px}
+@media(max-width:760px){.page-home [data-component="home:4:features"]{margin-top:32px}.page-home [data-component="home:4:features"] .model-section-photo{margin-top:-56px}}
