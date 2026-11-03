@@ -13,7 +13,7 @@
     const compact=innerWidth<=760?24:32,size=parseFloat(font.fontSize)*(1-p)+compact*p;
     const targetWidth=Math.min(title.width,innerWidth<=760?340:600),width=title.width+(targetWidth-title.width)*p;
     stickyTitle.style.cssText=`top:${Math.max(title.top,top)}px;left:${title.left+(title.width-width)/2}px;width:${width}px;font:${font.font};font-size:${size}px;letter-spacing:${parseFloat(font.letterSpacing)/parseFloat(font.fontSize)*size}px;line-height:${parseFloat(font.lineHeight)/parseFloat(font.fontSize)};--glass-progress:${p};--heading-colour:${font.color}`;
-    stickyTitle.classList.toggle('is-visible',active);sourceTitle.style.visibility=active?'hidden':'';
+    stickyTitle.classList.toggle('is-visible',active);stickyTitle.classList.toggle('is-docked',active&&title.top<=top);sourceTitle.style.visibility=active?'hidden':'';
     if(performance.now()<titleUntil)titleFrame=requestAnimationFrame(updateTitle);
   }
   function queueTitle(){titleUntil=performance.now()+650;if(!titleFrame)titleFrame=requestAnimationFrame(updateTitle);}

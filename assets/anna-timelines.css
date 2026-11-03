@@ -220,6 +220,9 @@ html[data-palette] #anna-story .anna-story__heading>.ds-kicker{margin-top:0}
 
 /* The original heading docks without a size change; glass fades in over the approach. */
 .anna-sticky-title{position:fixed;z-index:40;text-align:center;visibility:hidden;pointer-events:none;color:color-mix(in srgb,#17120e calc(var(--glass-progress)*100%),var(--heading-colour));isolation:isolate}
-.anna-sticky-title::before{content:"";position:absolute;inset:0 -16px -10px;z-index:-1;border-radius:20px;background:linear-gradient(125deg,#eab77acc,#d88a49cc 65%,#b86a34cc);border:1px solid #68371e55;box-shadow:inset 0 1px 0 #ffe7c37a,0 8px 28px #48251224;backdrop-filter:blur(18px) saturate(125%);-webkit-backdrop-filter:blur(18px) saturate(125%);opacity:var(--glass-progress)}
+.anna-sticky-title::before{content:"";position:absolute;inset:0 -16px -10px;z-index:-1;border-radius:20px;background:linear-gradient(125deg,#eab77acc,#d88a49cc 65%,#b86a34cc);border:1px solid #68371e55;box-shadow:inset 0 1px 0 #ffe7c37a,0 8px 28px #48251224;backdrop-filter:blur(18px) saturate(125%);-webkit-backdrop-filter:blur(18px) saturate(125%);opacity:0;transition:opacity .38s cubic-bezier(.22,1,.36,1)}
 .anna-sticky-title.is-visible{visibility:visible}
 @media(max-width:760px){.anna-sticky-title::before{inset:0 -10px -8px;border-radius:16px}}
+
+.anna-sticky-title.is-docked::before{opacity:1}
+@media(prefers-reduced-motion:reduce){.anna-sticky-title::before{transition:none}}
