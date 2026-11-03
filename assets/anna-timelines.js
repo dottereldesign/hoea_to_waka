@@ -10,7 +10,9 @@
     const shell=siteShell?.getBoundingClientRect(),title=sourceTitle.getBoundingClientRect(),bottom=root.getBoundingClientRect().bottom;
     const top=(shell?.bottom||68)+8,t=Math.min(1,Math.max(0,(top+120-title.top)/120)),p=t*t*t*(t*(t*6-15)+10),active=p>0&&bottom>top+title.height;
     const font=getComputedStyle(sourceTitle);
-    stickyTitle.style.cssText=`top:${Math.max(title.top,top)}px;left:${title.left}px;width:${title.width}px;font:${font.font};letter-spacing:${font.letterSpacing};line-height:${font.lineHeight};--glass-progress:${p};--heading-colour:${font.color}`;
+    const compact=innerWidth<=760?24:32,size=parseFloat(font.fontSize)*(1-p)+compact*p;
+    const targetWidth=Math.min(title.width,innerWidth<=760?340:600),width=title.width+(targetWidth-title.width)*p;
+    stickyTitle.style.cssText=`top:${Math.max(title.top,top)}px;left:${title.left+(title.width-width)/2}px;width:${width}px;font:${font.font};font-size:${size}px;letter-spacing:${parseFloat(font.letterSpacing)/parseFloat(font.fontSize)*size}px;line-height:${parseFloat(font.lineHeight)/parseFloat(font.fontSize)};--glass-progress:${p};--heading-colour:${font.color}`;
     stickyTitle.classList.toggle('is-visible',active);sourceTitle.style.visibility=active?'hidden':'';
     if(performance.now()<titleUntil)titleFrame=requestAnimationFrame(updateTitle);
   }
