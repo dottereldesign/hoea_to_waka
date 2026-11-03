@@ -18,7 +18,7 @@ const {chromium}=require('playwright'),assert=require('assert/strict'),fs=requir
    assert(bounds.y>=0&&bounds.y+bounds.height<=(width<=390?640:900)+.5);
    assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
    const links=await page.locator('.language-panel a').evaluateAll(xs=>xs.map(x=>({code:x.dataset.language,href:x.href})));
-   for(const link of links.filter(x=>x.code!=='en')){const url=new URL(link.href);assert.equal(url.hostname,'translate.google.com');assert.equal(url.searchParams.get('tl'),link.code);assert.equal(url.searchParams.get('u'),'https://dottereldesign.github.io/hoea_to_waka/');}
+   for(const link of links.filter(x=>x.code!=='en')){const url=new URL(link.href);assert.equal(url.hostname,'127.0.0.1');assert.equal(url.searchParams.get('lang'),link.code);}assert.equal(await page.locator('.language-panel a[target]').count(),0,'No external translation tabs');
    await page.keyboard.press('End');
    assert.equal(await page.evaluate(()=>document.activeElement.dataset.language),'af');
    await page.waitForTimeout(100);const last=await page.locator('[data-language=af]').boundingBox();assert(last.y+last.height<=bounds.y+bounds.height-63,'Last language clears close-button footer');

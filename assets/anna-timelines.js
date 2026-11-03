@@ -3,7 +3,7 @@
   if(!root)return;
   // Preserve the heading geometry while its glass surface develops before docking.
   const sourceTitle=root.querySelector('#anna-story-title'),siteShell=document.querySelector('.site-header-shell');
-  const stickyTitle=document.createElement('div');stickyTitle.className='anna-sticky-title';stickyTitle.setAttribute('aria-hidden','true');stickyTitle.textContent=sourceTitle.textContent;document.body.append(stickyTitle);
+  const stickyTitle=document.createElement('div');stickyTitle.className='anna-sticky-title notranslate';stickyTitle.setAttribute('aria-hidden','true');stickyTitle.textContent=sourceTitle.textContent;document.body.append(stickyTitle);
   const titleMeasure=document.createElement('canvas').getContext('2d');
   let titleFrame=0,titleUntil=0;
   function updateTitle(){
@@ -12,6 +12,7 @@
     const top=(shell?.bottom||68)+8,docked=title.top<=top&&bottom>top+title.height;
     const travel=Math.min(1,Math.max(0,(top-title.top)/360));
     const p=travel*travel*(3-2*travel),active=docked&&bottom>top+title.height;
+    if(stickyTitle.textContent!==sourceTitle.textContent)stickyTitle.textContent=sourceTitle.textContent;
     const font=getComputedStyle(sourceTitle);
     const compact=innerWidth<=760?24:32,size=parseFloat(font.fontSize)*(1-p)+compact*p;
     titleMeasure.font=font.font;const textWidth=titleMeasure.measureText(sourceTitle.textContent).width+parseFloat(font.letterSpacing)*(sourceTitle.textContent.length-1);
@@ -22,6 +23,7 @@
   }
   function queueTitle(){titleUntil=performance.now()+650;if(!titleFrame)titleFrame=requestAnimationFrame(updateTitle);}
   addEventListener('scroll',queueTitle,{passive:true});addEventListener('resize',queueTitle,{passive:true});
+  addEventListener('hoea:languagechange',queueTitle);
   updateTitle();
   const stage=root.querySelector('.anna-stage'),pin=root.querySelector('.anna-pin'),list=root.querySelector('.anna-list');
   const items=[...list.children],buttons=[...root.querySelectorAll('[data-anna-study]')];

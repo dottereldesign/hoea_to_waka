@@ -1,9 +1,23 @@
-# Language menu
+# Whole-site language switching
 
-English is the original page. The nine other choices open the current published page in Google Translate in a new tab. The source page stays available. There are no embedded translation widgets, cookies or external translation requests on page load. Local previews map to the public GitHub Pages URL because an external translator cannot access localhost. These are automatic translations, not reviewed translations or language editions.
+English (`en-NZ`) is the original source and default. The menu translates the current page in place. It does not open another website or a new tab. The selection is remembered across site pages, refreshes and new tabs. A `?lang=fr` (or another supported code) URL can be shared; `?lang=en` restores and remembers English.
 
-The ten named languages are English, te reo Māori, Samoan, Mandarin (the census Northern Chinese category), Hindi, Tagalog, Cantonese (Yue), French, Punjabi (Panjabi) and Afrikaans, ordered by speaker counts. The census's unspecified Sinitic category is not a separately selectable language, so it is excluded.
+## Implementation
 
-Source: [2023 Census language counts, Stats NZ data published by Figure.NZ](https://figure.nz/chart/yYLyq5llJTCKpYlV), checked 3 November 2026. [Stats NZ dataset](https://explore.data.stats.govt.nz/vis?lc=en&df[ds]=nsiws-disseminate&df[id]=CEN23_ECI_007&df[ag]=STATSNZ&df[vs]=1.0&av=true&dq=2013%2B2018%2B2023.9999%2B99999%2B999999.999.99.999&to[TIME]=false).
+- `assets/i18n.js` controls locale state, persistence, recovery, document language and translated language controls.
+- `assets/language-menu.js` retains the reversible circle-to-panel animation, current-language indication, native names and keyboard controls.
+- Choosing a non-English language loads [GTranslate’s current translation engine](https://gtranslate.io/website-translator-widget). It performs automatic client-side page translation. English visits make no requests to a translation provider.
+- Page text, titles, navigation, controls, image descriptions, accessibility labels and form placeholders are translated. The engine observes content that becomes visible or is added by scripts. English is restored from the original, not reverse-translated.
+- The Anna heading mirrors its translated source while keeping its scroll behaviour. Brand names, book titles, artwork, code examples and design tokens are protected. Text embedded in images and downloaded artwork remains the original artwork.
+- These are automatic, client-rendered translations, not human-reviewed language editions or pre-rendered multilingual SEO pages. English source files and structured metadata remain the canonical source. The UI identifies translations as automatic.
+- The translation service is an external dependency. No API credentials are embedded. Loading errors leave a working English page with an accessible status message. English can cancel a pending translation. User-entered form values remain unchanged.
 
-The menu morphs from the launch button's exact 48px circle to a rounded panel using a clipped surface. Closing reverses the same animation, including during opening. Keyboard support: Escape, arrows, Home/End, normal Tab order, focus restoration. The panel scrolls internally on short screens, with native scrollbars hidden. Reduced motion removes movement. English remains the current original language; opening a translation does not falsely mark the original as translated.
+## Languages
+
+English, te reo Māori, Samoan, Mandarin (Northern Chinese in the census), Hindi, Tagalog, Cantonese (Yue), French, Punjabi (Panjabi) and Afrikaans, ordered by speaker counts. The unspecified Sinitic category is not a separately selectable language and is excluded.
+
+Source: [2023 Census language counts, Stats NZ data published by Figure.NZ](https://figure.nz/chart/yYLyq5llJTCKpYlV), checked 3 November 2026.
+
+## Verification
+
+`npm run test:i18n` tests actual translations for all nine languages, English restoration, persistence across all 14 pages, navigation/reload, dynamic content, form values, mobile layouts, main menu interaction, accessibility and unavailable-service fallback. It requires internet access. `npm run test:language-menu` tests menu geometry, reverse animation, keyboard controls and short-screen scrolling without calling a translation provider.

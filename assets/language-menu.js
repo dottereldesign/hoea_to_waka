@@ -1,16 +1,17 @@
-/* Lightweight language links. No translation scripts or requests until a visitor chooses. */
+/* In-place whole-site language selection. The English source remains the default. */
 (() => {
   if(document.querySelector('.language-launch'))return;
+  const i18n=window.hoeaI18n;
+  if(!i18n)return;
   const languages=[['en','English','English'],['mi','Te reo Māori','Māori'],['sm','Gagana Sāmoa','Samoan'],['zh-CN','普通话','Mandarin Chinese'],['hi','हिन्दी','Hindi'],['tl','Tagalog','Filipino'],['yue','廣東話','Cantonese'],['fr','Français','French'],['pa','ਪੰਜਾਬੀ','Punjabi'],['af','Afrikaans','Afrikaans']];
   const globe='<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18M5 6.5h14M5 17.5h14"/></svg>';
   const launch=document.createElement('button');launch.className='language-launch';launch.type='button';launch.title='Choose a language';launch.innerHTML=globe;launch.setAttribute('aria-label','Language: English. Choose a language');launch.setAttribute('aria-expanded','false');launch.setAttribute('aria-controls','language-panel');
   const panel=document.createElement('section');panel.id='language-panel';panel.className='language-panel';panel.setAttribute('popover','manual');panel.setAttribute('aria-labelledby','language-title');
-  let path=location.pathname.replace(/^\/hoea_to_waka(?=\/|$)/,'');
-  const publicURL='https://dottereldesign.github.io/hoea_to_waka'+(path.startsWith('/')?path:'/'+path)+location.hash;
-  panel.innerHTML='<div class="language-content"><h2 id="language-title">Choose a language</h2><p>Read in the language you prefer.</p><nav aria-label="Page language">'+languages.map(([code,native,name])=>{
-    const href=code==='en'?location.href:'https://translate.google.com/translate?sl=en&tl='+encodeURIComponent(code)+'&u='+encodeURIComponent(publicURL);
-    return `<a href="${href}" ${code==='en'?'aria-current="true"':'target="_blank" rel="noopener noreferrer"'} data-language="${code}"><span lang="${code}">${native}</span><small>${code==='en'?'Original · ✓':name+' ↗'}</small></a>`;
-  }).join('')+'</nav><p class="language-note">Other languages open in Google Translate.<br>Automatic translations may contain errors.</p></div><button type="button" class="language-close" aria-label="Close language menu">'+globe+'</button>';
+  panel.classList.add('notranslate');panel.setAttribute('translate','no');
+  panel.innerHTML='<div class="language-content"><h2 id="language-title"></h2><p data-language-intro></p><nav aria-label="Language">'+languages.map(([code,native,name])=>{
+    const url=new URL(location.href);if(code==='en')url.searchParams.delete('lang');else url.searchParams.set('lang',code);
+    return `<a href="${url.href}" ${code==='en'?'aria-current="true"':''} data-language="${code}"><span lang="${code}">${native}</span><small>${name}</small></a>`;
+  }).join('')+'</nav><p class="language-note"></p></div><button type="button" class="language-close"></button>';
   document.body.append(launch,panel);
   const content=panel.querySelector('.language-content'),close=panel.querySelector('.language-close'),reduce=matchMedia('(prefers-reduced-motion:reduce)');
   close.innerHTML='<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>';
@@ -30,8 +31,23 @@
     }else if(morph){morph.playbackRate=1;morph.play();}
     requestAnimationFrame(()=>{if(opened)content.classList.add('is-revealed');});panel.querySelector('a').focus({preventScroll:true});
   }
+  const status=document.createElement('div');status.className='language-status notranslate';status.setAttribute('translate','no');status.setAttribute('role','status');status.setAttribute('aria-live','polite');status.hidden=true;document.body.append(status);
+  function updateLanguage({locale,requested,state}){
+    const labels=i18n.copy[state==='loading'?requested:locale]||i18n.copy.en;
+    panel.querySelector('nav').setAttribute('aria-label',labels[0]);panel.querySelector('h2').textContent=labels[0];panel.querySelector('[data-language-intro]').textContent=labels[1];panel.querySelector('.language-note').textContent=labels[2];close.setAttribute('aria-label',labels[4]);
+    const current=languages.find(row=>row[0]===locale)||languages[0];launch.setAttribute('aria-label',`${labels[0]}: ${current[1]}`);launch.title=labels[0];launch.setAttribute('aria-busy',String(state==='loading'));
+    panel.querySelectorAll('[data-language]').forEach(link=>{
+      const code=link.dataset.language,row=languages.find(row=>row[0]===code);link.toggleAttribute('aria-current',code===locale);if(code===locale)link.setAttribute('aria-current','true');
+      link.querySelector('small').textContent=(code==='en'?labels[3]:row[2])+(code===locale?' · ✓':'');
+    });
+    status.classList.toggle('is-loading',state==='loading');
+    if(state==='loading'){status.hidden=false;status.textContent=labels[5];}
+    else if(state==='error'){status.hidden=false;status.textContent=(i18n.copy[requested]||labels)[6];}
+    else{status.hidden=true;status.textContent='';}
+  }
+  i18n.subscribe(updateLanguage);updateLanguage({locale:i18n.locale,requested:i18n.requested,state:'ready'});
   launch.addEventListener('click',show);close.addEventListener('click',()=>hide(true));
-  panel.querySelectorAll('a').forEach(a=>a.addEventListener('click',e=>{if(a.dataset.language==='en')e.preventDefault();hide(true);}));
+  panel.querySelectorAll('a').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();hide(true);i18n.setLocale(a.dataset.language);}));
   document.addEventListener('pointerdown',e=>{if(opened&&!panel.contains(e.target)&&!launch.contains(e.target))hide();});
   document.addEventListener('keydown',e=>{
     if(!opened)return;
