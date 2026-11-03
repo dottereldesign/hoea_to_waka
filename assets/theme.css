@@ -39,3 +39,13 @@ html.js .page-home .home-hero-copy .home-intro{transition-delay:280ms!important}
 html.js .page-home .home-hero-copy .button-row a:first-child{transition-delay:420ms!important}
 html.js .page-home .home-hero-copy .button-row a:nth-child(2){transition-delay:560ms!important}
 @media(prefers-reduced-motion:reduce){html.js .page-home .home-hero-copy > :is(.display-title,.home-tagline,.home-intro),html.js .page-home .home-hero-copy .button-row a{opacity:1!important;translate:none!important;transition:none!important}}
+/* Home model section joins the hero's scroll-led reveal rhythm. */
+html.js .page-home [data-component="home:4:features"] .model-section-photo{clip-path:inset(0 0 0 0 round 20px);transition:clip-path 1120ms cubic-bezier(.45,0,.25,1)}
+html.js .page-home [data-component="home:4:features"].model-section-reveal-pending .model-section-photo{clip-path:inset(0 100% 0 0 round 20px)}
+html.js .page-home [data-component="home:4:features"] .ds-section-heading > :is(.ds-kicker,.ds-title,.ds-lead,.model-section-action){opacity:1;translate:0 0;transition:opacity 840ms cubic-bezier(.45,0,.25,1),translate 840ms cubic-bezier(.45,0,.25,1)}
+html.js .page-home [data-component="home:4:features"].model-section-reveal-pending .ds-section-heading > :is(.ds-kicker,.ds-title,.ds-lead,.model-section-action){opacity:0;translate:0 14px}
+html.js .page-home [data-component="home:4:features"] .ds-section-heading > .ds-kicker{transition-delay:140ms}
+html.js .page-home [data-component="home:4:features"] .ds-section-heading > .ds-title{transition-delay:280ms}
+html.js .page-home [data-component="home:4:features"] .ds-section-heading > .ds-lead{transition-delay:420ms}
+html.js .page-home [data-component="home:4:features"] .ds-section-heading > .model-section-action{transition-delay:560ms}
+@media(prefers-reduced-motion:reduce){html.js .page-home [data-component="home:4:features"] .model-section-photo{clip-path:none!important;transition:none!important}html.js .page-home [data-component="home:4:features"] .ds-section-heading > :is(.ds-kicker,.ds-title,.ds-lead,.model-section-action){opacity:1!important;translate:none!important;transition:none!important}}
