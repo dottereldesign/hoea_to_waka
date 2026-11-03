@@ -58,16 +58,15 @@ html[data-palette] .page-home .site-menu-panel{color:#181818}
 .page-home .home-hero[data-hero-version="01"] .home-hero-art{
  display:block;
  background:
-  radial-gradient(ellipse at 6% 8%,#080b16 0%,transparent 65%),
-  radial-gradient(ellipse at 92% 3%,#100d1de6 0%,transparent 62%),
-  radial-gradient(ellipse at 72% 112%,#aa50ed 0%,#7924dd 24%,transparent 63%),
-  radial-gradient(ellipse at 28% 87%,#5a16cf 0%,transparent 66%),
-  radial-gradient(ellipse at 95% 68%,#4923b8 0%,transparent 58%),
-  #100d1d;
+  linear-gradient(180deg,#090a16e6 0%,#120d244d 28%,transparent 65%),
+  radial-gradient(ellipse 72% 105% at 48% 112%,#b560eb 0%,#923bdb 32%,transparent 72%),
+  radial-gradient(ellipse 78% 100% at 0% 85%,#7629df 0%,transparent 78%),
+  radial-gradient(ellipse 85% 110% at 100% 90%,#6721c6 0%,transparent 80%),
+  #20113d;
 }
 .page-home .home-hero[data-hero-version="01"] .home-hero-art__grain{
- display:block;background-image:url('hero-studies/grain.svg');
- background-size:180px 180px;mix-blend-mode:soft-light;opacity:.46;
+ display:block;background-image:url('hero-studies/mesh-grain.svg');
+ background-size:180px 180px;mix-blend-mode:soft-light;opacity:.85;
 }
 /* Version 02 keeps the original photo, graphic mark, waves and layout intact. */
 html[data-palette] .page-home .home-hero[data-hero-version="01"]{background:#100d1d;min-height:0;height:auto}
