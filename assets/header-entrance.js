@@ -35,6 +35,7 @@
     root.classList.remove('header-entrance-pending');
     header.dataset.entranceState = 'idle';
     header.dataset.entranceStop = reason;
+    if (reason !== 'restart') document.dispatchEvent(new CustomEvent('header-entrance-finished', {detail:{reason}}));
 
   }
   function settlePlacement() {
