@@ -22,3 +22,5 @@ html[data-palette] #language-panel .language-note{font-size:11px!important;margi
 .language-status.is-loading::before{content:"";display:inline-block;width:10px;height:10px;margin-right:8px;border:1px solid #80678844;border-top-color:#684a74;border-radius:50%;animation:language-loading .8s linear infinite}
 @keyframes language-loading{to{transform:rotate(360deg)}}
 @media(prefers-reduced-motion:reduce){.language-status.is-loading::before{animation:none}}
+
+.language-launch__flag{display:block;width:28px;height:21px;object-fit:cover;border-radius:3px;box-shadow:0 0 0 1px #2020201a}

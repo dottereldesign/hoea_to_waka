@@ -4,8 +4,10 @@
   const i18n=window.hoeaI18n;
   if(!i18n)return;
   const languages=[['en','English','English'],['mi','Te reo Māori','Māori'],['sm','Gagana Sāmoa','Samoan'],['zh-CN','普通话','Mandarin Chinese'],['hi','हिन्दी','Hindi'],['tl','Tagalog','Filipino'],['yue','廣東話','Cantonese'],['fr','Français','French'],['pa','ਪੰਜਾਬੀ','Punjabi'],['af','Afrikaans','Afrikaans']];
-  const globe='<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18M5 6.5h14M5 17.5h14"/></svg>';
-  const launch=document.createElement('button');launch.className='language-launch';launch.type='button';launch.title='Choose a language';launch.innerHTML=globe;launch.setAttribute('aria-label','Language: English. Choose a language');launch.setAttribute('aria-expanded','false');launch.setAttribute('aria-controls','language-panel');
+  const flagCountries={en:'nz',mi:'nz',sm:'ws','zh-CN':'cn',hi:'in',tl:'ph',yue:'hk',fr:'fr',pa:'in',af:'za'};
+  const flagBase=new URL('language-flags/',document.currentScript.src);
+  const flag=document.createElement('img');flag.className='language-launch__flag';flag.width=28;flag.height=21;flag.alt='';flag.setAttribute('aria-hidden','true');flag.src=new URL('nz.svg',flagBase).href;
+  const launch=document.createElement('button');launch.className='language-launch';launch.type='button';launch.title='English · Choose a language';launch.setAttribute('translate','no');launch.append(flag);launch.setAttribute('aria-label','Language: English. Choose a language');launch.setAttribute('aria-expanded','false');launch.setAttribute('aria-controls','language-panel');
   const panel=document.createElement('section');panel.id='language-panel';panel.className='language-panel';panel.setAttribute('popover','manual');panel.setAttribute('aria-labelledby','language-title');
   panel.classList.add('notranslate');panel.setAttribute('translate','no');
   panel.innerHTML='<div class="language-content"><h2 id="language-title"></h2><p data-language-intro></p><nav aria-label="Language">'+languages.map(([code,native,name])=>{
@@ -35,7 +37,9 @@
   function updateLanguage({locale,requested,state}){
     const labels=i18n.copy[state==='loading'?requested:locale]||i18n.copy.en;
     panel.querySelector('nav').setAttribute('aria-label',labels[0]);panel.querySelector('h2').textContent=labels[0];panel.querySelector('[data-language-intro]').textContent=labels[1];panel.querySelector('.language-note').textContent=labels[2];close.setAttribute('aria-label',labels[4]);
-    const current=languages.find(row=>row[0]===locale)||languages[0];launch.setAttribute('aria-label',`${labels[0]}: ${current[1]}`);launch.title=labels[0];launch.setAttribute('aria-busy',String(state==='loading'));
+    const current=languages.find(row=>row[0]===locale)||languages[0];launch.setAttribute('aria-label',`${labels[0]}: ${current[1]}`);launch.title=`${current[1]} · ${labels[0]}`;
+    const country=flagCountries[locale]||'nz';if(launch.dataset.flag!==country){launch.dataset.flag=country;flag.src=new URL(country+'.svg',flagBase).href;}
+    launch.setAttribute('aria-busy',String(state==='loading'));
     panel.querySelectorAll('[data-language]').forEach(link=>{
       const code=link.dataset.language,row=languages.find(row=>row[0]===code);link.toggleAttribute('aria-current',code===locale);if(code===locale)link.setAttribute('aria-current','true');
       link.querySelector('small').textContent=(code==='en'?labels[3]:row[2])+(code===locale?' · ✓':'');

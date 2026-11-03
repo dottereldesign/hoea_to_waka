@@ -21,3 +21,7 @@ Source: [2023 Census language counts, Stats NZ data published by Figure.NZ](http
 ## Verification
 
 `npm run test:i18n` tests actual translations for all nine languages, English restoration, persistence across all 14 pages, navigation/reload, dynamic content, form values, mobile layouts, main menu interaction, accessibility and unavailable-service fallback. It requires internet access. `npm run test:language-menu` tests menu geometry, reverse animation, keyboard controls and short-screen scrolling without calling a translation provider.
+
+## Flag button
+
+The button uses local SVG flags from [flag-icons](https://github.com/lipis/flag-icons), with its MIT license retained in `assets/language-flags/LICENSE.txt`. English and Māori use New Zealand, Samoan uses Samoa, Mandarin uses China, Hindi/Punjabi use India, Tagalog uses the Philippines, Cantonese uses Hong Kong, French uses France, and Afrikaans uses South Africa. Native-language names remain the menu labels and accessible button name. The flag updates only when the selected language is applied successfully; an English fallback restores New Zealand.
