@@ -4,6 +4,7 @@
   // Preserve the heading geometry while its glass surface develops before docking.
   const sourceTitle=root.querySelector('#anna-story-title'),siteShell=document.querySelector('.site-header-shell');
   const stickyTitle=document.createElement('div');stickyTitle.className='anna-sticky-title';stickyTitle.setAttribute('aria-hidden','true');stickyTitle.textContent=sourceTitle.textContent;document.body.append(stickyTitle);
+  const titleMeasure=document.createElement('canvas').getContext('2d');
   let titleFrame=0,titleUntil=0;
   function updateTitle(){
     titleFrame=0;
@@ -13,8 +14,9 @@
     const p=travel*travel*(3-2*travel),active=docked&&bottom>top+title.height;
     const font=getComputedStyle(sourceTitle);
     const compact=innerWidth<=760?24:32,size=parseFloat(font.fontSize)*(1-p)+compact*p;
-    const targetWidth=Math.min(title.width,innerWidth<=760?340:600),width=title.width+(targetWidth-title.width)*p;
-    stickyTitle.style.cssText=`top:${Math.max(title.top,top)}px;left:${title.left+(title.width-width)/2}px;width:${width}px;font:${font.font};font-size:${size}px;letter-spacing:${parseFloat(font.letterSpacing)/parseFloat(font.fontSize)*size}px;line-height:${parseFloat(font.lineHeight)/parseFloat(font.fontSize)};--glass-progress:${p};--heading-colour:${font.color}`;
+    titleMeasure.font=font.font;const textWidth=titleMeasure.measureText(sourceTitle.textContent).width+parseFloat(font.letterSpacing)*(sourceTitle.textContent.length-1);
+    const targetWidth=Math.min(title.width,textWidth*compact/parseFloat(font.fontSize)+8),width=title.width+(targetWidth-title.width)*p;
+    stickyTitle.style.cssText=`top:${Math.max(title.top,top)+6*p}px;left:${title.left+(title.width-width)/2}px;width:${width}px;font:${font.font};font-size:${size}px;letter-spacing:${parseFloat(font.letterSpacing)/parseFloat(font.fontSize)*size}px;line-height:${parseFloat(font.lineHeight)/parseFloat(font.fontSize)};--glass-progress:${p};--heading-colour:${font.color}`;
     stickyTitle.classList.toggle('is-visible',active);stickyTitle.classList.toggle('is-docked',active&&title.top<=top);sourceTitle.style.visibility=active?'hidden':'';
     if(performance.now()<titleUntil)titleFrame=requestAnimationFrame(updateTitle);
   }
