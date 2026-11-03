@@ -21,7 +21,7 @@
     pin.prepend(svg);
     const ocean=document.createElementNS(ns,'svg');
     ocean.classList.add('anna-ocean-cut');ocean.setAttribute('aria-hidden','true');
-    ocean.innerHTML='<defs><clipPath id="anna-ocean-crack"><path/></clipPath></defs><foreignObject clip-path="url(#anna-ocean-crack)" class="anna-ocean-colour"><div xmlns="http://www.w3.org/1999/xhtml" class="anna-ocean-gradient"></div></foreignObject>';
+    ocean.innerHTML='<defs><clipPath id="anna-ocean-crack"><path/></clipPath></defs><rect clip-path="url(#anna-ocean-crack)" fill="#0D4687"/>';
     root.prepend(ocean);
     const boat=svg.querySelector('.river-kayak'),paddle=svg.querySelector('.river-paddle');
     const blades=[...svg.querySelectorAll('[data-paddle-blade]')],splashes=[...svg.querySelectorAll('[data-paddle-splash]')];
@@ -70,7 +70,7 @@
       // One continuous silhouette: broad ocean above, fractured shoulders, narrow passage below.
       const rootBox=root.getBoundingClientRect(),ox=box.left-rootBox.left,oy=box.top-rootBox.top,rw=rootBox.width,rh=rootBox.height;
       ocean.setAttribute('viewBox',`0 0 ${rw} ${rh}`);
-      ocean.querySelector('foreignObject').setAttribute('width',rw);ocean.querySelector('foreignObject').setAttribute('height',rh);ocean.style.setProperty('--ocean-sky-height',`${oy+100}px`);
+      ocean.querySelector('rect').setAttribute('width',rw);ocean.querySelector('rect').setAttribute('height',rh);
       const banks=[[],[]];
       for(let y=0;y<=height;y+=10){
         const taper=mobile?0:Math.max(0,1-y/340),half=((mobile?17:38)+taper*(mobile?rw*.14:rw*.16))*Math.min(1,(height-y)/170+.025);
