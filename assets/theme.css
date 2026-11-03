@@ -39,3 +39,6 @@ html.js .page-home .home-hero-copy .home-intro{transition-delay:280ms!important}
 html.js .page-home .home-hero-copy .button-row a:first-child{transition-delay:420ms!important}
 html.js .page-home .home-hero-copy .button-row a:nth-child(2){transition-delay:560ms!important}
 @media(prefers-reduced-motion:reduce){html.js .page-home .home-hero-copy > :is(.display-title,.home-tagline,.home-intro),html.js .page-home .home-hero-copy .button-row a{opacity:1!important;translate:none!important;transition:none!important}}
+/* Carry the hero's fine mesh grain across the overlapping photos. */
+.home-hero-gallery figure{position:relative}
+.home-hero-gallery figure::after{content:"";position:absolute;inset:0;background:url('hero-studies/mesh-grain.svg') 0 0/180px 180px;mix-blend-mode:soft-light;opacity:.65;pointer-events:none}
