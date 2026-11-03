@@ -1,6 +1,6 @@
 import { setupModelButtons } from './model-button';
 import { setupSiteHeader } from './header';
-import { setupHeroVersions, setupCoachingHeroVersions } from './hero-versions';
+import { setupCoachingHeroVersions } from './hero-versions';
 import { setupFooterVersions } from './footer-versions';
 
 const root=document.documentElement;
@@ -14,4 +14,4 @@ try { localStorage.removeItem('hoea-design-studio-draft-1'); localStorage.remove
 new MutationObserver(syncMode).observe(root,{attributes:true,attributeFilter:['data-theme']});
 window.addEventListener('hoea:brand-colours',syncMode);
 document.addEventListener('DOMContentLoaded',syncMode,{once:true});
-document.addEventListener('DOMContentLoaded',()=>{setupSiteHeader();setupHeroVersions();setupCoachingHeroVersions();setupFooterVersions();setupModelButtons();},{once:true});
+document.addEventListener('DOMContentLoaded',()=>{setupSiteHeader();setupCoachingHeroVersions();setupFooterVersions();setupModelButtons();},{once:true});

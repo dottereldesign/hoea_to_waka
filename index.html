@@ -120,7 +120,7 @@
     </script>
     <!-- theme-boot:start --><script>(()=>{var s="hoea-brand-colours-v1",l=[{id:"ocean",name:"Ocean",base:800,role:"Dark blue \xB7 Interior headers and colour accents",values:["#F0F4F8","#E9EEF4","#C8D5E0","#A9C5CE","#829FB2","#607F9D","#3F5B78","#243A53","#1A2B3D"]},{id:"forest",name:"Forest",base:800,role:"Dark green \xB7 Supporting colour for sections and graphics",values:["#F1F5F0","#E8EEE9","#CBDBCD","#ABC4AE","#87A78C","#6B916F","#4C7054","#344A3A","#24362A"]},{id:"aubergine",name:"Aubergine",base:800,role:"Dark purple \xB7 Model sections and supporting backgrounds",values:["#FAF7FB","#F1EAF2","#E2D5E5","#C8B4CE","#A18AA9","#806788","#58415F","#281A2C","#201423"]},{id:"lavender",name:"Lavender",base:500,role:"Pale purple \xB7 Supporting backgrounds and highlights",values:["#FCFAFC","#F7F2F8","#F0E9F2","#E6DBE9","#D8CBDD","#B9A9C0","#98859F","#74647D","#514459"]}],t=(e,r,a,g)=>({id:e,name:r,hex:a,role:g}),b=[t("paper","Paper","#FFFFFF","Default page surface, cards and overlays"),t("warm-white","Warm White","#F8F8F6","Soft neutral accents and secondary surfaces"),t("ivory","Ivory","#F5F3EE","Warm content sections"),t("cool-mist","Cool Mist","#EDF1F3","Secondary surfaces"),t("stone","Stone","#E3E1DD","Dividers and borders"),t("slate","Slate","#6B7178","Supporting labels"),t("ink","Ink","#202329","High-contrast text"),t("ocean-900","Ocean Night","#1A2B3D","Deep blue \xB7 Available dark background"),t("aubergine-900","Plum Night","#201423","Deep purple \xB7 Available dark background")],h=[t("ocean-400","Coastal Mist","#A9C5CE","Pale blue \xB7 Illustrations and diagrams"),t("dusty-rose","Dusty Rose","#C88F99","Muted pink \xB7 Small illustration details"),t("sandstone","Sandstone","#D6BA83","Small warm details and diagrams"),t("soft-sage","Soft Sage","#B8C9B5","Pale green \xB7 Illustrations and backgrounds")],y=[t("success","Success","#347A56","A completed or successful action"),t("warning","Warning","#A86823","A caution message \xB7 explain what needs attention"),t("error","Error","#B74855","An error message \xB7 explain how to fix it"),t("ocean-800","Information","#243A53","Helpful information or a neutral notice"),t("ocean-600","Focus ring","#607F9D","Shows which control is selected by the keyboard")],v=l.flatMap(e=>e.values.map((r,a)=>t(`${e.id}-${(a+1)*100}`,`${e.name} ${(a+1)*100}`,r,`${(a+1)*100} tonal level`))),c=[...new Map([...v,...b,...h,...y].map(e=>[e.id,e])).values()],d=Object.fromEntries(c.map(e=>[e.id,e.hex])),F=l.map(e=>t(`${e.id}-${e.base}`,e.name,e.values[e.base/100-1],e.role)),i=e=>`--brand-${e}`;var E=e=>/^#[0-9a-f]{6}$/i.test(e);function u(e){return!e||typeof e!="object"||Array.isArray(e)?{}:Object.fromEntries(Object.entries(e).filter(([r,a])=>Object.prototype.hasOwnProperty.call(d,r)&&typeof a=="string"&&E(a)).map(([r,a])=>[r,a.toUpperCase()]))}var o={};function p(){try{return u(JSON.parse(localStorage.getItem(s))?.colours)}catch{return{}}}function f(){let e=document.documentElement;for(let r of c)o[r.id]?e.style.setProperty(i(r.id),o[r.id]):e.style.removeProperty(i(r.id));e.dataset.brandPreview=String(Object.keys(o).length>0),window.dispatchEvent(new CustomEvent("hoea:brand-colours"))}function m(){o=p(),f()}window.addEventListener("storage",e=>{(e.key===s||e.key===null)&&(o=p(),f())});var n=document.documentElement,x=["display","heading","body","eyebrow","ui","small"].map(e=>({id:e}));n.classList.toggle("ds-motion-paused",matchMedia("(prefers-reduced-motion:reduce)").matches);function A(){n.dataset.palette="hoea",n.dataset.typography="inter";for(let e of x)n.style.setProperty(`--font-${e.id}`,'"Inter", Arial, sans-serif'),n.style.setProperty(`--font-weight-${e.id}`,e.id==="eyebrow"?400:["display","heading"].includes(e.id)?600:500);m()}A();})();</script><!-- theme-boot:end -->
 <script src="assets/theme-init.js?v=33" defer></script>
-    <link rel="stylesheet" href="assets/page-styles/home.css?v=bed2dd40d8">
+    <link rel="stylesheet" href="assets/page-styles/home.css?v=90c8e0422c">
     <link rel="stylesheet" href="assets/language-menu.css?v=4">
     <script src="assets/i18n.js?v=1" defer></script>
     <script src="assets/language-menu.js?v=4" defer></script>
@@ -216,42 +216,9 @@
     <main class="site-main" id="main-content">
       <section class="home-hero" data-hero-version="01" aria-labelledby="home-hero-title">
         <div class="home-hero-art" aria-hidden="true">
-          <img class="home-hero-art__scene home-hero-art__wander" src="assets/hero-studies/wander.svg" alt="" width="1416" height="780" loading="lazy" decoding="async">
-          <img class="home-hero-art__scene home-hero-art__landscape" src="assets/hero-studies/landscape.svg" alt="" width="1416" height="1010" loading="lazy" decoding="async">
           <span class="home-hero-art__grain"></span>
         </div>
-        <div class="home-hero-photo" aria-hidden="true">
-          <picture>
-            <source srcset="assets/hero-collaboration-900.webp 900w, assets/hero-collaboration.webp 1448w" sizes="100vw" type="image/webp">
-            <img src="assets/hero-collaboration.webp" width="1448" height="1086" loading="lazy" fetchpriority="low" decoding="async" alt="" srcset="assets/responsive/hero-collaboration-0f10661e0b-480.webp 480w, assets/responsive/hero-collaboration-0f10661e0b-768.webp 768w, assets/responsive/hero-collaboration-0f10661e0b-1200.webp 1200w, assets/hero-collaboration.webp 1448w" sizes="(max-width:760px) calc(100vw - 44px),100vw">
-          </picture>
-        </div>
-        <div class="home-hero-photo-wash" aria-hidden="true"></div>
-        <svg class="home-hero-photo-wave home-hero-photo-wave-back" viewBox="0 0 1448 1086" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-          <defs>
-            <linearGradient id="home-photo-wave-back" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="var(--paint-0b58c7, #0b58c7)" stop-opacity="0.32"></stop>
-              <stop offset="0.58" stop-color="var(--paint-0d64d8, #0d64d8)" stop-opacity="0.24"></stop>
-              <stop offset="1" stop-color="var(--paint-1049ac, #1049ac)" stop-opacity="0.1"></stop>
-            </linearGradient>
-          </defs>
-          <path class="home-photo-wave-path-desktop" d="M0 1086C164 960 277 757 407 723C606 756 773 1002 1062 1086H1448V1086H0Z" fill="url(#home-photo-wave-back)"></path>
-          <path class="home-photo-wave-path-mobile" d="M0 1010C300 900 700 900 1160 1040C1270 1074 1340 1086 1448 1086H0Z" fill="url(#home-photo-wave-back)"></path>
-        </svg>
-        <svg class="home-hero-photo-wave home-hero-photo-wave-front" viewBox="0 0 1448 1086" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-          <defs>
-            <linearGradient id="home-photo-wave-front" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0" stop-color="var(--paint-0846b7, #0846b7)"></stop>
-              <stop offset="0.54" stop-color="var(--paint-087ce7, #087ce7)"></stop>
-              <stop offset="1" stop-color="var(--paint-0b55c7, #0b55c7)"></stop>
-            </linearGradient>
-          </defs>
-          <path d="M0 1008C272 961 519 967 873 1086H0Z" fill="url(#home-photo-wave-front)"></path>
-        </svg>
         <div class="home-hero-inner home-hero-inner-photo">
-          <div class="home-hero-mark" aria-hidden="true">
-            <img class="home-hero-logo" src="assets/logo-hero.svg" width="385" height="384" decoding="async" alt="">
-          </div>
           <div class="home-hero-copy home-hero-motion-pending is-visible" data-reveal="">
             <h1 class="display-title brand-name-text" id="home-hero-title">Hoea tō Waka</h1>
             <p class="home-tagline"><strong>Strength</strong> in <em>Aotearoa</em></p>
@@ -261,14 +228,6 @@
               <a class="model-button model-button-inverse model-button-outline home-hero-button-contact" href="contact/"><span class="model-button__label">Talk with Anna</span></a>
             </div>
           </div>
-        </div>
-      <div class="hero-version-controls" role="group" aria-label="Hero versions" hidden="">
-          <button type="button" data-hero-choice="01" aria-label="Version 01: solid background" aria-pressed="true" title="Solid background">01</button>
-          <button type="button" data-hero-choice="02" aria-label="Version 02: original photo hero" aria-pressed="false" title="Original photo hero">02</button>
-          <button type="button" data-hero-choice="03" aria-label="Version 03: illustrated wander scene with grain" aria-pressed="false" title="Wander scene with grain">03</button>
-          <button type="button" data-hero-choice="04" aria-label="Version 04: illustrated wander scene without grain" aria-pressed="false" title="Wander scene without grain">04</button>
-          <button type="button" data-hero-choice="05" aria-label="Version 05: illustrated landscape with grain" aria-pressed="false" title="Landscape with grain">05</button>
-          <span class="hero-version-status" aria-live="polite"></span>
         </div>
       </section>
 

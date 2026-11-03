@@ -55,6 +55,8 @@ html[data-palette] .page-home .site-menu-panel{color:#181818}
 .page-home .site-menu-service-links a{color:#555}
 /* Static mesh: a dark reading area, layered violet light and cached fine grain.
    Reuse the decorative art plane so text and existing motion stay above it. */
+.home-hero-art{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.home-hero-art__grain{position:absolute;inset:0}
 .page-home .home-hero[data-hero-version="01"] .home-hero-art{
  display:block;
  background:
@@ -69,7 +71,7 @@ html[data-palette] .page-home .site-menu-panel{color:#181818}
  display:block;background-image:url('hero-studies/mesh-grain.svg');
  background-size:180px 180px;mix-blend-mode:soft-light;opacity:.85;
 }
-/* Version 02 keeps the original photo, graphic mark, waves and layout intact. */
+/* The single published home hero uses the violet mesh. */
 html[data-palette] .page-home .home-hero[data-hero-version="01"]{background:#100d1d;min-height:0;height:auto}
 .page-home .home-hero[data-hero-version="01"] :is(.home-hero-photo,.home-hero-photo-wash,.home-hero-photo-wave,.home-hero-mark){display:none}
 .page-home .home-hero[data-hero-version="01"] .home-hero-inner-photo{justify-content:center;min-height:620px;padding:90px 0 110px}
@@ -79,12 +81,6 @@ html[data-palette] .page-home .home-hero .home-tagline{color:#dedede}
 .page-home .home-hero[data-hero-version="01"] .home-intro-line{display:inline}
 .page-home .home-hero[data-hero-version="01"] .home-intro-line+.home-intro-line::before{content:' '}
 .page-home .home-hero[data-hero-version="01"] .button-row{margin-left:0;gap:12px;margin-top:36px}
-.page-home .hero-version-controls{position:absolute;right:24px;bottom:20px;z-index:8;display:flex;gap:4px;padding:4px;border:1px solid #ffffff50;border-radius:999px;background:#202020}
-.hero-version-controls[hidden]{display:none!important}
-html[data-palette] .page-home .hero-version-controls button{display:grid;place-items:center;width:36px;height:32px;padding:0;border:0;border-radius:999px;background:transparent;color:#ddd;font-size:11px;line-height:1;font-weight:600;cursor:pointer;transition:background .2s,color .2s}
-html[data-palette] .page-home .hero-version-controls button[aria-pressed="true"]{background:#fff;color:#202020}
-html[data-palette] .page-home .hero-version-controls button:hover{background:#666;color:#fff}
-.hero-version-status{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 html[data-palette] .page-home :is(a,button,summary):focus-visible{outline-color:#999!important}
 @media(max-width:760px){
  .page-home .home-hero[data-hero-version="01"] .home-hero-inner-photo{min-height:560px;padding:72px 0 100px}
@@ -92,9 +88,7 @@ html[data-palette] .page-home :is(a,button,summary):focus-visible{outline-color:
  .page-home .home-hero[data-hero-version="01"] .home-tagline{letter-spacing:.2em;line-height:1.5}
  .page-home .home-hero[data-hero-version="01"] .button-row{flex-direction:column;align-items:stretch;width:100%;max-width:400px}
  .page-home .home-hero[data-hero-version="01"] .button-row .button{width:100%;white-space:nowrap;min-height:48px}
- .page-home .hero-version-controls{right:16px;bottom:16px}
 }
-@media(prefers-reduced-motion:reduce){.hero-version-controls button{transition:none!important}}
 
 /* Restore the model panel's original purple within the neutral homepage. */
 html[data-palette] :is([data-component="home:4:features"],[data-component="about/:3:features"],[data-component="model/:2:features"]){
