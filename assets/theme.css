@@ -31,3 +31,11 @@ html.js .home-hero-gallery figure{clip-path:inset(0 0 0 0);transition:clip-path 
 html.js .home-hero-gallery figure:nth-child(2){transition-delay:850ms}
 html.js .home-hero-gallery.gallery-motion-pending figure{clip-path:inset(0 100% 0 0)}
 @media(prefers-reduced-motion:reduce){html.js .home-hero-gallery figure{clip-path:none!important;transition:none!important}}
+/* Hero copy follows the header entrance alongside the image reveals. */
+html.js .page-home .home-hero-copy > :is(.display-title,.home-tagline,.home-intro),html.js .page-home .home-hero-copy .button-row a{opacity:1!important;translate:0 0!important;transition:opacity 650ms cubic-bezier(.22,1,.36,1),translate 760ms cubic-bezier(.22,1,.36,1)!important}
+html.js .page-home .home-hero-copy.home-hero-motion-pending > :is(.display-title,.home-tagline,.home-intro),html.js .page-home .home-hero-copy.home-hero-motion-pending .button-row a{opacity:0!important;translate:0 14px!important}
+html.js .page-home .home-hero-copy .home-tagline{transition-delay:130ms!important}
+html.js .page-home .home-hero-copy .home-intro{transition-delay:260ms!important}
+html.js .page-home .home-hero-copy .button-row a:first-child{transition-delay:390ms!important}
+html.js .page-home .home-hero-copy .button-row a:nth-child(2){transition-delay:480ms!important}
+@media(prefers-reduced-motion:reduce){html.js .page-home .home-hero-copy > :is(.display-title,.home-tagline,.home-intro),html.js .page-home .home-hero-copy .button-row a{opacity:1!important;translate:none!important;transition:none!important}}

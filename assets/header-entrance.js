@@ -98,6 +98,9 @@
     const preset = presets[selected], compact = header.classList.contains('is-scrolled');
     const current = ++generation;
     header.dataset.entranceState = 'playing';
+    document.querySelector('.home-hero-gallery')?.classList.remove('gallery-motion-pending');
+    document.querySelector('.home-hero-copy')?.classList.remove('home-hero-motion-pending');
+    document.dispatchEvent(new CustomEvent('header-entrance-started', {detail:{reason}}));
     header.dataset.entranceVariant = String(selected + 1);
     header.dataset.entranceStyle = preset.name;
     header.dataset.entranceShape = compact ? 'pill' : 'full';
