@@ -1,6 +1,14 @@
 (() => {
   const root=document.querySelector('#anna-story');
   if(!root)return;
+  // A separate fixed title keeps the tall story heading from limiting sticky travel.
+  const sourceTitle=root.querySelector('#anna-story-title'),siteShell=document.querySelector('.site-header-shell');
+  const stickyTitle=document.createElement('div');stickyTitle.className='anna-sticky-title';stickyTitle.setAttribute('aria-hidden','true');stickyTitle.textContent=sourceTitle.textContent;document.body.append(stickyTitle);
+  let titleFrame=0,titleUntil=0;
+  function updateTitle(){titleFrame=0;const shell=siteShell?.getBoundingClientRect(),title=sourceTitle.getBoundingClientRect(),bottom=root.getBoundingClientRect().bottom;const top=(shell?.bottom||68)+8;const active=title.top<=top&&bottom>top+80;stickyTitle.style.top=top+'px';stickyTitle.classList.toggle('is-visible',active);sourceTitle.style.visibility=active?'hidden':'';if(performance.now()<titleUntil)titleFrame=requestAnimationFrame(updateTitle);}
+  function queueTitle(){titleUntil=performance.now()+650;if(!titleFrame)titleFrame=requestAnimationFrame(updateTitle);}
+  addEventListener('scroll',queueTitle,{passive:true});addEventListener('resize',queueTitle,{passive:true});
+  updateTitle();
   const stage=root.querySelector('.anna-stage'),pin=root.querySelector('.anna-pin'),list=root.querySelector('.anna-list');
   const items=[...list.children],buttons=[...root.querySelectorAll('[data-anna-study]')];
   const route=root.querySelector('.anna-route'),ink=route.querySelector('.anna-route__ink');

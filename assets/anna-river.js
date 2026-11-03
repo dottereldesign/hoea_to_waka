@@ -83,7 +83,7 @@
       const shoulder=oy-180;
       const cutLeft=[[0,0],[0,shoulder+65],[rw*.04,shoulder+56],[rw*.075,shoulder+29],[rw*.1,shoulder+38],[rw*.14,shoulder+4],[rw*.17,shoulder-9],[rw*.205,shoulder-43],[rw*.23,shoulder-22],[rw*.25,shoulder+35],[rw*.27,shoulder+62],[rw*.29,shoulder+50],[rw*.31,shoulder+91],[rw*.34,shoulder+115],...banks[0]];
       const cutRight=[...banks[1].reverse(),[rw*.7,shoulder+126],[rw*.73,shoulder+104],[rw*.75,shoulder+111],[rw*.78,shoulder+62],[rw*.8,shoulder+49],[rw*.825,shoulder+6],[rw*.85,shoulder+17],[rw*.88,shoulder+34],[rw*.91,shoulder+26],[rw*.95,shoulder+49],[rw,shoulder+63],[rw,0]];
-      const outline=[...cutLeft,...cutRight];
+      const outline=mobile?[[0,0],[0,shoulder+70],[ox+centre-17,shoulder+120],...banks[0],...banks[1],[rw*.22,shoulder+100],[rw*.28,shoulder+58],[rw*.45,shoulder+24],[rw,shoulder],[rw,0]]:[...cutLeft,...cutRight];
       const fractured=[];
       outline.forEach((p,i)=>{const previous=outline[i-1];if(previous&&p[1]>shoulder-10&&previous[1]>shoulder-10&&Math.hypot(p[0]-previous[0],p[1]-previous[1])>45){const steps=Math.ceil(Math.hypot(p[0]-previous[0],p[1]-previous[1])/16);for(let j=1;j<steps;j++){const t=j/steps;fractured.push([previous[0]+(p[0]-previous[0])*t+Math.sin(i*7+j*3)*3,previous[1]+(p[1]-previous[1])*t+Math.sin(i*3+j*7)*4]);}}fractured.push(p);});
       ocean.querySelector('clipPath path').setAttribute('d','M'+fractured.map(p=>p.map(f).join(' ')).join('L')+'Z');
