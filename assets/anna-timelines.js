@@ -4,20 +4,19 @@
   // Preserve the heading geometry while its glass surface develops before docking.
   const sourceTitle=root.querySelector('#anna-story-title'),siteShell=document.querySelector('.site-header-shell');
   const stickyTitle=document.createElement('div');stickyTitle.className='anna-sticky-title';stickyTitle.setAttribute('aria-hidden','true');stickyTitle.textContent=sourceTitle.textContent;document.body.append(stickyTitle);
-  let titleFrame=0,titleUntil=0,titleProgress=0,titleLast=0;
+  let titleFrame=0,titleUntil=0;
   function updateTitle(){
     titleFrame=0;
     const shell=siteShell?.getBoundingClientRect(),title=sourceTitle.getBoundingClientRect(),bottom=root.getBoundingClientRect().bottom;
     const top=(shell?.bottom||68)+8,docked=title.top<=top&&bottom>top+title.height;
-    const now=performance.now(),dt=titleLast?Math.min((now-titleLast)/1000,.04):1/60;titleLast=now;
-    const target=docked?1:0;titleProgress+=(target-titleProgress)*(1-Math.exp(-12*dt));if(Math.abs(target-titleProgress)<.001)titleProgress=target;
-    const p=titleProgress,active=(docked||p>0)&&bottom>top+title.height;
+    const travel=Math.min(1,Math.max(0,(top-title.top)/140));
+    const p=travel*travel*(3-2*travel),active=docked&&bottom>top+title.height;
     const font=getComputedStyle(sourceTitle);
     const compact=innerWidth<=760?24:32,size=parseFloat(font.fontSize)*(1-p)+compact*p;
     const targetWidth=Math.min(title.width,innerWidth<=760?340:600),width=title.width+(targetWidth-title.width)*p;
     stickyTitle.style.cssText=`top:${Math.max(title.top,top)}px;left:${title.left+(title.width-width)/2}px;width:${width}px;font:${font.font};font-size:${size}px;letter-spacing:${parseFloat(font.letterSpacing)/parseFloat(font.fontSize)*size}px;line-height:${parseFloat(font.lineHeight)/parseFloat(font.fontSize)};--glass-progress:${p};--heading-colour:${font.color}`;
     stickyTitle.classList.toggle('is-visible',active);stickyTitle.classList.toggle('is-docked',active&&title.top<=top);sourceTitle.style.visibility=active?'hidden':'';
-    if(performance.now()<titleUntil||titleProgress!==target)titleFrame=requestAnimationFrame(updateTitle);
+    if(performance.now()<titleUntil)titleFrame=requestAnimationFrame(updateTitle);
   }
   function queueTitle(){titleUntil=performance.now()+650;if(!titleFrame)titleFrame=requestAnimationFrame(updateTitle);}
   addEventListener('scroll',queueTitle,{passive:true});addEventListener('resize',queueTitle,{passive:true});
