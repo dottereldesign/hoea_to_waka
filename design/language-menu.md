@@ -25,3 +25,12 @@ Source: [2023 Census language counts, Stats NZ data published by Figure.NZ](http
 ## Flag button
 
 The button uses local SVG flags from [flag-icons](https://github.com/lipis/flag-icons), with its MIT license retained in `assets/language-flags/LICENSE.txt`. English and Māori use New Zealand, Samoan uses Samoa, Mandarin uses China, Hindi/Punjabi use India, Tagalog uses the Philippines, Cantonese uses Hong Kong, French uses France, and Afrikaans uses South Africa. Native-language names remain the menu labels and accessible button name. The flag updates only when the selected language is applied successfully; an English fallback restores New Zealand.
+
+
+## Performance update — 3 November 2026
+
+The panel keeps its native top-layer popover and circle-to-rounded-panel clip. Percentage insets remove the opening geometry read; closing uses its own ease-out instead of running the opening easing backwards. Interrupted transitions begin from the currently displayed clip. The surface has layout/style/paint containment and a clip-path compositor hint.
+
+Tiny local Noto subsets cover the four non-Latin labels (about 5.5 KB total). They load after the document load event, so the first opening does not require Windows to search its system font collection. The hidden layout is prepared on pointer or keyboard intent, and retained after use; it stays invisible and unfocusable when closed. It is not prepared on scroll, to avoid adding work to the first scroll animation.
+
+Run `node scripts/language-menu-motion.cjs` for sampled frames, interrupted reversal and responsive behaviour. Run `node scripts/language-menu-performance.cjs current` for cold/repeated click handlers, frame intervals and Chrome layout/style metrics at 4× CPU slowdown. Output goes to `tmp/performance/`; these are local lab measurements, not field INP or a guaranteed device frame rate.

@@ -34,7 +34,7 @@
     blades.forEach((blade,i)=>{blade.setAttribute('d','M18-1Q24-7 30 0Q24 7 18 1Z');blade.dataset.mirror=i?1:-1;});
     const clamp=(n,a=0,b=1)=>Math.min(b,Math.max(a,n)),f=n=>Number(n.toFixed(3));
     const smooth=t=>t*t*t*(t*(t*6-15)+10);
-    let samples=[],stops=[],length=0,armedAt=null,visible=false,reduced=false,angle=0,angularVelocity=0;
+    let samples=[],stops=[],length=0,armedAt=null,visible=false,reduced=false,angle=0,angularVelocity=0,lastBuildKey='';
     const launch=72;
     let distance=launch,velocity=0,target=launch,width=0,height=0,mobile=false;
     const reached=items.map(()=>false);
@@ -54,6 +54,12 @@
     function build(bounds,box){
       width=box.width;height=box.height;mobile=innerWidth<=760;
       if(!width||!height)return;
+      // Read all geometry before touching SVG/styles. Font readiness, pageshow and
+      // ResizeObserver may request the identical river several times at startup.
+      const rootBox=root.getBoundingClientRect();
+      const buildKey=[root.dataset.timelineVariant,mobile,innerHeight,width,height,rootBox.width,rootBox.height,box.left-rootBox.left,box.top-rootBox.top,box.top+scrollY,...bounds.flatMap(b=>[b.top-box.top,b.height])].join(',');
+      if(buildKey===lastBuildKey)return;
+      lastBuildKey=buildKey;
       const centre=mobile?40:width/2,amplitude=mobile?(root.dataset.timelineVariant==='thread2'?4:10):38,period=Math.max(600,height/2.35);
       root.style.setProperty('--river-centre',`${centre}px`);
       const xAt=y=>centre+amplitude*Math.sin(y/period*Math.PI*2+.2)+(mobile?2:7)*Math.sin(y/period*Math.PI*4+.7);
@@ -68,7 +74,7 @@
       }
       svg.setAttribute('viewBox',`0 0 ${f(width)} ${f(height)}`);
       // One continuous silhouette: broad ocean above, fractured shoulders, narrow passage below.
-      const rootBox=root.getBoundingClientRect(),ox=box.left-rootBox.left,oy=box.top-rootBox.top,rw=rootBox.width,rh=rootBox.height;
+      const ox=box.left-rootBox.left,oy=box.top-rootBox.top,rw=rootBox.width,rh=rootBox.height;
       ocean.setAttribute('viewBox',`0 0 ${rw} ${rh}`);
       ocean.querySelector('.anna-sky').setAttribute('height',Math.min(650,oy));ocean.querySelector('rect').setAttribute('width',rw);ocean.querySelector('rect').setAttribute('height',rh);
       const banks=[[],[]];
@@ -192,6 +198,6 @@
       svg.style.setProperty('--river-speed',f(speed));svg.classList.toggle('river-is-moving',speed>.015);
       svg.dataset.distance=String(f(distance));svg.dataset.target=String(f(target));svg.dataset.angle=String(f(angle));
     }
-    return {build,setScroll,step,paint,reached:i=>reached[i],reset(){armedAt=null;distance=target=launch;velocity=angle=angularVelocity=paddlePhase=0;reached.fill(false);items.forEach(item=>item.classList.remove('river-node-hit'));},pause(){svg.classList.remove('river-is-active','river-is-moving');}};
+    return {build,setScroll,step,paint,reached:i=>reached[i],reset(){lastBuildKey='';armedAt=null;distance=target=launch;velocity=angle=angularVelocity=paddlePhase=0;reached.fill(false);items.forEach(item=>item.classList.remove('river-node-hit'));},pause(){svg.classList.remove('river-is-active','river-is-moving');}};
   };
 })();

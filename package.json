@@ -16,7 +16,7 @@
     "test:brand-colours": "node scripts/brand-colours.cjs",
     "test:header": "node scripts/header.cjs",
     "test:i18n": "node scripts/i18n.cjs",
-    "test:language-menu": "node scripts/language-menu.cjs",
+    "test:language-menu": "node scripts/language-menu.cjs && node scripts/language-menu-motion.cjs",
     "test:header-entrance": "node scripts/header-entrance.cjs && node scripts/header-entrance-stress.cjs",
     "test:site-menu-morph": "node scripts/site-menu-morph.cjs",
     "test:site-menu-performance": "node scripts/site-menu-performance.cjs",
@@ -50,7 +50,9 @@
     "test:brand-image-performance": "node scripts/brand-image-performance.cjs",
     "test:social-previews": "node scripts/social-previews.cjs && node scripts/social-touch.cjs",
     "build:guide-qr": "node scripts/guide-qr.mjs",
-    "build:brand-assets": "node scripts/brand-downloads.mjs"
+    "build:brand-assets": "node scripts/brand-downloads.mjs",
+    "test:language-menu-performance": "node scripts/language-menu-performance.cjs",
+    "build:page-styles": "node scripts/build-page-styles.mjs"
   },
   "dependencies": {
     "motion": "^12.0.0"
@@ -58,6 +60,7 @@
   "devDependencies": {
     "@axe-core/playwright": "^4.13.0",
     "chrome-launcher": "^1.2.1",
+    "css-tree": "^3.2.1",
     "esbuild": "^0.25.0",
     "fflate": "^0.8.3",
     "fontkit": "^2.0.4",

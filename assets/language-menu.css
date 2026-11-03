@@ -24,3 +24,18 @@ html[data-palette] #language-panel .language-note{font-size:11px!important;margi
 @media(prefers-reduced-motion:reduce){.language-status.is-loading::before{animation:none}}
 
 .language-launch__flag{display:block;width:28px;height:21px;object-fit:cover;border-radius:3px;box-shadow:0 0 0 1px #2020201a}
+
+/* Isolate the morph surface; its shadow and scrollable content keep their own layer. */
+.language-panel{contain:layout style paint;will-change:clip-path}
+html[data-palette] #language-panel [lang="zh-CN"],html[data-palette] #language-panel [lang="yue"]{font-family:"Language Han",sans-serif!important}
+html[data-palette] #language-panel [lang="hi"]{font-family:"Language Devanagari",sans-serif!important}
+html[data-palette] #language-panel [lang="pa"]{font-family:"Language Gurmukhi",sans-serif!important}
+
+@font-face{font-family:"Language Han";font-style:normal;font-weight:400 600;font-display:block;src:url("fonts/languages/han.woff2") format("woff2")}
+
+@font-face{font-family:"Language Devanagari";font-style:normal;font-weight:400 600;font-display:block;src:url("fonts/languages/devanagari.woff2") format("woff2")}
+
+@font-face{font-family:"Language Gurmukhi";font-style:normal;font-weight:400 600;font-display:block;src:url("fonts/languages/gurmukhi.woff2") format("woff2")}
+
+/* Retain the prepared layout while closed, without exposing it to focus or AT. */
+.language-panel[data-prepared]:not(:popover-open){display:block;visibility:hidden;pointer-events:none}

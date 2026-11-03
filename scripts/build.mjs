@@ -54,3 +54,7 @@ await build({entryPoints:['design/motion-sections.js'],bundle:true,minify:true,f
 await build({entryPoints:['design/anna-timelines.js'],bundle:true,minify:true,format:'iife',target:['es2020'],outfile:'assets/anna-timelines-runtime.js'});
 
 await import('./brand-context.mjs');
+
+await build({entryPoints:['design/guide-init.js'],bundle:true,minify:true,format:'iife',target:['es2020'],outfile:'assets/guide-init.js'});
+await import('./build-theme-boot.mjs');
+await import('./build-page-styles.mjs');

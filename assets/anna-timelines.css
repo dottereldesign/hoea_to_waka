@@ -226,3 +226,5 @@ html[data-palette] #anna-story .anna-story__heading>.ds-kicker{margin-top:0}
 
 
 @media(prefers-reduced-motion:reduce){.anna-sticky-title::before{transition:none}}
+
+.anna-story-outline{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}

@@ -1,0 +1,1159 @@
+{
+  "baseline": "b2679c4",
+  "method": "Lighthouse 13.4.1 standard mobile/desktop, local gzip delivery, single run each, animations enabled; not production field data",
+  "pages": [
+    {
+      "page": "404.html",
+      "mode": "desktop",
+      "before": 99,
+      "after": 100,
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 63
+      },
+      "metrics": {
+        "first-contentful-paint": 461.9906,
+        "largest-contentful-paint": 651.4811999999998,
+        "total-blocking-time": 19.83019999999999,
+        "cumulative-layout-shift": 0.0001499345039355838,
+        "speed-index": 489.0755873463636
+      }
+    },
+    {
+      "page": "404.html",
+      "mode": "mobile",
+      "before": 80,
+      "after": 85,
+      "scores": {
+        "performance": 85,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 63
+      },
+      "metrics": {
+        "first-contentful-paint": 1974.8492999999999,
+        "largest-contentful-paint": 3099.849300000001,
+        "total-blocking-time": 254,
+        "cumulative-layout-shift": 0,
+        "speed-index": 4163.936724251311
+      }
+    },
+    {
+      "page": "about/",
+      "mode": "desktop",
+      "before": 99,
+      "after": 100,
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 450.2596,
+        "largest-contentful-paint": 665.3894,
+        "total-blocking-time": 2,
+        "cumulative-layout-shift": 0,
+        "speed-index": 677.6139462275514
+      }
+    },
+    {
+      "page": "about/",
+      "mode": "mobile",
+      "before": 68,
+      "after": 73,
+      "scores": {
+        "performance": 73,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 1499.6819,
+        "largest-contentful-paint": 3187.3638,
+        "total-blocking-time": 669.9999999999995,
+        "cumulative-layout-shift": 0,
+        "speed-index": 4683.771465368628
+      }
+    },
+    {
+      "page": "about/jamies-workspace/",
+      "mode": "desktop",
+      "before": 100,
+      "after": 99,
+      "scores": {
+        "performance": 99,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 69
+      },
+      "metrics": {
+        "first-contentful-paint": 437.4973,
+        "largest-contentful-paint": 610.9946,
+        "total-blocking-time": 98.4973,
+        "cumulative-layout-shift": 0,
+        "speed-index": 649.0159793321529
+      }
+    },
+    {
+      "page": "about/jamies-workspace/",
+      "mode": "mobile",
+      "before": 80,
+      "after": 81,
+      "scores": {
+        "performance": 81,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 69
+      },
+      "metrics": {
+        "first-contentful-paint": 1224.4938,
+        "largest-contentful-paint": 2258.4115,
+        "total-blocking-time": 626,
+        "cumulative-layout-shift": 0,
+        "speed-index": 3896.175956884915
+      }
+    },
+    {
+      "page": "brand/brand-system.html",
+      "mode": "desktop",
+      "before": 100,
+      "after": 100,
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 63
+      },
+      "metrics": {
+        "first-contentful-paint": 289.5295,
+        "largest-contentful-paint": 409.5295,
+        "total-blocking-time": 0,
+        "cumulative-layout-shift": 0,
+        "speed-index": 300.80647917461795
+      }
+    },
+    {
+      "page": "brand/brand-system.html",
+      "mode": "mobile",
+      "before": 95,
+      "after": 97,
+      "scores": {
+        "performance": 97,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 63
+      },
+      "metrics": {
+        "first-contentful-paint": 1064.3858,
+        "largest-contentful-paint": 1814.3858,
+        "total-blocking-time": 138,
+        "cumulative-layout-shift": 0,
+        "speed-index": 3690.5977199836443
+      }
+    },
+    {
+      "page": "contact/",
+      "mode": "desktop",
+      "before": 100,
+      "after": 98,
+      "scores": {
+        "performance": 98,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 468.726,
+        "largest-contentful-paint": 647.315,
+        "total-blocking-time": 115,
+        "cumulative-layout-shift": 0,
+        "speed-index": 729.8527661050817
+      }
+    },
+    {
+      "page": "contact/",
+      "mode": "mobile",
+      "before": 79,
+      "after": 84,
+      "scores": {
+        "performance": 84,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 1665.7908000000002,
+        "largest-contentful-paint": 2494.0815999999995,
+        "total-blocking-time": 522.4999999999998,
+        "cumulative-layout-shift": 0,
+        "speed-index": 2012.8018818603064
+      }
+    },
+    {
+      "page": "/",
+      "mode": "desktop",
+      "before": 99,
+      "after": 97,
+      "scores": {
+        "performance": 97,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 578.014747560711,
+        "largest-contentful-paint": 868.0294951214221,
+        "total-blocking-time": 127.01474756071104,
+        "cumulative-layout-shift": 0,
+        "speed-index": 1032.3553081493992
+      }
+    },
+    {
+      "page": "/",
+      "mode": "mobile",
+      "before": 86,
+      "after": 85,
+      "scores": {
+        "performance": 85,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 1685.9933,
+        "largest-contentful-paint": 3436.474875,
+        "total-blocking-time": 244.0066999999999,
+        "cumulative-layout-shift": 0,
+        "speed-index": 3862.393343236358
+      }
+    },
+    {
+      "page": "illustrations/",
+      "mode": "desktop",
+      "before": 100,
+      "after": 99,
+      "scores": {
+        "performance": 99,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 377.53650000000005,
+        "largest-contentful-paint": 837.225375,
+        "total-blocking-time": 17.384124999999983,
+        "cumulative-layout-shift": 0,
+        "speed-index": 601.8786699144605
+      }
+    },
+    {
+      "page": "illustrations/",
+      "mode": "mobile",
+      "before": 88,
+      "after": 81,
+      "scores": {
+        "performance": 81,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 1230.33096,
+        "largest-contentful-paint": 4005.3309599999993,
+        "total-blocking-time": 305.2241999999999,
+        "cumulative-layout-shift": 0,
+        "speed-index": 1596.859254825458
+      }
+    },
+    {
+      "page": "model/",
+      "mode": "desktop",
+      "before": 99,
+      "after": 100,
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 348.82505000000003,
+        "largest-contentful-paint": 732.6500999999998,
+        "total-blocking-time": 42.5,
+        "cumulative-layout-shift": 0,
+        "speed-index": 589.7890092095271
+      }
+    },
+    {
+      "page": "model/",
+      "mode": "mobile",
+      "before": 80,
+      "after": 79,
+      "scores": {
+        "performance": 79,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 2163.8287,
+        "largest-contentful-paint": 3288.4861,
+        "total-blocking-time": 467.1713,
+        "cumulative-layout-shift": 0,
+        "speed-index": 2340.5169820002598
+      }
+    },
+    {
+      "page": "pages/home.html",
+      "mode": "desktop",
+      "before": 100,
+      "after": 100,
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 63
+      },
+      "metrics": {
+        "first-contentful-paint": 292.531,
+        "largest-contentful-paint": 412.53099999999995,
+        "total-blocking-time": 9,
+        "cumulative-layout-shift": 0,
+        "speed-index": 321.72124166392484
+      }
+    },
+    {
+      "page": "pages/home.html",
+      "mode": "mobile",
+      "before": 93,
+      "after": 95,
+      "scores": {
+        "performance": 95,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 63
+      },
+      "metrics": {
+        "first-contentful-paint": 1067.5785,
+        "largest-contentful-paint": 1817.5785,
+        "total-blocking-time": 218,
+        "cumulative-layout-shift": 0,
+        "speed-index": 3562.1577999819756
+      }
+    },
+    {
+      "page": "prompts/",
+      "mode": "desktop",
+      "before": 99,
+      "after": 99,
+      "scores": {
+        "performance": 99,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 63
+      },
+      "metrics": {
+        "first-contentful-paint": 481.5548,
+        "largest-contentful-paint": 646.6644000000001,
+        "total-blocking-time": 79.00000000000011,
+        "cumulative-layout-shift": 0,
+        "speed-index": 675.5179628321841
+      }
+    },
+    {
+      "page": "prompts/",
+      "mode": "mobile",
+      "before": 72,
+      "after": 75,
+      "scores": {
+        "performance": 75,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 63
+      },
+      "metrics": {
+        "first-contentful-paint": 1672.32165,
+        "largest-contentful-paint": 3111.7622,
+        "total-blocking-time": 652.9999999999995,
+        "cumulative-layout-shift": 0,
+        "speed-index": 4008.7256135348543
+      }
+    },
+    {
+      "page": "resources/",
+      "mode": "desktop",
+      "before": 100,
+      "after": 99,
+      "scores": {
+        "performance": 99,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 480.38599999999997,
+        "largest-contentful-paint": 700.348,
+        "total-blocking-time": 82.5,
+        "cumulative-layout-shift": 0,
+        "speed-index": 681.0407134685988
+      }
+    },
+    {
+      "page": "resources/",
+      "mode": "mobile",
+      "before": 81,
+      "after": 84,
+      "scores": {
+        "performance": 84,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 1230.72315,
+        "largest-contentful-paint": 2515.9642000000003,
+        "total-blocking-time": 445.00000000000045,
+        "cumulative-layout-shift": 0,
+        "speed-index": 3936.0133423936486
+      }
+    },
+    {
+      "page": "services/",
+      "mode": "desktop",
+      "before": 100,
+      "after": 98,
+      "scores": {
+        "performance": 98,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 482.48,
+        "largest-contentful-paint": 709.44,
+        "total-blocking-time": 123.24000000000007,
+        "cumulative-layout-shift": 0,
+        "speed-index": 820.586957093428
+      }
+    },
+    {
+      "page": "services/",
+      "mode": "mobile",
+      "before": 88,
+      "after": 82,
+      "scores": {
+        "performance": 82,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 1225.43055,
+        "largest-contentful-paint": 2341.9537,
+        "total-blocking-time": 541,
+        "cumulative-layout-shift": 0,
+        "speed-index": 3977.4737590112672
+      }
+    },
+    {
+      "page": "services/in-house-workshops/",
+      "mode": "desktop",
+      "before": 99,
+      "after": 99,
+      "scores": {
+        "performance": 99,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 417.2282,
+        "largest-contentful-paint": 591.5705,
+        "total-blocking-time": 76.80705,
+        "cumulative-layout-shift": 0,
+        "speed-index": 600.5564236886707
+      }
+    },
+    {
+      "page": "services/in-house-workshops/",
+      "mode": "mobile",
+      "before": 89,
+      "after": 88,
+      "scores": {
+        "performance": 88,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 1215.4818,
+        "largest-contentful-paint": 2335.3212000000003,
+        "total-blocking-time": 346.0000000000002,
+        "cumulative-layout-shift": 0,
+        "speed-index": 3826.9689394619418
+      }
+    },
+    {
+      "page": "services/resilience-one-on-one/",
+      "mode": "desktop",
+      "before": 99,
+      "after": 100,
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 412.3961,
+        "largest-contentful-paint": 521.891225,
+        "total-blocking-time": 37.39609999999999,
+        "cumulative-layout-shift": 0,
+        "speed-index": 504.36304174971576
+      }
+    },
+    {
+      "page": "services/resilience-one-on-one/",
+      "mode": "mobile",
+      "before": 82,
+      "after": 81,
+      "scores": {
+        "performance": 81,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 1770.5223999999998,
+        "largest-contentful-paint": 2908.209,
+        "total-blocking-time": 520.3581999999999,
+        "cumulative-layout-shift": 0,
+        "speed-index": 1887.1271835018763
+      }
+    },
+    {
+      "page": "services/workshops-for-support-professionals/",
+      "mode": "desktop",
+      "before": 100,
+      "after": 99,
+      "scores": {
+        "performance": 99,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 515.4322,
+        "largest-contentful-paint": 631.47245,
+        "total-blocking-time": 96.00000000000006,
+        "cumulative-layout-shift": 0,
+        "speed-index": 688.3312878045223
+      }
+    },
+    {
+      "page": "services/workshops-for-support-professionals/",
+      "mode": "mobile",
+      "before": 80,
+      "after": 85,
+      "scores": {
+        "performance": 85,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": 1825.82565,
+        "largest-contentful-paint": 2350.8256499999998,
+        "total-blocking-time": 487.7828999999999,
+        "cumulative-layout-shift": 0,
+        "speed-index": 1825.82565
+      }
+    }
+  ],
+  "menu": {
+    "cpuSlowdown": 4,
+    "before": [
+      {
+        "route": "/",
+        "width": 1440,
+        "i": 0,
+        "action": "open",
+        "handlerMs": 673.1999999880791,
+        "p95": 719.8999999999996,
+        "max": 719.8999999999996,
+        "layoutMs": 634.8580000000001,
+        "styleMs": 122.05799999999999,
+        "layouts": 2
+      },
+      {
+        "route": "/",
+        "width": 1440,
+        "i": 0,
+        "action": "close",
+        "handlerMs": 2,
+        "p95": 10.100000000000364,
+        "max": 20,
+        "layoutMs": 0.8429999999999271,
+        "styleMs": 74.28299999999999,
+        "layouts": 2
+      },
+      {
+        "route": "/",
+        "width": 1440,
+        "i": 1,
+        "action": "open",
+        "handlerMs": 19.099999994039536,
+        "p95": 10.100000000000364,
+        "max": 30,
+        "layoutMs": 6.023000000000001,
+        "styleMs": 75.63800000000003,
+        "layouts": 2
+      },
+      {
+        "route": "/",
+        "width": 1440,
+        "i": 1,
+        "action": "close",
+        "handlerMs": 0.5999999940395355,
+        "p95": 10.100000000000364,
+        "max": 20,
+        "layoutMs": 0.6550000000000722,
+        "styleMs": 67.133,
+        "layouts": 2
+      },
+      {
+        "route": "/",
+        "width": 1440,
+        "i": 2,
+        "action": "open",
+        "handlerMs": 24.299999982118607,
+        "p95": 20.100000000000364,
+        "max": 50.00799999999981,
+        "layoutMs": 9.341999999999961,
+        "styleMs": 105.82599999999998,
+        "layouts": 2
+      },
+      {
+        "route": "/",
+        "width": 1440,
+        "i": 2,
+        "action": "close",
+        "handlerMs": 1,
+        "p95": 20,
+        "max": 20.100000000000364,
+        "layoutMs": 0.9069999999999911,
+        "styleMs": 94.31700000000004,
+        "layouts": 2
+      },
+      {
+        "route": "/",
+        "width": 390,
+        "i": 0,
+        "action": "open",
+        "handlerMs": 830.3000000119209,
+        "p95": 853.3679999999999,
+        "max": 853.3679999999999,
+        "layoutMs": 772.22,
+        "styleMs": 155.98000000000002,
+        "layouts": 2
+      },
+      {
+        "route": "/",
+        "width": 390,
+        "i": 0,
+        "action": "close",
+        "handlerMs": 3.4000000059604645,
+        "p95": 20,
+        "max": 30.100000000000364,
+        "layoutMs": 1.510999999999929,
+        "styleMs": 118.46800000000002,
+        "layouts": 2
+      },
+      {
+        "route": "/",
+        "width": 390,
+        "i": 1,
+        "action": "open",
+        "handlerMs": 57.69999998807907,
+        "p95": 30.100000000000364,
+        "max": 90,
+        "layoutMs": 16.052000000000067,
+        "styleMs": 138.43099999999998,
+        "layouts": 2
+      },
+      {
+        "route": "/",
+        "width": 390,
+        "i": 1,
+        "action": "close",
+        "handlerMs": 0.20000001788139343,
+        "p95": 20.099999999999454,
+        "max": 59.899999999999636,
+        "layoutMs": 0.24999999999997247,
+        "styleMs": 103.22500000000001,
+        "layouts": 2
+      },
+      {
+        "route": "/",
+        "width": 390,
+        "i": 2,
+        "action": "open",
+        "handlerMs": 81.09999999403954,
+        "p95": 20.100000000000364,
+        "max": 118.39999999999964,
+        "layoutMs": 52.26500000000001,
+        "styleMs": 149.87099999999998,
+        "layouts": 2
+      },
+      {
+        "route": "/",
+        "width": 390,
+        "i": 2,
+        "action": "close",
+        "handlerMs": 2.0999999940395355,
+        "p95": 20.100000000000364,
+        "max": 40.013999999999214,
+        "layoutMs": 1.0090000000000376,
+        "styleMs": 129.59900000000002,
+        "layouts": 2
+      },
+      {
+        "route": "about/",
+        "width": 1440,
+        "i": 0,
+        "action": "open",
+        "handlerMs": 945.9000000059605,
+        "p95": 953.4339999999997,
+        "max": 953.4339999999997,
+        "layoutMs": 882.069,
+        "styleMs": 503.6940000000001,
+        "layouts": 2
+      },
+      {
+        "route": "about/",
+        "width": 1440,
+        "i": 0,
+        "action": "close",
+        "handlerMs": 0.5,
+        "p95": 30,
+        "max": 30.100000000000364,
+        "layoutMs": 1.5770000000000506,
+        "styleMs": 459.012,
+        "layouts": 2
+      },
+      {
+        "route": "about/",
+        "width": 1440,
+        "i": 1,
+        "action": "open",
+        "handlerMs": 65.5,
+        "p95": 30,
+        "max": 289.90000000000055,
+        "layoutMs": 16.994999999999983,
+        "styleMs": 411.292,
+        "layouts": 2
+      },
+      {
+        "route": "about/",
+        "width": 1440,
+        "i": 1,
+        "action": "close",
+        "handlerMs": 1.199999988079071,
+        "p95": 20.199999999999818,
+        "max": 33.23400000000038,
+        "layoutMs": 0.5579999999999474,
+        "styleMs": 416.49800000000005,
+        "layouts": 2
+      },
+      {
+        "route": "about/",
+        "width": 1440,
+        "i": 2,
+        "action": "open",
+        "handlerMs": 58,
+        "p95": 20.100000000000364,
+        "max": 110,
+        "layoutMs": 21.18500000000001,
+        "styleMs": 478.9680000000003,
+        "layouts": 2
+      },
+      {
+        "route": "about/",
+        "width": 1440,
+        "i": 2,
+        "action": "close",
+        "handlerMs": 3.699999988079071,
+        "p95": 30.100000000000364,
+        "max": 43.434000000001106,
+        "layoutMs": 1.1520000000000419,
+        "styleMs": 452.0089999999999,
+        "layouts": 2
+      },
+      {
+        "route": "about/brand-guidelines/",
+        "width": 390,
+        "i": 0,
+        "action": "open",
+        "handlerMs": 644.4000000059605,
+        "p95": 730.0999999999995,
+        "max": 730.0999999999995,
+        "layoutMs": 592.405,
+        "styleMs": 91.82399999999998,
+        "layouts": 2
+      },
+      {
+        "route": "about/brand-guidelines/",
+        "width": 390,
+        "i": 0,
+        "action": "close",
+        "handlerMs": 3.4000000059604645,
+        "p95": 50.100000000000364,
+        "max": 60.099999999999454,
+        "layoutMs": 1.3380000000000614,
+        "styleMs": 49.49300000000001,
+        "layouts": 2
+      },
+      {
+        "route": "about/brand-guidelines/",
+        "width": 390,
+        "i": 1,
+        "action": "open",
+        "handlerMs": 47.29999998211861,
+        "p95": 70.10000000000036,
+        "max": 110,
+        "layoutMs": 19.82600000000001,
+        "styleMs": 71.801,
+        "layouts": 2
+      },
+      {
+        "route": "about/brand-guidelines/",
+        "width": 390,
+        "i": 1,
+        "action": "close",
+        "handlerMs": 1.5,
+        "p95": 60.100000000000364,
+        "max": 79.89999999999964,
+        "layoutMs": 3.1649999999999734,
+        "styleMs": 64.90799999999996,
+        "layouts": 2
+      },
+      {
+        "route": "about/brand-guidelines/",
+        "width": 390,
+        "i": 2,
+        "action": "open",
+        "handlerMs": 62.79999998211861,
+        "p95": 70,
+        "max": 140,
+        "layoutMs": 18.930000000000003,
+        "styleMs": 97.59600000000002,
+        "layouts": 2
+      },
+      {
+        "route": "about/brand-guidelines/",
+        "width": 390,
+        "i": 2,
+        "action": "close",
+        "handlerMs": 1.7999999821186066,
+        "p95": 60,
+        "max": 80,
+        "layoutMs": 2.742000000000022,
+        "styleMs": 61.399000000000036,
+        "layouts": 2
+      }
+    ],
+    "after": [
+      {
+        "route": "/",
+        "width": 1440,
+        "i": 0,
+        "action": "open",
+        "handlerMs": 416.59999999403954,
+        "p95": 466.86799999999994,
+        "max": 466.86799999999994,
+        "layoutMs": 373.38100000000003,
+        "styleMs": 133.65099999999998,
+        "layouts": 3
+      },
+      {
+        "route": "/",
+        "width": 1440,
+        "i": 0,
+        "action": "close",
+        "handlerMs": 2.9000000059604645,
+        "p95": 20,
+        "max": 80,
+        "layoutMs": 15.822999999999976,
+        "styleMs": 130.033,
+        "layouts": 3
+      },
+      {
+        "route": "/",
+        "width": 1440,
+        "i": 1,
+        "action": "open",
+        "handlerMs": 24.900000005960464,
+        "p95": 50,
+        "max": 60.099999999999454,
+        "layoutMs": 10.921000000000014,
+        "styleMs": 131.73700000000005,
+        "layouts": 2
+      },
+      {
+        "route": "/",
+        "width": 1440,
+        "i": 1,
+        "action": "close",
+        "handlerMs": 0.5999999940395355,
+        "p95": 20,
+        "max": 50,
+        "layoutMs": 2.3659999999999792,
+        "styleMs": 54.394,
+        "layouts": 2
+      },
+      {
+        "route": "/",
+        "width": 1440,
+        "i": 2,
+        "action": "open",
+        "handlerMs": 58.5,
+        "p95": 30,
+        "max": 86.77199999999993,
+        "layoutMs": 28.978000000000005,
+        "styleMs": 122.81899999999996,
+        "layouts": 2
+      },
+      {
+        "route": "/",
+        "width": 1440,
+        "i": 2,
+        "action": "close",
+        "handlerMs": 5.5,
+        "p95": 20.100000000000364,
+        "max": 59.899999999999636,
+        "layoutMs": 17.623,
+        "styleMs": 128.18400000000008,
+        "layouts": 2
+      },
+      {
+        "route": "/",
+        "width": 390,
+        "i": 0,
+        "action": "open",
+        "handlerMs": 305.90000000596046,
+        "p95": 20,
+        "max": 373.56600000000026,
+        "layoutMs": 265.418,
+        "styleMs": 158.42000000000002,
+        "layouts": 2
+      },
+      {
+        "route": "/",
+        "width": 390,
+        "i": 0,
+        "action": "close",
+        "handlerMs": 0.800000011920929,
+        "p95": 20.100000000000364,
+        "max": 60,
+        "layoutMs": 17.365999999999993,
+        "styleMs": 131.18399999999997,
+        "layouts": 3
+      },
+      {
+        "route": "/",
+        "width": 390,
+        "i": 1,
+        "action": "open",
+        "handlerMs": 37.89999997615814,
+        "p95": 10.200000000000728,
+        "max": 69.89999999999964,
+        "layoutMs": 13.634000000000036,
+        "styleMs": 141.75000000000006,
+        "layouts": 2
+      },
+      {
+        "route": "/",
+        "width": 390,
+        "i": 1,
+        "action": "close",
+        "handlerMs": 2.800000011920929,
+        "p95": 10.199999999999818,
+        "max": 70.09999999999945,
+        "layoutMs": 21.490999999999982,
+        "styleMs": 127.66599999999994,
+        "layouts": 2
+      },
+      {
+        "route": "/",
+        "width": 390,
+        "i": 2,
+        "action": "open",
+        "handlerMs": 47.5,
+        "p95": 20,
+        "max": 120.10000000000036,
+        "layoutMs": 13.564000000000021,
+        "styleMs": 141.54,
+        "layouts": 2
+      },
+      {
+        "route": "/",
+        "width": 390,
+        "i": 2,
+        "action": "close",
+        "handlerMs": 6.0999999940395355,
+        "p95": 20.100000000000364,
+        "max": 50,
+        "layoutMs": 15.376000000000001,
+        "styleMs": 135.35600000000002,
+        "layouts": 2
+      },
+      {
+        "route": "about/",
+        "width": 1440,
+        "i": 0,
+        "action": "open",
+        "handlerMs": 445,
+        "p95": 30.100000000000364,
+        "max": 503.4340000000002,
+        "layoutMs": 394.54699999999997,
+        "styleMs": 449.45099999999996,
+        "layouts": 2
+      },
+      {
+        "route": "about/",
+        "width": 1440,
+        "i": 0,
+        "action": "close",
+        "handlerMs": 4.5999999940395355,
+        "p95": 20.100000000000364,
+        "max": 90,
+        "layoutMs": 28.251000000000026,
+        "styleMs": 416.91399999999993,
+        "layouts": 3
+      },
+      {
+        "route": "about/",
+        "width": 1440,
+        "i": 1,
+        "action": "open",
+        "handlerMs": 13.599999994039536,
+        "p95": 20.100000000000364,
+        "max": 59.900000000000546,
+        "layoutMs": 3.047999999999995,
+        "styleMs": 437.12299999999993,
+        "layouts": 2
+      },
+      {
+        "route": "about/",
+        "width": 1440,
+        "i": 1,
+        "action": "close",
+        "handlerMs": 1.0999999940395355,
+        "p95": 29.899999999999636,
+        "max": 69.89999999999964,
+        "layoutMs": 18.164999999999985,
+        "styleMs": 429.703,
+        "layouts": 2
+      },
+      {
+        "route": "about/",
+        "width": 1440,
+        "i": 2,
+        "action": "open",
+        "handlerMs": 36,
+        "p95": 20.100000000000364,
+        "max": 43.4340000000002,
+        "layoutMs": 4.2320000000000135,
+        "styleMs": 424.2539999999999,
+        "layouts": 2
+      },
+      {
+        "route": "about/",
+        "width": 1440,
+        "i": 2,
+        "action": "close",
+        "handlerMs": 3.4000000059604645,
+        "p95": 30,
+        "max": 60,
+        "layoutMs": 13.768999999999975,
+        "styleMs": 407.289,
+        "layouts": 2
+      },
+      {
+        "route": "about/brand-guidelines/",
+        "width": 390,
+        "i": 0,
+        "action": "open",
+        "handlerMs": 165.59999999403954,
+        "p95": 269.9000000000001,
+        "max": 269.9000000000001,
+        "layoutMs": 84.354,
+        "styleMs": 137.457,
+        "layouts": 2
+      },
+      {
+        "route": "about/brand-guidelines/",
+        "width": 390,
+        "i": 0,
+        "action": "close",
+        "handlerMs": 11.599999994039536,
+        "p95": 110.40000000000055,
+        "max": 180.10000000000036,
+        "layoutMs": 14.349,
+        "styleMs": 166.927,
+        "layouts": 3
+      },
+      {
+        "route": "about/brand-guidelines/",
+        "width": 390,
+        "i": 1,
+        "action": "open",
+        "handlerMs": 49.70000001788139,
+        "p95": 90.10000000000036,
+        "max": 116.57600000000002,
+        "layoutMs": 18.957,
+        "styleMs": 75.01299999999999,
+        "layouts": 2
+      },
+      {
+        "route": "about/brand-guidelines/",
+        "width": 390,
+        "i": 1,
+        "action": "close",
+        "handlerMs": 3,
+        "p95": 79.89999999999964,
+        "max": 83.44799999999941,
+        "layoutMs": 18.43499999999999,
+        "styleMs": 76.685,
+        "layouts": 2
+      },
+      {
+        "route": "about/brand-guidelines/",
+        "width": 390,
+        "i": 2,
+        "action": "open",
+        "handlerMs": 31.30000001192093,
+        "p95": 50.5,
+        "max": 99.90000000000146,
+        "layoutMs": 12.362000000000013,
+        "styleMs": 71.57800000000003,
+        "layouts": 2
+      },
+      {
+        "route": "about/brand-guidelines/",
+        "width": 390,
+        "i": 2,
+        "action": "close",
+        "handlerMs": 1.899999976158142,
+        "p95": 60.100000000000364,
+        "max": 109.89999999999964,
+        "layoutMs": 20.076999999999984,
+        "styleMs": 62.52800000000003,
+        "layouts": 2
+      }
+    ]
+  }
+}

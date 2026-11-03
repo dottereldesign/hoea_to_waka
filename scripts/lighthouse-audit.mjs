@@ -12,7 +12,7 @@ const allRoutes=['','about/','model/','services/','services/in-house-workshops/'
 const routes=arg('routes')?arg('routes').split(',').map(value=>value==='home'?'':value):allRoutes;
 const modes=form==='all'?['mobile','desktop']:[form];
 const folder=path.resolve('tmp/performance',phase,'lighthouse');fs.mkdirSync(folder,{recursive:true});
-const server=require('./preview.cjs')(8892);
+const server=require('./preview.cjs')(8892,{root:arg('root'),compress:process.argv.includes('--gzip')});
 fs.mkdirSync(path.join(folder,'chrome-profile'),{recursive:true});
 const chrome=await chromeLauncher.launch({userDataDir:path.join(folder,'chrome-profile'),chromeFlags:['--headless=new','--no-first-run','--no-default-browser-check'],logLevel:'silent'});
 let failures=0;

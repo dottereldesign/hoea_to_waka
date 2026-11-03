@@ -17,21 +17,43 @@
   document.body.append(launch,panel);
   const content=panel.querySelector('.language-content'),close=panel.querySelector('.language-close'),reduce=matchMedia('(prefers-reduced-motion:reduce)');
   close.innerHTML='<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>';
+  // Small local subsets cover the native labels without an expensive system-font search.
+  const warmFonts=()=>Promise.all(['Han','Devanagari','Gurmukhi'].map(name=>document.fonts.load('14px "Language '+name+'"').catch(()=>{})));
+  if(document.readyState==='complete')warmFonts();else addEventListener('load',warmFonts,{once:true});
+  // Warm the hidden layout on intent, not during the initial page's critical work.
+  // Touch/keyboard visitors still get the same immediate, reversible animation.
+  const prepare=()=>{panel.dataset.prepared='true';};
+  launch.addEventListener('pointerenter',prepare,{once:true,passive:true});
+  launch.addEventListener('pointerdown',prepare,{once:true,passive:true});
+  launch.addEventListener('focus',prepare,{once:true});
   let opened=false,morph=null,sequence=0;
+  const circle='inset(calc(100% - 48px) calc(100% - 48px) 0px 0px round 24px)';
+  const expanded='inset(0px 0px 0px 0px round 24px)';
+  // Percentage geometry avoids a synchronous panel measurement on each click.
+  // Each direction has its own ease-out, rather than reversing an ease-out curve.
+  function animatePanel(open,finish){
+    const running=morph&&morph.playState==='running';
+    const from=running?getComputedStyle(panel).clipPath:(open?circle:expanded);
+    morph?.cancel();
+    if(reduce.matches){panel.style.clipPath=open?expanded:circle;finish?.();return;}
+    morph=panel.animate([{clipPath:from},{clipPath:open?expanded:circle}],{
+      duration:open?540:440,easing:'cubic-bezier(.22,1,.36,1)',fill:'both'
+    });
+    morph.finished.then(()=>finish?.()).catch(()=>{});
+  }
   function hide(restore=false){
     if(!opened)return;opened=false;const id=++sequence;launch.setAttribute('aria-expanded','false');content.classList.remove('is-revealed');
-    const finish=()=>{if(id!==sequence||opened)return;panel.hidePopover();launch.style.visibility='';if(restore)launch.focus({preventScroll:true});};
-    if(reduce.matches||!morph){finish();return;}
-    morph.reverse();morph.finished.then(finish).catch(()=>{});
+    animatePanel(false,()=>{
+      if(id!==sequence||opened)return;
+      panel.hidePopover();morph?.cancel();morph=null;panel.style.clipPath='';launch.style.visibility='';
+      if(restore)launch.focus({preventScroll:true});
+    });
   }
   function show(){
     if(opened)return;opened=true;sequence++;launch.setAttribute('aria-expanded','true');launch.style.visibility='hidden';
-    if(!panel.matches(':popover-open')){
-      panel.showPopover();const r=panel.getBoundingClientRect();
-      const circle=`inset(${r.height-48}px ${r.width-48}px 0px 0px round 24px)`;
-      morph=panel.animate([{clipPath:circle},{clipPath:'inset(0px 0px 0px 0px round 24px)'}],{duration:reduce.matches?1:540,easing:'cubic-bezier(.22,1,.36,1)',fill:'both'});
-    }else if(morph){morph.playbackRate=1;morph.play();}
-    requestAnimationFrame(()=>{if(opened)content.classList.add('is-revealed');});panel.querySelector('a').focus({preventScroll:true});
+    if(!panel.matches(':popover-open')){panel.showPopover();content.scrollTop=0;}
+    animatePanel(true);
+    requestAnimationFrame(()=>{if(opened){content.classList.add('is-revealed');panel.querySelector('a').focus({preventScroll:true});}});
   }
   const status=document.createElement('div');status.className='language-status notranslate';status.setAttribute('translate','no');status.setAttribute('role','status');status.setAttribute('aria-live','polite');status.hidden=true;document.body.append(status);
   function updateLanguage({locale,requested,state}){
