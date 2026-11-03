@@ -10,7 +10,7 @@
     titleFrame=0;
     const shell=siteShell?.getBoundingClientRect(),title=sourceTitle.getBoundingClientRect(),bottom=root.getBoundingClientRect().bottom;
     const top=(shell?.bottom||68)+8,docked=title.top<=top&&bottom>top+title.height;
-    const travel=Math.min(1,Math.max(0,(top-title.top)/140));
+    const travel=Math.min(1,Math.max(0,(top-title.top)/360));
     const p=travel*travel*(3-2*travel),active=docked&&bottom>top+title.height;
     const font=getComputedStyle(sourceTitle);
     const compact=innerWidth<=760?24:32,size=parseFloat(font.fontSize)*(1-p)+compact*p;
