@@ -1,11 +1,19 @@
 (() => {
   const root=document.querySelector('#anna-story');
   if(!root)return;
-  // A separate fixed title keeps the tall story heading from limiting sticky travel.
+  // Preserve the heading geometry while its glass surface develops before docking.
   const sourceTitle=root.querySelector('#anna-story-title'),siteShell=document.querySelector('.site-header-shell');
   const stickyTitle=document.createElement('div');stickyTitle.className='anna-sticky-title';stickyTitle.setAttribute('aria-hidden','true');stickyTitle.textContent=sourceTitle.textContent;document.body.append(stickyTitle);
   let titleFrame=0,titleUntil=0;
-  function updateTitle(){titleFrame=0;const shell=siteShell?.getBoundingClientRect(),title=sourceTitle.getBoundingClientRect(),bottom=root.getBoundingClientRect().bottom;const top=(shell?.bottom||68)+8;const active=title.top<=top&&bottom>top+80;stickyTitle.style.top=top+'px';stickyTitle.classList.toggle('is-visible',active);sourceTitle.style.visibility=active?'hidden':'';if(performance.now()<titleUntil)titleFrame=requestAnimationFrame(updateTitle);}
+  function updateTitle(){
+    titleFrame=0;
+    const shell=siteShell?.getBoundingClientRect(),title=sourceTitle.getBoundingClientRect(),bottom=root.getBoundingClientRect().bottom;
+    const top=(shell?.bottom||68)+8,t=Math.min(1,Math.max(0,(top+120-title.top)/120)),p=t*t*t*(t*(t*6-15)+10),active=p>0&&bottom>top+title.height;
+    const font=getComputedStyle(sourceTitle);
+    stickyTitle.style.cssText=`top:${Math.max(title.top,top)}px;left:${title.left}px;width:${title.width}px;font:${font.font};letter-spacing:${font.letterSpacing};line-height:${font.lineHeight};--glass-progress:${p};--heading-colour:${font.color}`;
+    stickyTitle.classList.toggle('is-visible',active);sourceTitle.style.visibility=active?'hidden':'';
+    if(performance.now()<titleUntil)titleFrame=requestAnimationFrame(updateTitle);
+  }
   function queueTitle(){titleUntil=performance.now()+650;if(!titleFrame)titleFrame=requestAnimationFrame(updateTitle);}
   addEventListener('scroll',queueTitle,{passive:true});addEventListener('resize',queueTitle,{passive:true});
   updateTitle();
