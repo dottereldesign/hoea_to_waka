@@ -73,10 +73,10 @@
       ocean.querySelector('.anna-sky').setAttribute('height',Math.min(650,oy));ocean.querySelector('rect').setAttribute('width',rw);ocean.querySelector('rect').setAttribute('height',rh);
       const banks=[[],[]];
       for(let y=0;y<=height;y+=10){
-        const taper=mobile?0:Math.max(0,1-y/340),half=((mobile?17:38)+taper*(mobile?rw*.14:rw*.16))*Math.min(1,(height-y)/170+.025);
+        const taper=mobile?0:1-smooth(clamp(y/380)),half=((mobile?17:38)+(mobile?2.5:6)*Math.sin(y/155+.4)+taper*(mobile?rw*.14:rw*.16))*Math.min(1,(height-y)/170+.025);
         for(let side=0;side<2;side++){
           const sign=side?1:-1;
-          const rough=(Math.sin(y*.071+side*7)*5+Math.sin(y*.193+side*3)*3+Math.sin(y*.047)*7)*(mobile?.3:1);
+          const rough=(Math.sin(y*.071+side*7)*5+Math.sin(y*.193+side*3)*3+Math.sin(y*.047)*7)*(mobile?.3:1)*(1-smooth(clamp(y/340)));
           banks[side].push([ox+xAt(y)+sign*(half+rough),oy+y]);
         }
       }
@@ -86,7 +86,15 @@
       const outline=mobile?[[0,0],[0,shoulder+70],[ox+centre-17,shoulder+120],...banks[0],...banks[1],[rw*.22,shoulder+100],[rw*.28,shoulder+58],[rw*.45,shoulder+24],[rw,shoulder],[rw,0]]:[...cutLeft,...cutRight];
       const fractured=[];
       outline.forEach((p,i)=>{const previous=outline[i-1];if(previous&&p[1]>shoulder-10&&previous[1]>shoulder-10&&Math.hypot(p[0]-previous[0],p[1]-previous[1])>45){const steps=Math.ceil(Math.hypot(p[0]-previous[0],p[1]-previous[1])/16);for(let j=1;j<steps;j++){const t=j/steps;fractured.push([previous[0]+(p[0]-previous[0])*t+Math.sin(i*7+j*3)*3,previous[1]+(p[1]-previous[1])*t+Math.sin(i*3+j*7)*4]);}}fractured.push(p);});
-      ocean.querySelector('clipPath path').setAttribute('d','M'+fractured.map(p=>p.map(f).join(' ')).join('L')+'Z');
+      // Rough paper shoulders gradually hand over to tangent-continuous riverbanks.
+      const silhouette=fractured.map((point,i)=>{
+        if(!i)return 'M'+point.map(f).join(' ');
+        const previous=fractured[i-1],before=fractured[i-2]||previous,after=fractured[i+1]||point;
+        const blend=smooth(clamp((Math.min(previous[1],point[1])-oy)/340));
+        if(!blend)return 'L'+point.map(f).join(' ');
+        return `C${f(previous[0]+(point[0]-before[0])/6*blend)} ${f(previous[1]+(point[1]-before[1])/6*blend)} ${f(point[0]-(after[0]-previous[0])/6*blend)} ${f(point[1]-(after[1]-previous[1])/6*blend)} ${point.map(f).join(' ')}`;
+      }).join('')+'Z';
+      ocean.querySelector('clipPath path').setAttribute('d',silhouette);
 
       const ld=curve(left),rd=curve(right),water=ld+'L'+right.at(-1).map(f).join(' ')+curve([...right].reverse()).replace(/^M[^C]+/,'')+'Z';
       svg.querySelector('.river-water').innerHTML=`<path d="${water}"/>`;
