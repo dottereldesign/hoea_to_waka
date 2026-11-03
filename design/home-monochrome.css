@@ -53,8 +53,24 @@ html:has(body.page-home){
 html[data-palette] body.page-home>.site-header[data-morph-header]{--header-ink:#181818}
 html[data-palette] .page-home .site-menu-panel{color:#181818}
 .page-home .site-menu-service-links a{color:#555}
+/* Static mesh: a dark reading area, layered violet light and cached fine grain.
+   Reuse the decorative art plane so text and existing motion stay above it. */
+.page-home .home-hero[data-hero-version="01"] .home-hero-art{
+ display:block;
+ background:
+  radial-gradient(ellipse at 6% 8%,#080b16 0%,transparent 65%),
+  radial-gradient(ellipse at 92% 3%,#100d1de6 0%,transparent 62%),
+  radial-gradient(ellipse at 72% 112%,#aa50ed 0%,#7924dd 24%,transparent 63%),
+  radial-gradient(ellipse at 28% 87%,#5a16cf 0%,transparent 66%),
+  radial-gradient(ellipse at 95% 68%,#4923b8 0%,transparent 58%),
+  #100d1d;
+}
+.page-home .home-hero[data-hero-version="01"] .home-hero-art__grain{
+ display:block;background-image:url('hero-studies/grain.svg');
+ background-size:180px 180px;mix-blend-mode:soft-light;opacity:.46;
+}
 /* Version 02 keeps the original photo, graphic mark, waves and layout intact. */
-html[data-palette] .page-home .home-hero[data-hero-version="01"]{background:#202020;min-height:0;height:auto}
+html[data-palette] .page-home .home-hero[data-hero-version="01"]{background:#100d1d;min-height:0;height:auto}
 .page-home .home-hero[data-hero-version="01"] :is(.home-hero-photo,.home-hero-photo-wash,.home-hero-photo-wave,.home-hero-mark){display:none}
 .page-home .home-hero[data-hero-version="01"] .home-hero-inner-photo{justify-content:center;min-height:620px;padding:90px 0 110px}
 .page-home .home-hero[data-hero-version="01"] .home-hero-copy{width:100%;max-width:100%;margin:0;align-items:flex-start;text-align:left}
