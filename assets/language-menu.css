@@ -1,0 +1,19 @@
+.language-launch,.language-close{box-sizing:border-box;width:48px;height:48px;display:grid;place-items:center;padding:0;border:1px solid #20202024;border-radius:50%;background:#fff;color:#202020;cursor:pointer;box-shadow:0 4px 20px #00000012}
+.language-launch{position:fixed;left:max(16px,env(safe-area-inset-left));bottom:max(16px,env(safe-area-inset-bottom));z-index:115}
+.language-panel{position:fixed;inset:auto auto max(16px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left));box-sizing:border-box;margin:0;width:min(320px,calc(100vw - 32px));height:min(650px,calc(100dvh - 110px));padding:0;border:0;border-radius:24px;background:#fff;color:#202020;box-shadow:0 12px 55px #00000024;overflow:hidden;font:400 14px/1.5 Inter,Arial,sans-serif}
+.language-panel:not(:popover-open){display:none}
+.language-content{height:calc(100% - 64px);box-sizing:border-box;padding:24px 22px 16px;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none;opacity:0;transform:translateY(12px);transition:opacity .24s ease,transform .4s cubic-bezier(.22,1,.36,1)}
+.language-content::-webkit-scrollbar{display:none}
+.language-content.is-revealed{opacity:1;transform:none;transition-delay:.1s}
+.language-panel h2{font:600 21px/1.2 Inter,Arial,sans-serif;letter-spacing:-.035em;margin:0 0 8px;color:inherit}
+html[data-palette] #language-panel p{margin:0 0 16px;font:400 12px/1.5 Inter,Arial,sans-serif!important;color:#60616a}
+.language-panel nav{display:grid}
+.language-panel a{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:44px;box-sizing:border-box;padding:8px 0;border-bottom:1px solid #20202014;text-decoration:none;color:#202020;font-size:14px;transition:color .18s,background .18s}
+.language-panel a:hover{color:#684a74;background:#8067880a}
+.language-panel a small{font:400 11px/1.4 Inter,Arial,sans-serif;color:#60616a;white-space:nowrap}
+.language-panel a[aria-current]{font-weight:600}
+html[data-palette] #language-panel .language-note{font-size:11px!important;margin-top:16px}
+.language-close{position:absolute;left:0;bottom:0;box-shadow:none;background:#fff}
+.language-panel::after{content:"";position:absolute;left:49px;bottom:0;right:0;height:60px;background:linear-gradient(#fff0,#fff 25%);pointer-events:none}
+.language-launch:focus-visible,.language-panel :focus-visible{outline:2px solid #684a74!important;outline-offset:-3px}
+@media(prefers-reduced-motion:reduce){.language-content{transition:none;transform:none}}

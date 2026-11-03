@@ -4,26 +4,14 @@
   if (!header || !header.querySelector('.site-menu-toggle')) return false;
   if (header.dataset.entranceBound) return true;
   header.dataset.entranceBound = 'true';
+  header.dataset.entranceStyle = 'Elastic tilt';
   const root = document.documentElement;
   const shell = header.querySelector('.site-header-shell');
   const reduced = matchMedia('(prefers-reduced-motion:reduce)');
   const desktop = matchMedia('(min-width:1100px)');
-  const presets = [
-    {name:'Feather cascade',y:26,x:0,scale:.99,zeta:.86,hz:3.2,duration:760,stagger:48},
-    {name:'Cushion drop',y:48,x:0,scale:.94,zeta:.62,hz:2.8,duration:920,stagger:62,squash:true},
-    {name:'Silk glide',y:14,x:-24,scale:1,zeta:.98,hz:2.5,duration:850,stagger:46},
-    {name:'Soft spring',y:32,x:0,scale:.9,zeta:.48,hz:3,duration:1000,stagger:65},
-    {name:'Hinge unfold',y:20,x:0,scale:.97,zeta:.8,hz:3.1,duration:850,stagger:56,hinge:48},
-    {name:'Ribbon wave',y:18,x:22,scale:1,zeta:.8,hz:3,duration:840,stagger:58,rotate:3,arc:12},
-    {name:'Focus float',y:18,x:0,scale:1.025,zeta:.9,hz:3,duration:820,stagger:54,blur:5},
-    {name:'Elastic tilt',y:30,x:0,scale:.98,zeta:.58,hz:3.2,duration:940,stagger:60,rotate:7},
-    {name:'Arc settle',y:22,x:34,scale:.96,zeta:.8,hz:3,duration:900,stagger:58,rotate:2,arc:26},
-    {name:'Magnetic gather',y:12,x:0,scale:.86,zeta:.7,hz:3,duration:940,stagger:58,magnetic:true}
-  ];
-  const storageKey = 'hoea-header-motion-style';
+  const presets = [{name:'Elastic tilt',y:30,x:0,scale:.98,zeta:.58,hz:3.2,duration:940,stagger:60,rotate:7}];
+  const selected=0;
   const scrollKey = 'hoea-header-scroll:' + location.pathname;
-  let selected = 0;
-  try { const saved = Number(sessionStorage.getItem(storageKey)); if (Number.isInteger(saved) && saved>=0 && saved<presets.length) selected=saved; } catch {}
   let running = [], generation = 0, startFrame = 0, settled = false;
   let pageShown = document.readyState === 'complete';
   let navigation = performance.getEntriesByType('navigation')[0]?.type;
@@ -47,7 +35,7 @@
     root.classList.remove('header-entrance-pending');
     header.dataset.entranceState = 'idle';
     header.dataset.entranceStop = reason;
-    updateStatus();
+
   }
   function settlePlacement() {
     const deadline = performance.now() + 600;
@@ -104,12 +92,13 @@
     const initial = reason === 'load';
     if (initial && !root.classList.contains('header-entrance-pending')) {finish('late-load');return;}
     finish('restart');
-    if (reduced.matches || header.classList.contains('is-open')) {updateStatus();return;}
+    if (reduced.matches || header.classList.contains('is-open')) {return;}
     if (settled) place(false);
     const preset = presets[selected], compact = header.classList.contains('is-scrolled');
     const current = ++generation;
     header.dataset.entranceState = 'playing';
     header.dataset.entranceVariant = String(selected + 1);
+    header.dataset.entranceStyle = preset.name;
     header.dataset.entranceShape = compact ? 'pill' : 'full';
     header.dataset.entranceReason = reason;
     const items = targets();
@@ -141,41 +130,20 @@
       return animation;
     })];
     Promise.allSettled(running.map(animation => animation.finished)).then(() => {
-      if (current === generation) {finish();updateStatus();}
+      if (current === generation) {finish();}
     });
-    updateStatus();
+
   }
   // Interaction wins immediately: no invisible links, moving hit targets or stale menu origins.
-  header.addEventListener('pointerdown', () => {finish('pointer');panel?.hidePopover?.();}, {capture:true});
-  header.addEventListener('click', () => {finish('click');panel?.hidePopover?.();}, {capture:true});
+  header.addEventListener('pointerdown', () => {finish('pointer');}, {capture:true});
+  header.addEventListener('click', () => {finish('click');}, {capture:true});
   header.addEventListener('focusin', () => finish('focus'));
   addEventListener('scroll', () => {if (settled && running.length) finish('scroll');}, {passive:true});
   addEventListener('resize', () => {finish('resize');place(false);}, {passive:true});
-  reduced.addEventListener('change', () => {if (reduced.matches) finish('reduced-motion');updateStatus();});
+  reduced.addEventListener('change', () => {if (reduced.matches) finish('reduced-motion');});
   document.addEventListener('visibilitychange', () => {if (document.hidden) finish('hidden');});
 
-  const lab = document.createElement('div');
-  lab.className = 'header-motion-lab';
-  lab.innerHTML = `<button type="button" class="header-motion-lab__toggle" popovertarget="header-motion-panel" aria-label="Choose a header entrance animation">Header motion <b></b></button><section popover="auto" id="header-motion-panel" class="header-motion-lab__panel" aria-labelledby="header-motion-title"><div class="header-motion-lab__head"><h2 id="header-motion-title">Header motion</h2><button type="button" class="header-motion-lab__close" popovertarget="header-motion-panel" popovertargetaction="hide" aria-label="Close header motion previews">×</button></div><p class="header-motion-lab__intro">Ten entrances. Choose a style to replay it in the header’s current shape.</p><div class="header-motion-lab__choices" role="group" aria-label="Header animation style">${presets.map((preset,index)=>`<button type="button" class="header-motion-lab__choice" data-header-motion-choice="${index}" aria-pressed="false"><b>${String(index+1).padStart(2,'0')}</b>${preset.name}</button>`).join('')}</div><div class="header-motion-lab__footer"><button type="button" class="header-motion-lab__replay" aria-label="Replay selected header animation">Replay ↻</button><div class="header-motion-lab__status" role="status" aria-live="polite"></div></div></section>`;
-  document.body.append(lab);
-  const panel = lab.querySelector('[popover]');
-  const replay = lab.querySelector('.header-motion-lab__replay');
-  function updateStatus() {
-    lab.querySelector('.header-motion-lab__toggle b').textContent = String(selected+1).padStart(2,'0');
-    lab.querySelector('.header-motion-lab__toggle').setAttribute('aria-label',`Header motion ${String(selected+1).padStart(2,'0')}: choose a header entrance animation`);
-    lab.querySelectorAll('[data-header-motion-choice]').forEach(button => button.setAttribute('aria-pressed', String(Number(button.dataset.headerMotionChoice) === selected)));
-    replay.disabled = reduced.matches;
-    lab.querySelector('[role=status]').textContent = reduced.matches ? 'Reduced motion: header stays still.' : `${presets[selected].name}${running.length?' · playing':''}`;
-  }
-  lab.addEventListener('click', event => {
-    const choice = event.target.closest('[data-header-motion-choice]');
-    if (choice) {
-      selected = Number(choice.dataset.headerMotionChoice);
-      try {sessionStorage.setItem(storageKey,String(selected));} catch {}
-      play();
-    } else if (event.target.closest('.header-motion-lab__replay')) play();
-  });
-  updateStatus();
+
   function start() {
     place(!pageShown);
     startFrame = requestAnimationFrame(() => play('load'));

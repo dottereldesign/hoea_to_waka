@@ -15,6 +15,7 @@
     "test:anna-river": "node scripts/anna-river.cjs",
     "test:brand-colours": "node scripts/brand-colours.cjs",
     "test:header": "node scripts/header.cjs",
+    "test:language-menu": "node scripts/language-menu.cjs",
     "test:header-entrance": "node scripts/header-entrance.cjs && node scripts/header-entrance-stress.cjs",
     "test:site-menu-morph": "node scripts/site-menu-morph.cjs",
     "test:site-menu-performance": "node scripts/site-menu-performance.cjs",
