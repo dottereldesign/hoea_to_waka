@@ -21,7 +21,7 @@
     pin.prepend(svg);
     const ocean=document.createElementNS(ns,'svg');
     ocean.classList.add('anna-ocean-cut');ocean.setAttribute('aria-hidden','true');
-    ocean.innerHTML='<defs><clipPath id="anna-ocean-crack"><path/></clipPath></defs><rect clip-path="url(#anna-ocean-crack)" fill="#0D4687"/>';
+    ocean.innerHTML='<defs><clipPath id="anna-ocean-crack"><path/></clipPath><linearGradient id="anna-sky-base" x2="0" y2="1"><stop stop-color="#386b9e"/><stop offset=".5" stop-color="#22578f"/><stop offset="1" stop-color="#0D4687"/></linearGradient><radialGradient id="anna-sky-cloud" cx=".23" cy="0" r=".8"><stop stop-color="#d3eaf3" stop-opacity=".12"/><stop offset="1" stop-color="#d3eaf3" stop-opacity="0"/></radialGradient></defs><g clip-path="url(#anna-ocean-crack)"><rect fill="#0D4687"/><svg class="anna-sky" width="100%" height="650" preserveAspectRatio="none" viewBox="0 0 100 100"><rect width="100" height="100" fill="url(#anna-sky-base)"/><rect width="100" height="100" fill="url(#anna-sky-cloud)"/></svg></g>';
     root.prepend(ocean);
     const boat=svg.querySelector('.river-kayak'),paddle=svg.querySelector('.river-paddle');
     const blades=[...svg.querySelectorAll('[data-paddle-blade]')],splashes=[...svg.querySelectorAll('[data-paddle-splash]')];
@@ -70,7 +70,7 @@
       // One continuous silhouette: broad ocean above, fractured shoulders, narrow passage below.
       const rootBox=root.getBoundingClientRect(),ox=box.left-rootBox.left,oy=box.top-rootBox.top,rw=rootBox.width,rh=rootBox.height;
       ocean.setAttribute('viewBox',`0 0 ${rw} ${rh}`);
-      ocean.querySelector('rect').setAttribute('width',rw);ocean.querySelector('rect').setAttribute('height',rh);
+      ocean.querySelector('.anna-sky').setAttribute('height',Math.min(650,oy));ocean.querySelector('rect').setAttribute('width',rw);ocean.querySelector('rect').setAttribute('height',rh);
       const banks=[[],[]];
       for(let y=0;y<=height;y+=10){
         const taper=mobile?0:Math.max(0,1-y/340),half=((mobile?17:38)+taper*(mobile?rw*.14:rw*.16))*Math.min(1,(height-y)/170+.025);
