@@ -65,3 +65,16 @@ html.js .page-home [data-component="home:4:features"] .ds-section-heading > .mod
 .home-resources__aside span:first-child{border-top:1px solid #9e91a48c}
 @media(max-width:900px){.home-resources{grid-template-columns:1fr;padding:40px 32px}.home-resources h2{max-width:14ch}.home-resources__aside{grid-template-columns:repeat(3,minmax(0,1fr));border-left:0;border-top:1px solid #9e91a48c;padding:0}.home-resources__aside span{padding:18px 8px;border-bottom:0;font-size:clamp(16px,3vw,24px)}.home-resources__aside span:first-child{border-top:0}}
 @media(max-width:600px){.home-resources{padding:34px 24px;border-radius:24px}.home-resources h2{font-size:clamp(38px,10vw,52px)}.home-resources__aside{gap:8px}.home-resources__aside span{font-size:15px}}
+/* Services cards reveal on scroll with the hero's measured swipe and type rhythm. */
+html.js .page-home [data-component="home:3:services"] .ds-section-heading > :is(.ds-kicker,.ds-title){opacity:1;translate:0 0;transition:opacity 840ms cubic-bezier(.45,0,.25,1),translate 840ms cubic-bezier(.45,0,.25,1)}
+html.js .page-home [data-component="home:3:services"].services-heading-reveal-pending .ds-section-heading > :is(.ds-kicker,.ds-title){opacity:0;translate:0 14px}
+html.js .page-home [data-component="home:3:services"] .ds-section-heading > .ds-title{transition-delay:140ms}
+html.js .page-home [data-component="home:3:services"] .ds-card > img{clip-path:inset(0 0 0 0 round 20px);transition:clip-path 1120ms cubic-bezier(.45,0,.25,1)}
+html.js .page-home [data-component="home:3:services"] .ds-card.service-card-reveal-pending > img{clip-path:inset(0 100% 0 0 round 20px)}
+html.js .page-home [data-component="home:3:services"] .ds-card-copy > :is(.ds-number,h3,.ds-lead,.ds-card-actions){opacity:1;translate:0 0;transition:opacity 840ms cubic-bezier(.45,0,.25,1),translate 840ms cubic-bezier(.45,0,.25,1)}
+html.js .page-home [data-component="home:3:services"] .ds-card.service-card-reveal-pending .ds-card-copy > :is(.ds-number,h3,.ds-lead,.ds-card-actions){opacity:0;translate:0 14px}
+html.js .page-home [data-component="home:3:services"] .ds-card-copy > .ds-number{transition-delay:280ms}
+html.js .page-home [data-component="home:3:services"] .ds-card-copy > h3{transition-delay:420ms}
+html.js .page-home [data-component="home:3:services"] .ds-card-copy > .ds-lead{transition-delay:560ms}
+html.js .page-home [data-component="home:3:services"] .ds-card-copy > .ds-card-actions{transition-delay:700ms}
+@media(prefers-reduced-motion:reduce){html.js .page-home [data-component="home:3:services"] .ds-card > img{clip-path:none!important;transition:none!important}html.js .page-home [data-component="home:3:services"] :is(.ds-section-heading,.ds-card-copy) > :is(.ds-kicker,.ds-title,.ds-number,h3,.ds-lead,.ds-card-actions){opacity:1!important;translate:none!important;transition:none!important}}
