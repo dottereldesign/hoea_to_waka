@@ -1,5 +1,5 @@
 #workshop-support {
-  padding: clamp(52px, 7vw, 100px) clamp(16px, 4vw, 64px);
+  padding: clamp(52px, 7vw, 100px) clamp(16px, 4vw, 64px) 0;
   color: var(--t-ink);
 }
 #workshop-support .ds-section-heading {
