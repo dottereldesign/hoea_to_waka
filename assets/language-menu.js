@@ -12,7 +12,7 @@
   panel.classList.add('notranslate');panel.setAttribute('translate','no');
   panel.innerHTML='<div class="language-content"><h2 id="language-title"></h2><p data-language-intro></p><nav aria-label="Language">'+languages.map(([code,native,name])=>{
     const url=new URL(location.href);if(code==='en')url.searchParams.delete('lang');else url.searchParams.set('lang',code);
-    return `<a href="${url.href}" ${code==='en'?'aria-current="true"':''} data-language="${code}"><span lang="${code}">${native}</span><small>${name}</small></a>`;
+    return `<a href="${url.href}" ${code==='en'?'aria-current="true"':''} data-language="${code}"><img class="language-option-flag" src="${new URL(flagCountries[code]+'.svg',flagBase).href}" alt="" width="24" height="18"><span lang="${code}">${native}</span><small>${name}</small></a>`;
   }).join('')+'</nav><p class="language-note"></p></div><button type="button" class="language-close"></button>';
   document.body.append(launch,panel);
   const content=panel.querySelector('.language-content'),close=panel.querySelector('.language-close'),reduce=matchMedia('(prefers-reduced-motion:reduce)');
