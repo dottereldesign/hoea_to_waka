@@ -63,3 +63,17 @@
   .workshop-slide-copy { gap: 14px; }
   .workshop-controls { margin-top: 4px; }
 }
+
+.workshop-facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr));
+  gap: 24px;
+  margin: 32px 0;
+}
+.workshop-facts div { border-top: 1px solid currentColor; padding-top: 12px; }
+.workshop-facts dt { font-size: .88em; }
+.workshop-facts dd { margin: 6px 0 0; font-weight: 600; }
+.workshop-details-copy { max-width: 68ch; }
+.workshop-details-copy h3 { margin: 24px 0 8px; }
+.workshop-details-copy p { margin: 0 0 12px; }
+.workshop-details-copy a { text-decoration: underline; }
