@@ -66,3 +66,7 @@ html.js [data-component="home:3:services"] :is(.ds-section-heading,.ds-card-copy
 html[data-theme="light"] #services .ds-card-actions .model-button {
   background-color: rgb(32, 32, 32);
 }
+
+html[data-palette] #services.ds-type-services {
+  padding-bottom: 0;
+}
