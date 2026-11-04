@@ -1,0 +1,142 @@
+/* Shared reading rhythm for the public pages. The link is limited to tablet widths. */
+:root {
+  --reading-gutter: clamp(1rem, 4vw, 2.5rem);
+  --reading-section: clamp(2.75rem, 7vw, 4.5rem);
+  --reading-title: clamp(2.125rem, 1.7rem + 2.2vw, 3rem);
+  --reading-subtitle: clamp(1.875rem, 1.5rem + 1.8vw, 2.625rem);
+  --reading-copy: clamp(1rem, .94rem + .3vw, 1.125rem);
+}
+
+html[data-palette] .site-main > .ds-component:not(.home-cta-door, .subpage-hero, .ds-type-error) {
+  padding-block: var(--reading-section);
+  padding-inline: var(--reading-gutter);
+}
+
+html[data-palette] .site-main > .subpage-hero {
+  padding: var(--reading-section) var(--reading-gutter);
+}
+
+/* Leave clearance for the contact header's background controls. */
+html[data-palette] .site-main > .subpage-hero:has(.coaching-hero__controls:not([hidden])) {
+  padding-bottom: max(4.5rem, var(--reading-section));
+}
+
+html[data-palette] #main-content :is(h1.ds-title, .anna-story__heading h1) {
+  font-size: var(--reading-title) !important;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+html[data-palette] #main-content :is(h2.ds-title:not(.statement-icon-copy), .home-resources__copy h2) {
+  font-size: var(--reading-subtitle) !important;
+  line-height: 1.12;
+  text-wrap: balance;
+}
+
+html[data-palette] #main-content :is(.ds-card-copy, .pp-feature-copy, .model-benefit-copy, .workshop-details-copy, .ds-video-card) h3 {
+  font-size: clamp(1.375rem, 1.2rem + .8vw, 1.75rem) !important;
+  line-height: 1.2;
+}
+
+html[data-palette] #main-content :is(.ds-lead, .home-intro, .anna-story__heading > p:not([class])) {
+  font-size: var(--reading-copy) !important;
+  line-height: 1.6;
+}
+
+html[data-palette] #main-content .ds-component .ds-kicker,
+html[data-palette] #main-content .anna-story__heading .ds-kicker {
+  font-size: clamp(.875rem, .8rem + .3vw, 1rem) !important;
+  line-height: 1.35;
+  padding: .375rem .875rem;
+  margin-bottom: 1rem !important;
+  max-inline-size: 100%;
+  text-wrap: balance;
+}
+
+html[data-palette] .subpage-hero .pp-breadcrumb {
+  font-size: .75rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  gap: .25rem .5rem;
+  flex-wrap: wrap;
+}
+
+html[data-palette] .site-footer[data-footer-version] {
+  padding-block: var(--reading-section) 1.5rem;
+}
+
+.site-footer[data-footer-version] > .container {
+  width: calc(100% - 2 * var(--reading-gutter));
+}
+
+html[data-palette] .site-footer[data-footer-version] .footer-column h2 {
+  margin-bottom: .625rem;
+  font-size: 1rem;
+}
+
+.site-footer[data-footer-version] .footer-links {
+  gap: .125rem;
+}
+
+.site-footer[data-footer-version] .footer-links a {
+  padding-block: .375rem;
+  min-height: 2.25rem;
+  line-height: 1.45;
+}
+
+@media (max-width: 900px) {
+  .ds-type-contact .ds-contact-editorial,
+  .ds-purpose .pp-shell.pp-features-2 {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+  }
+
+  .ds-type-contact .ds-contact-editorial .ds-section-heading {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .page-home .home-hero .button-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: .625rem;
+    margin-top: 1.5rem;
+  }
+
+  .page-home .home-hero .button-row .model-button {
+    width: 100%;
+  }
+
+  html[data-palette] .page-home .home-hero .home-tagline {
+    line-height: 1.12;
+  }
+
+  .site-footer[data-footer-version] .footer-grid {
+    gap: 1.75rem 1rem;
+  }
+}
+html[data-palette] [data-morph-header] .site-header-cta {
+  min-height: 44px;
+  padding-inline: .75rem;
+  font-size: .75rem;
+}
+
+@media (min-width: 601px) and (max-width: 960px) {
+  .ds-type-services .ds-service-editorial {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+  }
+
+  .ds-type-services .ds-service-editorial .ds-card:nth-child(n) {
+    display: grid;
+    grid-template-columns: minmax(0, .85fr) minmax(0, 1fr);
+    align-items: center;
+    gap: var(--reading-gutter);
+    padding-top: 0;
+  }
+
+  .ds-type-services .ds-service-editorial .ds-card-copy {
+    padding-block: 0;
+  }
+}

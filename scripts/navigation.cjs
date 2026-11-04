@@ -7,7 +7,7 @@ const{chromium}=require('playwright'),assert=require('node:assert/strict'),fs=re
   const nav=page.locator('nav.site-nav,nav.site-preview-nav').first();
   const links=await nav.locator(':scope > a,:scope > .site-nav-dropdown > a,:scope > .site-preview-nav-item > a').evaluateAll(es=>es.map(e=>({text:e.textContent.trim(),url:e.href})));
   const about=links.findIndex(e=>e.text==='About');assert.equal(links[about+1].text,'Model',route);assert(links[about+2].text.startsWith('Services'),route);
-  assert.equal(new URL(links[about+1].url).pathname,route==='404.html'?'/model/':'/hoea_to_waka/model/',route+' correct depth');
+  assert.equal(new URL(links[about+1].url).pathname,new URL('model/',base).pathname,route+' correct depth');
   if(await page.locator('.site-menu-links').count())assert.equal(await page.locator('.site-menu-links').getByRole('link',{name:'Model',exact:true,includeHidden:true}).count(),1);
   if(await page.locator('.site-footer .footer-links').count())assert.equal(await page.locator('.site-footer').getByRole('link',{name:'Model',exact:true,includeHidden:true}).count(),1);
  }
