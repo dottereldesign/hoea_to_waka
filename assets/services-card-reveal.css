@@ -1,0 +1,68 @@
+html.js [data-component="home:3:services"] .ds-section-heading>:is(.ds-kicker,.ds-title) {
+  opacity:1;
+  translate:0 0;
+  transition:opacity 840ms cubic-bezier(.45,0,.25,1),translate 840ms cubic-bezier(.45,0,.25,1);
+}
+
+html.js [data-component="home:3:services"].services-heading-reveal-pending .ds-section-heading>:is(.ds-kicker,.ds-title) {
+  opacity:0;
+  translate:0 14px;
+}
+
+html.js [data-component="home:3:services"] .ds-section-heading>.ds-title {
+  transition-delay:140ms;
+}
+
+html.js [data-component="home:3:services"] .ds-card>img {
+  clip-path:inset(0 0 0 0 round 20px);
+  transition:clip-path 1120ms cubic-bezier(.45,0,.25,1);
+}
+
+html.js [data-component="home:3:services"] .ds-card.service-card-reveal-pending>img {
+  clip-path:inset(0 100%0 0 round 20px);
+}
+
+html.js [data-component="home:3:services"] .ds-card-copy>:is(.ds-number,h3,.ds-lead,.ds-card-actions) {
+  opacity:1;
+  translate:0 0;
+  transition:opacity 840ms cubic-bezier(.45,0,.25,1),translate 840ms cubic-bezier(.45,0,.25,1);
+}
+
+html.js [data-component="home:3:services"] .ds-card.service-card-reveal-pending .ds-card-copy>:is(.ds-number,h3,.ds-lead,.ds-card-actions) {
+  opacity:0;
+  translate:0 14px;
+}
+
+html.js [data-component="home:3:services"] .ds-card-copy>.ds-number {
+  transition-delay:280ms;
+}
+
+html.js [data-component="home:3:services"] .ds-card-copy>h3 {
+  transition-delay:420ms;
+}
+
+html.js [data-component="home:3:services"] .ds-card-copy>.ds-lead {
+  transition-delay:560ms;
+}
+
+html.js [data-component="home:3:services"] .ds-card-copy>.ds-card-actions {
+  transition-delay:700ms;
+}
+
+@media (prefers-reduced-motion:reduce) {
+html.js [data-component="home:3:services"] .ds-card>img {
+  clip-path:none!important;
+  transition:none!important;
+}
+}
+
+@media (prefers-reduced-motion:reduce) {
+html.js [data-component="home:3:services"] :is(.ds-section-heading,.ds-card-copy)>:is(.ds-kicker,.ds-title,.ds-number,h3,.ds-lead,.ds-card-actions) {
+  opacity:1!important;
+  translate:none!important;
+  transition:none!important;
+}
+}
+html[data-theme="light"] #services .ds-card-actions .model-button {
+  background-color: rgb(32, 32, 32);
+}
