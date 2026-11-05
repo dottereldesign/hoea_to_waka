@@ -1,19 +1,14 @@
 (()=>{
  const section=document.querySelector('.home-resources');if(!section)return;
  const buttons=[...section.querySelectorAll('[data-resource-choice]')];
- const desktop=matchMedia('(min-width:1000px)');
- const reduced=matchMedia('(prefers-reduced-motion:reduce)');
- let visible=false,replay=0;
- const draw=()=>{
-  if(!desktop.matches||reduced.matches)return;
-  const url=new URL('assets/resources-pencil-animated.svg',document.baseURI);
-  url.searchParams.set('draw',String(++replay));
-  section.style.setProperty('--resource-art-url',`url("${url.href}")`);
- };
+ const desktop=matchMedia('(min-width:1000px)'), reduced=matchMedia('(prefers-reduced-motion:reduce)');
+ let visible=false;
+ const draw=()=>{if(!desktop.matches||reduced.matches)return;section.classList.add('is-resource-drawing');section.querySelector('.resource-artwork').getAnimations({subtree:true}).forEach(a=>{a.currentTime=0;a.play()})};
  const choose=value=>{section.dataset.resourceArt=value;buttons.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.resourceChoice===value)))};
- try{const saved=localStorage.getItem('hoea-resource-art');if(/^[1-5]$/.test(saved))choose(saved)}catch{}
- buttons.forEach(b=>b.addEventListener('click',()=>{choose(b.dataset.resourceChoice);if(visible)draw();try{localStorage.setItem('hoea-resource-art',b.dataset.resourceChoice)}catch{}}));
- const observer=new IntersectionObserver(entries=>{if(entries.some(e=>e.isIntersecting)&&desktop.matches&&!visible){visible=true;draw();}},{threshold:.25});observer.observe(section);
- desktop.addEventListener('change',()=>{if(desktop.matches&&visible)draw()});
- reduced.addEventListener('change',()=>{if(reduced.matches)section.style.removeProperty('--resource-art-url');else if(visible)draw()});
+ choose('3');try{const saved=localStorage.getItem('hoea-resource-art-v2');if(/^[1-5]$/.test(saved))choose(saved)}catch{}
+ buttons.forEach(b=>b.addEventListener('click',()=>{choose(b.dataset.resourceChoice);if(visible)draw();try{localStorage.setItem('hoea-resource-art-v2',b.dataset.resourceChoice)}catch{}}));
+ const check=()=>{const r=section.getBoundingClientRect();if(desktop.matches&&!visible&&r.top<innerHeight*.85&&r.bottom>0){visible=true;draw()}};
+ const observer=new IntersectionObserver(check,{threshold:[0,.15,.25]});observer.observe(section);
+ desktop.addEventListener('change',check);
+ reduced.addEventListener('change',()=>{if(!reduced.matches&&visible)draw()});
 })();
