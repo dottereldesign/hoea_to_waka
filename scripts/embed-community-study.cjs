@@ -1,0 +1,11 @@
+const fs = require('node:fs');
+const file = 'colour-testing/index.html';
+let html = fs.readFileSync(file, 'utf8');
+const section = fs.readFileSync('assets/colour-testing/community-section.html', 'utf8');
+const start = '<!-- community-study:start -->', end = '<!-- community-study:end -->';
+const block = `${start}\n${section}\n${end}`;
+if (html.includes(start)) html = html.replace(/<!-- community-study:start -->[\s\S]*?<!-- community-study:end -->/, block);
+else html = html.replace('<section class="lab-section lab-refinement"', `${block}\n\n<section class="lab-section lab-refinement"`);
+if (!html.includes('community-lab.css')) html = html.replace('</head>', '    <link rel="stylesheet" href="../assets/colour-testing/community-lab.css?v=1">\n    <script src="../assets/colour-testing/community-lab.js?v=1" defer></script>\n  </head>');
+html = html.replace('<a href="#experiment-01-refined">See the new experiment ↓</a>', '<a href="#community-study">Explore the SVG study ↓</a><a href="#experiment-01-refined">Refined grain</a>');
+fs.writeFileSync(file, html);

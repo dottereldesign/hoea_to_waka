@@ -6,7 +6,7 @@
   const enabled = lab.querySelector('#texture-enabled');
   const strength = lab.querySelector('#texture-strength');
   const status = lab.querySelector('#copy-status');
-  const dialog = lab.querySelector('dialog');
+  const dialog = lab.querySelector('.lab-dialog');
 
   function updatePreview() {
     lab.toggleAttribute('data-solid', Boolean(colour.value));

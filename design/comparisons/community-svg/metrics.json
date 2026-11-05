@@ -1,0 +1,12 @@
+{
+  "date": "2026-11-06",
+  "size": [
+    1086,
+    1448
+  ],
+  "meanAbsoluteChannelError": 3.15,
+  "pixelsWithAnyChannelErrorOver40Percent": 1.42,
+  "meaning": "RGB difference includes intentionally omitted original grain, shading differences and contour differences. It is not a percentage fidelity score.",
+  "svgBytes": 33051,
+  "paths": 39
+}
