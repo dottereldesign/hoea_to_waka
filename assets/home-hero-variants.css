@@ -140,3 +140,16 @@ html[data-home-hero="03"] .home-hero-illustration .home-hero-illustration__cutou
 html[data-home-hero="03"] .hero-variation-switch { background: #fff; border-color: #281a2c33; }
 html[data-home-hero="03"] .hero-variation-switch button { color: #281a2c; }
 html[data-home-hero="03"] .hero-variation-switch button[aria-pressed="true"] { background: #281a2c; color: #fff; }
+/* 03 refinement: flush purple panel, rounded inner edge, smaller artwork. */
+html[data-palette][data-home-hero="03"] .page-home .home-hero {
+  margin-left: 0; border-radius: 0; background: #fff;
+}
+html[data-home-hero="03"] .page-home .home-hero[data-hero-version] .home-hero-art { display: none; }
+html[data-home-hero="03"] .page-home .home-hero .home-hero-copy {
+  border-radius: 0 32px 32px 0; overflow: hidden; background: #281a2c;
+}
+html[data-home-hero="03"] .home-hero-copy::before { border-radius: inherit; }
+html[data-home-hero="03"] .home-hero-illustration { border-radius: 0; background: #fff; }
+html[data-home-hero="03"] .home-hero-illustration .home-hero-illustration__cutout {
+  inset: 10%; width: 80%; height: 80%; object-fit: contain;
+}
