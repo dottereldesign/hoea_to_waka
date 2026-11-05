@@ -3,6 +3,10 @@
  const C=window.MaoriWordleCore,W=window.MaoriWordleWords,start=root.querySelector('[data-game-start]');
  if(!C||!W){start.querySelector('span').textContent='Reload to play';return;}
  const $=s=>root.querySelector(s),storageKey='hoea-maori-wordle-v1',intro=$('[data-wordle-intro]'),game=$('[data-wordle-game]'),input=$('#mw-guess'),board=$('[data-wordle-board]'),keyboard=$('[data-wordle-keyboard]'),form=$('[data-wordle-form]'),message=$('[data-wordle-message]'),result=$('[data-wordle-result]');
+ const help=$('.mw-help');
+ $('[data-wordle-info]').addEventListener('click',()=>help.showModal());
+ $('[data-wordle-help-close]').addEventListener('click',()=>help.close());
+ help.addEventListener('click',e=>{if(e.target===help){const r=help.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)help.close();}});
  const symbols={correct:'✓',present:'↔',absent:'–'},names={correct:'right place',present:'elsewhere in word',absent:'not in word'},priority={absent:1,present:2,correct:3};
  let state=null;try{const saved=JSON.parse(localStorage.getItem(storageKey));if(C.valid(saved,W.answers,W.allowed))state=saved;}catch{}
  if(state)start.querySelector('span').textContent='Continue game';

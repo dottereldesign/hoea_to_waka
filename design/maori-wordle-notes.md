@@ -24,3 +24,11 @@ Scoring assigns exact matches first, then counts remaining occurrences for mispl
 - Removed inherited oversized paragraph typography from game controls after mobile comparison; compacted board spacing while retaining 44px keyboard buttons.
 
 Screenshots from verification: `tmp/maori-wordle-1440.png`, `tmp/maori-wordle-768.png`, `tmp/maori-wordle-390.png`, `tmp/maori-wordle-320.png` (local, ignored).
+
+## White, wider layout — 6 November 2026
+
+Removed the active-game heading, visible guess label, input helper and under-keyboard divider. The input retains its accessible name. Moved instructions into a native modal dialog opened by a corner info button; Escape, the Close button and clicking outside dismiss it, with focus returning to the trigger.
+
+The game and intro now use white surfaces with dark text, purple primary actions, clearly outlined pale keys and muted absent-letter feedback. Correct and misplaced feedback retain sage and apricot with symbols. Desktop uses board and controls columns; below 761px these stack. The desktop game card is below 550px high, with no artificial minimum height.
+
+Verified before/after screenshots at 1440, 768, 390 and 320px. Existing game behaviour checks pass. Additional rendered checks confirm desktop columns, dialog keyboard dismissal/focus return, mobile dialog sizing, and scoped axe A/AA checks for game, intro and instructions. Local comparisons: `tmp/maori-wordle-before-desktop.png`, `tmp/maori-wordle-before-mobile.png`, `tmp/maori-wordle-1440.png`, `tmp/maori-wordle-390.png`, `tmp/maori-wordle-info-mobile.png`.
