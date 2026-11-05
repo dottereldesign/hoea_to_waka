@@ -43,6 +43,15 @@
   portal.append(tide);
   const tideStars = tide.querySelector('[data-tide-stars]');
   const moon = tide.querySelector('[data-door-moon]');
+  const moonHalo=moon.querySelector('circle');
+  const moonFace=moon.querySelector('circle:last-child');
+  const shooting=document.createElementNS(ns,'g');
+  shooting.setAttribute('data-door-shooting-star','');
+  shooting.setAttribute('opacity','0');
+  svg.querySelector('defs').insertAdjacentHTML('beforeend','<linearGradient id="door-shooting-tail"><stop stop-color="#e8f0e7" stop-opacity="0"/><stop offset="1" stop-color="#e8f0e7" stop-opacity=".8"/></linearGradient>');
+  shooting.innerHTML='<path d="M-28 0H0" stroke="url(#door-shooting-tail)" stroke-width="1" stroke-linecap="round"/><circle r="1" fill="#f4f4e4"/>';
+  moon.after(shooting);
+  let twinkles=[];
   const seaBack = tide.querySelector('[data-sea-back]');
   const seaFront = tide.querySelector('[data-sea-front]');
   const seaFoam = tide.querySelector('[data-sea-foam]');
@@ -92,6 +101,7 @@
     const sample=()=>{starSeed=(Math.imul(starSeed,1664525)+1013904223)>>>0;return starSeed/4294967296;};
     for(let i=0;i<75;i++)sky+=`<circle cx="${b.left+sample()*b.width}" cy="${b.top+sample()*b.height*.58}" r="${.35+sample()*1.05}" fill="#dce9fb" opacity="${.25+sample()*.5}"/>`;
     tideStars.innerHTML=sky;
+    twinkles=[...tideStars.children].filter((_,i)=>i%6===0).map((node,i)=>({node,base:Number(node.getAttribute("opacity")),phase:i*1.73}));
   };
   const wavePath = (y,time,amplitude) => {
     const points=[],start=profile.left-4,end=profile.left+profile.width+4;
@@ -109,7 +119,21 @@
     let glints='';
     for(let i=0;i<5;i++){const y=baseline+24+i*14,x=center+3*Math.sin(seconds*.6+i),half=3+i*1.7;glints+=`M${(x-half).toFixed(3)} ${y.toFixed(3)}q${half.toFixed(3)} ${(Math.sin(seconds*.8+i)*1.8).toFixed(3)} ${(half*2).toFixed(3)} 0`;}
     reflection.setAttribute('d',glints);
-    tideStars.setAttribute('opacity',(.84+.12*Math.sin(seconds*.6)).toFixed(3));
+    tideStars.setAttribute('opacity','1');
+    const quiet=preference.matches;
+    twinkles.forEach(({node,base,phase})=>node.setAttribute('opacity',(quiet?base:base*(.82+.18*Math.sin(seconds*.55+phase))).toFixed(3)));
+    moon.setAttribute('transform',`translate(${center} ${profile.top+profile.height*.275+(quiet?0:1.4*Math.sin(seconds*.32))})`);
+    moonHalo.setAttribute('opacity',(quiet?.8:.72+.2*Math.sin(seconds*.42)).toFixed(3));
+    moonHalo.setAttribute('transform',`scale(${quiet?1:1+.045*Math.sin(seconds*.42)})`);
+    moonFace.setAttribute('opacity',(quiet?1:.97+.03*Math.sin(seconds*.42)).toFixed(3));
+    // A brief pencil-thin streak, followed by a long quiet interval.
+    const pass=(seconds%17-5.5)/1.15;
+    const show=!quiet&&pass>0&&pass<1&&(!standalone||doorTime>1100);
+    shooting.setAttribute('opacity',show?(Math.sin(Math.PI*pass)*.65).toFixed(3):'0');
+    if(show){
+      const x=profile.left+profile.width*(.43+.64*pass),y=profile.top+profile.height*(.16+.14*pass);
+      shooting.setAttribute('transform',`translate(${x.toFixed(3)} ${y.toFixed(3)}) rotate(24)`);
+    }
   };
   let seed = 46271;
   const random = () => {seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0; return seed / 4294967296;};
