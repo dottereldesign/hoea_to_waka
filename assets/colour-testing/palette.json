@@ -1,0 +1,117 @@
+{
+  "method": "Median RGB from 16 by 16 pixel interior samples of the supplied image. Approximate display colours, not original source values.",
+  "colours": [
+    {
+      "name": "Evergreen",
+      "hex": "#016C53",
+      "sampleCentre": [
+        100,
+        100
+      ]
+    },
+    {
+      "name": "Deep teal",
+      "hex": "#043A4E",
+      "sampleCentre": [
+        210,
+        440
+      ]
+    },
+    {
+      "name": "Ocean teal",
+      "hex": "#247A84",
+      "sampleCentre": [
+        180,
+        880
+      ]
+    },
+    {
+      "name": "Plum",
+      "hex": "#53273F",
+      "sampleCentre": [
+        190,
+        600
+      ]
+    },
+    {
+      "name": "Sage",
+      "hex": "#9EB173",
+      "sampleCentre": [
+        860,
+        570
+      ]
+    },
+    {
+      "name": "Light olive",
+      "hex": "#B4BF8B",
+      "sampleCentre": [
+        180,
+        1100
+      ]
+    },
+    {
+      "name": "Coral",
+      "hex": "#E68387",
+      "sampleCentre": [
+        415,
+        770
+      ]
+    },
+    {
+      "name": "Rose",
+      "hex": "#C1595E",
+      "sampleCentre": [
+        890,
+        920
+      ]
+    },
+    {
+      "name": "Blush",
+      "hex": "#FDAEB5",
+      "sampleCentre": [
+        820,
+        1140
+      ]
+    },
+    {
+      "name": "Burnt orange",
+      "hex": "#D65A25",
+      "sampleCentre": [
+        950,
+        780
+      ]
+    },
+    {
+      "name": "Apricot",
+      "hex": "#F88D5C",
+      "sampleCentre": [
+        560,
+        250
+      ]
+    },
+    {
+      "name": "Amber",
+      "hex": "#FDB069",
+      "sampleCentre": [
+        540,
+        325
+      ]
+    },
+    {
+      "name": "Peach",
+      "hex": "#FDC88E",
+      "sampleCentre": [
+        550,
+        400
+      ]
+    },
+    {
+      "name": "Cream",
+      "hex": "#FDD8B0",
+      "sampleCentre": [
+        570,
+        460
+      ]
+    }
+  ]
+}
