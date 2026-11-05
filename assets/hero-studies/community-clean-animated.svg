@@ -27,20 +27,20 @@
       <stop offset="1" stop-color="var(--community-mat-coral, #E88484)" />
     </linearGradient>
     <linearGradient id="paint-06" gradientUnits="userSpaceOnUse" x1="1000.72" y1="1051.96" x2="374.15" y2="1266.58">
-      <stop offset="0" stop-color="var(--community-mat-plum, #281A2C)" />
-      <stop offset="1" stop-color="var(--community-mat-plum, #281A2C)" />
+      <stop offset="0" stop-color="var(--community-mat-plum, #66334C)" />
+      <stop offset="1" stop-color="var(--community-mat-plum, #53263C)" />
     </linearGradient>
     <linearGradient id="paint-07" gradientUnits="userSpaceOnUse" x1="248.90" y1="562.60" x2="233.67" y2="391.96">
       <stop offset="0" stop-color="var(--community-listener-left-hair, #02364A)" />
       <stop offset="1" stop-color="var(--community-listener-left-hair, #043D51)" />
     </linearGradient>
     <linearGradient id="paint-08" gradientUnits="userSpaceOnUse" x1="231.39" y1="537.06" x2="229.58" y2="770.09">
-      <stop offset="0" stop-color="var(--community-listener-left-top, #281A2C)" />
-      <stop offset="1" stop-color="var(--community-listener-left-top, #281A2C)" />
+      <stop offset="0" stop-color="var(--community-listener-left-top, #592941)" />
+      <stop offset="1" stop-color="var(--community-listener-left-top, #3B1E35)" />
     </linearGradient>
     <linearGradient id="paint-09" gradientUnits="userSpaceOnUse" x1="342.56" y1="607.37" x2="300.50" y2="612.55">
-      <stop offset="0" stop-color="var(--community-listener-left-top, #281A2C)" />
-      <stop offset="1" stop-color="var(--community-listener-left-top, #281A2C)" />
+      <stop offset="0" stop-color="var(--community-listener-left-top, #361D33)" />
+      <stop offset="1" stop-color="var(--community-listener-left-top, #402037)" />
     </linearGradient>
     <linearGradient id="paint-10" gradientUnits="userSpaceOnUse" x1="304.29" y1="501.31" x2="272.16" y2="558.44">
       <stop offset="0" stop-color="var(--community-listener-left-neck, #F68A44)" />
@@ -55,8 +55,8 @@
       <stop offset="1" stop-color="var(--community-listener-left-face, #FD9E57)" />
     </linearGradient>
     <linearGradient id="paint-13" gradientUnits="userSpaceOnUse" x1="456.09" y1="675.29" x2="302.46" y2="823.28">
-      <stop offset="0" stop-color="var(--community-listener-left-trousers, #281A2C)" />
-      <stop offset="1" stop-color="var(--community-listener-left-trousers, #281A2C)" />
+      <stop offset="0" stop-color="var(--community-listener-left-trousers, #4C243C)" />
+      <stop offset="1" stop-color="var(--community-listener-left-trousers, #422139)" />
     </linearGradient>
     <linearGradient id="paint-14" gradientUnits="userSpaceOnUse" x1="361.98" y1="904.78" x2="267.76" y2="703.73">
       <stop offset="0" stop-color="var(--community-listener-left-trousers, #E98889)" />
@@ -87,12 +87,12 @@
       <stop offset="1" stop-color="var(--community-speaker-top, #8EA469)" />
     </linearGradient>
     <linearGradient id="paint-21" gradientUnits="userSpaceOnUse" x1="855.58" y1="337.11" x2="817.87" y2="380.10">
-      <stop offset="0" stop-color="var(--community-speaker-hair, #281A2C)" />
+      <stop offset="0" stop-color="var(--community-speaker-hair, #442435)" />
       <stop offset="1" stop-color="var(--community-speaker-hair, #281A2C)" />
     </linearGradient>
     <linearGradient id="paint-22" gradientUnits="userSpaceOnUse" x1="829.16" y1="461.10" x2="728.34" y2="375.64">
-      <stop offset="0" stop-color="var(--community-speaker-hair, #281A2C)" />
-      <stop offset="1" stop-color="var(--community-speaker-hair, #281A2C)" />
+      <stop offset="0" stop-color="var(--community-speaker-hair, #3B1E2F)" />
+      <stop offset="1" stop-color="var(--community-speaker-hair, #3D2031)" />
     </linearGradient>
     <linearGradient id="paint-23" gradientUnits="userSpaceOnUse" x1="730.50" y1="420.42" x2="717.28" y2="509.17">
       <stop offset="0" stop-color="var(--community-speaker-face, #C9601D)" />

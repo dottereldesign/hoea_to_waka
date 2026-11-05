@@ -1,5 +1,5 @@
-Illustration palette update — 6 November 2026
+Illustration palette — corrected 6 November 2026
 
-Use #281A2C for dark purple in all future illustrations and prompts. This overrides dark purple shades in the original reference artwork. Keep the other reference colours unchanged.
+Use #281A2C only for the deepest purple. Keep lighter plum #53273F and the reference shading distinct; never recolour all purple shapes to one flat value. This preserves boundaries between clothing, hair, neck and overlapping shapes. Keep other colours unchanged.
 
-Applied to the homepage hero and resources SVG illustrations, and all 40 prompts in the desktop Illustration Studio Word document and JSON library.
+Hero: replace only the deepest purple gradient stop (#311A2C). Resources: replace the darkest purple opening (#54283F), retaining the two lighter shoe colours.

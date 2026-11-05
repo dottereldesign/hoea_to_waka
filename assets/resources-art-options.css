@@ -6,7 +6,7 @@ html.js .home-resources:not(.is-resource-drawing) .resource-artwork #resource-tr
  .home-resources {padding-left:46%;grid-template-columns:1fr;gap:24px;min-height:650px;}
  .home-resources .resource-artwork {display:block;position:absolute;z-index:-1;pointer-events:none;left:1%;top:40px;width:43%;height:440px;transform-origin:35% 45%;}
  .home-resources[data-resource-art="2"] .resource-artwork {left:-7%;top:0;width:54%;height:550px;}
- .home-resources[data-resource-art="3"] .resource-artwork {left:0;top:165px;width:43%;height:440px;transform:rotate(-12deg);}
+ .home-resources[data-resource-art="3"] .resource-artwork {left:0;top:165px;width:43%;height:440px;}
  .home-resources[data-resource-art="4"] .resource-artwork {left:-4%;top:20px;width:52%;height:520px;opacity:.3;}
  .home-resources[data-resource-art="5"] .resource-artwork {left:-20%;top:-25px;width:65%;height:650px;transform:rotate(8deg);}
  .home-resources .home-resources__copy {position:relative;}
@@ -17,3 +17,8 @@ html.js .home-resources:not(.is-resource-drawing) .resource-artwork #resource-tr
  .resource-art-options button[aria-pressed="true"] {background:#281a2c;color:#fff;}
  .resource-art-options button:focus-visible {outline:2px solid #281a2c;outline-offset:3px;}
 }
+
+/* Rotate vector geometry before painting, rather than the SVG element layer. */
+.home-resources[data-resource-art="3"] .resource-art-scene {transform-box:view-box;transform-origin:35% 45%;transform:rotate(-12deg);}
+
+.home-resources .resource-artwork {overflow:visible;}
