@@ -1,0 +1,9 @@
+(function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.MaoriWordleCore=api;})(typeof globalThis!=='undefined'?globalThis:this,()=>{
+ const normalise=value=>String(value).normalize('NFC').toLowerCase();
+ function score(guess,answer){const g=Array.from(normalise(guess)),a=Array.from(normalise(answer)),result=Array(g.length).fill('absent'),left={};for(let i=0;i<a.length;i++){if(g[i]===a[i])result[i]='correct';else left[a[i]]=(left[a[i]]||0)+1;}for(let i=0;i<g.length;i++)if(result[i]!=='correct'&&left[g[i]]){result[i]='present';left[g[i]]--;}return result;}
+ function randomInt(max){if(globalThis.crypto?.getRandomValues){const value=new Uint32Array(1),limit=Math.floor(4294967296/max)*max;do{globalThis.crypto.getRandomValues(value);}while(value[0]>=limit);return value[0]%max;}return Math.floor(Math.random()*max);}
+ function shuffle(values,random=randomInt){const out=[...values];for(let i=out.length-1;i>0;i--){const j=random(i+1);[out[i],out[j]]=[out[j],out[i]];}return out;}
+ function next(state,answers,random=randomInt){let deck=state?.deck,index=state?.index||0;if(!deck||index>=deck.length){deck=shuffle(answers,random);index=0;if(deck[0]===state?.answer)[deck[0],deck[1]]=[deck[1],deck[0]];}return {version:1,deck,index:index+1,answer:deck[index],guesses:[]};}
+ function valid(state,answers,allowed){return !!state&&state.version===1&&Array.isArray(state.deck)&&state.deck.length===answers.length&&new Set(state.deck).size===answers.length&&state.deck.every(w=>answers.includes(w))&&Number.isInteger(state.index)&&state.index>=1&&state.index<=answers.length&&state.answer===state.deck[state.index-1]&&Array.isArray(state.guesses)&&state.guesses.length<=6&&new Set(state.guesses).size===state.guesses.length&&state.guesses.every((w,i)=>allowed.includes(w)&&(i===state.guesses.length-1||w!==state.answer));}
+ return {normalise,score,shuffle,next,valid};
+});

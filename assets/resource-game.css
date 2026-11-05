@@ -17,3 +17,55 @@ html[data-palette] .resource-play__start:focus-visible{outline:3px solid #FDB069
 .resource-play__fallback{text-align:center;}
 @media(max-width:760px){.resource-play{margin:56px auto;padding:0 16px;}.resource-play__screen{border-radius:24px;min-height:490px;}.resource-play__art{object-position:50% 50%;opacity:.55;}.resource-play__content{padding:52px 20px 74px;}.resource-play__heading>p:last-child{font-size:16px;}}
 @media(prefers-reduced-motion:reduce){.resource-play .resource-play__start{transition:none;transform:none;}}
+/* Māori Wordle */
+.resource-play [hidden]{display:none!important;}
+.resource-play.is-playing .resource-play__art{opacity:.1;}
+.mw-game{width:min(100%,640px);padding:36px 24px 40px;color:#FFF9F0;}
+.mw-top{display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.resource-play .mw-game h3{color:#FFF9F0;font-size:28px;line-height:1.2;margin:0;letter-spacing:-.03em;}
+.resource-play .mw-text-button{border:0;background:transparent;color:#FFF9F0;text-decoration:underline;text-underline-offset:4px;font-size:13px;padding:12px;cursor:pointer;}
+.resource-play .mw-progress{font-size:13px;color:#D8E9E1;margin:12px 0 20px;}
+.mw-legend{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:22px;font-size:12px;}
+.mw-legend span{display:flex;align-items:center;gap:5px;}
+.mw-legend i{display:grid;place-items:center;width:22px;height:22px;border-radius:5px;font-style:normal;font-weight:700;}
+.mw-board{display:grid;gap:7px;width:min(100%,324px);margin:0 auto 22px;}
+.mw-row{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px;}
+.mw-tile{position:relative;display:grid;place-items:center;aspect-ratio:1;border:1px solid #87AFA0;border-radius:9px;background:#164E3E;color:#FFF9F0;font-size:27px;font-weight:600;line-height:1;}
+.mw-tile small{position:absolute;right:4px;bottom:3px;font-size:10px;font-weight:700;}
+.resource-play [data-state="correct"]{background:#B4BF8B;color:#202020;border-color:#B4BF8B;}
+.resource-play [data-state="present"]{background:#FDB069;color:#281A2C;border-color:#FDB069;}
+.resource-play [data-state="absent"]{background:#281A2C;color:#FFF9F0;border-color:#705A74;}
+.mw-entry{max-width:420px;margin:0 auto;}
+.mw-entry label{display:block;font-size:13px;margin-bottom:8px;}
+.mw-entry>div{display:flex;gap:8px;}
+.resource-play .mw-entry input{width:100%;min-width:0;min-height:46px;border:1px solid #B4BF8B;border-radius:9px;background:#FFF9F0;color:#281A2C;padding:10px 14px;font-size:20px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;}
+.resource-play .mw-entry button{border:0;border-radius:9px;padding:10px 18px;background:#FDB069;color:#281A2C;font:600 14px var(--font-body,Arial);cursor:pointer;}
+.resource-play .mw-entry p{font-size:12px;color:#D8E9E1;margin:8px 0 0;}
+.resource-play .mw-message{color:#FFF9F0;font-size:13px;line-height:1.5;min-height:40px;margin:14px auto;max-width:440px;}
+.mw-keyboard{display:grid;gap:6px;width:100%;max-width:440px;margin:auto;}
+.mw-key-row{display:flex;justify-content:center;gap:6px;}
+.resource-play .mw-key-row button{flex:1;max-width:64px;min-width:0;min-height:44px;padding:7px 2px;border:1px solid #D8E9E1;border-radius:8px;background:#FFF9F0;color:#281A2C;font:600 17px var(--font-body,Arial);cursor:pointer;}
+.resource-play .mw-key-row button[data-state="correct"]{background:#B4BF8B;border-color:#B4BF8B;color:#202020;}
+.resource-play .mw-key-row button[data-state="present"]{background:#FDB069;border-color:#FDB069;color:#281A2C;}
+.resource-play .mw-key-row button[data-state="absent"]{background:#281A2C;border-color:#705A74;color:#FFF9F0;}
+.resource-play .mw-key-row button:not([data-letter]){max-width:100px;font-size:13px;}
+.resource-play .mw-key-row button:hover,.resource-play .mw-entry button:hover{filter:brightness(1.08);}
+html[data-palette] .resource-play .mw-game :is(button,input,summary,a):focus-visible{outline:3px solid #FDAEB5!important;outline-offset:3px!important;box-shadow:none!important;}
+.mw-result{text-align:center;padding:0 0 22px;}
+.resource-play .mw-result p{font-size:22px;color:#FFF9F0;margin:12px 0;}
+.resource-play .mw-result a,.resource-play .mw-help a{color:#FDD8B0;text-decoration:underline;text-underline-offset:3px;}
+.mw-result a{display:block;font-size:14px;margin:0 0 24px;}
+.mw-help{margin-top:26px;border-top:1px solid #7FAF9C;padding-top:16px;font-size:13px;line-height:1.65;}
+.mw-help summary{cursor:pointer;font-weight:600;color:#FFF9F0;}
+.resource-play .mw-help p{font-size:13px;line-height:1.65;color:#D8E9E1;margin:12px 0;}
+@media(max-width:600px){.mw-game{padding:28px 14px;}.resource-play .mw-game h3{font-size:24px;}.mw-top{gap:4px;}.mw-legend{gap:9px;font-size:11px;}.mw-board{max-width:290px;gap:5px;}.mw-row{gap:5px;}.mw-tile{font-size:25px;}.mw-key-row{gap:4px;}.resource-play .mw-key-row button{font-size:16px;}.resource-play .mw-text-button{font-size:12px;padding:10px 4px;}}
+/* Keep game typography independent of the site's large editorial paragraphs. */
+html[data-palette] #resource-play .mw-progress{font-size:13px!important;line-height:1.4!important;margin:8px 0 12px;}
+html[data-palette] #resource-play .mw-entry p{font-size:12px!important;line-height:1.4!important;}
+html[data-palette] #resource-play .mw-message{font-size:13px!important;line-height:1.4!important;margin:10px auto;min-height:36px;}
+html[data-palette] #resource-play .mw-help p{font-size:13px!important;line-height:1.65!important;}
+.mw-game{padding-top:24px;padding-bottom:24px;}
+.mw-board{max-width:270px;margin-bottom:16px;}
+.mw-legend{margin-bottom:16px;}
+.mw-help{margin-top:18px;padding-top:12px;}
+@media(max-width:600px){.mw-game{padding-top:20px;padding-bottom:20px;}.mw-board{max-width:240px;}.mw-tile{font-size:23px;}}

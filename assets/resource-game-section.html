@@ -1,11 +1,22 @@
 <section id="resource-play" class="resource-play" aria-labelledby="resource-play-title">
- <header class="resource-play__heading"><p class="resource-play__eyebrow">Play &amp; practise</p><h2 id="resource-play-title">Another way to explore.</h2><p>A little curiosity. A fresh perspective. A space to try something different.</p></header>
+ <header class="resource-play__heading"><p class="resource-play__eyebrow">Play &amp; practise</p><h2 id="resource-play-title">A little te reo. A new challenge.</h2><p>Explore familiar words and discover new ones, one guess at a time.</p></header>
  <div class="resource-play__screen">
   <img class="resource-play__art" src="../assets/resource-game-art.svg" alt="" width="1200" height="580" loading="lazy" aria-hidden="true">
-  <div class="resource-play__content"><span class="resource-play__badge">A new space for play</span><h3>Make room<br>for play.</h3><p>Small discoveries start here.</p>
+  <div class="resource-play__content" data-wordle-intro><span class="resource-play__badge">100 words · A shuffled journey</span><h3>Māori<br>Wordle.</h3><p>Five tiles. Six guesses. Your own word order.</p>
    <button class="resource-play__start" type="button" data-game-start><svg aria-hidden="true" viewBox="0 0 20 20" width="18" height="18"><path d="M6 3L16 10L6 17Z" fill="currentColor"/></svg><span>Start game</span></button>
-   <p class="resource-play__status" role="status" aria-live="polite" data-game-status>In development</p>
+   <p class="resource-play__status">Take your time. There’s no timer.</p>
+  </div>
+  <div class="mw-game" data-wordle-game hidden>
+   <div class="mw-top"><h3>Māori Wordle</h3><button type="button" class="mw-text-button" data-wordle-close>Close game</button></div>
+   <p class="mw-progress" data-wordle-progress></p>
+   <div class="mw-legend" aria-label="Tile meanings"><span><i data-state="correct" aria-hidden="true">✓</i> Right place</span><span><i data-state="present" aria-hidden="true">↔</i> Elsewhere</span><span><i data-state="absent" aria-hidden="true">–</i> Not in word</span></div>
+   <div class="mw-board" role="group" aria-label="Your six guesses" data-wordle-board></div>
+   <form class="mw-entry" data-wordle-form><label for="mw-guess">Your guess</label><div><input id="mw-guess" name="guess" type="text" inputmode="text" autocomplete="off" autocapitalize="characters" spellcheck="false" aria-describedby="mw-entry-help" maxlength="10"><button type="submit">Guess</button></div><p id="mw-entry-help">Five written letters. Use the keys below for ā, ē, ī, ō, ū.</p></form>
+   <p class="mw-message" data-wordle-message role="status" aria-live="polite" aria-atomic="true"></p>
+   <div class="mw-keyboard" role="group" aria-label="Māori letter keyboard" data-wordle-keyboard></div>
+   <div class="mw-result" data-wordle-result hidden><p data-wordle-result-text></p><a data-wordle-dictionary target="_blank" rel="noopener noreferrer">Explore this word in the dictionary ↗</a><button type="button" class="resource-play__start" data-wordle-next>Next word</button></div>
+   <details class="mw-help"><summary>How to play</summary><p>Guess the five-letter word in six tries. Each written letter gets a tile: <strong>ng</strong> and <strong>wh</strong> each use two tiles. A vowel with a macron uses one tile and differs from its short vowel: <strong>a ≠ ā</strong>.</p><p>Repeated letters are marked only as many times as they occur in the answer. Guesses must be in this game’s word list; it does not include every Māori word.</p><p>Your progress stays in this browser when storage is available. The 100-word order is shuffled, and a word won’t repeat until you finish the set.</p><a href="https://word-lists.learn.maori.nz/all.php" target="_blank" rel="noopener noreferrer">Vocabulary source: Māori Word Lists ↗</a></details>
   </div>
  </div>
- <noscript><p class="resource-play__fallback">Coming soon — a new interactive resource is on its way.</p></noscript>
+ <noscript><p class="resource-play__fallback">Enable JavaScript to play Māori Wordle.</p></noscript>
 </section>
