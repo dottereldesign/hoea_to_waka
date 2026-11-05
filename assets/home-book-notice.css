@@ -1,6 +1,5 @@
 .home-book-notice{position:relative;display:flex;align-items:center;justify-content:center;gap:10px 18px;padding:10px 64px;background:#f1eafa;color:#281a2c;font:500 14px/1.5 var(--font-body,Arial,sans-serif);}
 .home-book-notice[hidden]{display:none!important;}
-.home-book-notice__label{border:1px solid #9c8da9;border-radius:999px;padding:2px 8px;font-size:11px;letter-spacing:.04em;}
 .home-book-notice a{color:#281a2c;text-decoration:underline;text-underline-offset:3px;font-weight:600;}
 .home-book-notice a:hover{color:#65427b;}
 .home-book-notice button{position:absolute;right:14px;top:50%;transform:translateY(-50%);width:40px;height:40px;display:grid;place-items:center;border:0;border-radius:50%;background:transparent;color:#281a2c;cursor:pointer;}
@@ -8,3 +7,5 @@
 .home-book-notice :is(a,button):focus-visible{outline:2px solid #65427b;outline-offset:3px;}
 @media(max-width:760px){.home-book-notice{justify-content:flex-start;flex-wrap:wrap;gap:5px 10px;padding:12px 58px 12px 20px;font-size:13px;}.home-book-notice__copy{flex-basis:100%;}.home-book-notice button{right:10px;}}
 @media(max-width:760px){body.page-home:has(.home-book-notice:not([hidden])) .site-header-shell{top:var(--book-notice-offset,96px)!important;}}
+
+@media(min-width:761px){body.page-home:has(.home-book-notice:not([hidden])) [data-morph-header]:not(.is-scrolled) .site-header-shell{top:var(--book-notice-offset,41px)!important;}}
