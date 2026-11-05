@@ -1,0 +1,5 @@
+Illustration palette update — 6 November 2026
+
+Use #281A2C for dark purple in all future illustrations and prompts. This overrides dark purple shades in the original reference artwork. Keep the other reference colours unchanged.
+
+Applied to the homepage hero and resources SVG illustrations, and all 40 prompts in the desktop Illustration Studio Word document and JSON library.
