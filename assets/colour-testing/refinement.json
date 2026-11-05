@@ -1,0 +1,95 @@
+{
+  "method": "Smoothed reference frequency power, new random phases, gently varying pigment density. Full-size surfaces; no repeated tiles.",
+  "comparisons": [
+    {
+      "name": "Evergreen",
+      "slug": "evergreen",
+      "centre": [
+        72,
+        72
+      ],
+      "mean": [
+        1.125,
+        107.589,
+        82.713
+      ],
+      "referenceCorrelation": 0.516,
+      "generatedCorrelation": 0.558
+    },
+    {
+      "name": "Ocean teal",
+      "slug": "ocean-teal",
+      "centre": [
+        187,
+        867
+      ],
+      "mean": [
+        37.229,
+        123.84,
+        133.733
+      ],
+      "referenceCorrelation": 0.466,
+      "generatedCorrelation": 0.463
+    },
+    {
+      "name": "Plum",
+      "slug": "plum",
+      "centre": [
+        212,
+        582
+      ],
+      "mean": [
+        83.527,
+        38.787,
+        63.094
+      ],
+      "referenceCorrelation": 0.557,
+      "generatedCorrelation": 0.573
+    },
+    {
+      "name": "Sage",
+      "slug": "sage",
+      "centre": [
+        847,
+        557
+      ],
+      "mean": [
+        156.583,
+        175.649,
+        115.238
+      ],
+      "referenceCorrelation": 0.541,
+      "generatedCorrelation": 0.506
+    },
+    {
+      "name": "Coral",
+      "slug": "coral",
+      "centre": [
+        432,
+        812
+      ],
+      "mean": [
+        231.71,
+        133.395,
+        135.432
+      ],
+      "referenceCorrelation": 0.524,
+      "generatedCorrelation": 0.531
+    },
+    {
+      "name": "Apricot",
+      "slug": "apricot",
+      "centre": [
+        542,
+        256
+      ],
+      "mean": [
+        247.682,
+        140.653,
+        89.787
+      ],
+      "referenceCorrelation": 0.523,
+      "generatedCorrelation": 0.434
+    }
+  ]
+}

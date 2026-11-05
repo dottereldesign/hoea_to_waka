@@ -56,4 +56,30 @@
   });
   lab.querySelector('#close-preview').addEventListener('click', () => dialog.close());
   lab.querySelector('.lab-controls').hidden = false;
+
+  const refinement = lab.querySelector('#experiment-01-refined');
+  if (refinement) {
+    const sampleChoice = refinement.querySelector('#comparison-colour');
+    const zoomChoice = refinement.querySelector('#comparison-zoom');
+    const reference = refinement.querySelector('[data-compare-reference]');
+    const original = refinement.querySelector('[data-compare-original]');
+    const refined = refinement.querySelector('[data-compare-refined]');
+    const setView = (svg, x, y, side) => svg.setAttribute('viewBox', `${x - side / 2} ${y - side / 2} ${side} ${side}`);
+    function updateComparison() {
+      const choice = sampleChoice.selectedOptions[0];
+      const side = 256 / Number(zoomChoice.value);
+      setView(reference, Number(choice.dataset.x), Number(choice.dataset.y), side);
+      setView(original, 160, 160, side);
+      setView(refined, 256, 256, side);
+      original.querySelector('rect').setAttribute('fill', choice.dataset.mean);
+      refined.querySelector('image').setAttribute('href', `../assets/colour-testing/comparison-${choice.value}.webp`);
+      for (const [svg, label] of [[reference, 'Reference'], [original, 'Original experiment 01'], [refined, 'New experiment']]) {
+        svg.setAttribute('aria-label', `${label}: ${choice.textContent} texture at ${zoomChoice.value} times magnification`);
+      }
+    }
+    sampleChoice.addEventListener('change', updateComparison);
+    zoomChoice.addEventListener('change', updateComparison);
+    refinement.querySelector('.lab-refinement-controls').hidden = false;
+    updateComparison();
+  }
 })();
