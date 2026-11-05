@@ -26,7 +26,7 @@
    }board.append(row);
   }
   keyboard.querySelectorAll('[data-letter]').forEach(b=>{const s=keys[b.dataset.letter];if(s)b.dataset.state=s;else delete b.dataset.state;b.setAttribute('aria-label',b.textContent+(s?`, ${names[s]}`:''));b.disabled=finished();});
-  $('[data-wordle-progress]').textContent=`Word ${state.index} of 100 · ${state.guesses.length} of 6 guesses`;
+  $('[data-wordle-progress]').textContent=`${state.guesses.length} of 6 guesses`;
   form.hidden=finished();keyboard.hidden=finished();result.hidden=!finished();
   if(finished()){
    const won=state.guesses.includes(state.answer);$('[data-wordle-result-text]').textContent=(won?'You found it: ':'The word was ')+state.answer.toUpperCase()+'.';const a=$('[data-wordle-dictionary]');a.href='https://www.dictionary.maori.nz/'+encodeURIComponent(state.answer);a.setAttribute('aria-label',`Explore ${state.answer} in the dictionary (opens in a new tab)`);
