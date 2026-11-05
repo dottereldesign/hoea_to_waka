@@ -69,3 +69,7 @@ html[data-palette] #resource-play .mw-help p{font-size:14px!important;line-heigh
 /* Both views share a grid cell: the concealed board reserves its responsive height. */
 .resource-play__screen>.resource-play__content,.resource-play__screen>.mw-game{grid-area:1 / 1;}
 .resource-play .mw-game[hidden]{display:block!important;visibility:hidden;pointer-events:none;}
+/* Avoid stacking two large section gaps between the game and contact panel. */
+#resource-play{margin-bottom:32px;}
+html[data-palette] #resource-play + .home-cta-door{padding-top:24px;}
+@media(max-width:760px){#resource-play{margin-bottom:20px;}html[data-palette] #resource-play + .home-cta-door{padding-top:16px;}}
