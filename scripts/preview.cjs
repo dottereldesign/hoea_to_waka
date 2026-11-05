@@ -4,7 +4,7 @@ const path=require('path');
 const defaultRoot=path.resolve(__dirname,'..');
 const zlib=require('zlib');
 const types={'.html':'text/html; charset=utf-8','.css':'text/css','.js':'text/javascript','.webp':'image/webp','.png':'image/png','.svg':'image/svg+xml','.woff2':'font/woff2','.jpg':'image/jpeg','.mp4':'video/mp4','.webm':'video/webm','.md':'text/plain; charset=utf-8'};
-function serve(port=8766,options={}){const root=options.root?path.resolve(options.root):defaultRoot;return http.createServer((req,res)=>{let name;try{name=decodeURIComponent(new URL(req.url,'http://localhost').pathname).replace(/^\/hoea_to_waka\//,'/');}catch{res.writeHead(400).end();return;}let file=path.resolve(root,'.'+name);if(!file.startsWith(root+path.sep)&&file!==root){res.writeHead(403).end();return;}try{if(fs.statSync(file).isDirectory())file=path.join(file,'index.html');}catch{}fs.readFile(file,(err,data)=>{if(err){
+function serve(port=8766,options={}){const root=options.root?path.resolve(options.root):defaultRoot;return http.createServer((req,res)=>{if(req.url==='/hoea_to_waka'){res.writeHead(302,{Location:'/hoea_to_waka/'}).end();return;}let name;try{name=decodeURIComponent(new URL(req.url,'http://localhost').pathname).replace(/^\/hoea_to_waka\//,'/');}catch{res.writeHead(400).end();return;}let file=path.resolve(root,'.'+name);if(!file.startsWith(root+path.sep)&&file!==root){res.writeHead(403).end();return;}try{if(fs.statSync(file).isDirectory())file=path.join(file,'index.html');}catch{}fs.readFile(file,(err,data)=>{if(err){
   if(path.extname(name) && path.extname(name)!=='.html'){
     res.writeHead(404,{'Content-Type':'text/plain; charset=utf-8'}).end('Not found');
     return;
