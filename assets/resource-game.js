@@ -9,7 +9,7 @@
  help.addEventListener('click',e=>{if(e.target===help){const r=help.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)help.close();}});
  const symbols={correct:'✓',present:'↔',absent:'–'},names={correct:'right place',present:'elsewhere in word',absent:'not in word'},priority={absent:1,present:2,correct:3};
  let state=null;try{const saved=JSON.parse(localStorage.getItem(storageKey));if(C.valid(saved,W.answers,W.allowed))state=saved;}catch{}
- if(state)start.querySelector('span').textContent='Continue game';
+ state=state||C.next(null,W.answers);
  const save=()=>{try{localStorage.setItem(storageKey,JSON.stringify(state));}catch{}};
  const finished=()=>state&&(state.guesses.includes(state.answer)||state.guesses.length===6);
  const say=text=>{message.textContent=text;};
@@ -46,7 +46,8 @@
   if(finished()){say((guess===state.answer?`You found ${state.answer.toUpperCase()} in ${state.guesses.length} guesses!`:`The word was ${state.answer.toUpperCase()}.`));$('[data-wordle-next]').focus({preventScroll:true});}
   else say(`Guess ${state.guesses.length}: ${feedback}.`);
  });
- start.addEventListener('click',()=>{if(!state){state=C.next(null,W.answers);save();}intro.hidden=true;game.hidden=false;root.classList.add('is-playing');render();say('');if(finished())$('[data-wordle-next]').focus({preventScroll:true});else input.focus({preventScroll:true});});
+ render();
+ start.addEventListener('click',()=>{save();intro.hidden=true;game.hidden=false;root.classList.add('is-playing');render();say('');if(finished())$('[data-wordle-next]').focus({preventScroll:true});else input.focus({preventScroll:true});});
  $('[data-wordle-next]').addEventListener('click',()=>{state=C.next(state,W.answers);input.value='';save();render();say('A new word is ready.');input.focus({preventScroll:true});});
- $('[data-wordle-close]').addEventListener('click',()=>{game.hidden=true;intro.hidden=false;root.classList.remove('is-playing');start.querySelector('span').textContent='Continue game';start.focus({preventScroll:true});});
+ $('[data-wordle-close]').addEventListener('click',()=>{game.hidden=true;intro.hidden=false;root.classList.remove('is-playing');start.querySelector('span').textContent='Start Game';start.focus({preventScroll:true});});
 })();
