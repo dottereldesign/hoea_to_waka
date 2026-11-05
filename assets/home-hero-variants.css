@@ -168,3 +168,9 @@ html[data-home-hero="03"] .home-hero-illustration .home-hero-illustration__cutou
   html[data-home-hero="03"] .page-home .home-hero .home-hero-inner-photo .home-hero-copy { background: transparent !important; }
   html[data-home-hero="03"] .home-hero-copy::before { background: transparent !important; }
 }
+@media (max-width: 760px) {
+  html[data-home-hero="03"] .page-home .home-hero .home-hero-inner-photo .button-row {
+    display: flex; flex-direction: row; flex-wrap: wrap; justify-content: flex-start !important; align-items: center; width: 100%;
+  }
+  html[data-home-hero="03"][data-palette] .page-home .home-hero .button-row .model-button { width: fit-content; }
+}
