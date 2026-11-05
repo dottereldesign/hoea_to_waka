@@ -2,7 +2,7 @@
 .resource-art-options {display:none;}
 @media(min-width:1000px){
  .home-resources {padding-left:46%;grid-template-columns:1fr;gap:24px;min-height:650px;}
- .home-resources::before {content:"";position:absolute;z-index:-1;pointer-events:none;left:1%;top:40px;width:43%;height:440px;background:url("resources-pencil-clean.svg") left top/contain no-repeat;transform-origin:35% 45%;}
+ .home-resources::before {content:"";position:absolute;z-index:-1;pointer-events:none;left:1%;top:40px;width:43%;height:440px;background:var(--resource-art-url,url("resources-pencil-clean.svg")) left top/contain no-repeat;transform-origin:35% 45%;}
  .home-resources[data-resource-art="2"]::before {left:-7%;top:0;width:54%;height:550px;}
  .home-resources[data-resource-art="3"]::before {left:0;top:75px;width:43%;height:440px;transform:rotate(-12deg);}
  .home-resources[data-resource-art="4"]::before {left:-4%;top:20px;width:52%;height:520px;opacity:.3;}
