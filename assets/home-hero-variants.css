@@ -153,3 +153,18 @@ html[data-home-hero="03"] .home-hero-illustration { border-radius: 0; background
 html[data-home-hero="03"] .home-hero-illustration .home-hero-illustration__cutout {
   inset: 10%; width: 80%; height: 80%; object-fit: contain;
 }
+@media (max-width: 760px) {
+  html[data-home-hero="03"] .page-home .home-hero .home-hero-inner-photo { position: relative; display: block; background: #281a2c; overflow: hidden; }
+  html[data-home-hero="03"] .page-home .home-hero .home-hero-copy { position: relative; z-index: 1; padding-top: 245px; background: transparent; }
+  html[data-home-hero="03"] .home-hero-illustration { position: absolute; z-index: 0; top: -75px; left: 0; width: 100%; height: 460px; aspect-ratio: auto; background: transparent; pointer-events: none; overflow: visible; }
+  html[data-home-hero="03"] .home-hero-illustration .home-hero-illustration__cutout { inset: 0; width: 130%; height: 100%; max-width: none; object-fit: contain; object-position: center; transform: translateX(15%); }
+  html[data-home-hero="03"] .home-hero-copy::before { background: transparent; }
+}
+@media (max-width: 760px) {
+  html[data-home-hero="03"] .page-home .home-hero .home-hero-inner-photo .home-hero-copy { padding-top: 235px !important; border-radius: 0 26px 26px 0; }
+  html[data-home-hero="03"] .page-home .home-hero .home-hero-inner-photo { border-radius: 0 26px 26px 0; }
+}
+@media (max-width: 760px) {
+  html[data-home-hero="03"] .page-home .home-hero .home-hero-inner-photo .home-hero-copy { background: transparent !important; }
+  html[data-home-hero="03"] .home-hero-copy::before { background: transparent !important; }
+}
