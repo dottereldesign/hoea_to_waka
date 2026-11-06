@@ -275,9 +275,9 @@ html[data-home-hero="03"] .home-hero-illustration {
   background: #fff;
 }
 html[data-home-hero="03"] .home-hero-illustration .home-hero-illustration__cutout {
-  inset: 16% 4% 16% 28%;
-  width: 68%;
-  height: 68%;
+  inset: 19.4% 4% 19.4% 34.8%;
+  width: 61.2%;
+  height: 61.2%;
   object-fit: contain;
 }
 @media (max-width: 760px) {
@@ -307,8 +307,8 @@ html[data-home-hero="03"] .home-hero-illustration .home-hero-illustration__cutou
   }
   html[data-home-hero="03"] .home-hero-illustration .home-hero-illustration__cutout {
     inset: 0;
-    width: 132%;
-    height: 98%;
+    width: 118.8%;
+    height: 88.2%;
     max-width: none;
     object-fit: contain;
     object-position: center;
