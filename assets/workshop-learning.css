@@ -1,21 +1,21 @@
-.workshop-learning{margin:24px 8px 0;border-radius:32px;background:#191919;color:#FFFFFF;padding:clamp(40px,6vw,88px) clamp(24px,5vw,76px);}
+.workshop-learning{margin:clamp(1.125rem, 0.98571rem + 0.57143vw, 1.5rem) 8px 0;border-radius:32px;background:#191919;color:#FFFFFF;padding:clamp(40px,6vw,88px) clamp(24px,5vw,76px);}
 .workshop-learning__inner{max-width:1280px;margin:auto;}
-.workshop-learning__eyebrow{font:500 13px/1.4 var(--font-body,Arial);letter-spacing:.06em;color:#FFFFFF;margin-bottom:36px;}
+.workshop-learning__eyebrow{font:500 13px/1.4 var(--font-body,Arial);letter-spacing:.06em;color:#FFFFFF;margin-bottom:clamp(1.6875rem, 1.47857rem + 0.85714vw, 2.25rem);}
 .workshop-learning__grid{display:grid;grid-template-columns:1fr;gap:0;}
-.workshop-learning article{min-width:0;display:grid;grid-template-columns:1fr 1.4fr;gap:56px;padding:32px 0;border-top:1px solid #E3E1DD;}
-html[data-palette] #workshop-learning h2{font:600 clamp(28px,3.2vw,46px)/1.08 var(--font-heading,Arial)!important;letter-spacing:-.045em;color:#FFFFFF;margin:0 0 24px;max-width:17ch;}
-html[data-palette] #workshop-learning p{font:400 17px/1.65 var(--font-body,Arial)!important;color:#FFFFFF;margin:0 0 16px;max-width:60ch;}
+.workshop-learning article{min-width:0;display:grid;grid-template-columns:1fr 1.4fr;gap:clamp(2.625rem, 2.3rem + 1.33333vw, 3.5rem);padding:clamp(1.5rem, 1.31429rem + 0.7619vw, 2rem) 0;border-top:1px solid #E3E1DD;}
+html[data-palette] #workshop-learning h2{font:600 clamp(28px,3.2vw,46px)/1.08 var(--font-heading,Arial)!important;letter-spacing:-.045em;color:#FFFFFF;margin:0 0 clamp(1.125rem, 0.98571rem + 0.57143vw, 1.5rem);max-width:17ch;}
+html[data-palette] #workshop-learning p{font:400 17px/1.65 var(--font-body,Arial)!important;color:#FFFFFF;margin:0 0 clamp(0.75rem, 0.65714rem + 0.38095vw, 1rem);max-width:60ch;}
 html[data-palette] #workshop-learning p:last-child{margin-bottom:0;}
-.workshop-learning__contact{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:28px;border-top:1px solid #E3E1DD;padding-top:32px;}
-.workshop-learning__contact>a{display:inline-flex;align-items:center;justify-content:space-between;gap:28px;flex-shrink:0;background:transparent;color:#FFFFFF;border:1px solid #E3E1DD;border-radius:999px;padding:14px 22px;font:600 15px/1.4 var(--font-body,Arial);text-decoration:none;transition:background-color .2s ease;}
+.workshop-learning__contact{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:clamp(1.3125rem, 1.15rem + 0.66667vw, 1.75rem);border-top:1px solid #E3E1DD;padding-top:clamp(1.5rem, 1.31429rem + 0.7619vw, 2rem);}
+.workshop-learning__contact>a{display:inline-flex;align-items:center;justify-content:space-between;gap:clamp(1.3125rem, 1.15rem + 0.66667vw, 1.75rem);flex-shrink:0;background:transparent;color:#FFFFFF;border:1px solid #E3E1DD;border-radius:999px;padding:clamp(0.65625rem, 0.575rem + 0.33333vw, 0.875rem) clamp(1.03125rem, 0.90357rem + 0.52381vw, 1.375rem);font:600 15px/1.4 var(--font-body,Arial);text-decoration:none;transition:background-color .2s ease;}
 .workshop-learning__contact>a:hover{background:#6B7178;color:#FFFFFF;}
 html[data-palette] #workshop-learning .workshop-learning__contact p{font-size:14px!important;max-width:53ch;}
 html[data-palette] #workshop-learning a:focus-visible{outline:3px solid #FFFFFF!important;outline-offset:4px!important;}
 @media(max-width:760px){
-.workshop-learning{border-radius:24px;padding:36px 24px;}
-.workshop-learning__eyebrow{margin-bottom:26px;}
-.workshop-learning article{grid-template-columns:1fr;gap:0;padding:24px 0;}
-.workshop-learning__contact{flex-direction:column;align-items:flex-start;gap:16px;}
+.workshop-learning{border-radius:24px;padding:clamp(1.6875rem, 1.47857rem + 0.85714vw, 2.25rem) clamp(1.125rem, 0.98571rem + 0.57143vw, 1.5rem);}
+.workshop-learning__eyebrow{margin-bottom:clamp(1.21875rem, 1.06786rem + 0.61905vw, 1.625rem);}
+.workshop-learning article{grid-template-columns:1fr;gap:0;padding:clamp(1.125rem, 0.98571rem + 0.57143vw, 1.5rem) 0;}
+.workshop-learning__contact{flex-direction:column;align-items:flex-start;gap:clamp(0.75rem, 0.65714rem + 0.38095vw, 1rem);}
 html[data-palette] #workshop-learning p{font-size:16px!important;}
 }
 @media(prefers-reduced-motion:reduce){.workshop-learning__contact>a{transition:none;}}

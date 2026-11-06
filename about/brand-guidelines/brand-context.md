@@ -343,11 +343,45 @@ Training for people who support clients, whānau and communities, with ways to a
 
 Layout rhythm
 
-Section spacing is the empty space above and below a block of content. It separates one topic from the next and stops the page feeling crowded. The current website uses the values below for standard sections; smaller screens use less space.
+Space gives each topic room to breathe. Layout padding, margins and gaps use bounded fluid values, growing with the viewport instead of relying only on desktop, tablet and mobile jumps.
+
+### Inset
+
+Rounded sections keep an 8px page edge.
+
+### Compact
+
+Small groups, labels and controls.
+
+### Group
+
+Related content and small card gaps.
+
+### Card
+
+Comfortable card padding and grid gaps.
+
+### Block
+
+Space between larger content groups.
+
+### Section
+
+Above and below standard page sections.
+
+### Standard section spacing
+
+Use var(--section-space) above and below standard sections. It grows smoothly from 60px at a 390px viewport to 92px at 1440px, and stays within those limits. At 768px it is about 72px; at 1100px it is about 82px.
+
+The rem limits respect the reader’s font settings. Pixel examples assume the default 16px root size.
 
 ### How to apply it
 
-For a standard website section, use 92px above and below on screens wider than 1100px, 65px from 761px to 1100px, and 60px at 760px or below. If two connected blocks need to sit together, remove the spacing on the joining edge instead of adding a smaller, unrelated value. Page headers and the inset chapter banners keep their own layout spacing.
+Use the smaller gaps for related elements and larger gaps between topics. Existing fixed layout gaps above 8px now scale from 75% to 100% of their original size between 390px and 1440px. Existing clamp values keep their own carefully chosen ranges. Responsive column changes still apply where the content needs them.
+
+If two connected blocks sit together, remove the spacing on the joining edge. Keep 8px page insets, tiny precision gaps, zero and automatic margins, and negative alignment offsets fixed. Heroes retain their navigation clearance; control sizes and artwork coordinates are not spacing tokens.
+
+Includes component-specific ranges, fixed alignment values and inherited spacing. Usage examples identify the stylesheet and selector. Generated page bundles are excluded to avoid counting the same rules twice.
 
 ## Social Media
 
@@ -1548,29 +1582,24 @@ DTCG 2025.10 JSON follows. Colour components use sRGB values from 0 to 1. Alias 
     }
   },
   "sectionSpacing": {
-    "desktop": {
-      "$type": "dimension",
-      "$value": {
-        "value": 92,
-        "unit": "px"
-      },
-      "$description": "Above 1100px"
+    "fluid": {
+      "$type": "string",
+      "$value": "clamp(3.75rem,3.00714rem + 3.04762vw,5.75rem)",
+      "$description": "Standard section padding grows continuously from 60px at 390px to 92px at 1440px, using rem bounds."
     },
-    "tablet": {
+    "minimum": {
       "$type": "dimension",
       "$value": {
-        "value": 65,
-        "unit": "px"
-      },
-      "$description": "761–1100px"
+        "value": 3.75,
+        "unit": "rem"
+      }
     },
-    "mobile": {
+    "maximum": {
       "$type": "dimension",
       "$value": {
-        "value": 60,
-        "unit": "px"
-      },
-      "$description": "760px and below"
+        "value": 5.75,
+        "unit": "rem"
+      }
     }
   }
 }
@@ -1591,6 +1620,7 @@ DTCG 2025.10 JSON follows. Colour components use sRGB values from 0 to 1. Alias 
 - [Download Favicon pack](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-favicon-pack.zip)
 - [Download SVG](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-favicon.svg)
 - [180px Apple touch icon](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-apple-touch-icon.png)
+- [Download the spacing inventory](https://dottereldesign.github.io/hoea_to_waka/assets/spacing-inventory.json)
 - [PNG ↓](https://dottereldesign.github.io/hoea_to_waka/assets/social-downloads/linkedin-profile-400x400.png)
 - [PNG ↓](https://dottereldesign.github.io/hoea_to_waka/assets/social-downloads/linkedin-banner-1512x256.png)
 - [SVG ↓](https://dottereldesign.github.io/hoea_to_waka/assets/social-downloads/linkedin-banner-1512x256.svg)

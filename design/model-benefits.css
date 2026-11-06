@@ -1,24 +1,24 @@
 /* Static editorial rows with permanently visible illustrations. */
 html[data-palette] .ds-component.model-benefits{background:var(--brand-paper);color:var(--brand-logo-black);--ds-ink:var(--brand-logo-black)!important;--ds-muted:var(--brand-logo-black)!important}
-.model-benefits .model-benefits-heading{max-width:960px;margin:0 auto 64px;text-align:center}
+.model-benefits .model-benefits-heading{max-width:960px;margin:0 auto clamp(3rem, 2.62857rem + 1.52381vw, 4rem);text-align:center}
 .model-benefits-heading .ds-kicker{margin-inline:auto}
 .model-benefits .model-benefits-heading h2{line-height:1.08;text-wrap:balance}
 .model-benefit-list{max-width:1360px;margin-inline:auto}
-.model-benefit-row{display:grid;grid-template-columns:40px minmax(0,1.5fr) minmax(180px,.65fr);gap:28px;align-items:start;padding:36px clamp(20px,3vw,44px);border-top:1px solid var(--brand-stone);color:var(--brand-logo-black);border-radius:0}
+.model-benefit-row{display:grid;grid-template-columns:40px minmax(0,1.5fr) minmax(180px,.65fr);gap:clamp(1.3125rem, 1.15rem + 0.66667vw, 1.75rem);align-items:start;padding:clamp(1.6875rem, 1.47857rem + 0.85714vw, 2.25rem) clamp(20px,3vw,44px);border-top:1px solid var(--brand-stone);color:var(--brand-logo-black);border-radius:0}
 .model-benefit-row:first-child{border-top:0}
 .model-benefit-number{padding-top:5px;font:400 20px/1.4 Inter,Arial,sans-serif;letter-spacing:-.04em;color:var(--brand-slate)}
 .model-benefit-copy{min-width:0}
 .model-benefits .model-benefit-copy h3{margin:0;font-size:clamp(25px,2.2vw,34px);font-weight:500!important;line-height:1.2;letter-spacing:-.035em;color:inherit}
-.model-benefits .model-benefit-copy p{margin:16px 0 0;line-height:1.75;color:inherit;font-weight:400}
+.model-benefits .model-benefit-copy p{margin:clamp(0.75rem, 0.65714rem + 0.38095vw, 1rem) 0 0;line-height:1.75;color:inherit;font-weight:400}
 .model-benefits .model-benefit-art{position:relative;align-self:stretch;margin:0;width:100%;min-height:0;pointer-events:none}
 .model-benefits .model-benefit-art img{position:absolute;inset:auto;top:50%;left:50%;width:min(100%,180px);height:min(180px,calc(100% + 64px));aspect-ratio:1;object-fit:contain;opacity:1;transform:translate(-50%,-50%)}
 @media(max-width:1100px){
  .model-benefits .model-benefit-art img{height:min(180px,calc(100% + 48px))}
- .model-benefit-row{grid-template-columns:30px minmax(0,1fr) 180px;gap:20px;padding:30px 24px}
+ .model-benefit-row{grid-template-columns:30px minmax(0,1fr) 180px;gap:clamp(0.9375rem, 0.82143rem + 0.47619vw, 1.25rem);padding:clamp(1.40625rem, 1.23214rem + 0.71429vw, 1.875rem) clamp(1.125rem, 0.98571rem + 0.57143vw, 1.5rem)}
 }
 @media(max-width:760px){
- .model-benefits .model-benefits-heading{margin-bottom:40px}
- .model-benefit-row{grid-template-columns:minmax(0,1fr);gap:18px;padding:26px 20px}
+ .model-benefits .model-benefits-heading{margin-bottom:clamp(1.875rem, 1.64286rem + 0.95238vw, 2.5rem)}
+ .model-benefit-row{grid-template-columns:minmax(0,1fr);gap:clamp(0.84375rem, 0.73929rem + 0.42857vw, 1.125rem);padding:clamp(1.21875rem, 1.06786rem + 0.61905vw, 1.625rem) clamp(0.9375rem, 0.82143rem + 0.47619vw, 1.25rem)}
  .model-benefit-number{grid-column:1;grid-row:1;padding-top:3px}
  .model-benefit-copy{grid-column:1/-1;grid-row:2}
  .model-benefits .model-benefit-copy h3{font-size:26px}

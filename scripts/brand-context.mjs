@@ -21,7 +21,7 @@ const typeWeights=Object.fromEntries([...typeCSS.matchAll(/--font-weight-(displa
 const siteCSS=await readFile('site.css','utf8');
 const radii=Object.fromEntries([...siteCSS.matchAll(/--radius-(sm|md|lg):\s*(\d+)px/g)].map(m=>[m[1],{$type:'dimension',$value:{value:Number(m[2]),unit:'px'}}]));
 const spacingCSS=await readFile('design/section-spacing.css','utf8');
-const spaces=[...spacingCSS.matchAll(/--section-space:(\d+)px/g)].map(m=>Number(m[1]));
+const sectionSpace=spacingCSS.match(/--section-space:([^;}]+)/)[1];
 const theme=dark=>Object.fromEntries([...semanticRoles(dark).matchAll(/--t-([\w-]+):var\(--brand-([\w-]+)\)/g)].map(m=>[m[1],{$type:'color',$value:`{brand.${m[2]}}`}]));
 const tokens={
  $description:'Hoea tō Waka published design tokens. DTCG 2025.10 values; browser-only colour previews are excluded. Importer support varies.',
@@ -29,7 +29,7 @@ const tokens={
  semantic:Object.fromEntries(Object.entries(roleAliases).map(([key,id])=>[key,{$type:'color',$value:`{brand.${id}}`} ])),
  theme:{light:theme(false),dark:theme(true)},
  font:{primary:{$type:'fontFamily',$value:['Inter','Arial','sans-serif']},testimonial:{$type:'fontFamily',$value:['Inter','Arial','sans-serif'],$description:'Inter Regular 400 for testimonial quotes. All typography uses Inter.'},weight:Object.fromEntries(Object.entries(typeWeights).map(([key,value])=>[key,{$type:'fontWeight',$value:value}]))},
- radius:radii,sectionSpacing:Object.fromEntries(['desktop','tablet','mobile'].map((id,i)=>[id,{$type:'dimension',$value:{value:spaces[i],unit:'px'},$description:['Above 1100px','761–1100px','760px and below'][i]}]))
+ radius:radii,sectionSpacing:{fluid:{$type:'string',$value:sectionSpace,$description:'Standard section padding grows continuously from 60px at 390px to 92px at 1440px, using rem bounds.'},minimum:{$type:'dimension',$value:{value:3.75,unit:'rem'}},maximum:{$type:'dimension',$value:{value:5.75,unit:'rem'}}}
 };
 const css=':root {\n'+colours.map(c=>`  --brand-${c.id}: ${c.hex};`).join('\n')+'\n'+Object.entries(roleAliases).map(([key,id])=>`  --${key}: var(--brand-${id});`).join('\n')+'\n}\n';
 const palette=colours.map(c=>`| ${c.id} | ${c.hex} | ${c.role} |`).join('\n');

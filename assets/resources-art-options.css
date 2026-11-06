@@ -2,11 +2,11 @@
 html.js .home-resources .resource-artwork #resource-trail path {animation-play-state:paused;}
 .home-resources {position:relative;isolation:isolate;overflow:hidden;}
 @media(min-width:1000px){
- .home-resources {padding-left:46%;grid-template-columns:1fr;gap:24px;min-height:650px;}
+ .home-resources {padding-left:46%;grid-template-columns:1fr;gap:clamp(1.125rem, 0.98571rem + 0.57143vw, 1.5rem);min-height:650px;}
  .home-resources .resource-artwork {display:block;position:absolute;z-index:-1;pointer-events:none;left:0;top:165px;width:43%;height:440px;overflow:visible;}
  .home-resources .home-resources__copy {position:relative;}
- .home-resources .home-resources__aside {display:flex;gap:20px;padding:0;border-left:0;align-content:initial;}
- .home-resources .home-resources__aside span {flex:1;font-size:18px;padding:18px 0;border-top:1px solid #9e91a48c;border-bottom:0;}
+ .home-resources .home-resources__aside {display:flex;gap:clamp(0.9375rem, 0.82143rem + 0.47619vw, 1.25rem);padding:0;border-left:0;align-content:initial;}
+ .home-resources .home-resources__aside span {flex:1;font-size:18px;padding:clamp(0.84375rem, 0.73929rem + 0.42857vw, 1.125rem) 0;border-top:1px solid #9e91a48c;border-bottom:0;}
 }
 /* Keep the chosen tilt within vector geometry for clean rendering. */
 .home-resources .resource-art-scene {transform-box:view-box;transform-origin:35% 45%;transform:rotate(-12deg);}

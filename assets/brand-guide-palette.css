@@ -112,6 +112,6 @@ html[data-palette] #colours{background:#fff;color:#191919}
 html[data-palette] #colours .brand-palette-group{margin:0}
 html[data-palette] #colours .palette-tone{color:var(--tone-ink)}
 .brand-guide-contents__grid{grid-auto-flow:column;grid-template-rows:repeat(5,auto)}
-#ui-icons>.brand-palette-group{margin-top:64px}
+#ui-icons>.brand-palette-group{margin-top:clamp(3rem, 2.62857rem + 1.52381vw, 4rem)}
 @media(max-width:760px){.brand-guide-contents__grid{grid-auto-flow:row;grid-template-rows:none}}
 html[data-palette] #ui-icons .brand-guide-action-dark :is(h4,p){color:#FFFFFF}

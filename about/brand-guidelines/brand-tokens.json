@@ -913,29 +913,24 @@
     }
   },
   "sectionSpacing": {
-    "desktop": {
-      "$type": "dimension",
-      "$value": {
-        "value": 92,
-        "unit": "px"
-      },
-      "$description": "Above 1100px"
+    "fluid": {
+      "$type": "string",
+      "$value": "clamp(3.75rem,3.00714rem + 3.04762vw,5.75rem)",
+      "$description": "Standard section padding grows continuously from 60px at 390px to 92px at 1440px, using rem bounds."
     },
-    "tablet": {
+    "minimum": {
       "$type": "dimension",
       "$value": {
-        "value": 65,
-        "unit": "px"
-      },
-      "$description": "761–1100px"
+        "value": 3.75,
+        "unit": "rem"
+      }
     },
-    "mobile": {
+    "maximum": {
       "$type": "dimension",
       "$value": {
-        "value": 60,
-        "unit": "px"
-      },
-      "$description": "760px and below"
+        "value": 5.75,
+        "unit": "rem"
+      }
     }
   }
 }

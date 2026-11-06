@@ -6,7 +6,7 @@
   display: grid;
   justify-items: center;
   text-align: center;
-  gap: 16px;
+  gap: clamp(0.75rem, 0.65714rem + 0.38095vw, 1rem);
   max-width: 760px;
   margin: 0 auto clamp(36px, 5vw, 72px);
 }
@@ -15,7 +15,7 @@
   align-items: center;
   gap: 8px;
   width: fit-content;
-  padding: 7px 14px;
+  padding: 7px clamp(0.65625rem, 0.575rem + 0.33333vw, 0.875rem);
   border: 1px solid currentColor;
   border-radius: 999px;
 }
@@ -28,7 +28,7 @@
   gap: clamp(12px, 2vw, 32px);
   align-items: center;
 }
-.workshop-slides { grid-column: 2; display: grid; gap: 16px; overflow: hidden; border-radius: 24px; }
+.workshop-slides { grid-column: 2; display: grid; gap: clamp(0.75rem, 0.65714rem + 0.38095vw, 1rem); overflow: hidden; border-radius: 24px; }
 .workshop-slide {
   display: grid;
   grid-template-columns: 3fr 2fr;
@@ -39,7 +39,7 @@
 }
 #workshop-support[data-ready] .workshop-slide { grid-area: 1/1; visibility: hidden; }
 #workshop-support[data-ready] .workshop-slide.is-active { visibility: visible; }
-.workshop-slide-copy { display: grid; align-content: center; justify-items: start; gap: 22px; padding: clamp(28px, 5vw, 76px); }
+.workshop-slide-copy { display: grid; align-content: center; justify-items: start; gap: clamp(1.03125rem, 0.90357rem + 0.52381vw, 1.375rem); padding: clamp(28px, 5vw, 76px); }
 .workshop-slide-copy h3 { font: inherit; font-size: clamp(30px, 3.7vw, 56px); font-weight: 550; letter-spacing: -.045em; line-height: 1.05; margin: 0; }
 .workshop-slide-copy p { margin: 0; max-width: 43ch; line-height: 1.55; }
 .workshop-label { font-size: 14px; }
@@ -48,34 +48,34 @@
 #workshop-support button { cursor: pointer; color: inherit; font-family: inherit; }
 .workshop-prev, .workshop-next, .workshop-play { border: 1px solid currentColor; border-radius: 999px; background: transparent; min-height: 44px; }
 .workshop-prev, .workshop-next { font-size: 22px; width: 44px; }
-.workshop-controls { display: flex; justify-content: center; align-items: center; margin-top: 18px; }
+.workshop-controls { display: flex; justify-content: center; align-items: center; margin-top: clamp(0.84375rem, 0.73929rem + 0.42857vw, 1.125rem); }
 .workshop-controls [data-slide] { display: grid; place-items: center; width: 36px; height: 44px; border: 0; background: transparent; }
 .workshop-controls [data-slide]::after { content: ''; width: 10px; height: 10px; border: 1px solid currentColor; border-radius: 50%; }
 .workshop-controls [aria-current="true"]::after { background: currentColor; }
-.workshop-play { font-size: 14px; padding: 0 16px; margin-left: 12px; }
+.workshop-play { font-size: 14px; padding: 0 clamp(0.75rem, 0.65714rem + 0.38095vw, 1rem); margin-left: clamp(0.5625rem, 0.49286rem + 0.28571vw, 0.75rem); }
 #workshop-support [hidden] { display: none; }
 @media (max-width: 700px) {
-  .workshop-stage { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .workshop-stage { grid-template-columns: 1fr 1fr; gap: clamp(0.5625rem, 0.49286rem + 0.28571vw, 0.75rem); }
   .workshop-slides { grid-column: 1/-1; grid-row: 1; }
   .workshop-slide { grid-template-columns: 1fr; grid-template-rows: 1fr auto; }
   .workshop-slide img { min-height: 0; height: clamp(132px, 40vw, 220px); }
   .workshop-prev { justify-self: end; }
-  .workshop-slide-copy { gap: 14px; }
+  .workshop-slide-copy { gap: clamp(0.65625rem, 0.575rem + 0.33333vw, 0.875rem); }
   .workshop-controls { margin-top: 4px; }
 }
 
 .workshop-facts {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr));
-  gap: 24px;
-  margin: 32px 0;
+  gap: clamp(1.125rem, 0.98571rem + 0.57143vw, 1.5rem);
+  margin: clamp(1.5rem, 1.31429rem + 0.7619vw, 2rem) 0;
 }
-.workshop-facts div { border-top: 1px solid currentColor; padding-top: 12px; }
+.workshop-facts div { border-top: 1px solid currentColor; padding-top: clamp(0.5625rem, 0.49286rem + 0.28571vw, 0.75rem); }
 .workshop-facts dt { font-size: .88em; }
 .workshop-facts dd { margin: 6px 0 0; font-weight: 600; }
 .workshop-details-copy { max-width: 68ch; }
-.workshop-details-copy h3 { margin: 24px 0 8px; }
-.workshop-details-copy p { margin: 0 0 12px; }
+.workshop-details-copy h3 { margin: clamp(1.125rem, 0.98571rem + 0.57143vw, 1.5rem) 0 8px; }
+.workshop-details-copy p { margin: 0 0 clamp(0.5625rem, 0.49286rem + 0.28571vw, 0.75rem); }
 .workshop-details-copy a { text-decoration: underline; }
 /* Preserve the entire vector composition in the narrower carousel image column. */
 .workshop-slide img.workshop-illustration{object-fit:contain;background:#016C53;}
