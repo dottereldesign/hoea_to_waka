@@ -1,10 +1,9 @@
 (() => {
  const section=document.querySelector('#workshop-support');if(!section)return;
  const reduced=matchMedia('(prefers-reduced-motion: reduce)');
- const names={bloom:['Unfurl','Gentle breeze','Petal dance','Bloom in waves','Room to grow'],puzzle:['Come together','Pass it on','Shared rhythm','Four perspectives','Colour conversation']};
  const scenes=[...section.querySelectorAll('[data-art]')].map(host=>{
   const svg=host.querySelector('svg'),kind=host.dataset.art,part=name=>svg.querySelector(`[data-part="${name}"]`);
-  const scene={host,svg,kind,part,visible:false,option:1,animations:[],timer:0,played:false};
+  const scene={host,svg,kind,part,visible:false,option:kind==='bloom'?5:4,animations:[],timer:0,played:false};
   if(kind==='bloom'){
    const flowers=part('cream-flowers'),centres=flowers.nextElementSibling;
    // Keep the gold centres attached while the cream petals bloom and sway.
@@ -16,15 +15,9 @@
     const g=document.createElementNS('http://www.w3.org/2000/svg','g');g.dataset.cluster=String(i);const nodes=parts.map(part);nodes[0].before(g);nodes.forEach(n=>g.append(n));return g;
    });
   }
-  try{const saved=Number(localStorage.getItem('hoea-workshop-motion-'+kind));if(saved>=1&&saved<=5)scene.option=saved;}catch{}
-  host.querySelector('.workshop-art__tools').hidden=false;
-  host.querySelectorAll('[data-art-option]').forEach(button=>{
-   const n=Number(button.dataset.artOption);button.setAttribute('aria-label',`Animation ${n}: ${names[kind][n-1]}`);
-   button.addEventListener('click',()=>{scene.option=n;try{localStorage.setItem('hoea-workshop-motion-'+kind,String(n));}catch{}label(scene);run(scene);});
-  });
-  host.querySelector('[data-art-replay]').addEventListener('click',()=>run(scene));label(scene);return scene;
+  host.dataset.animation=kind==='bloom'?'05':'04';
+  return scene;
  });
- function label(s){s.host.querySelectorAll('[data-art-option]').forEach(b=>b.setAttribute('aria-pressed',String(Number(b.dataset.artOption)===s.option)));s.host.querySelector('[data-art-caption]').textContent=names[s.kind][s.option-1]+(reduced.matches?' · reduced motion':'');}
  function stop(s){clearTimeout(s.timer);s.animations.forEach(a=>a.cancel());s.animations=[];}
  function active(s){return s.host.closest('.workshop-slide').classList.contains('is-active');}
  function animate(s,el,frames,duration=2400,delay=0,origin='724px 543px'){
@@ -83,5 +76,5 @@
  scenes.forEach(s=>observer.observe(s.host));
  section.addEventListener('workshop:slidechange',e=>scenes.forEach(s=>{if(active(s))run(s,e.detail.changed?720:0);else{stop(s);s.played=false;}}));
  document.addEventListener('visibilitychange',()=>scenes.forEach(s=>{if(document.hidden)stop(s);else run(s);}));
- reduced.addEventListener('change',()=>scenes.forEach(s=>{label(s);if(reduced.matches)stop(s);else run(s);}));
+ reduced.addEventListener('change',()=>scenes.forEach(s=>{if(reduced.matches)stop(s);else run(s);}));
 })();

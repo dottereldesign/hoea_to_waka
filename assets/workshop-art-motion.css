@@ -1,11 +1,5 @@
 .workshop-art{background:#006b55;min-width:0;border-radius:24px;overflow:hidden;display:flex;flex-direction:column;justify-content:center;}
 .workshop-art__canvas{display:grid;place-items:center;flex:1;min-height:0;overflow:hidden;}
 .workshop-art svg{display:block;width:100%;height:auto;max-height:540px;aspect-ratio:4/3;overflow:hidden;}
-.workshop-art__tools{padding:12px 12px 18px;text-align:center;}
-.workshop-art__buttons{display:flex;justify-content:center;gap:4px;flex-wrap:wrap;}
-#workshop-support .workshop-art__buttons button{display:grid;place-items:center;width:36px;height:40px;border:1px solid #8fb8a9;border-radius:999px;background:transparent;color:#fff;font:500 12px/1 var(--font-body,Arial);}
-#workshop-support .workshop-art__buttons button[aria-pressed="true"]{background:#fff;color:#281a2c;border-color:#fff;}
-#workshop-support .workshop-art__buttons button:hover{background:#dce9e3;color:#281a2c;}
-html[data-palette] #workshop-support [data-art-caption]{font:400 12px/1.4 var(--font-body,Arial)!important;color:#fff;margin:9px 0 0;}
-html[data-palette] #workshop-support .workshop-art button:focus-visible{outline:3px solid #fdb069!important;outline-offset:2px!important;}
-@media(max-width:700px){.workshop-art svg{max-height:none;}.workshop-art__tools{padding-bottom:16px;}}
+
+@media(max-width:700px){.workshop-art svg{max-height:none;}}
