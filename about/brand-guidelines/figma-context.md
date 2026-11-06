@@ -462,7 +462,7 @@ So give us a call and have a chat and we'll see how Hoea tō Waka can help you.
 | Token | HEX | Purpose |
 | --- | --- | --- |
 | ocean-100 | #F0F4F8 | 100 tonal level |
-| ocean-200 | #E9EEF4 | 200 tonal level |
+| ocean-200 | #E8F1F5 | 200 tonal level |
 | ocean-300 | #C8D5E0 | 300 tonal level |
 | ocean-400 | #A9C5CE | Pale blue · Illustrations and diagrams |
 | ocean-500 | #829FB2 | 500 tonal level |
@@ -490,7 +490,7 @@ So give us a call and have a chat and we'll see how Hoea tō Waka can help you.
 | aubergine-900 | #201423 | Deep purple · Available dark background |
 | lavender-100 | #FCFAFC | 100 tonal level |
 | lavender-200 | #F7F2F8 | 200 tonal level |
-| lavender-300 | #F0E9F2 | 300 tonal level |
+| lavender-300 | #F1EAFA | 300 tonal level |
 | lavender-400 | #E6DBE9 | 400 tonal level |
 | lavender-500 | #D8CBDD | 500 tonal level |
 | lavender-600 | #B9A9C0 | 600 tonal level |
@@ -513,7 +513,7 @@ So give us a call and have a chat and we'll see how Hoea tō Waka can help you.
 ```css
 :root {
   --brand-ocean-100: #F0F4F8;
-  --brand-ocean-200: #E9EEF4;
+  --brand-ocean-200: #E8F1F5;
   --brand-ocean-300: #C8D5E0;
   --brand-ocean-400: #A9C5CE;
   --brand-ocean-500: #829FB2;
@@ -541,7 +541,7 @@ So give us a call and have a chat and we'll see how Hoea tō Waka can help you.
   --brand-aubergine-900: #201423;
   --brand-lavender-100: #FCFAFC;
   --brand-lavender-200: #F7F2F8;
-  --brand-lavender-300: #F0E9F2;
+  --brand-lavender-300: #F1EAFA;
   --brand-lavender-400: #E6DBE9;
   --brand-lavender-500: #D8CBDD;
   --brand-lavender-600: #B9A9C0;
@@ -600,13 +600,13 @@ DTCG 2025.10 JSON follows. Colour components use sRGB values from 0 to 1. Alias 
       "$value": {
         "colorSpace": "srgb",
         "components": [
-          0.91372549,
-          0.93333333,
-          0.95686275
+          0.90980392,
+          0.94509804,
+          0.96078431
         ],
         "alpha": 1
       },
-      "$description": "Ocean 200: 200 tonal level. HEX #E9EEF4"
+      "$description": "Ocean 200: 200 tonal level. HEX #E8F1F5"
     },
     "ocean-300": {
       "$type": "color",
@@ -964,13 +964,13 @@ DTCG 2025.10 JSON follows. Colour components use sRGB values from 0 to 1. Alias 
       "$value": {
         "colorSpace": "srgb",
         "components": [
-          0.94117647,
-          0.91372549,
-          0.94901961
+          0.94509804,
+          0.91764706,
+          0.98039216
         ],
         "alpha": 1
       },
-      "$description": "Lavender 300: 300 tonal level. HEX #F0E9F2"
+      "$description": "Lavender 300: 300 tonal level. HEX #F1EAFA"
     },
     "lavender-400": {
       "$type": "color",

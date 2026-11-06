@@ -2,138 +2,17 @@
   "scope": "Rendered default desktop pages, including inline and image-based SVG colours. Excludes photo pixels, transparency blends, and colours already in the illustration or neutral palettes.",
   "colours": [
     {
-      "hex": "#666666",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "How we can work together",
-          "href": "../#services",
-          "kind": "Interface"
-        },
-        {
-          "page": "Home",
-          "section": "What people carry forward",
-          "href": "../#:~:text=What%20people%20carry%20forward",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Homepage grey",
-      "group": "Interface"
-    },
-    {
-      "hex": "#737373",
-      "uses": [
-        {
-          "page": "Resources",
-          "section": "Carry the ideas through music",
-          "href": "../resources/#:~:text=Carry%20the%20ideas%20through%20music",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Mid grey",
-      "group": "Interface"
-    },
-    {
-      "hex": "#E0E0E0",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Resilience training set in Aotearoa’s unique cultural context, made practical for workplaces, leaders, and support professionals",
-          "href": "../#:~:text=Resilience%20training%20set%20in%20Aotearoa%E2%80%99s%20unique%20cultural%20context%2C%20made%20practical%20for%20workplaces%2C%20leaders%2C%20and%20support%20professionals",
-          "kind": "Interface"
-        },
-        {
-          "page": "Home",
-          "section": "How we can work together",
-          "href": "../#services",
-          "kind": "Interface"
-        },
-        {
-          "page": "Home",
-          "section": "What people carry forward",
-          "href": "../#:~:text=What%20people%20carry%20forward",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Homepage divider grey",
-      "group": "Interface"
-    },
-    {
-      "hex": "#EEE2DF",
+      "hex": "#E8EEE9",
       "uses": [
         {
           "page": "Individual coaching",
-          "section": "A practical reset",
-          "href": "../services/resilience-one-on-one/#coaching-outcomes",
+          "section": "Personal, clear, and relevant",
+          "href": "../services/resilience-one-on-one/#how-it-works",
           "kind": "Interface"
         }
       ],
       "name": "Light grey",
-      "group": "Interface"
-    },
-    {
-      "hex": "#B87361",
-      "uses": [
-        {
-          "page": "In-house workshops",
-          "section": "In-house resilience workshops",
-          "href": "../services/in-house-workshops/#:~:text=In-house%20resilience%20workshops",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Coral",
-      "group": "Interface"
-    },
-    {
-      "hex": "#F1CFB9",
-      "uses": [
-        {
-          "page": "Contact",
-          "section": "Tell Anna what you are navigating.",
-          "href": "../contact/#:~:text=Tell%20Anna%20what%20you%20are%20navigating.",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Soft coral",
-      "group": "Interface"
-    },
-    {
-      "hex": "#FFF3E9",
-      "uses": [
-        {
-          "page": "Contact",
-          "section": "Tell Anna what you are navigating.",
-          "href": "../contact/#:~:text=Tell%20Anna%20what%20you%20are%20navigating.",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Light grey",
-      "group": "Interface"
-    },
-    {
-      "hex": "#DB6F09",
-      "uses": [
-        {
-          "page": "Resources",
-          "section": "Stories that travel with you",
-          "href": "../resources/#resource-books",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Coral",
-      "group": "Interface"
-    },
-    {
-      "hex": "#FFD814",
-      "uses": [
-        {
-          "page": "Resources",
-          "section": "Stories that travel with you",
-          "href": "../resources/#resource-books",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Orange",
+      "family": "Neutrals",
       "group": "Interface"
     },
     {
@@ -153,528 +32,7 @@
         }
       ],
       "name": "Light grey",
-      "group": "Interface"
-    },
-    {
-      "hex": "#E8EEE9",
-      "uses": [
-        {
-          "page": "Individual coaching",
-          "section": "Personal, clear, and relevant",
-          "href": "../services/resilience-one-on-one/#how-it-works",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Light grey",
-      "group": "Interface"
-    },
-    {
-      "hex": "#D4E6D9",
-      "uses": [
-        {
-          "page": "Individual coaching",
-          "section": "A practical reset",
-          "href": "../services/resilience-one-on-one/#coaching-outcomes",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Light grey",
-      "group": "Interface"
-    },
-    {
-      "hex": "#889C92",
-      "uses": [
-        {
-          "page": "Individual coaching",
-          "section": "Personal, clear, and relevant",
-          "href": "../services/resilience-one-on-one/#how-it-works",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Soft green",
-      "group": "Interface"
-    },
-    {
-      "hex": "#7FAF9C",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Frequently Asked Questions",
-          "href": "../#home-faq",
-          "kind": "Interface"
-        }
-      ],
-      "name": "FAQ divider green",
-      "group": "Interface"
-    },
-    {
-      "hex": "#EEF8F5",
-      "uses": [
-        {
-          "page": "Support training",
-          "section": "Support professional training",
-          "href": "../services/workshops-for-support-professionals/#:~:text=Support%20professional%20training",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Light grey",
-      "group": "Interface"
-    },
-    {
-      "hex": "#1C5C49",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Frequently Asked Questions",
-          "href": "../#home-faq",
-          "kind": "Interface"
-        }
-      ],
-      "name": "FAQ green",
-      "group": "Interface"
-    },
-    {
-      "hex": "#1C5648",
-      "uses": [
-        {
-          "page": "Services",
-          "section": "Built around the people in front of us",
-          "href": "../services/#flexible-approach",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Deep green",
-      "group": "Interface"
-    },
-    {
-      "hex": "#006B55",
-      "uses": [
-        {
-          "page": "In-house workshops",
-          "section": "Stronger direction in demanding work",
-          "href": "../services/in-house-workshops/#workshop-support",
-          "kind": "Interface"
-        },
-        {
-          "page": "In-house workshops",
-          "section": "Stronger direction in demanding work",
-          "href": "../services/in-house-workshops/#workshop-support",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Green",
-      "group": "Interface"
-    },
-    {
-      "hex": "#88B8BE",
-      "uses": [
-        {
-          "page": "Support training",
-          "section": "Support professional training",
-          "href": "../services/workshops-for-support-professionals/#:~:text=Support%20professional%20training",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Soft teal",
-      "group": "Interface"
-    },
-    {
-      "hex": "#EEF6F8",
-      "uses": [
-        {
-          "page": "Individual coaching",
-          "section": "Individual coaching",
-          "href": "../services/resilience-one-on-one/#:~:text=Individual%20coaching",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Light grey",
-      "group": "Interface"
-    },
-    {
-      "hex": "#19292D",
-      "uses": [
-        {
-          "page": "Services",
-          "section": "Built around the people in front of us",
-          "href": "../services/#flexible-approach",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Deep teal",
-      "group": "Interface"
-    },
-    {
-      "hex": "#397D8F",
-      "uses": [
-        {
-          "page": "Support training",
-          "section": "Support professional training",
-          "href": "../services/workshops-for-support-professionals/#:~:text=Support%20professional%20training",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Teal",
-      "group": "Interface"
-    },
-    {
-      "hex": "#A9DEF5",
-      "uses": [
-        {
-          "page": "Individual coaching",
-          "section": "Individual coaching",
-          "href": "../services/resilience-one-on-one/#:~:text=Individual%20coaching",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Soft teal",
-      "group": "Interface"
-    },
-    {
-      "hex": "#E8F1F5",
-      "uses": [
-        {
-          "page": "Services",
-          "section": "Services",
-          "href": "../services/#:~:text=Services",
-          "kind": "Interface"
-        },
-        {
-          "page": "Individual coaching",
-          "section": "Individual coaching",
-          "href": "../services/resilience-one-on-one/#:~:text=Individual%20coaching",
-          "kind": "Interface"
-        },
-        {
-          "page": "Individual coaching",
-          "section": "A practical reset",
-          "href": "../services/resilience-one-on-one/#coaching-outcomes",
-          "kind": "Interface"
-        },
-        {
-          "page": "Support training",
-          "section": "Support professional training",
-          "href": "../services/workshops-for-support-professionals/#:~:text=Support%20professional%20training",
-          "kind": "Interface"
-        },
-        {
-          "page": "Resources",
-          "section": "Books and resources",
-          "href": "../resources/#:~:text=Books%20and%20resources",
-          "kind": "Interface"
-        },
-        {
-          "page": "Contact",
-          "section": "Tell Anna what you are navigating.",
-          "href": "../contact/#:~:text=Tell%20Anna%20what%20you%20are%20navigating.",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Light grey",
-      "group": "Interface"
-    },
-    {
-      "hex": "#CBE8F6",
-      "uses": [
-        {
-          "page": "Individual coaching",
-          "section": "Individual coaching",
-          "href": "../services/resilience-one-on-one/#:~:text=Individual%20coaching",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Soft teal",
-      "group": "Interface"
-    },
-    {
-      "hex": "#102A39",
-      "uses": [
-        {
-          "page": "Resources",
-          "section": "Carry the ideas through music",
-          "href": "../resources/#resource-videos",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Deep teal",
-      "group": "Interface"
-    },
-    {
-      "hex": "#BEDDF0",
-      "uses": [
-        {
-          "page": "Services",
-          "section": "Services",
-          "href": "../services/#:~:text=Services",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Soft teal",
-      "group": "Interface"
-    },
-    {
-      "hex": "#C6DCEB",
-      "uses": [
-        {
-          "page": "Support training",
-          "section": "Support professional training",
-          "href": "../services/workshops-for-support-professionals/#:~:text=Support%20professional%20training",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Soft teal",
-      "group": "Interface"
-    },
-    {
-      "hex": "#EDF5FB",
-      "uses": [
-        {
-          "page": "Services",
-          "section": "Services",
-          "href": "../services/#:~:text=Services",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Light grey",
-      "group": "Interface"
-    },
-    {
-      "hex": "#C0D8ED",
-      "uses": [
-        {
-          "page": "Individual coaching",
-          "section": "A practical reset",
-          "href": "../services/resilience-one-on-one/#coaching-outcomes",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Soft teal",
-      "group": "Interface"
-    },
-    {
-      "hex": "#33475B",
-      "uses": [
-        {
-          "page": "Individual coaching",
-          "section": "A practical reset",
-          "href": "../services/resilience-one-on-one/#:~:text=A%20practical%20reset",
-          "kind": "Interface"
-        },
-        {
-          "page": "Individual coaching",
-          "section": "A practical reset",
-          "href": "../services/resilience-one-on-one/#coaching-outcomes",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Deep teal",
-      "group": "Interface"
-    },
-    {
-      "hex": "#798DA2",
-      "uses": [
-        {
-          "page": "Individual coaching",
-          "section": "A practical reset",
-          "href": "../services/resilience-one-on-one/#:~:text=A%20practical%20reset",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Soft teal",
-      "group": "Interface"
-    },
-    {
-      "hex": "#243A53",
-      "uses": [
-        {
-          "page": "About",
-          "section": "Meet Anna Brown",
-          "href": "../about/#anna-story",
-          "kind": "Interface"
-        },
-        {
-          "page": "About",
-          "section": "Meet Anna Brown",
-          "href": "../about/#anna-story",
-          "kind": "Artwork"
-        },
-        {
-          "page": "Model",
-          "section": "Bring the model into your organisation",
-          "href": "../model/#:~:text=Bring%20the%20model%20into%20your%20organisation",
-          "kind": "Interface"
-        },
-        {
-          "page": "Services",
-          "section": "Bring the model into your organisation",
-          "href": "../services/#:~:text=Bring%20the%20model%20into%20your%20organisation",
-          "kind": "Interface"
-        },
-        {
-          "page": "In-house workshops",
-          "section": "Plan a workshop around your team",
-          "href": "../services/in-house-workshops/#:~:text=Plan%20a%20workshop%20around%20your%20team",
-          "kind": "Interface"
-        },
-        {
-          "page": "Individual coaching",
-          "section": "Personal, clear, and relevant",
-          "href": "../services/resilience-one-on-one/#how-it-works",
-          "kind": "Artwork"
-        },
-        {
-          "page": "Individual coaching",
-          "section": "Give someone room to find direction",
-          "href": "../services/resilience-one-on-one/#:~:text=Give%20someone%20room%20to%20find%20direction",
-          "kind": "Interface"
-        },
-        {
-          "page": "Support training",
-          "section": "Practical across helping roles",
-          "href": "../services/workshops-for-support-professionals/#:~:text=Practical%20across%20helping%20roles",
-          "kind": "Interface"
-        },
-        {
-          "page": "Support training",
-          "section": "Shape training for your practice setting",
-          "href": "../services/workshops-for-support-professionals/#:~:text=Shape%20training%20for%20your%20practice%20setting",
-          "kind": "Interface"
-        },
-        {
-          "page": "Resources",
-          "section": "Need a resource for your team or class?",
-          "href": "../resources/#:~:text=Need%20a%20resource%20for%20your%20team%20or%20class%3F",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Brand ocean",
-      "group": "Interface"
-    },
-    {
-      "hex": "#E9EEF4",
-      "uses": [
-        {
-          "page": "Individual coaching",
-          "section": "Personal, clear, and relevant",
-          "href": "../services/resilience-one-on-one/#how-it-works",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Light grey",
-      "group": "Interface"
-    },
-    {
-      "hex": "#303D50",
-      "uses": [
-        {
-          "page": "Services",
-          "section": "Services",
-          "href": "../services/#:~:text=Services",
-          "kind": "Interface"
-        },
-        {
-          "page": "Individual coaching",
-          "section": "Individual coaching",
-          "href": "../services/resilience-one-on-one/#:~:text=Individual%20coaching",
-          "kind": "Interface"
-        },
-        {
-          "page": "Support training",
-          "section": "Support professional training",
-          "href": "../services/workshops-for-support-professionals/#:~:text=Support%20professional%20training",
-          "kind": "Interface"
-        },
-        {
-          "page": "Resources",
-          "section": "Books and resources",
-          "href": "../resources/#:~:text=Books%20and%20resources",
-          "kind": "Interface"
-        },
-        {
-          "page": "Contact",
-          "section": "Tell Anna what you are navigating.",
-          "href": "../contact/#:~:text=Tell%20Anna%20what%20you%20are%20navigating.",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Deep teal",
-      "group": "Interface"
-    },
-    {
-      "hex": "#E0E7F2",
-      "uses": [
-        {
-          "page": "Model",
-          "section": "Model",
-          "href": "../model/#:~:text=Model",
-          "kind": "Interface"
-        },
-        {
-          "page": "In-house workshops",
-          "section": "In-house resilience workshops",
-          "href": "../services/in-house-workshops/#:~:text=In-house%20resilience%20workshops",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Light grey",
-      "group": "Interface"
-    },
-    {
-      "hex": "#2254A7",
-      "uses": [
-        {
-          "page": "Services",
-          "section": "Services",
-          "href": "../services/#:~:text=Services",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Teal",
-      "group": "Interface"
-    },
-    {
-      "hex": "#526078",
-      "uses": [
-        {
-          "page": "About",
-          "section": "Meet Anna Brown",
-          "href": "../about/#anna-story",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Soft teal",
-      "group": "Interface"
-    },
-    {
-      "hex": "#18253C",
-      "uses": [
-        {
-          "page": "Model",
-          "section": "Model",
-          "href": "../model/#:~:text=Model",
-          "kind": "Interface"
-        },
-        {
-          "page": "In-house workshops",
-          "section": "In-house resilience workshops",
-          "href": "../services/in-house-workshops/#:~:text=In-house%20resilience%20workshops",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Deep teal",
-      "group": "Interface"
-    },
-    {
-      "hex": "#7797D5",
-      "uses": [
-        {
-          "page": "Services",
-          "section": "Services",
-          "href": "../services/#:~:text=Services",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Teal",
+      "family": "Neutrals",
       "group": "Interface"
     },
     {
@@ -736,10 +94,435 @@
         }
       ],
       "name": "Light grey",
+      "family": "Neutrals",
       "group": "Interface"
     },
     {
-      "hex": "#142044",
+      "hex": "#FFF3E9",
+      "uses": [
+        {
+          "page": "Contact",
+          "section": "Tell Anna what you are navigating.",
+          "href": "../contact/#:~:text=Tell%20Anna%20what%20you%20are%20navigating.",
+          "kind": "Interface"
+        }
+      ],
+      "name": "Pale orange",
+      "family": "Warm colours",
+      "group": "Interface"
+    },
+    {
+      "hex": "#EEE2DF",
+      "uses": [
+        {
+          "page": "Individual coaching",
+          "section": "A practical reset",
+          "href": "../services/resilience-one-on-one/#coaching-outcomes",
+          "kind": "Interface"
+        }
+      ],
+      "name": "Pale coral",
+      "family": "Warm colours",
+      "group": "Interface"
+    },
+    {
+      "hex": "#FFD814",
+      "uses": [
+        {
+          "page": "Resources",
+          "section": "Stories that travel with you",
+          "href": "../resources/#resource-books",
+          "kind": "Interface"
+        }
+      ],
+      "name": "Pale gold",
+      "family": "Warm colours",
+      "group": "Interface"
+    },
+    {
+      "hex": "#F1CFB9",
+      "uses": [
+        {
+          "page": "Contact",
+          "section": "Tell Anna what you are navigating.",
+          "href": "../contact/#:~:text=Tell%20Anna%20what%20you%20are%20navigating.",
+          "kind": "Interface"
+        }
+      ],
+      "name": "Pale orange",
+      "family": "Warm colours",
+      "group": "Interface"
+    },
+    {
+      "hex": "#DB6F09",
+      "uses": [
+        {
+          "page": "Resources",
+          "section": "Stories that travel with you",
+          "href": "../resources/#resource-books",
+          "kind": "Interface"
+        }
+      ],
+      "name": "Orange",
+      "family": "Warm colours",
+      "group": "Interface"
+    },
+    {
+      "hex": "#B87361",
+      "uses": [
+        {
+          "page": "In-house workshops",
+          "section": "In-house resilience workshops",
+          "href": "../services/in-house-workshops/#:~:text=In-house%20resilience%20workshops",
+          "kind": "Interface"
+        }
+      ],
+      "name": "Coral",
+      "family": "Warm colours",
+      "group": "Interface"
+    },
+    {
+      "hex": "#EEF8F5",
+      "uses": [
+        {
+          "page": "Support training",
+          "section": "Support professional training",
+          "href": "../services/workshops-for-support-professionals/#:~:text=Support%20professional%20training",
+          "kind": "Interface"
+        }
+      ],
+      "name": "Pale green",
+      "family": "Greens",
+      "group": "Interface"
+    },
+    {
+      "hex": "#D4E6D9",
+      "uses": [
+        {
+          "page": "Individual coaching",
+          "section": "A practical reset",
+          "href": "../services/resilience-one-on-one/#coaching-outcomes",
+          "kind": "Interface"
+        }
+      ],
+      "name": "Pale green",
+      "family": "Greens",
+      "group": "Interface"
+    },
+    {
+      "hex": "#7FAF9C",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Frequently Asked Questions",
+          "href": "../#home-faq",
+          "kind": "Interface"
+        }
+      ],
+      "name": "FAQ divider green",
+      "family": "Greens",
+      "group": "Interface"
+    },
+    {
+      "hex": "#889C92",
+      "uses": [
+        {
+          "page": "Individual coaching",
+          "section": "Personal, clear, and relevant",
+          "href": "../services/resilience-one-on-one/#how-it-works",
+          "kind": "Interface"
+        }
+      ],
+      "name": "Soft green",
+      "family": "Greens",
+      "group": "Interface"
+    },
+    {
+      "hex": "#1C5C49",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Frequently Asked Questions",
+          "href": "../#home-faq",
+          "kind": "Interface"
+        },
+        {
+          "page": "Services",
+          "section": "Built around the people in front of us",
+          "href": "../services/#flexible-approach",
+          "kind": "Interface"
+        }
+      ],
+      "name": "FAQ green",
+      "family": "Greens",
+      "group": "Interface"
+    },
+    {
+      "hex": "#E8F1F5",
+      "uses": [
+        {
+          "page": "Services",
+          "section": "Services",
+          "href": "../services/#:~:text=Services",
+          "kind": "Interface"
+        },
+        {
+          "page": "Individual coaching",
+          "section": "Individual coaching",
+          "href": "../services/resilience-one-on-one/#:~:text=Individual%20coaching",
+          "kind": "Interface"
+        },
+        {
+          "page": "Individual coaching",
+          "section": "A practical reset",
+          "href": "../services/resilience-one-on-one/#coaching-outcomes",
+          "kind": "Interface"
+        },
+        {
+          "page": "Individual coaching",
+          "section": "Personal, clear, and relevant",
+          "href": "../services/resilience-one-on-one/#how-it-works",
+          "kind": "Interface"
+        },
+        {
+          "page": "Support training",
+          "section": "Support professional training",
+          "href": "../services/workshops-for-support-professionals/#:~:text=Support%20professional%20training",
+          "kind": "Interface"
+        },
+        {
+          "page": "Resources",
+          "section": "Books and resources",
+          "href": "../resources/#:~:text=Books%20and%20resources",
+          "kind": "Interface"
+        },
+        {
+          "page": "Contact",
+          "section": "Tell Anna what you are navigating.",
+          "href": "../contact/#:~:text=Tell%20Anna%20what%20you%20are%20navigating.",
+          "kind": "Interface"
+        }
+      ],
+      "name": "Pale teal",
+      "family": "Teals",
+      "group": "Interface"
+    },
+    {
+      "hex": "#CBE8F6",
+      "uses": [
+        {
+          "page": "Individual coaching",
+          "section": "Individual coaching",
+          "href": "../services/resilience-one-on-one/#:~:text=Individual%20coaching",
+          "kind": "Interface"
+        }
+      ],
+      "name": "Pale teal",
+      "family": "Teals",
+      "group": "Interface"
+    },
+    {
+      "hex": "#A9DEF5",
+      "uses": [
+        {
+          "page": "Individual coaching",
+          "section": "Individual coaching",
+          "href": "../services/resilience-one-on-one/#:~:text=Individual%20coaching",
+          "kind": "Interface"
+        }
+      ],
+      "name": "Pale teal",
+      "family": "Teals",
+      "group": "Interface"
+    },
+    {
+      "hex": "#88B8BE",
+      "uses": [
+        {
+          "page": "Support training",
+          "section": "Support professional training",
+          "href": "../services/workshops-for-support-professionals/#:~:text=Support%20professional%20training",
+          "kind": "Interface"
+        }
+      ],
+      "name": "Soft teal",
+      "family": "Teals",
+      "group": "Interface"
+    },
+    {
+      "hex": "#E0E7F2",
+      "uses": [
+        {
+          "page": "Model",
+          "section": "Model",
+          "href": "../model/#:~:text=Model",
+          "kind": "Interface"
+        },
+        {
+          "page": "In-house workshops",
+          "section": "In-house resilience workshops",
+          "href": "../services/in-house-workshops/#:~:text=In-house%20resilience%20workshops",
+          "kind": "Interface"
+        }
+      ],
+      "name": "Pale blue",
+      "family": "Blues",
+      "group": "Interface"
+    },
+    {
+      "hex": "#BEDDF0",
+      "uses": [
+        {
+          "page": "Services",
+          "section": "Services",
+          "href": "../services/#:~:text=Services",
+          "kind": "Interface"
+        },
+        {
+          "page": "Individual coaching",
+          "section": "A practical reset",
+          "href": "../services/resilience-one-on-one/#coaching-outcomes",
+          "kind": "Interface"
+        },
+        {
+          "page": "Support training",
+          "section": "Support professional training",
+          "href": "../services/workshops-for-support-professionals/#:~:text=Support%20professional%20training",
+          "kind": "Interface"
+        }
+      ],
+      "name": "Pale blue",
+      "family": "Blues",
+      "group": "Interface"
+    },
+    {
+      "hex": "#C0C0E9",
+      "uses": [
+        {
+          "page": "Individual coaching",
+          "section": "Individual coaching",
+          "href": "../services/resilience-one-on-one/#:~:text=Individual%20coaching",
+          "kind": "Interface"
+        }
+      ],
+      "name": "Soft blue",
+      "family": "Blues",
+      "group": "Interface"
+    },
+    {
+      "hex": "#A59BD9",
+      "uses": [
+        {
+          "page": "Individual coaching",
+          "section": "Individual coaching",
+          "href": "../services/resilience-one-on-one/#:~:text=Individual%20coaching",
+          "kind": "Interface"
+        }
+      ],
+      "name": "Soft blue",
+      "family": "Blues",
+      "group": "Interface"
+    },
+    {
+      "hex": "#7797D5",
+      "uses": [
+        {
+          "page": "Services",
+          "section": "Services",
+          "href": "../services/#:~:text=Services",
+          "kind": "Interface"
+        }
+      ],
+      "name": "Blue",
+      "family": "Blues",
+      "group": "Interface"
+    },
+    {
+      "hex": "#788EDC",
+      "uses": [
+        {
+          "page": "Individual coaching",
+          "section": "Individual coaching",
+          "href": "../services/resilience-one-on-one/#:~:text=Individual%20coaching",
+          "kind": "Interface"
+        }
+      ],
+      "name": "Blue",
+      "family": "Blues",
+      "group": "Interface"
+    },
+    {
+      "hex": "#798DA2",
+      "uses": [
+        {
+          "page": "Individual coaching",
+          "section": "A practical reset",
+          "href": "../services/resilience-one-on-one/#:~:text=A%20practical%20reset",
+          "kind": "Interface"
+        }
+      ],
+      "name": "Soft blue",
+      "family": "Blues",
+      "group": "Interface"
+    },
+    {
+      "hex": "#516BD0",
+      "uses": [
+        {
+          "page": "Individual coaching",
+          "section": "Individual coaching",
+          "href": "../services/resilience-one-on-one/#:~:text=Individual%20coaching",
+          "kind": "Interface"
+        }
+      ],
+      "name": "Blue",
+      "family": "Blues",
+      "group": "Interface"
+    },
+    {
+      "hex": "#526078",
+      "uses": [
+        {
+          "page": "About",
+          "section": "Meet Anna Brown",
+          "href": "../about/#anna-story",
+          "kind": "Interface"
+        }
+      ],
+      "name": "Soft blue",
+      "family": "Blues",
+      "group": "Interface"
+    },
+    {
+      "hex": "#2254A7",
+      "uses": [
+        {
+          "page": "Services",
+          "section": "Services",
+          "href": "../services/#:~:text=Services",
+          "kind": "Interface"
+        }
+      ],
+      "name": "Blue",
+      "family": "Blues",
+      "group": "Interface"
+    },
+    {
+      "hex": "#4B3E89",
+      "uses": [
+        {
+          "page": "Model",
+          "section": "Model",
+          "href": "../model/#:~:text=Model",
+          "kind": "Interface"
+        }
+      ],
+      "name": "Deep blue",
+      "family": "Blues",
+      "group": "Interface"
+    },
+    {
+      "hex": "#33475B",
       "uses": [
         {
           "page": "Individual coaching",
@@ -754,33 +537,8 @@
           "kind": "Interface"
         }
       ],
-      "name": "Deep teal",
-      "group": "Interface"
-    },
-    {
-      "hex": "#788EDC",
-      "uses": [
-        {
-          "page": "Individual coaching",
-          "section": "Individual coaching",
-          "href": "../services/resilience-one-on-one/#:~:text=Individual%20coaching",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Teal",
-      "group": "Interface"
-    },
-    {
-      "hex": "#516BD0",
-      "uses": [
-        {
-          "page": "Individual coaching",
-          "section": "Individual coaching",
-          "href": "../services/resilience-one-on-one/#:~:text=Individual%20coaching",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Teal",
+      "name": "Deep blue",
+      "family": "Blues",
       "group": "Interface"
     },
     {
@@ -793,46 +551,106 @@
           "kind": "Interface"
         }
       ],
-      "name": "Teal",
+      "name": "Deep blue",
+      "family": "Blues",
       "group": "Interface"
     },
     {
-      "hex": "#C0C0E9",
+      "hex": "#243A53",
       "uses": [
         {
-          "page": "Individual coaching",
-          "section": "Individual coaching",
-          "href": "../services/resilience-one-on-one/#:~:text=Individual%20coaching",
+          "page": "About",
+          "section": "Meet Anna Brown",
+          "href": "../about/#anna-story",
           "kind": "Interface"
-        }
-      ],
-      "name": "Soft blue",
-      "group": "Interface"
-    },
-    {
-      "hex": "#A59BD9",
-      "uses": [
+        },
         {
-          "page": "Individual coaching",
-          "section": "Individual coaching",
-          "href": "../services/resilience-one-on-one/#:~:text=Individual%20coaching",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Soft blue",
-      "group": "Interface"
-    },
-    {
-      "hex": "#4B3E89",
-      "uses": [
+          "page": "About",
+          "section": "Meet Anna Brown",
+          "href": "../about/#anna-story",
+          "kind": "Artwork"
+        },
         {
           "page": "Model",
-          "section": "Model",
-          "href": "../model/#:~:text=Model",
+          "section": "Bring the model into your organisation",
+          "href": "../model/#:~:text=Bring%20the%20model%20into%20your%20organisation",
+          "kind": "Interface"
+        },
+        {
+          "page": "Services",
+          "section": "Services",
+          "href": "../services/#:~:text=Services",
+          "kind": "Interface"
+        },
+        {
+          "page": "Services",
+          "section": "Bring the model into your organisation",
+          "href": "../services/#:~:text=Bring%20the%20model%20into%20your%20organisation",
+          "kind": "Interface"
+        },
+        {
+          "page": "In-house workshops",
+          "section": "Plan a workshop around your team",
+          "href": "../services/in-house-workshops/#:~:text=Plan%20a%20workshop%20around%20your%20team",
+          "kind": "Interface"
+        },
+        {
+          "page": "Individual coaching",
+          "section": "Individual coaching",
+          "href": "../services/resilience-one-on-one/#:~:text=Individual%20coaching",
+          "kind": "Interface"
+        },
+        {
+          "page": "Individual coaching",
+          "section": "Personal, clear, and relevant",
+          "href": "../services/resilience-one-on-one/#how-it-works",
+          "kind": "Artwork"
+        },
+        {
+          "page": "Individual coaching",
+          "section": "Give someone room to find direction",
+          "href": "../services/resilience-one-on-one/#:~:text=Give%20someone%20room%20to%20find%20direction",
+          "kind": "Interface"
+        },
+        {
+          "page": "Support training",
+          "section": "Support professional training",
+          "href": "../services/workshops-for-support-professionals/#:~:text=Support%20professional%20training",
+          "kind": "Interface"
+        },
+        {
+          "page": "Support training",
+          "section": "Practical across helping roles",
+          "href": "../services/workshops-for-support-professionals/#:~:text=Practical%20across%20helping%20roles",
+          "kind": "Interface"
+        },
+        {
+          "page": "Support training",
+          "section": "Shape training for your practice setting",
+          "href": "../services/workshops-for-support-professionals/#:~:text=Shape%20training%20for%20your%20practice%20setting",
+          "kind": "Interface"
+        },
+        {
+          "page": "Resources",
+          "section": "Books and resources",
+          "href": "../resources/#:~:text=Books%20and%20resources",
+          "kind": "Interface"
+        },
+        {
+          "page": "Resources",
+          "section": "Need a resource for your team or class?",
+          "href": "../resources/#:~:text=Need%20a%20resource%20for%20your%20team%20or%20class%3F",
+          "kind": "Interface"
+        },
+        {
+          "page": "Contact",
+          "section": "Tell Anna what you are navigating.",
+          "href": "../contact/#:~:text=Tell%20Anna%20what%20you%20are%20navigating.",
           "kind": "Interface"
         }
       ],
-      "name": "Blue",
+      "name": "Brand ocean",
+      "family": "Blues",
       "group": "Interface"
     },
     {
@@ -846,6 +664,59 @@
         }
       ],
       "name": "Deep blue",
+      "family": "Blues",
+      "group": "Interface"
+    },
+    {
+      "hex": "#102A39",
+      "uses": [
+        {
+          "page": "Services",
+          "section": "Built around the people in front of us",
+          "href": "../services/#flexible-approach",
+          "kind": "Interface"
+        },
+        {
+          "page": "Resources",
+          "section": "Carry the ideas through music",
+          "href": "../resources/#resource-videos",
+          "kind": "Interface"
+        }
+      ],
+      "name": "Deep blue",
+      "family": "Blues",
+      "group": "Interface"
+    },
+    {
+      "hex": "#142044",
+      "uses": [
+        {
+          "page": "Model",
+          "section": "Model",
+          "href": "../model/#:~:text=Model",
+          "kind": "Interface"
+        },
+        {
+          "page": "In-house workshops",
+          "section": "In-house resilience workshops",
+          "href": "../services/in-house-workshops/#:~:text=In-house%20resilience%20workshops",
+          "kind": "Interface"
+        },
+        {
+          "page": "Individual coaching",
+          "section": "A practical reset",
+          "href": "../services/resilience-one-on-one/#:~:text=A%20practical%20reset",
+          "kind": "Interface"
+        },
+        {
+          "page": "Individual coaching",
+          "section": "A practical reset",
+          "href": "../services/resilience-one-on-one/#coaching-outcomes",
+          "kind": "Interface"
+        }
+      ],
+      "name": "Deep blue",
+      "family": "Blues",
       "group": "Interface"
     },
     {
@@ -859,6 +730,33 @@
         }
       ],
       "name": "Deep blue",
+      "family": "Blues",
+      "group": "Interface"
+    },
+    {
+      "hex": "#F1EAFA",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Navigation",
+          "href": "../#page-top",
+          "kind": "Interface"
+        },
+        {
+          "page": "Home",
+          "section": "Designed to stay with you",
+          "href": "../#:~:text=Designed%20to%20stay%20with%20you",
+          "kind": "Interface"
+        },
+        {
+          "page": "Resources",
+          "section": "Books and resources",
+          "href": "../resources/#:~:text=Books%20and%20resources",
+          "kind": "Interface"
+        }
+      ],
+      "name": "Announcement lavender",
+      "family": "Purples & pinks",
       "group": "Interface"
     },
     {
@@ -878,103 +776,7 @@
         }
       ],
       "name": "Resources lavender",
-      "group": "Interface"
-    },
-    {
-      "hex": "#8253C5",
-      "uses": [
-        {
-          "page": "Model",
-          "section": "Model",
-          "href": "../model/#:~:text=Model",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Blue",
-      "group": "Interface"
-    },
-    {
-      "hex": "#F1EAFA",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Navigation",
-          "href": "../#page-top",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Announcement lavender",
-      "group": "Interface"
-    },
-    {
-      "hex": "#FBFAFC",
-      "uses": [
-        {
-          "page": "Services",
-          "section": "Built around the people in front of us",
-          "href": "../services/#:~:text=Built%20around%20the%20people%20in%20front%20of%20us",
-          "kind": "Interface"
-        },
-        {
-          "page": "Services",
-          "section": "Built around the people in front of us",
-          "href": "../services/#flexible-approach",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Light grey",
-      "group": "Interface"
-    },
-    {
-      "hex": "#593C74",
-      "uses": [
-        {
-          "page": "Services",
-          "section": "Built around the people in front of us",
-          "href": "../services/#flexible-approach",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Blue",
-      "group": "Interface"
-    },
-    {
-      "hex": "#59535E",
-      "uses": [
-        {
-          "page": "In-house workshops",
-          "section": "How your team will learn",
-          "href": "../services/in-house-workshops/#workshop-learning",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Deep blue",
-      "group": "Interface"
-    },
-    {
-      "hex": "#DDC6EE",
-      "uses": [
-        {
-          "page": "Resources",
-          "section": "Books and resources",
-          "href": "../resources/#:~:text=Books%20and%20resources",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Soft blue",
-      "group": "Interface"
-    },
-    {
-      "hex": "#D5CBDC",
-      "uses": [
-        {
-          "page": "Services",
-          "section": "Built around the people in front of us",
-          "href": "../services/#:~:text=Built%20around%20the%20people%20in%20front%20of%20us",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Light grey",
+      "family": "Purples & pinks",
       "group": "Interface"
     },
     {
@@ -987,46 +789,68 @@
           "kind": "Interface"
         }
       ],
-      "name": "Light grey",
+      "name": "Pale purple",
+      "family": "Purples & pinks",
       "group": "Interface"
     },
     {
-      "hex": "#D4CBD9",
+      "hex": "#D8CBDD",
       "uses": [
+        {
+          "page": "Services",
+          "section": "Built around the people in front of us",
+          "href": "../services/#:~:text=Built%20around%20the%20people%20in%20front%20of%20us",
+          "kind": "Interface"
+        },
         {
           "page": "In-house workshops",
           "section": "How your team will learn",
           "href": "../services/in-house-workshops/#workshop-learning",
           "kind": "Interface"
-        }
-      ],
-      "name": "Light grey",
-      "group": "Interface"
-    },
-    {
-      "hex": "#291C30",
-      "uses": [
+        },
         {
           "page": "In-house workshops",
-          "section": "In-house resilience workshops",
-          "href": "../services/in-house-workshops/#:~:text=In-house%20resilience%20workshops",
+          "section": "One model. Your people and context",
+          "href": "../services/in-house-workshops/#:~:text=One%20model.%20Your%20people%20and%20context",
+          "kind": "Interface"
+        },
+        {
+          "page": "Support training",
+          "section": "A model that sits beside the person",
+          "href": "../services/workshops-for-support-professionals/#support-features",
           "kind": "Interface"
         }
       ],
-      "name": "Deep blue",
+      "name": "Lavender",
+      "family": "Purples & pinks",
       "group": "Interface"
     },
     {
-      "hex": "#482B57",
+      "hex": "#DDC6EE",
       "uses": [
         {
-          "page": "Services",
-          "section": "Built around the people in front of us",
-          "href": "../services/#flexible-approach",
+          "page": "Resources",
+          "section": "Books and resources",
+          "href": "../resources/#:~:text=Books%20and%20resources",
           "kind": "Interface"
         }
       ],
-      "name": "Deep blue",
+      "name": "Soft purple",
+      "family": "Purples & pinks",
+      "group": "Interface"
+    },
+    {
+      "hex": "#D4A3CF",
+      "uses": [
+        {
+          "page": "Contact",
+          "section": "Tell Anna what you are navigating.",
+          "href": "../contact/#:~:text=Tell%20Anna%20what%20you%20are%20navigating.",
+          "kind": "Interface"
+        }
+      ],
+      "name": "Soft pink",
+      "family": "Purples & pinks",
       "group": "Interface"
     },
     {
@@ -1039,7 +863,112 @@
           "kind": "Interface"
         }
       ],
-      "name": "Soft blue",
+      "name": "Soft purple",
+      "family": "Purples & pinks",
+      "group": "Interface"
+    },
+    {
+      "hex": "#C98FB6",
+      "uses": [
+        {
+          "page": "Resources",
+          "section": "Books and resources",
+          "href": "../resources/#:~:text=Books%20and%20resources",
+          "kind": "Interface"
+        }
+      ],
+      "name": "Soft pink",
+      "family": "Purples & pinks",
+      "group": "Interface"
+    },
+    {
+      "hex": "#B27BB7",
+      "uses": [
+        {
+          "page": "Contact",
+          "section": "Tell Anna what you are navigating.",
+          "href": "../contact/#:~:text=Tell%20Anna%20what%20you%20are%20navigating.",
+          "kind": "Interface"
+        }
+      ],
+      "name": "Soft purple",
+      "family": "Purples & pinks",
+      "group": "Interface"
+    },
+    {
+      "hex": "#806788",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Designed to stay with you",
+          "href": "../#:~:text=Designed%20to%20stay%20with%20you",
+          "kind": "Interface"
+        },
+        {
+          "page": "Model",
+          "section": "Designed to stay with you",
+          "href": "../model/#:~:text=Designed%20to%20stay%20with%20you",
+          "kind": "Interface"
+        }
+      ],
+      "name": "Soft purple",
+      "family": "Purples & pinks",
+      "group": "Interface"
+    },
+    {
+      "hex": "#A84B85",
+      "uses": [
+        {
+          "page": "Resources",
+          "section": "Books and resources",
+          "href": "../resources/#:~:text=Books%20and%20resources",
+          "kind": "Interface"
+        }
+      ],
+      "name": "Pink",
+      "family": "Purples & pinks",
+      "group": "Interface"
+    },
+    {
+      "hex": "#8253C5",
+      "uses": [
+        {
+          "page": "Model",
+          "section": "Model",
+          "href": "../model/#:~:text=Model",
+          "kind": "Interface"
+        }
+      ],
+      "name": "Purple",
+      "family": "Purples & pinks",
+      "group": "Interface"
+    },
+    {
+      "hex": "#7B4C7C",
+      "uses": [
+        {
+          "page": "In-house workshops",
+          "section": "In-house resilience workshops",
+          "href": "../services/in-house-workshops/#:~:text=In-house%20resilience%20workshops",
+          "kind": "Interface"
+        }
+      ],
+      "name": "Purple",
+      "family": "Purples & pinks",
+      "group": "Interface"
+    },
+    {
+      "hex": "#59535E",
+      "uses": [
+        {
+          "page": "In-house workshops",
+          "section": "How your team will learn",
+          "href": "../services/in-house-workshops/#workshop-learning",
+          "kind": "Interface"
+        }
+      ],
+      "name": "Soft purple",
+      "family": "Purples & pinks",
       "group": "Interface"
     },
     {
@@ -1059,70 +988,21 @@
         }
       ],
       "name": "Muted plum",
+      "family": "Purples & pinks",
       "group": "Interface"
     },
     {
-      "hex": "#6B646E",
+      "hex": "#593C74",
       "uses": [
         {
-          "page": "In-house workshops",
-          "section": "How your team will learn",
-          "href": "../services/in-house-workshops/#workshop-learning",
+          "page": "Services",
+          "section": "Built around the people in front of us",
+          "href": "../services/#flexible-approach",
           "kind": "Interface"
         }
       ],
-      "name": "Soft blue",
-      "group": "Interface"
-    },
-    {
-      "hex": "#D8CBDD",
-      "uses": [
-        {
-          "page": "In-house workshops",
-          "section": "One model. Your people and context",
-          "href": "../services/in-house-workshops/#:~:text=One%20model.%20Your%20people%20and%20context",
-          "kind": "Interface"
-        },
-        {
-          "page": "Support training",
-          "section": "A model that sits beside the person",
-          "href": "../services/workshops-for-support-professionals/#support-features",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Lavender",
-      "group": "Interface"
-    },
-    {
-      "hex": "#806788",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Designed to stay with you",
-          "href": "../#:~:text=Designed%20to%20stay%20with%20you",
-          "kind": "Interface"
-        },
-        {
-          "page": "Model",
-          "section": "Designed to stay with you",
-          "href": "../model/#:~:text=Designed%20to%20stay%20with%20you",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Soft blue",
-      "group": "Interface"
-    },
-    {
-      "hex": "#F0E9F2",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Designed to stay with you",
-          "href": "../#:~:text=Designed%20to%20stay%20with%20you",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Light grey",
+      "name": "Deep purple",
+      "family": "Purples & pinks",
       "group": "Interface"
     },
     {
@@ -1135,278 +1015,41 @@
           "kind": "Interface"
         }
       ],
-      "name": "Deep blue",
+      "name": "Deep purple",
+      "family": "Purples & pinks",
       "group": "Interface"
     },
     {
-      "hex": "#B27BB7",
+      "hex": "#482B57",
       "uses": [
         {
-          "page": "Contact",
-          "section": "Tell Anna what you are navigating.",
-          "href": "../contact/#:~:text=Tell%20Anna%20what%20you%20are%20navigating.",
+          "page": "Services",
+          "section": "Built around the people in front of us",
+          "href": "../services/#flexible-approach",
           "kind": "Interface"
         }
       ],
-      "name": "Soft blue",
+      "name": "Deep purple",
+      "family": "Purples & pinks",
       "group": "Interface"
     },
     {
-      "hex": "#7B4C7C",
+      "hex": "#EDF1F5",
       "uses": [
         {
-          "page": "In-house workshops",
-          "section": "In-house resilience workshops",
-          "href": "../services/in-house-workshops/#:~:text=In-house%20resilience%20workshops",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Blue",
-      "group": "Interface"
-    },
-    {
-      "hex": "#D4A3CF",
-      "uses": [
-        {
-          "page": "Contact",
-          "section": "Tell Anna what you are navigating.",
-          "href": "../contact/#:~:text=Tell%20Anna%20what%20you%20are%20navigating.",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Soft purple",
-      "group": "Interface"
-    },
-    {
-      "hex": "#FAF0F7",
-      "uses": [
-        {
-          "page": "Resources",
-          "section": "Books and resources",
-          "href": "../resources/#:~:text=Books%20and%20resources",
-          "kind": "Interface"
+          "page": "About",
+          "section": "Meet Anna Brown",
+          "href": "../about/#anna-story",
+          "kind": "Artwork"
         }
       ],
       "name": "Light grey",
-      "group": "Interface"
-    },
-    {
-      "hex": "#C98FB6",
-      "uses": [
-        {
-          "page": "Resources",
-          "section": "Books and resources",
-          "href": "../resources/#:~:text=Books%20and%20resources",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Soft purple",
-      "group": "Interface"
-    },
-    {
-      "hex": "#A84B85",
-      "uses": [
-        {
-          "page": "Resources",
-          "section": "Books and resources",
-          "href": "../resources/#:~:text=Books%20and%20resources",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Purple",
-      "group": "Interface"
-    },
-    {
-      "hex": "#CD6666",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Coral",
+      "family": "Neutrals",
       "group": "Artwork"
     },
     {
-      "hex": "#DF7B7B",
+      "hex": "#EAF1ED",
       "uses": [
-        {
-          "page": "Home",
-          "section": "Something useful to take with you.",
-          "href": "../#:~:text=Something%20useful%20to%20take%20with%20you.",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Coral",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#E88484",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Coral",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#ED6969",
-      "uses": [
-        {
-          "page": "In-house workshops",
-          "section": "Stronger direction in demanding work",
-          "href": "../services/in-house-workshops/#workshop-support",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Coral",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#D66C6B",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Coral",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#E18483",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Something useful to take with you.",
-          "href": "../#:~:text=Something%20useful%20to%20take%20with%20you.",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Coral",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#ED6967",
-      "uses": [
-        {
-          "page": "In-house workshops",
-          "section": "Stronger direction in demanding work",
-          "href": "../services/in-house-workshops/#workshop-support",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Coral",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#FB7976",
-      "uses": [
-        {
-          "page": "In-house workshops",
-          "section": "Stronger direction in demanding work",
-          "href": "../services/in-house-workshops/#workshop-support",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Coral",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#F97976",
-      "uses": [
-        {
-          "page": "In-house workshops",
-          "section": "Stronger direction in demanding work",
-          "href": "../services/in-house-workshops/#workshop-support",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Coral",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#FF8580",
-      "uses": [
-        {
-          "page": "In-house workshops",
-          "section": "Stronger direction in demanding work",
-          "href": "../services/in-house-workshops/#workshop-support",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Coral",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#FDC7C2",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Soft coral",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#FFB7B0",
-      "uses": [
-        {
-          "page": "In-house workshops",
-          "section": "Stronger direction in demanding work",
-          "href": "../services/in-house-workshops/#workshop-support",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Soft coral",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#FDCDC8",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Soft coral",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#FFC3BA",
-      "uses": [
-        {
-          "page": "In-house workshops",
-          "section": "Stronger direction in demanding work",
-          "href": "../services/in-house-workshops/#workshop-support",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Soft coral",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#FA927F",
-      "uses": [
-        {
-          "page": "About",
-          "section": "Navigation",
-          "href": "../about/#page-top",
-          "kind": "Artwork"
-        },
         {
           "page": "About",
           "section": "Meet Anna Brown",
@@ -1414,552 +1057,36 @@
           "kind": "Artwork"
         }
       ],
-      "name": "Coral",
+      "name": "Light grey",
+      "family": "Neutrals",
       "group": "Artwork"
     },
     {
-      "hex": "#CA5020",
+      "hex": "#E8E8E4",
       "uses": [
         {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "page": "Support training",
+          "section": "Practical across helping roles",
+          "href": "../services/workshops-for-support-professionals/#:~:text=Practical%20across%20helping%20roles",
           "kind": "Artwork"
         }
       ],
-      "name": "Coral",
+      "name": "Light grey",
+      "family": "Neutrals",
       "group": "Artwork"
     },
     {
-      "hex": "#D15522",
+      "hex": "#B4B8B3",
       "uses": [
         {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "page": "Support training",
+          "section": "Practical across helping roles",
+          "href": "../services/workshops-for-support-professionals/#:~:text=Practical%20across%20helping%20roles",
           "kind": "Artwork"
         }
       ],
-      "name": "Coral",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#F78C5B",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Coral",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#F99056",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Coral",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#BD5519",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Coral",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#F58F51",
-      "uses": [
-        {
-          "page": "About",
-          "section": "Navigation",
-          "href": "../about/#page-top",
-          "kind": "Artwork"
-        },
-        {
-          "page": "About",
-          "section": "Meet Anna Brown",
-          "href": "../about/#anna-story",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Coral",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#D37D48",
-      "uses": [
-        {
-          "page": "About",
-          "section": "Navigation",
-          "href": "../about/#page-top",
-          "kind": "Artwork"
-        },
-        {
-          "page": "About",
-          "section": "Meet Anna Brown",
-          "href": "../about/#anna-story",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Coral",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#B85B21",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Coral",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#C45B19",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Coral",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#D26723",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Coral",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#C9601D",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Coral",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#F68A44",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Coral",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#D16823",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Coral",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#C8621E",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Coral",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#FB9249",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Coral",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#FC964B",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Coral",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#FC974C",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Coral",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#FD9E57",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Coral",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#FF9C52",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Something useful to take with you.",
-          "href": "../#:~:text=Something%20useful%20to%20take%20with%20you.",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Coral",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#FF9E54",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Coral",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#FDA865",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Coral",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#FDB275",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Coral",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#FDB67B",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Coral",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#FDBB84",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Coral",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#FDB476",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Coral",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#FDB46F",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Coral",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#FCD4AC",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Soft orange",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#FFC183",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Something useful to take with you.",
-          "href": "../#:~:text=Something%20useful%20to%20take%20with%20you.",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Orange",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#FFC080",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Something useful to take with you.",
-          "href": "../#:~:text=Something%20useful%20to%20take%20with%20you.",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Orange",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#FFB76D",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Something useful to take with you.",
-          "href": "../#:~:text=Something%20useful%20to%20take%20with%20you.",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Orange",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#FFD3A5",
-      "uses": [
-        {
-          "page": "In-house workshops",
-          "section": "Stronger direction in demanding work",
-          "href": "../services/in-house-workshops/#workshop-support",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Orange",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#FDD8B1",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Soft orange",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#FCD8B2",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Soft orange",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#FDC78E",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Orange",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#FFBD76",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Something useful to take with you.",
-          "href": "../#:~:text=Something%20useful%20to%20take%20with%20you.",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Orange",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#FCD6AD",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Soft orange",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#FDC78C",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Orange",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#F49B36",
-      "uses": [
-        {
-          "page": "In-house workshops",
-          "section": "Stronger direction in demanding work",
-          "href": "../services/in-house-workshops/#workshop-support",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Orange",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#FFDAB0",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Something useful to take with you.",
-          "href": "../#:~:text=Something%20useful%20to%20take%20with%20you.",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Soft orange",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#FFBE60",
-      "uses": [
-        {
-          "page": "In-house workshops",
-          "section": "Stronger direction in demanding work",
-          "href": "../services/in-house-workshops/#workshop-support",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Orange",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#FFE8C6",
-      "uses": [
-        {
-          "page": "In-house workshops",
-          "section": "Stronger direction in demanding work",
-          "href": "../services/in-house-workshops/#workshop-support",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Soft orange",
+      "name": "Mid grey",
+      "family": "Neutrals",
       "group": "Artwork"
     },
     {
@@ -2014,46 +1141,8 @@
           "kind": "Artwork"
         }
       ],
-      "name": "Light grey",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#F4F0E5",
-      "uses": [
-        {
-          "page": "About",
-          "section": "Meet Anna Brown",
-          "href": "../about/#anna-story",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Light grey",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#E9E4C4",
-      "uses": [
-        {
-          "page": "About",
-          "section": "Meet Anna Brown",
-          "href": "../about/#anna-story",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Soft orange",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#E8E8E4",
-      "uses": [
-        {
-          "page": "Support training",
-          "section": "Practical across helping roles",
-          "href": "../services/workshops-for-support-professionals/#:~:text=Practical%20across%20helping%20roles",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Light grey",
+      "name": "Pale orange",
+      "family": "Warm colours",
       "group": "Artwork"
     },
     {
@@ -2108,11 +1197,26 @@
           "kind": "Artwork"
         }
       ],
-      "name": "Light grey",
+      "name": "Pale gold",
+      "family": "Warm colours",
       "group": "Artwork"
     },
     {
-      "hex": "#B2B775",
+      "hex": "#F4F0E5",
+      "uses": [
+        {
+          "page": "About",
+          "section": "Meet Anna Brown",
+          "href": "../about/#anna-story",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Pale gold",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#FFE8C6",
       "uses": [
         {
           "page": "In-house workshops",
@@ -2121,7 +1225,204 @@
           "kind": "Artwork"
         }
       ],
-      "name": "Gold",
+      "name": "Pale orange",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#E9E4C4",
+      "uses": [
+        {
+          "page": "About",
+          "section": "Meet Anna Brown",
+          "href": "../about/#anna-story",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Pale gold",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#FFDAB0",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Something useful to take with you.",
+          "href": "../#:~:text=Something%20useful%20to%20take%20with%20you.",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Pale orange",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#FDD8B1",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Pale orange",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#FCD8B2",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Pale orange",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#FCD6AD",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Pale orange",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#FCD4AC",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Pale orange",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#FFD3A5",
+      "uses": [
+        {
+          "page": "In-house workshops",
+          "section": "Stronger direction in demanding work",
+          "href": "../services/in-house-workshops/#workshop-support",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Pale orange",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#FDCDC8",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Pale coral",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#FDC7C2",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Pale coral",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#FFC3BA",
+      "uses": [
+        {
+          "page": "In-house workshops",
+          "section": "Stronger direction in demanding work",
+          "href": "../services/in-house-workshops/#workshop-support",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Soft coral",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#FDC78E",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Orange",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#FDC78C",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Orange",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#FFC183",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Something useful to take with you.",
+          "href": "../#:~:text=Something%20useful%20to%20take%20with%20you.",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Orange",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#FFC080",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Something useful to take with you.",
+          "href": "../#:~:text=Something%20useful%20to%20take%20with%20you.",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Orange",
+      "family": "Warm colours",
       "group": "Artwork"
     },
     {
@@ -2135,10 +1436,39 @@
         }
       ],
       "name": "Soft gold",
+      "family": "Warm colours",
       "group": "Artwork"
     },
     {
-      "hex": "#B7BF77",
+      "hex": "#FDB9BC",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Soft coral",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#FFBD76",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Something useful to take with you.",
+          "href": "../#:~:text=Something%20useful%20to%20take%20with%20you.",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Orange",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#FFBE60",
       "uses": [
         {
           "page": "In-house workshops",
@@ -2147,7 +1477,218 @@
           "kind": "Artwork"
         }
       ],
-      "name": "Gold",
+      "name": "Orange",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#FFB7B0",
+      "uses": [
+        {
+          "page": "In-house workshops",
+          "section": "Stronger direction in demanding work",
+          "href": "../services/in-house-workshops/#workshop-support",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Soft coral",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#FDBB84",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Orange",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#FDB6BA",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Soft coral",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#FFB76D",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Something useful to take with you.",
+          "href": "../#:~:text=Something%20useful%20to%20take%20with%20you.",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Orange",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#FDB67B",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Orange",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#FDB476",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Orange",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#FDB46F",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Orange",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#FDADB3",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Soft coral",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#FDB275",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Orange",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#FDA9B0",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Soft coral",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#FBA8B5",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Something useful to take with you.",
+          "href": "../#:~:text=Something%20useful%20to%20take%20with%20you.",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Soft coral",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#FDA7B0",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Soft coral",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#FDA865",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Orange",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#F9A5A6",
+      "uses": [
+        {
+          "page": "In-house workshops",
+          "section": "Stronger direction in demanding work",
+          "href": "../services/in-house-workshops/#workshop-support",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Soft coral",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#FBA2AE",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Something useful to take with you.",
+          "href": "../#:~:text=Something%20useful%20to%20take%20with%20you.",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Coral",
+      "family": "Warm colours",
       "group": "Artwork"
     },
     {
@@ -2161,6 +1702,243 @@
         }
       ],
       "name": "Gold",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#B7BF77",
+      "uses": [
+        {
+          "page": "In-house workshops",
+          "section": "Stronger direction in demanding work",
+          "href": "../services/in-house-workshops/#workshop-support",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Gold",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#FF9E54",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Orange",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#FD9E57",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Orange",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#FF9C52",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Something useful to take with you.",
+          "href": "../#:~:text=Something%20useful%20to%20take%20with%20you.",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Orange",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#B2B775",
+      "uses": [
+        {
+          "page": "In-house workshops",
+          "section": "Stronger direction in demanding work",
+          "href": "../services/in-house-workshops/#workshop-support",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Gold",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#FA94A0",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Coral",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#FC974C",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Orange",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#FC964B",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Orange",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#F49B36",
+      "uses": [
+        {
+          "page": "In-house workshops",
+          "section": "Stronger direction in demanding work",
+          "href": "../services/in-house-workshops/#workshop-support",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Orange",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#FA927F",
+      "uses": [
+        {
+          "page": "About",
+          "section": "Navigation",
+          "href": "../about/#page-top",
+          "kind": "Artwork"
+        },
+        {
+          "page": "About",
+          "section": "Meet Anna Brown",
+          "href": "../about/#anna-story",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Coral",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#F49296",
+      "uses": [
+        {
+          "page": "In-house workshops",
+          "section": "Stronger direction in demanding work",
+          "href": "../services/in-house-workshops/#workshop-support",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Coral",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#FB9249",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Orange",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#F99056",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Orange",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#F78B91",
+      "uses": [
+        {
+          "page": "In-house workshops",
+          "section": "Stronger direction in demanding work",
+          "href": "../services/in-house-workshops/#workshop-support",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Coral",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#F58F51",
+      "uses": [
+        {
+          "page": "About",
+          "section": "Navigation",
+          "href": "../about/#page-top",
+          "kind": "Artwork"
+        },
+        {
+          "page": "About",
+          "section": "Meet Anna Brown",
+          "href": "../about/#anna-story",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Orange",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#FF8580",
+      "uses": [
+        {
+          "page": "In-house workshops",
+          "section": "Stronger direction in demanding work",
+          "href": "../services/in-house-workshops/#workshop-support",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Coral",
+      "family": "Warm colours",
       "group": "Artwork"
     },
     {
@@ -2174,23 +1952,53 @@
         }
       ],
       "name": "Gold",
+      "family": "Warm colours",
       "group": "Artwork"
     },
     {
-      "hex": "#C2CD8E",
+      "hex": "#F78C5B",
       "uses": [
         {
           "page": "Home",
-          "section": "Something useful to take with you.",
-          "href": "../#:~:text=Something%20useful%20to%20take%20with%20you.",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
           "kind": "Artwork"
         }
       ],
-      "name": "Soft gold",
+      "name": "Orange",
+      "family": "Warm colours",
       "group": "Artwork"
     },
     {
-      "hex": "#A1AF65",
+      "hex": "#F68A44",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Orange",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#E98889",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Coral",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#FB7976",
       "uses": [
         {
           "page": "In-house workshops",
@@ -2199,11 +2007,12 @@
           "kind": "Artwork"
         }
       ],
-      "name": "Gold",
+      "name": "Coral",
+      "family": "Warm colours",
       "group": "Artwork"
     },
     {
-      "hex": "#B7C28C",
+      "hex": "#E88484",
       "uses": [
         {
           "page": "Home",
@@ -2212,115 +2021,12 @@
           "kind": "Artwork"
         }
       ],
-      "name": "Soft gold",
+      "name": "Coral",
+      "family": "Warm colours",
       "group": "Artwork"
     },
     {
-      "hex": "#B0BA89",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Soft gold",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#D9DFC2",
-      "uses": [
-        {
-          "page": "About",
-          "section": "Meet Anna Brown",
-          "href": "../about/#anna-story",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Soft gold",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#E1E6CE",
-      "uses": [
-        {
-          "page": "About",
-          "section": "Meet Anna Brown",
-          "href": "../about/#anna-story",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Soft gold",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#B0BB88",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Soft gold",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#A6B27F",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Soft gold",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#A5B674",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Something useful to take with you.",
-          "href": "../#:~:text=Something%20useful%20to%20take%20with%20you.",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Gold",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#9EAE72",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Something useful to take with you.",
-          "href": "../#:~:text=Something%20useful%20to%20take%20with%20you.",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Soft gold",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#A4B57A",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Soft gold",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#869D54",
+      "hex": "#F97976",
       "uses": [
         {
           "page": "In-house workshops",
@@ -2329,11 +2035,26 @@
           "kind": "Artwork"
         }
       ],
-      "name": "Gold",
+      "name": "Coral",
+      "family": "Warm colours",
       "group": "Artwork"
     },
     {
-      "hex": "#8EA469",
+      "hex": "#E18483",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Something useful to take with you.",
+          "href": "../#:~:text=Something%20useful%20to%20take%20with%20you.",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Coral",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#E78083",
       "uses": [
         {
           "page": "Home",
@@ -2342,140 +2063,548 @@
           "kind": "Artwork"
         }
       ],
-      "name": "Gold",
+      "name": "Coral",
+      "family": "Warm colours",
       "group": "Artwork"
     },
     {
-      "hex": "#8DA467",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Gold",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#8EA568",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Gold",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#869570",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Soft gold",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#808F6C",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Soft gold",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#E4EADE",
+      "hex": "#D98788",
       "uses": [
         {
           "page": "About",
-          "section": "Meet Anna Brown",
-          "href": "../about/#anna-story",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Light grey",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#E1E8DC",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Bring the model into your organisation",
-          "href": "../#:~:text=Bring%20the%20model%20into%20your%20organisation",
+          "section": "Navigation",
+          "href": "../about/#page-top",
           "kind": "Artwork"
         },
         {
           "page": "About",
-          "section": "Help bring Hoea tō Waka to more people",
-          "href": "../about/#:~:text=Help%20bring%20Hoea%20t%C5%8D%20Waka%20to%20more%20people",
+          "section": "Meet Anna Brown",
+          "href": "../about/#anna-story",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Coral",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#E67E7F",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Coral",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#ED777E",
+      "uses": [
+        {
+          "page": "In-house workshops",
+          "section": "Stronger direction in demanding work",
+          "href": "../services/in-house-workshops/#workshop-support",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Coral",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#DF7B7B",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Something useful to take with you.",
+          "href": "../#:~:text=Something%20useful%20to%20take%20with%20you.",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Coral",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#ED6969",
+      "uses": [
+        {
+          "page": "In-house workshops",
+          "section": "Stronger direction in demanding work",
+          "href": "../services/in-house-workshops/#workshop-support",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Coral",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#ED6967",
+      "uses": [
+        {
+          "page": "In-house workshops",
+          "section": "Stronger direction in demanding work",
+          "href": "../services/in-house-workshops/#workshop-support",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Coral",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#D37D48",
+      "uses": [
+        {
+          "page": "About",
+          "section": "Navigation",
+          "href": "../about/#page-top",
+          "kind": "Artwork"
+        },
+        {
+          "page": "About",
+          "section": "Meet Anna Brown",
+          "href": "../about/#anna-story",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Orange",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#D37685",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Coral",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#DC7172",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Coral",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#D17484",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Coral",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#D66C6B",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Coral",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#D96773",
+      "uses": [
+        {
+          "page": "About",
+          "section": "Navigation",
+          "href": "../about/#page-top",
+          "kind": "Artwork"
+        },
+        {
+          "page": "About",
+          "section": "Meet Anna Brown",
+          "href": "../about/#anna-story",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Coral",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#D16823",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Orange",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#D26723",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Orange",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#CD6666",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Coral",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#FF0033",
+      "uses": [
+        {
+          "page": "Resources",
+          "section": "Carry the ideas through music",
+          "href": "../resources/#resource-videos",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Coral",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#D95053",
+      "uses": [
+        {
+          "page": "In-house workshops",
+          "section": "Stronger direction in demanding work",
+          "href": "../services/in-house-workshops/#workshop-support",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Coral",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#C8621E",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Orange",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#C9601D",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Orange",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#D15522",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Coral",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#C65761",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Something useful to take with you.",
+          "href": "../#:~:text=Something%20useful%20to%20take%20with%20you.",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Coral",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#C45B19",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Orange",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#CA5020",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Coral",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#B85B21",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Orange",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#BD515C",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Something useful to take with you.",
+          "href": "../#:~:text=Something%20useful%20to%20take%20with%20you.",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Coral",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#BD5519",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Orange",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#B7555A",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Coral",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#D72E38",
+      "uses": [
+        {
+          "page": "Services",
+          "section": "Built around the people in front of us",
+          "href": "../services/#flexible-approach",
+          "kind": "Artwork"
+        },
+        {
+          "page": "In-house workshops",
+          "section": "Stronger direction in demanding work",
+          "href": "../services/in-house-workshops/#workshop-support",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Coral",
+      "family": "Warm colours",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#CC142B",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Navigation",
+          "href": "../#page-top",
+          "kind": "Artwork"
+        },
+        {
+          "page": "About",
+          "section": "Navigation",
+          "href": "../about/#page-top",
           "kind": "Artwork"
         },
         {
           "page": "Model",
-          "section": "Bring the model into your organisation",
-          "href": "../model/#:~:text=Bring%20the%20model%20into%20your%20organisation",
+          "section": "Navigation",
+          "href": "../model/#page-top",
           "kind": "Artwork"
         },
         {
           "page": "Services",
-          "section": "Bring the model into your organisation",
-          "href": "../services/#:~:text=Bring%20the%20model%20into%20your%20organisation",
+          "section": "Navigation",
+          "href": "../services/#page-top",
           "kind": "Artwork"
         },
         {
           "page": "In-house workshops",
-          "section": "Plan a workshop around your team",
-          "href": "../services/in-house-workshops/#:~:text=Plan%20a%20workshop%20around%20your%20team",
+          "section": "Navigation",
+          "href": "../services/in-house-workshops/#page-top",
           "kind": "Artwork"
         },
         {
           "page": "Individual coaching",
-          "section": "Give someone room to find direction",
-          "href": "../services/resilience-one-on-one/#:~:text=Give%20someone%20room%20to%20find%20direction",
+          "section": "Navigation",
+          "href": "../services/resilience-one-on-one/#page-top",
           "kind": "Artwork"
         },
         {
           "page": "Support training",
-          "section": "Shape training for your practice setting",
-          "href": "../services/workshops-for-support-professionals/#:~:text=Shape%20training%20for%20your%20practice%20setting",
+          "section": "Navigation",
+          "href": "../services/workshops-for-support-professionals/#page-top",
           "kind": "Artwork"
         },
         {
           "page": "Resources",
-          "section": "Need a resource for your team or class?",
-          "href": "../resources/#:~:text=Need%20a%20resource%20for%20your%20team%20or%20class%3F",
+          "section": "Navigation",
+          "href": "../resources/#page-top",
+          "kind": "Artwork"
+        },
+        {
+          "page": "Contact",
+          "section": "Navigation",
+          "href": "../contact/#page-top",
           "kind": "Artwork"
         }
       ],
-      "name": "Light grey",
+      "name": "Coral",
+      "family": "Warm colours",
       "group": "Artwork"
     },
     {
-      "hex": "#B4B8B3",
+      "hex": "#C8102E",
       "uses": [
         {
+          "page": "Home",
+          "section": "Navigation",
+          "href": "../#page-top",
+          "kind": "Artwork"
+        },
+        {
+          "page": "About",
+          "section": "Navigation",
+          "href": "../about/#page-top",
+          "kind": "Artwork"
+        },
+        {
+          "page": "Model",
+          "section": "Navigation",
+          "href": "../model/#page-top",
+          "kind": "Artwork"
+        },
+        {
+          "page": "Services",
+          "section": "Navigation",
+          "href": "../services/#page-top",
+          "kind": "Artwork"
+        },
+        {
+          "page": "In-house workshops",
+          "section": "Navigation",
+          "href": "../services/in-house-workshops/#page-top",
+          "kind": "Artwork"
+        },
+        {
+          "page": "Individual coaching",
+          "section": "Navigation",
+          "href": "../services/resilience-one-on-one/#page-top",
+          "kind": "Artwork"
+        },
+        {
           "page": "Support training",
-          "section": "Practical across helping roles",
-          "href": "../services/workshops-for-support-professionals/#:~:text=Practical%20across%20helping%20roles",
+          "section": "Navigation",
+          "href": "../services/workshops-for-support-professionals/#page-top",
+          "kind": "Artwork"
+        },
+        {
+          "page": "Resources",
+          "section": "Navigation",
+          "href": "../resources/#page-top",
+          "kind": "Artwork"
+        },
+        {
+          "page": "Contact",
+          "section": "Navigation",
+          "href": "../contact/#page-top",
           "kind": "Artwork"
         }
       ],
-      "name": "Light grey",
+      "name": "Coral",
+      "family": "Warm colours",
       "group": "Artwork"
     },
     {
@@ -2530,37 +2659,12 @@
           "kind": "Artwork"
         }
       ],
-      "name": "Light grey",
+      "name": "Pale green",
+      "family": "Greens",
       "group": "Artwork"
     },
     {
-      "hex": "#344A3A",
-      "uses": [
-        {
-          "page": "Individual coaching",
-          "section": "Personal, clear, and relevant",
-          "href": "../services/resilience-one-on-one/#how-it-works",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Deep green",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#646C67",
-      "uses": [
-        {
-          "page": "Support training",
-          "section": "Practical across helping roles",
-          "href": "../services/workshops-for-support-professionals/#:~:text=Practical%20across%20helping%20roles",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Mid grey",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#EAF1ED",
+      "hex": "#E4EADE",
       "uses": [
         {
           "page": "About",
@@ -2569,362 +2673,12 @@
           "kind": "Artwork"
         }
       ],
-      "name": "Light grey",
+      "name": "Pale green",
+      "family": "Greens",
       "group": "Artwork"
     },
     {
-      "hex": "#404944",
-      "uses": [
-        {
-          "page": "Support training",
-          "section": "Practical across helping roles",
-          "href": "../services/workshops-for-support-professionals/#:~:text=Practical%20across%20helping%20roles",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Deep green",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#58635D",
-      "uses": [
-        {
-          "page": "Support training",
-          "section": "Practical across helping roles",
-          "href": "../services/workshops-for-support-professionals/#:~:text=Practical%20across%20helping%20roles",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Soft green",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#21614D",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Green",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#195947",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Deep green",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#016D54",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Green",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#016C54",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Green",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#0F5344",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Deep green",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#114D41",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Deep green",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#526B68",
-      "uses": [
-        {
-          "page": "About",
-          "section": "Meet Anna Brown",
-          "href": "../about/#anna-story",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Soft green",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#459DA5",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Something useful to take with you.",
-          "href": "../#:~:text=Something%20useful%20to%20take%20with%20you.",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Teal",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#247D86",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Something useful to take with you.",
-          "href": "../#:~:text=Something%20useful%20to%20take%20with%20you.",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Teal",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#287E87",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Something useful to take with you.",
-          "href": "../#:~:text=Something%20useful%20to%20take%20with%20you.",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Teal",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#297F88",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Teal",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#297F89",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Something useful to take with you.",
-          "href": "../#:~:text=Something%20useful%20to%20take%20with%20you.",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Teal",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#1D747F",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Teal",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#105A67",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Teal",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#0E5562",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Teal",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#03475E",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Something useful to take with you.",
-          "href": "../#:~:text=Something%20useful%20to%20take%20with%20you.",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Deep teal",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#043D51",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Deep teal",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#063E53",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Something useful to take with you.",
-          "href": "../#:~:text=Something%20useful%20to%20take%20with%20you.",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Deep teal",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#02364A",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Deep teal",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#D3EAF3",
-      "uses": [
-        {
-          "page": "About",
-          "section": "Meet Anna Brown",
-          "href": "../about/#anna-story",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Soft teal",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#0B3B57",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Deep teal",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#0D3C59",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Deep teal",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#386B9E",
-      "uses": [
-        {
-          "page": "About",
-          "section": "Meet Anna Brown",
-          "href": "../about/#anna-story",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Teal",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#EDF1F5",
-      "uses": [
-        {
-          "page": "About",
-          "section": "Meet Anna Brown",
-          "href": "../about/#anna-story",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Light grey",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#22578F",
-      "uses": [
-        {
-          "page": "About",
-          "section": "Meet Anna Brown",
-          "href": "../about/#anna-story",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Teal",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#061628",
+      "hex": "#E1E8DC",
       "uses": [
         {
           "page": "Home",
@@ -2975,7 +2729,666 @@
           "kind": "Artwork"
         }
       ],
-      "name": "Night-sky navy",
+      "name": "Pale green",
+      "family": "Greens",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#E1E6CE",
+      "uses": [
+        {
+          "page": "About",
+          "section": "Meet Anna Brown",
+          "href": "../about/#anna-story",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Pale green",
+      "family": "Greens",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#D9DFC2",
+      "uses": [
+        {
+          "page": "About",
+          "section": "Meet Anna Brown",
+          "href": "../about/#anna-story",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Pale green",
+      "family": "Greens",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#C2CD8E",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Something useful to take with you.",
+          "href": "../#:~:text=Something%20useful%20to%20take%20with%20you.",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Soft green",
+      "family": "Greens",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#B7C28C",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Soft green",
+      "family": "Greens",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#B0BB88",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Soft green",
+      "family": "Greens",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#B0BA89",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Soft green",
+      "family": "Greens",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#A5B674",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Something useful to take with you.",
+          "href": "../#:~:text=Something%20useful%20to%20take%20with%20you.",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Green",
+      "family": "Greens",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#A4B57A",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Soft green",
+      "family": "Greens",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#A6B27F",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Soft green",
+      "family": "Greens",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#A1AF65",
+      "uses": [
+        {
+          "page": "In-house workshops",
+          "section": "Stronger direction in demanding work",
+          "href": "../services/in-house-workshops/#workshop-support",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Green",
+      "family": "Greens",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#9EAE72",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Something useful to take with you.",
+          "href": "../#:~:text=Something%20useful%20to%20take%20with%20you.",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Soft green",
+      "family": "Greens",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#8EA568",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Green",
+      "family": "Greens",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#8EA469",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Green",
+      "family": "Greens",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#8DA467",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Green",
+      "family": "Greens",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#869D54",
+      "uses": [
+        {
+          "page": "In-house workshops",
+          "section": "Stronger direction in demanding work",
+          "href": "../services/in-house-workshops/#workshop-support",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Green",
+      "family": "Greens",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#869570",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Soft green",
+      "family": "Greens",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#808F6C",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Soft green",
+      "family": "Greens",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#646C67",
+      "uses": [
+        {
+          "page": "Support training",
+          "section": "Practical across helping roles",
+          "href": "../services/workshops-for-support-professionals/#:~:text=Practical%20across%20helping%20roles",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Soft green",
+      "family": "Greens",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#58635D",
+      "uses": [
+        {
+          "page": "Support training",
+          "section": "Practical across helping roles",
+          "href": "../services/workshops-for-support-professionals/#:~:text=Practical%20across%20helping%20roles",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Soft green",
+      "family": "Greens",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#21614D",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Green",
+      "family": "Greens",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#195947",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Deep green",
+      "family": "Greens",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#404944",
+      "uses": [
+        {
+          "page": "Support training",
+          "section": "Practical across helping roles",
+          "href": "../services/workshops-for-support-professionals/#:~:text=Practical%20across%20helping%20roles",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Deep green",
+      "family": "Greens",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#344A3A",
+      "uses": [
+        {
+          "page": "Individual coaching",
+          "section": "Personal, clear, and relevant",
+          "href": "../services/resilience-one-on-one/#how-it-works",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Deep green",
+      "family": "Greens",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#D3EAF3",
+      "uses": [
+        {
+          "page": "About",
+          "section": "Meet Anna Brown",
+          "href": "../about/#anna-story",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Pale teal",
+      "family": "Teals",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#459DA5",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Something useful to take with you.",
+          "href": "../#:~:text=Something%20useful%20to%20take%20with%20you.",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Teal",
+      "family": "Teals",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#297F89",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Something useful to take with you.",
+          "href": "../#:~:text=Something%20useful%20to%20take%20with%20you.",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Teal",
+      "family": "Teals",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#297F88",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Teal",
+      "family": "Teals",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#287E87",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Something useful to take with you.",
+          "href": "../#:~:text=Something%20useful%20to%20take%20with%20you.",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Teal",
+      "family": "Teals",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#247D86",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Something useful to take with you.",
+          "href": "../#:~:text=Something%20useful%20to%20take%20with%20you.",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Teal",
+      "family": "Teals",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#1D747F",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Teal",
+      "family": "Teals",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#526B68",
+      "uses": [
+        {
+          "page": "About",
+          "section": "Meet Anna Brown",
+          "href": "../about/#anna-story",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Soft teal",
+      "family": "Teals",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#016D54",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Teal",
+      "family": "Teals",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#016C54",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Teal",
+      "family": "Teals",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#105A67",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Teal",
+      "family": "Teals",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#0E5562",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Deep teal",
+      "family": "Teals",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#0F5344",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Deep teal",
+      "family": "Teals",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#114D41",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Deep teal",
+      "family": "Teals",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#03475E",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Something useful to take with you.",
+          "href": "../#:~:text=Something%20useful%20to%20take%20with%20you.",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Deep teal",
+      "family": "Teals",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#063E53",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Something useful to take with you.",
+          "href": "../#:~:text=Something%20useful%20to%20take%20with%20you.",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Deep teal",
+      "family": "Teals",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#043D51",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Deep teal",
+      "family": "Teals",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#02364A",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Deep teal",
+      "family": "Teals",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#DCE9FB",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Bring the model into your organisation",
+          "href": "../#:~:text=Bring%20the%20model%20into%20your%20organisation",
+          "kind": "Artwork"
+        },
+        {
+          "page": "About",
+          "section": "Help bring Hoea tō Waka to more people",
+          "href": "../about/#:~:text=Help%20bring%20Hoea%20t%C5%8D%20Waka%20to%20more%20people",
+          "kind": "Artwork"
+        },
+        {
+          "page": "Model",
+          "section": "Bring the model into your organisation",
+          "href": "../model/#:~:text=Bring%20the%20model%20into%20your%20organisation",
+          "kind": "Artwork"
+        },
+        {
+          "page": "Services",
+          "section": "Bring the model into your organisation",
+          "href": "../services/#:~:text=Bring%20the%20model%20into%20your%20organisation",
+          "kind": "Artwork"
+        },
+        {
+          "page": "In-house workshops",
+          "section": "Plan a workshop around your team",
+          "href": "../services/in-house-workshops/#:~:text=Plan%20a%20workshop%20around%20your%20team",
+          "kind": "Artwork"
+        },
+        {
+          "page": "Individual coaching",
+          "section": "Give someone room to find direction",
+          "href": "../services/resilience-one-on-one/#:~:text=Give%20someone%20room%20to%20find%20direction",
+          "kind": "Artwork"
+        },
+        {
+          "page": "Support training",
+          "section": "Shape training for your practice setting",
+          "href": "../services/workshops-for-support-professionals/#:~:text=Shape%20training%20for%20your%20practice%20setting",
+          "kind": "Artwork"
+        },
+        {
+          "page": "Resources",
+          "section": "Need a resource for your team or class?",
+          "href": "../resources/#:~:text=Need%20a%20resource%20for%20your%20team%20or%20class%3F",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Pale blue",
+      "family": "Blues",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#386B9E",
+      "uses": [
+        {
+          "page": "About",
+          "section": "Meet Anna Brown",
+          "href": "../about/#anna-story",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Blue",
+      "family": "Blues",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#22578F",
+      "uses": [
+        {
+          "page": "About",
+          "section": "Meet Anna Brown",
+          "href": "../about/#anna-story",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Blue",
+      "family": "Blues",
       "group": "Artwork"
     },
     {
@@ -3037,122 +3450,35 @@
         }
       ],
       "name": "Ocean blue",
+      "family": "Blues",
       "group": "Artwork"
     },
     {
-      "hex": "#DCE9FB",
+      "hex": "#0D3C59",
       "uses": [
         {
           "page": "Home",
-          "section": "Bring the model into your organisation",
-          "href": "../#:~:text=Bring%20the%20model%20into%20your%20organisation",
-          "kind": "Artwork"
-        },
-        {
-          "page": "About",
-          "section": "Help bring Hoea tō Waka to more people",
-          "href": "../about/#:~:text=Help%20bring%20Hoea%20t%C5%8D%20Waka%20to%20more%20people",
-          "kind": "Artwork"
-        },
-        {
-          "page": "Model",
-          "section": "Bring the model into your organisation",
-          "href": "../model/#:~:text=Bring%20the%20model%20into%20your%20organisation",
-          "kind": "Artwork"
-        },
-        {
-          "page": "Services",
-          "section": "Bring the model into your organisation",
-          "href": "../services/#:~:text=Bring%20the%20model%20into%20your%20organisation",
-          "kind": "Artwork"
-        },
-        {
-          "page": "In-house workshops",
-          "section": "Plan a workshop around your team",
-          "href": "../services/in-house-workshops/#:~:text=Plan%20a%20workshop%20around%20your%20team",
-          "kind": "Artwork"
-        },
-        {
-          "page": "Individual coaching",
-          "section": "Give someone room to find direction",
-          "href": "../services/resilience-one-on-one/#:~:text=Give%20someone%20room%20to%20find%20direction",
-          "kind": "Artwork"
-        },
-        {
-          "page": "Support training",
-          "section": "Shape training for your practice setting",
-          "href": "../services/workshops-for-support-professionals/#:~:text=Shape%20training%20for%20your%20practice%20setting",
-          "kind": "Artwork"
-        },
-        {
-          "page": "Resources",
-          "section": "Need a resource for your team or class?",
-          "href": "../resources/#:~:text=Need%20a%20resource%20for%20your%20team%20or%20class%3F",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
           "kind": "Artwork"
         }
       ],
-      "name": "Soft teal",
+      "name": "Deep blue",
+      "family": "Blues",
       "group": "Artwork"
     },
     {
-      "hex": "#012169",
+      "hex": "#0B3B57",
       "uses": [
         {
           "page": "Home",
-          "section": "Navigation",
-          "href": "../#page-top",
-          "kind": "Artwork"
-        },
-        {
-          "page": "About",
-          "section": "Navigation",
-          "href": "../about/#page-top",
-          "kind": "Artwork"
-        },
-        {
-          "page": "Model",
-          "section": "Navigation",
-          "href": "../model/#page-top",
-          "kind": "Artwork"
-        },
-        {
-          "page": "Services",
-          "section": "Navigation",
-          "href": "../services/#page-top",
-          "kind": "Artwork"
-        },
-        {
-          "page": "In-house workshops",
-          "section": "Navigation",
-          "href": "../services/in-house-workshops/#page-top",
-          "kind": "Artwork"
-        },
-        {
-          "page": "Individual coaching",
-          "section": "Navigation",
-          "href": "../services/resilience-one-on-one/#page-top",
-          "kind": "Artwork"
-        },
-        {
-          "page": "Support training",
-          "section": "Navigation",
-          "href": "../services/workshops-for-support-professionals/#page-top",
-          "kind": "Artwork"
-        },
-        {
-          "page": "Resources",
-          "section": "Navigation",
-          "href": "../resources/#page-top",
-          "kind": "Artwork"
-        },
-        {
-          "page": "Contact",
-          "section": "Navigation",
-          "href": "../contact/#page-top",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
           "kind": "Artwork"
         }
       ],
-      "name": "Teal",
+      "name": "Deep blue",
+      "family": "Blues",
       "group": "Artwork"
     },
     {
@@ -3213,20 +3539,126 @@
           "kind": "Artwork"
         }
       ],
-      "name": "Teal",
+      "name": "Deep blue",
+      "family": "Blues",
       "group": "Artwork"
     },
     {
-      "hex": "#30283F",
+      "hex": "#012169",
       "uses": [
         {
+          "page": "Home",
+          "section": "Navigation",
+          "href": "../#page-top",
+          "kind": "Artwork"
+        },
+        {
+          "page": "About",
+          "section": "Navigation",
+          "href": "../about/#page-top",
+          "kind": "Artwork"
+        },
+        {
+          "page": "Model",
+          "section": "Navigation",
+          "href": "../model/#page-top",
+          "kind": "Artwork"
+        },
+        {
+          "page": "Services",
+          "section": "Navigation",
+          "href": "../services/#page-top",
+          "kind": "Artwork"
+        },
+        {
+          "page": "In-house workshops",
+          "section": "Navigation",
+          "href": "../services/in-house-workshops/#page-top",
+          "kind": "Artwork"
+        },
+        {
           "page": "Individual coaching",
-          "section": "Personal, clear, and relevant",
-          "href": "../services/resilience-one-on-one/#how-it-works",
+          "section": "Navigation",
+          "href": "../services/resilience-one-on-one/#page-top",
+          "kind": "Artwork"
+        },
+        {
+          "page": "Support training",
+          "section": "Navigation",
+          "href": "../services/workshops-for-support-professionals/#page-top",
+          "kind": "Artwork"
+        },
+        {
+          "page": "Resources",
+          "section": "Navigation",
+          "href": "../resources/#page-top",
+          "kind": "Artwork"
+        },
+        {
+          "page": "Contact",
+          "section": "Navigation",
+          "href": "../contact/#page-top",
           "kind": "Artwork"
         }
       ],
       "name": "Deep blue",
+      "family": "Blues",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#061628",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Bring the model into your organisation",
+          "href": "../#:~:text=Bring%20the%20model%20into%20your%20organisation",
+          "kind": "Artwork"
+        },
+        {
+          "page": "About",
+          "section": "Help bring Hoea tō Waka to more people",
+          "href": "../about/#:~:text=Help%20bring%20Hoea%20t%C5%8D%20Waka%20to%20more%20people",
+          "kind": "Artwork"
+        },
+        {
+          "page": "Model",
+          "section": "Bring the model into your organisation",
+          "href": "../model/#:~:text=Bring%20the%20model%20into%20your%20organisation",
+          "kind": "Artwork"
+        },
+        {
+          "page": "Services",
+          "section": "Bring the model into your organisation",
+          "href": "../services/#:~:text=Bring%20the%20model%20into%20your%20organisation",
+          "kind": "Artwork"
+        },
+        {
+          "page": "In-house workshops",
+          "section": "Plan a workshop around your team",
+          "href": "../services/in-house-workshops/#:~:text=Plan%20a%20workshop%20around%20your%20team",
+          "kind": "Artwork"
+        },
+        {
+          "page": "Individual coaching",
+          "section": "Give someone room to find direction",
+          "href": "../services/resilience-one-on-one/#:~:text=Give%20someone%20room%20to%20find%20direction",
+          "kind": "Artwork"
+        },
+        {
+          "page": "Support training",
+          "section": "Shape training for your practice setting",
+          "href": "../services/workshops-for-support-professionals/#:~:text=Shape%20training%20for%20your%20practice%20setting",
+          "kind": "Artwork"
+        },
+        {
+          "page": "Resources",
+          "section": "Need a resource for your team or class?",
+          "href": "../resources/#:~:text=Need%20a%20resource%20for%20your%20team%20or%20class%3F",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Night-sky navy",
+      "family": "Blues",
       "group": "Artwork"
     },
     {
@@ -3281,176 +3713,8 @@
           "kind": "Artwork"
         }
       ],
-      "name": "Soft blue",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#361D33",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Deep purple",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#3B1E35",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Deep purple",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#422139",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Deep purple",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#402037",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Deep purple",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#4C243C",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Deep purple",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#3B1E2F",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Deep purple",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#3D2031",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Deep purple",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#642D4B",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Something useful to take with you.",
-          "href": "../#:~:text=Something%20useful%20to%20take%20with%20you.",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Purple",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#442435",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Deep purple",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#592941",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Deep rose",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#66334C",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Rose",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#53263C",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Deep rose",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#602840",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Something useful to take with you.",
-          "href": "../#:~:text=Something%20useful%20to%20take%20with%20you.",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Deep rose",
+      "name": "Soft purple",
+      "family": "Purples & pinks",
       "group": "Artwork"
     },
     {
@@ -3469,24 +3733,12 @@
           "kind": "Artwork"
         }
       ],
-      "name": "Rose",
+      "name": "Pink",
+      "family": "Purples & pinks",
       "group": "Artwork"
     },
     {
-      "hex": "#FF0033",
-      "uses": [
-        {
-          "page": "Resources",
-          "section": "Carry the ideas through music",
-          "href": "../resources/#resource-videos",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Rose",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#D17484",
+      "hex": "#66334C",
       "uses": [
         {
           "page": "Home",
@@ -3495,72 +3747,124 @@
           "kind": "Artwork"
         }
       ],
-      "name": "Rose",
+      "name": "Deep pink",
+      "family": "Purples & pinks",
       "group": "Artwork"
     },
     {
-      "hex": "#C8102E",
+      "hex": "#642D4B",
       "uses": [
         {
           "page": "Home",
-          "section": "Navigation",
-          "href": "../#page-top",
+          "section": "Something useful to take with you.",
+          "href": "../#:~:text=Something%20useful%20to%20take%20with%20you.",
           "kind": "Artwork"
-        },
+        }
+      ],
+      "name": "Deep pink",
+      "family": "Purples & pinks",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#602840",
+      "uses": [
         {
-          "page": "About",
-          "section": "Navigation",
-          "href": "../about/#page-top",
+          "page": "Home",
+          "section": "Something useful to take with you.",
+          "href": "../#:~:text=Something%20useful%20to%20take%20with%20you.",
           "kind": "Artwork"
-        },
+        }
+      ],
+      "name": "Deep pink",
+      "family": "Purples & pinks",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#592941",
+      "uses": [
         {
-          "page": "Model",
-          "section": "Navigation",
-          "href": "../model/#page-top",
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
           "kind": "Artwork"
-        },
+        }
+      ],
+      "name": "Deep pink",
+      "family": "Purples & pinks",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#53263C",
+      "uses": [
         {
-          "page": "Services",
-          "section": "Navigation",
-          "href": "../services/#page-top",
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
           "kind": "Artwork"
-        },
+        }
+      ],
+      "name": "Deep pink",
+      "family": "Purples & pinks",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#4C243C",
+      "uses": [
         {
-          "page": "In-house workshops",
-          "section": "Navigation",
-          "href": "../services/in-house-workshops/#page-top",
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
           "kind": "Artwork"
-        },
+        }
+      ],
+      "name": "Deep pink",
+      "family": "Purples & pinks",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#442435",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Deep pink",
+      "family": "Purples & pinks",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#422139",
+      "uses": [
+        {
+          "page": "Home",
+          "section": "Hoea tō Waka",
+          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
+          "kind": "Artwork"
+        }
+      ],
+      "name": "Deep pink",
+      "family": "Purples & pinks",
+      "group": "Artwork"
+    },
+    {
+      "hex": "#30283F",
+      "uses": [
         {
           "page": "Individual coaching",
-          "section": "Navigation",
-          "href": "../services/resilience-one-on-one/#page-top",
-          "kind": "Artwork"
-        },
-        {
-          "page": "Support training",
-          "section": "Navigation",
-          "href": "../services/workshops-for-support-professionals/#page-top",
-          "kind": "Artwork"
-        },
-        {
-          "page": "Resources",
-          "section": "Navigation",
-          "href": "../resources/#page-top",
-          "kind": "Artwork"
-        },
-        {
-          "page": "Contact",
-          "section": "Navigation",
-          "href": "../contact/#page-top",
+          "section": "Personal, clear, and relevant",
+          "href": "../services/resilience-one-on-one/#how-it-works",
           "kind": "Artwork"
         }
       ],
-      "name": "Rose",
+      "name": "Deep purple",
+      "family": "Purples & pinks",
       "group": "Artwork"
     },
     {
-      "hex": "#D37685",
+      "hex": "#402037",
       "uses": [
         {
           "page": "Home",
@@ -3569,98 +3873,12 @@
           "kind": "Artwork"
         }
       ],
-      "name": "Rose",
+      "name": "Deep pink",
+      "family": "Purples & pinks",
       "group": "Artwork"
     },
     {
-      "hex": "#FBA8B5",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Something useful to take with you.",
-          "href": "../#:~:text=Something%20useful%20to%20take%20with%20you.",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Soft rose",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#FBA2AE",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Something useful to take with you.",
-          "href": "../#:~:text=Something%20useful%20to%20take%20with%20you.",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Rose",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#CC142B",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Navigation",
-          "href": "../#page-top",
-          "kind": "Artwork"
-        },
-        {
-          "page": "About",
-          "section": "Navigation",
-          "href": "../about/#page-top",
-          "kind": "Artwork"
-        },
-        {
-          "page": "Model",
-          "section": "Navigation",
-          "href": "../model/#page-top",
-          "kind": "Artwork"
-        },
-        {
-          "page": "Services",
-          "section": "Navigation",
-          "href": "../services/#page-top",
-          "kind": "Artwork"
-        },
-        {
-          "page": "In-house workshops",
-          "section": "Navigation",
-          "href": "../services/in-house-workshops/#page-top",
-          "kind": "Artwork"
-        },
-        {
-          "page": "Individual coaching",
-          "section": "Navigation",
-          "href": "../services/resilience-one-on-one/#page-top",
-          "kind": "Artwork"
-        },
-        {
-          "page": "Support training",
-          "section": "Navigation",
-          "href": "../services/workshops-for-support-professionals/#page-top",
-          "kind": "Artwork"
-        },
-        {
-          "page": "Resources",
-          "section": "Navigation",
-          "href": "../resources/#page-top",
-          "kind": "Artwork"
-        },
-        {
-          "page": "Contact",
-          "section": "Navigation",
-          "href": "../contact/#page-top",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Rose",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#FA94A0",
+      "hex": "#3D2031",
       "uses": [
         {
           "page": "Home",
@@ -3669,30 +3887,12 @@
           "kind": "Artwork"
         }
       ],
-      "name": "Rose",
+      "name": "Deep pink",
+      "family": "Purples & pinks",
       "group": "Artwork"
     },
     {
-      "hex": "#D96773",
-      "uses": [
-        {
-          "page": "About",
-          "section": "Navigation",
-          "href": "../about/#page-top",
-          "kind": "Artwork"
-        },
-        {
-          "page": "About",
-          "section": "Meet Anna Brown",
-          "href": "../about/#anna-story",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Rose",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#FDA7B0",
+      "hex": "#3B1E35",
       "uses": [
         {
           "page": "Home",
@@ -3701,37 +3901,12 @@
           "kind": "Artwork"
         }
       ],
-      "name": "Soft rose",
+      "name": "Deep pink",
+      "family": "Purples & pinks",
       "group": "Artwork"
     },
     {
-      "hex": "#BD515C",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Something useful to take with you.",
-          "href": "../#:~:text=Something%20useful%20to%20take%20with%20you.",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Rose",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#C65761",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Something useful to take with you.",
-          "href": "../#:~:text=Something%20useful%20to%20take%20with%20you.",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Rose",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#FDA9B0",
+      "hex": "#3B1E2F",
       "uses": [
         {
           "page": "Home",
@@ -3740,11 +3915,12 @@
           "kind": "Artwork"
         }
       ],
-      "name": "Soft rose",
+      "name": "Deep pink",
+      "family": "Purples & pinks",
       "group": "Artwork"
     },
     {
-      "hex": "#FDADB3",
+      "hex": "#361D33",
       "uses": [
         {
           "page": "Home",
@@ -3753,201 +3929,8 @@
           "kind": "Artwork"
         }
       ],
-      "name": "Soft rose",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#ED777E",
-      "uses": [
-        {
-          "page": "In-house workshops",
-          "section": "Stronger direction in demanding work",
-          "href": "../services/in-house-workshops/#workshop-support",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Rose",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#D72E38",
-      "uses": [
-        {
-          "page": "Services",
-          "section": "Built around the people in front of us",
-          "href": "../services/#flexible-approach",
-          "kind": "Artwork"
-        },
-        {
-          "page": "In-house workshops",
-          "section": "Stronger direction in demanding work",
-          "href": "../services/in-house-workshops/#workshop-support",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Rose",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#FDB6BA",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Soft rose",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#F78B91",
-      "uses": [
-        {
-          "page": "In-house workshops",
-          "section": "Stronger direction in demanding work",
-          "href": "../services/in-house-workshops/#workshop-support",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Rose",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#B7555A",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Rose",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#FDB9BC",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Soft rose",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#F49296",
-      "uses": [
-        {
-          "page": "In-house workshops",
-          "section": "Stronger direction in demanding work",
-          "href": "../services/in-house-workshops/#workshop-support",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Rose",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#E78083",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Rose",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#D95053",
-      "uses": [
-        {
-          "page": "In-house workshops",
-          "section": "Stronger direction in demanding work",
-          "href": "../services/in-house-workshops/#workshop-support",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Rose",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#D98788",
-      "uses": [
-        {
-          "page": "About",
-          "section": "Navigation",
-          "href": "../about/#page-top",
-          "kind": "Artwork"
-        },
-        {
-          "page": "About",
-          "section": "Meet Anna Brown",
-          "href": "../about/#anna-story",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Rose",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#F9A5A6",
-      "uses": [
-        {
-          "page": "In-house workshops",
-          "section": "Stronger direction in demanding work",
-          "href": "../services/in-house-workshops/#workshop-support",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Soft rose",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#E98889",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Rose",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#E67E7F",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Rose",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#DC7172",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Hoea tō Waka",
-          "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Rose",
+      "name": "Deep pink",
+      "family": "Purples & pinks",
       "group": "Artwork"
     }
   ]

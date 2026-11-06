@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-06",
+  "scope": "Near-duplicate interface colours from the colour testing audit; curated illustration colours and distinct gradient shades retained.",
+  "replacements": {
+    "#666666": "#6B7178",
+    "#737373": "#6B7178",
+    "#6B646E": "#6B7178",
+    "#E0E0E0": "#E3E1DD",
+    "#FBFAFC": "#FFFFFF",
+    "#1C5648": "#1C5C49",
+    "#006B55": "#016C53",
+    "#397D8F": "#267C86",
+    "#291C30": "#281A2C",
+    "#303D50": "#243A53",
+    "#19292D": "#102A39",
+    "#18253C": "#142044",
+    "#D5CBDC": "#D8CBDD",
+    "#D4CBD9": "#D8CBDD",
+    "#EEF6F8": "#E8F1F5",
+    "#EDF5FB": "#E8F1F5",
+    "#E9EEF4": "#E8F1F5",
+    "#C6DCEB": "#BEDDF0",
+    "#C0D8ED": "#BEDDF0",
+    "#F0E9F2": "#F1EAFA",
+    "#FAF0F7": "#F1EAFA"
+  }
+}

@@ -60,3 +60,15 @@ html[data-palette] .palette-lab h3{color:#191919;font-size:27px;margin:0 0 16px;
 .site-artwork-colours>.palette-grid{padding-bottom:12px}
 @media(max-width:1000px){.site-colour-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
 @media(max-width:650px){.site-colour-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.palette-lab .site-colour-uses a{font-size:12px;line-height:1.6}}
+.palette-lab .site-colour-family{margin-top:30px;scroll-margin-top:120px}
+html[data-palette] .palette-lab .site-colour-family h4{font:500 17px/1.4 Inter,Arial,sans-serif;color:#191919;margin:0 0 16px;padding-bottom:12px;border-bottom:1px solid #e3e1dd}
+.colour-family-nav{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 24px}
+.palette-lab .colour-family-nav a{font:400 12px/1.4 Inter,Arial,sans-serif;color:#191919;padding:8px 12px;border:1px solid #e3e1dd;border-radius:20px;text-decoration:none}
+.colour-family-nav a:hover{background:#e3e1dd}
+.site-colour-merges{border:1px solid #e3e1dd;border-radius:12px;padding:14px 18px;margin:0 0 30px}
+.site-colour-merges summary{font:500 13px/1.5 Inter,Arial,sans-serif;cursor:pointer;color:#191919}
+.site-colour-merges ul{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px 24px;list-style:none;padding:0;margin:16px 0 0}
+.site-colour-merges li{display:flex;gap:6px;align-items:center;font-size:12px;color:#191919}
+.merge-dot{display:inline-block;width:16px;height:16px;flex:none;border-radius:50%;border:1px solid #e3e1dd}
+@media(max-width:900px){.site-colour-merges ul{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.site-colour-merges ul{grid-template-columns:1fr}}
