@@ -41,8 +41,28 @@
   cleanInput();
   input.focus({preventScroll:true});
  }
- const rows=['aeiou','āēīōū','hkmnprt','wg'];
- rows.forEach((letters,i)=>{const row=document.createElement('div');row.className='mw-key-row';for(const letter of letters){const b=document.createElement('button');b.type='button';b.dataset.letter=letter;b.textContent=letter.toUpperCase();b.addEventListener('click',()=>{if(finished())return;editGuess(letter);});row.append(b);}if(i===3){const del=document.createElement('button');del.type='button';del.textContent='Delete';del.addEventListener('click',()=>{editGuess();});row.append(del);const enter=document.createElement('button');enter.type='button';enter.textContent='Guess';enter.addEventListener('click',()=>form.requestSubmit());row.append(enter);}keyboard.append(row);});
+
+ const layouts=[
+  {name:'Grouped',note:'Vowels, macrons and balanced consonant rows.',rows:['aeiou','āēīōū','hkmnp','rtwg']},
+  {name:'QWERTY-style',note:'Familiar keyboard ordering, with Māori characters only.',rows:['wertuiop','ahk','ngm','āēīōū']},
+  {name:'Vowel pairs',note:'Each vowel sits directly above its macron partner.',rows:['aeiou','āēīōū','hkmnp','rtwg']},
+  {name:'Alphabet grid',note:'An even grid, with vowel variants beside each other.',rows:['aāeēg','hiīk m'.replaceAll(' ',''),'noōpr','tuūw']},
+  {name:'Type + macrons',note:'Type using your device keyboard. These shortcuts add macrons.',rows:['āēīōū']}
+ ];
+ const erase=document.createElement('button');erase.type='button';erase.className='mw-backspace';erase.setAttribute('aria-label','Delete');erase.title='Backspace';erase.innerHTML='<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5h12v14H9l-7-7zM12 9l6 6m0-6-6 6"/></svg>';erase.addEventListener('click',()=>editGuess());input.after(erase);
+ const options=document.createElement('div');options.className='mw-keyboard-options';options.setAttribute('role','group');options.setAttribute('aria-label','Compare keyboard layouts');
+ const caption=document.createElement('p');caption.className='mw-layout-caption';caption.setAttribute('aria-live','polite');
+ keyboard.after(options,caption);
+ function setLayout(index){
+  const layout=layouts[index];root.dataset.keyboardLayout=String(index+1);keyboard.replaceChildren();
+  layout.rows.forEach(letters=>{const row=document.createElement('div');row.className='mw-key-row';for(const letter of letters){const button=document.createElement('button');button.type='button';button.dataset.letter=letter;button.textContent=letter.toUpperCase();button.addEventListener('click',()=>editGuess(letter));row.append(button);}keyboard.append(row);});
+  erase.hidden=index===4;
+  options.querySelectorAll('button').forEach((button,i)=>button.setAttribute('aria-pressed',String(i===index)));
+  caption.textContent=layout.name+' — '+layout.note;
+  render();
+ }
+ layouts.forEach((layout,index)=>{const button=document.createElement('button');button.type='button';button.textContent=String(index+1).padStart(2,'0');button.setAttribute('aria-label',String(index+1)+': '+layout.name);button.title=layout.name;button.addEventListener('click',()=>setLayout(index));options.append(button);});
+ setLayout(0);
  input.addEventListener('input',e=>{if(!e.isComposing)cleanInput();});input.addEventListener('compositionend',cleanInput);
  form.addEventListener('submit',e=>{
   e.preventDefault();if(finished())return;const guess=C.normalise(input.value);

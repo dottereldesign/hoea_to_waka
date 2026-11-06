@@ -4,8 +4,8 @@ const page=await browser.newPage({viewport:{width:1440,height:1000},reducedMotio
 const url=(process.env.SITE_BASE_URL||'http://127.0.0.1:8766/hoea_to_waka/')+'resources/';
 await page.goto(url);
 async function seed(guesses=[]){await page.evaluate(guesses=>{const words=window.MaoriWordleWords;const answer='mātua';localStorage.setItem('hoea-maori-wordle-v1',JSON.stringify({version:1,deck:[answer,...words.answers.filter(w=>w!==answer)],index:1,answer,guesses}));},guesses);await page.reload();await page.locator('[data-game-start]').click();}
-const input=page.locator('#mw-guess'),submit=page.locator('[data-wordle-form] button'),msg=page.locator('[data-wordle-message]');
-await seed();await input.fill('MA\u0304TUA');assert.equal(await input.inputValue(),'MĀTUA');await input.evaluate(e=>e.setSelectionRange(1,2));await page.locator('[data-wordle-keyboard]').getByRole('button',{name:'Delete',exact:true}).click();assert.equal(await input.inputValue(),'MTUA');await input.fill('ma');await submit.click();assert.match(await msg.innerText(),/five letters/);
+const input=page.locator('#mw-guess'),submit=page.locator('[data-wordle-form] button[type=submit]'),msg=page.locator('[data-wordle-message]');
+await seed();await input.fill('MA\u0304TUA');assert.equal(await input.inputValue(),'MĀTUA');await input.evaluate(e=>e.setSelectionRange(1,2));await page.getByRole('button',{name:'Delete',exact:true}).click();assert.equal(await input.inputValue(),'MTUA');await input.fill('ma');await submit.click();assert.match(await msg.innerText(),/five letters/);
 await input.fill('aaaaa');await submit.click();assert.match(await msg.innerText(),/isn’t in/);assert.equal(await page.locator('.mw-row [data-state]').count(),0);
 await input.fill('mamae');await submit.click();assert.deepEqual(await page.locator('.mw-row').first().locator('[data-state]').evaluateAll(es=>es.map(e=>e.dataset.state)),['correct','present','absent','absent','absent']);
 await input.fill('mamae');await submit.click();assert.match(await msg.innerText(),/already/);
