@@ -312,7 +312,7 @@ html[data-home-hero="03"] .home-hero-illustration .home-hero-illustration__cutou
     max-width: none;
     object-fit: contain;
     object-position: center;
-    transform: translateX(clamp(56px, 18vw, 88px));
+    transform: translateX(clamp(80px, 25vw, 120px));
   }
   html[data-home-hero="03"] .home-hero-copy::before {
     background: transparent;
