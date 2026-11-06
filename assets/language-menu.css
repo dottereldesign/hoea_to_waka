@@ -62,3 +62,7 @@ html[data-palette] #language-panel [lang="pa"]{font-family:"Language Gurmukhi",s
  .site-menu-appearance {display:none}
  .site-menu-panel .language-panel {inset:80px auto auto 16px;height:min(650px,calc(100dvh - 96px))}
 }
+
+/* Keep the divider equally spaced between navigation and contact details. */
+.site-menu-panel .site-menu-content { gap: var(--space-fluid-28); }
+.site-menu-panel .site-menu-utilities { margin-top: 0; }
