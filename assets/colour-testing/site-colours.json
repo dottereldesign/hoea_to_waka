@@ -230,28 +230,8 @@
       "group": "Interface"
     },
     {
-      "hex": "#DED9E1",
-      "uses": [
-        {
-          "page": "In-house workshops",
-          "section": "How your team will learn",
-          "href": "../services/in-house-workshops/#workshop-learning",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Pale purple",
-      "family": "Purples & pinks",
-      "group": "Interface"
-    },
-    {
       "hex": "#D8CBDD",
       "uses": [
-        {
-          "page": "In-house workshops",
-          "section": "How your team will learn",
-          "href": "../services/in-house-workshops/#workshop-learning",
-          "kind": "Interface"
-        },
         {
           "page": "Support training",
           "section": "A model that sits beside the person",
@@ -304,20 +284,6 @@
           "page": "Model",
           "section": "Designed to stay with you",
           "href": "../model/#:~:text=Designed%20to%20stay%20with%20you",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Soft purple",
-      "family": "Purples & pinks",
-      "group": "Interface"
-    },
-    {
-      "hex": "#59535E",
-      "uses": [
-        {
-          "page": "In-house workshops",
-          "section": "How your team will learn",
-          "href": "../services/in-house-workshops/#workshop-learning",
           "kind": "Interface"
         }
       ],
