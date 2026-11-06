@@ -9,13 +9,30 @@
       <g class="river-kayak">
         <g class="river-wake"><path d="M-5-21Q-11-34-17-49M5-21Q11-34 17-49"/><path d="M-4-26Q-7-38-8-53M4-26Q7-38 8-53"/></g>
         <g class="river-kayak__float" id="anna-current-waka">
-          <path class="river-kayak__hull" d="M0 28C-4 23-8 12-8-2C-8-14-4-24 0-29C4-24 8-14 8-2C8 12 4 23 0 28Z"/>
-          <path class="river-kayak__seam" d="M0 24V13M0-15V-25M-5 15 5 20M5 15-4 20M-5-17 5-21M5-17-4-21"/>
-          <ellipse class="river-kayak__cockpit" cx="0" cy="-1" rx="4.8" ry="9"/>
-          <path class="river-kayak__person" d="M-3-4Q0-7 3-4L2 3H-2Z"/><circle class="river-kayak__head" cx="0" cy="5" r="2.5"/>
-          <g class="river-design-details"></g>
+          <!-- Hand-traced from the supplied canoe reference, rotated to its upright axis. -->
+          <g class="river-canoe" transform="scale(.05) rotate(-60.2) translate(-768 -509)" stroke="none">
+            <defs>
+              <linearGradient id="anna-canoe-rim" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#FDAEB5"/><stop offset=".5" stop-color="#fa927f"/><stop offset="1" stop-color="#d96773"/></linearGradient>
+              <linearGradient id="anna-canoe-well" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#281A2C"/><stop offset=".48" stop-color="#82394f"/><stop offset="1" stop-color="#d98788"/></linearGradient>
+              <linearGradient id="anna-canoe-seat" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FDB069"/><stop offset="1" stop-color="#f58f51"/></linearGradient>
+            </defs>
+            <path data-canoe-part="hull" fill="url(#anna-canoe-rim)" d="M75 904C61 901 119 847 164 796C299 640 524 491 766 363C1005 238 1194 168 1336 148C1386 140 1424 119 1453 112Q1468 108 1457 126C1414 184 1381 235 1334 289C1216 430 1041 549 811 657C601 756 420 821 250 855C168 870 112 899 75 904Z"/>
+            <path data-canoe-part="inside" fill="url(#anna-canoe-well)" d="M164 842C191 760 414 575 680 431C947 285 1219 170 1384 165Q1393 165 1373 202C1317 319 1096 507 805 643C560 757 238 858 164 842Z"/>
+            <path fill="#d98788" opacity=".7" d="M321 802C294 774 374 664 541 554C753 415 1074 245 1209 252C1314 247 1268 330 1191 396C1056 511 824 627 618 708C469 768 344 822 321 802Z"/>
+            <path data-canoe-part="floor" fill="#FDD8B0" d="M393 796C359 750 413 678 566 580C749 462 1030 320 1160 294C1257 276 1293 333 1214 398C1046 532 661 709 393 796Z"/>
+            <path fill="#FDB069" opacity=".22" d="M393 796C509 759 744 662 906 577C1078 487 1213 409 1254 353C1252 380 1236 398 1214 418C1004 573 663 722 393 796Z"/>
+            <g data-canoe-part="seats" fill="url(#anna-canoe-seat)">
+              <path fill="#82394f" opacity=".32" d="M426 599L480 570L586 742L504 770Z M746 408L806 382L923 588L849 619Z M1051 265L1105 242L1210 414L1141 445Z"/>
+              <path d="M430 591L476 565Q486 559 492 570L578 731Q583 743 572 748L522 766Q513 769 507 759L428 607Q423 597 430 591Z"/>
+              <path d="M753 400L797 380Q809 375 815 389L914 568Q919 580 908 587L868 608Q856 615 849 601L750 418Q744 406 753 400Z"/>
+              <path d="M1061 254L1100 239Q1114 233 1121 248L1199 405Q1205 417 1194 423L1157 443Q1146 448 1139 433L1055 277Q1048 261 1061 254Z"/>
+            </g>
+            <path data-canoe-part="rim-highlight" fill="#FDAEB5" d="M75 904C212 829 413 809 667 702C1011 556 1268 413 1384 165C1330 351 1137 530 811 679C565 792 385 838 250 862C171 877 107 902 75 904Z" opacity=".5"/>
+          </g>
           <g class="river-paddle-splashes" fill="none" stroke="#b8d9e9" stroke-width=".8"><path data-paddle-splash="left" d="M-27-5Q-31 0-27 5M-30-7Q-35 0-30 7"/><path data-paddle-splash="right" d="M27-5Q31 0 27 5M30-7Q35 0 30 7"/></g>
-          <g class="river-paddle"><path d="M-20 0H20"/><path class="river-paddle__blade" data-paddle-blade="left" d="M-18-1.2L-23-3Q-29-3-28 0Q-29 3-23 3L-18 1.2Z"/><path class="river-paddle__blade" data-paddle-blade="right" d="M18-1.2L23-3Q29-3 28 0Q29 3 23 3L18 1.2Z"/></g>
+          <g class="river-paddle" style="stroke:#d37d48;stroke-width:.45">
+            ${['left','right'].map(side=>`<g data-paddle-blade="${side}"><path d="M11 0H25" stroke="#FDB069" stroke-width="1.4" stroke-linecap="round"/><path d="M23 0C26-1 28-4 32-3.8C37-3.5 37 3.5 32 3.8C28 4 26 1 23 0Z" fill="#FDB069"/><path d="M24 0H35" stroke="#FDD8B0" stroke-width=".5"/></g>`).join('')}
+          </g>
         </g>
       </g>`;
     pin.prepend(svg);
@@ -26,12 +43,9 @@
     const boat=svg.querySelector('.river-kayak'),paddle=svg.querySelector('.river-paddle');
     const blades=[...svg.querySelectorAll('[data-paddle-blade]')],splashes=[...svg.querySelectorAll('[data-paddle-splash]')];
     let paddlePhase=0;
-    // Selected final design: 02 Cedar canoe, with leaf-shaped paddle blades.
-    svg.dataset.wakaDesign='2';
-    svg.querySelector('.river-kayak__hull').setAttribute('d','M0 34C-10 22-12-17 0-36C12-17 10 22 0 34Z');
-    svg.style.setProperty('--waka-fill','#b67847');svg.style.setProperty('--waka-edge','#342a22');
-    svg.querySelector('.river-design-details').innerHTML='<path d="M-6-20H6M-8-12H8M-8 13H8M-6 22H6" fill="none" stroke="#342a22" stroke-width=".9"/>';
-    blades.forEach((blade,i)=>{blade.setAttribute('d','M18-1Q24-7 30 0Q24 7 18 1Z');blade.dataset.mirror=i?1:-1;});
+    // The canoe artwork stays editable independently of its two rowing paddles.
+    svg.dataset.wakaDesign='reference-canoe';
+    blades.forEach((blade,i)=>{blade.dataset.mirror=i?1:-1;});
     const clamp=(n,a=0,b=1)=>Math.min(b,Math.max(a,n)),f=n=>Number(n.toFixed(3));
     const smooth=t=>t*t*t*(t*(t*6-15)+10);
     let samples=[],stops=[],length=0,armedAt=null,visible=false,reduced=false,angle=0,angularVelocity=0,lastBuildKey='';
@@ -189,9 +203,9 @@
       const p=pointAt(distance),speed=clamp(Math.abs(velocity)/200),rock=Math.sin(distance*.055)*.7*speed;
       boat.setAttribute('transform',`translate(${f(p.x)} ${f(p.y)}) rotate(${f(angle+rock)}) scale(${mobile?.8:1})`);
       const sweep=Math.sin(paddlePhase),stroke=Math.cos(paddlePhase);
-      paddle.setAttribute('transform',`rotate(${f(-sweep*34)}) scale(${f(.88+.12*Math.abs(stroke))} 1)`);
-      // Opposite blade feathers out of the water during each power stroke.
-      blades.forEach((blade,i)=>{const immersion=clamp((i?stroke:-stroke)*2+.5);blade.setAttribute('transform',`scale(${blade.dataset.mirror||1} ${f(.38+.62*immersion)})`);});
+      paddle.removeAttribute('transform');
+      // Two separate side paddles take alternating strokes, leaving the canoe interior clear.
+      blades.forEach((blade,i)=>{const side=i?1:-1;blade.setAttribute('transform',`rotate(${f(side*18+sweep*28)} ${side*11} 0) scale(${side} 1)`);});
       splashes.forEach((splash,i)=>{const pull=clamp(i?stroke:-stroke);splash.setAttribute('opacity',f(pull*speed*.65));splash.setAttribute('transform',`translate(0 ${f((i?-1:1)*sweep*14)})`);});
       paddle.dataset.phase=String(f(paddlePhase));
 
