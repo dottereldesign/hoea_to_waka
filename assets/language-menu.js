@@ -15,6 +15,27 @@
     return `<a href="${url.href}" ${code==='en'?'aria-current="true"':''} data-language="${code}"><img class="language-option-flag" src="${new URL(flagCountries[code]+'.svg',flagBase).href}" alt="" width="24" height="18"><span lang="${code}">${native}</span><small>${name}</small></a>`;
   }).join('')+'</nav><p class="language-note"></p></div><button type="button" class="language-close"></button>';
   document.body.append(launch,panel);
+  const compactMenu = matchMedia('(max-width:1099px)');
+  const menu = document.querySelector('.site-menu-panel');
+  const controls = menu?.querySelector('.site-menu-controls');
+  const theme = menu?.querySelector('.site-theme-toggle');
+  const appearance = menu?.querySelector('.site-menu-appearance');
+  function placeUtilities() {
+    if (!controls) return;
+    if (compactMenu.matches) {
+      controls.prepend(launch);
+      if (theme) controls.append(theme);
+      menu.append(panel);
+    } else {
+      document.body.append(launch,panel);
+      if (theme && appearance) appearance.append(theme);
+    }
+  }
+  placeUtilities();
+  compactMenu.addEventListener('change',placeUtilities);
+  panel.addEventListener('keydown',event=>{
+    if(event.key==='Escape'){event.stopPropagation();event.preventDefault();hide(true);}
+  });
   const content=panel.querySelector('.language-content'),close=panel.querySelector('.language-close'),reduce=matchMedia('(prefers-reduced-motion:reduce)');
   close.innerHTML='<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>';
   // Small local subsets cover the native labels without an expensive system-font search.

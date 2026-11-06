@@ -40,3 +40,25 @@ html[data-palette] #language-panel [lang="pa"]{font-family:"Language Gurmukhi",s
 
 /* Retain the prepared layout while closed, without exposing it to focus or AT. */
 .language-panel[data-prepared]:not(:popover-open){display:block;visibility:hidden;pointer-events:none}
+
+/* Compact navigation fills the viewport and groups its utility controls. */
+@media(max-width:1099px) {
+ html[data-palette] .site-menu-panel {
+   inset:0!important;width:100vw!important;height:100dvh!important;
+   border-radius:0!important;max-height:100dvh;box-shadow:none;
+ }
+ html[data-palette] .site-menu-panel[data-open=true] {clip-path:inset(0)!important}
+ .site-menu-controls {flex:0 0 80px!important}
+ html[data-palette] .site-menu-panel .site-menu-close {
+   left:auto!important;right:16px;top:16px!important;width:48px;height:48px;
+ }
+ .site-menu-controls .language-launch {
+   position:absolute;left:16px;top:16px;bottom:auto;
+ }
+ html[data-palette] .site-menu-controls .site-theme-toggle {
+   display:inline-block;position:absolute;right:80px;top:28px;
+   visibility:visible;opacity:1;pointer-events:auto;
+ }
+ .site-menu-appearance {display:none}
+ .site-menu-panel .language-panel {inset:80px auto auto 16px;height:min(650px,calc(100dvh - 96px))}
+}
