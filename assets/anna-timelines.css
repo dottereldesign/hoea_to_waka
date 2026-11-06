@@ -228,3 +228,21 @@ html[data-palette] #anna-story .anna-story__heading>.ds-kicker{margin-top:0}
 @media(prefers-reduced-motion:reduce){.anna-sticky-title::before{transition:none}}
 
 .anna-story-outline{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+/* Waka design previews: the original remains available beside ten new studies. */
+#anna-story .waka-studies{display:grid;grid-template-columns:190px minmax(0,1fr);gap:24px;align-items:center;text-align:left;margin:30px auto 0;padding:20px;border:1px solid #ffffff40;border-radius:24px;background:#03394d;color:#fff;max-width:680px;position:relative;z-index:2}
+#anna-story .waka-studies__preview{height:210px;background:#267c86;border-radius:16px;overflow:hidden}
+#anna-story .waka-studies__preview svg{display:block;width:100%;height:100%}
+#anna-story .waka-studies__body{min-width:0}
+#anna-story .waka-studies p{color:#e5eeee;font:400 13px/1.5 Inter,Arial,sans-serif;margin:8px 0 14px;max-width:none}
+#anna-story .waka-studies p.waka-studies__label{font-size:11px;text-transform:uppercase;letter-spacing:.12em;margin:0 0 6px}
+#anna-story .waka-studies output{font:500 20px/1.2 Inter,Arial,sans-serif;color:#fff}
+#anna-story .waka-studies__choices{display:flex;flex-wrap:wrap;gap:6px}
+#anna-story .waka-studies button{font:500 12px/1 Inter,Arial,sans-serif;min-width:34px;min-height:34px;padding:9px;border:1px solid #ffffff55;border-radius:50%;color:#fff;background:transparent;cursor:pointer}
+#anna-story .waka-studies button[data-waka-choice="0"]{border-radius:18px;padding-inline:12px}
+#anna-story .waka-studies button[aria-pressed="true"]{background:#fdd8b0;color:#281a2c;border-color:#fdd8b0}
+#anna-story .waka-studies button:hover{background:#ffffff20}
+#anna-story .waka-studies button[aria-pressed="true"]:hover{background:#fdb069}
+#anna-story .waka-studies button:focus-visible{outline:2px solid #fdb069;outline-offset:3px}
+#anna-story .waka-studies button.waka-studies__replay{display:block;border:0;border-radius:4px;text-decoration:underline;text-underline-offset:4px;margin-top:8px;padding-left:0;min-height:36px}
+@media(max-width:600px){#anna-story .waka-studies{grid-template-columns:1fr;gap:16px;padding:16px}#anna-story .waka-studies__preview{height:190px}#anna-story .waka-studies button{min-height:40px;min-width:40px}}
+@media(prefers-reduced-motion:reduce){#anna-story .waka-studies__replay{display:none!important}}

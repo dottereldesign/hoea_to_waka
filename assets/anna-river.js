@@ -1,3 +1,4 @@
+import {mountWakaStudies,paddlePose} from './anna-waka-studies.js';
 /* A measured, scroll-led river. Geometry is cached; idle frames do no JS work. */
 (() => {
   window.createAnnaRiver=(root,items)=>{
@@ -31,7 +32,7 @@
           </g>
           <g class="river-paddle-splashes" fill="none" stroke="#b8d9e9" stroke-width=".8"><path data-paddle-splash="left" d="M-27-5Q-31 0-27 5M-30-7Q-35 0-30 7"/><path data-paddle-splash="right" d="M27-5Q31 0 27 5M30-7Q35 0 30 7"/></g>
           <g class="river-paddle" style="stroke:#d37d48;stroke-width:.45">
-            ${['left','right'].map(side=>`<g data-paddle-blade="${side}"><path d="M11 0H25" stroke="#FDB069" stroke-width="1.4" stroke-linecap="round"/><path d="M23 0C26-1 28-4 32-3.8C37-3.5 37 3.5 32 3.8C28 4 26 1 23 0Z" fill="#FDB069"/><path d="M24 0H35" stroke="#FDD8B0" stroke-width=".5"/></g>`).join('')}
+            ${['left','right'].map(side=>`<g data-paddle-blade="${side}"><path d="M11 0H25" stroke="#FDB069" stroke-width="1.4" stroke-linecap="round"/><g data-paddle-face><path d="M23 0C26-1 28-4 32-3.8C37-3.5 37 3.5 32 3.8C28 4 26 1 23 0Z" fill="#FDB069"/><path d="M24 0H35" stroke="#FDD8B0" stroke-width=".5"/></g></g>`).join('')}
           </g>
         </g>
       </g>`;
@@ -42,7 +43,7 @@
     root.prepend(ocean);
     const boat=svg.querySelector('.river-kayak'),paddle=svg.querySelector('.river-paddle');
     const blades=[...svg.querySelectorAll('[data-paddle-blade]')],splashes=[...svg.querySelectorAll('[data-paddle-splash]')];
-    let paddlePhase=0;
+    let paddlePhase=0,paddleActivity=0;
     // The canoe artwork stays editable independently of its two rowing paddles.
     svg.dataset.wakaDesign='reference-canoe';
     blades.forEach((blade,i)=>{blade.dataset.mirror=i?1:-1;});
@@ -52,6 +53,7 @@
     const launch=72;
     let distance=launch,velocity=0,target=launch,width=0,height=0,mobile=false;
     const reached=items.map(()=>false);
+    mountWakaStudies(root,svg,()=>{paddlePose(blades,splashes,paddlePhase,paddleActivity);});
     // Cubic interpolation keeps both pencil banks continuous through every bend.
     const curve=points=>points.map((p,i)=>{
       if(!i)return `M${f(p[0])} ${f(p[1])}`;
@@ -191,27 +193,28 @@
       distance=clamp(distance,0,length);
       if(Math.abs(distance-target)<.015&&Math.abs(velocity)<.1){distance=target;velocity=0;}
       // A timed left/right cadence avoids frantic strokes during fast scrolls.
-      paddlePhase+=dt*(3.5+1.5*clamp(Math.abs(velocity)/600))*clamp(Math.abs(velocity)/45);
+      const rowing=clamp(Math.abs(velocity)/70);
+      paddleActivity+=(rowing-paddleActivity)*(1-Math.exp(-dt*7));
+      if(paddleActivity<.002&&rowing===0)paddleActivity=0;
+      paddlePhase+=dt*3.1*paddleActivity;
       const tangent=-Math.atan(pointAt(distance).slope)*180/Math.PI;
       [angle,angularVelocity]=critical(angle,angularVelocity,tangent,passage?26:17,dt);
       if(Math.abs(angle-tangent)<.005&&Math.abs(angularVelocity)<.02){angle=tangent;angularVelocity=0;}
       arrivals();
-      return Math.abs(distance-target)>.01||Math.abs(velocity)>.1||Math.abs(angle-tangent)>.005;
+      return Math.abs(distance-target)>.01||Math.abs(velocity)>.1||Math.abs(angle-tangent)>.005||paddleActivity>0;
     }
     function paint(){
       if(!samples.length)return;
       const p=pointAt(distance),speed=clamp(Math.abs(velocity)/200),rock=Math.sin(distance*.055)*.7*speed;
       boat.setAttribute('transform',`translate(${f(p.x)} ${f(p.y)}) rotate(${f(angle+rock)}) scale(${mobile?.8:1})`);
-      const sweep=Math.sin(paddlePhase),stroke=Math.cos(paddlePhase);
-      paddle.removeAttribute('transform');
-      // Two separate side paddles take alternating strokes, leaving the canoe interior clear.
-      blades.forEach((blade,i)=>{const side=i?1:-1;blade.setAttribute('transform',`rotate(${f(side*18+sweep*28)} ${side*11} 0) scale(${side} 1)`);});
-      splashes.forEach((splash,i)=>{const pull=clamp(i?stroke:-stroke);splash.setAttribute('opacity',f(pull*speed*.65));splash.setAttribute('transform',`translate(0 ${f((i?-1:1)*sweep*14)})`);});
+      // A submerged power stroke followed by a feathered, lifted recovery.
+      // The stroke rate stays calm; acceleration changes its strength, not its cadence.
+      paddlePose(blades,splashes,paddlePhase,reduced?0:paddleActivity);
       paddle.dataset.phase=String(f(paddlePhase));
 
       svg.style.setProperty('--river-speed',f(speed));svg.classList.toggle('river-is-moving',speed>.015);
       svg.dataset.distance=String(f(distance));svg.dataset.target=String(f(target));svg.dataset.angle=String(f(angle));
     }
-    return {build,setScroll,step,paint,reached:i=>reached[i],reset(){lastBuildKey='';armedAt=null;distance=target=launch;velocity=angle=angularVelocity=paddlePhase=0;reached.fill(false);items.forEach(item=>item.classList.remove('river-node-hit'));},pause(){svg.classList.remove('river-is-active','river-is-moving');}};
+    return {build,setScroll,step,paint,reached:i=>reached[i],reset(){lastBuildKey='';armedAt=null;distance=target=launch;velocity=angle=angularVelocity=paddlePhase=paddleActivity=0;reached.fill(false);items.forEach(item=>item.classList.remove('river-node-hit'));},pause(){svg.classList.remove('river-is-active','river-is-moving');}};
   };
 })();
