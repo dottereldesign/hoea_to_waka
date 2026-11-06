@@ -2,34 +2,6 @@
   "scope": "Rendered default desktop pages, including inline and image-based SVG colours. Excludes photo pixels, transparency blends, and colours already in the illustration or neutral palettes.",
   "colours": [
     {
-      "hex": "#7FAF9C",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Frequently Asked Questions",
-          "href": "../#home-faq",
-          "kind": "Interface"
-        }
-      ],
-      "name": "FAQ divider green",
-      "family": "Greens",
-      "group": "Interface"
-    },
-    {
-      "hex": "#1C5C49",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Frequently Asked Questions",
-          "href": "../#home-faq",
-          "kind": "Interface"
-        }
-      ],
-      "name": "FAQ green",
-      "family": "Greens",
-      "group": "Interface"
-    },
-    {
       "hex": "#526078",
       "uses": [
         {

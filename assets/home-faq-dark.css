@@ -1,20 +1,22 @@
 /* Homepage FAQ: fixed forest surface, with light ink in every state. */
 #home-faq[data-background-study] {
- --study-base:#1C5C49;--study-art:none;--study-ink:#FFFFFF;
- --study-muted:#FFFFFF;--study-line:#7FAF9C;--study-hover:#286D58;
+ --study-base:#075744;--study-art:none;--study-ink:#FFFFFF;
+ --study-muted:#FFFFFF;--study-line:#67A798;--study-hover:#075744;
  color-scheme:dark;
 }
 #home-faq[data-background-study]::before {display:none;}
 html[data-palette][data-typography] #home-faq :is(.ds-title,.home-faq-eyebrow,summary,.home-faq-question) {color:#FFFFFF!important;}
 html[data-palette] #home-faq :is(.ds-answer,.ds-answer p) {color:#FFFFFF!important;}
-#home-faq .home-faq-column details {border-color:#7FAF9C;}
+#home-faq .home-faq-column details {border-color:#67A798;}
 #home-faq summary>span:first-child {color:#FFFFFF;}
 #home-faq summary>svg {color:#FFFFFF;}
 #home-faq summary {background:transparent;border-radius:8px;}
-#home-faq details[open] summary {background:#225F4D;}
-#home-faq summary:hover,#home-faq details[open] summary:hover {background:#286D58;}
-#home-faq summary:active {background:#307863;}
-html[data-palette][data-typography] #home-faq summary:focus-visible {outline:3px solid #FFDC9F!important;outline-offset:3px!important;box-shadow:none!important;background:#286D58;}
+#home-faq details[open] summary {background:#075744;}
+#home-faq summary:hover,#home-faq details[open] summary:hover {background:#075744;}
+#home-faq summary:active {background:#075744;}
+html[data-palette][data-typography] #home-faq summary:focus-visible {outline:3px solid #67A798!important;outline-offset:3px!important;box-shadow:none!important;background:#075744;}
 #home-faq .ds-answer a {color:#FFFFFF;text-decoration:underline;text-underline-offset:.18em;}
 #home-faq .ds-answer a:hover {color:#FFFFFF;}
-html[data-palette][data-typography] #home-faq .ds-answer a:focus-visible {outline:3px solid #FFDC9F!important;outline-offset:3px!important;box-shadow:none!important;}
+html[data-palette][data-typography] #home-faq .ds-answer a:focus-visible {outline:3px solid #67A798!important;outline-offset:3px!important;box-shadow:none!important;}
+
+#home-faq summary:hover {box-shadow:inset 0 0 0 1px #67A798;}

@@ -1,6 +1,7 @@
 from pathlib import Path
 import json,collections,colorsys,html,urllib.parse,re
 pages=json.loads(Path('tmp/other-site-colours-audit.json').read_text(encoding='utf-8'));pal=json.loads(Path('assets/colour-testing/palette.json').read_text());exclude={c['hex'].upper() for c in pal['colours']+pal['neutrals']}|{'#EDF1F3','#605E5E','#F5F3EE','#F8F8F6','#202020','#202329'}
+exclude.update(t['hex'].upper() for c in pal['colours'] for t in c.get('tones', []))
 found={}
 for page in pages:
  for row in page['rows']:
