@@ -149,6 +149,58 @@ Chrome-style browser · Light theme
 
 Chrome-style browser · Dark theme
 
+## Colours
+
+## Brand colour palette
+
+### Core brand colours
+
+#### Evergreen
+
+#### Blue
+
+#### Ocean teal
+
+#### Deep purple
+
+#### Coral
+
+### Supporting colours
+
+#### Plum
+
+#### Sage
+
+#### Light olive
+
+#### Rose
+
+#### Blush
+
+### Warm accents
+
+### Neutrals
+
+### Interface colours 4
+
+#### Purples & pinks
+
+### External colours
+
+Third-party button colours, separate from the Hoea tō Waka brand palette and excluded from the interface colour total.
+
+#### Amazon
+
+Additional fills and gradient stops, also grouped by family and ordered light to dark. Photo pixels and transparency blends are excluded.
+
+#### Warm colours
+
+#### Greens
+
+#### Teals
+
+#### Blues
+
 ## Typography
 
 Type system
@@ -163,11 +215,11 @@ Inter 4.1: four static TTF styles, upright and italic variable TTFs, and two web
 
 For office and design apps, choose Desktop/Static for Regular 400, Semibold 600 and their true italics. Choose Desktop/Variable instead if your app supports variable fonts; Web contains the WOFF2 versions. Use italics for short emphasis within text, and keep logo lettering upright. Use Inter Regular 400 for testimonial quotes.
 
-## UI Icons
+## UI Buttons & Icons
 
 Interface essentials
 
-Small, clear symbols help people find their way around the website. Use a consistent outline style for familiar actions, with a short text label whenever the meaning could be unclear.
+Clear buttons and familiar symbols help people find their way around the website. Use a consistent outline style for familiar actions, with a short text label whenever the meaning could be unclear.
 
 These are interface symbols. Use the supplied Hoea tō Waka artwork for the brand logo and favicon.
 
@@ -220,6 +272,18 @@ Keep the same symbol for the same action. Hide decorative icons from screen read
 24px icon / 48px control
 
 Size examples are static illustrations. In a working interface, the whole control should be clickable and have a visible keyboard focus state.
+
+### Buttons: make the next step clear
+
+The main website action is a rounded Ink button with white text and a white arrow circle. On a dark background, reverse it to white with dark text. Use a quieter outlined button for an alternative action. Labels should describe the action, such as “Explore services” or “Talk with Anna”.
+
+#### On a light background
+
+The arrow suggests moving to another page. A pause button or form control does not need this treatment.
+
+#### On a dark background
+
+Keep secondary actions readable without making them compete with the main button.
 
 ## Brand Applications
 
@@ -339,68 +403,6 @@ Illustrative design previews, not live accounts. Names, counts and content demon
 
 Check readability on a phone, confirm dates and links, and get permission for photographs. Add alternative text to images, captions to video, and key information in the post caption.
 
-## Colours
-
-Choosing colour
-
-Start with the current website: white page backgrounds, dark Ink text and black or white main buttons. Purple model sections and the coloured interior-page headers add variety. The palette below includes supporting colours you can use and compare; it is not a requirement to use every colour on a page.
-
-The colour codes below are available without JavaScript. Turn JavaScript on to try a colour change.
-
-### Main colour families
-
-Ocean is blue, Forest is green, Aubergine is dark purple and Lavender is pale purple. Choose a colour for a clear purpose, such as separating a section or supporting an illustration. Keep the text easy to read against it.
-
-### Lighter and darker shades
-
-Each family runs from 100 (lightest) to 900 (darkest). The numbers are labels for choosing a shade, not percentages. Light shades can sit behind dark text; dark shades can sit behind white text. Check the contrast table before choosing a pair.
-
-#### Ocean
-
-#### Forest
-
-#### Aubergine
-
-#### Lavender
-
-### Page backgrounds, text and borders
-
-Paper is the white used for the main page. Ink is the dark colour used for text, main buttons and the footer. Stone is a light border colour. The remaining neutrals are available for supporting backgrounds and labels; they do not all need to appear in one design.
-
-### Small supporting accents
-
-Use these colours in small amounts when an illustration or diagram needs another colour. Keep the page, text and main action visually stronger than the accent so the reader knows where to look first.
-
-### Colours that communicate a message
-
-Success, Warning and Error tell people what happened or what needs their attention. Always include words or an icon as well as colour, so the meaning is not lost when someone cannot distinguish the colours. The focus colour shows where a keyboard user is on the page.
-
-### Buttons: make the next step clear
-
-The main website action is a rounded Ink button with white text and a white arrow circle. On a dark background, reverse it to white with dark text. Use a quieter outlined button for an alternative action. Labels should describe the action, such as “Explore services” or “Talk with Anna”.
-
-#### On a light background
-
-The arrow suggests moving to another page. A pause button or form control does not need this treatment.
-
-#### On a dark background
-
-Keep secondary actions readable without making them compete with the main button.
-
-### Putting colours together
-
-Use the Paper and Ink examples as the starting point for the website. Supporting backgrounds can separate longer topics or identify a section. These examples show individual colour choices; there is no fixed percentage of blue, green or purple to fill on a page.
-
-These HEX values are for screens. For printed work, ask the printer to match the supplied artwork and approve a proof; the material and printing process affect the result.
-
-### Can people read the text?
-
-Contrast is the difference between the text and its background. A higher ratio means a stronger difference. Aim for at least 4.5:1 for body text and small labels. Large text can use 3:1: at least 24px in regular weight or about 18.7px in bold. The table checks the stricter body-text standard and updates when you edit a colour.
-
-A “Needs attention” result means that pair should not be used for body text. Increase the difference between the two colours and check again. A passing colour pair still needs a readable font size and layout.
-
-Contrast thresholds follow WCAG text contrast guidance. The table checks these examples, not every element on the website.
-
 ### Using and updating this guide
 
 Use the examples to make consistent decisions, then check the result in the place people will see it: a phone, browser, printed card or workshop handout. Keep the name, logo and font roles consistent; let the amount of content determine the layout. When a brand decision changes, update this guide and its examples together.
@@ -443,7 +445,73 @@ You can use it for helping people to make goals, helping people to understand th
 
 So give us a call and have a chat and we'll see how Hoea tō Waka can help you.
 
-## Design tokens — published colours
+## Current brand palette
+
+| Colour / shade | HEX |
+| --- | --- |
+| Evergreen 100 | #C0DAD4 |
+| Evergreen 300 | #67A798 |
+| Evergreen 500 | #016C53 |
+| Evergreen 700 | #075744 |
+| Evergreen 900 | #0D4236 |
+| Blue 100 | #C5CED5 |
+| Blue 300 | #74889B |
+| Blue 500 | #183958 |
+| Blue 700 | #183148 |
+| Blue 900 | #182938 |
+| Ocean teal 100 | #C9DEE1 |
+| Ocean teal 300 | #7DB0B6 |
+| Ocean teal 500 | #267C86 |
+| Ocean teal 700 | #23636B |
+| Ocean teal 900 | #204A50 |
+| Deep purple 100 | #C9C6CA |
+| Deep purple 300 | #7E7680 |
+| Deep purple 500 | #281A2C |
+| Deep purple 700 | #241A27 |
+| Deep purple 900 | #201A22 |
+| Plum 100 | #D4C9CF |
+| Plum 300 | #987D8C |
+| Plum 500 | #53273F |
+| Plum 700 | #442436 |
+| Plum 900 | #36202C |
+| Sage 100 | #E7ECDC |
+| Sage 300 | #C5D0AB |
+| Sage 500 | #9EB173 |
+| Sage 700 | #7D8B5C |
+| Sage 900 | #5C6546 |
+| Light olive 100 | #ECEFE2 |
+| Light olive 300 | #D2D9B9 |
+| Light olive 500 | #B4BF8B |
+| Light olive 700 | #8D966E |
+| Light olive 900 | #666C52 |
+| Coral 100 | #F9E0E1 |
+| Coral 300 | #F0B5B7 |
+| Coral 500 | #E68387 |
+| Coral 700 | #B3686C |
+| Coral 900 | #804E50 |
+| Rose 100 | #F0D6D7 |
+| Rose 300 | #DA9B9E |
+| Rose 500 | #C1595E |
+| Rose 700 | #97494D |
+| Rose 900 | #6D393C |
+| Blush 100 | #FEEBEC |
+| Blush 300 | #FECED3 |
+| Blush 500 | #FDAEB5 |
+| Blush 700 | #C4898E |
+| Blush 900 | #8B6467 |
+| Burnt orange | #D65A25 |
+| Apricot | #F88D5C |
+| Amber | #FDB069 |
+| Peach | #FDC88E |
+| Cream | #FDD8B0 |
+| Paper | #FFFFFF |
+| Stone | #E3E1DD |
+| Slate | #6B7178 |
+| Ink | #191919 |
+
+## Website implementation tokens
+
+These compatibility tokens support the existing website. Use the current brand palette above for new brand designs.
 
 | Token | HEX | Purpose |
 | --- | --- | --- |
