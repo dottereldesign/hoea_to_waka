@@ -21,3 +21,8 @@ html.js .home-resources .resource-artwork #resource-trail path {animation-play-s
  }
  .home-resources .home-resources__copy {width:100%;min-width:0;}
 }
+
+@media(min-width:1000px) {
+ .home-resources #home-resources-title {max-width:none;font-size:clamp(38px,4.25vw,64px)!important;}
+ .home-resources__title-opening,.home-resources__title-ending {display:block;white-space:nowrap;}
+}
