@@ -121,7 +121,7 @@
       }
     </script>
     <!-- theme-boot:start --><script>(()=>{var s="hoea-brand-colours-v1",l=[{id:"ocean",name:"Ocean",base:800,role:"Dark blue \xB7 Interior headers and colour accents",values:["#F0F4F8","#E8F1F5","#C8D5E0","#A9C5CE","#829FB2","#607F9D","#3F5B78","#183958","#1A2B3D"]},{id:"forest",name:"Forest",base:800,role:"Dark green \xB7 Supporting colour for sections and graphics",values:["#F1F5F0","#6B7178","#CBDBCD","#ABC4AE","#87A78C","#6B916F","#4C7054","#344A3A","#24362A"]},{id:"aubergine",name:"Aubergine",base:800,role:"Dark purple \xB7 Model sections and supporting backgrounds",values:["#FAF7FB","#F1EAF2","#E2D5E5","#C8B4CE","#A18AA9","#806788","#58415F","#281A2C","#201423"]},{id:"lavender",name:"Lavender",base:500,role:"Pale purple \xB7 Supporting backgrounds and highlights",values:["#FCFAFC","#F7F2F8","#F1EAFA","#E6DBE9","#D8CBDD","#B9A9C0","#98859F","#74647D","#514459"]}],t=(e,r,a,b)=>({id:e,name:r,hex:a,role:b}),m=[t("paper","Paper","#FFFFFF","Default page surface, cards and overlays"),t("stone","Stone","#E3E1DD","Dividers and borders"),t("slate","Slate","#6B7178","Supporting labels"),t("logo-black","Ink","#191919","Primary text, footer and dark surfaces"),t("ocean-900","Ocean Night","#1A2B3D","Deep blue \xB7 Available dark background"),t("aubergine-900","Plum Night","#201423","Deep purple \xB7 Available dark background")],h=[t("ocean-400","Coastal Mist","#A9C5CE","Pale blue \xB7 Illustrations and diagrams"),t("dusty-rose","Dusty Rose","#C88F99","Muted pink \xB7 Small illustration details"),t("sandstone","Sandstone","#D6BA83","Small warm details and diagrams"),t("soft-sage","Soft Sage","#B8C9B5","Pale green \xB7 Illustrations and backgrounds")],y=[t("success","Success","#347A56","A completed or successful action"),t("warning","Warning","#A86823","A caution message \xB7 explain what needs attention"),t("error","Error","#B74855","An error message \xB7 explain how to fix it"),t("ocean-800","Information","#183958","Helpful information or a neutral notice"),t("ocean-600","Focus ring","#607F9D","Shows which control is selected by the keyboard")],v=l.flatMap(e=>e.values.map((r,a)=>t(`${e.id}-${(a+1)*100}`,`${e.name} ${(a+1)*100}`,r,`${(a+1)*100} tonal level`))),c=[...new Map([...v,...m,...h,...y].map(e=>[e.id,e])).values()],d=Object.fromEntries(c.map(e=>[e.id,e.hex])),F=l.map(e=>t(`${e.id}-${e.base}`,e.name,e.values[e.base/100-1],e.role)),i=e=>`--brand-${e}`;var x=e=>/^#[0-9a-f]{6}$/i.test(e);function u(e){return!e||typeof e!="object"||Array.isArray(e)?{}:Object.fromEntries(Object.entries(e).filter(([r,a])=>Object.prototype.hasOwnProperty.call(d,r)&&typeof a=="string"&&x(a)).map(([r,a])=>[r,a.toUpperCase()]))}var o={};function p(){try{return u(JSON.parse(localStorage.getItem(s))?.colours)}catch{return{}}}function f(){let e=document.documentElement;for(let r of c)o[r.id]?e.style.setProperty(i(r.id),o[r.id]):e.style.removeProperty(i(r.id));e.dataset.brandPreview=String(Object.keys(o).length>0),window.dispatchEvent(new CustomEvent("hoea:brand-colours"))}function g(){o=p(),f()}window.addEventListener("storage",e=>{(e.key===s||e.key===null)&&(o=p(),f())});var n=document.documentElement,A=["display","heading","body","eyebrow","ui","small"].map(e=>({id:e}));n.classList.toggle("ds-motion-paused",matchMedia("(prefers-reduced-motion:reduce)").matches);function E(){n.dataset.palette="hoea",n.dataset.typography="inter";for(let e of A)n.style.setProperty(`--font-${e.id}`,'"Inter", Arial, sans-serif'),n.style.setProperty(`--font-weight-${e.id}`,e.id==="eyebrow"?400:["display","heading"].includes(e.id)?600:500);g()}E();})();</script><!-- theme-boot:end -->
-<script src="assets/theme-init.js?v=57f978644a" defer></script>
+<script src="assets/theme-init.js?v=6b6d622452" defer></script>
     <link rel="stylesheet" href="assets/page-styles/home.css?v=2c545aecfd">
     <link rel="stylesheet" href="assets/language-menu.css?v=25e4a84e99">
     <link rel="stylesheet" href="assets/home-hero-variants.css?v=604a6d1eef">
@@ -139,7 +139,7 @@
           const navigation = performance.getEntriesByType('navigation')[0]?.type;
           const saved = Number(sessionStorage.getItem('hoea-header-scroll:' + location.pathname));
           if ((navigation === 'reload' || navigation === 'back_forward') && (saved > 48 || (saved > 24 && sessionStorage.getItem('hoea-header-scroll:' + location.pathname + ':pill') === 'true')) && matchMedia('(min-width:1100px)').matches) {
-            const restore = () => { const header = document.querySelector('[data-header-entrance]'); if (!header) return false; header.dataset.entrancePlacing = 'true'; header.classList.add('is-scrolled'); return true; };
+            const restore = () => { const header = document.querySelector('[data-header-entrance]'); if (!header) return false; header.dataset.entrancePlacing = 'true'; const noticeHeight = document.querySelector('[data-book-notice]:not([hidden])')?.getBoundingClientRect().height || 0; header.classList.toggle('is-scrolled', saved > noticeHeight + 48 || (saved > noticeHeight + 24 && sessionStorage.getItem('hoea-header-scroll:' + location.pathname + ':pill') === 'true')); return true; };
             const observer = new MutationObserver(() => {if (restore()) observer.disconnect();});
             observer.observe(root, {childList:true,subtree:true});
             document.addEventListener('DOMContentLoaded', () => {if (scrollY < 24) restore();}, {once:true});
@@ -151,7 +151,7 @@
         document.addEventListener('pointerdown', show, {once:true,capture:true});
       })();
     </script>
-    <script src="assets/header-entrance.js?v=4" async></script>
+    <script src="assets/header-entrance.js?v=2370705466" async></script>
     <link rel="stylesheet" href="assets/home-moon-door.css?v=3aa25b46b2">
     <script src="assets/brand-door.js?v=bb77133a9d" defer></script>
     <link rel="stylesheet" href="assets/section-backgrounds.css?v=433b610727">
@@ -159,7 +159,7 @@
 <link rel="stylesheet" href="assets/resources-art-options.css?v=5">
 <script src="assets/resources-art-options.js?v=4" defer></script>
 <link rel="stylesheet" href="assets/home-faq-dark.css?v=50d9d6f584">
-<link rel="stylesheet" href="assets/home-book-notice.css?v=2">
+<link rel="stylesheet" href="assets/home-book-notice.css?v=6fcd2a4f7c">
 <script src="assets/home-book-notice.js?v=1" defer></script>
 <link rel="stylesheet" href="assets/services-card-reveal.css?v=c1e9d6851e">
 <link rel="stylesheet" href="assets/footer-credit.css?v=bf09b409d3">

@@ -11,17 +11,18 @@
   const desktop = matchMedia('(min-width:1100px)');
   const presets = [{name:'Elastic tilt',y:30,x:0,scale:.98,zeta:.58,hz:3.2,duration:940,stagger:60,rotate:7}];
   const selected=0;
+  const noticeHeight = () => document.querySelector('[data-book-notice]:not([hidden])')?.getBoundingClientRect().height || 0;
   const scrollKey = 'hoea-header-scroll:' + location.pathname;
   let running = [], generation = 0, startFrame = 0, settled = false;
   let pageShown = document.readyState === 'complete';
   let navigation = performance.getEntriesByType('navigation')[0]?.type;
   let restoredY = 0, restoredPill = false;
-  try { if (navigation === 'reload' || navigation === 'back_forward') {restoredY=Number(sessionStorage.getItem(scrollKey))||0;restoredPill=restoredY>48||(restoredY>24&&sessionStorage.getItem(scrollKey+':pill')==='true');} } catch {}
+  try { if (navigation === 'reload' || navigation === 'back_forward') {restoredY=Number(sessionStorage.getItem(scrollKey))||0;restoredPill=restoredY>noticeHeight()+48||(restoredY>noticeHeight()+24&&sessionStorage.getItem(scrollKey+':pill')==='true');} } catch {}
 
   // Place directly into the restored shape before anything becomes visible.
   header.dataset.entrancePlacing = 'true';
   function place(restoring = false) {
-    const threshold=header.classList.contains('is-scrolled')?24:48;
+    const threshold=noticeHeight()+(header.classList.contains('is-scrolled')?24:48);
     header.classList.toggle('is-scrolled', desktop.matches && (scrollY > threshold || (restoring && restoredPill)));
   }
   place(true);
@@ -42,7 +43,7 @@
     const deadline = performance.now() + 600;
     const settle = () => {
       // Long documents can restore scroll after pageshow. Keep the saved pill until then.
-      if (restoredPill && scrollY < 24 && performance.now() < deadline) {requestAnimationFrame(settle);return;}
+      if (restoredPill && scrollY < noticeHeight()+24 && performance.now() < deadline) {requestAnimationFrame(settle);return;}
       place(false);
       delete header.dataset.entrancePlacing;
       settled = true;

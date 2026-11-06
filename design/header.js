@@ -95,7 +95,9 @@ export function setupSiteHeader() {
     frame = 0;
     // Hysteresis prevents flickering when scrolling near the changeover point.
     const compact = header.classList.contains('is-scrolled');
-    compactHeader(desktop.matches && scrollY > (compact ? 24 : 48));
+    const notice = document.querySelector('[data-book-notice]:not([hidden])');
+    const noticeHeight = notice?.getBoundingClientRect().height || 0;
+    compactHeader(desktop.matches && scrollY > noticeHeight + (compact ? 24 : 48));
     if (dialog.open) trackAnchor();
   }
   const onScroll = () => { if (!frame) frame = requestAnimationFrame(syncScroll); };
