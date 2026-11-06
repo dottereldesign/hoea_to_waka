@@ -93,12 +93,6 @@
           "section": "Frequently Asked Questions",
           "href": "../#home-faq",
           "kind": "Interface"
-        },
-        {
-          "page": "Services",
-          "section": "Built around the people in front of us",
-          "href": "../services/#flexible-approach",
-          "kind": "Interface"
         }
       ],
       "name": "FAQ green",
@@ -217,12 +211,6 @@
       "hex": "#102A39",
       "uses": [
         {
-          "page": "Services",
-          "section": "Built around the people in front of us",
-          "href": "../services/#flexible-approach",
-          "kind": "Interface"
-        },
-        {
           "page": "Resources",
           "section": "Carry the ideas through music",
           "href": "../resources/#resource-videos",
@@ -291,21 +279,9 @@
       "hex": "#D8CBDD",
       "uses": [
         {
-          "page": "Services",
-          "section": "Built around the people in front of us",
-          "href": "../services/#:~:text=Built%20around%20the%20people%20in%20front%20of%20us",
-          "kind": "Interface"
-        },
-        {
           "page": "In-house workshops",
           "section": "How your team will learn",
           "href": "../services/in-house-workshops/#workshop-learning",
-          "kind": "Interface"
-        },
-        {
-          "page": "In-house workshops",
-          "section": "One model. Your people and context",
-          "href": "../services/in-house-workshops/#:~:text=One%20model.%20Your%20people%20and%20context",
           "kind": "Interface"
         },
         {
@@ -412,34 +388,6 @@
         }
       ],
       "name": "Muted plum",
-      "family": "Purples & pinks",
-      "group": "Interface"
-    },
-    {
-      "hex": "#593C74",
-      "uses": [
-        {
-          "page": "Services",
-          "section": "Built around the people in front of us",
-          "href": "../services/#flexible-approach",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Deep purple",
-      "family": "Purples & pinks",
-      "group": "Interface"
-    },
-    {
-      "hex": "#482B57",
-      "uses": [
-        {
-          "page": "Services",
-          "section": "Built around the people in front of us",
-          "href": "../services/#flexible-approach",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Deep purple",
       "family": "Purples & pinks",
       "group": "Interface"
     },
