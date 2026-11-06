@@ -16,20 +16,6 @@
       "group": "Interface"
     },
     {
-      "hex": "#FFD814",
-      "uses": [
-        {
-          "page": "Resources",
-          "section": "Stories that travel with you",
-          "href": "../resources/#resource-books",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Pale gold",
-      "family": "Warm colours",
-      "group": "Interface"
-    },
-    {
       "hex": "#F1CFB9",
       "uses": [
         {
@@ -40,20 +26,6 @@
         }
       ],
       "name": "Pale orange",
-      "family": "Warm colours",
-      "group": "Interface"
-    },
-    {
-      "hex": "#DB6F09",
-      "uses": [
-        {
-          "page": "Resources",
-          "section": "Stories that travel with you",
-          "href": "../resources/#resource-books",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Orange",
       "family": "Warm colours",
       "group": "Interface"
     },
@@ -604,6 +576,21 @@
       "name": "Pale orange",
       "family": "Warm colours",
       "group": "Artwork"
+    },
+    {
+      "hex": "#FFD814",
+      "uses": [
+        {
+          "page": "Resources",
+          "section": "Stories that travel with you",
+          "href": "../resources/#resource-books",
+          "kind": "Interface"
+        }
+      ],
+      "name": "Pale gold",
+      "family": "Warm colours",
+      "group": "External",
+      "brand": "Amazon"
     },
     {
       "hex": "#FDCDC8",
@@ -1496,6 +1483,21 @@
       "name": "Coral",
       "family": "Warm colours",
       "group": "Artwork"
+    },
+    {
+      "hex": "#DB6F09",
+      "uses": [
+        {
+          "page": "Resources",
+          "section": "Stories that travel with you",
+          "href": "../resources/#resource-books",
+          "kind": "Interface"
+        }
+      ],
+      "name": "Orange",
+      "family": "Warm colours",
+      "group": "External",
+      "brand": "Amazon"
     },
     {
       "hex": "#D66C6B",
