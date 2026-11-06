@@ -348,3 +348,12 @@ html[data-home-hero="03"] .home-hero-illustration .home-hero-illustration__cutou
     width: fit-content;
   }
 }
+
+/* Leave an 8px glimpse of the next section on mobile landing screens. */
+@media (max-width: 760px) {
+  .page-home { --hero-notice-height: 0px; }
+  .page-home:has(.home-book-notice:not([hidden])) { --hero-notice-height: 44px; }
+  html[data-home-hero="03"] .page-home .home-hero .home-hero-inner-photo .home-hero-copy {
+    min-height: calc(100svh - 76px - var(--hero-notice-height) - 8px);
+  }
+}
