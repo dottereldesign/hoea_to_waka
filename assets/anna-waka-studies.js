@@ -1,5 +1,5 @@
 // Editable canoe studies; simple original geometry, without decorative cultural motifs.
-const colours={coral:'#d96773',pink:'#FDAEB5',apricot:'#FDB069',cream:'#FDD8B0',plum:'#281A2C',berry:'#82394f',blue:'#03394D',teal:'#267C86',sage:'#B4BF8B'};
+const colours={coral:'#d96773',pink:'#FDAEB5',apricot:'#FDB069',cream:'#FDD8B0',plum:'#281A2C',berry:'#82394f',blue:'#183958',teal:'#267C86',sage:'#B4BF8B'};
 const designs=[
   {name:'Coral classic',note:'A generous curved hull, three seats and a double coral rim.',w:12, rim:'coral',edge:'pink',floor:'cream',seat:'apricot',well:'berry',seats:[-22,0,22]},
   {name:'Lagoon dart',note:'A slender, pointed hull with a deep teal interior and two light seats.',w:9,rim:'teal',edge:'sage',floor:'blue',seat:'cream',well:'plum',seats:[-15,16],pointed:true},
@@ -17,7 +17,7 @@ const hull=d=>d.angular?`M0 -40 L${d.w*.65} -26 L${d.w} -9 V15 L${d.w*.55} 31 L0
 function artwork(d,index){
  const c=k=>colours[d[k]],outline=hull(d),id='waka-study-'+index;
  const shell=`<path d="${outline}" fill="${c('rim')}"/><path d="${outline}" transform="scale(.9 .96)" fill="${c('edge')}"/><path d="${outline}" transform="scale(.76 .88)" fill="${c('well')}"/><path d="${outline}" transform="translate(1 2) scale(.55 .72)" fill="url(#${id})"/>${d.seats.map(y=>{const w=d.w*(d.round?.76:.7)*(1-Math.abs(y)/95);return `<rect x="${-w}" y="${y-1.9}" width="${w*2}" height="4.8" rx=".8" fill="${c('well')}" opacity=".4"/><rect x="${-w}" y="${y-2.8}" width="${w*2}" height="4.8" rx=".8" fill="${c('seat')}"/>`;}).join('')}${d.keel?'<path d="M0-29V29" stroke="#FDD8B0" stroke-width=".35" opacity=".5"/>':''}${d.ribbon?`<path d="M-1-36C-11-20-12 17-1 36" fill="none" stroke="#FDD8B0" stroke-width=".7"/>`:''}`;
- return `<g class="river-canoe" data-study="${index}" stroke="none"><defs><linearGradient id="${id}" x1="0" x2="1"><stop stop-color="${c('floor')}"/><stop offset="1" stop-color="${c('floor')}" stop-opacity=".72"/></linearGradient></defs>${d.twin?`<g transform="translate(-10 0) scale(.85 .94)">${shell}</g><g transform="translate(10 0) scale(.85 .94)">${shell}</g><path d="M-12-16H12M-12 16H12" stroke="#FDB069" stroke-width="3"/>`:shell}${d.outrigger?'<path d="M-6-17H-20M-6 17H-20" fill="none" stroke="#FDB069" stroke-width="1.8"/><path d="M-20-32C-26-17-25 21-20 32C-16 20-16-17-20-32Z" fill="#03394D"/><path d="M-20-27V27" stroke="#B4BF8B" stroke-width=".7"/>':''}</g>`;
+ return `<g class="river-canoe" data-study="${index}" stroke="none"><defs><linearGradient id="${id}" x1="0" x2="1"><stop stop-color="${c('floor')}"/><stop offset="1" stop-color="${c('floor')}" stop-opacity=".72"/></linearGradient></defs>${d.twin?`<g transform="translate(-10 0) scale(.85 .94)">${shell}</g><g transform="translate(10 0) scale(.85 .94)">${shell}</g><path d="M-12-16H12M-12 16H12" stroke="#FDB069" stroke-width="3"/>`:shell}${d.outrigger?'<path d="M-6-17H-20M-6 17H-20" fill="none" stroke="#FDB069" stroke-width="1.8"/><path d="M-20-32C-26-17-25 21-20 32C-16 20-16-17-20-32Z" fill="#183958"/><path d="M-20-27V27" stroke="#B4BF8B" stroke-width=".7"/>':''}</g>`;
 }
 export function paddlePose(blades,splashes,phase,activity){
  blades.forEach((blade,i)=>{

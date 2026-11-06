@@ -60,7 +60,7 @@ export function setupBrandEditor() {
     input.addEventListener('change',()=>{
       if(!update(input.dataset.colourHex,input.value.trim())) {
         input.setAttribute('aria-invalid','true');
-        status.textContent='Enter # followed by six letters or numbers for the colour, for example #083140.';
+        status.textContent='Enter # followed by six letters or numbers for the colour, for example #183958.';
       }
     });
   });

@@ -98,7 +98,7 @@ html[data-palette] [data-component="home:3:services"]{margin-inline:8px;--ds-bg:
 
 /* A slow orbit of the people, places and ideas behind the invitation. */
 @property --cta-orbit-angle{syntax:"<angle>";inherits:true;initial-value:0deg}
-html[data-palette] :is(.home-cta-simple,.ds-component[data-component="home:7:cta"]){position:relative;background:#fff;color:#142044;padding:0;margin-inline:8px;border-radius:32px;overflow:clip;--ds-bg:#fff!important;--ds-ink:#142044!important;--ds-muted:#03394D!important;--ds-surface:#fff!important;--ds-line:#c7cede!important}
+html[data-palette] :is(.home-cta-simple,.ds-component[data-component="home:7:cta"]){position:relative;background:#fff;color:#142044;padding:0;margin-inline:8px;border-radius:32px;overflow:clip;--ds-bg:#fff!important;--ds-ink:#142044!important;--ds-muted:#183958!important;--ds-surface:#fff!important;--ds-line:#c7cede!important}
 .home-cta-orbit-layout{display:grid;grid-template-columns:52% minmax(0,1fr);gap:6%;align-items:center;max-width:1600px;margin:auto}
 .home-cta-orbit-well{position:relative;height:clamp(820px,65vw,960px);display:grid;place-items:center;min-width:0}
 .home-cta-orbit{position:absolute;inset:0;container-type:size;pointer-events:none;--cta-orbit-angle:0deg;animation:cta-orbit 96s linear infinite;animation-play-state:paused}
@@ -111,7 +111,7 @@ html[data-palette] :is(.home-cta-simple,.ds-component[data-component="home:7:cta
 .home-cta-simple .home-cta-body .ds-lead{max-width:580px;margin:0!important;color:var(--ds-muted);font-size:clamp(20px,1.8vw,27px);line-height:1.5}
 .home-cta-simple .home-cta-support{max-width:560px;margin:24px 0 0;color:var(--ds-muted);font-size:15px;line-height:1.8}
 .home-cta-simple .home-cta-actions{display:flex;flex-wrap:wrap;gap:12px;margin:32px 0 0}
-.home-cta-simple .home-cta-orbit-pause{display:inline-flex;margin-top:24px;padding:7px 12px;border:1px solid #dce2f0;border-radius:999px;background:#fff;color:#03394D;font-size:12px;cursor:pointer}
+.home-cta-simple .home-cta-orbit-pause{display:inline-flex;margin-top:24px;padding:7px 12px;border:1px solid #dce2f0;border-radius:999px;background:#fff;color:#183958;font-size:12px;cursor:pointer}
 .home-cta-orbit-pause[hidden]{display:none}
 .home-cta-orbit-pause:hover{background:#eef1f9;color:#142044}
 @keyframes cta-orbit{to{--cta-orbit-angle:360deg}}
@@ -128,7 +128,7 @@ html[data-palette] .ds-component:is([data-component="home:8:faq"],[data-componen
 :is(#home-faq,#contact-faq) summary:hover{background:var(--ds-accent)}
 html[data-palette] :is(#home-faq,#contact-faq) summary:focus-visible{outline:2px solid var(--brand-logo-black)!important;outline-offset:4px!important;box-shadow:none!important}
 /* Homepage testimonials use a white canvas with navy copy and controls. */
-html[data-palette] .ds-component[data-component="home:6:testimonials"]{--ds-bg:#fff!important;--ds-ink:#142044!important;--ds-muted:#03394D!important;--ds-surface:#fff!important;--ds-accent:#eef1f9!important;--ds-line:#c7cede!important}
+html[data-palette] .ds-component[data-component="home:6:testimonials"]{--ds-bg:#fff!important;--ds-ink:#142044!important;--ds-muted:#183958!important;--ds-surface:#fff!important;--ds-accent:#eef1f9!important;--ds-line:#c7cede!important}
 [data-component="home:6:testimonials"] :is(figcaption,.ds-carousel-status){color:var(--ds-muted)}
 [data-component="home:6:testimonials"] .ds-quote-cinema{max-width:1280px}
 [data-component="home:6:testimonials"] .ds-section-heading{max-width:none}
