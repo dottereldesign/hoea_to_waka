@@ -20,3 +20,8 @@ html[data-palette][data-typography] #home-faq summary:focus-visible {outline:3px
 html[data-palette][data-typography] #home-faq .ds-answer a:focus-visible {outline:3px solid #67A798!important;outline-offset:3px!important;box-shadow:none!important;}
 
 #home-faq summary:hover {box-shadow:inset 0 0 0 1px #67A798;}
+/* Dividers separate questions; they never frame the bottom of the list. */
+#home-faq .home-faq-column:last-child>details:last-child{border-bottom:0}
+@media(min-width:761px){
+ #home-faq .home-faq-column>details:last-child{border-bottom:0}
+}
