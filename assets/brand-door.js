@@ -23,10 +23,10 @@
   const preference = matchMedia('(prefers-reduced-motion: reduce)');
   const originalDescription = svg.querySelector('desc').textContent;
   const variants = {
-    reference: {name: '01 · Reference', flip: false, angle: 54.7, paper: '#ffffff', ink: '#303033', floor: '#4b4c4f', sky: '#000000', haze: '#7472a6'},
-    mirror: {name: '02 · Mirror', flip: true, angle: 45, paper: '#ffffff', ink: '#303033', floor: '#4b4c4f', sky: '#000000', haze: '#7472a6'},
+    reference: {name: '01 · Reference', flip: false, angle: 54.7, paper: '#ffffff', ink: '#303033', floor: '#4b4c4f', sky: '#191919', haze: '#7472a6'},
+    mirror: {name: '02 · Mirror', flip: true, angle: 45, paper: '#ffffff', ink: '#303033', floor: '#4b4c4f', sky: '#191919', haze: '#7472a6'},
     ocean: {name: '03 · Ocean', flip: false, angle: 54.7, paper: '#f8fbfa', ink: '#243a53', floor: '#8b9d9f', sky: '#071f2d', haze: '#518d88'},
-    midnight: {name: '04 · Midnight', flip: true, angle: 45, paper: '#000000', ink: '#38383c', floor: '#38383c', sky: '#000000', haze: '#7472a6'},
+    midnight: {name: '04 · Midnight', flip: true, angle: 45, paper: '#191919', ink: '#38383c', floor: '#38383c', sky: '#191919', haze: '#7472a6'},
     arch: {name: '05 · Moon arch', shape:'arch', tide:true, flip:false, angle:67, paper:'#ffffff', ink:'#243a53', floor:'#8c9da9', sky:'#061628', haze:'#0D4687'},
     round: {name: '06 · Round portal', shape:'round', tide:true, flip:false, angle:66, paper:'#ffffff', ink:'#243a53', floor:'#8c9da9', sky:'#061628', haze:'#0D4687'},
     oval: {name: '07 · Oval tide', shape:'oval', tide:true, flip:false, angle:68, paper:'#ffffff', ink:'#243a53', floor:'#8c9da9', sky:'#061628', haze:'#0D4687'},

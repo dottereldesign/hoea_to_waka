@@ -1,6 +1,6 @@
 /* Soft cloud gradients with fine, stationary grain; the content stays sharp. */
 html[data-palette] .site-main > .subpage-hero.coaching-hero{
-  --coaching-ink:#18202c;--coaching-muted:#303d50;
+  --coaching-ink:#191919;--coaching-muted:#303d50;
   background:var(--coaching-surface,#e8f1f5);color:var(--coaching-ink);padding-bottom:80px;
 }
 .coaching-hero__backgrounds{position:absolute;inset:0;z-index:-1;pointer-events:none}
@@ -17,7 +17,7 @@ html[data-palette] .subpage-hero.coaching-hero .pp-breadcrumb a:hover{color:var(
 html[data-palette] .coaching-hero__controls button{width:38px;min-height:36px;padding:0;border:0;border-radius:999px;background:transparent;color:var(--coaching-ink);font-size:12px;font-weight:600;cursor:pointer;transition:background .2s,color .2s}
 html[data-palette] .coaching-hero__controls button:hover{background:color-mix(in srgb,var(--coaching-ink) 12%,transparent)}
 html[data-palette] .coaching-hero__controls button[aria-pressed="true"]{background:var(--coaching-ink);color:#fff}
-html[data-palette] .coaching-hero:is([data-coaching-version="03"],[data-coaching-version="04"]) .coaching-hero__controls button[aria-pressed="true"]{color:#18202c}
+html[data-palette] .coaching-hero:is([data-coaching-version="03"],[data-coaching-version="04"]) .coaching-hero__controls button[aria-pressed="true"]{color:#191919}
 html[data-palette] .subpage-hero.coaching-hero :focus-visible{outline:2px solid var(--coaching-ink)!important;outline-offset:3px!important;box-shadow:none!important}
 @media(max-width:760px){.coaching-hero__controls{right:16px;bottom:16px}}
 @media(prefers-reduced-motion:reduce){.coaching-hero__background,.coaching-hero__controls button{transition:none}}

@@ -9,7 +9,7 @@ const encode=text=>new TextEncoder().encode(text);
 async function textArtwork(text){
  // Obtain real ink bounds before shifting the original vector paths.
  const probe=lettering(text,140,24,170,600,-4.9),probeSVG=svg(probe.paths,Math.ceil(probe.width+48),230,'#191919');
- const {info}=await sharp(Buffer.from(probeSVG)).trim({background:'#00000000'}).png().toBuffer({resolveWithObject:true});
+ const {info}=await sharp(Buffer.from(probeSVG)).trim({background:'#19191900'}).png().toBuffer({resolveWithObject:true});
  const left=-(info.trimOffsetLeft||0),top=-(info.trimOffsetTop||0);
  return {paths:probe.paths.map(d=>svgpath(d).translate(-left+4,-top+4).abs().toString()),w:info.width+8,h:info.height+8};
 }
@@ -17,10 +17,10 @@ async function pdf(paths,w,h,colour){const doc=new PDFDocument({size:[w,h],margi
 const name=await textArtwork('Hoea tō Waka'),url=await textArtwork('hoeatowaka.co.nz');
 const transform=(paths,scale,x,y)=>paths.map(d=>svgpath(d).matrix([scale,0,0,scale,x,y]).abs().toString());
 const line=wordmark.slice(symbol.length+fullName.paths.length);
-async function cropArtwork(paths,w,h){const {info}=await sharp(Buffer.from(svg(paths,w,h,'#191919'))).trim({background:'#00000000'}).png().toBuffer({resolveWithObject:true});return {paths:transform(paths,1,(info.trimOffsetLeft||0)+4,(info.trimOffsetTop||0)+4),w:info.width+8,h:info.height+8}}
+async function cropArtwork(paths,w,h){const {info}=await sharp(Buffer.from(svg(paths,w,h,'#191919'))).trim({background:'#19191900'}).png().toBuffer({resolveWithObject:true});return {paths:transform(paths,1,(info.trimOffsetLeft||0)+4,(info.trimOffsetTop||0)+4),w:info.width+8,h:info.height+8}}
 const tagline=await cropArtwork(line,width,height);
 // Measure actual ink at 2x, so padding and the macron are included consistently.
-async function ink(paths,w,h){const {info}=await sharp(Buffer.from(svg(paths,w,h,'#191919'))).resize({width:Math.round(w*2)}).trim({background:'#00000000'}).png().toBuffer({resolveWithObject:true});return {x:-(info.trimOffsetLeft||0)/2,y:-(info.trimOffsetTop||0)/2,w:info.width/2,h:info.height/2}}
+async function ink(paths,w,h){const {info}=await sharp(Buffer.from(svg(paths,w,h,'#191919'))).resize({width:Math.round(w*2)}).trim({background:'#19191900'}).png().toBuffer({resolveWithObject:true});return {x:-(info.trimOffsetLeft||0)/2,y:-(info.trimOffsetTop||0)/2,w:info.width/2,h:info.height/2}}
 const symbolInk=await ink(symbol,385,384),nameInk=await ink(name.paths,name.w,name.h);
 const H=280,x=H/4;
 function place(paths,box,target){return transform(paths,target.h/box.h,target.x-box.x*target.h/box.h,target.y-box.y*target.h/box.h)}

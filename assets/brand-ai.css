@@ -20,15 +20,15 @@ html[data-palette] .brand-guidelines .brand-ai__copy--logo{background:#dce9f1;co
 html[data-palette] .brand-guidelines .brand-ai__provider{display:flex;flex-direction:column;align-items:center;gap:9px;min-width:0;padding:4px 0;border:0;background:transparent;color:var(--t-ink);font:400 12px/1.4 Inter,Arial,sans-serif;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .brand-guidelines .brand-ai__circle{display:grid;place-items:center;width:52px;height:52px;border:1px solid var(--t-line);border-radius:50%;background:#fff;transition:transform 280ms cubic-bezier(.22,1,.36,1),box-shadow 280ms ease,border-color 280ms ease}
 .brand-guidelines .brand-ai__circle img{width:23px;height:23px;object-fit:contain;filter:none}
-.brand-guidelines .brand-ai__provider:hover .brand-ai__circle{transform:translateY(-4px);box-shadow:0 6px 14px #0000000c;border-color:var(--t-muted)}
+.brand-guidelines .brand-ai__provider:hover .brand-ai__circle{transform:translateY(-4px);box-shadow:0 6px 14px #1919190c;border-color:var(--t-muted)}
 .brand-guidelines .brand-ai__provider[aria-pressed="true"] .brand-ai__circle{border-color:var(--t-ink)}
 .brand-guidelines .brand-ai__hint{margin-top:14px;text-align:center;color:var(--t-muted);font-size:11px;line-height:1.5}
 .brand-guidelines .brand-ai__downloads{position:static;font-size:12px}
 .brand-guidelines .brand-ai__downloads summary{padding:8px 0;cursor:pointer;text-decoration:underline;text-underline-offset:4px;color:var(--t-muted)}
-.brand-guidelines .brand-ai__files{position:absolute;top:calc(100% + 8px);left:0;z-index:7;display:grid;gap:14px;width:min(320px,calc(100vw - 64px));padding:22px;border:1px solid var(--t-line);border-radius:18px;background:var(--t-surface);box-shadow:0 14px 50px #00000018;color:var(--t-ink)}
+.brand-guidelines .brand-ai__files{position:absolute;top:calc(100% + 8px);left:0;z-index:7;display:grid;gap:14px;width:min(320px,calc(100vw - 64px));padding:22px;border:1px solid var(--t-line);border-radius:18px;background:var(--t-surface);box-shadow:0 14px 50px #19191918;color:var(--t-ink)}
 html[data-palette] .brand-guidelines .brand-ai__files a{font:500 13px/1.4 Inter,Arial,sans-serif;color:inherit;text-underline-offset:4px}
 .brand-guidelines .brand-ai__files>span,.brand-guidelines .brand-ai__files small{color:var(--t-muted);font-size:12px;line-height:1.55}
-.brand-guidelines .brand-ai__feedback{position:absolute;top:calc(100% + 18px);right:0;box-sizing:border-box;width:min(360px,calc(100vw - 48px));padding:24px;max-height:calc(100dvh - 32px);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none;border-radius:22px;background:var(--t-ink);color:var(--t-surface);box-shadow:0 16px 44px #00000020;z-index:8;animation:brandAiFeedback 300ms cubic-bezier(.22,1,.36,1) both}
+.brand-guidelines .brand-ai__feedback{position:absolute;top:calc(100% + 18px);right:0;box-sizing:border-box;width:min(360px,calc(100vw - 48px));padding:24px;max-height:calc(100dvh - 32px);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none;border-radius:22px;background:var(--t-ink);color:var(--t-surface);box-shadow:0 16px 44px #19191920;z-index:8;animation:brandAiFeedback 300ms cubic-bezier(.22,1,.36,1) both}
 .brand-guidelines .brand-ai__status{padding-right:12px;font-size:14px;line-height:1.6}
 .brand-guidelines .brand-ai__status strong{display:block;margin-bottom:6px;font-weight:600}
 html[data-palette] .brand-guidelines .brand-ai__dismiss{position:absolute;top:8px;right:8px;width:32px;height:32px;display:grid;place-items:center;border:0;border-radius:50%;padding:0;background:transparent;color:inherit;font:300 24px/1 Inter,Arial,sans-serif;cursor:pointer}
@@ -62,7 +62,7 @@ html[data-palette] .brand-guidelines .brand-ai__open.brand-ai__launch{display:in
 .brand-ai__launch-label{min-width:0}
 .brand-ai__launch-icon{display:grid;place-items:center;flex:none;width:40px;height:40px;overflow:hidden;border-radius:50%;background:#153e32;color:#f1fff5}
 .brand-ai__launch-icon svg{display:block;transform-origin:center}
-.brand-guidelines .brand-ai__launch:hover{box-shadow:0 4px 18px #00000018}
+.brand-guidelines .brand-ai__launch:hover{box-shadow:0 4px 18px #19191918}
 .brand-guidelines .brand-ai__launch:active{transform:scale(.98)}
 @keyframes brandAiToast{from{opacity:0;transform:translateY(16px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
 

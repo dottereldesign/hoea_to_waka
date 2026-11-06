@@ -2,98 +2,6 @@
   "scope": "Rendered default desktop pages, including inline and image-based SVG colours. Excludes photo pixels, transparency blends, and colours already in the illustration or neutral palettes.",
   "colours": [
     {
-      "hex": "#000000",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Navigation",
-          "href": "../#page-top",
-          "kind": "Interface"
-        },
-        {
-          "page": "Home",
-          "section": "What people carry forward",
-          "href": "../#:~:text=What%20people%20carry%20forward",
-          "kind": "Interface"
-        },
-        {
-          "page": "About",
-          "section": "Navigation",
-          "href": "../about/#page-top",
-          "kind": "Interface"
-        },
-        {
-          "page": "Model",
-          "section": "Navigation",
-          "href": "../model/#page-top",
-          "kind": "Interface"
-        },
-        {
-          "page": "Services",
-          "section": "Navigation",
-          "href": "../services/#page-top",
-          "kind": "Interface"
-        },
-        {
-          "page": "In-house workshops",
-          "section": "Navigation",
-          "href": "../services/in-house-workshops/#page-top",
-          "kind": "Interface"
-        },
-        {
-          "page": "In-house workshops",
-          "section": "Stronger direction in demanding work",
-          "href": "../services/in-house-workshops/#workshop-support",
-          "kind": "Artwork"
-        },
-        {
-          "page": "Individual coaching",
-          "section": "Navigation",
-          "href": "../services/resilience-one-on-one/#page-top",
-          "kind": "Interface"
-        },
-        {
-          "page": "Support training",
-          "section": "Navigation",
-          "href": "../services/workshops-for-support-professionals/#page-top",
-          "kind": "Interface"
-        },
-        {
-          "page": "Resources",
-          "section": "Navigation",
-          "href": "../resources/#page-top",
-          "kind": "Interface"
-        },
-        {
-          "page": "Resources",
-          "section": "Carry the ideas through music",
-          "href": "../resources/#resource-videos",
-          "kind": "Interface"
-        },
-        {
-          "page": "Contact",
-          "section": "Navigation",
-          "href": "../contact/#page-top",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Black",
-      "group": "Interface"
-    },
-    {
-      "hex": "#181818",
-      "uses": [
-        {
-          "page": "Home",
-          "section": "Navigation",
-          "href": "../#page-top",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Navigation black",
-      "group": "Interface"
-    },
-    {
       "hex": "#666666",
       "uses": [
         {
@@ -355,25 +263,6 @@
         }
       ],
       "name": "Green",
-      "group": "Interface"
-    },
-    {
-      "hex": "#0F1111",
-      "uses": [
-        {
-          "page": "Resources",
-          "section": "Stories that travel with you",
-          "href": "../resources/#resource-books",
-          "kind": "Interface"
-        },
-        {
-          "page": "Resources",
-          "section": "Stories that travel with you",
-          "href": "../resources/#resource-books",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Deep teal",
       "group": "Interface"
     },
     {
@@ -712,43 +601,6 @@
       "group": "Interface"
     },
     {
-      "hex": "#18202C",
-      "uses": [
-        {
-          "page": "Services",
-          "section": "Services",
-          "href": "../services/#:~:text=Services",
-          "kind": "Interface"
-        },
-        {
-          "page": "Individual coaching",
-          "section": "Individual coaching",
-          "href": "../services/resilience-one-on-one/#:~:text=Individual%20coaching",
-          "kind": "Interface"
-        },
-        {
-          "page": "Support training",
-          "section": "Support professional training",
-          "href": "../services/workshops-for-support-professionals/#:~:text=Support%20professional%20training",
-          "kind": "Interface"
-        },
-        {
-          "page": "Resources",
-          "section": "Books and resources",
-          "href": "../resources/#:~:text=Books%20and%20resources",
-          "kind": "Interface"
-        },
-        {
-          "page": "Contact",
-          "section": "Tell Anna what you are navigating.",
-          "href": "../contact/#:~:text=Tell%20Anna%20what%20you%20are%20navigating.",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Deep teal",
-      "group": "Interface"
-    },
-    {
       "hex": "#E0E7F2",
       "uses": [
         {
@@ -942,61 +794,6 @@
         }
       ],
       "name": "Teal",
-      "group": "Interface"
-    },
-    {
-      "hex": "#18181B",
-      "uses": [
-        {
-          "page": "About",
-          "section": "Navigation",
-          "href": "../about/#page-top",
-          "kind": "Interface"
-        },
-        {
-          "page": "Model",
-          "section": "Navigation",
-          "href": "../model/#page-top",
-          "kind": "Interface"
-        },
-        {
-          "page": "Services",
-          "section": "Navigation",
-          "href": "../services/#page-top",
-          "kind": "Interface"
-        },
-        {
-          "page": "In-house workshops",
-          "section": "Navigation",
-          "href": "../services/in-house-workshops/#page-top",
-          "kind": "Interface"
-        },
-        {
-          "page": "Individual coaching",
-          "section": "Navigation",
-          "href": "../services/resilience-one-on-one/#page-top",
-          "kind": "Interface"
-        },
-        {
-          "page": "Support training",
-          "section": "Navigation",
-          "href": "../services/workshops-for-support-professionals/#page-top",
-          "kind": "Interface"
-        },
-        {
-          "page": "Resources",
-          "section": "Navigation",
-          "href": "../resources/#page-top",
-          "kind": "Interface"
-        },
-        {
-          "page": "Contact",
-          "section": "Navigation",
-          "href": "../contact/#page-top",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Deep blue",
       "group": "Interface"
     },
     {

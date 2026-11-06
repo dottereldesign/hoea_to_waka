@@ -94,7 +94,7 @@ html[data-theme="dark"] {
   --nav-mobile-active: #8dccf2;
   --mobile-logo-filter: none;
   --mobile-brand-line: rgba(241, 246, 248, 0.7);
-  --shadow-soft: 0 24px 70px rgba(0, 0, 0, 0.34);
+  --shadow-soft: 0 24px 70px rgba(25,25,25, 0.34);
 }
 
 body {
@@ -1871,14 +1871,14 @@ html[data-theme="dark"] .field textarea:focus {
   padding: 4px;
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.94);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 12px 28px rgba(25,25,25, 0.18);
   transition: background-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
 }
 
 .footer-shielded-site:hover,
 .footer-shielded-site:focus-visible {
   background: var(--white);
-  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 16px 34px rgba(25,25,25, 0.24);
   outline: 2px solid var(--sky-200);
   outline-offset: 4px;
   transform: translateY(-2px);

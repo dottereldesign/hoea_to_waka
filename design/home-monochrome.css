@@ -50,8 +50,8 @@ html:has(body.page-home){
 --brand-warning:#555555!important;
 --brand-error:#555555!important;
 }
-html[data-palette] body.page-home>.site-header[data-morph-header]{--header-ink:#181818}
-html[data-palette] .page-home .site-menu-panel{color:#181818}
+html[data-palette] body.page-home>.site-header[data-morph-header]{--header-ink:#191919}
+html[data-palette] .page-home .site-menu-panel{color:#191919}
 .page-home .site-menu-service-links a{color:#555}
 /* Static mesh: a dark reading area, layered violet light and cached fine grain.
    Reuse the decorative art plane so text and existing motion stay above it. */

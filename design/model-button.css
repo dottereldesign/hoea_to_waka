@@ -13,7 +13,7 @@ html[data-palette] .model-button{
 html[data-palette] .model-button:focus-visible{outline:3px solid var(--model-ink)!important;outline-offset:5px!important}
 html[data-palette] .model-button:active{transform:scale(.98)}
 
-/* 2 — a bright arrow disc nestled inside the black capsule. */
+/* 2 — a bright arrow disc nestled inside the #191919 capsule. */
 html[data-palette] .model-button{padding:6px 7px 6px 26px;gap:24px;justify-content:space-between}
 .model-button .model-button__icon{width:42px;height:42px;overflow:hidden;border-radius:50%;background:var(--model-paper);color:var(--model-ink)}
 @media(prefers-reduced-motion:reduce){
