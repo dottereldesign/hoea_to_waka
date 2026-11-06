@@ -63,13 +63,19 @@
     morph.finished.then(()=>finish?.()).catch(()=>{});
   }
   function hide(restore=false){
-    if(!opened)return;opened=false;const id=++sequence;launch.setAttribute('aria-expanded','false');content.classList.remove('is-revealed');
-    animatePanel(false,()=>{
-      if(id!==sequence||opened)return;
-      panel.hidePopover();morph?.cancel();morph=null;panel.style.clipPath='';launch.style.visibility='';
-      if(restore)launch.focus({preventScroll:true});
-    });
+    if(!opened)return;
+    opened=false;
+    sequence++;
+    launch.setAttribute('aria-expanded','false');
+    panel.hidePopover();
+    morph?.cancel();
+    morph=null;
+    content.classList.remove('is-revealed');
+    panel.style.clipPath='';
+    launch.style.visibility='';
+    if(restore)launch.focus({preventScroll:true});
   }
+
   function show(){
     if(opened)return;opened=true;sequence++;launch.setAttribute('aria-expanded','true');launch.style.visibility='hidden';
     if(!panel.matches(':popover-open')){panel.showPopover();content.scrollTop=0;}

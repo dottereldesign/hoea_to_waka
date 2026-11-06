@@ -159,14 +159,7 @@ export function setupSiteHeader() {
   }
   function closeMenu() {
     if (!dialog.open || !menuOpen) return;
-    menuOpen = false;
-    cancelAnimationFrame(opening);
-    paintOpen(false);
-    dialog.classList.add('is-closing');
-    content.inert = true;
-    if(header.dataset.headerMorph==='moving'||header.dataset.entranceState==='playing')trackAnchor();
-    if (reduced.matches) finishClose();
-    else closing = setTimeout(finishClose, 660);
+    finishClose();
   }
   function openMenu() {
     if (menuOpen) {closeMenu();return;}
