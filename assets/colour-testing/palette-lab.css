@@ -99,3 +99,7 @@ html[data-palette] .palette-lab .brand-palette-group h3{font-size:22px;line-heig
 @media(max-width:1000px){.palette-ramps{gap:14px;}.palette-lab .palette-tone{flex-direction:column;align-items:flex-start;gap:4px;padding:12px;}}
 @media(max-width:700px){.palette-ramps{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 16px;}.palette-lab .palette-tone{flex-direction:row;align-items:center;}.brand-palette-group--extended{grid-column:auto;}}
 @media(max-width:360px){.palette-lab .palette-tone{flex-direction:column;align-items:flex-start;}}
+/* Palette-first view: headings and swatches, without introductory copy. */
+.palette-lab #palette{padding-top:0;}
+html[data-palette] .palette-lab #palette-title{font-size:clamp(26px,3vw,38px);line-height:1.15;letter-spacing:-.035em;margin:0;}
+.brand-palette-group header{min-height:0;margin-bottom:28px;}
