@@ -29,7 +29,7 @@
   $('[data-wordle-progress]').textContent=`${state.guesses.length} of 6 guesses`;
   form.hidden=finished();keyboard.hidden=finished();result.hidden=!finished();
   if(finished()){
-   const won=state.guesses.includes(state.answer);$('[data-wordle-result-text]').textContent=(won?'You found it: ':'The word was ')+state.answer.toUpperCase()+'.';const a=$('[data-wordle-dictionary]');a.href='https://www.dictionary.maori.nz/'+encodeURIComponent(state.answer);a.setAttribute('aria-label',`Explore ${state.answer} in the dictionary (opens in a new tab)`);
+   const won=state.guesses.includes(state.answer);$('[data-wordle-result-text]').textContent=(won?'You found it: ':'The word was ')+state.answer.toUpperCase()+'.';
   }
  }
  function cleanInput(){if(!state||finished())return;const clean=v=>Array.from(C.normalise(v).replace(/[^aeghikmnoprtuwāēīōū]/gu,'')).slice(0,5).join('').toUpperCase();const caret=clean(input.value.slice(0,input.selectionStart??input.value.length)).length;input.value=clean(input.value);input.setSelectionRange(caret,caret);render();}
