@@ -406,7 +406,7 @@
       "role": "Supporting text"
     },
     {
-      "name": "Logo black",
+      "name": "Ink",
       "hex": "#191919",
       "role": "Text, footer, dark surfaces and logo"
     }
@@ -456,9 +456,9 @@
         "Paper",
         "Stone",
         "Slate",
-        "Logo black"
+        "Ink"
       ]
     }
   ],
-  "toneMethod": "100 and 300 mix the original with 75% and 40% Paper; 500 is the unchanged original; 700 and 900 mix with 25% and 50% Logo black. These tonal extensions do not replace existing site colours."
+  "toneMethod": "100 and 300 mix the original with 75% and 40% Paper; 500 is the unchanged original; 700 and 900 mix with 25% and 50% Ink. These tonal extensions do not replace existing site colours."
 }

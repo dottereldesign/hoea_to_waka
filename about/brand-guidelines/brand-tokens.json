@@ -519,7 +519,7 @@
         ],
         "alpha": 1
       },
-      "$description": "Logo black: Primary text, footer and dark surfaces. HEX #191919"
+      "$description": "Ink: Primary text, footer and dark surfaces. HEX #191919"
     },
     "dusty-rose": {
       "$type": "color",

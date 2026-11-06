@@ -357,7 +357,7 @@ Check readability on a phone, confirm dates and links, and get permission for ph
 
 Choosing colour
 
-Start with the current website: white page backgrounds, dark Logo black text and black or white main buttons. Purple model sections and the coloured interior-page headers add variety. The palette below includes supporting colours you can use and compare; it is not a requirement to use every colour on a page.
+Start with the current website: white page backgrounds, dark Ink text and black or white main buttons. Purple model sections and the coloured interior-page headers add variety. The palette below includes supporting colours you can use and compare; it is not a requirement to use every colour on a page.
 
 The colour codes below are available without JavaScript. Turn JavaScript on to try a colour change.
 
@@ -403,7 +403,7 @@ Keep secondary actions readable without making them compete with the main button
 
 ### Putting colours together
 
-Use the Paper and Logo black examples as the starting point for the website. Supporting backgrounds can separate longer topics or identify a section. These examples show individual colour choices; there is no fixed percentage of blue, green or purple to fill on a page.
+Use the Paper and Ink examples as the starting point for the website. Supporting backgrounds can separate longer topics or identify a section. These examples show individual colour choices; there is no fixed percentage of blue, green or purple to fill on a page.
 
 These HEX values are for screens. For printed work, ask the printer to match the supplied artwork and approve a proof; the material and printing process affect the result.
 
@@ -1100,7 +1100,7 @@ DTCG 2025.10 JSON follows. Colour components use sRGB values from 0 to 1. Alias 
         ],
         "alpha": 1
       },
-      "$description": "Logo black: Primary text, footer and dark surfaces. HEX #191919"
+      "$description": "Ink: Primary text, footer and dark surfaces. HEX #191919"
     },
     "dusty-rose": {
       "$type": "color",

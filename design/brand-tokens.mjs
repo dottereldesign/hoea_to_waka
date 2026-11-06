@@ -10,7 +10,7 @@ export const neutrals = [
   colour('paper','Paper','#FFFFFF','Default page surface, cards and overlays'),
   colour('stone','Stone','#E3E1DD','Dividers and borders'),
   colour('slate','Slate','#6B7178','Supporting labels'),
-  colour('logo-black','Logo black','#191919','Primary text, footer and dark surfaces'),
+  colour('logo-black','Ink','#191919','Primary text, footer and dark surfaces'),
   colour('ocean-900','Ocean Night','#1A2B3D','Deep blue · Available dark background'),
   colour('aubergine-900','Plum Night','#201423','Deep purple · Available dark background'),
 ];
