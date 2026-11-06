@@ -104,30 +104,16 @@
       "group": "Artwork"
     },
     {
-      "hex": "#E8E8E4",
+      "hex": "#000000",
       "uses": [
         {
-          "page": "Support training",
-          "section": "Practical across helping roles",
-          "href": "../services/workshops-for-support-professionals/#:~:text=Practical%20across%20helping%20roles",
+          "page": "About",
+          "section": "Meet Anna Brown",
+          "href": "../about/#anna-story",
           "kind": "Artwork"
         }
       ],
-      "name": "Light grey",
-      "family": "Neutrals",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#B4B8B3",
-      "uses": [
-        {
-          "page": "Support training",
-          "section": "Practical across helping roles",
-          "href": "../services/workshops-for-support-professionals/#:~:text=Practical%20across%20helping%20roles",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Mid grey",
+      "name": "Dark grey",
       "family": "Neutrals",
       "group": "Artwork"
     },
@@ -889,26 +875,6 @@
       "group": "Artwork"
     },
     {
-      "hex": "#FA927F",
-      "uses": [
-        {
-          "page": "About",
-          "section": "Navigation",
-          "href": "../about/#page-top",
-          "kind": "Artwork"
-        },
-        {
-          "page": "About",
-          "section": "Meet Anna Brown",
-          "href": "../about/#anna-story",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Coral",
-      "family": "Warm colours",
-      "group": "Artwork"
-    },
-    {
       "hex": "#F49296",
       "uses": [
         {
@@ -961,26 +927,6 @@
         }
       ],
       "name": "Coral",
-      "family": "Warm colours",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#F58F51",
-      "uses": [
-        {
-          "page": "About",
-          "section": "Navigation",
-          "href": "../about/#page-top",
-          "kind": "Artwork"
-        },
-        {
-          "page": "About",
-          "section": "Meet Anna Brown",
-          "href": "../about/#anna-story",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Orange",
       "family": "Warm colours",
       "group": "Artwork"
     },
@@ -1125,26 +1071,6 @@
       "group": "Artwork"
     },
     {
-      "hex": "#D98788",
-      "uses": [
-        {
-          "page": "About",
-          "section": "Navigation",
-          "href": "../about/#page-top",
-          "kind": "Artwork"
-        },
-        {
-          "page": "About",
-          "section": "Meet Anna Brown",
-          "href": "../about/#anna-story",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Coral",
-      "family": "Warm colours",
-      "group": "Artwork"
-    },
-    {
       "hex": "#E67E7F",
       "uses": [
         {
@@ -1217,12 +1143,6 @@
     {
       "hex": "#D37D48",
       "uses": [
-        {
-          "page": "About",
-          "section": "Navigation",
-          "href": "../about/#page-top",
-          "kind": "Artwork"
-        },
         {
           "page": "About",
           "section": "Meet Anna Brown",
@@ -1298,26 +1218,6 @@
           "page": "Home",
           "section": "Hoea tō Waka",
           "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Coral",
-      "family": "Warm colours",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#D96773",
-      "uses": [
-        {
-          "page": "About",
-          "section": "Navigation",
-          "href": "../about/#page-top",
-          "kind": "Artwork"
-        },
-        {
-          "page": "About",
-          "section": "Meet Anna Brown",
-          "href": "../about/#anna-story",
           "kind": "Artwork"
         }
       ],
@@ -1548,6 +1448,12 @@
           "page": "In-house workshops",
           "section": "Stronger direction in demanding work",
           "href": "../services/in-house-workshops/#workshop-support",
+          "kind": "Artwork"
+        },
+        {
+          "page": "Support training",
+          "section": "Resources carry the model beyond the room",
+          "href": "../services/workshops-for-support-professionals/#support-resources",
           "kind": "Artwork"
         }
       ],
@@ -2044,34 +1950,6 @@
       "group": "Artwork"
     },
     {
-      "hex": "#646C67",
-      "uses": [
-        {
-          "page": "Support training",
-          "section": "Practical across helping roles",
-          "href": "../services/workshops-for-support-professionals/#:~:text=Practical%20across%20helping%20roles",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Soft green",
-      "family": "Greens",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#58635D",
-      "uses": [
-        {
-          "page": "Support training",
-          "section": "Practical across helping roles",
-          "href": "../services/workshops-for-support-professionals/#:~:text=Practical%20across%20helping%20roles",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Soft green",
-      "family": "Greens",
-      "group": "Artwork"
-    },
-    {
       "hex": "#21614D",
       "uses": [
         {
@@ -2092,20 +1970,6 @@
           "page": "Home",
           "section": "Hoea tō Waka",
           "href": "../#:~:text=Hoea%20t%C5%8D%20Waka",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Deep green",
-      "family": "Greens",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#404944",
-      "uses": [
-        {
-          "page": "Support training",
-          "section": "Practical across helping roles",
-          "href": "../services/workshops-for-support-professionals/#:~:text=Practical%20across%20helping%20roles",
           "kind": "Artwork"
         }
       ],
@@ -2772,26 +2636,6 @@
         }
       ],
       "name": "Soft purple",
-      "family": "Purples & pinks",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#82394F",
-      "uses": [
-        {
-          "page": "About",
-          "section": "Navigation",
-          "href": "../about/#page-top",
-          "kind": "Artwork"
-        },
-        {
-          "page": "About",
-          "section": "Meet Anna Brown",
-          "href": "../about/#anna-story",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Pink",
       "family": "Purples & pinks",
       "group": "Artwork"
     },
