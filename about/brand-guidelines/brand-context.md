@@ -129,7 +129,7 @@ Stacked lock-up Symbol above the name, aligned to a shared vertical centre line.
 
 ## URL Wordmarks
 
-Use the website address as artwork when directing people online. Keep the supplied lettering intact. In digital materials, link the artwork to hoeatowaka.co.nz so people can open the website.
+Use the website address as artwork when directing people online. Use the Ink wordmark on Paper, or the Paper wordmark on Ink or our primary Blue (#183958). Keep the supplied lettering intact. In digital materials, link the artwork to hoeatowaka.co.nz so people can open the website.
 
 ## Favicon
 
