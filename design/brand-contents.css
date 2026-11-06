@@ -24,19 +24,19 @@ html[data-palette] .brand-guide-contents__link:is(:hover,:focus-visible){backgro
 @media(max-width:760px){.brand-guidelines .site-preview-brand-hero-subtitle{white-space:normal;overflow-wrap:anywhere}}
 
 /* Numbered chapter covers: generous editorial dividers, shorter than the viewport. */
-html[data-palette] .brand-chapter-cover{position:relative;isolation:isolate;overflow:hidden;box-sizing:border-box;min-width:0;margin-inline:8px;height:clamp(300px,32vw,480px);border-radius:32px;scroll-margin-top:8px;background:radial-gradient(ellipse at 70% 20%,#6179bf 0,transparent 60%),radial-gradient(ellipse at 10% 95%,#b69ed6 0,transparent 65%),#253f75;color:#fff}
-.brand-chapter-cover::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,#080b202b,transparent 60%)}
-.brand-chapter-cover::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:url('hero-studies/grain.svg') repeat;background-size:180px;opacity:.42;mix-blend-mode:soft-light}
+html[data-palette] .brand-chapter-cover{position:relative;isolation:isolate;overflow:hidden;box-sizing:border-box;min-width:0;margin-inline:8px;height:clamp(300px,32vw,480px);border-radius:32px;scroll-margin-top:8px;background:var(--brand-logo-black,#191919);color:#fff}
+
+
 
 .brand-chapter-cover__number{position:absolute;bottom:-.16em;left:-.055em;font:400 clamp(220px,31vw,440px)/1 Inter,Arial,sans-serif;letter-spacing:-.08em;color:#ffffff40;user-select:none}
 html[data-palette] .brand-chapter-cover h2.brand-chapter-cover__title{position:absolute;right:24px;bottom:16px;max-width:calc(100% - 48px);margin:0;font:400 clamp(64px,9vw,144px)/1 Inter,Arial,sans-serif;font-weight:400!important;letter-spacing:-.045em;text-align:right;color:#fff;overflow-wrap:normal;text-wrap:balance}
-html[data-palette] .brand-chapter-cover--02{background:radial-gradient(ellipse at 80% 90%,#9b59b5 0,transparent 55%),radial-gradient(ellipse at 48% 40%,#f33d10 0,transparent 65%),radial-gradient(ellipse at 0 100%,#ffb133 0,transparent 65%),#f49b79}
-html[data-palette] .brand-chapter-cover--03{background:radial-gradient(ellipse at 78% 18%,#a392d8 0,transparent 62%),radial-gradient(ellipse at 12% 100%,#466f9b 0,transparent 68%),#41356e}
-html[data-palette] .brand-chapter-cover--04{background:radial-gradient(ellipse at 20% 0%,#987ea4 0,transparent 65%),radial-gradient(ellipse at 92% 100%,#504d83 0,transparent 70%),#39293e}
-html[data-palette] .brand-chapter-cover--05{background:radial-gradient(ellipse at 70% 10%,#a16a88 0,transparent 60%),radial-gradient(ellipse at 0 100%,#d67a53 0,transparent 65%),#633c78}
-html[data-palette] .brand-chapter-cover--06{background:radial-gradient(ellipse at 15% 95%,#7c979b 0,transparent 65%),radial-gradient(ellipse at 80% 10%,#3c788b 0,transparent 70%),#173e50}
-html[data-palette] .brand-chapter-cover--07{background:radial-gradient(ellipse at 80% 90%,#7486b4 0,transparent 68%),radial-gradient(ellipse at 0 10%,#644d8d 0,transparent 65%),#29365c}
-html[data-palette] .brand-chapter-cover--08{background:radial-gradient(ellipse at 75% 5%,#a6828e 0,transparent 65%),radial-gradient(ellipse at 5% 100%,#5a6785 0,transparent 70%),#393348}
+
+
+
+
+
+
+
 @media(max-width:760px){html[data-palette] .brand-chapter-cover{height:280px;border-radius:24px;scroll-margin-top:8px}.brand-chapter-cover__number{font-size:240px}html[data-palette] .brand-chapter-cover h2.brand-chapter-cover__title{font-size:clamp(42px,12vw,72px);max-width:calc(100% - 32px);right:16px;bottom:16px}}
 
 /* Six current logo applications, with a 30/70 editorial split. */
@@ -131,7 +131,7 @@ html:has(body.brand-guidelines){scroll-padding-top:0}
 html[data-palette] #typeface .site-preview-typeface-sheet-supporting{padding:0;border:0;border-radius:0;background:transparent;box-shadow:none}
 
 /* Digital logo use and chapter 09 social media examples. */
-html[data-palette] .brand-chapter-cover--09{background:radial-gradient(ellipse at 10% 95%,#6e7eae 0,transparent 65%),radial-gradient(ellipse at 85% 10%,#765f9a 0,transparent 70%),#183958}
+
 .brand-favicon-preview,.brand-social-post{margin:0;min-width:0}
 .brand-favicon-sizes{display:grid;grid-template-columns:16px 32px 48px 80px;justify-content:space-between;align-items:end;gap:clamp(0.5625rem, 0.49286rem + 0.28571vw, 0.75rem);padding:clamp(1.3125rem, 1.15rem + 0.66667vw, 1.75rem) clamp(0.75rem, 0.65714rem + 0.38095vw, 1rem);border-radius:16px}
 .brand-favicon-sizes--light{background:#f3f4f6;color:#3f4752}
@@ -601,7 +601,7 @@ html[data-palette] #brand-guide-cover .brand-hero-assets__note{font:400 12px/1.7
 @media(max-width:540px){.brand-hero-assets__grid{grid-template-columns:minmax(0,1fr);gap:clamp(0.46875rem, 0.41071rem + 0.2381vw, 0.625rem)}html[data-palette] .brand-guidelines .brand-hero-assets__link{min-height:96px;padding:clamp(0.84375rem, 0.73929rem + 0.42857vw, 1.125rem) clamp(0.9375rem, 0.82143rem + 0.47619vw, 1.25rem)}.brand-guidelines .brand-hero-assets{margin-top:clamp(0.75rem, 0.65714rem + 0.38095vw, 1rem)}}
 
 /* UI icon specimens follow the same light outline language as site controls. */
-html[data-palette] .brand-chapter-cover--icons{background:radial-gradient(ellipse at 80% 15%,#607f9d,transparent 65%),radial-gradient(ellipse at 10% 100%,#6c608b,transparent 70%),#183958}
+
 html[data-palette] #ui-icons{background:var(--t-surface);color:var(--t-ink)}
 .brand-icon-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 clamp(1.125rem, 0.98571rem + 0.57143vw, 1.5rem)}
 .brand-icon-sample{margin:0;min-width:0;padding:clamp(1.125rem, 0.98571rem + 0.57143vw, 1.5rem) 0;border-bottom:1px solid var(--t-line);display:grid;align-content:start;gap:clamp(0.84375rem, 0.73929rem + 0.42857vw, 1.125rem)}
