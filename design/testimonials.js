@@ -2,10 +2,10 @@
 export function setupTestimonials(carousel) {
   const slides = [...carousel.querySelectorAll('figure')];
   const pause = carousel.querySelector('[data-testimonial-pause]');
-  if (slides.length < 2 || !pause) return;
+  if (slides.length < 2) return;
   const preference = matchMedia('(prefers-reduced-motion: reduce)');
   const status = carousel.querySelector('[aria-live]');
-  let index = 0, paused = preference.matches, visible = false, hovered = false, focused = false;
+  let index = 0, paused = !pause || preference.matches, visible = false, hovered = false, focused = false;
   let timer = 0, deadline = 0, transitions = [], generation = 0;
   const readingTime = () => Math.max(9000, slides[index].querySelector('blockquote').textContent.trim().split(/\s+/).length * 300 + 3000);
   let remaining = readingTime();
@@ -22,6 +22,7 @@ export function setupTestimonials(carousel) {
     timer = setTimeout(() => {timer = 0;move(1, false);}, remaining);
   }
   function updatePause() {
+    if (!pause) return;
     pause.setAttribute('aria-pressed', String(paused));
     pause.setAttribute('aria-label', paused ? 'Resume testimonials' : 'Pause testimonials');
     pause.title = paused ? 'Resume testimonials' : 'Pause testimonials';
@@ -48,8 +49,8 @@ export function setupTestimonials(carousel) {
     if (status) {status.setAttribute('aria-live', manual ? 'polite' : 'off');status.textContent = `${index + 1} / ${slides.length}`;}
     remaining = readingTime();schedule();
   }
-  pause.hidden = false;carousel.classList.add('is-carousel-ready');updatePause();
-  pause.addEventListener('click', () => {paused = !paused;updatePause();schedule();});
+  if (pause) pause.hidden = false;carousel.classList.add('is-carousel-ready');updatePause();
+  pause?.addEventListener('click', () => {paused = !paused;updatePause();schedule();});
   carousel.querySelector('[data-next]')?.addEventListener('click', () => move(1, true));
   carousel.querySelector('[data-prev]')?.addEventListener('click', () => move(-1, true));
   carousel.addEventListener('pointerenter', event => {if (event.pointerType === 'mouse') {hovered = true;schedule();}});
