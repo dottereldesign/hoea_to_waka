@@ -10,12 +10,12 @@
 .home-book-notice :is(a,button):focus-visible{outline:2px solid #65427b;outline-offset:-3px}
 @media(max-width:760px){.home-book-notice{justify-content:flex-start;padding:0 52px 0 12px;font-size:13px}.home-book-notice .home-book-notice__link{gap:8px}.home-book-notice__full{display:none}.home-book-notice__short{display:inline}.home-book-notice button{right:4px}}
 /* Keep notice displacement independent of the expanded/compact geometry. */
-body.page-home:has(.home-book-notice:not([hidden])) [data-morph-header] .site-header-shell {
+body:has(.home-book-notice:not([hidden])) [data-morph-header] .site-header-shell {
  top:var(--book-notice-offset,44px)!important;
 }
 @media(min-width:1100px){
- body.page-home:has(.home-book-notice:not([hidden])) [data-morph-header].is-scrolled .site-header-shell {
+ body:has(.home-book-notice:not([hidden])) [data-morph-header].is-scrolled .site-header-shell {
   top:calc(16px + var(--book-notice-offset,0px))!important;
  }
 }
-@media(max-width:760px){body.page-home:has(.home-book-notice:not([hidden])) [data-morph-header] .site-header-shell{top:var(--book-notice-offset,44px)!important;}}
+@media(max-width:760px){body:has(.home-book-notice:not([hidden])) [data-morph-header] .site-header-shell{top:var(--book-notice-offset,44px)!important;}}
