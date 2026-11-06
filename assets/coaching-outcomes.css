@@ -21,7 +21,7 @@
 .outcome-image:first-child { opacity: 1; }
 #coaching-outcomes[data-outcome="1"] .outcome-image:nth-child(2),
 #coaching-outcomes[data-outcome="2"] .outcome-image:nth-child(3) { opacity: 1; }
-.outcome-mobile-image { display: none; }
+html[data-palette] #coaching-outcomes .outcome-mobile-image { display: none; }
 .outcome-rows { display: grid; gap: clamp(72px, 18vh, 180px); }
 .outcome-row { display: grid; align-content: center; min-height: var(--panel-height); }
 .outcome-copy { display: grid; gap: 18px; justify-items: start; }
@@ -34,7 +34,7 @@
   .outcome-panel { display: none; }
   .outcome-rows { gap: 36px; }
   .outcome-row { min-height: 0; gap: 18px; }
-  .outcome-mobile-image { display: block; width: 100%; height: clamp(120px, 42vw, 230px); object-fit: cover; border-radius: 20px; }
+  html[data-palette] #coaching-outcomes .outcome-mobile-image { display: block; width: 100%; height: clamp(120px, 42vw, 230px); object-fit: cover; border-radius: 20px; }
   .outcome-copy { gap: 10px; }
 }
 @media (prefers-reduced-motion: reduce) {
