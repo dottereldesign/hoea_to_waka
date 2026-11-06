@@ -21,3 +21,6 @@ html[data-palette] [data-component="home:3:services"] .services-leveling>.ds-car
 }
 html[data-theme="light"] #services .ds-card-actions .model-button{background-color:rgb(25,25,25);}
 
+
+/* Service actions need spacing, without a decorative divider. */
+html[data-palette] .ds-service-editorial .ds-card-actions { border-top: 0; }
