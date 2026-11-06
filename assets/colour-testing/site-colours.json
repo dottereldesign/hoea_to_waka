@@ -168,34 +168,6 @@
       "group": "Interface"
     },
     {
-      "hex": "#B87361",
-      "uses": [
-        {
-          "page": "In-house workshops",
-          "section": "In-house resilience workshops",
-          "href": "../services/in-house-workshops/#:~:text=In-house%20resilience%20workshops",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Coral",
-      "family": "Warm colours",
-      "group": "Interface"
-    },
-    {
-      "hex": "#EEF8F5",
-      "uses": [
-        {
-          "page": "Support training",
-          "section": "Support professional training",
-          "href": "../services/workshops-for-support-professionals/#:~:text=Support%20professional%20training",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Pale green",
-      "family": "Greens",
-      "group": "Interface"
-    },
-    {
       "hex": "#D4E6D9",
       "uses": [
         {
@@ -261,18 +233,6 @@
       "hex": "#E8F1F5",
       "uses": [
         {
-          "page": "Services",
-          "section": "Services",
-          "href": "../services/#:~:text=Services",
-          "kind": "Interface"
-        },
-        {
-          "page": "Individual coaching",
-          "section": "Individual coaching",
-          "href": "../services/resilience-one-on-one/#:~:text=Individual%20coaching",
-          "kind": "Interface"
-        },
-        {
           "page": "Individual coaching",
           "section": "A practical reset",
           "href": "../services/resilience-one-on-one/#coaching-outcomes",
@@ -282,18 +242,6 @@
           "page": "Individual coaching",
           "section": "Personal, clear, and relevant",
           "href": "../services/resilience-one-on-one/#how-it-works",
-          "kind": "Interface"
-        },
-        {
-          "page": "Support training",
-          "section": "Support professional training",
-          "href": "../services/workshops-for-support-professionals/#:~:text=Support%20professional%20training",
-          "kind": "Interface"
-        },
-        {
-          "page": "Resources",
-          "section": "Books and resources",
-          "href": "../resources/#:~:text=Books%20and%20resources",
           "kind": "Interface"
         },
         {
@@ -308,146 +256,16 @@
       "group": "Interface"
     },
     {
-      "hex": "#CBE8F6",
-      "uses": [
-        {
-          "page": "Individual coaching",
-          "section": "Individual coaching",
-          "href": "../services/resilience-one-on-one/#:~:text=Individual%20coaching",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Pale teal",
-      "family": "Teals",
-      "group": "Interface"
-    },
-    {
-      "hex": "#A9DEF5",
-      "uses": [
-        {
-          "page": "Individual coaching",
-          "section": "Individual coaching",
-          "href": "../services/resilience-one-on-one/#:~:text=Individual%20coaching",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Pale teal",
-      "family": "Teals",
-      "group": "Interface"
-    },
-    {
-      "hex": "#88B8BE",
-      "uses": [
-        {
-          "page": "Support training",
-          "section": "Support professional training",
-          "href": "../services/workshops-for-support-professionals/#:~:text=Support%20professional%20training",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Soft teal",
-      "family": "Teals",
-      "group": "Interface"
-    },
-    {
-      "hex": "#E0E7F2",
-      "uses": [
-        {
-          "page": "Model",
-          "section": "Model",
-          "href": "../model/#:~:text=Model",
-          "kind": "Interface"
-        },
-        {
-          "page": "In-house workshops",
-          "section": "In-house resilience workshops",
-          "href": "../services/in-house-workshops/#:~:text=In-house%20resilience%20workshops",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Pale blue",
-      "family": "Blues",
-      "group": "Interface"
-    },
-    {
       "hex": "#BEDDF0",
       "uses": [
-        {
-          "page": "Services",
-          "section": "Services",
-          "href": "../services/#:~:text=Services",
-          "kind": "Interface"
-        },
         {
           "page": "Individual coaching",
           "section": "A practical reset",
           "href": "../services/resilience-one-on-one/#coaching-outcomes",
           "kind": "Interface"
-        },
-        {
-          "page": "Support training",
-          "section": "Support professional training",
-          "href": "../services/workshops-for-support-professionals/#:~:text=Support%20professional%20training",
-          "kind": "Interface"
         }
       ],
       "name": "Pale blue",
-      "family": "Blues",
-      "group": "Interface"
-    },
-    {
-      "hex": "#C0C0E9",
-      "uses": [
-        {
-          "page": "Individual coaching",
-          "section": "Individual coaching",
-          "href": "../services/resilience-one-on-one/#:~:text=Individual%20coaching",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Soft blue",
-      "family": "Blues",
-      "group": "Interface"
-    },
-    {
-      "hex": "#A59BD9",
-      "uses": [
-        {
-          "page": "Individual coaching",
-          "section": "Individual coaching",
-          "href": "../services/resilience-one-on-one/#:~:text=Individual%20coaching",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Soft blue",
-      "family": "Blues",
-      "group": "Interface"
-    },
-    {
-      "hex": "#7797D5",
-      "uses": [
-        {
-          "page": "Services",
-          "section": "Services",
-          "href": "../services/#:~:text=Services",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Blue",
-      "family": "Blues",
-      "group": "Interface"
-    },
-    {
-      "hex": "#788EDC",
-      "uses": [
-        {
-          "page": "Individual coaching",
-          "section": "Individual coaching",
-          "href": "../services/resilience-one-on-one/#:~:text=Individual%20coaching",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Blue",
       "family": "Blues",
       "group": "Interface"
     },
@@ -466,20 +284,6 @@
       "group": "Interface"
     },
     {
-      "hex": "#516BD0",
-      "uses": [
-        {
-          "page": "Individual coaching",
-          "section": "Individual coaching",
-          "href": "../services/resilience-one-on-one/#:~:text=Individual%20coaching",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Blue",
-      "family": "Blues",
-      "group": "Interface"
-    },
-    {
       "hex": "#526078",
       "uses": [
         {
@@ -490,34 +294,6 @@
         }
       ],
       "name": "Soft blue",
-      "family": "Blues",
-      "group": "Interface"
-    },
-    {
-      "hex": "#2254A7",
-      "uses": [
-        {
-          "page": "Services",
-          "section": "Services",
-          "href": "../services/#:~:text=Services",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Blue",
-      "family": "Blues",
-      "group": "Interface"
-    },
-    {
-      "hex": "#4B3E89",
-      "uses": [
-        {
-          "page": "Model",
-          "section": "Model",
-          "href": "../model/#:~:text=Model",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Deep blue",
       "family": "Blues",
       "group": "Interface"
     },
@@ -534,20 +310,6 @@
           "page": "Individual coaching",
           "section": "A practical reset",
           "href": "../services/resilience-one-on-one/#coaching-outcomes",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Deep blue",
-      "family": "Blues",
-      "group": "Interface"
-    },
-    {
-      "hex": "#29389D",
-      "uses": [
-        {
-          "page": "Individual coaching",
-          "section": "Individual coaching",
-          "href": "../services/resilience-one-on-one/#:~:text=Individual%20coaching",
           "kind": "Interface"
         }
       ],
@@ -578,12 +340,6 @@
         },
         {
           "page": "Services",
-          "section": "Services",
-          "href": "../services/#:~:text=Services",
-          "kind": "Interface"
-        },
-        {
-          "page": "Services",
           "section": "Bring the model into your organisation",
           "href": "../services/#:~:text=Bring%20the%20model%20into%20your%20organisation",
           "kind": "Interface"
@@ -592,12 +348,6 @@
           "page": "In-house workshops",
           "section": "Plan a workshop around your team",
           "href": "../services/in-house-workshops/#:~:text=Plan%20a%20workshop%20around%20your%20team",
-          "kind": "Interface"
-        },
-        {
-          "page": "Individual coaching",
-          "section": "Individual coaching",
-          "href": "../services/resilience-one-on-one/#:~:text=Individual%20coaching",
           "kind": "Interface"
         },
         {
@@ -614,12 +364,6 @@
         },
         {
           "page": "Support training",
-          "section": "Support professional training",
-          "href": "../services/workshops-for-support-professionals/#:~:text=Support%20professional%20training",
-          "kind": "Interface"
-        },
-        {
-          "page": "Support training",
           "section": "Practical across helping roles",
           "href": "../services/workshops-for-support-professionals/#:~:text=Practical%20across%20helping%20roles",
           "kind": "Interface"
@@ -628,12 +372,6 @@
           "page": "Support training",
           "section": "Shape training for your practice setting",
           "href": "../services/workshops-for-support-professionals/#:~:text=Shape%20training%20for%20your%20practice%20setting",
-          "kind": "Interface"
-        },
-        {
-          "page": "Resources",
-          "section": "Books and resources",
-          "href": "../resources/#:~:text=Books%20and%20resources",
           "kind": "Interface"
         },
         {
@@ -650,20 +388,6 @@
         }
       ],
       "name": "Brand ocean",
-      "family": "Blues",
-      "group": "Interface"
-    },
-    {
-      "hex": "#363052",
-      "uses": [
-        {
-          "page": "Model",
-          "section": "Model",
-          "href": "../model/#:~:text=Model",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Deep blue",
       "family": "Blues",
       "group": "Interface"
     },
@@ -691,18 +415,6 @@
       "hex": "#142044",
       "uses": [
         {
-          "page": "Model",
-          "section": "Model",
-          "href": "../model/#:~:text=Model",
-          "kind": "Interface"
-        },
-        {
-          "page": "In-house workshops",
-          "section": "In-house resilience workshops",
-          "href": "../services/in-house-workshops/#:~:text=In-house%20resilience%20workshops",
-          "kind": "Interface"
-        },
-        {
           "page": "Individual coaching",
           "section": "A practical reset",
           "href": "../services/resilience-one-on-one/#:~:text=A%20practical%20reset",
@@ -712,20 +424,6 @@
           "page": "Individual coaching",
           "section": "A practical reset",
           "href": "../services/resilience-one-on-one/#coaching-outcomes",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Deep blue",
-      "family": "Blues",
-      "group": "Interface"
-    },
-    {
-      "hex": "#211C37",
-      "uses": [
-        {
-          "page": "Model",
-          "section": "Model",
-          "href": "../model/#:~:text=Model",
           "kind": "Interface"
         }
       ],
@@ -746,12 +444,6 @@
           "page": "Home",
           "section": "Designed to stay with you",
           "href": "../#:~:text=Designed%20to%20stay%20with%20you",
-          "kind": "Interface"
-        },
-        {
-          "page": "Resources",
-          "section": "Books and resources",
-          "href": "../resources/#:~:text=Books%20and%20resources",
           "kind": "Interface"
         }
       ],
@@ -826,20 +518,6 @@
       "group": "Interface"
     },
     {
-      "hex": "#DDC6EE",
-      "uses": [
-        {
-          "page": "Resources",
-          "section": "Books and resources",
-          "href": "../resources/#:~:text=Books%20and%20resources",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Soft purple",
-      "family": "Purples & pinks",
-      "group": "Interface"
-    },
-    {
       "hex": "#D4A3CF",
       "uses": [
         {
@@ -864,20 +542,6 @@
         }
       ],
       "name": "Soft purple",
-      "family": "Purples & pinks",
-      "group": "Interface"
-    },
-    {
-      "hex": "#C98FB6",
-      "uses": [
-        {
-          "page": "Resources",
-          "section": "Books and resources",
-          "href": "../resources/#:~:text=Books%20and%20resources",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Soft pink",
       "family": "Purples & pinks",
       "group": "Interface"
     },
@@ -912,48 +576,6 @@
         }
       ],
       "name": "Soft purple",
-      "family": "Purples & pinks",
-      "group": "Interface"
-    },
-    {
-      "hex": "#A84B85",
-      "uses": [
-        {
-          "page": "Resources",
-          "section": "Books and resources",
-          "href": "../resources/#:~:text=Books%20and%20resources",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Pink",
-      "family": "Purples & pinks",
-      "group": "Interface"
-    },
-    {
-      "hex": "#8253C5",
-      "uses": [
-        {
-          "page": "Model",
-          "section": "Model",
-          "href": "../model/#:~:text=Model",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Purple",
-      "family": "Purples & pinks",
-      "group": "Interface"
-    },
-    {
-      "hex": "#7B4C7C",
-      "uses": [
-        {
-          "page": "In-house workshops",
-          "section": "In-house resilience workshops",
-          "href": "../services/in-house-workshops/#:~:text=In-house%20resilience%20workshops",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Purple",
       "family": "Purples & pinks",
       "group": "Interface"
     },
@@ -998,20 +620,6 @@
           "page": "Services",
           "section": "Built around the people in front of us",
           "href": "../services/#flexible-approach",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Deep purple",
-      "family": "Purples & pinks",
-      "group": "Interface"
-    },
-    {
-      "hex": "#49314C",
-      "uses": [
-        {
-          "page": "In-house workshops",
-          "section": "In-house resilience workshops",
-          "href": "../services/in-house-workshops/#:~:text=In-house%20resilience%20workshops",
           "kind": "Interface"
         }
       ],

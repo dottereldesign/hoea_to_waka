@@ -1,0 +1,23 @@
+/* Shared Logo black / Paper treatment for Model, Resources and all Services headers. */
+html[data-palette] .site-main > .subpage-hero.coaching-hero.solid-subpage-hero {
+  --coaching-ink: #FFFFFF;
+  --coaching-muted: #FFFFFF;
+  --coaching-surface: #191919;
+  background: #191919;
+  color: #FFFFFF;
+  border-color: #FFFFFF;
+}
+html[data-palette] .solid-subpage-hero :is(h1,.ds-title,.ds-kicker,.ds-lead,.pp-breadcrumb,.pp-breadcrumb a,.pp-breadcrumb span) {
+  color: #FFFFFF;
+  border-color: #FFFFFF;
+  opacity: 1;
+}
+html[data-palette] .solid-subpage-hero .pp-breadcrumb a:is(:hover,:focus-visible) {
+  color: #FFFFFF;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+html[data-palette] .solid-subpage-hero :focus-visible {
+  outline: 2px solid #FFFFFF !important;
+  outline-offset: 4px !important;
+}
