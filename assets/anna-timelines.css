@@ -176,7 +176,7 @@ html[data-palette] #anna-story[data-timeline-variant=thread2]{max-width:none;wid
 #anna-story[data-timeline-variant=thread2] .anna-breadcrumb{color:#fff}
 @media(max-width:760px){html[data-palette] #anna-story{padding-top:var(--space-fluid-64)}#anna-story .anna-breadcrumb{font-size:10px;margin-bottom:var(--space-fluid-22)}}
 
-#anna-story[data-timeline-variant=thread2]:not(.is-enhanced) .anna-story__heading{background:#0D4687}
+html:not(.js) #anna-story[data-timeline-variant=thread2] .anna-story__heading{background:#0D4687}
 #anna-story[data-timeline-variant=thread2]:not(.is-enhanced) .anna-breadcrumb{color:var(--story-ink)}
 
 /* Permanent Cedar canoe styling. */
@@ -246,3 +246,6 @@ html[data-palette] #anna-story .anna-story__heading>.ds-kicker{margin-top:0}
 #anna-story .waka-studies button.waka-studies__replay{display:block;border:0;border-radius:4px;text-decoration:underline;text-underline-offset:4px;margin-top:8px;padding-left:0;min-height:36px}
 @media(max-width:600px){#anna-story .waka-studies{grid-template-columns:1fr;gap:var(--space-fluid-16);padding:var(--space-fluid-16)}#anna-story .waka-studies__preview{height:190px}#anna-story .waka-studies button{min-height:40px;min-width:40px}}
 @media(prefers-reduced-motion:reduce){#anna-story .waka-studies__replay{display:none!important}}
+
+/* Reveal the ocean and its white heading as one completed composition. */
+html.js #anna-story[data-timeline-variant=thread2]:not([data-ocean-ready=true]) :is(.anna-story__heading,.anna-breadcrumb,.anna-ocean-cut,.anna-river){visibility:hidden;}

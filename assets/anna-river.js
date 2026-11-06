@@ -117,6 +117,7 @@ import {mountWakaStudies,paddlePose} from './anna-waka-studies.js';
         return `C${f(previous[0]+(point[0]-before[0])/6*blend)} ${f(previous[1]+(point[1]-before[1])/6*blend)} ${f(point[0]-(after[0]-previous[0])/6*blend)} ${f(point[1]-(after[1]-previous[1])/6*blend)} ${point.map(f).join(' ')}`;
       }).join('')+'Z';
       ocean.querySelector('clipPath path').setAttribute('d',silhouette);
+      root.dataset.oceanReady='true';
 
       const ld=curve(left),rd=curve(right),water=ld+'L'+right.at(-1).map(f).join(' ')+curve([...right].reverse()).replace(/^M[^C]+/,'')+'Z';
       svg.querySelector('.river-water').innerHTML=`<path d="${water}"/>`;
