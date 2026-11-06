@@ -1,0 +1,18 @@
+/* Paper surfaces for the support-training features, including icon surrounds. */
+html[data-palette] #support-features {
+  --ds-bg: #FFFFFF !important;
+  --ds-surface: #FFFFFF !important;
+  --ds-accent: #FFFFFF !important;
+  --ds-ink: #191919 !important;
+  --ds-muted: #191919 !important;
+  --ds-line: #E3E1DD !important;
+  background: #FFFFFF !important;
+  color: #191919;
+}
+html[data-palette] #support-features :is(.pp-feature,.pp-feature-marker) {
+  background: #FFFFFF !important;
+  color: #191919 !important;
+}
+html[data-palette] #support-features :is(h2,h3,.ds-kicker,.ds-lead,.brand-name-text) {
+  color: #191919 !important;
+}

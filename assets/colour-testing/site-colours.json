@@ -140,20 +140,6 @@
       "group": "Interface"
     },
     {
-      "hex": "#D8CBDD",
-      "uses": [
-        {
-          "page": "Support training",
-          "section": "A model that sits beside the person",
-          "href": "../services/workshops-for-support-professionals/#support-features",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Lavender",
-      "family": "Purples & pinks",
-      "group": "Interface"
-    },
-    {
       "hex": "#806788",
       "uses": [
         {
