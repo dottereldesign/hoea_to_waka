@@ -30,10 +30,19 @@ html[data-palette] .site-footer a:focus-visible {
   outline: 2px solid #FFFFFF !important;
   outline-offset: 4px;
 }
-html[data-palette] .site-footer .footer-version-controls button {
-  color: #FFFFFF;
+
+/* Contact-first footer: service marks and an unbroken closing line. */
+.site-footer[data-footer-version] .footer-services-column .footer-links a {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 10px;
 }
-html[data-palette] .site-footer .footer-version-controls button[aria-pressed="true"] {
-  background: #6B7178;
-  color: #FFFFFF;
+.site-footer .footer-services-column .service-link-icon {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+}
+.site-footer[data-footer-version] .footer-bottom > .footer-tagline {
+  max-width: none;
+  white-space: nowrap;
 }
