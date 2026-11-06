@@ -22,16 +22,24 @@
  function active(s){return s.host.closest('.workshop-slide').classList.contains('is-active');}
  function animate(s,el,frames,duration=2400,delay=0,origin='724px 543px'){
   if(!el)return;el.style.transformBox='view-box';el.style.transformOrigin=origin;
-  const a=el.animate(frames,{duration,delay,easing:'cubic-bezier(.22,1,.36,1)',fill:'backwards'});s.animations.push(a);
+  const a=el.animate(frames,{duration,delay,easing:'cubic-bezier(.22,1,.36,1)',fill:'backwards'});a.pause();a.currentTime=0;s.animations.push(a);
  }
  const T=(transform,opacity=1)=>({transform,opacity});
+ function prepare(s){
+  stop(s);s.played=false;s.pending=false;
+  if(!reduced.matches){if(s.kind==='bloom')bloom(s);else puzzle(s);}
+  s.host.dataset.motionReady='true';
+ }
  function run(s,delay=0){
-  stop(s);if(reduced.matches||document.hidden||!s.visible||!active(s))return;
-  s.timer=setTimeout(()=>{
+  if(reduced.matches||document.hidden||!s.visible||!active(s)||s.played||s.pending)return;
+  s.pending=true;
+  const start=()=>{
+   s.pending=false;
    if(!active(s)||!s.visible||document.hidden||reduced.matches)return;
    s.played=true;s.host.dataset.motionRun=String(Number(s.host.dataset.motionRun||0)+1);
-   if(s.kind==='bloom')bloom(s);else puzzle(s);
-  },delay);
+   s.animations.forEach(a=>a.play());
+  };
+  if(delay)s.timer=setTimeout(start,delay);else start();
  }
  function bloom(s){
   const p=s.part,leaves=[...p('leaves').children],stems=[...p('stems').children],petals=[...p('falling-petals').children];
@@ -72,9 +80,14 @@
    }
   });
  }
- const observer=new IntersectionObserver(entries=>{for(const e of entries){const s=scenes.find(s=>s.host===e.target);const was=s.visible;s.visible=e.isIntersecting&&e.intersectionRatio>=.12;if(s.visible&&!was)run(s);else if(!s.visible){stop(s);s.played=false;}}},{threshold:[0,.12]});
+ // Establish the first frame before the carousel or viewport can reveal a scene.
+ scenes.forEach(prepare);
+ const observer=new IntersectionObserver(entries=>{for(const e of entries){const s=scenes.find(s=>s.host===e.target),was=s.visible;s.visible=e.isIntersecting&&e.intersectionRatio>=.12;if(s.visible&&!was)run(s);else if(!s.visible)prepare(s);}},{threshold:[0,.12]});
  scenes.forEach(s=>observer.observe(s.host));
- section.addEventListener('workshop:slidechange',e=>scenes.forEach(s=>{if(active(s))run(s,e.detail.changed?720:0);else{stop(s);s.played=false;}}));
- document.addEventListener('visibilitychange',()=>scenes.forEach(s=>{if(document.hidden)stop(s);else run(s);}));
- reduced.addEventListener('change',()=>scenes.forEach(s=>{if(reduced.matches)stop(s);else run(s);}));
+ section.addEventListener('workshop:slidechange',e=>scenes.forEach(s=>{
+  if(active(s))run(s,e.detail.changed?720:0);
+  else prepare(s);
+ }));
+ document.addEventListener('visibilitychange',()=>scenes.forEach(s=>{if(document.hidden)prepare(s);else run(s);}));
+ reduced.addEventListener('change',()=>scenes.forEach(s=>{prepare(s);if(!reduced.matches)run(s);}));
 })();
