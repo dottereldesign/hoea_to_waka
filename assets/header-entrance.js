@@ -144,7 +144,14 @@
   header.addEventListener('click', () => {finish('click');}, {capture:true});
   header.addEventListener('focusin', () => finish('focus'));
   addEventListener('scroll', () => {if (settled && running.length) finish('scroll');}, {passive:true});
-  addEventListener('resize', () => {finish('resize');place(false);}, {passive:true});
+  // Mobile browser chrome and initial layout can resize height before the entrance starts.
+  let viewportWidth = innerWidth;
+  addEventListener('resize', () => {
+    const widthChanged = innerWidth !== viewportWidth;
+    viewportWidth = innerWidth;
+    if (widthChanged) finish('resize');
+    place(false);
+  }, {passive:true});
   reduced.addEventListener('change', () => {if (reduced.matches) finish('reduced-motion');});
   document.addEventListener('visibilitychange', () => {if (document.hidden) finish('hidden');});
 
