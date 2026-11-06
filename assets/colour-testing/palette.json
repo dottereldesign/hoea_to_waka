@@ -38,31 +38,31 @@
     },
     {
       "name": "Blue",
-      "hex": "#165998",
+      "hex": "#183958",
       "tones": [
         {
           "step": "100",
-          "hex": "#C5D6E5",
+          "hex": "#C5CED5",
           "base": false
         },
         {
           "step": "300",
-          "hex": "#739BC1",
+          "hex": "#74889B",
           "base": false
         },
         {
           "step": "500",
-          "hex": "#165998",
+          "hex": "#183958",
           "base": true
         },
         {
           "step": "700",
-          "hex": "#174978",
+          "hex": "#183148",
           "base": false
         },
         {
           "step": "900",
-          "hex": "#183958",
+          "hex": "#182938",
           "base": false
         }
       ]
