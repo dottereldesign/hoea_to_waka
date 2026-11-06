@@ -9,10 +9,3 @@ html[data-palette] .home-cta-door .home-cta-body .ds-lead{font-size:clamp(18px,1
 .home-cta-door .home-cta-support{max-width:44ch}
 @media(max-width:900px){.home-cta-door-layout{grid-template-columns:minmax(0,1fr);gap:32px;padding-inline:24px}.home-moon-door{max-width:500px}.home-cta-door .home-cta-body{width:100%;max-width:580px;margin:auto}.home-cta-door-copy .ds-title{max-width:20ch}}
 @media(max-width:400px){.home-cta-door-layout{padding-inline:14px;gap:24px}}
-.home-door-options{text-align:center;margin:-12px auto 20px;position:relative;}
-.home-door-options>div{display:flex;justify-content:center;gap:5px;}
-.home-door-options button{width:36px;height:36px;display:grid;place-items:center;background:#fff;border:1px solid #c7bfcd;border-radius:50%;color:#281a2c;font:500 12px/1 var(--font-body,Arial);cursor:pointer;}
-.home-door-options button[aria-pressed="true"]{background:#281a2c;color:#fff;border-color:#281a2c;}
-.home-door-options button:hover{background:#fdd8b0;color:#281a2c;}
-.home-door-options output{display:block;margin-top:10px;font:400 13px/1.4 var(--font-body,Arial);color:#514656;}
-.home-door-options button:focus-visible{outline:3px solid #187680;outline-offset:3px;}

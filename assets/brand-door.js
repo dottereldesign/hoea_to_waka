@@ -32,16 +32,9 @@
     oval: {name: '07 · Oval tide', shape:'oval', tide:true, flip:false, angle:68, paper:'#ffffff', ink:'#243a53', floor:'#8c9da9', sky:'#061628', haze:'#0D4687'},
     facet: {name: '08 · Coastal facet', shape:'facet', tide:true, flip:false, angle:64, paper:'#ffffff', ink:'#243a53', floor:'#8c9da9', sky:'#061628', haze:'#0D4687'}
   };
-  Object.assign(variants, {
-    dawn:{name:'01 · Apricot horizon',shape:'arch',tide:true,flip:false,angle:67,paper:'#ffffff',ink:'#281A2C',floor:'#95849b',sky:'#FDB069',haze:'#FDD8B0',sea:'#281A2C',seaBack:'#82394f',light:'#FFF9F0',sun:true,speed:1},
-    garden:{name:'02 · Evergreen circle',shape:'round',tide:true,flip:false,angle:70,paper:'#ffffff',ink:'#281A2C',floor:'#95849b',sky:'#1C5C49',haze:'#B4BF8B',sea:'#006b55',seaBack:'#B4BF8B',light:'#FDD8B0',sun:true,speed:.85},
-    plum:{name:'03 · Plum twilight',shape:'oval',tide:true,flip:false,angle:68,paper:'#ffffff',ink:'#281A2C',floor:'#95849b',sky:'#281A2C',haze:'#82394f',sea:'#d96773',seaBack:'#FDAEB5',light:'#FDD8B0',speed:.8},
-    lagoon:{name:'04 · Teal facet',shape:'facet',tide:true,flip:false,angle:64,paper:'#ffffff',ink:'#281A2C',floor:'#95849b',sky:'#00465a',haze:'#328c94',sea:'#187680',seaBack:'#B4BF8B',light:'#FFF9F0',speed:1.15},
-    coral:{name:'05 · Coral doorway',shape:'arch',tide:true,flip:true,angle:72,paper:'#ffffff',ink:'#281A2C',floor:'#95849b',sky:'#f78b91',haze:'#FDD8B0',sea:'#82394f',seaBack:'#281A2C',light:'#FFF9F0',sun:true,speed:.9}
-  });
-  const homeOptions=section.querySelector('[data-home-door-options]');
-  let homeChoice='dawn';try{const saved=localStorage.getItem('hoea-home-door-choice');if(['dawn','garden','plum','lagoon','coral'].includes(saved))homeChoice=saved;}catch{}
-  let current = homeOptions ? variants[homeChoice] : standalone ? variants.arch : variants.reference;
+  const matarikiDoor=section.hasAttribute('data-matariki-door');
+  const nightGarden={name:'Matariki ocean',shape:'arch',tide:true,flip:false,angle:67,paper:'#ffffff',ink:'#281A2C',floor:'#95849b',sky:'#202020',haze:'#202020',sea:'#061628',seaBack:'#c9d5d5',light:'#FFF9F0'};
+  let current = matarikiDoor ? nightGarden : standalone ? variants.arch : variants.reference;
   let frame, lastTime, elapsed = 0, inView = false, stopped = false, menuBlocked = false;
   const ns = 'http://www.w3.org/2000/svg';
   const tide = svg.querySelector('[data-door-tide]') || document.createElementNS(ns,'g');
@@ -60,7 +53,7 @@
   svg.querySelector('defs').insertAdjacentHTML('beforeend','<linearGradient id="door-shooting-tail"><stop stop-color="#e8f0e7" stop-opacity="0"/><stop offset="1" stop-color="#e8f0e7" stop-opacity=".8"/></linearGradient>');
   shooting.innerHTML='<path d="M-28 0H0" stroke="url(#door-shooting-tail)" stroke-width="1" stroke-linecap="round"/><circle r="1" fill="#f4f4e4"/>';
   moon.after(shooting);
-  let twinkles=[];
+  let twinkles=[], clusterTwinkles=[];
   const seaBack = tide.querySelector('[data-sea-back]');
   const seaFront = tide.querySelector('[data-sea-front]');
   const seaFoam = tide.querySelector('[data-sea-foam]');
@@ -90,19 +83,18 @@
   const outlinePath = points => 'M'+points.map(point=>point.map(value=>value.toFixed(3)).join(' ')).join('L')+'Z';
   const configurePortal = () => {
     profile=current.tide?shapeProfile(current.shape):undefined;
-    if(homeOptions){
+    if(matarikiDoor){
       scene.setAttribute('transform',current.flip?'translate(720 0) scale(-1 1)':'');
       for(const key of ['paper','ink','floor','sky','haze'])svg.style.setProperty('--door-'+key,current[key]);
       seaFront.setAttribute('fill',current.sea);seaBack.setAttribute('fill',current.seaBack);
       seaFoam.setAttribute('stroke',current.light);reflection.setAttribute('stroke',current.light);moonFace.setAttribute('fill',current.light);
       if(current.sun)moonFace.removeAttribute('mask');else moonFace.setAttribute('mask','url(#door-moon-mask)');
-      section.querySelector('output').textContent=current.name;
       choices.forEach(b=>b.setAttribute('aria-pressed',String(variants[b.dataset.doorVariant]===current)));
     }
     const shapeName={arch:'arched',round:'circular',oval:'oval',facet:'faceted'}[current.shape];
     svg.querySelector('title').textContent=current.tide?`Moonlit ocean — ${shapeName} door`:'A door to possibility';
     svg.querySelector('desc').textContent=current.tide?`A white ${shapeName} door with a lever handle opens onto moving ocean waves, a crescent moon and a starry night sky.`:originalDescription;
-    if(homeOptions){svg.querySelector('title').textContent=current.name.slice(5);svg.querySelector('desc').textContent='An opening doorway reveals layered waves, '+(current.sun?'a warm sun':'a crescent moon')+' and softly moving lights in the Hoea tō Waka illustration palette.';}
+    if(matarikiDoor){svg.querySelector('title').textContent='A doorway to Matariki';svg.querySelector('desc').textContent='A white arched door opens onto a charcoal sky, the nine stars of Matariki, a crescent moon, pale mist and deep blue ocean waves.';}
     tide.setAttribute('display',current.tide?'inline':'none');
     stars.style.display=current.tide?'none':'';
     const b=profile||{left:239,top:105,width:245,height:496};
@@ -120,7 +112,22 @@
     const sample=()=>{starSeed=(Math.imul(starSeed,1664525)+1013904223)>>>0;return starSeed/4294967296;};
     for(let i=0;i<75;i++)sky+=`<circle cx="${b.left+sample()*b.width}" cy="${b.top+sample()*b.height*.58}" r="${.35+sample()*1.05}" fill="#dce9fb" opacity="${.25+sample()*.5}"/>`;
     tideStars.innerHTML=sky;
-    twinkles=[...tideStars.children].filter((_,i)=>i%6===0).map((node,i)=>({node,base:Number(node.getAttribute("opacity")),phase:i*1.73}));
+    clusterTwinkles=[];
+    if(matarikiDoor){
+      // Relative arrangement checked against Te Papa, Te Iwa o Matariki (2022), p.3.
+      // https://www.tepapa.govt.nz/assets/76067/1693183038-matariki-ab-2022-eng-jun14-online.pdf
+      // Coordinates describe the stars only; all glow/sparkle artwork is original SVG.
+      const constellation=[['Ururangi',775,246],['Waipunarangi',646,271],['Hiwaiterangi',649,347],['Waitā',672,450],['Waitī',741,406],['Pōhutukawa',767,466],['Matariki',869,314],['Tipuārangi',959,270],['Tipuānuku',985,313]];
+      constellation.forEach(([name,x,y],i)=>{
+        const px=380+(x-646)*.25,py=284+(y-246)*.25,r=name==='Matariki'?2.1:1.45;
+        const star=document.createElementNS(ns,'g');
+        star.setAttribute('data-matariki-star',name);
+        star.setAttribute('transform',`translate(${px} ${py})`);
+        star.innerHTML=`<title>${name}</title><circle r="${r*3.5}" fill="#fff9f0" opacity=".09"/><path data-sparkle d="M-4.5 0Q0 -.65 0 -4.5Q.65 0 4.5 0Q0 .65 0 4.5Q-.65 0 -4.5 0Z" fill="#fff9f0"/><circle r="${r}" fill="#fff9f0"/>`;
+        tideStars.append(star);clusterTwinkles.push({node:star,sparkle:star.querySelector('[data-sparkle]'),phase:i*2.39});
+      });
+    }
+    twinkles=[...tideStars.querySelectorAll(':scope > circle')].filter((_,i)=>i%(matarikiDoor?3:6)===0).map((node,i)=>({node,base:Number(node.getAttribute("opacity")),phase:i*1.73}));
   };
   const wavePath = (y,time,amplitude) => {
     const points=[],start=profile.left-4,end=profile.left+profile.width+4;
@@ -140,7 +147,12 @@
     reflection.setAttribute('d',glints);
     tideStars.setAttribute('opacity','1');
     const quiet=preference.matches;
-    twinkles.forEach(({node,base,phase})=>node.setAttribute('opacity',(quiet?base:base*(.82+.18*Math.sin(seconds*.55+phase))).toFixed(3)));
+    twinkles.forEach(({node,base,phase})=>node.setAttribute('opacity',(quiet?base:base*(matarikiDoor?(.66+.34*Math.sin(seconds*1.7+phase)):(.82+.18*Math.sin(seconds*.55+phase)))).toFixed(3)));
+    clusterTwinkles.forEach(({node,sparkle,phase})=>{
+      const pulse=quiet?1:(.5+.5*Math.sin(seconds*1.65+phase))**2;
+      node.setAttribute('opacity',(quiet?1:.48+.52*pulse).toFixed(3));
+      sparkle.setAttribute('transform',`scale(${quiet?1:.65+.55*pulse})`);
+    });
     moon.setAttribute('transform',`translate(${center} ${profile.top+profile.height*.275+(quiet?0:1.4*Math.sin(seconds*.32))})`);
     moonHalo.setAttribute('opacity',(quiet?.8:.72+.2*Math.sin(seconds*.42)).toFixed(3));
     moonHalo.setAttribute('transform',`scale(${quiet?1:1+.045*Math.sin(seconds*.42)})`);
@@ -270,7 +282,6 @@
     else if ((inView || standalone&&doorTime!==doorTarget*1400) && !document.hidden && !stopped && !menuBlocked) frame = requestAnimationFrame(tick);
   };
   choices.forEach(button => button.addEventListener('click', () => {
-    if(homeOptions){doorTime=0;doorTarget=1;try{localStorage.setItem('hoea-home-door-choice',button.dataset.doorVariant);}catch{}}
     current = variants[button.dataset.doorVariant]; elapsed = current.tide&&(preference.matches||stopped)?1400:0;
     configurePortal();
     choices.forEach(choice => choice.setAttribute('aria-pressed', String(choice === button)));
