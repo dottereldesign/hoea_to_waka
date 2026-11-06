@@ -32,7 +32,16 @@
     oval: {name: '07 · Oval tide', shape:'oval', tide:true, flip:false, angle:68, paper:'#ffffff', ink:'#243a53', floor:'#8c9da9', sky:'#061628', haze:'#0D4687'},
     facet: {name: '08 · Coastal facet', shape:'facet', tide:true, flip:false, angle:64, paper:'#ffffff', ink:'#243a53', floor:'#8c9da9', sky:'#061628', haze:'#0D4687'}
   };
-  let current = standalone ? variants.arch : variants.reference;
+  Object.assign(variants, {
+    dawn:{name:'01 · Apricot horizon',shape:'arch',tide:true,flip:false,angle:67,paper:'#ffffff',ink:'#281A2C',floor:'#95849b',sky:'#FDB069',haze:'#FDD8B0',sea:'#281A2C',seaBack:'#82394f',light:'#FFF9F0',sun:true,speed:1},
+    garden:{name:'02 · Evergreen circle',shape:'round',tide:true,flip:false,angle:70,paper:'#ffffff',ink:'#281A2C',floor:'#95849b',sky:'#1C5C49',haze:'#B4BF8B',sea:'#006b55',seaBack:'#B4BF8B',light:'#FDD8B0',sun:true,speed:.85},
+    plum:{name:'03 · Plum twilight',shape:'oval',tide:true,flip:false,angle:68,paper:'#ffffff',ink:'#281A2C',floor:'#95849b',sky:'#281A2C',haze:'#82394f',sea:'#d96773',seaBack:'#FDAEB5',light:'#FDD8B0',speed:.8},
+    lagoon:{name:'04 · Teal facet',shape:'facet',tide:true,flip:false,angle:64,paper:'#ffffff',ink:'#281A2C',floor:'#95849b',sky:'#00465a',haze:'#328c94',sea:'#187680',seaBack:'#B4BF8B',light:'#FFF9F0',speed:1.15},
+    coral:{name:'05 · Coral doorway',shape:'arch',tide:true,flip:true,angle:72,paper:'#ffffff',ink:'#281A2C',floor:'#95849b',sky:'#f78b91',haze:'#FDD8B0',sea:'#82394f',seaBack:'#281A2C',light:'#FFF9F0',sun:true,speed:.9}
+  });
+  const homeOptions=section.querySelector('[data-home-door-options]');
+  let homeChoice='dawn';try{const saved=localStorage.getItem('hoea-home-door-choice');if(['dawn','garden','plum','lagoon','coral'].includes(saved))homeChoice=saved;}catch{}
+  let current = homeOptions ? variants[homeChoice] : standalone ? variants.arch : variants.reference;
   let frame, lastTime, elapsed = 0, inView = false, stopped = false, menuBlocked = false;
   const ns = 'http://www.w3.org/2000/svg';
   const tide = svg.querySelector('[data-door-tide]') || document.createElementNS(ns,'g');
@@ -81,9 +90,19 @@
   const outlinePath = points => 'M'+points.map(point=>point.map(value=>value.toFixed(3)).join(' ')).join('L')+'Z';
   const configurePortal = () => {
     profile=current.tide?shapeProfile(current.shape):undefined;
+    if(homeOptions){
+      scene.setAttribute('transform',current.flip?'translate(720 0) scale(-1 1)':'');
+      for(const key of ['paper','ink','floor','sky','haze'])svg.style.setProperty('--door-'+key,current[key]);
+      seaFront.setAttribute('fill',current.sea);seaBack.setAttribute('fill',current.seaBack);
+      seaFoam.setAttribute('stroke',current.light);reflection.setAttribute('stroke',current.light);moonFace.setAttribute('fill',current.light);
+      if(current.sun)moonFace.removeAttribute('mask');else moonFace.setAttribute('mask','url(#door-moon-mask)');
+      section.querySelector('output').textContent=current.name;
+      choices.forEach(b=>b.setAttribute('aria-pressed',String(variants[b.dataset.doorVariant]===current)));
+    }
     const shapeName={arch:'arched',round:'circular',oval:'oval',facet:'faceted'}[current.shape];
     svg.querySelector('title').textContent=current.tide?`Moonlit ocean — ${shapeName} door`:'A door to possibility';
     svg.querySelector('desc').textContent=current.tide?`A white ${shapeName} door with a lever handle opens onto moving ocean waves, a crescent moon and a starry night sky.`:originalDescription;
+    if(homeOptions){svg.querySelector('title').textContent=current.name.slice(5);svg.querySelector('desc').textContent='An opening doorway reveals layered waves, '+(current.sun?'a warm sun':'a crescent moon')+' and softly moving lights in the Hoea tō Waka illustration palette.';}
     tide.setAttribute('display',current.tide?'inline':'none');
     stars.style.display=current.tide?'none':'';
     const b=profile||{left:239,top:105,width:245,height:496};
@@ -230,7 +249,7 @@
     const seconds = standalone ? elapsed/1000 : elapsed % (current.tide?8000:6000) / 1000;
     if (standalone) {
       // Scroll only triggers a complete timed reveal or its reverse.
-      doorTime = doorTarget ? Math.min(1400,doorTime+delta) : Math.max(0,doorTime-delta);
+      doorTime = doorTarget ? Math.min(1400,doorTime+delta*(current.speed||1)) : Math.max(0,doorTime-delta*(current.speed||1));
     }
     const motionSeconds=standalone?doorTime/1000:current.tide?(seconds<=1.4?seconds:seconds<6?1.4+(seconds-1.4)*2.6/4.6:seconds-2):seconds;
     draw(angleAt(motionSeconds), seconds);
@@ -251,6 +270,7 @@
     else if ((inView || standalone&&doorTime!==doorTarget*1400) && !document.hidden && !stopped && !menuBlocked) frame = requestAnimationFrame(tick);
   };
   choices.forEach(button => button.addEventListener('click', () => {
+    if(homeOptions){doorTime=0;doorTarget=1;try{localStorage.setItem('hoea-home-door-choice',button.dataset.doorVariant);}catch{}}
     current = variants[button.dataset.doorVariant]; elapsed = current.tide&&(preference.matches||stopped)?1400:0;
     configurePortal();
     choices.forEach(choice => choice.setAttribute('aria-pressed', String(choice === button)));
@@ -261,7 +281,7 @@
     draw(preference.matches || stopped ? current.angle : 0, 0); sync();
   }));
   pause?.addEventListener('click', () => {stopped = !stopped; sync();});
-  section.querySelector('[data-door-replay]')?.addEventListener('click', () => {elapsed = 0; stopped = false; draw(0,0); sync();});
+  section.querySelector('[data-door-replay]')?.addEventListener('click', () => {elapsed = 0; doorTime=0; doorTarget=1; stopped = false; draw(0,0); sync();});
   function measureScroll() {
     scrollFrame=0;
     const box=svg.getBoundingClientRect();
