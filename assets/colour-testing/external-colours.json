@@ -1,0 +1,481 @@
+{
+  "note": "Colours sampled from the local browser, email and social mockups, including light/dark email modes. Not official platform brand specifications. Shared Hoea tō Waka palette colours and transparent blends are omitted.",
+  "groups": [
+    {
+      "name": "Amazon",
+      "anchor": "../resources/#resource-books",
+      "label": "Resources · Stories that travel with you",
+      "colours": [
+        {
+          "hex": "#FFD814",
+          "name": "Pale gold"
+        },
+        {
+          "hex": "#DB6F09",
+          "name": "Orange"
+        }
+      ]
+    },
+    {
+      "name": "Browser / favicon examples",
+      "anchor": "../about/brand-guidelines/#favicon",
+      "label": "Brand guidelines · Favicon browser examples",
+      "colours": [
+        {
+          "hex": "#202124",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#000000",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#DADCE0",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#DFE3EB",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#5F6368",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#EDF0F7",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#E8EAED",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#35363A",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#45474A",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#BDC1C6",
+          "name": "Example interface colour"
+        }
+      ]
+    },
+    {
+      "name": "Gmail",
+      "anchor": "../about/brand-guidelines/#email-preview",
+      "label": "Brand guidelines · Email examples",
+      "colours": [
+        {
+          "hex": "#772631",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#B33940",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#4C3E66",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#000000",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#202124",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#DADCE0",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#F2F5FA",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#5F6368",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#E9EEF6",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#16472D",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#C2E7CE",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#0B57D0",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#E3E3E3",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#1F1F1F",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#494B4E",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#292A2D",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#B4B9BF",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#34363A",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#A8C7FA",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#062E6F",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#EA4335",
+          "name": "Gmail icon colour"
+        },
+        {
+          "hex": "#4285F4",
+          "name": "Gmail icon colour"
+        },
+        {
+          "hex": "#34A853",
+          "name": "Gmail icon colour"
+        },
+        {
+          "hex": "#C5221F",
+          "name": "Gmail icon colour"
+        },
+        {
+          "hex": "#FBBC04",
+          "name": "Gmail icon colour"
+        }
+      ]
+    },
+    {
+      "name": "Outlook",
+      "anchor": "../about/brand-guidelines/#email-preview",
+      "label": "Brand guidelines · Email examples",
+      "colours": [
+        {
+          "hex": "#063B76",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#0787C7",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#1455A1",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#000000",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#202124",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#DADCE0",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#0F6CBD",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#5F6368",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#16472D",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#C2E7CE",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#F5F5F5",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#F1F1F1",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#484848",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#0A3E68",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#E3E3E3",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#293F51",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#292929",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#479EF5",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#C5C5C5",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#082540",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#35B8F1",
+          "name": "Outlook icon colour"
+        },
+        {
+          "hex": "#28A8EA",
+          "name": "Outlook icon colour"
+        },
+        {
+          "hex": "#1784D9",
+          "name": "Outlook icon colour"
+        },
+        {
+          "hex": "#107AD5",
+          "name": "Outlook icon colour"
+        },
+        {
+          "hex": "#0A63C9",
+          "name": "Outlook icon colour"
+        },
+        {
+          "hex": "#0A2767",
+          "name": "Outlook icon colour"
+        },
+        {
+          "hex": "#0364B8",
+          "name": "Outlook icon colour"
+        },
+        {
+          "hex": "#0078D4",
+          "name": "Outlook icon colour"
+        },
+        {
+          "hex": "#14447D",
+          "name": "Outlook icon colour"
+        },
+        {
+          "hex": "#1490DF",
+          "name": "Outlook icon colour"
+        },
+        {
+          "hex": "#50D9FF",
+          "name": "Outlook icon colour"
+        }
+      ]
+    },
+    {
+      "name": "LinkedIn",
+      "anchor": "../about/brand-guidelines/#social-media",
+      "label": "Brand guidelines · Social media examples",
+      "colours": [
+        {
+          "hex": "#F4F2EE",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#000000",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#D9DDE3",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#E4E6E9",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#0A66C2",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#5E6369",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#EDF3F8",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#DDD9D5",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#302641",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#7565A4",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#888888",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#057642",
+          "name": "Example interface colour"
+        }
+      ]
+    },
+    {
+      "name": "Facebook",
+      "anchor": "../about/brand-guidelines/#social-media",
+      "label": "Brand guidelines · Social media examples",
+      "colours": [
+        {
+          "hex": "#000000",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#D9DDE3",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#E4E6E9",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#0866FF",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#5E6369",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#F0F2F5",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#050505",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#E4E6EB",
+          "name": "Example interface colour"
+        }
+      ]
+    },
+    {
+      "name": "Instagram",
+      "anchor": "../about/brand-guidelines/#social-media",
+      "label": "Brand guidelines · Social media examples",
+      "colours": [
+        {
+          "hex": "#000000",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#D9DDE3",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#E4E6E9",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#4A5DF9",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#EFEFEF",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#00376B",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#262626",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#F8F8F8",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#D9D9D9",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#DBDBDB",
+          "name": "Example interface colour"
+        }
+      ]
+    },
+    {
+      "name": "X",
+      "anchor": "../about/brand-guidelines/#social-media",
+      "label": "Brand guidelines · Social media examples",
+      "colours": [
+        {
+          "hex": "#000000",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#D9DDE3",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#EFF3F4",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#536471",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#0F1419",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#1D9BF0",
+          "name": "Example interface colour"
+        },
+        {
+          "hex": "#CFD9DE",
+          "name": "Example interface colour"
+        }
+      ]
+    }
+  ]
+}

@@ -103,3 +103,11 @@ html[data-palette] .palette-lab .brand-palette-group h3{font-size:22px;line-heig
 .palette-lab #palette{padding-top:0;}
 html[data-palette] .palette-lab #palette-title{font-size:clamp(26px,3vw,38px);line-height:1.15;letter-spacing:-.035em;margin:0;}
 .brand-palette-group header{min-height:0;margin-bottom:clamp(1.3125rem, 1.15rem + 0.66667vw, 1.75rem);}
+
+/* Platform reference palettes stay separate and collapsed until requested. */
+.external-colour-group{border-top:1px solid #E3E1DD;padding-block:clamp(1rem,.8rem + .6vw,1.5rem)}
+.external-colour-group:last-child{border-bottom:1px solid #E3E1DD}
+.external-colour-group>summary{font:500 17px/1.5 Inter,Arial,sans-serif;color:#191919;cursor:pointer}
+.external-colour-group>summary>span{font-size:12px;font-weight:400;color:#6B7178;margin-left:8px}
+.palette-lab .external-colour-location{display:inline-block;color:#191919;font:400 12px/1.6 Inter,Arial,sans-serif;margin-block:clamp(.75rem,.6rem + .4vw,1rem);text-underline-offset:3px}
+.external-colour-group .site-colour-grid{padding-block:clamp(.75rem,.6rem + .4vw,1rem)}

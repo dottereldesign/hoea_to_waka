@@ -187,9 +187,7 @@ Chrome-style browser · Dark theme
 
 ### External colours
 
-Third-party button colours, separate from the Hoea tō Waka brand palette and excluded from the interface colour total.
-
-#### Amazon
+Colours used in the Amazon button and the browser, email and social examples. Separate from our brand palette and excluded from the interface colour total. Shared brand colours and transparency blends are omitted. These document our mockups, not official platform colour specifications.
 
 Additional fills and gradient stops, also grouped by family and ordered light to dark. Photo pixels and transparency blends are excluded.
 
