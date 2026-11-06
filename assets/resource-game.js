@@ -32,9 +32,17 @@
    const won=state.guesses.includes(state.answer);$('[data-wordle-result-text]').textContent=(won?'You found it: ':'The word was ')+state.answer.toUpperCase()+'.';const a=$('[data-wordle-dictionary]');a.href='https://www.dictionary.maori.nz/'+encodeURIComponent(state.answer);a.setAttribute('aria-label',`Explore ${state.answer} in the dictionary (opens in a new tab)`);
   }
  }
- function cleanInput(){if(!state||finished())return;input.value=Array.from(C.normalise(input.value).replace(/[^aeghikmnoprtuwāēīōū]/gu,'')).slice(0,5).join('').toUpperCase();render();}
+ function cleanInput(){if(!state||finished())return;const clean=v=>Array.from(C.normalise(v).replace(/[^aeghikmnoprtuwāēīōū]/gu,'')).slice(0,5).join('').toUpperCase();const caret=clean(input.value.slice(0,input.selectionStart??input.value.length)).length;input.value=clean(input.value);input.setSelectionRange(caret,caret);render();}
+ function editGuess(letter='') {
+  if(finished())return;
+  let a=input.selectionStart??input.value.length,b=input.selectionEnd??a;
+  if(!letter&&a===b)a=Math.max(0,a-1);
+  input.setRangeText(letter,a,b,'end');
+  cleanInput();
+  input.focus({preventScroll:true});
+ }
  const rows=['aeiou','āēīōū','hkmnprt','wg'];
- rows.forEach((letters,i)=>{const row=document.createElement('div');row.className='mw-key-row';for(const letter of letters){const b=document.createElement('button');b.type='button';b.dataset.letter=letter;b.textContent=letter.toUpperCase();b.addEventListener('click',()=>{if(finished())return;input.value+=letter;cleanInput();});row.append(b);}if(i===3){const del=document.createElement('button');del.type='button';del.textContent='Delete';del.addEventListener('click',()=>{input.value=Array.from(input.value).slice(0,-1).join('');render();});row.append(del);const enter=document.createElement('button');enter.type='button';enter.textContent='Guess';enter.addEventListener('click',()=>form.requestSubmit());row.append(enter);}keyboard.append(row);});
+ rows.forEach((letters,i)=>{const row=document.createElement('div');row.className='mw-key-row';for(const letter of letters){const b=document.createElement('button');b.type='button';b.dataset.letter=letter;b.textContent=letter.toUpperCase();b.addEventListener('click',()=>{if(finished())return;editGuess(letter);});row.append(b);}if(i===3){const del=document.createElement('button');del.type='button';del.textContent='Delete';del.addEventListener('click',()=>{editGuess();});row.append(del);const enter=document.createElement('button');enter.type='button';enter.textContent='Guess';enter.addEventListener('click',()=>form.requestSubmit());row.append(enter);}keyboard.append(row);});
  input.addEventListener('input',e=>{if(!e.isComposing)cleanInput();});input.addEventListener('compositionend',cleanInput);
  form.addEventListener('submit',e=>{
   e.preventDefault();if(finished())return;const guess=C.normalise(input.value);
@@ -44,7 +52,7 @@
   state.guesses.push(guess);input.value='';save();render();
   const feedback=Array.from(guess).map((l,i)=>`${l.toUpperCase()} ${names[C.score(guess,state.answer)[i]]}`).join('; ');
   if(finished()){say((guess===state.answer?`You found ${state.answer.toUpperCase()} in ${state.guesses.length} guesses!`:`The word was ${state.answer.toUpperCase()}.`));$('[data-wordle-next]').focus({preventScroll:true});}
-  else say(`Guess ${state.guesses.length}: ${feedback}.`);
+  else {say(`Guess ${state.guesses.length}: ${feedback}.`);input.focus({preventScroll:true});}
  });
  render();
  start.addEventListener('click',()=>{save();intro.hidden=true;game.hidden=false;root.classList.add('is-playing');render();say('');if(finished())$('[data-wordle-next]').focus({preventScroll:true});else input.focus({preventScroll:true});});
