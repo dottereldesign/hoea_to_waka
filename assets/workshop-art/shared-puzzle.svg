@@ -11,7 +11,7 @@
  <clipPath id="pinkShirt"><path d="M0 448C24 353 70 301 128 310C202 307 270 356 337 398L347 448C278 513 128 624 0 610Z"/></clipPath>
  <clipPath id="plumShirt"><path d="M0 991C24 931 49 898 102 885L218 913C278 876 389 746 443 626L493 649C510 648 544 662 563 677C547 757 516 868 491 942C471 1005 425 1041 359 1086H0Z"/></clipPath>
 </defs>
-<path id="background" fill="#006b55" d="M0 0h1448v1086H0z"/>
+<path id="background" fill="#016C53" d="M0 0h1448v1086H0z"/>
 <!-- Upper-left person: hair, profile and the farther arm. -->
 <g id="upper-left-person">
  <path fill="#281A2C" d="M92 174C49 173 28 140 43 96C58 49 104 33 132 50C164 63 173 95 159 119Z"/>

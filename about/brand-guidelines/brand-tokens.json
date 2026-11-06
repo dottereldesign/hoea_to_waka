@@ -19,13 +19,13 @@
       "$value": {
         "colorSpace": "srgb",
         "components": [
-          0.91372549,
-          0.93333333,
-          0.95686275
+          0.90980392,
+          0.94509804,
+          0.96078431
         ],
         "alpha": 1
       },
-      "$description": "Ocean 200: 200 tonal level. HEX #E9EEF4"
+      "$description": "Ocean 200: 200 tonal level. HEX #E8F1F5"
     },
     "ocean-300": {
       "$type": "color",
@@ -383,13 +383,13 @@
       "$value": {
         "colorSpace": "srgb",
         "components": [
-          0.94117647,
-          0.91372549,
-          0.94901961
+          0.94509804,
+          0.91764706,
+          0.98039216
         ],
         "alpha": 1
       },
-      "$description": "Lavender 300: 300 tonal level. HEX #F0E9F2"
+      "$description": "Lavender 300: 300 tonal level. HEX #F1EAFA"
     },
     "lavender-400": {
       "$type": "color",

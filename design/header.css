@@ -178,7 +178,7 @@ html[data-palette] .site-menu-contact :is(a,p){display:flex;align-items:center;g
 .site-menu-appearance small{font-size:12px;line-height:1.5;color:var(--brand-slate)}
 html[data-palette] .site-menu-appearance .site-theme-toggle{display:inline-block;flex:none;position:relative;visibility:visible;opacity:1;pointer-events:auto}
 /* Give the little day/night scene its own colour even on the monochrome homepage. */
-.page-home .site-menu-appearance .site-theme-toggle{--brand-ocean-400:#a9c5ce;--brand-ocean-600:#607f9d;--brand-ocean-900:#1a2b3d;--brand-sandstone:#d6ba83;--brand-lavender-100:#fcfafc;--brand-lavender-300:#f0e9f2;--brand-paper:#fff}
+.page-home .site-menu-appearance .site-theme-toggle{--brand-ocean-400:#a9c5ce;--brand-ocean-600:#607f9d;--brand-ocean-900:#1a2b3d;--brand-sandstone:#d6ba83;--brand-lavender-100:#fcfafc;--brand-lavender-300:#F1EAFA;--brand-paper:#fff}
 .site-menu-appearance .site-theme-toggle{--day-bg-color:var(--brand-ocean-400);--night-bg-color:var(--brand-ocean-900);--sun-color:var(--brand-sandstone);--moon-color:var(--brand-lavender-300);--cloud-color:var(--brand-paper);--star-color:var(--brand-lavender-100);--toggle-border-day:color-mix(in srgb,var(--brand-ocean-600) 40%,transparent);--toggle-border-night:color-mix(in srgb,var(--brand-lavender-300) 35%,transparent)}
 
 /* Keep glass in its own layer: the logo and links are rendered at their real size. */

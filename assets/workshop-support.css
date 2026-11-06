@@ -78,7 +78,7 @@
 .workshop-details-copy p { margin: 0 0 12px; }
 .workshop-details-copy a { text-decoration: underline; }
 /* Preserve the entire vector composition in the narrower carousel image column. */
-.workshop-slide img.workshop-illustration{object-fit:contain;background:#006b55;}
+.workshop-slide img.workshop-illustration{object-fit:contain;background:#016C53;}
 @media(max-width:700px){.workshop-slide img.workshop-illustration{height:auto;aspect-ratio:4 / 3;min-height:0;}}
 .workshop-prev,.workshop-next{display:grid;place-items:center;padding:0;}
 .workshop-prev svg,.workshop-next svg{display:block;}

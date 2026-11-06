@@ -5,9 +5,9 @@
 /* Model: chosen Ultraviolet ink background. */
 [data-hero-palette="model"] .coaching-hero__background{opacity:1;--cloud-deep:#8253c5;--cloud-mid:#4b3e89;--cloud-wash:#363052;--cloud-paper:#211c37}
 /* Services: chosen Cobalt air background. */
-[data-hero-palette="services"] .coaching-hero__background{opacity:1;--cloud-deep:#2254a7;--cloud-mid:#7797d5;--cloud-wash:#beddf0;--cloud-paper:#edf5fb}
+[data-hero-palette="services"] .coaching-hero__background{opacity:1;--cloud-deep:#2254a7;--cloud-mid:#7797d5;--cloud-wash:#beddf0;--cloud-paper:#E8F1F5}
 /* Books and resources: chosen Mauve paper background. */
-[data-hero-palette="resources"] .coaching-hero__background{opacity:1;--cloud-deep:#a84b85;--cloud-mid:#c98fb6;--cloud-wash:#ddc6ee;--cloud-paper:#faf0f7}
+[data-hero-palette="resources"] .coaching-hero__background{opacity:1;--cloud-deep:#a84b85;--cloud-mid:#c98fb6;--cloud-wash:#ddc6ee;--cloud-paper:#F1EAFA}
 /* contact: 01 Apricot violet */
 [data-hero-palette="contact"] .coaching-hero__background:nth-child(1){--cloud-deep:#b27bb7;--cloud-mid:#d4a3cf;--cloud-wash:#f1cfb9;--cloud-paper:#fff3e9}
 /* contact: 02 Rose quartz */
@@ -17,6 +17,6 @@
 /* contact: 04 Rosewood night */
 [data-hero-palette="contact"] .coaching-hero__background:nth-child(4){--cloud-deep:#a5608a;--cloud-mid:#6d466e;--cloud-wash:#40304c;--cloud-paper:#261c32}
 /* In-house workshops: chosen Aubergine copper background. */
-[data-hero-palette="workshops"] .coaching-hero__background{opacity:1;--cloud-deep:#b87361;--cloud-mid:#7b4c7c;--cloud-wash:#49314c;--cloud-paper:#291c30}
+[data-hero-palette="workshops"] .coaching-hero__background{opacity:1;--cloud-deep:#b87361;--cloud-mid:#7b4c7c;--cloud-wash:#49314c;--cloud-paper:#281A2C}
 /* Support professional training: chosen Coastal sage background. */
-[data-hero-palette="support"] .coaching-hero__background{opacity:1;--cloud-deep:#397d8f;--cloud-mid:#88b8be;--cloud-wash:#c6dceb;--cloud-paper:#eef8f5}
+[data-hero-palette="support"] .coaching-hero__background{opacity:1;--cloud-deep:#267C86;--cloud-mid:#88b8be;--cloud-wash:#BEDDF0;--cloud-paper:#eef8f5}

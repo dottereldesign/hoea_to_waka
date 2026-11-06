@@ -40,8 +40,8 @@ html:has(body.page-home){
 
 
 
---brand-stone:#e0e0e0!important;
---brand-slate:#666666!important;
+--brand-stone:#E3E1DD!important;
+--brand-slate:#6B7178!important;
 --brand-logo-black:#191919!important;
 --brand-dusty-rose:#999999!important;
 --brand-sandstone:#b5b5b5!important;
@@ -92,8 +92,8 @@ html[data-palette] .page-home :is(a,button,summary):focus-visible{outline-color:
 
 /* Restore the model panel's original purple within the neutral homepage. */
 html[data-palette] :is([data-component="home:4:features"],[data-component="about/:3:features"],[data-component="model/:2:features"]){
- --brand-aubergine-800:#281a2c;--brand-aubergine-600:#806788;--brand-lavender-300:#f0e9f2;
- background:#281a2c;--ds-bg:#281a2c!important;--ds-ink:#fff!important;--ds-muted:#f0e9f2!important;--ds-line:#806788!important;
+ --brand-aubergine-800:#281a2c;--brand-aubergine-600:#806788;--brand-lavender-300:#F1EAFA;
+ background:#281a2c;--ds-bg:#281a2c!important;--ds-ink:#fff!important;--ds-muted:#F1EAFA!important;--ds-line:#806788!important;
 }
 
 /* Keep the services anchor aligned below the header. */

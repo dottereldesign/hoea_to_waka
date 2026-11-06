@@ -1,15 +1,15 @@
 html[data-palette] #flexible-approach {
-  color: #fbfafc;
+  color: #FFFFFF;
   background: radial-gradient(ellipse at 5% 3%, #593c74 0%, transparent 56%),
-              radial-gradient(ellipse at 86% 25%, #1c5648 0%, transparent 58%),
+              radial-gradient(ellipse at 86% 25%, #1C5C49 0%, transparent 58%),
               radial-gradient(ellipse at 63% 110%, #482b57 0%, transparent 62%),
-              #19292d !important;
+              #102A39 !important;
 }
 html[data-palette] #flexible-approach :is(.ds-title, .ds-kicker, .ds-prose p, .ds-prose a, .brand-name-text) {
-  color: #fbfafc !important;
+  color: #FFFFFF !important;
 }
 html[data-palette] #flexible-approach .ds-kicker {
-  border-color: #d5cbdc;
+  border-color: #D8CBDD;
   background: transparent;
 }
 #flexible-approach a:focus-visible { outline: 2px solid white; outline-offset: 4px; }
