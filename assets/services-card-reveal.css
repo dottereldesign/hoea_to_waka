@@ -10,7 +10,8 @@ html.js body [data-component="home:3:services"] :is(.ds-section-heading,.ds-card
 }
 html[data-palette] [data-component="home:3:services"] .ds-service-editorial.services-leveling{
   align-items:start;
-  padding-bottom:208px;
+  /* Reserve only the space the moving cards currently occupy. */
+  padding-bottom:calc(var(--services-step,104px) * 2);
 }
 html[data-palette] [data-component="home:3:services"] .services-leveling>.ds-card:nth-child(n){padding-top:0;}
 html[data-palette] [data-component="home:3:services"] .services-leveling>.ds-card:nth-child(2){translate:0 var(--services-step,104px);}
@@ -19,4 +20,4 @@ html[data-palette] [data-component="home:3:services"] .services-leveling>.ds-car
   html[data-palette] [data-component="home:3:services"] .services-leveling>.ds-card{translate:none!important;}
 }
 html[data-theme="light"] #services .ds-card-actions .model-button{background-color:rgb(32,32,32);}
-html[data-palette] #services.ds-type-services{padding-bottom:0;}
+
