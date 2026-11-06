@@ -7,6 +7,33 @@
       "sampleCentre": [
         100,
         100
+      ],
+      "tones": [
+        {
+          "step": "100",
+          "hex": "#C0DAD4",
+          "base": false
+        },
+        {
+          "step": "300",
+          "hex": "#67A798",
+          "base": false
+        },
+        {
+          "step": "500",
+          "hex": "#016C53",
+          "base": true
+        },
+        {
+          "step": "700",
+          "hex": "#075744",
+          "base": false
+        },
+        {
+          "step": "900",
+          "hex": "#0D4236",
+          "base": false
+        }
       ]
     },
     {
@@ -15,6 +42,33 @@
       "sampleCentre": [
         210,
         440
+      ],
+      "tones": [
+        {
+          "step": "100",
+          "hex": "#C0CED2",
+          "base": false
+        },
+        {
+          "step": "300",
+          "hex": "#688894",
+          "base": false
+        },
+        {
+          "step": "500",
+          "hex": "#03394D",
+          "base": true
+        },
+        {
+          "step": "700",
+          "hex": "#083140",
+          "base": false
+        },
+        {
+          "step": "900",
+          "hex": "#0E2933",
+          "base": false
+        }
       ]
     },
     {
@@ -23,12 +77,66 @@
       "sampleCentre": [
         180,
         880
+      ],
+      "tones": [
+        {
+          "step": "100",
+          "hex": "#C9DEE1",
+          "base": false
+        },
+        {
+          "step": "300",
+          "hex": "#7DB0B6",
+          "base": false
+        },
+        {
+          "step": "500",
+          "hex": "#267C86",
+          "base": true
+        },
+        {
+          "step": "700",
+          "hex": "#23636B",
+          "base": false
+        },
+        {
+          "step": "900",
+          "hex": "#204A50",
+          "base": false
+        }
       ]
     },
     {
       "name": "Deep purple",
       "hex": "#281A2C",
-      "role": "Deepest illustration purple"
+      "role": "Deepest illustration purple",
+      "tones": [
+        {
+          "step": "100",
+          "hex": "#C9C6CA",
+          "base": false
+        },
+        {
+          "step": "300",
+          "hex": "#7E7680",
+          "base": false
+        },
+        {
+          "step": "500",
+          "hex": "#281A2C",
+          "base": true
+        },
+        {
+          "step": "700",
+          "hex": "#241A27",
+          "base": false
+        },
+        {
+          "step": "900",
+          "hex": "#201A22",
+          "base": false
+        }
+      ]
     },
     {
       "name": "Plum",
@@ -36,6 +144,33 @@
       "sampleCentre": [
         190,
         600
+      ],
+      "tones": [
+        {
+          "step": "100",
+          "hex": "#D4C9CF",
+          "base": false
+        },
+        {
+          "step": "300",
+          "hex": "#987D8C",
+          "base": false
+        },
+        {
+          "step": "500",
+          "hex": "#53273F",
+          "base": true
+        },
+        {
+          "step": "700",
+          "hex": "#442436",
+          "base": false
+        },
+        {
+          "step": "900",
+          "hex": "#36202C",
+          "base": false
+        }
       ]
     },
     {
@@ -44,6 +179,33 @@
       "sampleCentre": [
         860,
         570
+      ],
+      "tones": [
+        {
+          "step": "100",
+          "hex": "#E7ECDC",
+          "base": false
+        },
+        {
+          "step": "300",
+          "hex": "#C5D0AB",
+          "base": false
+        },
+        {
+          "step": "500",
+          "hex": "#9EB173",
+          "base": true
+        },
+        {
+          "step": "700",
+          "hex": "#7D8B5C",
+          "base": false
+        },
+        {
+          "step": "900",
+          "hex": "#5C6546",
+          "base": false
+        }
       ]
     },
     {
@@ -52,6 +214,33 @@
       "sampleCentre": [
         180,
         1100
+      ],
+      "tones": [
+        {
+          "step": "100",
+          "hex": "#ECEFE2",
+          "base": false
+        },
+        {
+          "step": "300",
+          "hex": "#D2D9B9",
+          "base": false
+        },
+        {
+          "step": "500",
+          "hex": "#B4BF8B",
+          "base": true
+        },
+        {
+          "step": "700",
+          "hex": "#8D966E",
+          "base": false
+        },
+        {
+          "step": "900",
+          "hex": "#666C52",
+          "base": false
+        }
       ]
     },
     {
@@ -60,6 +249,33 @@
       "sampleCentre": [
         415,
         770
+      ],
+      "tones": [
+        {
+          "step": "100",
+          "hex": "#F9E0E1",
+          "base": false
+        },
+        {
+          "step": "300",
+          "hex": "#F0B5B7",
+          "base": false
+        },
+        {
+          "step": "500",
+          "hex": "#E68387",
+          "base": true
+        },
+        {
+          "step": "700",
+          "hex": "#B3686C",
+          "base": false
+        },
+        {
+          "step": "900",
+          "hex": "#804E50",
+          "base": false
+        }
       ]
     },
     {
@@ -68,6 +284,33 @@
       "sampleCentre": [
         890,
         920
+      ],
+      "tones": [
+        {
+          "step": "100",
+          "hex": "#F0D6D7",
+          "base": false
+        },
+        {
+          "step": "300",
+          "hex": "#DA9B9E",
+          "base": false
+        },
+        {
+          "step": "500",
+          "hex": "#C1595E",
+          "base": true
+        },
+        {
+          "step": "700",
+          "hex": "#97494D",
+          "base": false
+        },
+        {
+          "step": "900",
+          "hex": "#6D393C",
+          "base": false
+        }
       ]
     },
     {
@@ -76,6 +319,33 @@
       "sampleCentre": [
         820,
         1140
+      ],
+      "tones": [
+        {
+          "step": "100",
+          "hex": "#FEEBEC",
+          "base": false
+        },
+        {
+          "step": "300",
+          "hex": "#FECED3",
+          "base": false
+        },
+        {
+          "step": "500",
+          "hex": "#FDAEB5",
+          "base": true
+        },
+        {
+          "step": "700",
+          "hex": "#C4898E",
+          "base": false
+        },
+        {
+          "step": "900",
+          "hex": "#8B6467",
+          "base": false
+        }
       ]
     },
     {
@@ -189,5 +459,6 @@
         "Logo black"
       ]
     }
-  ]
+  ],
+  "toneMethod": "100 and 300 mix the original with 75% and 40% Paper; 500 is the unchanged original; 700 and 900 mix with 25% and 50% Logo black. These tonal extensions do not replace existing site colours."
 }
