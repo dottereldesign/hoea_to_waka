@@ -1,5 +1,5 @@
 {
-  "method": "Median RGB from 16 by 16 pixel interior samples of the supplied image. Approximate display colours, not original source values.",
+  "method": "Illustration reference colours, with approved deep purple and teal updates; footer charcoal and neutrals taken from existing site styles and logo artwork.",
   "colours": [
     {
       "name": "Evergreen",
@@ -11,7 +11,7 @@
     },
     {
       "name": "Deep teal",
-      "hex": "#043A4E",
+      "hex": "#03394D",
       "sampleCentre": [
         210,
         440
@@ -19,11 +19,16 @@
     },
     {
       "name": "Ocean teal",
-      "hex": "#247A84",
+      "hex": "#267C86",
       "sampleCentre": [
         180,
         880
       ]
+    },
+    {
+      "name": "Deep purple",
+      "hex": "#281A2C",
+      "role": "Deepest illustration purple"
     },
     {
       "name": "Plum",
@@ -112,6 +117,63 @@
         570,
         460
       ]
+    },
+    {
+      "name": "Footer charcoal",
+      "hex": "#202020",
+      "role": "Footer and dark hero surface"
+    }
+  ],
+  "neutrals": [
+    {
+      "name": "Paper",
+      "hex": "#FFFFFF",
+      "role": "Page and card surfaces"
+    },
+    {
+      "name": "Warm white",
+      "hex": "#F8F8F6",
+      "role": "Soft secondary surfaces"
+    },
+    {
+      "name": "Ivory",
+      "hex": "#F5F3EE",
+      "role": "Warm content surfaces"
+    },
+    {
+      "name": "Cool mist",
+      "hex": "#EDF1F3",
+      "role": "Cool secondary surfaces"
+    },
+    {
+      "name": "Stone",
+      "hex": "#E3E1DD",
+      "role": "Borders and dividers"
+    },
+    {
+      "name": "Slate",
+      "hex": "#6B7178",
+      "role": "Supporting text"
+    },
+    {
+      "name": "Warm grey",
+      "hex": "#605E5E",
+      "role": "Brand supporting text"
+    },
+    {
+      "name": "Ink",
+      "hex": "#202329",
+      "role": "Primary text"
+    },
+    {
+      "name": "Footer charcoal",
+      "hex": "#202020",
+      "role": "Footer and dark hero"
+    },
+    {
+      "name": "Logo black",
+      "hex": "#191919",
+      "role": "Black logo artwork"
     }
   ]
 }
