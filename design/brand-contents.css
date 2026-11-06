@@ -131,7 +131,7 @@ html:has(body.brand-guidelines){scroll-padding-top:0}
 html[data-palette] #typeface .site-preview-typeface-sheet-supporting{padding:0;border:0;border-radius:0;background:transparent;box-shadow:none}
 
 /* Digital logo use and chapter 09 social media examples. */
-html[data-palette] .brand-chapter-cover--09{background:radial-gradient(ellipse at 10% 95%,#6e7eae 0,transparent 65%),radial-gradient(ellipse at 85% 10%,#765f9a 0,transparent 70%),#243a53}
+html[data-palette] .brand-chapter-cover--09{background:radial-gradient(ellipse at 10% 95%,#6e7eae 0,transparent 65%),radial-gradient(ellipse at 85% 10%,#765f9a 0,transparent 70%),#083140}
 .brand-favicon-preview,.brand-social-post{margin:0;min-width:0}
 .brand-favicon-sizes{display:grid;grid-template-columns:16px 32px 48px 80px;justify-content:space-between;align-items:end;gap:12px;padding:28px 16px;border-radius:16px}
 .brand-favicon-sizes--light{background:#f3f4f6;color:#3f4752}
@@ -541,7 +541,7 @@ html[data-palette] .brand-guidelines :is(#logomarks,#url-wordmarks){background:v
 .brand-mark-card,.brand-url-row{display:grid;place-items:center;box-sizing:border-box;min-width:0;margin:0;border:1px solid var(--t-line);border-radius:20px}
 .brand-art-surface--white{background:#fff}
 .brand-art-surface--black{background:#191919}
-.brand-art-surface--blue{background:#243a53}
+.brand-art-surface--blue{background:#083140}
 .brand-mark-card{aspect-ratio:1;padding:clamp(12px,3vw,36px)}
 .brand-mark-card img{display:block;width:100%;max-width:140px;height:auto}
 .brand-url-stack{display:grid;gap:16px}
@@ -601,7 +601,7 @@ html[data-palette] #brand-guide-cover .brand-hero-assets__note{font:400 12px/1.7
 @media(max-width:540px){.brand-hero-assets__grid{grid-template-columns:minmax(0,1fr);gap:10px}html[data-palette] .brand-guidelines .brand-hero-assets__link{min-height:96px;padding:18px 20px}.brand-guidelines .brand-hero-assets{margin-top:16px}}
 
 /* UI icon specimens follow the same light outline language as site controls. */
-html[data-palette] .brand-chapter-cover--icons{background:radial-gradient(ellipse at 80% 15%,#607f9d,transparent 65%),radial-gradient(ellipse at 10% 100%,#6c608b,transparent 70%),#243a53}
+html[data-palette] .brand-chapter-cover--icons{background:radial-gradient(ellipse at 80% 15%,#607f9d,transparent 65%),radial-gradient(ellipse at 10% 100%,#6c608b,transparent 70%),#083140}
 html[data-palette] #ui-icons{background:var(--t-surface);color:var(--t-ink)}
 .brand-icon-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 24px}
 .brand-icon-sample{margin:0;min-width:0;padding:24px 0;border-bottom:1px solid var(--t-line);display:grid;align-content:start;gap:18px}

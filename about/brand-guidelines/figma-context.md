@@ -468,7 +468,7 @@ So give us a call and have a chat and we'll see how Hoea tō Waka can help you.
 | ocean-500 | #829FB2 | 500 tonal level |
 | ocean-600 | #607F9D | Shows which control is selected by the keyboard |
 | ocean-700 | #3F5B78 | 700 tonal level |
-| ocean-800 | #243A53 | Helpful information or a neutral notice |
+| ocean-800 | #083140 | Helpful information or a neutral notice |
 | ocean-900 | #1A2B3D | Deep blue · Available dark background |
 | forest-100 | #F1F5F0 | 100 tonal level |
 | forest-200 | #6B7178 | 200 tonal level |
@@ -519,7 +519,7 @@ So give us a call and have a chat and we'll see how Hoea tō Waka can help you.
   --brand-ocean-500: #829FB2;
   --brand-ocean-600: #607F9D;
   --brand-ocean-700: #3F5B78;
-  --brand-ocean-800: #243A53;
+  --brand-ocean-800: #083140;
   --brand-ocean-900: #1A2B3D;
   --brand-forest-100: #F1F5F0;
   --brand-forest-200: #6B7178;
@@ -678,13 +678,13 @@ DTCG 2025.10 JSON follows. Colour components use sRGB values from 0 to 1. Alias 
       "$value": {
         "colorSpace": "srgb",
         "components": [
-          0.14117647,
-          0.22745098,
-          0.3254902
+          0.03137255,
+          0.19215686,
+          0.25098039
         ],
         "alpha": 1
       },
-      "$description": "Information: Helpful information or a neutral notice. HEX #243A53"
+      "$description": "Information: Helpful information or a neutral notice. HEX #083140"
     },
     "ocean-900": {
       "$type": "color",
