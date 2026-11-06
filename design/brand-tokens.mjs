@@ -8,7 +8,6 @@ export const families = [
 const colour = (id,name,hex,role) => ({id,name,hex,role});
 export const neutrals = [
   colour('paper','Paper','#FFFFFF','Default page surface, cards and overlays'),
-  colour('cool-mist','Cool Mist','#EDF1F3','Secondary surfaces'),
   colour('stone','Stone','#E3E1DD','Dividers and borders'),
   colour('slate','Slate','#6B7178','Supporting labels'),
   colour('logo-black','Logo black','#191919','Primary text, footer and dark surfaces'),
@@ -62,7 +61,7 @@ export function legacyToken(hex) {
   const same=colours.find(c=>c.hex.toLowerCase()===hex); if(same)return same.id;
   const [r,g,b]=hex.slice(1).match(/../g).map(v=>parseInt(v,16)),hi=Math.max(r,g,b),lo=Math.min(r,g,b),delta=hi-lo,L=luminance(hex);
   if(delta<22) {
-    if(L>.84)return 'paper'; if(L>.74)return 'cool-mist';
+    if(L>.74)return 'paper';
     if(L>.54)return 'stone'; if(L>.13)return 'slate'; return 'logo-black';
   }
   let hue=(hi===r?((g-b)/delta)%6:hi===g?(b-r)/delta+2:(r-g)/delta+4)*60; hue=(hue+360)%360;
@@ -72,7 +71,7 @@ export function legacyToken(hex) {
 }
 export function semanticRoles(dark=false) {
   const ids=dark?{bg:'ocean-900',surface:'ocean-800',raised:'ocean-700',ink:'paper',muted:'ocean-300',action:'lavender-500','on-action':'aubergine-800',line:'ocean-600',soft:'ocean-800',accent:'forest-700','on-accent':'paper',highlight:'aubergine-700','on-highlight':'paper','component-accent':'aubergine-800','component-counter':'forest-800'}:
-    {bg:'paper',surface:'paper',raised:'cool-mist',ink:'logo-black',muted:'slate',action:'ocean-800','on-action':'paper',line:'stone',soft:'ocean-200',accent:'lavender-500','on-accent':'aubergine-800',highlight:'forest-200','on-highlight':'forest-800','component-accent':'lavender-500','component-counter':'forest-200'};
+    {bg:'paper',surface:'paper',raised:'paper',ink:'logo-black',muted:'slate',action:'ocean-800','on-action':'paper',line:'stone',soft:'ocean-200',accent:'lavender-500','on-accent':'aubergine-800',highlight:'forest-200','on-highlight':'forest-800','component-accent':'lavender-500','component-counter':'forest-200'};
   Object.assign(ids,{inverse:'ocean-800','on-inverse':'paper','inverse-muted':'ocean-300',focus:'ocean-600',success:'success',error:'error',warning:'warning',information:'ocean-800'});
   return Object.entries(ids).map(([name,id])=>`--t-${name}:${ref(id)}`).join(';');
 }

@@ -9,7 +9,7 @@
   --color-surface-strong: #ffffff;
   --color-border: rgba(96, 94, 94, 0.16);
   --color-text: #111111;
-  --color-text-muted: #605e5e;
+  --color-text-muted: #6B7178;
   --color-success: #44c26d;
   --color-warm: #dec328;
   --day-bg-color: #0dbdf6;
@@ -4769,7 +4769,7 @@ html[data-theme="dark"] .preview-email-window h3 {
 
 html[data-theme="dark"] .preview-email-window strong,
 html[data-theme="dark"] .preview-email-signature-tagline {
-  color: #605e5e;
+  color: #6B7178;
 }
 
 html[data-theme="dark"] .preview-email-signature-details strong {

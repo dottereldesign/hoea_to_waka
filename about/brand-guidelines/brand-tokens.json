@@ -482,19 +482,6 @@
       },
       "$description": "Paper: Default page surface, cards and overlays. HEX #FFFFFF"
     },
-    "cool-mist": {
-      "$type": "color",
-      "$value": {
-        "colorSpace": "srgb",
-        "components": [
-          0.92941176,
-          0.94509804,
-          0.95294118
-        ],
-        "alpha": 1
-      },
-      "$description": "Cool Mist: Secondary surfaces. HEX #EDF1F3"
-    },
     "stone": {
       "$type": "color",
       "$value": {
@@ -679,7 +666,7 @@
       },
       "raised": {
         "$type": "color",
-        "$value": "{brand.cool-mist}"
+        "$value": "{brand.paper}"
       },
       "ink": {
         "$type": "color",

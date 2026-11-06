@@ -5,7 +5,7 @@ export function brandCSS(paints) {
   const aliases=[...paints].map(hex=>`--paint-${hex.slice(1)}:${ref(legacyToken(hex))}`);
   const levels=[.975,.93,.86,.76,.64,.50,.36,.24,.15,.08,.035,.009];
   ['ocean','aubergine','lavender','forest','neutral'].forEach((family,index)=>levels.forEach((level,i)=>{
-    const options=family==='neutral'?colours.filter(c=>['paper','cool-mist','stone','slate','logo-black'].includes(c.id)):colours.filter(c=>c.id.startsWith(family+'-'));
+    const options=family==='neutral'?colours.filter(c=>['paper','stone','slate','logo-black'].includes(c.id)):colours.filter(c=>c.id.startsWith(family+'-'));
     const nearest=options.reduce((a,b)=>Math.abs(luminance(a.hex)-level)<Math.abs(luminance(b.hex)-level)?a:b);
     aliases.push(`--ramp-${index}-${i+1}:${ref(nearest.id)}`);
   }));

@@ -131,11 +131,6 @@
       "role": "Page and card surfaces"
     },
     {
-      "name": "Cool mist",
-      "hex": "#EDF1F3",
-      "role": "Cool secondary surfaces"
-    },
-    {
       "name": "Stone",
       "hex": "#E3E1DD",
       "role": "Borders and dividers"
@@ -144,11 +139,6 @@
       "name": "Slate",
       "hex": "#6B7178",
       "role": "Supporting text"
-    },
-    {
-      "name": "Warm grey",
-      "hex": "#605E5E",
-      "role": "Available neutral"
     },
     {
       "name": "Logo black",

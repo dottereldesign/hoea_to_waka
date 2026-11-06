@@ -484,7 +484,6 @@ So give us a call and have a chat and we'll see how Hoea tō Waka can help you.
 | lavender-800 | #74647D | 800 tonal level |
 | lavender-900 | #514459 | 900 tonal level |
 | paper | #FFFFFF | Default page surface, cards and overlays |
-| cool-mist | #EDF1F3 | Secondary surfaces |
 | stone | #E3E1DD | Dividers and borders |
 | slate | #6B7178 | Supporting labels |
 | logo-black | #191919 | Primary text, footer and dark surfaces |
@@ -536,7 +535,6 @@ So give us a call and have a chat and we'll see how Hoea tō Waka can help you.
   --brand-lavender-800: #74647D;
   --brand-lavender-900: #514459;
   --brand-paper: #FFFFFF;
-  --brand-cool-mist: #EDF1F3;
   --brand-stone: #E3E1DD;
   --brand-slate: #6B7178;
   --brand-logo-black: #191919;
@@ -1051,19 +1049,6 @@ DTCG 2025.10 JSON follows. Colour components use sRGB values from 0 to 1. Alias 
       },
       "$description": "Paper: Default page surface, cards and overlays. HEX #FFFFFF"
     },
-    "cool-mist": {
-      "$type": "color",
-      "$value": {
-        "colorSpace": "srgb",
-        "components": [
-          0.92941176,
-          0.94509804,
-          0.95294118
-        ],
-        "alpha": 1
-      },
-      "$description": "Cool Mist: Secondary surfaces. HEX #EDF1F3"
-    },
     "stone": {
       "$type": "color",
       "$value": {
@@ -1248,7 +1233,7 @@ DTCG 2025.10 JSON follows. Colour components use sRGB values from 0 to 1. Alias 
       },
       "raised": {
         "$type": "color",
-        "$value": "{brand.cool-mist}"
+        "$value": "{brand.paper}"
       },
       "ink": {
         "$type": "color",
