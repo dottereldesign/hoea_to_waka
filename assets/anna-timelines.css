@@ -176,8 +176,8 @@ html[data-palette] #anna-story[data-timeline-variant=thread2]{max-width:none;wid
 #anna-story[data-timeline-variant=thread2] .anna-breadcrumb{color:#fff}
 @media(max-width:760px){html[data-palette] #anna-story{padding-top:var(--space-fluid-64)}#anna-story .anna-breadcrumb{font-size:10px;margin-bottom:var(--space-fluid-22)}}
 
-html:not(.js) #anna-story[data-timeline-variant=thread2] .anna-story__heading{background:#0D4687}
-#anna-story[data-timeline-variant=thread2]:not(.is-enhanced) .anna-breadcrumb{color:var(--story-ink)}
+
+
 
 /* Permanent Cedar canoe styling. */
 #anna-story[data-timeline-variant=thread2]{overflow:clip}
@@ -248,4 +248,10 @@ html[data-palette] #anna-story .anna-story__heading>.ds-kicker{margin-top:0}
 @media(prefers-reduced-motion:reduce){#anna-story .waka-studies__replay{display:none!important}}
 
 /* Reveal the ocean and its white heading as one completed composition. */
-html.js #anna-story[data-timeline-variant=thread2]:not([data-ocean-ready=true]) :is(.anna-story__heading,.anna-breadcrumb,.anna-ocean-cut,.anna-river){visibility:hidden;}
+html.js #anna-story[data-timeline-variant=thread2]:not([data-ocean-ready=true]) :is(.anna-ocean-cut,.anna-river){visibility:hidden;}
+
+/* Inline SVG supplies the ocean on first paint, before the animation bundle runs. */
+.anna-ocean-preview {position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;display:block;}
+.anna-ocean-preview--mobile {display:none;}
+#anna-story[data-ocean-ready=true]>.anna-ocean-preview {display:none;}
+@media(max-width:760px){.anna-ocean-preview--desktop{display:none;}.anna-ocean-preview--mobile{display:block;}}
