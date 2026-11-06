@@ -74,20 +74,15 @@ html[data-palette] #resource-play .mw-help p{font-size:14px!important;line-heigh
 html[data-palette] #resource-play + .home-cta-door{padding-top:var(--space-fluid-24);}
 @media(max-width:760px){#resource-play{margin-bottom:var(--space-fluid-20);}html[data-palette] #resource-play + .home-cta-door{padding-top:var(--space-fluid-16);}}
 
-/* Five keyboard studies; submission remains beside the input. */
+/* Paired vowels; submission remains beside the input. */
 .mw-entry>div {display:flex;align-items:stretch;gap:8px;}
 .mw-entry input {min-width:0;flex:1;}
 .resource-play .mw-entry .mw-backspace {flex:none;min-width:44px;width:44px;padding:0;display:grid;place-items:center;background:#d3d6da;color:#191919;border:0;}
-.mw-keyboard-options {display:flex;justify-content:center;gap:8px;margin-top:20px;}
-.resource-play .mw-keyboard-options button {width:36px;height:36px;border:1px solid #d3d6da;border-radius:50%;background:#fff;color:#191919;font:500 12px var(--font-body);cursor:pointer;}
-.resource-play .mw-keyboard-options button[aria-pressed=true] {background:#191919;color:#fff;border-color:#191919;}
-.resource-play .mw-layout-caption {font-size:13px;line-height:1.5;text-align:center;color:#514656;margin:10px 0 0;}
-[data-keyboard-layout="2"] .mw-key-row:nth-child(2),[data-keyboard-layout="2"] .mw-key-row:nth-child(3) {width:65%;justify-self:center;}
 [data-keyboard-layout="3"] .mw-keyboard {row-gap:4px;}
 [data-keyboard-layout="3"] .mw-key-row:nth-child(1) button {border-radius:12px 12px 0 0;}
 [data-keyboard-layout="3"] .mw-key-row:nth-child(2) button {border-radius:0 0 12px 12px;}
 [data-keyboard-layout="3"] .mw-key-row:nth-child(3) {margin-top:12px;}
-[data-keyboard-layout="4"] .mw-keyboard {grid-template-columns:repeat(5,minmax(0,1fr));gap:7px;}
-[data-keyboard-layout="4"] .mw-key-row {display:contents;}
-[data-keyboard-layout="4"] .mw-key-row button {aspect-ratio:1.25;max-height:64px;}
 @media(max-width:760px){.resource-play .mw-entry>div>button[type=submit]{padding-inline:12px;min-width:64px;}.mw-entry>div{gap:6px;}}
+
+.resource-play .mw-backspace svg {display:block;width:24px;height:24px;flex:none;overflow:visible;fill:none;stroke:currentColor;stroke-width:1.7;}
+.resource-play .mw-backspace svg path {fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
