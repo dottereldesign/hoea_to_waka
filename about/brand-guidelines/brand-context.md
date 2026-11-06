@@ -1,7 +1,7 @@
 # Hoea tō Waka — full brand context
 
 Source: https://dottereldesign.github.io/hoea_to_waka/about/brand-guidelines/
-Publication: Created by Jamie Wilson Version 2.0 Year 2026
+Publication: Created byJamie Wilson Version 2.0 Year 2026
 Scope: published brand guidelines and repository design tokens; browser-only colour previews are excluded.
 
 ## Working instructions
@@ -316,26 +316,6 @@ Digital
 ### Email Signature
 
 Keep your name, role and contact details together in one compact signature. Preview it in Gmail or Microsoft Outlook, then compare light and dark appearances. Check the signature in your own email app before using it.
-
-## Services
-
-Describing the offer
-
-## Three ways to work together
-
-Use the service names people see on the website. Follow each name with a short explanation of who it helps and what the session focuses on. Link to the relevant service page for the details.
-
-### In-house workshops
-
-Resilience training for teams and organisations, shaped around their people, working context and goals.
-
-### Individual coaching
-
-One-to-one support to explore pressure, values and where a person has influence, then identify practical next steps.
-
-### Workshops for support professionals
-
-Training for people who support clients, whānau and communities, with ways to apply the waka model in their practice.
 
 ## Section Spacing
 
