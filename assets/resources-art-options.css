@@ -10,3 +10,14 @@ html.js .home-resources .resource-artwork #resource-trail path {animation-play-s
 }
 /* Keep the chosen tilt within vector geometry for clean rendering. */
 .home-resources .resource-art-scene {transform-box:view-box;transform-origin:35% 45%;transform:rotate(-12deg);}
+
+@media(max-width:999px) {
+ .home-resources {display:flex;flex-direction:column;gap:24px;}
+ .home-resources .resource-artwork {
+   display:block;position:relative;flex:none;align-self:center;
+   width:min(100%,600px);height:auto;aspect-ratio:1305 / 780;
+   margin:clamp(24px,5vw,40px) 0 16px;overflow:visible;
+   pointer-events:none;
+ }
+ .home-resources .home-resources__copy {width:100%;min-width:0;}
+}

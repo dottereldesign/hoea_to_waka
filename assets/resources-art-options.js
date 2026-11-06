@@ -1,7 +1,7 @@
 (()=>{
  const section=document.querySelector('.home-resources');
  const artwork=section?.querySelector('.resource-artwork');if(!artwork)return;
- const desktop=matchMedia('(min-width:1000px)'),reduced=matchMedia('(prefers-reduced-motion:reduce)');
+ const reduced=matchMedia('(prefers-reduced-motion:reduce)');
  // One shared playhead preserves the line / first stroke / second stroke order
  // in both directions, including a direction change halfway through drawing.
  const duration=3750;
@@ -14,7 +14,7 @@
   if(time!==target)frame=requestAnimationFrame(tick);else{frame=0;last=0;}
  };
  const check=()=>{
-  if(!desktop.matches||reduced.matches)return;
+  if(reduced.matches)return;
   target=section.getBoundingClientRect().top<innerHeight*.75?duration:0;
   if(time!==target&&!frame)frame=requestAnimationFrame(tick);
  };
@@ -25,6 +25,6 @@
  };
  window.addEventListener('scroll',check,{passive:true});
  window.addEventListener('resize',check,{passive:true});
- desktop.addEventListener('change',setup);reduced.addEventListener('change',setup);
+ reduced.addEventListener('change',setup);
  setup();
 })();
