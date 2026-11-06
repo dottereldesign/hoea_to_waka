@@ -49,12 +49,6 @@ html[data-palette] .site-preview-logo-backgrounds-copy p:last-child{color:var(--
 .site-preview-logo-backgrounds-grid .preview-logo-image{width:clamp(64px,7vw,110px);max-width:70%;height:auto;max-height:110px;position:relative;z-index:1;filter:none}
 html[data-palette] .brand-logo-example--white{background:#fff;border:1px solid color-mix(in srgb,var(--paint-605e5e,#6B7178) 12%,transparent)}
 html[data-palette] .brand-logo-example--black{background:#191919;border-color:transparent}
-.site-preview-logo-backgrounds-grid :is(.brand-logo-example--cobalt,.brand-logo-example--ultraviolet,.brand-logo-example--mauve,.brand-logo-example--copper){background:radial-gradient(ellipse at 100% 114%,var(--sample-deep) 0%,var(--sample-mid) 22%,transparent 62%),radial-gradient(ellipse at 12% 108%,var(--sample-wash) 0%,transparent 65%),radial-gradient(ellipse at 45% 0%,var(--sample-paper) 0%,var(--sample-paper) 32%,transparent 85%),var(--sample-paper);border-color:transparent}
-.brand-logo-example--cobalt{--sample-deep:#2254a7;--sample-mid:#7797d5;--sample-wash:#beddf0;--sample-paper:#E8F1F5}
-.brand-logo-example--ultraviolet{--sample-deep:#8253c5;--sample-mid:#4b3e89;--sample-wash:#363052;--sample-paper:#211c37}
-.brand-logo-example--mauve{--sample-deep:#a84b85;--sample-mid:#c98fb6;--sample-wash:#ddc6ee;--sample-paper:#F1EAFA}
-.brand-logo-example--copper{--sample-deep:#b87361;--sample-mid:#7b4c7c;--sample-wash:#49314c;--sample-paper:#281A2C}
-.site-preview-logo-backgrounds-grid :is(.brand-logo-example--cobalt,.brand-logo-example--ultraviolet,.brand-logo-example--mauve,.brand-logo-example--copper)::after{content:"";position:absolute;inset:0;pointer-events:none;background:url('hero-studies/grain.svg') repeat;background-size:180px;opacity:.4;mix-blend-mode:soft-light}
 @media(max-width:760px){html[data-palette] .site-preview-logo-backgrounds-sheet{grid-template-columns:minmax(0,1fr);gap:clamp(1.3125rem, 1.15rem + 0.66667vw, 1.75rem);padding:clamp(1.125rem, 0.98571rem + 0.57143vw, 1.5rem) clamp(0.75rem, 0.65714rem + 0.38095vw, 1rem)}.site-preview-logo-backgrounds-grid .preview-logo-tile{padding:clamp(0.75rem, 0.65714rem + 0.38095vw, 1rem);aspect-ratio:1.45;border-radius:12px}.site-preview-logo-backgrounds-grid .preview-logo-image{width:64px;max-height:72px}.site-preview-logo-backgrounds-copy{max-width:60ch}}
 
 html[data-palette] .site-preview-section.site-preview-logo-backgrounds{min-height:0}
@@ -155,7 +149,6 @@ html[data-palette][data-typography] body .brand-social-post p.brand-social-post_
 /* Full header-style logo lockups scale with each background example. */
 .site-preview-logo-backgrounds-grid .preview-logo-tile{container-type:inline-size}
 html[data-palette] .site-preview-logo-backgrounds-grid .preview-logo-tile{color:#191919}
-html[data-palette] .site-preview-logo-backgrounds-grid :is(.brand-logo-example--black,.brand-logo-example--ultraviolet,.brand-logo-example--copper){color:#fff}
 .brand-logo-lockup{position:relative;z-index:1;display:inline-flex;align-items:center;justify-content:center;gap:clamp(8px,3cqw,12px);max-width:100%;width:max-content}
 .site-preview-logo-backgrounds-grid .brand-logo-lockup .preview-logo-image{width:clamp(32px,16cqw,56px);max-width:none;max-height:none;height:auto;flex-shrink:0}
 .brand-logo-lockup__copy{display:grid;gap:6px;min-width:0}
@@ -821,3 +814,11 @@ html[data-palette] .brand-guidelines .brand-info-panel[data-open=true] .brand-in
 
 /* Measure and commit the collapsed circle before enabling its first transition. */
 .brand-info-panel[data-placing=true],.brand-info-panel[data-placing=true] *{transition:none!important}
+
+/* Solid core colours with contrasting, unaltered logo artwork. */
+html[data-palette] .site-preview-logo-backgrounds-grid .brand-logo-example--evergreen{background:#016C53;color:#FFFFFF}
+html[data-palette] .site-preview-logo-backgrounds-grid .brand-logo-example--blue{background:#183958;color:#FFFFFF}
+html[data-palette] .site-preview-logo-backgrounds-grid .brand-logo-example--deep-purple{background:#281A2C;color:#FFFFFF}
+html[data-palette] .site-preview-logo-backgrounds-grid .brand-logo-example--coral{background:#E68387;color:#191919}
+html[data-palette] .site-preview-logo-backgrounds-grid .brand-logo-example--white{background:#FFFFFF;color:#191919;border:1px solid #E3E1DD}
+html[data-palette] .site-preview-logo-backgrounds-grid .brand-logo-example--black{background:#191919;color:#FFFFFF}
