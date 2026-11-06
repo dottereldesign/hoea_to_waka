@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2020 780" role="img" aria-labelledby="chairs-title chairs-desc"><title id="chairs-title">Space for a conversation</title><desc id="chairs-desc">Two softly rounded armchairs face each other: coral and dark purple on the left, sage and teal on the right.</desc><defs><linearGradient id="coral-chair-back" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f6a2a8"/><stop offset="1" stop-color="#ed858e"/></linearGradient><linearGradient id="coral-chair-seat-gradient" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#ffa396"/><stop offset="1" stop-color="#f48985"/></linearGradient><linearGradient id="coral-chair-arm" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d57580"/><stop offset="1" stop-color="#bf5e6c"/></linearGradient><linearGradient id="sage-chair-back" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#c9ce96"/><stop offset="1" stop-color="#b4bf8b"/></linearGradient><linearGradient id="sage-chair-seat-gradient" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#cbd29d"/><stop offset="1" stop-color="#b4bf8b"/></linearGradient><linearGradient id="sage-chair-arm" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#b8c389"/><stop offset="1" stop-color="#98aa6d"/></linearGradient></defs><g id="coral-chair">
+ <g id="coral-chair-legs" fill="#281A2C">
+  <path d="M168 552L220 571L117 738C110 750 101 753 93 746Q84 739 92 723Z"/>
+  <path d="M418 563L466 570L408 692C402 707 389 711 381 701Q376 695 381 682Z"/>
+  <path d="M538 562L596 564L638 741C644 757 636 767 625 768C612 769 607 760 603 749Z"/>
+  <path d="M766 551L813 544L865 703C871 718 854 731 842 715Z"/>
+ </g>
+ <path id="coral-chair-shell" fill="#281A2C" d="M78 12C33 7 17 29 22 77C35 206 61 351 97 467C112 517 122 549 165 568C198 588 267 585 330 582L737 573C799 569 847 559 861 534C871 516 861 475 852 418L845 383C839 321 808 283 755 272C706 261 630 270 562 276C521 234 481 229 392 234C367 178 348 117 313 89C275 60 136 18 78 12Z"/>
+ <path id="coral-chair-back-cushion" fill="url(#coral-chair-back)" d="M91 22C126 25 274 63 313 89C348 117 367 178 392 234L240 248C198 253 168 245 151 218C129 184 126 119 68 59C50 39 66 20 91 22Z"/>
+ <path id="coral-chair-far-arm" fill="#c96371" d="M559 276C631 271 705 262 755 272C808 283 839 321 845 383L848 401L589 391Z"/>
+ <path id="coral-chair-seat" fill="url(#coral-chair-seat-gradient)" d="M590 363C671 359 785 364 846 389C878 401 891 424 890 453C891 484 874 507 851 518C809 532 701 539 647 539C627 529 615 482 607 441Z"/>
+ <path id="coral-chair-near-arm" fill="url(#coral-chair-arm)" d="M125 150C137 183 141 227 153 251C163 273 178 286 205 284L397 269C449 264 483 268 509 294C542 325 548 378 560 440C570 494 584 535 627 538L647 539C624 522 620 486 609 431C599 378 591 314 562 276C532 242 501 229 455 232L240 248C198 253 168 245 151 218C141 203 133 175 125 150Z"/>
+</g><g id="sage-chair" transform="translate(2020 0) scale(-1 1)">
+ <g id="sage-chair-legs" fill="#00465a">
+  <path d="M168 552L220 571L117 738C110 750 101 753 93 746Q84 739 92 723Z"/>
+  <path d="M418 563L466 570L408 692C402 707 389 711 381 701Q376 695 381 682Z"/>
+  <path d="M538 562L596 564L638 741C644 757 636 767 625 768C612 769 607 760 603 749Z"/>
+  <path d="M766 551L813 544L865 703C871 718 854 731 842 715Z"/>
+ </g>
+ <path id="sage-chair-shell" fill="#187680" d="M78 12C33 7 17 29 22 77C35 206 61 351 97 467C112 517 122 549 165 568C198 588 267 585 330 582L737 573C799 569 847 559 861 534C871 516 861 475 852 418L845 383C839 321 808 283 755 272C706 261 630 270 562 276C521 234 481 229 392 234C367 178 348 117 313 89C275 60 136 18 78 12Z"/>
+ <path id="sage-chair-back-cushion" fill="url(#sage-chair-back)" d="M91 22C126 25 274 63 313 89C348 117 367 178 392 234L240 248C198 253 168 245 151 218C129 184 126 119 68 59C50 39 66 20 91 22Z"/>
+ <path id="sage-chair-far-arm" fill="#94a667" d="M559 276C631 271 705 262 755 272C808 283 839 321 845 383L848 401L589 391Z"/>
+ <path id="sage-chair-seat" fill="url(#sage-chair-seat-gradient)" d="M590 363C671 359 785 364 846 389C878 401 891 424 890 453C891 484 874 507 851 518C809 532 701 539 647 539C627 529 615 482 607 441Z"/>
+ <path id="sage-chair-near-arm" fill="url(#sage-chair-arm)" d="M125 150C137 183 141 227 153 251C163 273 178 286 205 284L397 269C449 264 483 268 509 294C542 325 548 378 560 440C570 494 584 535 627 538L647 539C624 522 620 486 609 431C599 378 591 314 562 276C532 242 501 229 455 232L240 248C198 253 168 245 151 218C141 203 133 175 125 150Z"/>
+</g></svg>
