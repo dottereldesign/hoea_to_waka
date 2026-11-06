@@ -1,7 +1,7 @@
-html[data-palette] #resource-videos{--ds-bg:#191919!important;--ds-ink:#ffffff!important;--ds-muted:#6B7178!important;--ds-surface:#191919!important;--ds-line:#6B7178!important;--ds-accent:#333!important;background:#191919!important;color:#ffffff;margin-inline:8px;width:calc(100% - 16px);padding:var(--space-layout-11) var(--space-layout-12);border-radius:32px;overflow:clip;scroll-margin-top:112px}
+html[data-palette] #resource-videos{--ds-bg:#191919!important;--ds-ink:#ffffff!important;--ds-muted:#ffffff!important;--ds-surface:#191919!important;--ds-line:#6B7178!important;--ds-accent:#333!important;background:#191919!important;color:#ffffff;margin-inline:8px;width:calc(100% - 16px);padding:var(--space-layout-11) var(--space-layout-12);border-radius:32px;overflow:clip;scroll-margin-top:112px}
 #resource-videos .resource-videos-inner{max-width:1552px;min-width:0;margin-inline:auto}
 html[data-palette][data-typography] #resource-videos :is(.ds-title,h3,.ds-kicker){color:#ffffff!important}
-html[data-palette] #resource-videos :is(.ds-lead,.ds-video-card>p){color:#6B7178!important}
+html[data-palette] #resource-videos :is(.ds-lead,.ds-video-card>p){color:#ffffff!important}
 #resource-videos .ds-kicker{background:transparent;border-color:#6B7178}
 #resource-videos .resource-video-frame{position:relative;isolation:isolate}
 #resource-videos .resource-song-cover{position:absolute;inset:0;display:block;overflow:hidden;color:#fff;text-decoration:none;background:#191919}
