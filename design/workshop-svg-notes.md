@@ -23,3 +23,15 @@ These are close clean-vector recreations, not pixel-identical reproductions: ori
 Rendered against originals side-by-side and overlaid. Checked both carousel slides at 1440, 768 and 390 pixels, image loading, navigation, no horizontal overflow, no page errors and scoped axe A/AA checks. Before/after page captures are in local `tmp/workshop-*.png` files.
 
 For future tracing, establish shared edges and skin/puzzle contrast early, then check at the final display size as well as full resolution. Keep shape groups separate so later hover motion does not require retracing.
+
+## Animation options — 6 November 2026
+
+Both artwork instances are now inline SVGs with prefixed IDs, allowing the individual paths and groups to animate. The standalone SVG originals remain unchanged as reusable still assets. The carousel carries the inline copies; update those too if editing the original illustration later.
+
+Blooming profile: 01 Unfurl (stem drawing, leaf opening and flower growth); 02 Gentle breeze (foliage sway); 03 Petal dance (individual petal loops); 04 Bloom in waves (soft pulses from profile to flowers); 05 Room to grow (layered assembly).
+
+Jigsaw: 01 Come together (four groups enter from their corners); 02 Pass it on (clockwise lift); 03 Shared rhythm (synchronised gentle pulse); 04 Four perspectives (four tilting arrivals); 05 Colour conversation (a travelling saturation/opacity emphasis).
+
+Each person is grouped with their hands and puzzle piece so contact points remain intact. Cream flower centres are grouped with the petals. All animations finish on the original composition. Number buttons choose/replay a variation and save the choice per illustration; the arrow button replays it. The sequences start when the artwork enters the viewport or its carousel slide becomes active, allowing the carousel's 720ms transition to finish first. Offscreen, inactive and hidden-tab animations are cancelled. Returning to the artwork replays it. Reduced-motion preference leaves the original artwork still.
+
+Verified every option, replay, leaving/re-entering the viewport, reduced motion, scoped accessibility, mobile overflow and browser errors with local Chrome. Mid-sequence captures are in `tmp/workshop-motion-*.png`.

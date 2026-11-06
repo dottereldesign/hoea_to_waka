@@ -33,6 +33,7 @@
       cards[previous].animate([position(0), position(-direction * 100)], timing);
       cards[index].animate([position(direction * 100), position(0)], timing);
     }
+    section.dispatchEvent(new CustomEvent('workshop:slidechange', {detail:{index, changed:previous !== index}}));
     schedule();
   }
 
