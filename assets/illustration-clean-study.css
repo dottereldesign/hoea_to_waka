@@ -1,0 +1,5 @@
+/* The editable SVG is the first illustration section, below the site header. */
+html[data-palette] .illustration-clean-study{padding:var(--section-space) clamp(1rem,3vw,3rem);background:#fff;color:#191919}
+.illustration-clean-study #community-study{padding-top:0}
+.illustration-clean-study .clean-study{padding:0;gap:var(--space-fluid-48)}
+.illustration-clean-study .clean-study__tools{min-width:0}

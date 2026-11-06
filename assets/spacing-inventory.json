@@ -608,6 +608,19 @@
     ]
   },
   {
+    "value": "clamp(1rem,3vw,3rem)",
+    "resolved": "clamp(1rem,3vw,3rem)",
+    "kind": "Component fluid",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/illustration-clean-study.css",
+        "property": "padding",
+        "selector": "html[data-palette] .illustration-clean-study"
+      }
+    ]
+  },
+  {
     "value": "clamp(3.65625rem,3.20357rem + 1.85714vw,4.875rem)",
     "resolved": "clamp(3.65625rem,3.20357rem + 1.85714vw,4.875rem)",
     "kind": "Component fluid",
@@ -2646,7 +2659,7 @@
     "value": "var(--space-fluid-48)",
     "resolved": "clamp(2.25rem,1.97143rem + 1.14286vw,3rem)",
     "kind": "Shared spacing",
-    "count": 18,
+    "count": 19,
     "uses": [
       {
         "file": "assets/anna-timelines.css",
@@ -2727,6 +2740,34 @@
     ]
   },
   {
+    "value": "var(--section-space)",
+    "resolved": "clamp(3.75rem,3.00714rem + 3.04762vw,5.75rem)",
+    "kind": "Shared spacing",
+    "count": 13,
+    "uses": [
+      {
+        "file": "assets/illustration-clean-study.css",
+        "property": "padding",
+        "selector": "html[data-palette] .illustration-clean-study"
+      },
+      {
+        "file": "design/brand-contents.css",
+        "property": "padding-top",
+        "selector": ".brand-guide-layout"
+      },
+      {
+        "file": "design/brand-contents.css",
+        "property": "padding-block",
+        "selector": "html[data-palette] .brand-guidelines .site-preview :is(.site-preview-hero,.site-preview-section,.brand-guide-contents),html[data-palette] .brand-guidelines .dashboard-content>.section"
+      },
+      {
+        "file": "design/brand-contents.css",
+        "property": "gap",
+        "selector": ".brand-guidelines #mockups"
+      }
+    ]
+  },
+  {
     "value": "var(--space-fluid-64)",
     "resolved": "clamp(3rem,2.62857rem + 1.52381vw,4rem)",
     "kind": "Shared spacing",
@@ -2751,34 +2792,6 @@
         "file": "assets/anna-timelines.css",
         "property": "gap",
         "selector": "#anna-story:is([data-timeline-variant=thread],[data-timeline-variant=thread2]) .anna-list"
-      }
-    ]
-  },
-  {
-    "value": "var(--section-space)",
-    "resolved": "clamp(3.75rem,3.00714rem + 3.04762vw,5.75rem)",
-    "kind": "Shared spacing",
-    "count": 12,
-    "uses": [
-      {
-        "file": "design/brand-contents.css",
-        "property": "padding-top",
-        "selector": ".brand-guide-layout"
-      },
-      {
-        "file": "design/brand-contents.css",
-        "property": "padding-block",
-        "selector": "html[data-palette] .brand-guidelines .site-preview :is(.site-preview-hero,.site-preview-section,.brand-guide-contents),html[data-palette] .brand-guidelines .dashboard-content>.section"
-      },
-      {
-        "file": "design/brand-contents.css",
-        "property": "gap",
-        "selector": ".brand-guidelines #mockups"
-      },
-      {
-        "file": "design/brand-contents.css",
-        "property": "padding",
-        "selector": "html[data-palette] .brand-guide-maintenance"
       }
     ]
   },

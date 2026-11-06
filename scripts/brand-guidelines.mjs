@@ -1,11 +1,10 @@
 import { readFileSync } from 'node:fs';
 
-// Reuse the published palette, including usage links and artwork shades.
-// Colour-testing is generated from palette.json by build-brand-palette.py.
+// Shared palette fragment; independent of the retired colour-testing route.
 export function renderBrandGuidelines() {
-  const page = readFileSync(new URL('../colour-testing/index.html', import.meta.url), 'utf8');
+  const page = readFileSync(new URL('../design/brand-palette-content.html', import.meta.url), 'utf8');
   const start = page.indexOf('<section id="palette"');
-  const end = page.indexOf('<section id="community-study"', start);
+  const end = page.indexOf('<!-- palette-content:end -->', start);
   if (start < 0 || end < 0) throw new Error('Cannot locate the current brand palette');
   const palette = page.slice(start, end)
     .replaceAll('href="../', 'href="../../')

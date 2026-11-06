@@ -18,4 +18,4 @@ def render_external_colours():
 
 if __name__=='__main__':
  import re
- p=Path('colour-testing/index.html');s=p.read_text(encoding='utf-8');s=re.sub(r'<section id="external-colours"[\s\S]*?</section>',lambda _:render_external_colours(),s,count=1);p.write_text(s,encoding='utf-8')
+ p=Path('design/brand-palette-content.html');s=p.read_text(encoding='utf-8');s=re.sub(r'<section id="external-colours"[\s\S]*?</section>',lambda _:render_external_colours(),s,count=1);p.write_text(s,encoding='utf-8')

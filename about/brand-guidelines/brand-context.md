@@ -369,7 +369,7 @@ Keep the 8px page inset, tiny alignment gaps and negative offsets where needed. 
 
 Individual values are counted once, rather than counting every combination of top, right, bottom and left padding as a new size. This inventory follows the stylesheets linked by current site pages, maps compiled bundles back to their source, and includes responsive and interaction rules. It does not claim every rule is visible in every state.
 
-63 shared definitions preserve existing values exactly. 150 component-specific, calculated or fixed values remain for separate review.
+63 shared definitions preserve existing values exactly. 151 component-specific, calculated or fixed values remain for separate review.
 
 ## Social Media
 

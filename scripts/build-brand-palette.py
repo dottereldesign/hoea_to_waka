@@ -25,7 +25,7 @@ for g in d['groups']:
 section='<section id="palette" aria-labelledby="palette-title"><header class="palette-section-heading"><h1 id="palette-title">Brand colour palette</h1></header><div class="brand-palette-groups">'+''.join(blocks)+'</div></section>'
 d['toneMethod']='100 and 300 mix the original with 75% and 40% Paper; 500 is the unchanged original; 700 and 900 mix with 25% and 50% Ink. These tonal extensions do not replace existing site colours.'
 p.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-p=Path('colour-testing/index.html');s=p.read_text(encoding='utf-8');s=re.sub(r'<section id="palette".*?</section>',section,s,count=1,flags=re.S)
+p=Path('design/brand-palette-content.html');s=p.read_text(encoding='utf-8');s=re.sub(r'<section id="palette".*?</section>',section,s,count=1,flags=re.S)
 v=hashlib.sha256(Path('assets/colour-testing/palette-lab.css').read_bytes()).hexdigest()[:10]
 s=re.sub(r'assets/colour-testing/palette-lab.css(?:\?v=[^"\s]+)?','assets/colour-testing/palette-lab.css?v='+v,s)
 p.write_text(s,encoding='utf-8')
