@@ -15,7 +15,7 @@
     const top = grid.getBoundingClientRect().top;
     const progress = reduced.matches || !columns ? 1 : Math.max(0, Math.min(1, (innerHeight * .9 - top) / (innerHeight * .6)));
     const eased = progress * progress * (3 - 2 * progress);
-    grid.style.setProperty('--services-step', `${52 * (1 - eased)}px`);
+    grid.style.setProperty('--services-step', `${104 * (1 - eased)}px`);
   };
   const schedule = () => { if (!frame) frame = requestAnimationFrame(update); };
   window.addEventListener('scroll', schedule, {passive:true});

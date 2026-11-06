@@ -10,11 +10,11 @@ html.js body [data-component="home:3:services"] :is(.ds-section-heading,.ds-card
 }
 html[data-palette] [data-component="home:3:services"] .ds-service-editorial.services-leveling{
   align-items:start;
-  padding-bottom:104px;
+  padding-bottom:208px;
 }
 html[data-palette] [data-component="home:3:services"] .services-leveling>.ds-card:nth-child(n){padding-top:0;}
-html[data-palette] [data-component="home:3:services"] .services-leveling>.ds-card:nth-child(2){translate:0 var(--services-step,52px);}
-html[data-palette] [data-component="home:3:services"] .services-leveling>.ds-card:nth-child(3){translate:0 calc(var(--services-step,52px) * 2);}
+html[data-palette] [data-component="home:3:services"] .services-leveling>.ds-card:nth-child(2){translate:0 var(--services-step,104px);}
+html[data-palette] [data-component="home:3:services"] .services-leveling>.ds-card:nth-child(3){translate:0 calc(var(--services-step,104px) * 2);}
 @media(prefers-reduced-motion:reduce){
   html[data-palette] [data-component="home:3:services"] .services-leveling>.ds-card{translate:none!important;}
 }
