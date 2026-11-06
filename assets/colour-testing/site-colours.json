@@ -72,20 +72,6 @@
       "group": "Interface"
     },
     {
-      "hex": "#889C92",
-      "uses": [
-        {
-          "page": "Individual coaching",
-          "section": "Personal, clear, and relevant",
-          "href": "../services/resilience-one-on-one/#how-it-works",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Soft green",
-      "family": "Greens",
-      "group": "Interface"
-    },
-    {
       "hex": "#1C5C49",
       "uses": [
         {
@@ -102,12 +88,6 @@
     {
       "hex": "#E8F1F5",
       "uses": [
-        {
-          "page": "Individual coaching",
-          "section": "Personal, clear, and relevant",
-          "href": "../services/resilience-one-on-one/#how-it-works",
-          "kind": "Interface"
-        },
         {
           "page": "Contact",
           "section": "Tell Anna what you are navigating.",
@@ -165,12 +145,6 @@
           "section": "Plan a workshop around your team",
           "href": "../services/in-house-workshops/#:~:text=Plan%20a%20workshop%20around%20your%20team",
           "kind": "Interface"
-        },
-        {
-          "page": "Individual coaching",
-          "section": "Personal, clear, and relevant",
-          "href": "../services/resilience-one-on-one/#how-it-works",
-          "kind": "Artwork"
         },
         {
           "page": "Individual coaching",
@@ -248,12 +222,6 @@
           "page": "Home",
           "section": "Something useful to take with you.",
           "href": "../#:~:text=Something%20useful%20to%20take%20with%20you.",
-          "kind": "Interface"
-        },
-        {
-          "page": "Individual coaching",
-          "section": "Personal, clear, and relevant",
-          "href": "../services/resilience-one-on-one/#how-it-works",
           "kind": "Interface"
         }
       ],
@@ -3190,20 +3158,6 @@
         }
       ],
       "name": "Deep pink",
-      "family": "Purples & pinks",
-      "group": "Artwork"
-    },
-    {
-      "hex": "#30283F",
-      "uses": [
-        {
-          "page": "Individual coaching",
-          "section": "Personal, clear, and relevant",
-          "href": "../services/resilience-one-on-one/#how-it-works",
-          "kind": "Artwork"
-        }
-      ],
-      "name": "Deep purple",
       "family": "Purples & pinks",
       "group": "Artwork"
     },

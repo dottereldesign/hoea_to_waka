@@ -1,7 +1,8 @@
 .coaching-steps {
   padding: clamp(60px, 7vw, 108px) clamp(22px, 5vw, 80px);
   text-align: center;
-  color: var(--t-ink);
+  color: #191919;
+  background: #FFFFFF;
 }
 .coaching-steps .ds-section-heading { display: grid; justify-items: center; gap: 18px; margin: 0 auto; }
 .coaching-steps .ds-section-heading > * { margin: 0; }
@@ -21,22 +22,20 @@
 .step-icon {
   width: 90px; height: 90px; border-radius: 20px;
   display: inline-grid; place-items: center;
-  background: #e8e0ff; color: #30283f;
+  background: #191919; color: #FFFFFF;
 }
-.coaching-steps li:nth-child(2) .step-icon { background: #E8F1F5; color: #243a53; }
-.coaching-steps li:nth-child(3) .step-icon { background: #6B7178; color: #FFFFFF; }
 .coaching-steps h3 { margin: 30px 8px 12px; font-size: clamp(20px, 1.7vw, 26px); line-height: 1.2; }
 .coaching-steps li p { max-width: 30ch; margin: 0 auto; padding: 0 10px; line-height: 1.55; }
 .step-connector {
   position: absolute; top: 40px; left: calc(50% + 64px); width: calc(100% - 128px); height: 10px;
-  background: radial-gradient(circle, #889c92 1.4px, transparent 1.7px) center / 9px 8px repeat-x;
+  background: radial-gradient(circle, #191919 1.4px, transparent 1.7px) center / 9px 8px repeat-x;
 }
 .step-connector::before, .step-connector::after {
   content: ''; position: absolute; top: 1px; width: 8px; height: 8px;
-  border-radius: 50%; background: #758d80;
+  border-radius: 50%; background: #191919;
 }
 .step-connector::before { left: 0; }
-.step-connector::after { right: 0; background: #476354; }
+.step-connector::after { right: 0; background: #191919; }
 @media (max-width: 700px) {
   .coaching-steps ol { grid-template-columns: 1fr; gap: 84px; }
   .coaching-steps h3 { margin-top: 18px; }
@@ -55,3 +54,7 @@
 }
 @keyframes step-arrive { from { opacity: 0; transform: translateY(6px) scale(.91); } }
 @keyframes step-connect { from { clip-path: var(--start-clip, inset(0 100% 0 0)); } to { clip-path: inset(0); } }
+
+html[data-palette] #how-it-works :is(.ds-kicker,.ds-title,h3,p,.brand-name-text) { color: #191919; }
+
+html[data-palette] #how-it-works .ds-kicker { border-color: #191919; }
