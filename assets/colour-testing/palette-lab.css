@@ -41,3 +41,22 @@ html[data-palette] .palette-lab h3{color:#191919;font-size:27px;margin:0 0 16px;
 @media(max-width:1000px){.palette-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.palette-grid--neutral{grid-template-columns:repeat(4,minmax(0,1fr))}.clean-study{gap:28px;padding:24px}}
 @media(max-width:650px){.palette-lab{padding:130px 20px 56px}.palette-section-heading{display:block}.palette-section-heading>p{margin-top:16px;max-width:none}.palette-grid,.palette-grid--neutral{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 16px}.clean-study{grid-template-columns:1fr;padding:20px;gap:28px}.palette-lab section{padding-top:40px}.palette-swatch__colour{height:110px}}
 @media(prefers-reduced-motion:reduce){.palette-lab *{transition:none!important}.palette-lab [data-layer]{translate:none!important}}
+/* Additional site colours retain separate copy buttons and small location links. */
+.palette-lab p.site-colours-intro{margin:0 0 28px}
+.palette-lab h3.site-colours-subheading{font-size:20px;margin:24px 0 20px}
+.site-colours-subheading>span,.site-artwork-colours>summary>span{font:400 12px/1 Inter,Arial,sans-serif;margin-left:8px;color:#6b7178}
+.site-colour-grid{grid-template-columns:repeat(6,minmax(0,1fr));gap:30px 16px}
+.site-colour-card{min-width:0;display:flex;flex-direction:column}
+.site-colour-card>.palette-swatch{width:100%}
+.site-colour-uses{display:flex;flex-direction:column;align-items:start;gap:5px;margin-top:12px}
+.site-colour-uses>span{font:500 10px/1.4 Inter,Arial,sans-serif;text-transform:uppercase;letter-spacing:.06em;color:#6b7178}
+.palette-lab .site-colour-uses a{display:block;font:400 11px/1.45 Inter,Arial,sans-serif;color:#191919;text-decoration:underline;text-decoration-color:#b5b5b5;text-underline-offset:3px;overflow-wrap:anywhere}
+.site-colour-uses details{font:400 11px/1.5 Inter,Arial,sans-serif;width:100%;margin-top:3px}
+.site-colour-uses summary{cursor:pointer;color:#6b7178}
+.site-colour-uses details a{margin-top:6px}
+.site-artwork-colours{border-block:1px solid #e3e1dd;margin-top:36px;padding:22px 0}
+.site-artwork-colours>summary{font:500 20px/1.3 Inter,Arial,sans-serif;color:#191919;cursor:pointer}
+.site-artwork-colours>p{max-width:80ch;margin:20px 0 28px}
+.site-artwork-colours>.palette-grid{padding-bottom:12px}
+@media(max-width:1000px){.site-colour-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:650px){.site-colour-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.palette-lab .site-colour-uses a{font-size:12px;line-height:1.6}}
