@@ -46,3 +46,19 @@ html[data-palette] .site-footer a:focus-visible {
   max-width: none;
   white-space: nowrap;
 }
+
+/* A dedicated top row keeps the return link clear of the email on small screens. */
+.site-footer[data-footer-version] .footer-back-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: max-content;
+  min-height: 44px;
+  margin-left: auto;
+  margin-bottom: clamp(16px, 2vw, 28px);
+  font-size: 14px;
+  line-height: 1.4;
+  text-decoration: none;
+  white-space: nowrap;
+}
