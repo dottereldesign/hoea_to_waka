@@ -2,34 +2,6 @@
   "scope": "Rendered default desktop pages, including inline and image-based SVG colours. Excludes photo pixels, transparency blends, and colours already in the illustration or neutral palettes.",
   "colours": [
     {
-      "hex": "#FFF3E9",
-      "uses": [
-        {
-          "page": "Contact",
-          "section": "Tell Anna what you are navigating.",
-          "href": "../contact/#:~:text=Tell%20Anna%20what%20you%20are%20navigating.",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Pale orange",
-      "family": "Warm colours",
-      "group": "Interface"
-    },
-    {
-      "hex": "#F1CFB9",
-      "uses": [
-        {
-          "page": "Contact",
-          "section": "Tell Anna what you are navigating.",
-          "href": "../contact/#:~:text=Tell%20Anna%20what%20you%20are%20navigating.",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Pale orange",
-      "family": "Warm colours",
-      "group": "Interface"
-    },
-    {
       "hex": "#7FAF9C",
       "uses": [
         {
@@ -55,20 +27,6 @@
       ],
       "name": "FAQ green",
       "family": "Greens",
-      "group": "Interface"
-    },
-    {
-      "hex": "#E8F1F5",
-      "uses": [
-        {
-          "page": "Contact",
-          "section": "Tell Anna what you are navigating.",
-          "href": "../contact/#:~:text=Tell%20Anna%20what%20you%20are%20navigating.",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Pale teal",
-      "family": "Teals",
       "group": "Interface"
     },
     {
@@ -141,12 +99,6 @@
           "section": "Need a resource for your team or class?",
           "href": "../resources/#:~:text=Need%20a%20resource%20for%20your%20team%20or%20class%3F",
           "kind": "Interface"
-        },
-        {
-          "page": "Contact",
-          "section": "Tell Anna what you are navigating.",
-          "href": "../contact/#:~:text=Tell%20Anna%20what%20you%20are%20navigating.",
-          "kind": "Interface"
         }
       ],
       "name": "Brand ocean",
@@ -212,34 +164,6 @@
         }
       ],
       "name": "Lavender",
-      "family": "Purples & pinks",
-      "group": "Interface"
-    },
-    {
-      "hex": "#D4A3CF",
-      "uses": [
-        {
-          "page": "Contact",
-          "section": "Tell Anna what you are navigating.",
-          "href": "../contact/#:~:text=Tell%20Anna%20what%20you%20are%20navigating.",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Soft pink",
-      "family": "Purples & pinks",
-      "group": "Interface"
-    },
-    {
-      "hex": "#B27BB7",
-      "uses": [
-        {
-          "page": "Contact",
-          "section": "Tell Anna what you are navigating.",
-          "href": "../contact/#:~:text=Tell%20Anna%20what%20you%20are%20navigating.",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Soft purple",
       "family": "Purples & pinks",
       "group": "Interface"
     },
