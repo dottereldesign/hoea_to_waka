@@ -136,13 +136,13 @@
       "$value": {
         "colorSpace": "srgb",
         "components": [
-          0.90980392,
-          0.93333333,
-          0.91372549
+          0.41960784,
+          0.44313725,
+          0.47058824
         ],
         "alpha": 1
       },
-      "$description": "Forest 200: 200 tonal level. HEX #E8EEE9"
+      "$description": "Forest 200: 200 tonal level. HEX #6B7178"
     },
     "forest-300": {
       "$type": "color",

@@ -1,7 +1,7 @@
 export const brandStorageKey = 'hoea-brand-colours-v1';
 export const families = [
   { id:'ocean', name:'Ocean', base:800, role:'Dark blue · Interior headers and colour accents', values:['#F0F4F8','#E8F1F5','#C8D5E0','#A9C5CE','#829FB2','#607F9D','#3F5B78','#243A53','#1A2B3D'] },
-  { id:'forest', name:'Forest', base:800, role:'Dark green · Supporting colour for sections and graphics', values:['#F1F5F0','#E8EEE9','#CBDBCD','#ABC4AE','#87A78C','#6B916F','#4C7054','#344A3A','#24362A'] },
+  { id:'forest', name:'Forest', base:800, role:'Dark green · Supporting colour for sections and graphics', values:['#F1F5F0','#6B7178','#CBDBCD','#ABC4AE','#87A78C','#6B916F','#4C7054','#344A3A','#24362A'] },
   { id:'aubergine', name:'Aubergine', base:800, role:'Dark purple · Model sections and supporting backgrounds', values:['#FAF7FB','#F1EAF2','#E2D5E5','#C8B4CE','#A18AA9','#806788','#58415F','#281A2C','#201423'] },
   { id:'lavender', name:'Lavender', base:500, role:'Pale purple · Supporting backgrounds and highlights', values:['#FCFAFC','#F7F2F8','#F1EAFA','#E6DBE9','#D8CBDD','#B9A9C0','#98859F','#74647D','#514459'] },
 ];

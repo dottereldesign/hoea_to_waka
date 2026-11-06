@@ -42,3 +42,19 @@
 @media (prefers-reduced-motion: reduce) {
   .outcome-panel { transition: none; }
 }
+/* Fixed Logo black surface with Paper foregrounds. */
+html[data-palette] #coaching-outcomes[data-background-study] {
+  --study-base: #191919;
+  --study-ink: #FFFFFF;
+  --study-muted: #FFFFFF;
+  --study-line: #FFFFFF;
+  --study-hover: #191919;
+  --study-art: none;
+  background: #191919 !important;
+  color: #FFFFFF;
+}
+html[data-palette][data-typography] #coaching-outcomes :is(.ds-kicker,.ds-title,.ds-lead,h3,.outcome-number) {
+  color: #FFFFFF !important;
+  border-color: #FFFFFF;
+}
+#coaching-outcomes[data-background-study]::before { display: none; }

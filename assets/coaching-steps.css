@@ -24,7 +24,7 @@
   background: #e8e0ff; color: #30283f;
 }
 .coaching-steps li:nth-child(2) .step-icon { background: #E8F1F5; color: #243a53; }
-.coaching-steps li:nth-child(3) .step-icon { background: #e8eee9; color: #344a3a; }
+.coaching-steps li:nth-child(3) .step-icon { background: #6B7178; color: #FFFFFF; }
 .coaching-steps h3 { margin: 30px 8px 12px; font-size: clamp(20px, 1.7vw, 26px); line-height: 1.2; }
 .coaching-steps li p { max-width: 30ch; margin: 0 auto; padding: 0 10px; line-height: 1.55; }
 .step-connector {

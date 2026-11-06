@@ -1,5 +1,5 @@
 /* Four arrangements of the same links, contact details, wordmark and safety link. */
-html[data-palette] .site-footer[data-footer-version]{--footer-muted:#c3c5c9;--footer-line:#ffffff29;padding:72px 0 24px}
+html[data-palette] .site-footer[data-footer-version]{--footer-muted:#6B7178;--footer-line:#ffffff29;padding:72px 0 24px}
 .site-footer[data-footer-version]>.container{width:calc(100% - clamp(40px,8vw,112px));max-width:1280px;margin-inline:auto}
 .site-footer[data-footer-version] .footer-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.7fr) minmax(0,1fr) minmax(0,1.1fr);gap:clamp(28px,4vw,56px);align-items:start}
 .site-footer[data-footer-version] :is(.footer-brand,.footer-column){min-width:0;grid-column:auto;grid-row:auto;max-width:none}

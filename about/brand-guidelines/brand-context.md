@@ -457,7 +457,7 @@ So give us a call and have a chat and we'll see how Hoea tō Waka can help you.
 | ocean-800 | #243A53 | Helpful information or a neutral notice |
 | ocean-900 | #1A2B3D | Deep blue · Available dark background |
 | forest-100 | #F1F5F0 | 100 tonal level |
-| forest-200 | #E8EEE9 | 200 tonal level |
+| forest-200 | #6B7178 | 200 tonal level |
 | forest-300 | #CBDBCD | 300 tonal level |
 | forest-400 | #ABC4AE | 400 tonal level |
 | forest-500 | #87A78C | 500 tonal level |
@@ -508,7 +508,7 @@ So give us a call and have a chat and we'll see how Hoea tō Waka can help you.
   --brand-ocean-800: #243A53;
   --brand-ocean-900: #1A2B3D;
   --brand-forest-100: #F1F5F0;
-  --brand-forest-200: #E8EEE9;
+  --brand-forest-200: #6B7178;
   --brand-forest-300: #CBDBCD;
   --brand-forest-400: #ABC4AE;
   --brand-forest-500: #87A78C;
@@ -703,13 +703,13 @@ DTCG 2025.10 JSON follows. Colour components use sRGB values from 0 to 1. Alias 
       "$value": {
         "colorSpace": "srgb",
         "components": [
-          0.90980392,
-          0.93333333,
-          0.91372549
+          0.41960784,
+          0.44313725,
+          0.47058824
         ],
         "alpha": 1
       },
-      "$description": "Forest 200: 200 tonal level. HEX #E8EEE9"
+      "$description": "Forest 200: 200 tonal level. HEX #6B7178"
     },
     "forest-300": {
       "$type": "color",
