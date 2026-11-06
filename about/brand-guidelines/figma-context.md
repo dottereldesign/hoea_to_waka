@@ -117,7 +117,7 @@ The paddle connects the symbol to direction and movement. Leave room around its 
 
 ## Logomarks
 
-The symbol on its own. Choose black on white, or white on a black or dark blue background. Keep the complete outline visible and leave space around it.
+The symbol on its own. Choose the Ink logomark on Paper, or the Paper logomark on Ink or our primary Blue (#183958). Keep the complete outline visible and leave space around it.
 
 ### Logo Backgrounds
 
