@@ -278,20 +278,6 @@
       "group": "Interface"
     },
     {
-      "hex": "#C5A8D3",
-      "uses": [
-        {
-          "page": "Individual coaching",
-          "section": "A practical reset",
-          "href": "../services/resilience-one-on-one/#coaching-outcomes",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Soft purple",
-      "family": "Purples & pinks",
-      "group": "Interface"
-    },
-    {
       "hex": "#B27BB7",
       "uses": [
         {
