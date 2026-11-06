@@ -134,20 +134,20 @@ html[data-palette] [data-morph-header].is-open .site-menu-toggle{opacity:0;point
 @media(max-width:1099px){
   html[data-palette] body > .site-header[data-morph-header]{height:76px;min-height:76px}
   html[data-palette] [data-morph-header] .site-header-shell{
-    display:grid;grid-template-columns:68px minmax(0,1fr) 44px;gap:8px;width:calc(100% - 32px);max-width:none;height:76px;
+    display:grid;grid-template-columns:minmax(0,1fr) auto 44px;gap:16px;width:calc(100% - 32px);max-width:none;height:76px;
   }
   html[data-palette] [data-morph-header] .site-header-shell::before{content:'';position:absolute;inset:0 calc((100vw - 100%)/-2);z-index:-1;background:rgb(255 255 255 / .94);pointer-events:none;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
   html[data-palette] [data-morph-header] .site-header-bar{display:contents}
   html[data-palette] [data-morph-header] .site-nav{display:none}
-  html[data-palette] [data-morph-header] .site-header-actions{grid-column:1;justify-self:start}
-  html[data-palette] [data-morph-header] .site-brand{position:relative;inset:auto;margin:0;width:auto;height:auto;grid-column:2;grid-row:1;justify-self:center;gap:6px;transform:none}
+  html[data-palette] [data-morph-header] .site-header-actions{grid-column:2;justify-self:end}
+  html[data-palette] [data-morph-header] .site-brand{position:relative;inset:auto;margin:0;width:auto;height:auto;grid-column:1;grid-row:1;justify-self:start;gap:6px;transform:none}
   html[data-palette] [data-morph-header] .site-brand-name{font-size:22px}
   html[data-palette] [data-morph-header] .site-menu-toggle{grid-column:3;grid-row:1;width:44px;height:44px;min-width:44px}
   html[data-palette] [data-morph-header] .site-header-cta{min-height:36px;padding:var(--space-fluid-9) var(--space-fluid-15);font-size:11px}
 }
 @media(max-width:400px){
-  html[data-palette] [data-morph-header] .site-header-shell{width:calc(100% - 16px);grid-template-columns:62px minmax(0,1fr) 44px;gap:6px}
-  html[data-palette] [data-morph-header] .site-brand-name{font-size:19px}
+  html[data-palette] [data-morph-header] .site-header-shell{width:calc(100% - 16px);grid-template-columns:minmax(0,1fr) auto 44px;gap:16px}
+  html[data-palette] [data-morph-header] .site-brand-name{font-size:clamp(16px,4.75vw,19px)}
   html[data-palette] [data-morph-header] .site-brand-line{font-size:6px;letter-spacing:.12em}
   html[data-palette] [data-morph-header] .site-brand-line::before,
   html[data-palette] [data-morph-header] .site-brand-line::after{width:4px}
