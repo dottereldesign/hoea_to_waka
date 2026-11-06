@@ -131,11 +131,6 @@
       "role": "Page and card surfaces"
     },
     {
-      "name": "Ivory",
-      "hex": "#F5F3EE",
-      "role": "Warm content surfaces"
-    },
-    {
       "name": "Cool mist",
       "hex": "#EDF1F3",
       "role": "Cool secondary surfaces"
@@ -153,7 +148,7 @@
     {
       "name": "Warm grey",
       "hex": "#605E5E",
-      "role": "Brand supporting text"
+      "role": "Available neutral"
     },
     {
       "name": "Logo black",

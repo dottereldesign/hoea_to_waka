@@ -482,19 +482,6 @@
       },
       "$description": "Paper: Default page surface, cards and overlays. HEX #FFFFFF"
     },
-    "ivory": {
-      "$type": "color",
-      "$value": {
-        "colorSpace": "srgb",
-        "components": [
-          0.96078431,
-          0.95294118,
-          0.93333333
-        ],
-        "alpha": 1
-      },
-      "$description": "Ivory: Warm content sections. HEX #F5F3EE"
-    },
     "cool-mist": {
       "$type": "color",
       "$value": {

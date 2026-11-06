@@ -8,7 +8,6 @@ export const families = [
 const colour = (id,name,hex,role) => ({id,name,hex,role});
 export const neutrals = [
   colour('paper','Paper','#FFFFFF','Default page surface, cards and overlays'),
-  colour('ivory','Ivory','#F5F3EE','Warm content sections'),
   colour('cool-mist','Cool Mist','#EDF1F3','Secondary surfaces'),
   colour('stone','Stone','#E3E1DD','Dividers and borders'),
   colour('slate','Slate','#6B7178','Supporting labels'),
@@ -63,7 +62,7 @@ export function legacyToken(hex) {
   const same=colours.find(c=>c.hex.toLowerCase()===hex); if(same)return same.id;
   const [r,g,b]=hex.slice(1).match(/../g).map(v=>parseInt(v,16)),hi=Math.max(r,g,b),lo=Math.min(r,g,b),delta=hi-lo,L=luminance(hex);
   if(delta<22) {
-    if(L>.90)return 'paper'; if(L>.84)return 'ivory'; if(L>.74)return 'cool-mist';
+    if(L>.84)return 'paper'; if(L>.74)return 'cool-mist';
     if(L>.54)return 'stone'; if(L>.13)return 'slate'; return 'logo-black';
   }
   let hue=(hi===r?((g-b)/delta)%6:hi===g?(b-r)/delta+2:(r-g)/delta+4)*60; hue=(hue+360)%360;

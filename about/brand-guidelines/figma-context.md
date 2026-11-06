@@ -498,7 +498,6 @@ So give us a call and have a chat and we'll see how Hoea tō Waka can help you.
 | lavender-800 | #74647D | 800 tonal level |
 | lavender-900 | #514459 | 900 tonal level |
 | paper | #FFFFFF | Default page surface, cards and overlays |
-| ivory | #F5F3EE | Warm content sections |
 | cool-mist | #EDF1F3 | Secondary surfaces |
 | stone | #E3E1DD | Dividers and borders |
 | slate | #6B7178 | Supporting labels |
@@ -551,7 +550,6 @@ So give us a call and have a chat and we'll see how Hoea tō Waka can help you.
   --brand-lavender-800: #74647D;
   --brand-lavender-900: #514459;
   --brand-paper: #FFFFFF;
-  --brand-ivory: #F5F3EE;
   --brand-cool-mist: #EDF1F3;
   --brand-stone: #E3E1DD;
   --brand-slate: #6B7178;
@@ -1066,19 +1064,6 @@ DTCG 2025.10 JSON follows. Colour components use sRGB values from 0 to 1. Alias 
         "alpha": 1
       },
       "$description": "Paper: Default page surface, cards and overlays. HEX #FFFFFF"
-    },
-    "ivory": {
-      "$type": "color",
-      "$value": {
-        "colorSpace": "srgb",
-        "components": [
-          0.96078431,
-          0.95294118,
-          0.93333333
-        ],
-        "alpha": 1
-      },
-      "$description": "Ivory: Warm content sections. HEX #F5F3EE"
     },
     "cool-mist": {
       "$type": "color",
