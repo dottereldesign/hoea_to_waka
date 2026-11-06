@@ -275,9 +275,9 @@ html[data-home-hero="03"] .home-hero-illustration {
   background: #fff;
 }
 html[data-home-hero="03"] .home-hero-illustration .home-hero-illustration__cutout {
-  inset: 19.4% 4% 19.4% 34.8%;
-  width: 61.2%;
-  height: 61.2%;
+  inset: 10%;
+  width: 80%;
+  height: 80%;
   object-fit: contain;
 }
 @media (max-width: 760px) {
