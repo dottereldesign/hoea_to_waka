@@ -3,7 +3,7 @@
   if (!section) return;
   const initialise=()=>{
   if(section.dataset.doorBound)return;
-  section.dataset.doorBound='true';
+  section.dataset.doorBound='initialising';
   const standalone = section.hasAttribute('data-moon-door');
   const svg = section.querySelector('svg');
   const scene = svg.querySelector('[data-door-scene]');
@@ -33,7 +33,7 @@
     facet: {name: '08 · Coastal facet', shape:'facet', tide:true, flip:false, angle:64, paper:'#ffffff', ink:'#243a53', floor:'#8c9da9', sky:'#061628', haze:'#0D4687'}
   };
   const matarikiDoor=standalone;
-  const nightGarden={name:'Matariki ocean',shape:'arch',tide:true,flip:false,angle:67,paper:'#ffffff',ink:'#281A2C',floor:'#95849b',sky:'#202020',haze:'#202020',sea:'#03394D',seaBack:'#267C86',light:'#FFF9F0'};
+  const nightGarden={name:'Matariki ocean',shape:'arch',tide:true,flip:false,angle:67,paper:'#ffffff',ink:'#281A2C',floor:'#95849b',sky:'#061628',haze:'#0D4687',sea:'#0D4687',seaBack:'#0D4687',light:'#FFF9F0'};
   let current = matarikiDoor ? nightGarden : standalone ? variants.arch : variants.reference;
   let frame, lastTime, elapsed = 0, inView = false, stopped = false, menuBlocked = false;
   const ns = 'http://www.w3.org/2000/svg';
@@ -87,7 +87,7 @@
       scene.setAttribute('transform',current.flip?'translate(720 0) scale(-1 1)':'');
       for(const key of ['paper','ink','floor','sky','haze'])svg.style.setProperty('--door-'+key,current[key]);
       seaFront.setAttribute('fill',current.sea);seaBack.setAttribute('fill',current.seaBack);
-      seaBack.setAttribute('opacity','1');
+      seaBack.setAttribute('opacity','.7');
       seaFoam.setAttribute('stroke',current.light);reflection.setAttribute('stroke',current.light);moonFace.setAttribute('fill',current.light);
       if(current.sun)moonFace.removeAttribute('mask');else moonFace.setAttribute('mask','url(#door-moon-mask)');
       choices.forEach(b=>b.setAttribute('aria-pressed',String(variants[b.dataset.doorVariant]===current)));
@@ -95,7 +95,7 @@
     const shapeName={arch:'arched',round:'circular',oval:'oval',facet:'faceted'}[current.shape];
     svg.querySelector('title').textContent=current.tide?`Moonlit ocean — ${shapeName} door`:'A door to possibility';
     svg.querySelector('desc').textContent=current.tide?`A white ${shapeName} door with a lever handle opens onto moving ocean waves, a crescent moon and a starry night sky.`:originalDescription;
-    if(matarikiDoor){svg.querySelector('title').textContent='A doorway to Matariki';svg.querySelector('desc').textContent='A white arched door opens onto a charcoal sky, the nine stars of Matariki, a crescent moon and layered teal and deep blue ocean waves.';}
+    if(matarikiDoor){svg.querySelector('title').textContent='A doorway to Matariki';svg.querySelector('desc').textContent='A white arched door opens onto a deep navy sky, the nine stars of Matariki, a crescent moon and blue ocean waves.';}
     tide.setAttribute('display',current.tide?'inline':'none');
     stars.style.display=current.tide?'none':'';
     const b=profile||{left:239,top:105,width:245,height:496};
@@ -319,6 +319,7 @@
   if (pause) pause.hidden = preference.matches;
   draw(preference.matches ? current.angle : 0, 0);
   if(standalone)measureScroll();else sync();
+  section.dataset.doorBound='true';
   };
   if(section.hasAttribute('data-moon-door')&&!matchMedia('(prefers-reduced-motion:reduce)').matches){
     // The homepage door sits well below the fold. Prepare its SVG ahead of
