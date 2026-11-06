@@ -106,20 +106,6 @@
       "group": "Interface"
     },
     {
-      "hex": "#102A39",
-      "uses": [
-        {
-          "page": "Resources",
-          "section": "Carry the ideas through music",
-          "href": "../resources/#resource-videos",
-          "kind": "Interface"
-        }
-      ],
-      "name": "Deep blue",
-      "family": "Blues",
-      "group": "Interface"
-    },
-    {
       "hex": "#F1EAFA",
       "uses": [
         {
