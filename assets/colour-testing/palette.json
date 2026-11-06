@@ -37,36 +37,32 @@
       ]
     },
     {
-      "name": "Deep teal",
-      "hex": "#03394D",
-      "sampleCentre": [
-        210,
-        440
-      ],
+      "name": "Blue",
+      "hex": "#165998",
       "tones": [
         {
           "step": "100",
-          "hex": "#C0CED2",
+          "hex": "#C5D6E5",
           "base": false
         },
         {
           "step": "300",
-          "hex": "#688894",
+          "hex": "#739BC1",
           "base": false
         },
         {
           "step": "500",
-          "hex": "#03394D",
+          "hex": "#165998",
           "base": true
         },
         {
           "step": "700",
-          "hex": "#083140",
+          "hex": "#174978",
           "base": false
         },
         {
           "step": "900",
-          "hex": "#0E2933",
+          "hex": "#183958",
           "base": false
         }
       ]
@@ -418,7 +414,7 @@
       "purpose": "The recognisable colours that lead your brand.",
       "colours": [
         "Evergreen",
-        "Deep teal",
+        "Blue",
         "Ocean teal",
         "Deep purple",
         "Coral"
