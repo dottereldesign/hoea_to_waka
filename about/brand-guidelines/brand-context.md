@@ -343,7 +343,7 @@ Check readability on a phone, confirm dates and links, and get permission for ph
 
 Choosing colour
 
-Start with the current website: white page backgrounds, dark Ink text and black or white main buttons. Purple model sections and the coloured interior-page headers add variety. The palette below includes supporting colours you can use and compare; it is not a requirement to use every colour on a page.
+Start with the current website: white page backgrounds, dark Logo black text and black or white main buttons. Purple model sections and the coloured interior-page headers add variety. The palette below includes supporting colours you can use and compare; it is not a requirement to use every colour on a page.
 
 The colour codes below are available without JavaScript. Turn JavaScript on to try a colour change.
 
@@ -389,7 +389,7 @@ Keep secondary actions readable without making them compete with the main button
 
 ### Putting colours together
 
-Use the white and Ink examples as the starting point for the website. Supporting backgrounds can separate longer topics or identify a section. These examples show individual colour choices; there is no fixed percentage of blue, green or purple to fill on a page.
+Use the Paper and Logo black examples as the starting point for the website. Supporting backgrounds can separate longer topics or identify a section. These examples show individual colour choices; there is no fixed percentage of blue, green or purple to fill on a page.
 
 These HEX values are for screens. For printed work, ask the printer to match the supplied artwork and approve a proof; the material and printing process affect the result.
 
@@ -406,6 +406,42 @@ Contrast thresholds follow WCAG text contrast guidance. The table checks these e
 Use the examples to make consistent decisions, then check the result in the place people will see it: a phone, browser, printed card or workshop handout. Keep the name, logo and font roles consistent; let the amount of content determine the layout. When a brand decision changes, update this guide and its examples together.
 
 For brand wording or an application not covered here, contact Anna with the draft and where it will be used.
+
+In Anna’s words
+
+## Video transcripts
+
+Anna Brown introduces Hoea tō Waka and explains how people use the model in their work.
+
+Machine transcriptions from the two videos, with punctuation and brand spelling tidied.
+
+Anna Brown · Video transcript
+
+### What is Hoea tō Waka? — Strength in Aotearoa
+
+Download transcript (.txt)
+
+Kia ora koutou. I'm Anna Brown. I'm the founder and programme designer of Hoea tō Waka. Strength in Aotearoa. I've developed this programme because I really, really appreciated all of the research that's been done for decades now overseas into resilience in third wave psychotherapies. So this model is built on metacognitive therapy, acceptance and commitment therapy and compassion focused therapy, particularly. Those therapies are amazing, but they also involve some jargon, some complicated analogies.
+
+So what I've done is I've taken that research and got the main parts out of it and then turned them into a really simple analogy so that it's very applicable to life in Aotearoa, easy to relate to and very easy to remember and apply. So there are only three elements in this model and we can also address particular issues like wider whakapapa relationship with whenua.
+
+We can also, if we choose to, have a look at social inequalities and where they come from and what we're going to do about that as well, how that fits with our lives and how those inequalities might have come about for our clients and ourselves. So it can really help us look at those things from a position of strength and of really wanting to do something to remedy some really difficult situations in people's lives.
+
+Hoea tō Waka is sort of a multi-sensory approach to learning. We've developed a waiata-a-ringa which is, it's really about making the model really accessible. It's a great way to remember the things that you've learnt in workshops and to bring it into your everyday life and bring others together with you. There's also a song in English, you might like to sing it in the shower, sing it in the car and that will remind you of the main concepts as well.
+
+I've written a short story called My Brother Hemi and that's a great way of explaining the concepts to younger people and people who really relate to that narrative and storytelling way of learning. So there really is something for everybody. Yeah, so give us a call or drop us an email and let's have a chat about what might work for you.
+
+### Hoea tō Waka — Strength in Aotearoa for social services
+
+Kia ora koutou. I'm Anna Brown. I'm the founder and programme developer of Hoea tō Waka. Strength in Aotearoa. I wanted to tell you a little bit about how people are already using Hoea tō Waka in their work. It's a really useful method for social workers, youth workers, counsellors, psychologists, teachers. A great way of building rapport in a really culturally appropriate and sensitive way.
+
+It allows students and young people and clients to be exactly who they are and for us to walk alongside them. Hoea tō Waka is built on decades of research which has been done overseas into third wave therapies. You don't need to be an expert in therapy though. There's no jargon. It's just set in an everyday context with really easy to understand language.
+
+It's very easy to apply and remember and you'll be teaching other people really quickly. You'll find that you can help people to make goals for themselves. They can find ways to get through really difficult, challenging times and find their own direction rather than needing others to give it to them. This is a model that's deeply personal to everybody who uses it. It's very, very flexible and gives life a new meaning and a new vitality even in the toughest of times.
+
+You can use it for helping people to make goals, helping people to understand the perspective of others and to understand their role in relationships with other people. It's really useful with clients but also a wonderful way for us to keep ourselves on track and keep our heads above water when it gets really difficult. So I call it a 360 degree model because all the concepts that we use with clients we also can use for our own selves, for our resilience at home and in the workplace as well.
+
+So give us a call and have a chat and we'll see how Hoea tō Waka can help you.
 
 ## Design tokens — published colours
 
@@ -448,12 +484,11 @@ For brand wording or an application not covered here, contact Anna with the draf
 | lavender-800 | #74647D | 800 tonal level |
 | lavender-900 | #514459 | 900 tonal level |
 | paper | #FFFFFF | Default page surface, cards and overlays |
-| warm-white | #F8F8F6 | Soft neutral accents and secondary surfaces |
 | ivory | #F5F3EE | Warm content sections |
 | cool-mist | #EDF1F3 | Secondary surfaces |
 | stone | #E3E1DD | Dividers and borders |
 | slate | #6B7178 | Supporting labels |
-| ink | #202329 | High-contrast text |
+| logo-black | #191919 | Primary text, footer and dark surfaces |
 | dusty-rose | #C88F99 | Muted pink · Small illustration details |
 | sandstone | #D6BA83 | Small warm details and diagrams |
 | soft-sage | #B8C9B5 | Pale green · Illustrations and backgrounds |
@@ -502,12 +537,11 @@ For brand wording or an application not covered here, contact Anna with the draf
   --brand-lavender-800: #74647D;
   --brand-lavender-900: #514459;
   --brand-paper: #FFFFFF;
-  --brand-warm-white: #F8F8F6;
   --brand-ivory: #F5F3EE;
   --brand-cool-mist: #EDF1F3;
   --brand-stone: #E3E1DD;
   --brand-slate: #6B7178;
-  --brand-ink: #202329;
+  --brand-logo-black: #191919;
   --brand-dusty-rose: #C88F99;
   --brand-sandstone: #D6BA83;
   --brand-soft-sage: #B8C9B5;
@@ -523,7 +557,7 @@ For brand wording or an application not covered here, contact Anna with the draf
   --surface-blue: var(--brand-ocean-200);
   --surface-green: var(--brand-forest-200);
   --surface-lavender: var(--brand-aubergine-200);
-  --text-primary: var(--brand-ink);
+  --text-primary: var(--brand-logo-black);
   --text-muted: var(--brand-slate);
   --text-inverse: var(--brand-paper);
   --border-default: var(--brand-stone);
@@ -1019,19 +1053,6 @@ DTCG 2025.10 JSON follows. Colour components use sRGB values from 0 to 1. Alias 
       },
       "$description": "Paper: Default page surface, cards and overlays. HEX #FFFFFF"
     },
-    "warm-white": {
-      "$type": "color",
-      "$value": {
-        "colorSpace": "srgb",
-        "components": [
-          0.97254902,
-          0.97254902,
-          0.96470588
-        ],
-        "alpha": 1
-      },
-      "$description": "Warm White: Soft neutral accents and secondary surfaces. HEX #F8F8F6"
-    },
     "ivory": {
       "$type": "color",
       "$value": {
@@ -1084,18 +1105,18 @@ DTCG 2025.10 JSON follows. Colour components use sRGB values from 0 to 1. Alias 
       },
       "$description": "Slate: Supporting labels. HEX #6B7178"
     },
-    "ink": {
+    "logo-black": {
       "$type": "color",
       "$value": {
         "colorSpace": "srgb",
         "components": [
-          0.1254902,
-          0.1372549,
-          0.16078431
+          0.09803922,
+          0.09803922,
+          0.09803922
         ],
         "alpha": 1
       },
-      "$description": "Ink: High-contrast text. HEX #202329"
+      "$description": "Logo black: Primary text, footer and dark surfaces. HEX #191919"
     },
     "dusty-rose": {
       "$type": "color",
@@ -1215,7 +1236,7 @@ DTCG 2025.10 JSON follows. Colour components use sRGB values from 0 to 1. Alias 
     },
     "text-primary": {
       "$type": "color",
-      "$value": "{brand.ink}"
+      "$value": "{brand.logo-black}"
     },
     "text-muted": {
       "$type": "color",
@@ -1246,7 +1267,7 @@ DTCG 2025.10 JSON follows. Colour components use sRGB values from 0 to 1. Alias 
       },
       "ink": {
         "$type": "color",
-        "$value": "{brand.ink}"
+        "$value": "{brand.logo-black}"
       },
       "muted": {
         "$type": "color",
@@ -1554,6 +1575,8 @@ DTCG 2025.10 JSON follows. Colour components use sRGB values from 0 to 1. Alias 
 - [SVG ↓](https://dottereldesign.github.io/hoea_to_waka/assets/social-downloads/x-banner-1500x500.svg)
 - [PNG ↓](https://dottereldesign.github.io/hoea_to_waka/assets/social-downloads/x-post-1600x900.png)
 - [SVG ↓](https://dottereldesign.github.io/hoea_to_waka/assets/social-downloads/x-post-1600x900.svg)
+- [Download transcript (.txt)](https://dottereldesign.github.io/hoea_to_waka/about/brand-guidelines/transcripts/what-is-hoea-to-waka.txt)
+- [Download transcript (.txt)](https://dottereldesign.github.io/hoea_to_waka/about/brand-guidelines/transcripts/hoea-to-waka-for-social-services.txt)
 
 - [Black horizontal logo](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-horizontal-black.svg)
 - [White horizontal logo](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-horizontal-white.svg)

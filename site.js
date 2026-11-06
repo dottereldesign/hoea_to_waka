@@ -19,7 +19,7 @@
     themeToggle?.setAttribute("aria-pressed", String(isDark));
     themeToggle?.setAttribute("aria-label", isDark ? "Switch to light theme" : "Switch to dark theme");
     // The initial theme is already authored in the head; do not force layout to read it again.
-    if (persist && themeColorMeta) themeColorMeta.content = getComputedStyle(root).getPropertyValue(isDark ? '--brand-ocean-900' : '--brand-warm-white').trim();
+    if (persist && themeColorMeta) themeColorMeta.content = getComputedStyle(root).getPropertyValue(isDark ? '--brand-ocean-900' : '--brand-paper').trim();
 
     if (persist) {
       try {

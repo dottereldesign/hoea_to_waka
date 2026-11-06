@@ -43,7 +43,7 @@ html[data-palette] .site-footer[data-footer-version="04"] .footer-contact-column
 .footer-version-label{margin-right:8px;font-size:12px;color:var(--footer-muted)}
 html[data-palette] .footer-version-controls button{display:grid;place-items:center;min-width:36px;min-height:36px;padding:5px;border:1px solid var(--footer-line);border-radius:999px;background:transparent;color:#fff;font:500 12px/1 Inter,Arial,sans-serif;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
 html[data-palette] .footer-version-controls button:hover{border-color:#fff}
-html[data-palette] .footer-version-controls button[aria-pressed="true"]{background:#fff;color:#202329;border-color:#fff}
+html[data-palette] .footer-version-controls button[aria-pressed="true"]{background:#fff;color:#191919;border-color:#fff}
 .footer-version-status{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 html:not(.js) .footer-version-controls{display:none}
 @media(max-width:1000px){

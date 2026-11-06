@@ -1,6 +1,6 @@
 /* Ink capsule with a contrasting arrow disc. */
 html[data-palette] .model-button{
-  --model-ink:var(--brand-ink);--model-paper:var(--brand-paper);
+  --model-ink:var(--brand-logo-black);--model-paper:var(--brand-paper);
   position:relative;isolation:isolate;display:inline-flex;align-items:center;justify-content:center;gap:18px;
   box-sizing:border-box;min-width:210px;min-height:56px;max-width:100%;padding:15px 25px;
   overflow:hidden;border:1px solid var(--model-ink);border-radius:999px;background:var(--model-ink);color:var(--model-paper);
@@ -21,7 +21,7 @@ html[data-palette] .model-button{padding:6px 7px 6px 26px;gap:24px;justify-conte
 }
 
 /* Reversed contrast for the primary action on the dark hero. */
-html[data-palette] .model-button.model-button-inverse{--model-ink:var(--brand-paper);--model-paper:var(--brand-ink)}
+html[data-palette] .model-button.model-button-inverse{--model-ink:var(--brand-paper);--model-paper:var(--brand-logo-black)}
 @media(max-width:760px){
  .page-home .home-hero .home-hero-inner-photo .button-row{flex-direction:column;align-items:stretch;width:100%;max-width:400px;gap:12px}
  .page-home .home-hero .home-hero-inner-photo .button-row .button{width:100%;white-space:nowrap;min-height:48px}

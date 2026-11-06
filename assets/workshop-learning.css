@@ -1,4 +1,4 @@
-.workshop-learning{margin:24px 8px 0;border-radius:32px;background:#202020;color:#fff;padding:clamp(40px,6vw,88px) clamp(24px,5vw,76px);}
+.workshop-learning{margin:24px 8px 0;border-radius:32px;background:#191919;color:#fff;padding:clamp(40px,6vw,88px) clamp(24px,5vw,76px);}
 .workshop-learning__inner{max-width:1280px;margin:auto;}
 .workshop-learning__eyebrow{font:500 13px/1.4 var(--font-body,Arial);letter-spacing:.06em;color:#d4cbd9;margin-bottom:36px;}
 .workshop-learning__grid{display:grid;grid-template-columns:1fr 1fr;gap:40px 72px;}

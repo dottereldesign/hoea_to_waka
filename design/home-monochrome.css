@@ -7,7 +7,7 @@ html:has(body.page-home){
 --brand-ocean-500:#9d9d9d!important;
 --brand-ocean-600:#7c7c7c!important;
 --brand-ocean-700:#555555!important;
---brand-ocean-800:#202020!important;
+--brand-ocean-800:#191919!important;
 --brand-ocean-900:#141414!important;
 --brand-forest-100:#f7f7f7!important;
 --brand-forest-200:#eeeeee!important;
@@ -37,12 +37,12 @@ html:has(body.page-home){
 --brand-lavender-800:#707070!important;
 --brand-lavender-900:#4d4d4d!important;
 --brand-paper:#ffffff!important;
---brand-warm-white:#f8f8f8!important;
+
 --brand-ivory:#f3f3f3!important;
 --brand-cool-mist:#eeeeee!important;
 --brand-stone:#e0e0e0!important;
 --brand-slate:#666666!important;
---brand-ink:#202020!important;
+--brand-logo-black:#191919!important;
 --brand-dusty-rose:#999999!important;
 --brand-sandstone:#b5b5b5!important;
 --brand-soft-sage:#bfbfbf!important;

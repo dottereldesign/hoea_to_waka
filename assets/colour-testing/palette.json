@@ -119,9 +119,9 @@
       ]
     },
     {
-      "name": "Footer charcoal",
-      "hex": "#202020",
-      "role": "Footer and dark hero surface"
+      "name": "Logo black",
+      "hex": "#191919",
+      "role": "Text, footer and dark surfaces"
     }
   ],
   "neutrals": [
@@ -129,11 +129,6 @@
       "name": "Paper",
       "hex": "#FFFFFF",
       "role": "Page and card surfaces"
-    },
-    {
-      "name": "Warm white",
-      "hex": "#F8F8F6",
-      "role": "Soft secondary surfaces"
     },
     {
       "name": "Ivory",
@@ -161,19 +156,9 @@
       "role": "Brand supporting text"
     },
     {
-      "name": "Ink",
-      "hex": "#202329",
-      "role": "Primary text"
-    },
-    {
-      "name": "Footer charcoal",
-      "hex": "#202020",
-      "role": "Footer and dark hero"
-    },
-    {
       "name": "Logo black",
       "hex": "#191919",
-      "role": "Black logo artwork"
+      "role": "Text, footer, dark surfaces and logo"
     }
   ]
 }

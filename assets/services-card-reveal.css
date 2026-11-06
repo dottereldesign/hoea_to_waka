@@ -19,5 +19,5 @@ html[data-palette] [data-component="home:3:services"] .services-leveling>.ds-car
 @media(prefers-reduced-motion:reduce){
   html[data-palette] [data-component="home:3:services"] .services-leveling>.ds-card{translate:none!important;}
 }
-html[data-theme="light"] #services .ds-card-actions .model-button{background-color:rgb(32,32,32);}
+html[data-theme="light"] #services .ds-card-actions .model-button{background-color:rgb(25,25,25);}
 

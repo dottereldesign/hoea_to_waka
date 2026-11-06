@@ -3,8 +3,8 @@
 .home-moon-door>svg{display:block;width:100%;height:auto;aspect-ratio:1;overflow:hidden;background:#fff}
 .home-moon-door [hidden]{display:none!important}
 .home-cta-door .home-cta-body{padding:0;min-width:0}
-html[data-palette] .home-cta-door .home-cta-door-copy .ds-kicker{margin:0 0 18px!important;color:var(--brand-ink)}
-html[data-palette] .home-cta-door .home-cta-door-copy .ds-title{font-size:clamp(32px,3.3vw,52px);font-weight:500;line-height:1.08;letter-spacing:-.04em;margin:0 0 26px;max-width:18ch;color:var(--brand-ink);text-wrap:balance}
+html[data-palette] .home-cta-door .home-cta-door-copy .ds-kicker{margin:0 0 18px!important;color:var(--brand-logo-black)}
+html[data-palette] .home-cta-door .home-cta-door-copy .ds-title{font-size:clamp(32px,3.3vw,52px);font-weight:500;line-height:1.08;letter-spacing:-.04em;margin:0 0 26px;max-width:18ch;color:var(--brand-logo-black);text-wrap:balance}
 html[data-palette] .home-cta-door .home-cta-body .ds-lead{font-size:clamp(18px,1.6vw,23px);line-height:1.55;max-width:39ch}
 .home-cta-door .home-cta-support{max-width:44ch}
 @media(max-width:900px){.home-cta-door-layout{grid-template-columns:minmax(0,1fr);gap:32px;padding-inline:24px}.home-moon-door{max-width:500px}.home-cta-door .home-cta-body{width:100%;max-width:580px;margin:auto}.home-cta-door-copy .ds-title{max-width:20ch}}

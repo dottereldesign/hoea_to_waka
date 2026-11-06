@@ -482,19 +482,6 @@
       },
       "$description": "Paper: Default page surface, cards and overlays. HEX #FFFFFF"
     },
-    "warm-white": {
-      "$type": "color",
-      "$value": {
-        "colorSpace": "srgb",
-        "components": [
-          0.97254902,
-          0.97254902,
-          0.96470588
-        ],
-        "alpha": 1
-      },
-      "$description": "Warm White: Soft neutral accents and secondary surfaces. HEX #F8F8F6"
-    },
     "ivory": {
       "$type": "color",
       "$value": {
@@ -547,18 +534,18 @@
       },
       "$description": "Slate: Supporting labels. HEX #6B7178"
     },
-    "ink": {
+    "logo-black": {
       "$type": "color",
       "$value": {
         "colorSpace": "srgb",
         "components": [
-          0.1254902,
-          0.1372549,
-          0.16078431
+          0.09803922,
+          0.09803922,
+          0.09803922
         ],
         "alpha": 1
       },
-      "$description": "Ink: High-contrast text. HEX #202329"
+      "$description": "Logo black: Primary text, footer and dark surfaces. HEX #191919"
     },
     "dusty-rose": {
       "$type": "color",
@@ -678,7 +665,7 @@
     },
     "text-primary": {
       "$type": "color",
-      "$value": "{brand.ink}"
+      "$value": "{brand.logo-black}"
     },
     "text-muted": {
       "$type": "color",
@@ -709,7 +696,7 @@
       },
       "ink": {
         "$type": "color",
-        "$value": "{brand.ink}"
+        "$value": "{brand.logo-black}"
       },
       "muted": {
         "$type": "color",

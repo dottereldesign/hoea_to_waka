@@ -1,10 +1,10 @@
 /* Static editorial rows with permanently visible illustrations. */
-html[data-palette] .ds-component.model-benefits{background:var(--brand-paper);color:var(--brand-ink);--ds-ink:var(--brand-ink)!important;--ds-muted:var(--brand-ink)!important}
+html[data-palette] .ds-component.model-benefits{background:var(--brand-paper);color:var(--brand-logo-black);--ds-ink:var(--brand-logo-black)!important;--ds-muted:var(--brand-logo-black)!important}
 .model-benefits .model-benefits-heading{max-width:960px;margin:0 auto 64px;text-align:center}
 .model-benefits-heading .ds-kicker{margin-inline:auto}
 .model-benefits .model-benefits-heading h2{line-height:1.08;text-wrap:balance}
 .model-benefit-list{max-width:1360px;margin-inline:auto}
-.model-benefit-row{display:grid;grid-template-columns:40px minmax(0,1.5fr) minmax(180px,.65fr);gap:28px;align-items:start;padding:36px clamp(20px,3vw,44px);border-top:1px solid var(--brand-stone);color:var(--brand-ink);border-radius:0}
+.model-benefit-row{display:grid;grid-template-columns:40px minmax(0,1.5fr) minmax(180px,.65fr);gap:28px;align-items:start;padding:36px clamp(20px,3vw,44px);border-top:1px solid var(--brand-stone);color:var(--brand-logo-black);border-radius:0}
 .model-benefit-row:first-child{border-top:0}
 .model-benefit-number{padding-top:5px;font:400 20px/1.4 Inter,Arial,sans-serif;letter-spacing:-.04em;color:var(--brand-slate)}
 .model-benefit-copy{min-width:0}

@@ -8,7 +8,7 @@
 @media (max-width:600px) {
   .home-cta-simple .home-cta-actions { flex-direction:column; align-items:flex-start; }
 }
-html[data-palette] .home-cta-simple .home-cta-body :is(.ds-lead,.home-cta-support) { color:var(--brand-ink); }
+html[data-palette] .home-cta-simple .home-cta-body :is(.ds-lead,.home-cta-support) { color:var(--brand-logo-black); }
 html[data-palette] .ds-component.home-cta-simple { padding-block:var(--section-space,96px); }
 @media (max-width:1279px) {
   .home-cta-simple .home-cta-body { padding-bottom:0; }

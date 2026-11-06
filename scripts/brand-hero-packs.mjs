@@ -8,7 +8,7 @@ const out=new URL('../assets/brand-downloads/',import.meta.url),options={mtime:n
 const encode=text=>new TextEncoder().encode(text);
 async function textArtwork(text){
  // Obtain real ink bounds before shifting the original vector paths.
- const probe=lettering(text,140,24,170,600,-4.9),probeSVG=svg(probe.paths,Math.ceil(probe.width+48),230,'#202329');
+ const probe=lettering(text,140,24,170,600,-4.9),probeSVG=svg(probe.paths,Math.ceil(probe.width+48),230,'#191919');
  const {info}=await sharp(Buffer.from(probeSVG)).trim({background:'#00000000'}).png().toBuffer({resolveWithObject:true});
  const left=-(info.trimOffsetLeft||0),top=-(info.trimOffsetTop||0);
  return {paths:probe.paths.map(d=>svgpath(d).translate(-left+4,-top+4).abs().toString()),w:info.width+8,h:info.height+8};
@@ -17,10 +17,10 @@ async function pdf(paths,w,h,colour){const doc=new PDFDocument({size:[w,h],margi
 const name=await textArtwork('Hoea tō Waka'),url=await textArtwork('hoeatowaka.co.nz');
 const transform=(paths,scale,x,y)=>paths.map(d=>svgpath(d).matrix([scale,0,0,scale,x,y]).abs().toString());
 const line=wordmark.slice(symbol.length+fullName.paths.length);
-async function cropArtwork(paths,w,h){const {info}=await sharp(Buffer.from(svg(paths,w,h,'#202329'))).trim({background:'#00000000'}).png().toBuffer({resolveWithObject:true});return {paths:transform(paths,1,(info.trimOffsetLeft||0)+4,(info.trimOffsetTop||0)+4),w:info.width+8,h:info.height+8}}
+async function cropArtwork(paths,w,h){const {info}=await sharp(Buffer.from(svg(paths,w,h,'#191919'))).trim({background:'#00000000'}).png().toBuffer({resolveWithObject:true});return {paths:transform(paths,1,(info.trimOffsetLeft||0)+4,(info.trimOffsetTop||0)+4),w:info.width+8,h:info.height+8}}
 const tagline=await cropArtwork(line,width,height);
 // Measure actual ink at 2x, so padding and the macron are included consistently.
-async function ink(paths,w,h){const {info}=await sharp(Buffer.from(svg(paths,w,h,'#202329'))).resize({width:Math.round(w*2)}).trim({background:'#00000000'}).png().toBuffer({resolveWithObject:true});return {x:-(info.trimOffsetLeft||0)/2,y:-(info.trimOffsetTop||0)/2,w:info.width/2,h:info.height/2}}
+async function ink(paths,w,h){const {info}=await sharp(Buffer.from(svg(paths,w,h,'#191919'))).resize({width:Math.round(w*2)}).trim({background:'#00000000'}).png().toBuffer({resolveWithObject:true});return {x:-(info.trimOffsetLeft||0)/2,y:-(info.trimOffsetTop||0)/2,w:info.width/2,h:info.height/2}}
 const symbolInk=await ink(symbol,385,384),nameInk=await ink(name.paths,name.w,name.h);
 const H=280,x=H/4;
 function place(paths,box,target){return transform(paths,target.h/box.h,target.x-box.x*target.h/box.h,target.y-box.y*target.h/box.h)}
@@ -44,7 +44,7 @@ function construction(layout,vertical,colour){const margin=60,w=layout.w+2*margi
  else{dims.push(measure(m.x+m.w,m.y-28,n.x,m.y-28,'x'),measure(0,layout.h-24,m.x,layout.h-24,'x'));}
  return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}"><title>Hoea tō Waka ${vertical?'stacked':'horizontal'} lock-up construction</title><desc>H is the symbol height. x is one quarter of H. The gap and minimum outer clear space are x. The name is ${vertical?'one third':'half'} the symbol height, including its macron.</desc><g transform="translate(${margin} ${margin})" fill="none" stroke="${colour}" stroke-width="1" stroke-dasharray="3 6" opacity=".3">${guides.join('')}</g><g transform="translate(${margin} ${margin})">${layout.paths.map(d=>`<path fill="${colour}" d="${d}"/>`).join('')}</g><g transform="translate(${margin} ${margin})" fill="none" stroke="${colour}" stroke-width="1.5" opacity=".85">${dims.join('')}</g><style>path,rect{vector-effect:non-scaling-stroke}text{fill:${colour};stroke:none;font:30px Arial,sans-serif}@media(max-width:500px){text{font-size:72px}}</style></svg>\n`;
 }
-for(const [id,layout,vertical]of [['horizontal',horizontal,false],['stacked',stackedBase,true]])for(const [colour,ink]of [['black','#202329'],['white','#FFFFFF']])await writeFile(new URL(`hoea-to-waka-lockups-${id}-construction-${colour}.svg`,out),construction(layout,vertical,ink));
+for(const [id,layout,vertical]of [['horizontal',horizontal,false],['stacked',stackedBase,true]])for(const [colour,ink]of [['black','#191919'],['white','#FFFFFF']])await writeFile(new URL(`hoea-to-waka-lockups-${id}-construction-${colour}.svg`,out),construction(layout,vertical,ink));
 const dimensions=layout=>({width:layout.w,height:layout.h,mark:layout.mark,name:layout.name,gap:layout.gap});
 await writeFile(new URL('lockup-construction.json',out),JSON.stringify({H,x,minimumClearSpace:x,horizontal:dimensions(horizontal),stacked:dimensions(stackedBase)},null,2)+'\n');
 const lockups=[{name:'Horizontal',id:'horizontal',paths:wordmark,w:width,h:height},{name:'Horizontal - No Brand Line',id:'horizontal-no-brand-line',...horizontal},{name:'Stacked',id:'stacked',...stacked(true)},{name:'Stacked - No Brand Line',id:'stacked-no-brand-line',...stacked(false)}];
@@ -56,7 +56,7 @@ const art=[
 ];
 for(const pack of art){const entries={},root=`Hoea to Waka ${pack.label}`;
  const put=(path,bytes)=>{entries[`${root}/${path}`]=[typeof bytes==='string'?encode(bytes):new Uint8Array(bytes),options]};
- for(const variant of pack.variants)for(const colour of ['Black','White']){const ink=colour==='White'?'#FFFFFF':'#202329',base=`hoea-to-waka-${pack.id}${pack.id==='lockups'?'-'+variant.id:''}-${colour.toLowerCase()}`,folder=pack.id==='lockups'?`${variant.name}/`:'';
+ for(const variant of pack.variants)for(const colour of ['Black','White']){const ink=colour==='White'?'#FFFFFF':'#191919',base=`hoea-to-waka-${pack.id}${pack.id==='lockups'?'-'+variant.id:''}-${colour.toLowerCase()}`,folder=pack.id==='lockups'?`${variant.name}/`:'';
  const source=svg(variant.paths,variant.w,variant.h,ink),png=await sharp(Buffer.from(source)).resize({width:pack.id==='logomarks'?1024:2560}).png().toBuffer();
  put(`${folder}RGB/SVG/${base}.svg`,source);put(`${folder}RGB/PNG/${base}.png`,png);
  put(`${folder}RGB/PDF/${base}.pdf`,await pdf(variant.paths,variant.w,variant.h,ink));
