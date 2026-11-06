@@ -335,23 +335,31 @@ Keep your name, role and contact details together in one compact signature. Prev
 
 Layout rhythm
 
-Space gives each topic room to breathe. Layout padding, margins and gaps use bounded fluid values, growing with the viewport instead of relying only on desktop, tablet and mobile jumps.
+Use a consistent rhythm between related content, cards and whole sections. These are frequently used spacing ranges across the website. Identical fluid formulas share one definition; component-specific exceptions remain separate.
 
 ### Inset
 
-Rounded sections keep an 8px page edge.
+Fixed page-edge spacing.
+
+### Small
+
+Labels and compact content groups.
 
 ### Compact
 
-Small groups, labels and controls.
+Controls and related content.
+
+### Content
+
+Common text and content gaps.
 
 ### Group
 
-Related content and small card gaps.
+Related blocks and card padding.
 
 ### Card
 
-Comfortable card padding and grid gaps.
+Larger card and grid spacing.
 
 ### Block
 
@@ -359,21 +367,23 @@ Space between larger content groups.
 
 ### Section
 
-Above and below standard page sections.
+Above and below standard sections.
 
 ### Standard section spacing
 
-Use var(--section-space) above and below standard sections. It grows smoothly from 60px at a 390px viewport to 92px at 1440px, and stays within those limits. At 768px it is about 72px; at 1100px it is about 82px.
+Use var(--section-space) above and below standard sections. It grows smoothly from 60px at a 390px viewport to 92px at 1440px, staying within those limits. At 768px it is about 72px; at 1100px it is about 82px.
 
-The rem limits respect the reader’s font settings. Pixel examples assume the default 16px root size.
+Pixel examples assume a 16px root size. The rem limits respect the reader’s font settings.
 
 ### How to apply it
 
-Use the smaller gaps for related elements and larger gaps between topics. Existing fixed layout gaps above 8px now scale from 75% to 100% of their original size between 390px and 1440px. Existing clamp values keep their own carefully chosen ranges. Responsive column changes still apply where the content needs them.
+Keep related elements close and leave more space between topics. Reuse the existing shared spacing for a component before introducing another size. If two connected blocks sit together, remove spacing on the joining edge.
 
-If two connected blocks sit together, remove the spacing on the joining edge. Keep 8px page insets, tiny precision gaps, zero and automatic margins, and negative alignment offsets fixed. Heroes retain their navigation clearance; control sizes and artwork coordinates are not spacing tokens.
+Keep the 8px page inset, tiny alignment gaps and negative offsets where needed. Navigation clearance, animation layouts, game controls and logo construction have their own requirements.
 
-Includes component-specific ranges, fixed alignment values and inherited spacing. Usage examples identify the stylesheet and selector. Generated page bundles are excluded to avoid counting the same rules twice.
+Individual values are counted once, rather than counting every combination of top, right, bottom and left padding as a new size. This inventory follows the stylesheets linked by current site pages, maps compiled bundles back to their source, and includes responsive and interaction rules. It does not claim every rule is visible in every state.
+
+63 shared definitions preserve existing values exactly. 150 component-specific, calculated or fixed values remain for separate review.
 
 ## Social Media
 

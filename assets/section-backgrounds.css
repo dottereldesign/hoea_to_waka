@@ -24,9 +24,9 @@ html[data-palette] [data-background-study] :is(.ds-answer,.ds-answer p){color:va
 [data-background-study] .home-faq-column details{border-color:var(--study-line)}
 [data-background-study] summary:hover{background:var(--study-hover)}
 html[data-palette] [data-background-study] summary:focus-visible{outline-color:var(--study-ink)!important}
-[data-background-study][data-background-style="09"] .home-faq-column{padding-inline:clamp(0.9375rem, 0.82143rem + 0.47619vw, 1.25rem);border:1px solid #ffffffb3;border-radius:20px;background:#ffffff85}
+[data-background-study][data-background-style="09"] .home-faq-column{padding-inline:var(--space-fluid-20);border:1px solid #ffffffb3;border-radius:20px;background:#ffffff85}
 [data-background-study][data-background-style="09"] .home-faq-column details:last-child{border-bottom:0}
-[data-background-study] .background-style-picker{display:grid;grid-template-columns:repeat(2,max-content);justify-content:center;align-items:center;gap:clamp(0.75rem, 0.65714rem + 0.38095vw, 1rem) clamp(1.3125rem, 1.15rem + 0.66667vw, 1.75rem);margin-top:clamp(1.5rem, 1.31429rem + 0.7619vw, 2rem)}
+[data-background-study] .background-style-picker{display:grid;grid-template-columns:repeat(2,max-content);justify-content:center;align-items:center;gap:var(--space-fluid-16) var(--space-fluid-28);margin-top:var(--space-fluid-32)}
 [data-background-study] .background-style-picker[hidden]{display:none}
 [data-background-study] .background-style-picker fieldset{display:block;min-width:0;padding:0;border:0;margin:0}
 [data-background-study] .background-style-picker legend{float:none;display:block;text-align:left;font:500 10px/1.6 Inter,Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--study-muted);margin-bottom:8px}
@@ -38,7 +38,7 @@ html[data-palette] [data-background-study] .background-style-picker button[aria-
 html[data-palette] [data-background-study] .background-style-picker button:focus-visible{outline:3px solid var(--study-ink)!important;outline-offset:4px!important;box-shadow:none!important}
 html[data-palette] [data-background-study] .background-style-caption{grid-column:1/-1;margin:4px 0 0!important;color:var(--study-muted);font:400 12px/1.6 Inter,Arial,sans-serif!important;letter-spacing:0;min-height:4.8em;max-width:none}
 [data-background-study] .background-style-caption strong{display:block;color:var(--study-ink);font-weight:600}
-@media(max-width:600px){[data-background-study] .background-style-picker{grid-template-columns:minmax(0,1fr);justify-items:center;gap:clamp(0.75rem, 0.65714rem + 0.38095vw, 1rem);margin-top:clamp(1.125rem, 0.98571rem + 0.57143vw, 1.5rem)}[data-background-study] .background-style-options{gap:5px}html[data-palette] [data-background-study] .background-style-picker button{width:44px}[data-background-study][data-background-style="09"] .home-faq-column{padding-inline:clamp(0.5625rem, 0.49286rem + 0.28571vw, 0.75rem)}[data-background-study][data-background-style="09"] .home-faq-columns{gap:clamp(0.75rem, 0.65714rem + 0.38095vw, 1rem)}}
+@media(max-width:600px){[data-background-study] .background-style-picker{grid-template-columns:minmax(0,1fr);justify-items:center;gap:var(--space-fluid-16);margin-top:var(--space-fluid-24)}[data-background-study] .background-style-options{gap:5px}html[data-palette] [data-background-study] .background-style-picker button{width:44px}[data-background-study][data-background-style="09"] .home-faq-column{padding-inline:var(--space-fluid-12)}[data-background-study][data-background-style="09"] .home-faq-columns{gap:var(--space-fluid-16)}}
 
 /* Coaching outcomes use the same palettes, including text, rules and icons. */
 #coaching-outcomes .background-style-picker{grid-column:1/-1;text-align:center;margin-top:0}

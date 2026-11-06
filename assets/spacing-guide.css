@@ -1,13 +1,13 @@
-.spacing-rhythm-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(1.125rem,1rem + .5vw,1.5rem);margin-block:clamp(1.5rem,1rem + 2vw,3rem)}
-.spacing-rhythm-grid article{padding:clamp(1.125rem,1rem + .5vw,1.5rem);border:1px solid #E3E1DD;border-radius:16px;min-width:0}
+.spacing-rhythm-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-layout-06);margin-block:var(--space-layout-13)}
+.spacing-rhythm-grid article{padding:var(--space-layout-06);border:1px solid #E3E1DD;border-radius:16px;min-width:0}
 html[data-palette] .spacing-rhythm-grid h3{font-size:16px;margin:0 0 8px}
 .spacing-rhythm-grid strong{font-size:28px;letter-spacing:-.03em}
-.spacing-rhythm-bar{height:var(--space-example);background:#183958;border-radius:4px;margin-block:clamp(.75rem,.5rem + 1vw,1rem)}
+.spacing-rhythm-bar{height:var(--space-example);background:#183958;border-radius:4px;margin-block:var(--space-layout-07)}
 html[data-palette] .spacing-rhythm-grid p{font-size:14px;margin:0}
-.spacing-formula{display:block;overflow-wrap:anywhere;padding:clamp(.75rem,.5rem + 1vw,1rem);background:#F1EAFA;color:#191919;border-radius:8px}
-.spacing-inventory{margin-top:clamp(1.5rem,1rem + 2vw,3rem);border-top:1px solid #E3E1DD;padding-top:clamp(1.125rem,1rem + .5vw,1.5rem)}
+.spacing-formula{display:block;overflow-wrap:anywhere;padding:var(--space-layout-07);background:#F1EAFA;color:#191919;border-radius:8px}
+.spacing-inventory{margin-top:var(--space-layout-13);border-top:1px solid #E3E1DD;padding-top:var(--space-layout-06)}
 .spacing-inventory summary{font-size:20px;cursor:pointer}.spacing-inventory summary span{font-size:13px;color:#6B7178;margin-left:8px}
-.spacing-inventory-scroll{max-height:640px;overflow:auto;margin-top:clamp(.75rem,.5rem + 1vw,1rem)}
+.spacing-inventory-scroll{max-height:640px;overflow:auto;margin-top:var(--space-layout-07)}
 .spacing-inventory table{width:100%;border-collapse:collapse;font-size:12px;text-align:left}.spacing-inventory th,.spacing-inventory td{padding:clamp(.6rem,.5rem + .4vw,.875rem);vertical-align:top;border-bottom:1px solid #E3E1DD}.spacing-inventory th{position:sticky;top:0;background:#fff;color:#191919}.spacing-inventory code{overflow-wrap:anywhere;display:block;min-width:150px}.spacing-inventory small{display:block;overflow-wrap:anywhere;margin-bottom:8px;min-width:180px;max-width:440px}
 @media(max-width:760px){.spacing-rhythm-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 /* Keep the detailed table inside its grid track on narrow screens. */

@@ -74,16 +74,16 @@ html[data-palette] .page-home .site-menu-panel{color:#191919}
 /* The single published home hero uses the violet mesh. */
 html[data-palette] .page-home .home-hero[data-hero-version="01"]{background:#100d1d;min-height:0;height:auto}
 .page-home .home-hero[data-hero-version="01"] :is(.home-hero-photo,.home-hero-photo-wash,.home-hero-photo-wave,.home-hero-mark){display:none}
-.page-home .home-hero[data-hero-version="01"] .home-hero-inner-photo{justify-content:center;min-height:620px;padding:clamp(4.21875rem, 3.69643rem + 2.14286vw, 5.625rem) 0 clamp(5.15625rem, 4.51786rem + 2.61905vw, 6.875rem)}
+.page-home .home-hero[data-hero-version="01"] .home-hero-inner-photo{justify-content:center;min-height:620px;padding:var(--space-fluid-90) 0 clamp(5.15625rem, 4.51786rem + 2.61905vw, 6.875rem)}
 .page-home .home-hero[data-hero-version="01"] .home-hero-copy{width:100%;max-width:100%;margin:0;align-items:flex-start;text-align:left}
 html[data-palette] .page-home .home-hero .home-tagline{color:#dedede}
 .page-home .home-hero[data-hero-version="01"] .home-intro{max-width:600px}
 .page-home .home-hero[data-hero-version="01"] .home-intro-line{display:inline}
 .page-home .home-hero[data-hero-version="01"] .home-intro-line+.home-intro-line::before{content:' '}
-.page-home .home-hero[data-hero-version="01"] .button-row{margin-left:0;gap:clamp(0.5625rem, 0.49286rem + 0.28571vw, 0.75rem);margin-top:clamp(1.6875rem, 1.47857rem + 0.85714vw, 2.25rem)}
+.page-home .home-hero[data-hero-version="01"] .button-row{margin-left:0;gap:var(--space-fluid-12);margin-top:var(--space-fluid-36)}
 html[data-palette] .page-home :is(a,button,summary):focus-visible{outline-color:#999!important}
 @media(max-width:760px){
- .page-home .home-hero[data-hero-version="01"] .home-hero-inner-photo{min-height:560px;padding:clamp(3.375rem, 2.95714rem + 1.71429vw, 4.5rem) 0 clamp(4.6875rem, 4.10714rem + 2.38095vw, 6.25rem)}
+ .page-home .home-hero[data-hero-version="01"] .home-hero-inner-photo{min-height:560px;padding:var(--space-fluid-72) 0 var(--space-fluid-100)}
  .page-home .home-hero[data-hero-version="01"] .home-hero-copy{max-width:100%}
  .page-home .home-hero[data-hero-version="01"] .home-tagline{letter-spacing:.2em;line-height:1.5}
  .page-home .home-hero[data-hero-version="01"] .button-row{flex-direction:column;align-items:stretch;width:100%;max-width:400px}

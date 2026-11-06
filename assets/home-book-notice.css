@@ -1,11 +1,11 @@
-.home-book-notice{position:relative;display:flex;align-items:center;justify-content:center;gap:clamp(0.46875rem, 0.41071rem + 0.2381vw, 0.625rem) clamp(0.84375rem, 0.73929rem + 0.42857vw, 1.125rem);padding:clamp(0.46875rem, 0.41071rem + 0.2381vw, 0.625rem) clamp(3rem, 2.62857rem + 1.52381vw, 4rem);background:#f1eafa;color:#281a2c;font:500 14px/1.5 var(--font-body,Arial,sans-serif);}
+.home-book-notice{position:relative;display:flex;align-items:center;justify-content:center;gap:var(--space-fluid-10) var(--space-fluid-18);padding:var(--space-fluid-10) var(--space-fluid-64);background:#f1eafa;color:#281a2c;font:500 14px/1.5 var(--font-body,Arial,sans-serif);}
 .home-book-notice[hidden]{display:none!important;}
 .home-book-notice a{color:#281a2c;text-decoration:underline;text-underline-offset:3px;font-weight:600;}
 .home-book-notice a:hover{color:#65427b;}
 .home-book-notice button{position:absolute;right:14px;top:50%;transform:translateY(-50%);width:40px;height:40px;display:grid;place-items:center;border:0;border-radius:50%;background:transparent;color:#281a2c;cursor:pointer;}
 .home-book-notice button:hover{background:#e3d8ef;}
 .home-book-notice :is(a,button):focus-visible{outline:2px solid #65427b;outline-offset:3px;}
-@media(max-width:760px){.home-book-notice{justify-content:flex-start;flex-wrap:wrap;gap:5px clamp(0.46875rem, 0.41071rem + 0.2381vw, 0.625rem);padding:clamp(0.5625rem, 0.49286rem + 0.28571vw, 0.75rem) clamp(2.71875rem, 2.38214rem + 1.38095vw, 3.625rem) clamp(0.5625rem, 0.49286rem + 0.28571vw, 0.75rem) clamp(0.9375rem, 0.82143rem + 0.47619vw, 1.25rem);font-size:13px;}.home-book-notice__copy{flex-basis:100%;}.home-book-notice button{right:10px;}}
+@media(max-width:760px){.home-book-notice{justify-content:flex-start;flex-wrap:wrap;gap:5px var(--space-fluid-10);padding:var(--space-fluid-12) clamp(2.71875rem, 2.38214rem + 1.38095vw, 3.625rem) var(--space-fluid-12) var(--space-fluid-20);font-size:13px;}.home-book-notice__copy{flex-basis:100%;}.home-book-notice button{right:10px;}}
 /* Keep notice displacement independent of the expanded/compact geometry. */
 body.page-home:has(.home-book-notice:not([hidden])) [data-morph-header] .site-header-shell {
  top:var(--book-notice-offset,41px)!important;

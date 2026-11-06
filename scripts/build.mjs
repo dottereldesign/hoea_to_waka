@@ -15,6 +15,8 @@ await import('./card-pencil.mjs');
 await import('./hero-pencil.mjs');
 await import('./guide-qr.mjs');
 
+await import('./build-spacing-tokens.mjs');
+
 // HTML contains the final layouts. This build only compiles their styles and interactions.
 const guidePath='about/brand-guidelines/index.html';
 const guide=await readFile(guidePath,'utf8');
@@ -53,6 +55,7 @@ await build({entryPoints:['design/site-interactions.js'],bundle:true,minify:true
 await build({entryPoints:['design/motion-sections.js'],bundle:true,minify:true,format:'iife',target:['es2020'],outfile:'assets/motion-sections.js',legalComments:'linked'});
 await build({entryPoints:['design/anna-timelines.js'],bundle:true,minify:true,format:'iife',target:['es2020'],outfile:'assets/anna-timelines-runtime.js'});
 
+await import('./build-spacing-guide.mjs');
 await import('./brand-context.mjs');
 
 await build({entryPoints:['design/guide-init.js'],bundle:true,minify:true,format:'iife',target:['es2020'],outfile:'assets/guide-init.js'});

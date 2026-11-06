@@ -1,12 +1,12 @@
 .coaching-steps {
-  padding: clamp(60px, 7vw, 108px) clamp(22px, 5vw, 80px);
+  padding: clamp(60px, 7vw, 108px) var(--space-layout-09);
   text-align: center;
   color: #191919;
   background: #FFFFFF;
 }
-.coaching-steps .ds-section-heading { display: grid; justify-items: center; gap: clamp(0.84375rem, 0.73929rem + 0.42857vw, 1.125rem); margin: 0 auto; }
+.coaching-steps .ds-section-heading { display: grid; justify-items: center; gap: var(--space-fluid-18); margin: 0 auto; }
 .coaching-steps .ds-section-heading > * { margin: 0; }
-.coaching-steps .ds-kicker { width: fit-content; padding: 7px clamp(0.65625rem, 0.575rem + 0.33333vw, 0.875rem); border-radius: 999px; border: 1px solid currentColor; }
+.coaching-steps .ds-kicker { width: fit-content; padding: 7px var(--space-fluid-14); border-radius: 999px; border: 1px solid currentColor; }
 .coaching-steps .ds-title { max-width: 18ch; }
 .coaching-steps ol {
   display: grid;
@@ -24,8 +24,8 @@
   display: inline-grid; place-items: center;
   background: #191919; color: #FFFFFF;
 }
-.coaching-steps h3 { margin: clamp(1.40625rem, 1.23214rem + 0.71429vw, 1.875rem) 8px clamp(0.5625rem, 0.49286rem + 0.28571vw, 0.75rem); font-size: clamp(20px, 1.7vw, 26px); line-height: 1.2; }
-.coaching-steps li p { max-width: 30ch; margin: 0 auto; padding: 0 clamp(0.46875rem, 0.41071rem + 0.2381vw, 0.625rem); line-height: 1.55; }
+.coaching-steps h3 { margin: var(--space-fluid-30) 8px var(--space-fluid-12); font-size: clamp(20px, 1.7vw, 26px); line-height: 1.2; }
+.coaching-steps li p { max-width: 30ch; margin: 0 auto; padding: 0 var(--space-fluid-10); line-height: 1.55; }
 .step-connector {
   position: absolute; top: 40px; left: calc(50% + 64px); width: calc(100% - 128px); height: 10px;
   background: radial-gradient(circle, #191919 1.4px, transparent 1.7px) center / 9px 8px repeat-x;
@@ -37,8 +37,8 @@
 .step-connector::before { left: 0; }
 .step-connector::after { right: 0; background: #191919; }
 @media (max-width: 700px) {
-  .coaching-steps ol { grid-template-columns: 1fr; gap: clamp(3.9375rem, 3.45rem + 2vw, 5.25rem); }
-  .coaching-steps h3 { margin-top: clamp(0.84375rem, 0.73929rem + 0.42857vw, 1.125rem); }
+  .coaching-steps ol { grid-template-columns: 1fr; gap: var(--space-fluid-84); }
+  .coaching-steps h3 { margin-top: var(--space-fluid-18); }
   .step-connector {
     top: calc(100% + 12px); left: calc(50% - 5px); width: 10px; height: 60px;
     background-size: 8px 9px; background-repeat: repeat-y;

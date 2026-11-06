@@ -1,17 +1,17 @@
 /* Five studies, one factual story. No continuous animation loops. */
-html[data-palette] #anna-story{--story-ink:#183958;--story-muted:#183958;--story-line:#b6c1cb;max-width:1440px;padding:clamp(64px,7vw,104px) clamp(22px,5vw,72px);margin-inline:auto;background:#fff;color:var(--story-ink);scroll-margin-top:112px}
-#anna-story .anna-story__heading{max-width:820px;margin:0 auto clamp(2.25rem, 1.97143rem + 1.14286vw, 3rem);text-align:center}
-html[data-palette] #anna-story :is(h1,h2){color:var(--story-ink);font-size:clamp(40px,5vw,72px);line-height:1.05;letter-spacing:-.045em;margin:clamp(1.125rem, 0.98571rem + 0.57143vw, 1.5rem) 0}
-html[data-palette] #anna-story .anna-story__heading>p{color:var(--story-muted);max-width:64ch;margin:clamp(0.75rem, 0.65714rem + 0.38095vw, 1rem) auto 0;line-height:1.75}
+html[data-palette] #anna-story{--story-ink:#183958;--story-muted:#183958;--story-line:#b6c1cb;max-width:1440px;padding:var(--space-layout-08) clamp(22px,5vw,72px);margin-inline:auto;background:#fff;color:var(--story-ink);scroll-margin-top:112px}
+#anna-story .anna-story__heading{max-width:820px;margin:0 auto var(--space-fluid-48);text-align:center}
+html[data-palette] #anna-story :is(h1,h2){color:var(--story-ink);font-size:clamp(40px,5vw,72px);line-height:1.05;letter-spacing:-.045em;margin:var(--space-fluid-24) 0}
+html[data-palette] #anna-story .anna-story__heading>p{color:var(--story-muted);max-width:64ch;margin:var(--space-fluid-16) auto 0;line-height:1.75}
 #anna-story .anna-story__qualifications{font-size:13px!important;letter-spacing:.02em}
 #anna-story .anna-studies{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;scroll-margin-top:120px}
-html[data-palette] #anna-story .anna-studies button{display:flex;align-items:center;gap:clamp(0.42188rem, 0.36964rem + 0.21429vw, 0.5625rem);min-height:46px;padding:clamp(0.51563rem, 0.45179rem + 0.2619vw, 0.6875rem) clamp(0.75rem, 0.65714rem + 0.38095vw, 1rem);border:1px solid var(--story-line);border-radius:999px;background:#fff;color:var(--story-ink);font:500 12px/1.4 Inter,Arial,sans-serif;cursor:pointer;transition:background .2s,color .2s}
+html[data-palette] #anna-story .anna-studies button{display:flex;align-items:center;gap:var(--space-fluid-9);min-height:46px;padding:var(--space-fluid-11) var(--space-fluid-16);border:1px solid var(--story-line);border-radius:999px;background:#fff;color:var(--story-ink);font:500 12px/1.4 Inter,Arial,sans-serif;cursor:pointer;transition:background .2s,color .2s}
 #anna-story .anna-studies button>span{font-size:10px;opacity:.75}
 #anna-story .anna-studies button:disabled{opacity:.55;cursor:wait}
 html[data-palette] #anna-story .anna-studies button[aria-pressed=true]{background:var(--story-ink);color:#fff;border-color:var(--story-ink)}
 html[data-palette] #anna-story :is(button,a):focus-visible{outline:3px solid #0d4687!important;outline-offset:4px!important;box-shadow:none!important}
 #anna-story .anna-list:focus-visible{outline:3px solid #0d4687;outline-offset:4px}
-#anna-story .anna-study-caption{text-align:center;max-width:54ch;margin:clamp(0.9375rem, 0.82143rem + 0.47619vw, 1.25rem) auto clamp(2.625rem, 2.3rem + 1.33333vw, 3.5rem)!important;min-height:3.2em;font-size:13px!important;line-height:1.6;color:var(--story-muted)}
+#anna-story .anna-study-caption{text-align:center;max-width:54ch;margin:var(--space-fluid-20) auto var(--space-fluid-56)!important;min-height:3.2em;font-size:13px!important;line-height:1.6;color:var(--story-muted)}
 #anna-story .anna-study-caption strong{display:block;color:var(--story-ink);font-weight:600}
 #anna-story .anna-stage{position:relative;isolation:isolate}
 #anna-story .anna-pin{position:relative}
@@ -19,11 +19,11 @@ html[data-palette] #anna-story :is(button,a):focus-visible{outline:3px solid #0d
 #anna-story .anna-route path{fill:none;stroke-width:1.3;stroke-linecap:round;vector-effect:non-scaling-stroke}
 #anna-story .anna-route__base{stroke:var(--story-line);opacity:.65}
 #anna-story .anna-route__ink{stroke:var(--story-ink)}
-#anna-story .anna-list{position:relative;display:grid;gap:clamp(3rem, 2.62857rem + 1.52381vw, 4rem);list-style:none;margin:0;padding:clamp(1.125rem, 0.98571rem + 0.57143vw, 1.5rem) 0}
+#anna-story .anna-list{position:relative;display:grid;gap:var(--space-fluid-64);list-style:none;margin:0;padding:var(--space-fluid-24) 0}
 #anna-story .anna-milestone{position:relative;min-width:0;--tl-p:1;--tl-cover:0}
 #anna-story .anna-milestone__copy{position:relative;min-width:0}
-html[data-palette] #anna-story .anna-milestone__label{display:block;margin:0 0 clamp(0.84375rem, 0.73929rem + 0.42857vw, 1.125rem);color:var(--story-muted);font:500 11px/1.5 Inter,Arial,sans-serif;letter-spacing:.07em;text-transform:uppercase}
-html[data-palette] #anna-story .anna-milestone h3{font:500 clamp(27px,2.8vw,38px)/1.12 Inter,Arial,sans-serif;letter-spacing:-.035em;color:var(--story-ink);margin:0 0 clamp(0.9375rem, 0.82143rem + 0.47619vw, 1.25rem);text-wrap:balance}
+html[data-palette] #anna-story .anna-milestone__label{display:block;margin:0 0 var(--space-fluid-18);color:var(--story-muted);font:500 11px/1.5 Inter,Arial,sans-serif;letter-spacing:.07em;text-transform:uppercase}
+html[data-palette] #anna-story .anna-milestone h3{font:500 clamp(27px,2.8vw,38px)/1.12 Inter,Arial,sans-serif;letter-spacing:-.035em;color:var(--story-ink);margin:0 0 var(--space-fluid-20);text-wrap:balance}
 html[data-palette] #anna-story .anna-milestone p{color:var(--story-muted);font-size:17px;line-height:1.8;margin:0;max-width:49ch}
 #anna-story .anna-milestone__number{display:none}
 #anna-story .anna-node{position:absolute;left:0;top:12px;width:14px;height:14px;border:1px solid var(--story-ink);border-radius:50%;background:#fff;z-index:2}
@@ -32,25 +32,25 @@ html[data-palette] #anna-story .anna-milestone p{color:var(--story-muted);font-s
 #anna-story.is-enhanced .anna-milestone__copy{opacity:clamp(0,var(--tl-p),1);transform:translateY(calc((1 - var(--tl-p))*48px)) rotate(calc((1 - var(--tl-p))*-1.2deg));transform-origin:30% 90%}
 #anna-story.is-enhanced .anna-node{transform:scale(var(--tl-node,1))}
 #anna-story .anna-horizon-controls{display:none}
-#anna-story .anna-timeline-footer{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:clamp(0.9375rem, 0.82143rem + 0.47619vw, 1.25rem);margin-top:clamp(2.625rem, 2.3rem + 1.33333vw, 3.5rem);padding-top:clamp(1.3125rem, 1.15rem + 0.66667vw, 1.75rem);border-top:1px solid var(--story-line)}
+#anna-story .anna-timeline-footer{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:var(--space-fluid-20);margin-top:var(--space-fluid-56);padding-top:var(--space-fluid-28);border-top:1px solid var(--story-line)}
 #anna-story .anna-timeline-footer a{color:var(--story-muted);font-size:12px;text-underline-offset:4px}
 #anna-story [hidden]{display:none!important}
 /* 01 — an ink thread takes a gently wandering route between paper notes. */
-#anna-story:is([data-timeline-variant=thread],[data-timeline-variant=thread2]) .anna-list{gap:clamp(2.625rem, 2.3rem + 1.33333vw, 3.5rem)}
+#anna-story:is([data-timeline-variant=thread],[data-timeline-variant=thread2]) .anna-list{gap:var(--space-fluid-56)}
 #anna-story:is([data-timeline-variant=thread],[data-timeline-variant=thread2]) .anna-milestone{display:grid;grid-template-columns:minmax(0,1fr) 80px minmax(0,1fr);min-height:220px;align-items:center}
-#anna-story:is([data-timeline-variant=thread],[data-timeline-variant=thread2]) .anna-milestone__copy{grid-column:1;background:#fff;padding:clamp(1.3125rem, 1.15rem + 0.66667vw, 1.75rem) clamp(1.125rem, 0.98571rem + 0.57143vw, 1.5rem) clamp(1.3125rem, 1.15rem + 0.66667vw, 1.75rem) 0}
-#anna-story:is([data-timeline-variant=thread],[data-timeline-variant=thread2]) .anna-milestone:nth-child(even) .anna-milestone__copy{grid-column:3;padding:clamp(1.3125rem, 1.15rem + 0.66667vw, 1.75rem) 0 clamp(1.3125rem, 1.15rem + 0.66667vw, 1.75rem) clamp(1.125rem, 0.98571rem + 0.57143vw, 1.5rem)}
+#anna-story:is([data-timeline-variant=thread],[data-timeline-variant=thread2]) .anna-milestone__copy{grid-column:1;background:#fff;padding:var(--space-fluid-28) var(--space-fluid-24) var(--space-fluid-28) 0}
+#anna-story:is([data-timeline-variant=thread],[data-timeline-variant=thread2]) .anna-milestone:nth-child(even) .anna-milestone__copy{grid-column:3;padding:var(--space-fluid-28) 0 var(--space-fluid-28) var(--space-fluid-24)}
 #anna-story:is([data-timeline-variant=thread],[data-timeline-variant=thread2]) .anna-node{left:calc(50% - 7px);top:calc(50% - 7px)}
 /* 02 — a physical stack, with the previous page yielding to the next. */
-#anna-story[data-timeline-variant=stack] .anna-stage{padding:clamp(1.125rem, 0.98571rem + 0.57143vw, 1.5rem) 0 clamp(3.75rem, 3.28571rem + 1.90476vw, 5rem)}
-#anna-story[data-timeline-variant=stack] .anna-list{max-width:850px;margin:auto;gap:clamp(3.75rem, 3.28571rem + 1.90476vw, 5rem);padding-bottom:20vh}
-#anna-story[data-timeline-variant=stack] .anna-milestone{position:sticky;top:calc(124px + var(--tl-index)*12px);min-height:310px;background:#f5f1e9;border:1px solid #a99e8d;border-radius:16px;box-shadow:0 12px 36px #243a5310;padding:clamp(28px,4vw,56px);transform:scale(calc(1 - var(--tl-cover)*.045)) rotate(calc(var(--tl-cover)*-1.5deg));transform-origin:50% 0}
+#anna-story[data-timeline-variant=stack] .anna-stage{padding:var(--space-fluid-24) 0 var(--space-fluid-80)}
+#anna-story[data-timeline-variant=stack] .anna-list{max-width:850px;margin:auto;gap:var(--space-fluid-80);padding-bottom:20vh}
+#anna-story[data-timeline-variant=stack] .anna-milestone{position:sticky;top:calc(124px + var(--tl-index)*12px);min-height:310px;background:#f5f1e9;border:1px solid #a99e8d;border-radius:16px;box-shadow:0 12px 36px #243a5310;padding:var(--space-layout-02);transform:scale(calc(1 - var(--tl-cover)*.045)) rotate(calc(var(--tl-cover)*-1.5deg));transform-origin:50% 0}
 #anna-story[data-timeline-variant=stack] .anna-milestone__copy{max-width:630px}
 #anna-story[data-timeline-variant=stack] .anna-milestone__number{display:block;position:absolute;right:26px;top:24px;font:400 40px/1 Inter,Arial,sans-serif;color:#82745f}
 #anna-story[data-timeline-variant=stack] .anna-node{display:none}
 #anna-story[data-timeline-variant=stack] .anna-route{display:none}
 /* 03 — small illustrated worlds with a ground line, drawn and hinged in code. */
-#anna-story[data-timeline-variant=worlds] .anna-list{gap:clamp(3.375rem, 2.95714rem + 1.71429vw, 4.5rem)}
+#anna-story[data-timeline-variant=worlds] .anna-list{gap:var(--space-fluid-72)}
 #anna-story[data-timeline-variant=worlds] .anna-milestone{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,88px);align-items:center;min-height:390px}
 #anna-story[data-timeline-variant=worlds] .anna-world{display:block;min-width:0;width:100%;aspect-ratio:1.3}
 #anna-story[data-timeline-variant=worlds] .anna-world svg{width:100%;height:100%;display:block;overflow:visible}
@@ -58,23 +58,23 @@ html[data-palette] #anna-story .anna-milestone p{color:var(--story-muted);font-s
 #anna-story[data-timeline-variant=worlds] .anna-milestone:nth-child(even) .anna-milestone__copy{grid-column:1;grid-row:1}
 #anna-story[data-timeline-variant=worlds] :is(.anna-node,.anna-route){display:none}
 /* 04 — a long horizon follows ordinary vertical scrolling on larger screens. */
-#anna-story[data-timeline-variant=horizon] .anna-list{display:flex;gap:clamp(1.3125rem, 1.15rem + 0.66667vw, 1.75rem);overflow-x:auto;scroll-snap-type:x mandatory;padding:clamp(1.125rem, 0.98571rem + 0.57143vw, 1.5rem) 4px clamp(1.875rem, 1.64286rem + 0.95238vw, 2.5rem);overscroll-behavior-inline:contain;scrollbar-width:thin;scrollbar-color:#7e91a7 #edf1f5}
-#anna-story[data-timeline-variant=horizon] .anna-milestone{flex:0 0 min(620px,82vw);scroll-snap-align:center;min-height:360px;padding:clamp(1.6875rem, 1.47857rem + 0.85714vw, 2.25rem);background:#edf1f5;border:1px solid #a4b3c4;border-radius:24px}
-#anna-story[data-timeline-variant=horizon] .anna-milestone__number{display:block;font:400 80px/1 Inter,Arial,sans-serif;color:#657d95;margin-bottom:clamp(1.125rem, 0.98571rem + 0.57143vw, 1.5rem)}
+#anna-story[data-timeline-variant=horizon] .anna-list{display:flex;gap:var(--space-fluid-28);overflow-x:auto;scroll-snap-type:x mandatory;padding:var(--space-fluid-24) 4px var(--space-fluid-40);overscroll-behavior-inline:contain;scrollbar-width:thin;scrollbar-color:#7e91a7 #edf1f5}
+#anna-story[data-timeline-variant=horizon] .anna-milestone{flex:0 0 min(620px,82vw);scroll-snap-align:center;min-height:360px;padding:var(--space-fluid-36);background:#edf1f5;border:1px solid #a4b3c4;border-radius:24px}
+#anna-story[data-timeline-variant=horizon] .anna-milestone__number{display:block;font:400 80px/1 Inter,Arial,sans-serif;color:#657d95;margin-bottom:var(--space-fluid-24)}
 #anna-story[data-timeline-variant=horizon] :is(.anna-node,.anna-route){display:none}
 #anna-story[data-timeline-variant=horizon] .anna-milestone__copy{opacity:1;transform:none}
-#anna-story[data-timeline-variant=horizon] .anna-horizon-controls{display:flex;justify-content:center;align-items:center;gap:clamp(0.75rem, 0.65714rem + 0.38095vw, 1rem);margin-top:clamp(0.9375rem, 0.82143rem + 0.47619vw, 1.25rem)}
+#anna-story[data-timeline-variant=horizon] .anna-horizon-controls{display:flex;justify-content:center;align-items:center;gap:var(--space-fluid-16);margin-top:var(--space-fluid-20)}
 #anna-story .anna-horizon-controls button{display:grid;place-items:center;width:44px;height:44px;background:#fff;color:var(--story-ink);border:1px solid var(--story-line);border-radius:50%;cursor:pointer}
 #anna-story .anna-horizon-controls button:disabled{opacity:.35;cursor:default}
 #anna-story .anna-horizon-controls output{font:500 12px Inter,Arial,sans-serif;min-width:6ch;text-align:center;color:var(--story-muted)}
 #anna-story.is-horizon-scroll .anna-stage{height:350vh}
 #anna-story.is-horizon-scroll .anna-pin{position:sticky;top:124px;height:min(620px,calc(100svh - 150px));overflow:hidden;display:flex;flex-direction:column;justify-content:center}
-#anna-story.is-horizon-scroll .anna-list{overflow:visible;width:max-content;padding-inline:clamp(1.5rem, 1.31429rem + 0.7619vw, 2rem);scroll-snap-type:none}
-#anna-story.is-horizon-scroll .anna-horizon-controls{margin:0;padding-top:clamp(1.125rem, 0.98571rem + 0.57143vw, 1.5rem);border-top:1px solid var(--story-line)}
+#anna-story.is-horizon-scroll .anna-list{overflow:visible;width:max-content;padding-inline:var(--space-fluid-32);scroll-snap-type:none}
+#anna-story.is-horizon-scroll .anna-horizon-controls{margin:0;padding-top:var(--space-fluid-24);border-top:1px solid var(--story-line)}
 /* 05 — a quiet night chart, connected in the order the story is told. */
-#anna-story[data-timeline-variant=constellation] .anna-stage{--story-ink:#f1f3eb;--story-muted:#d3dce9;--story-line:#7890aa;background:#152335;padding:clamp(28px,4vw,56px);border-radius:32px;color:var(--story-ink)}
-#anna-story[data-timeline-variant=constellation] .anna-list{grid-template-columns:repeat(6,minmax(0,1fr));gap:clamp(3rem, 2.62857rem + 1.52381vw, 4rem) clamp(1.875rem, 1.64286rem + 0.95238vw, 2.5rem);padding-block:clamp(1.125rem, 0.98571rem + 0.57143vw, 1.5rem)}
-#anna-story[data-timeline-variant=constellation] .anna-milestone{grid-column:1/4;min-height:220px;padding:clamp(1.40625rem, 1.23214rem + 0.71429vw, 1.875rem) clamp(1.03125rem, 0.90357rem + 0.52381vw, 1.375rem) clamp(1.03125rem, 0.90357rem + 0.52381vw, 1.375rem);border:1px solid #7890aa80;border-radius:20px;background:#152335eb}
+#anna-story[data-timeline-variant=constellation] .anna-stage{--story-ink:#f1f3eb;--story-muted:#d3dce9;--story-line:#7890aa;background:#152335;padding:var(--space-layout-02);border-radius:32px;color:var(--story-ink)}
+#anna-story[data-timeline-variant=constellation] .anna-list{grid-template-columns:repeat(6,minmax(0,1fr));gap:var(--space-fluid-64) var(--space-fluid-40);padding-block:var(--space-fluid-24)}
+#anna-story[data-timeline-variant=constellation] .anna-milestone{grid-column:1/4;min-height:220px;padding:var(--space-fluid-30) var(--space-fluid-22) var(--space-fluid-22);border:1px solid #7890aa80;border-radius:20px;background:#152335eb}
 #anna-story[data-timeline-variant=constellation] .anna-milestone:nth-child(2),#anna-story[data-timeline-variant=constellation] .anna-milestone:nth-child(5){grid-column:4/7}
 #anna-story[data-timeline-variant=constellation] .anna-milestone:nth-child(3){grid-column:2/6}
 #anna-story[data-timeline-variant=constellation] .anna-node{left:22px;top:-8px;background:#152335;box-shadow:0 0 18px #b7d7f72b}
@@ -83,13 +83,13 @@ html[data-palette] #anna-story .anna-milestone p{color:var(--story-muted);font-s
 #anna-story .anna-stars{display:none}
 #anna-story[data-timeline-variant=constellation] .anna-stars{display:block;fill:#dae8fb;opacity:.35}
 @media(max-width:760px){
-  #anna-story .anna-study-caption{margin-bottom:clamp(1.5rem, 1.31429rem + 0.7619vw, 2rem)!important;min-height:4.8em}
-  #anna-story .anna-studies{gap:7px}html[data-palette] #anna-story .anna-studies button{padding:clamp(0.46875rem, 0.41071rem + 0.2381vw, 0.625rem) clamp(0.5625rem, 0.49286rem + 0.28571vw, 0.75rem);font-size:11px}
-  #anna-story:is([data-timeline-variant=thread],[data-timeline-variant=thread2]) .anna-milestone{display:block;padding-left:clamp(1.6875rem, 1.47857rem + 0.85714vw, 2.25rem);min-height:0}#anna-story:is([data-timeline-variant=thread],[data-timeline-variant=thread2]) .anna-node{left:0;top:40px}#anna-story:is([data-timeline-variant=thread],[data-timeline-variant=thread2]) .anna-milestone__copy,#anna-story:is([data-timeline-variant=thread],[data-timeline-variant=thread2]) .anna-milestone:nth-child(even) .anna-milestone__copy{padding:clamp(1.125rem, 0.98571rem + 0.57143vw, 1.5rem) 0 clamp(1.125rem, 0.98571rem + 0.57143vw, 1.5rem) clamp(0.5625rem, 0.49286rem + 0.28571vw, 0.75rem)}
-  #anna-story[data-timeline-variant=stack] .anna-milestone{position:relative;top:auto;min-height:0;padding:clamp(1.5rem, 1.31429rem + 0.7619vw, 2rem) clamp(1.125rem, 0.98571rem + 0.57143vw, 1.5rem);transform:none}#anna-story[data-timeline-variant=stack] .anna-list{gap:clamp(1.125rem, 0.98571rem + 0.57143vw, 1.5rem);padding-bottom:0}#anna-story[data-timeline-variant=stack] .anna-milestone__number{position:static;font-size:28px;margin-bottom:clamp(1.125rem, 0.98571rem + 0.57143vw, 1.5rem)}
-  #anna-story[data-timeline-variant=worlds] .anna-milestone{display:flex;flex-direction:column;gap:clamp(1.125rem, 0.98571rem + 0.57143vw, 1.5rem);align-items:stretch}#anna-story[data-timeline-variant=worlds] .anna-world{max-width:460px;margin-inline:auto}#anna-story[data-timeline-variant=worlds] .anna-list{gap:clamp(3rem, 2.62857rem + 1.52381vw, 4rem)}
-  #anna-story[data-timeline-variant=horizon] .anna-milestone{flex-basis:calc(100vw - 64px);padding:clamp(1.3125rem, 1.15rem + 0.66667vw, 1.75rem) clamp(1.125rem, 0.98571rem + 0.57143vw, 1.5rem);min-height:400px}#anna-story[data-timeline-variant=horizon] .anna-milestone__number{font-size:56px}
-  #anna-story[data-timeline-variant=constellation] .anna-list{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(2.25rem, 1.97143rem + 1.14286vw, 3rem)}#anna-story[data-timeline-variant=constellation] .anna-milestone:nth-child(n){grid-column:1;padding:clamp(1.21875rem, 1.06786rem + 0.61905vw, 1.625rem) clamp(0.84375rem, 0.73929rem + 0.42857vw, 1.125rem) clamp(0.9375rem, 0.82143rem + 0.47619vw, 1.25rem)}#anna-story[data-timeline-variant=constellation] .anna-stage{padding:clamp(1.5rem, 1.31429rem + 0.7619vw, 2rem) clamp(0.84375rem, 0.73929rem + 0.42857vw, 1.125rem);border-radius:24px}
+  #anna-story .anna-study-caption{margin-bottom:var(--space-fluid-32)!important;min-height:4.8em}
+  #anna-story .anna-studies{gap:7px}html[data-palette] #anna-story .anna-studies button{padding:var(--space-fluid-10) var(--space-fluid-12);font-size:11px}
+  #anna-story:is([data-timeline-variant=thread],[data-timeline-variant=thread2]) .anna-milestone{display:block;padding-left:var(--space-fluid-36);min-height:0}#anna-story:is([data-timeline-variant=thread],[data-timeline-variant=thread2]) .anna-node{left:0;top:40px}#anna-story:is([data-timeline-variant=thread],[data-timeline-variant=thread2]) .anna-milestone__copy,#anna-story:is([data-timeline-variant=thread],[data-timeline-variant=thread2]) .anna-milestone:nth-child(even) .anna-milestone__copy{padding:var(--space-fluid-24) 0 var(--space-fluid-24) var(--space-fluid-12)}
+  #anna-story[data-timeline-variant=stack] .anna-milestone{position:relative;top:auto;min-height:0;padding:var(--space-fluid-32) var(--space-fluid-24);transform:none}#anna-story[data-timeline-variant=stack] .anna-list{gap:var(--space-fluid-24);padding-bottom:0}#anna-story[data-timeline-variant=stack] .anna-milestone__number{position:static;font-size:28px;margin-bottom:var(--space-fluid-24)}
+  #anna-story[data-timeline-variant=worlds] .anna-milestone{display:flex;flex-direction:column;gap:var(--space-fluid-24);align-items:stretch}#anna-story[data-timeline-variant=worlds] .anna-world{max-width:460px;margin-inline:auto}#anna-story[data-timeline-variant=worlds] .anna-list{gap:var(--space-fluid-64)}
+  #anna-story[data-timeline-variant=horizon] .anna-milestone{flex-basis:calc(100vw - 64px);padding:var(--space-fluid-28) var(--space-fluid-24);min-height:400px}#anna-story[data-timeline-variant=horizon] .anna-milestone__number{font-size:56px}
+  #anna-story[data-timeline-variant=constellation] .anna-list{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--space-fluid-48)}#anna-story[data-timeline-variant=constellation] .anna-milestone:nth-child(n){grid-column:1;padding:var(--space-fluid-26) var(--space-fluid-18) var(--space-fluid-20)}#anna-story[data-timeline-variant=constellation] .anna-stage{padding:var(--space-fluid-32) var(--space-fluid-18);border-radius:24px}
 }
 /* Everything remains readable without enhancement or with reduced motion. */
 #anna-story:not(.is-enhanced) :is(.anna-route,.anna-node){display:none}
@@ -103,10 +103,10 @@ html[data-palette] #anna-story .anna-milestone p{color:var(--story-muted);font-s
 #anna-story .anna-river{display:none;position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;z-index:2;color:var(--story-ink)}
 #anna-story:is([data-timeline-variant=thread],[data-timeline-variant=thread2]) .anna-river{display:block}
 #anna-story:is([data-timeline-variant=thread],[data-timeline-variant=thread2]) .anna-route{display:none}
-#anna-story:is([data-timeline-variant=thread],[data-timeline-variant=thread2]) .anna-list{gap:clamp(3.5625rem, 3.12143rem + 1.80952vw, 4.75rem);padding-block:clamp(2.625rem, 2.3rem + 1.33333vw, 3.5rem);z-index:1}
+#anna-story:is([data-timeline-variant=thread],[data-timeline-variant=thread2]) .anna-list{gap:var(--space-fluid-76);padding-block:var(--space-fluid-56);z-index:1}
 #anna-story:is([data-timeline-variant=thread],[data-timeline-variant=thread2]) .anna-milestone{grid-template-columns:minmax(0,1fr) 220px minmax(0,1fr);min-height:360px}
-#anna-story:is([data-timeline-variant=thread],[data-timeline-variant=thread2]) .anna-milestone__copy{background:transparent;padding:clamp(1.3125rem, 1.15rem + 0.66667vw, 1.75rem) clamp(0.75rem, 0.65714rem + 0.38095vw, 1rem) clamp(1.3125rem, 1.15rem + 0.66667vw, 1.75rem) 0;--river-slide:34px}
-#anna-story:is([data-timeline-variant=thread],[data-timeline-variant=thread2]) .anna-milestone:nth-child(even) .anna-milestone__copy{padding:clamp(1.3125rem, 1.15rem + 0.66667vw, 1.75rem) 0 clamp(1.3125rem, 1.15rem + 0.66667vw, 1.75rem) clamp(0.75rem, 0.65714rem + 0.38095vw, 1rem);--river-slide:-34px}
+#anna-story:is([data-timeline-variant=thread],[data-timeline-variant=thread2]) .anna-milestone__copy{background:transparent;padding:var(--space-fluid-28) var(--space-fluid-16) var(--space-fluid-28) 0;--river-slide:34px}
+#anna-story:is([data-timeline-variant=thread],[data-timeline-variant=thread2]) .anna-milestone:nth-child(even) .anna-milestone__copy{padding:var(--space-fluid-28) 0 var(--space-fluid-28) var(--space-fluid-16);--river-slide:-34px}
 #anna-story.is-enhanced:is([data-timeline-variant=thread],[data-timeline-variant=thread2]) .anna-milestone__copy{opacity:clamp(0,var(--tl-p),1);transform:translateX(calc((1 - var(--tl-p))*var(--river-slide)));transform-origin:center}
 #anna-story:is([data-timeline-variant=thread],[data-timeline-variant=thread2]) .anna-node{left:calc(50% + var(--river-node-x,0px) - 7px);top:calc(50% - 7px);background:#f5f8f5;border-color:#526b68}
 #anna-story:is([data-timeline-variant=thread],[data-timeline-variant=thread2]) .anna-node::after{background:#526b68}
@@ -137,9 +137,9 @@ html[data-palette] #anna-story .anna-milestone p{color:var(--story-muted);font-s
 @keyframes riverLanding{0%{transform:scale(1)}42%{transform:scale(1.5)}72%{transform:scale(.95)}100%{transform:scale(1)}}
 @keyframes riverLandingRing{0%{opacity:.65;transform:scale(.65)}100%{opacity:0;transform:scale(1.65)}}
 @media(max-width:760px){
-  #anna-story:is([data-timeline-variant=thread],[data-timeline-variant=thread2]) .anna-list{gap:clamp(3rem, 2.62857rem + 1.52381vw, 4rem);padding-block:clamp(2.625rem, 2.3rem + 1.33333vw, 3.5rem)}
-  #anna-story:is([data-timeline-variant=thread],[data-timeline-variant=thread2]) .anna-milestone{display:block;min-height:300px;padding-left:clamp(4.6875rem, 4.10714rem + 2.38095vw, 6.25rem)}
-  #anna-story:is([data-timeline-variant=thread],[data-timeline-variant=thread2]) .anna-milestone__copy,#anna-story:is([data-timeline-variant=thread],[data-timeline-variant=thread2]) .anna-milestone:nth-child(even) .anna-milestone__copy{padding:clamp(1.125rem, 0.98571rem + 0.57143vw, 1.5rem) 0;--river-slide:-24px}
+  #anna-story:is([data-timeline-variant=thread],[data-timeline-variant=thread2]) .anna-list{gap:var(--space-fluid-64);padding-block:var(--space-fluid-56)}
+  #anna-story:is([data-timeline-variant=thread],[data-timeline-variant=thread2]) .anna-milestone{display:block;min-height:300px;padding-left:var(--space-fluid-100)}
+  #anna-story:is([data-timeline-variant=thread],[data-timeline-variant=thread2]) .anna-milestone__copy,#anna-story:is([data-timeline-variant=thread],[data-timeline-variant=thread2]) .anna-milestone:nth-child(even) .anna-milestone__copy{padding:var(--space-fluid-24) 0;--river-slide:-24px}
   #anna-story:is([data-timeline-variant=thread],[data-timeline-variant=thread2]) .anna-node{left:calc(40px + var(--river-node-x,0px) - 7px);top:calc(50% - 7px)}
   #anna-story:is([data-timeline-variant=thread],[data-timeline-variant=thread2]) .anna-milestone:nth-child(n)::after{left:calc(40px + var(--river-node-x,0px) + 18px);width:calc(34px - var(--river-node-x,0px));transform-origin:left}
   html[data-palette] #anna-story:is([data-timeline-variant=thread],[data-timeline-variant=thread2]) .anna-milestone h3{font-size:clamp(25px,5vw,34px)}
@@ -152,7 +152,7 @@ html[data-palette] #anna-story .anna-milestone p{color:var(--story-muted);font-s
 #anna-story[data-timeline-variant=thread2]{position:relative;isolation:isolate;overflow:hidden}
 .anna-ocean-cut{display:none;position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
 #anna-story[data-timeline-variant=thread2] .anna-ocean-cut{display:block}
-#anna-story[data-timeline-variant=thread2] .anna-story__heading{position:relative;z-index:3;padding:clamp(1.6875rem, 1.47857rem + 0.85714vw, 2.25rem) clamp(0.9375rem, 0.82143rem + 0.47619vw, 1.25rem) clamp(3rem, 2.62857rem + 1.52381vw, 4rem);margin-bottom:clamp(1.5rem, 1.31429rem + 0.7619vw, 2rem);max-width:900px;text-shadow:0 2px 20px #061e2d80}
+#anna-story[data-timeline-variant=thread2] .anna-story__heading{position:relative;z-index:3;padding:var(--space-fluid-36) var(--space-fluid-20) var(--space-fluid-64);margin-bottom:var(--space-fluid-32);max-width:900px;text-shadow:0 2px 20px #061e2d80}
 html[data-palette] #anna-story[data-timeline-variant=thread2] .anna-story__heading :is(h1,h2,p){color:#fff}
 #anna-story[data-timeline-variant=thread2] :is(.anna-studies,.anna-study-caption,.anna-timeline-footer){position:relative;z-index:3}
 #anna-story[data-timeline-variant=thread2] .anna-study-caption{display:none}
@@ -161,9 +161,9 @@ html[data-palette] #anna-story[data-timeline-variant=thread2] .anna-story__headi
 #anna-story[data-timeline-variant=thread2] .river-kayak__hull{fill:#f6e7c7;stroke:#342a22;stroke-width:1.8}
 #anna-story[data-timeline-variant=thread2] .river-wake{stroke:#fff;stroke-width:1.2}
 #anna-story[data-timeline-variant=thread2] .anna-node{background:#fff;border-color:#fff}
-@media(max-width:760px){#anna-story[data-timeline-variant=thread2] .anna-story__heading{padding:clamp(0.75rem, 0.65714rem + 0.38095vw, 1rem) 0 clamp(1.875rem, 1.64286rem + 0.95238vw, 2.5rem)}#anna-story[data-timeline-variant=thread2] .anna-study-caption{padding:clamp(0.5625rem, 0.49286rem + 0.28571vw, 0.75rem)}}
+@media(max-width:760px){#anna-story[data-timeline-variant=thread2] .anna-story__heading{padding:var(--space-fluid-16) 0 var(--space-fluid-40)}#anna-story[data-timeline-variant=thread2] .anna-study-caption{padding:var(--space-fluid-12)}}
 
-#anna-story[data-timeline-variant=thread2] .anna-studies{margin-bottom:clamp(2.25rem, 1.97143rem + 1.14286vw, 3rem)}
+#anna-story[data-timeline-variant=thread2] .anna-studies{margin-bottom:var(--space-fluid-48)}
 
 /* A short, settled reveal follows each waka landing. */
 #anna-story.is-enhanced[data-timeline-variant=thread2] .anna-milestone__copy{transform:translateY(calc((1 - var(--tl-p))*12px))}
@@ -171,10 +171,10 @@ html[data-palette] #anna-story[data-timeline-variant=thread2] .anna-story__headi
 /* Let the blue opening reach the viewport edges while preserving the story column. */
 html[data-palette] #anna-story[data-timeline-variant=thread2]{max-width:none;width:100%;padding-inline:max(clamp(22px,5vw,72px),calc((100% - 1296px)/2))}
 
-#anna-story .anna-breadcrumb{position:relative;z-index:3;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px clamp(0.5625rem, 0.49286rem + 0.28571vw, 0.75rem);margin-bottom:clamp(1.21875rem, 1.06786rem + 0.61905vw, 1.625rem);font:400 11px/1.5 Inter,Arial,sans-serif}
+#anna-story .anna-breadcrumb{position:relative;z-index:3;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px var(--space-fluid-12);margin-bottom:var(--space-fluid-26);font:400 11px/1.5 Inter,Arial,sans-serif}
 #anna-story .anna-breadcrumb a{color:inherit;text-underline-offset:4px}
 #anna-story[data-timeline-variant=thread2] .anna-breadcrumb{color:#fff}
-@media(max-width:760px){html[data-palette] #anna-story{padding-top:clamp(3rem, 2.62857rem + 1.52381vw, 4rem)}#anna-story .anna-breadcrumb{font-size:10px;margin-bottom:clamp(1.03125rem, 0.90357rem + 0.52381vw, 1.375rem)}}
+@media(max-width:760px){html[data-palette] #anna-story{padding-top:var(--space-fluid-64)}#anna-story .anna-breadcrumb{font-size:10px;margin-bottom:var(--space-fluid-22)}}
 
 #anna-story[data-timeline-variant=thread2]:not(.is-enhanced) .anna-story__heading{background:#0D4687}
 #anna-story[data-timeline-variant=thread2]:not(.is-enhanced) .anna-breadcrumb{color:var(--story-ink)}
@@ -199,7 +199,7 @@ html[data-palette] #anna-story .anna-story__heading>.ds-kicker{margin-top:0}
 @media(max-width:760px){
  #anna-story[data-timeline-variant=thread2] .anna-milestone{display:grid;grid-template-columns:minmax(0,.65fr) 56px minmax(0,1fr);padding-left:0;min-height:380px}
  #anna-story[data-timeline-variant=thread2] .anna-milestone:nth-child(n) .anna-world{grid-column:1}
- #anna-story[data-timeline-variant=thread2] .anna-milestone:nth-child(n) .anna-milestone__copy{grid-column:3;padding:clamp(1.125rem, 0.98571rem + 0.57143vw, 1.5rem) 0}
+ #anna-story[data-timeline-variant=thread2] .anna-milestone:nth-child(n) .anna-milestone__copy{grid-column:3;padding:var(--space-fluid-24) 0}
  #anna-story[data-timeline-variant=thread2] .anna-node{left:calc(var(--river-centre) + var(--river-node-x,0px) - 7px)}
  #anna-story[data-timeline-variant=thread2] .anna-milestone:nth-child(n)::after{left:calc(var(--river-centre) + var(--river-node-x,0px) + 18px);width:calc(10px - var(--river-node-x,0px))}
  html[data-palette] #anna-story[data-timeline-variant=thread2] .anna-milestone h3{font-size:clamp(23px,5vw,30px)}
@@ -211,9 +211,9 @@ html[data-palette] #anna-story .anna-story__heading>.ds-kicker{margin-top:0}
 
 /* On phones, keep the river left and stack each illustration above its copy. */
 @media(max-width:760px){
- #anna-story[data-timeline-variant=thread2] .anna-milestone{display:grid;grid-template-columns:100px minmax(0,1fr);grid-template-rows:auto auto;align-content:center;min-height:0;padding-left:0;row-gap:clamp(0.5625rem, 0.49286rem + 0.28571vw, 0.75rem)}
+ #anna-story[data-timeline-variant=thread2] .anna-milestone{display:grid;grid-template-columns:100px minmax(0,1fr);grid-template-rows:auto auto;align-content:center;min-height:0;padding-left:0;row-gap:var(--space-fluid-12)}
  #anna-story[data-timeline-variant=thread2] .anna-milestone:nth-child(n) .anna-world{grid-column:2;grid-row:1;max-width:250px}
- #anna-story[data-timeline-variant=thread2] .anna-milestone:nth-child(n) .anna-milestone__copy{grid-column:2;grid-row:2;padding:clamp(0.5625rem, 0.49286rem + 0.28571vw, 0.75rem) 0 clamp(1.125rem, 0.98571rem + 0.57143vw, 1.5rem)}
+ #anna-story[data-timeline-variant=thread2] .anna-milestone:nth-child(n) .anna-milestone__copy{grid-column:2;grid-row:2;padding:var(--space-fluid-12) 0 var(--space-fluid-24)}
  #anna-story[data-timeline-variant=thread2] .anna-node{left:calc(40px + var(--river-node-x,0px) - 7px)}
  #anna-story[data-timeline-variant=thread2] .anna-milestone:nth-child(n)::after{left:calc(40px + var(--river-node-x,0px) + 18px);width:calc(34px - var(--river-node-x,0px))}
 }
@@ -229,20 +229,20 @@ html[data-palette] #anna-story .anna-story__heading>.ds-kicker{margin-top:0}
 
 .anna-story-outline{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
 /* Waka design previews: the original remains available beside ten new studies. */
-#anna-story .waka-studies{display:grid;grid-template-columns:190px minmax(0,1fr);gap:clamp(1.125rem, 0.98571rem + 0.57143vw, 1.5rem);align-items:center;text-align:left;margin:clamp(1.40625rem, 1.23214rem + 0.71429vw, 1.875rem) auto 0;padding:clamp(0.9375rem, 0.82143rem + 0.47619vw, 1.25rem);border:1px solid #ffffff40;border-radius:24px;background:#183958;color:#fff;max-width:680px;position:relative;z-index:2}
+#anna-story .waka-studies{display:grid;grid-template-columns:190px minmax(0,1fr);gap:var(--space-fluid-24);align-items:center;text-align:left;margin:var(--space-fluid-30) auto 0;padding:var(--space-fluid-20);border:1px solid #ffffff40;border-radius:24px;background:#183958;color:#fff;max-width:680px;position:relative;z-index:2}
 #anna-story .waka-studies__preview{height:210px;background:#267c86;border-radius:16px;overflow:hidden}
 #anna-story .waka-studies__preview svg{display:block;width:100%;height:100%}
 #anna-story .waka-studies__body{min-width:0}
-#anna-story .waka-studies p{color:#e5eeee;font:400 13px/1.5 Inter,Arial,sans-serif;margin:8px 0 clamp(0.65625rem, 0.575rem + 0.33333vw, 0.875rem);max-width:none}
+#anna-story .waka-studies p{color:#e5eeee;font:400 13px/1.5 Inter,Arial,sans-serif;margin:8px 0 var(--space-fluid-14);max-width:none}
 #anna-story .waka-studies p.waka-studies__label{font-size:11px;text-transform:uppercase;letter-spacing:.12em;margin:0 0 6px}
 #anna-story .waka-studies output{font:500 20px/1.2 Inter,Arial,sans-serif;color:#fff}
 #anna-story .waka-studies__choices{display:flex;flex-wrap:wrap;gap:6px}
-#anna-story .waka-studies button{font:500 12px/1 Inter,Arial,sans-serif;min-width:34px;min-height:34px;padding:clamp(0.42188rem, 0.36964rem + 0.21429vw, 0.5625rem);border:1px solid #ffffff55;border-radius:50%;color:#fff;background:transparent;cursor:pointer}
-#anna-story .waka-studies button[data-waka-choice="0"]{border-radius:18px;padding-inline:clamp(0.5625rem, 0.49286rem + 0.28571vw, 0.75rem)}
+#anna-story .waka-studies button{font:500 12px/1 Inter,Arial,sans-serif;min-width:34px;min-height:34px;padding:var(--space-fluid-9);border:1px solid #ffffff55;border-radius:50%;color:#fff;background:transparent;cursor:pointer}
+#anna-story .waka-studies button[data-waka-choice="0"]{border-radius:18px;padding-inline:var(--space-fluid-12)}
 #anna-story .waka-studies button[aria-pressed="true"]{background:#fdd8b0;color:#281a2c;border-color:#fdd8b0}
 #anna-story .waka-studies button:hover{background:#ffffff20}
 #anna-story .waka-studies button[aria-pressed="true"]:hover{background:#fdb069}
 #anna-story .waka-studies button:focus-visible{outline:2px solid #fdb069;outline-offset:3px}
 #anna-story .waka-studies button.waka-studies__replay{display:block;border:0;border-radius:4px;text-decoration:underline;text-underline-offset:4px;margin-top:8px;padding-left:0;min-height:36px}
-@media(max-width:600px){#anna-story .waka-studies{grid-template-columns:1fr;gap:clamp(0.75rem, 0.65714rem + 0.38095vw, 1rem);padding:clamp(0.75rem, 0.65714rem + 0.38095vw, 1rem)}#anna-story .waka-studies__preview{height:190px}#anna-story .waka-studies button{min-height:40px;min-width:40px}}
+@media(max-width:600px){#anna-story .waka-studies{grid-template-columns:1fr;gap:var(--space-fluid-16);padding:var(--space-fluid-16)}#anna-story .waka-studies__preview{height:190px}#anna-story .waka-studies button{min-height:40px;min-width:40px}}
 @media(prefers-reduced-motion:reduce){#anna-story .waka-studies__replay{display:none!important}}

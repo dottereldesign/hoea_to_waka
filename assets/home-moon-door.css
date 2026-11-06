@@ -1,14 +1,14 @@
-.home-cta-door-layout{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:clamp(28px,4vw,64px);align-items:center;max-width:1280px;margin:auto;padding-inline:clamp(20px,4vw,56px)}
+.home-cta-door-layout{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:var(--space-layout-03);align-items:center;max-width:1280px;margin:auto;padding-inline:clamp(20px,4vw,56px)}
 .home-moon-door{width:100%;max-width:650px;min-width:0;margin:auto;contain:layout}
 .home-moon-door>svg{display:block;width:100%;height:auto;aspect-ratio:1;overflow:hidden;background:#fff}
 .home-moon-door [hidden]{display:none!important}
 .home-cta-door .home-cta-body{padding:0;min-width:0}
-html[data-palette] .home-cta-door .home-cta-door-copy .ds-kicker{margin:0 0 clamp(0.84375rem, 0.73929rem + 0.42857vw, 1.125rem)!important;color:var(--brand-logo-black)}
-html[data-palette] .home-cta-door .home-cta-door-copy .ds-title{font-size:clamp(32px,3.3vw,52px);font-weight:500;line-height:1.08;letter-spacing:-.04em;margin:0 0 clamp(1.21875rem, 1.06786rem + 0.61905vw, 1.625rem);max-width:18ch;color:var(--brand-logo-black);text-wrap:balance}
+html[data-palette] .home-cta-door .home-cta-door-copy .ds-kicker{margin:0 0 var(--space-fluid-18)!important;color:var(--brand-logo-black)}
+html[data-palette] .home-cta-door .home-cta-door-copy .ds-title{font-size:clamp(32px,3.3vw,52px);font-weight:500;line-height:1.08;letter-spacing:-.04em;margin:0 0 var(--space-fluid-26);max-width:18ch;color:var(--brand-logo-black);text-wrap:balance}
 html[data-palette] .home-cta-door .home-cta-body .ds-lead{font-size:clamp(18px,1.6vw,23px);line-height:1.55;max-width:39ch}
 .home-cta-door .home-cta-support{max-width:44ch}
-@media(max-width:900px){.home-cta-door-layout{grid-template-columns:minmax(0,1fr);gap:clamp(1.5rem, 1.31429rem + 0.7619vw, 2rem);padding-inline:clamp(1.125rem, 0.98571rem + 0.57143vw, 1.5rem)}.home-moon-door{max-width:500px}.home-cta-door .home-cta-body{width:100%;max-width:580px;margin:auto}.home-cta-door-copy .ds-title{max-width:20ch}}
-@media(max-width:400px){.home-cta-door-layout{padding-inline:clamp(0.65625rem, 0.575rem + 0.33333vw, 0.875rem);gap:clamp(1.125rem, 0.98571rem + 0.57143vw, 1.5rem)}}
+@media(max-width:900px){.home-cta-door-layout{grid-template-columns:minmax(0,1fr);gap:var(--space-fluid-32);padding-inline:var(--space-fluid-24)}.home-moon-door{max-width:500px}.home-cta-door .home-cta-body{width:100%;max-width:580px;margin:auto}.home-cta-door-copy .ds-title{max-width:20ch}}
+@media(max-width:400px){.home-cta-door-layout{padding-inline:var(--space-fluid-14);gap:var(--space-fluid-24)}}
 
 /* Keep the static fallback for no-JS visitors; reveal motion only after its first draw. */
 html.js [data-moon-door]:not([data-door-bound="true"])>svg{visibility:hidden}

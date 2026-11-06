@@ -1,0 +1,3539 @@
+{
+  "status": "Review candidates only; no size changes applied",
+  "viewportWidths": [
+    320,
+    390,
+    600,
+    760,
+    768,
+    1100,
+    1440,
+    1920,
+    2560
+  ],
+  "rootFontSize": 16,
+  "notes": [
+    "Exact repeated formulas were centralized without rounding.",
+    "These pairs differ by at most 2px at the sampled widths; that is not proof that merging their components is safe.",
+    "Review responsive wrapping, larger font settings, control hit areas and animation geometry before merging.",
+    "Preserve header clearance, staircase offsets, game height reservation and logo construction."
+  ],
+  "candidatePairCount": 95,
+  "candidates": [
+    {
+      "delta": 0.8,
+      "a": "clamp(1.125rem,0.98571rem + 0.57143vw,1.5rem)",
+      "b": "clamp(1.125rem,1rem + .5vw,1.5rem)",
+      "aSamples": [
+        18,
+        18,
+        19.1999,
+        20.1142,
+        20.1599,
+        22.0571,
+        24,
+        24,
+        24
+      ],
+      "bSamples": [
+        18,
+        18,
+        19,
+        19.8,
+        19.84,
+        21.5,
+        23.2,
+        24,
+        24
+      ],
+      "exampleA": {
+        "file": "assets/brand-ai.css",
+        "property": "margin",
+        "selector": ".logo-copy-studies"
+      },
+      "exampleB": {
+        "file": "assets/spacing-guide.css",
+        "property": "gap",
+        "selector": ".spacing-rhythm-grid"
+      }
+    },
+    {
+      "delta": 0.9,
+      "a": "clamp(0.65625rem,0.575rem + 0.33333vw,0.875rem)",
+      "b": "clamp(.6rem,.5rem + .4vw,.875rem)",
+      "aSamples": [
+        10.5,
+        10.5,
+        11.2,
+        11.7333,
+        11.76,
+        12.8666,
+        14,
+        14,
+        14
+      ],
+      "bSamples": [
+        9.6,
+        9.6,
+        10.4,
+        11.04,
+        11.072,
+        12.4,
+        13.76,
+        14,
+        14
+      ],
+      "exampleA": {
+        "file": "design/brand-contents.css",
+        "property": "margin",
+        "selector": "html[data-palette] :is(.brand-guide-audience-grid,.brand-guide-service-list) h3"
+      },
+      "exampleB": {
+        "file": "assets/spacing-guide.css",
+        "property": "padding",
+        "selector": ".spacing-inventory th,.spacing-inventory td"
+      }
+    },
+    {
+      "delta": 1,
+      "a": "clamp(1.125rem,0.98571rem + 0.57143vw,1.5rem)",
+      "b": "clamp(1.17188rem,1.02679rem + 0.59524vw,1.5625rem)",
+      "aSamples": [
+        18,
+        18,
+        19.1999,
+        20.1142,
+        20.1599,
+        22.0571,
+        24,
+        24,
+        24
+      ],
+      "bSamples": [
+        18.7501,
+        18.7501,
+        20.0001,
+        20.9525,
+        21.0001,
+        22.9763,
+        25,
+        25,
+        25
+      ],
+      "exampleA": {
+        "file": "assets/brand-ai.css",
+        "property": "margin",
+        "selector": ".logo-copy-studies"
+      },
+      "exampleB": {
+        "file": "design/presentation.css",
+        "property": "margin",
+        "selector": ".home-cta-simple .home-cta-copy .ds-kicker"
+      }
+    },
+    {
+      "delta": 1,
+      "a": "clamp(1.125rem,0.98571rem + 0.57143vw,1.5rem)",
+      "b": "clamp(1.07813rem,0.94464rem + 0.54762vw,1.4375rem)",
+      "aSamples": [
+        18,
+        18,
+        19.1999,
+        20.1142,
+        20.1599,
+        22.0571,
+        24,
+        24,
+        24
+      ],
+      "bSamples": [
+        17.2501,
+        17.2501,
+        18.4,
+        19.2762,
+        19.32,
+        21.1381,
+        23,
+        23,
+        23
+      ],
+      "exampleA": {
+        "file": "assets/brand-ai.css",
+        "property": "margin",
+        "selector": ".logo-copy-studies"
+      },
+      "exampleB": {
+        "file": "assets/prompts.css",
+        "property": "padding",
+        "selector": ".prompt-card-body"
+      }
+    },
+    {
+      "delta": 1,
+      "a": "clamp(0.5625rem,0.49286rem + 0.28571vw,0.75rem)",
+      "b": "clamp(0.60938rem,0.53393rem + 0.30952vw,0.8125rem)",
+      "aSamples": [
+        9,
+        9.00003,
+        9.60002,
+        10.0572,
+        10.08,
+        11.0286,
+        12,
+        12,
+        12
+      ],
+      "bSamples": [
+        9.75008,
+        9.75008,
+        10.4,
+        10.8952,
+        10.92,
+        11.9476,
+        13,
+        13,
+        13
+      ],
+      "exampleA": {
+        "file": "assets/brand-nature.css",
+        "property": "margin",
+        "selector": "html[data-palette] #brand-nature-studies h2"
+      },
+      "exampleB": {
+        "file": "assets/prompts.css",
+        "property": "padding",
+        "selector": ".prompt-page .ap-launcher"
+      }
+    },
+    {
+      "delta": 1,
+      "a": "clamp(0.5625rem,0.49286rem + 0.28571vw,0.75rem)",
+      "b": "clamp(0.51563rem,0.45179rem + 0.2619vw,0.6875rem)",
+      "aSamples": [
+        9,
+        9.00003,
+        9.60002,
+        10.0572,
+        10.08,
+        11.0286,
+        12,
+        12,
+        12
+      ],
+      "bSamples": [
+        8.25008,
+        8.25008,
+        8.80004,
+        9.21908,
+        9.24003,
+        10.1095,
+        11,
+        11,
+        11
+      ],
+      "exampleA": {
+        "file": "assets/brand-nature.css",
+        "property": "margin",
+        "selector": "html[data-palette] #brand-nature-studies h2"
+      },
+      "exampleB": {
+        "file": "assets/brand-door.css",
+        "property": "padding",
+        "selector": "html[data-palette] .brand-door-study__choices button"
+      }
+    },
+    {
+      "delta": 1,
+      "a": "clamp(0.75rem,0.65714rem + 0.38095vw,1rem)",
+      "b": "clamp(0.70313rem,0.61607rem + 0.35714vw,0.9375rem)",
+      "aSamples": [
+        12,
+        12,
+        12.7999,
+        13.4095,
+        13.4399,
+        14.7047,
+        15.9999,
+        16,
+        16
+      ],
+      "bSamples": [
+        11.2501,
+        11.2501,
+        12,
+        12.5714,
+        12.6,
+        13.7857,
+        14.9999,
+        15,
+        15
+      ],
+      "exampleA": {
+        "file": "assets/colour-testing/palette-lab.css",
+        "property": "margin",
+        "selector": "html[data-palette] .palette-lab h3"
+      },
+      "exampleB": {
+        "file": "design/brand-contents.css",
+        "property": "padding",
+        "selector": ".ig-follow,.ig-message"
+      }
+    },
+    {
+      "delta": 1,
+      "a": "clamp(0.75rem,0.65714rem + 0.38095vw,1rem)",
+      "b": "clamp(0.79688rem,0.69821rem + 0.40476vw,1.0625rem)",
+      "aSamples": [
+        12,
+        12,
+        12.7999,
+        13.4095,
+        13.4399,
+        14.7047,
+        15.9999,
+        16,
+        16
+      ],
+      "bSamples": [
+        12.7501,
+        12.7501,
+        13.5999,
+        14.2475,
+        14.2799,
+        15.6237,
+        16.9999,
+        17,
+        17
+      ],
+      "exampleA": {
+        "file": "assets/colour-testing/palette-lab.css",
+        "property": "margin",
+        "selector": "html[data-palette] .palette-lab h3"
+      },
+      "exampleB": {
+        "file": "design/brand-contents.css",
+        "property": "padding",
+        "selector": ".social-actions>span"
+      }
+    },
+    {
+      "delta": 1,
+      "a": "clamp(0.9375rem,0.82143rem + 0.47619vw,1.25rem)",
+      "b": "clamp(0.89063rem,0.78036rem + 0.45238vw,1.1875rem)",
+      "aSamples": [
+        15,
+        15,
+        16,
+        16.7619,
+        16.8,
+        18.381,
+        20,
+        20,
+        20
+      ],
+      "bSamples": [
+        14.2501,
+        14.2501,
+        15.2,
+        15.9238,
+        15.96,
+        17.4619,
+        19,
+        19,
+        19
+      ],
+      "exampleA": {
+        "file": "assets/anna-timelines.css",
+        "property": "margin",
+        "selector": "html[data-palette] #anna-story .anna-milestone h3"
+      },
+      "exampleB": {
+        "file": "assets/prompts.css",
+        "property": "margin-top",
+        "selector": ".prompt-card details"
+      }
+    },
+    {
+      "delta": 1,
+      "a": "clamp(0.84375rem,0.73929rem + 0.42857vw,1.125rem)",
+      "b": "clamp(0.89063rem,0.78036rem + 0.45238vw,1.1875rem)",
+      "aSamples": [
+        13.5,
+        13.5001,
+        14.4001,
+        15.0858,
+        15.1201,
+        16.5429,
+        18,
+        18,
+        18
+      ],
+      "bSamples": [
+        14.2501,
+        14.2501,
+        15.2,
+        15.9238,
+        15.96,
+        17.4619,
+        19,
+        19,
+        19
+      ],
+      "exampleA": {
+        "file": "design/components.css",
+        "property": "padding",
+        "selector": ".ds-component .ds-button[data-atom-variant=\"2\"]"
+      },
+      "exampleB": {
+        "file": "assets/prompts.css",
+        "property": "margin-top",
+        "selector": ".prompt-card details"
+      }
+    },
+    {
+      "delta": 1,
+      "a": "clamp(0.84375rem,0.73929rem + 0.42857vw,1.125rem)",
+      "b": "clamp(0.79688rem,0.69821rem + 0.40476vw,1.0625rem)",
+      "aSamples": [
+        13.5,
+        13.5001,
+        14.4001,
+        15.0858,
+        15.1201,
+        16.5429,
+        18,
+        18,
+        18
+      ],
+      "bSamples": [
+        12.7501,
+        12.7501,
+        13.5999,
+        14.2475,
+        14.2799,
+        15.6237,
+        16.9999,
+        17,
+        17
+      ],
+      "exampleA": {
+        "file": "design/components.css",
+        "property": "padding",
+        "selector": ".ds-component .ds-button[data-atom-variant=\"2\"]"
+      },
+      "exampleB": {
+        "file": "design/brand-contents.css",
+        "property": "padding",
+        "selector": ".social-actions>span"
+      }
+    },
+    {
+      "delta": 1,
+      "a": "clamp(0.46875rem,0.41071rem + 0.2381vw,0.625rem)",
+      "b": "clamp(0.42188rem,0.36964rem + 0.21429vw,0.5625rem)",
+      "aSamples": [
+        7.5,
+        7.5,
+        7.99996,
+        8.38092,
+        8.39997,
+        9.19046,
+        10,
+        10,
+        10
+      ],
+      "bSamples": [
+        6.75008,
+        6.75008,
+        7.19998,
+        7.54284,
+        7.55999,
+        8.27143,
+        9,
+        9,
+        9
+      ],
+      "exampleA": {
+        "file": "assets/brand-ai.css",
+        "property": "margin",
+        "selector": "html[data-palette] .brand-guidelines .brand-ai h2"
+      },
+      "exampleB": {
+        "file": "styles.css",
+        "property": "padding",
+        "selector": ".preview-business-card-footer span"
+      }
+    },
+    {
+      "delta": 1,
+      "a": "clamp(0.46875rem,0.41071rem + 0.2381vw,0.625rem)",
+      "b": "clamp(0.51563rem,0.45179rem + 0.2619vw,0.6875rem)",
+      "aSamples": [
+        7.5,
+        7.5,
+        7.99996,
+        8.38092,
+        8.39997,
+        9.19046,
+        10,
+        10,
+        10
+      ],
+      "bSamples": [
+        8.25008,
+        8.25008,
+        8.80004,
+        9.21908,
+        9.24003,
+        10.1095,
+        11,
+        11,
+        11
+      ],
+      "exampleA": {
+        "file": "assets/brand-ai.css",
+        "property": "margin",
+        "selector": "html[data-palette] .brand-guidelines .brand-ai h2"
+      },
+      "exampleB": {
+        "file": "assets/brand-door.css",
+        "property": "padding",
+        "selector": "html[data-palette] .brand-door-study__choices button"
+      }
+    },
+    {
+      "delta": 1,
+      "a": "clamp(1.3125rem,1.15rem + 0.66667vw,1.75rem)",
+      "b": "clamp(1.26563rem,1.10893rem + 0.64286vw,1.6875rem)",
+      "aSamples": [
+        21,
+        21,
+        22.4,
+        23.4667,
+        23.52,
+        25.7334,
+        28,
+        28,
+        28
+      ],
+      "bSamples": [
+        20.2501,
+        20.2501,
+        21.6,
+        22.6286,
+        22.68,
+        24.8143,
+        27,
+        27,
+        27
+      ],
+      "exampleA": {
+        "file": "assets/colour-testing/palette-lab.css",
+        "property": "margin",
+        "selector": ".palette-lab p.site-colours-intro"
+      },
+      "exampleB": {
+        "file": "site.css",
+        "property": "margin-top",
+        "selector": ".home-hero-inner-photo .home-tagline"
+      }
+    },
+    {
+      "delta": 1,
+      "a": "clamp(1.3125rem,1.15rem + 0.66667vw,1.75rem)",
+      "b": "clamp(1.35938rem,1.19107rem + 0.69048vw,1.8125rem)",
+      "aSamples": [
+        21,
+        21,
+        22.4,
+        23.4667,
+        23.52,
+        25.7334,
+        28,
+        28,
+        28
+      ],
+      "bSamples": [
+        21.7501,
+        21.7501,
+        23.2,
+        24.3048,
+        24.36,
+        26.6524,
+        29,
+        29,
+        29
+      ],
+      "exampleA": {
+        "file": "assets/colour-testing/palette-lab.css",
+        "property": "margin",
+        "selector": ".palette-lab p.site-colours-intro"
+      },
+      "exampleB": {
+        "file": "assets/prompts.css",
+        "property": "margin-bottom",
+        "selector": ".prompt-categories"
+      }
+    },
+    {
+      "delta": 1,
+      "a": "clamp(0.65625rem,0.575rem + 0.33333vw,0.875rem)",
+      "b": "clamp(0.70313rem,0.61607rem + 0.35714vw,0.9375rem)",
+      "aSamples": [
+        10.5,
+        10.5,
+        11.2,
+        11.7333,
+        11.76,
+        12.8666,
+        14,
+        14,
+        14
+      ],
+      "bSamples": [
+        11.2501,
+        11.2501,
+        12,
+        12.5714,
+        12.6,
+        13.7857,
+        14.9999,
+        15,
+        15
+      ],
+      "exampleA": {
+        "file": "design/brand-contents.css",
+        "property": "margin",
+        "selector": "html[data-palette] :is(.brand-guide-audience-grid,.brand-guide-service-list) h3"
+      },
+      "exampleB": {
+        "file": "design/brand-contents.css",
+        "property": "padding",
+        "selector": ".ig-follow,.ig-message"
+      }
+    },
+    {
+      "delta": 1,
+      "a": "clamp(0.65625rem,0.575rem + 0.33333vw,0.875rem)",
+      "b": "clamp(0.60938rem,0.53393rem + 0.30952vw,0.8125rem)",
+      "aSamples": [
+        10.5,
+        10.5,
+        11.2,
+        11.7333,
+        11.76,
+        12.8666,
+        14,
+        14,
+        14
+      ],
+      "bSamples": [
+        9.75008,
+        9.75008,
+        10.4,
+        10.8952,
+        10.92,
+        11.9476,
+        13,
+        13,
+        13
+      ],
+      "exampleA": {
+        "file": "design/brand-contents.css",
+        "property": "margin",
+        "selector": "html[data-palette] :is(.brand-guide-audience-grid,.brand-guide-service-list) h3"
+      },
+      "exampleB": {
+        "file": "assets/prompts.css",
+        "property": "padding",
+        "selector": ".prompt-page .ap-launcher"
+      }
+    },
+    {
+      "delta": 1,
+      "a": "clamp(1.03125rem,0.90357rem + 0.52381vw,1.375rem)",
+      "b": "clamp(1.07813rem,0.94464rem + 0.54762vw,1.4375rem)",
+      "aSamples": [
+        16.5,
+        16.5,
+        17.6,
+        18.4381,
+        18.48,
+        20.219,
+        22,
+        22,
+        22
+      ],
+      "bSamples": [
+        17.2501,
+        17.2501,
+        18.4,
+        19.2762,
+        19.32,
+        21.1381,
+        23,
+        23,
+        23
+      ],
+      "exampleA": {
+        "file": "assets/brand-share.css",
+        "property": "margin",
+        "selector": ".brand-guidelines .brand-share__options"
+      },
+      "exampleB": {
+        "file": "assets/prompts.css",
+        "property": "padding",
+        "selector": ".prompt-card-body"
+      }
+    },
+    {
+      "delta": 1,
+      "a": "clamp(1.40625rem,1.23214rem + 0.71429vw,1.875rem)",
+      "b": "clamp(1.35938rem,1.19107rem + 0.69048vw,1.8125rem)",
+      "aSamples": [
+        22.5,
+        22.5,
+        24,
+        25.1428,
+        25.2,
+        27.5714,
+        30,
+        30,
+        30
+      ],
+      "bSamples": [
+        21.7501,
+        21.7501,
+        23.2,
+        24.3048,
+        24.36,
+        26.6524,
+        29,
+        29,
+        29
+      ],
+      "exampleA": {
+        "file": "assets/colour-testing/palette-lab.css",
+        "property": "margin",
+        "selector": ".site-colour-merges"
+      },
+      "exampleB": {
+        "file": "assets/prompts.css",
+        "property": "margin-bottom",
+        "selector": ".prompt-categories"
+      }
+    },
+    {
+      "delta": 1,
+      "a": "clamp(1.21875rem,1.06786rem + 0.61905vw,1.625rem)",
+      "b": "clamp(1.17188rem,1.02679rem + 0.59524vw,1.5625rem)",
+      "aSamples": [
+        19.5,
+        19.5001,
+        20.8001,
+        21.7905,
+        21.8401,
+        23.8953,
+        26,
+        26,
+        26
+      ],
+      "bSamples": [
+        18.7501,
+        18.7501,
+        20.0001,
+        20.9525,
+        21.0001,
+        22.9763,
+        25,
+        25,
+        25
+      ],
+      "exampleA": {
+        "file": "assets/home-moon-door.css",
+        "property": "margin",
+        "selector": "html[data-palette] .home-cta-door .home-cta-door-copy .ds-title"
+      },
+      "exampleB": {
+        "file": "design/presentation.css",
+        "property": "margin",
+        "selector": ".home-cta-simple .home-cta-copy .ds-kicker"
+      }
+    },
+    {
+      "delta": 1,
+      "a": "clamp(1.21875rem,1.06786rem + 0.61905vw,1.625rem)",
+      "b": "clamp(1.26563rem,1.10893rem + 0.64286vw,1.6875rem)",
+      "aSamples": [
+        19.5,
+        19.5001,
+        20.8001,
+        21.7905,
+        21.8401,
+        23.8953,
+        26,
+        26,
+        26
+      ],
+      "bSamples": [
+        20.2501,
+        20.2501,
+        21.6,
+        22.6286,
+        22.68,
+        24.8143,
+        27,
+        27,
+        27
+      ],
+      "exampleA": {
+        "file": "assets/home-moon-door.css",
+        "property": "margin",
+        "selector": "html[data-palette] .home-cta-door .home-cta-door-copy .ds-title"
+      },
+      "exampleB": {
+        "file": "site.css",
+        "property": "margin-top",
+        "selector": ".home-hero-inner-photo .home-tagline"
+      }
+    },
+    {
+      "delta": 1,
+      "a": "clamp(1.6875rem,1.47857rem + 0.85714vw,2.25rem)",
+      "b": "clamp(1.64063rem,1.4375rem + 0.83333vw,2.1875rem)",
+      "aSamples": [
+        27,
+        27,
+        28.8,
+        30.1714,
+        30.24,
+        33.0857,
+        35.9999,
+        36,
+        36
+      ],
+      "bSamples": [
+        26.2501,
+        26.2501,
+        28,
+        29.3333,
+        29.4,
+        32.1666,
+        35,
+        35,
+        35
+      ],
+      "exampleA": {
+        "file": "assets/resource-game.css",
+        "property": "padding",
+        "selector": ".mw-game"
+      },
+      "exampleB": {
+        "file": "design/components.css",
+        "property": "gap",
+        "selector": ".ds-service-editorial"
+      }
+    },
+    {
+      "delta": 1,
+      "a": "clamp(2.625rem,2.3rem + 1.33333vw,3.5rem)",
+      "b": "clamp(2.57813rem,2.25893rem + 1.30952vw,3.4375rem)",
+      "aSamples": [
+        42,
+        42,
+        44.8,
+        46.9333,
+        47.04,
+        51.4666,
+        56,
+        56,
+        56
+      ],
+      "bSamples": [
+        41.2501,
+        41.2501,
+        44,
+        46.0952,
+        46.2,
+        50.5476,
+        55,
+        55,
+        55
+      ],
+      "exampleA": {
+        "file": "assets/anna-timelines.css",
+        "property": "margin",
+        "selector": "#anna-story .anna-study-caption"
+      },
+      "exampleB": {
+        "file": "design/components.css",
+        "property": "gap",
+        "selector": ".pp-features-2"
+      }
+    },
+    {
+      "delta": 1,
+      "a": "clamp(3rem,2.62857rem + 1.52381vw,4rem)",
+      "b": "clamp(3.04688rem,2.66964rem + 1.54762vw,4.0625rem)",
+      "aSamples": [
+        48,
+        48,
+        51.2,
+        53.6381,
+        53.76,
+        58.819,
+        64,
+        64,
+        64
+      ],
+      "bSamples": [
+        48.7501,
+        48.7501,
+        52,
+        54.4762,
+        54.6,
+        59.7381,
+        65,
+        65,
+        65
+      ],
+      "exampleA": {
+        "file": "design/model-benefits.css",
+        "property": "margin",
+        "selector": ".model-benefits .model-benefits-heading"
+      },
+      "exampleB": {
+        "file": "design/components.css",
+        "property": "padding",
+        "selector": ".ds-component"
+      }
+    },
+    {
+      "delta": 1,
+      "a": "clamp(0.60938rem,0.53393rem + 0.30952vw,0.8125rem)",
+      "b": "clamp(.6rem,.5rem + .4vw,.875rem)",
+      "aSamples": [
+        9.75008,
+        9.75008,
+        10.4,
+        10.8952,
+        10.92,
+        11.9476,
+        13,
+        13,
+        13
+      ],
+      "bSamples": [
+        9.6,
+        9.6,
+        10.4,
+        11.04,
+        11.072,
+        12.4,
+        13.76,
+        14,
+        14
+      ],
+      "exampleA": {
+        "file": "assets/prompts.css",
+        "property": "padding",
+        "selector": ".prompt-page .ap-launcher"
+      },
+      "exampleB": {
+        "file": "assets/spacing-guide.css",
+        "property": "padding",
+        "selector": ".spacing-inventory th,.spacing-inventory td"
+      }
+    },
+    {
+      "delta": 1,
+      "a": "clamp(1.64063rem,1.4375rem + 0.83333vw,2.1875rem)",
+      "b": "clamp(1.59375rem,1.39643rem + 0.80952vw,2.125rem)",
+      "aSamples": [
+        26.2501,
+        26.2501,
+        28,
+        29.3333,
+        29.4,
+        32.1666,
+        35,
+        35,
+        35
+      ],
+      "bSamples": [
+        25.5,
+        25.5,
+        27.2,
+        28.4952,
+        28.56,
+        31.2476,
+        34,
+        34,
+        34
+      ],
+      "exampleA": {
+        "file": "design/components.css",
+        "property": "gap",
+        "selector": ".ds-service-editorial"
+      },
+      "exampleB": {
+        "file": "assets/prompts.css",
+        "property": "padding",
+        "selector": ".prompt-footer"
+      }
+    },
+    {
+      "delta": 1,
+      "a": "clamp(2.10938rem,1.84821rem + 1.07143vw,2.8125rem)",
+      "b": "clamp(2.0625rem,1.80714rem + 1.04762vw,2.75rem)",
+      "aSamples": [
+        33.7501,
+        33.7501,
+        35.9999,
+        37.7142,
+        37.7999,
+        41.3571,
+        45,
+        45,
+        45
+      ],
+      "bSamples": [
+        33,
+        33,
+        35.2,
+        36.8762,
+        36.96,
+        40.4381,
+        44,
+        44,
+        44
+      ],
+      "exampleA": {
+        "file": "design/components.css",
+        "property": "padding",
+        "selector": ".ds-path-line article"
+      },
+      "exampleB": {
+        "file": "assets/home-hero-variants.css",
+        "property": "padding",
+        "selector": "html:is([data-home-hero=\"02\"],[data-home-hero=\"03\"]) .page-home .home-hero .home-hero-inner-photo .home-hero-copy"
+      }
+    },
+    {
+      "delta": 1,
+      "a": "clamp(2.10938rem,1.84821rem + 1.07143vw,2.8125rem)",
+      "b": "clamp(2.15625rem,1.88929rem + 1.09524vw,2.875rem)",
+      "aSamples": [
+        33.7501,
+        33.7501,
+        35.9999,
+        37.7142,
+        37.7999,
+        41.3571,
+        45,
+        45,
+        45
+      ],
+      "bSamples": [
+        34.5,
+        34.5001,
+        36.8001,
+        38.5525,
+        38.6401,
+        42.2763,
+        46,
+        46,
+        46
+      ],
+      "exampleA": {
+        "file": "design/components.css",
+        "property": "padding",
+        "selector": ".ds-path-line article"
+      },
+      "exampleB": {
+        "file": "assets/prompts.css",
+        "property": "padding",
+        "selector": ".prompt-footer"
+      }
+    },
+    {
+      "delta": 1,
+      "a": "clamp(4.5rem,3.94286rem + 2.28571vw,6rem)",
+      "b": "clamp(4.45313rem,3.90179rem + 2.2619vw,5.9375rem)",
+      "aSamples": [
+        72,
+        72,
+        76.8,
+        80.4572,
+        80.64,
+        88.2286,
+        96,
+        96,
+        96
+      ],
+      "bSamples": [
+        71.2501,
+        71.2501,
+        76,
+        79.6191,
+        79.8,
+        87.3095,
+        95,
+        95,
+        95
+      ],
+      "exampleA": {
+        "file": "site.css",
+        "property": "padding",
+        "selector": ".home-hero-inner"
+      },
+      "exampleB": {
+        "file": "design/components.css",
+        "property": "padding",
+        "selector": ".ex-tidal-ledge"
+      }
+    },
+    {
+      "delta": 1,
+      "a": "clamp(1.125rem,1rem + .5vw,1.5rem)",
+      "b": "clamp(1.07813rem,0.94464rem + 0.54762vw,1.4375rem)",
+      "aSamples": [
+        18,
+        18,
+        19,
+        19.8,
+        19.84,
+        21.5,
+        23.2,
+        24,
+        24
+      ],
+      "bSamples": [
+        17.2501,
+        17.2501,
+        18.4,
+        19.2762,
+        19.32,
+        21.1381,
+        23,
+        23,
+        23
+      ],
+      "exampleA": {
+        "file": "assets/spacing-guide.css",
+        "property": "gap",
+        "selector": ".spacing-rhythm-grid"
+      },
+      "exampleB": {
+        "file": "assets/prompts.css",
+        "property": "padding",
+        "selector": ".prompt-card-body"
+      }
+    },
+    {
+      "delta": 1,
+      "a": "clamp(3.5625rem,3.12143rem + 1.80952vw,4.75rem)",
+      "b": "clamp(3.51563rem,3.08036rem + 1.78571vw,4.6875rem)",
+      "aSamples": [
+        57,
+        57,
+        60.8,
+        63.6952,
+        63.84,
+        69.8476,
+        76,
+        76,
+        76
+      ],
+      "bSamples": [
+        56.2501,
+        56.2501,
+        60,
+        62.8572,
+        63,
+        68.9286,
+        75,
+        75,
+        75
+      ],
+      "exampleA": {
+        "file": "assets/brand-jump.css",
+        "property": "padding",
+        "selector": ".brand-guidelines .brand-jump__panel"
+      },
+      "exampleB": {
+        "file": "design/components.css",
+        "property": "padding",
+        "selector": ".ds-path-line article"
+      }
+    },
+    {
+      "delta": 1,
+      "a": "clamp(2.53125rem,2.21786rem + 1.28571vw,3.375rem)",
+      "b": "clamp(2.57813rem,2.25893rem + 1.30952vw,3.4375rem)",
+      "aSamples": [
+        40.5,
+        40.5,
+        43.2,
+        45.2572,
+        45.36,
+        49.6286,
+        54,
+        54,
+        54
+      ],
+      "bSamples": [
+        41.2501,
+        41.2501,
+        44,
+        46.0952,
+        46.2,
+        50.5476,
+        55,
+        55,
+        55
+      ],
+      "exampleA": {
+        "file": "design/components.css",
+        "property": "padding-block",
+        "selector": ".ds-purpose.ds-type-header"
+      },
+      "exampleB": {
+        "file": "design/components.css",
+        "property": "gap",
+        "selector": ".pp-features-2"
+      }
+    },
+    {
+      "delta": 1,
+      "a": "clamp(3.9375rem,3.45rem + 2vw,5.25rem)",
+      "b": "clamp(3.98438rem,3.49107rem + 2.02381vw,5.3125rem)",
+      "aSamples": [
+        63,
+        63,
+        67.2,
+        70.4,
+        70.56,
+        77.2,
+        84,
+        84,
+        84
+      ],
+      "bSamples": [
+        63.7501,
+        63.7501,
+        68,
+        71.2381,
+        71.4,
+        78.119,
+        85,
+        85,
+        85
+      ],
+      "exampleA": {
+        "file": "assets/coaching-steps.css",
+        "property": "gap",
+        "selector": ".coaching-steps ol"
+      },
+      "exampleB": {
+        "file": "design/components.css",
+        "property": "padding-top",
+        "selector": ".ex-breathing-view"
+      }
+    },
+    {
+      "delta": 1,
+      "a": "clamp(3.51563rem,3.08036rem + 1.78571vw,4.6875rem)",
+      "b": "clamp(3.46875rem,3.03929rem + 1.7619vw,4.625rem)",
+      "aSamples": [
+        56.2501,
+        56.2501,
+        60,
+        62.8572,
+        63,
+        68.9286,
+        75,
+        75,
+        75
+      ],
+      "bSamples": [
+        55.5,
+        55.5,
+        59.2,
+        62.0191,
+        62.16,
+        68.0095,
+        74,
+        74,
+        74
+      ],
+      "exampleA": {
+        "file": "design/components.css",
+        "property": "padding",
+        "selector": ".ds-path-line article"
+      },
+      "exampleB": {
+        "file": "site.css",
+        "property": "padding-block",
+        "selector": ".section"
+      }
+    },
+    {
+      "delta": 1,
+      "a": "clamp(5.8125rem,5.09286rem + 2.95238vw,7.75rem)",
+      "b": "clamp(5.85938rem,5.13393rem + 2.97619vw,7.8125rem)",
+      "aSamples": [
+        93,
+        93,
+        99.2,
+        103.924,
+        104.16,
+        113.962,
+        124,
+        124,
+        124
+      ],
+      "bSamples": [
+        93.7501,
+        93.7501,
+        100,
+        104.762,
+        105,
+        114.881,
+        125,
+        125,
+        125
+      ],
+      "exampleA": {
+        "file": "design/components.css",
+        "property": "padding-top",
+        "selector": ".ds-original-nav .ds-purpose.ds-type-header"
+      },
+      "exampleB": {
+        "file": "design/components.css",
+        "property": "padding-top",
+        "selector": ".ds-original-nav .ds-type-header"
+      }
+    },
+    {
+      "delta": 1.4,
+      "a": "clamp(.75rem,.5rem + 1vw,1rem)",
+      "b": "clamp(0.79688rem,0.69821rem + 0.40476vw,1.0625rem)",
+      "aSamples": [
+        12,
+        12,
+        14,
+        15.6,
+        15.68,
+        16,
+        16,
+        16,
+        16
+      ],
+      "bSamples": [
+        12.7501,
+        12.7501,
+        13.5999,
+        14.2475,
+        14.2799,
+        15.6237,
+        16.9999,
+        17,
+        17
+      ],
+      "exampleA": {
+        "file": "assets/spacing-guide.css",
+        "property": "margin-block",
+        "selector": ".spacing-rhythm-bar"
+      },
+      "exampleB": {
+        "file": "design/brand-contents.css",
+        "property": "padding",
+        "selector": ".social-actions>span"
+      }
+    },
+    {
+      "delta": 1.65,
+      "a": "clamp(0.70313rem,0.61607rem + 0.35714vw,0.9375rem)",
+      "b": "clamp(.6rem,.5rem + .4vw,.875rem)",
+      "aSamples": [
+        11.2501,
+        11.2501,
+        12,
+        12.5714,
+        12.6,
+        13.7857,
+        14.9999,
+        15,
+        15
+      ],
+      "bSamples": [
+        9.6,
+        9.6,
+        10.4,
+        11.04,
+        11.072,
+        12.4,
+        13.76,
+        14,
+        14
+      ],
+      "exampleA": {
+        "file": "design/brand-contents.css",
+        "property": "padding",
+        "selector": ".ig-follow,.ig-message"
+      },
+      "exampleB": {
+        "file": "assets/spacing-guide.css",
+        "property": "padding",
+        "selector": ".spacing-inventory th,.spacing-inventory td"
+      }
+    },
+    {
+      "delta": 1.8,
+      "a": "clamp(1.17188rem,1.02679rem + 0.59524vw,1.5625rem)",
+      "b": "clamp(1.125rem,1rem + .5vw,1.5rem)",
+      "aSamples": [
+        18.7501,
+        18.7501,
+        20.0001,
+        20.9525,
+        21.0001,
+        22.9763,
+        25,
+        25,
+        25
+      ],
+      "bSamples": [
+        18,
+        18,
+        19,
+        19.8,
+        19.84,
+        21.5,
+        23.2,
+        24,
+        24
+      ],
+      "exampleA": {
+        "file": "design/presentation.css",
+        "property": "margin",
+        "selector": ".home-cta-simple .home-cta-copy .ds-kicker"
+      },
+      "exampleB": {
+        "file": "assets/spacing-guide.css",
+        "property": "gap",
+        "selector": ".spacing-rhythm-grid"
+      }
+    },
+    {
+      "delta": 1.95,
+      "a": "clamp(0.60938rem,0.53393rem + 0.30952vw,0.8125rem)",
+      "b": "clamp(8px,3cqw,12px)",
+      "aSamples": [
+        9.75008,
+        9.75008,
+        10.4,
+        10.8952,
+        10.92,
+        11.9476,
+        13,
+        13,
+        13
+      ],
+      "bSamples": [
+        9.6,
+        11.7,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12
+      ],
+      "exampleA": {
+        "file": "assets/prompts.css",
+        "property": "padding",
+        "selector": ".prompt-page .ap-launcher"
+      },
+      "exampleB": {
+        "file": "design/brand-contents.css",
+        "property": "gap",
+        "selector": ".brand-logo-lockup"
+      }
+    },
+    {
+      "delta": 2,
+      "a": "clamp(1.125rem,0.98571rem + 0.57143vw,1.5rem)",
+      "b": "clamp(1.03125rem,0.90357rem + 0.52381vw,1.375rem)",
+      "aSamples": [
+        18,
+        18,
+        19.1999,
+        20.1142,
+        20.1599,
+        22.0571,
+        24,
+        24,
+        24
+      ],
+      "bSamples": [
+        16.5,
+        16.5,
+        17.6,
+        18.4381,
+        18.48,
+        20.219,
+        22,
+        22,
+        22
+      ],
+      "exampleA": {
+        "file": "assets/brand-ai.css",
+        "property": "margin",
+        "selector": ".logo-copy-studies"
+      },
+      "exampleB": {
+        "file": "assets/brand-share.css",
+        "property": "margin",
+        "selector": ".brand-guidelines .brand-share__options"
+      }
+    },
+    {
+      "delta": 2,
+      "a": "clamp(1.125rem,0.98571rem + 0.57143vw,1.5rem)",
+      "b": "clamp(1.21875rem,1.06786rem + 0.61905vw,1.625rem)",
+      "aSamples": [
+        18,
+        18,
+        19.1999,
+        20.1142,
+        20.1599,
+        22.0571,
+        24,
+        24,
+        24
+      ],
+      "bSamples": [
+        19.5,
+        19.5001,
+        20.8001,
+        21.7905,
+        21.8401,
+        23.8953,
+        26,
+        26,
+        26
+      ],
+      "exampleA": {
+        "file": "assets/brand-ai.css",
+        "property": "margin",
+        "selector": ".logo-copy-studies"
+      },
+      "exampleB": {
+        "file": "assets/home-moon-door.css",
+        "property": "margin",
+        "selector": "html[data-palette] .home-cta-door .home-cta-door-copy .ds-title"
+      }
+    },
+    {
+      "delta": 2,
+      "a": "clamp(1.125rem,0.98571rem + 0.57143vw,1.5rem)",
+      "b": "clamp(18px,2.8vw,22px)",
+      "aSamples": [
+        18,
+        18,
+        19.1999,
+        20.1142,
+        20.1599,
+        22.0571,
+        24,
+        24,
+        24
+      ],
+      "bSamples": [
+        18,
+        18,
+        18,
+        21.28,
+        21.504,
+        22,
+        22,
+        22,
+        22
+      ],
+      "exampleA": {
+        "file": "assets/brand-ai.css",
+        "property": "margin",
+        "selector": ".logo-copy-studies"
+      },
+      "exampleB": {
+        "file": "styles.css",
+        "property": "padding",
+        "selector": ".preview-business-card"
+      }
+    },
+    {
+      "delta": 2,
+      "a": "clamp(0.5625rem,0.49286rem + 0.28571vw,0.75rem)",
+      "b": "clamp(0.46875rem,0.41071rem + 0.2381vw,0.625rem)",
+      "aSamples": [
+        9,
+        9.00003,
+        9.60002,
+        10.0572,
+        10.08,
+        11.0286,
+        12,
+        12,
+        12
+      ],
+      "bSamples": [
+        7.5,
+        7.5,
+        7.99996,
+        8.38092,
+        8.39997,
+        9.19046,
+        10,
+        10,
+        10
+      ],
+      "exampleA": {
+        "file": "assets/brand-nature.css",
+        "property": "margin",
+        "selector": "html[data-palette] #brand-nature-studies h2"
+      },
+      "exampleB": {
+        "file": "assets/brand-ai.css",
+        "property": "margin",
+        "selector": "html[data-palette] .brand-guidelines .brand-ai h2"
+      }
+    },
+    {
+      "delta": 2,
+      "a": "clamp(0.5625rem,0.49286rem + 0.28571vw,0.75rem)",
+      "b": "clamp(0.65625rem,0.575rem + 0.33333vw,0.875rem)",
+      "aSamples": [
+        9,
+        9.00003,
+        9.60002,
+        10.0572,
+        10.08,
+        11.0286,
+        12,
+        12,
+        12
+      ],
+      "bSamples": [
+        10.5,
+        10.5,
+        11.2,
+        11.7333,
+        11.76,
+        12.8666,
+        14,
+        14,
+        14
+      ],
+      "exampleA": {
+        "file": "assets/brand-nature.css",
+        "property": "margin",
+        "selector": "html[data-palette] #brand-nature-studies h2"
+      },
+      "exampleB": {
+        "file": "design/brand-contents.css",
+        "property": "margin",
+        "selector": "html[data-palette] :is(.brand-guide-audience-grid,.brand-guide-service-list) h3"
+      }
+    },
+    {
+      "delta": 2,
+      "a": "clamp(0.5625rem,0.49286rem + 0.28571vw,0.75rem)",
+      "b": "clamp(.6rem,.5rem + .4vw,.875rem)",
+      "aSamples": [
+        9,
+        9.00003,
+        9.60002,
+        10.0572,
+        10.08,
+        11.0286,
+        12,
+        12,
+        12
+      ],
+      "bSamples": [
+        9.6,
+        9.6,
+        10.4,
+        11.04,
+        11.072,
+        12.4,
+        13.76,
+        14,
+        14
+      ],
+      "exampleA": {
+        "file": "assets/brand-nature.css",
+        "property": "margin",
+        "selector": "html[data-palette] #brand-nature-studies h2"
+      },
+      "exampleB": {
+        "file": "assets/spacing-guide.css",
+        "property": "padding",
+        "selector": ".spacing-inventory th,.spacing-inventory td"
+      }
+    },
+    {
+      "delta": 2,
+      "a": "clamp(0.75rem,0.65714rem + 0.38095vw,1rem)",
+      "b": "clamp(0.65625rem,0.575rem + 0.33333vw,0.875rem)",
+      "aSamples": [
+        12,
+        12,
+        12.7999,
+        13.4095,
+        13.4399,
+        14.7047,
+        15.9999,
+        16,
+        16
+      ],
+      "bSamples": [
+        10.5,
+        10.5,
+        11.2,
+        11.7333,
+        11.76,
+        12.8666,
+        14,
+        14,
+        14
+      ],
+      "exampleA": {
+        "file": "assets/colour-testing/palette-lab.css",
+        "property": "margin",
+        "selector": "html[data-palette] .palette-lab h3"
+      },
+      "exampleB": {
+        "file": "design/brand-contents.css",
+        "property": "margin",
+        "selector": "html[data-palette] :is(.brand-guide-audience-grid,.brand-guide-service-list) h3"
+      }
+    },
+    {
+      "delta": 2,
+      "a": "clamp(0.9375rem,0.82143rem + 0.47619vw,1.25rem)",
+      "b": "clamp(0.84375rem,0.73929rem + 0.42857vw,1.125rem)",
+      "aSamples": [
+        15,
+        15,
+        16,
+        16.7619,
+        16.8,
+        18.381,
+        20,
+        20,
+        20
+      ],
+      "bSamples": [
+        13.5,
+        13.5001,
+        14.4001,
+        15.0858,
+        15.1201,
+        16.5429,
+        18,
+        18,
+        18
+      ],
+      "exampleA": {
+        "file": "assets/anna-timelines.css",
+        "property": "margin",
+        "selector": "html[data-palette] #anna-story .anna-milestone h3"
+      },
+      "exampleB": {
+        "file": "design/components.css",
+        "property": "padding",
+        "selector": ".ds-component .ds-button[data-atom-variant=\"2\"]"
+      }
+    },
+    {
+      "delta": 2,
+      "a": "clamp(0.9375rem,0.82143rem + 0.47619vw,1.25rem)",
+      "b": "clamp(1.03125rem,0.90357rem + 0.52381vw,1.375rem)",
+      "aSamples": [
+        15,
+        15,
+        16,
+        16.7619,
+        16.8,
+        18.381,
+        20,
+        20,
+        20
+      ],
+      "bSamples": [
+        16.5,
+        16.5,
+        17.6,
+        18.4381,
+        18.48,
+        20.219,
+        22,
+        22,
+        22
+      ],
+      "exampleA": {
+        "file": "assets/anna-timelines.css",
+        "property": "margin",
+        "selector": "html[data-palette] #anna-story .anna-milestone h3"
+      },
+      "exampleB": {
+        "file": "assets/brand-share.css",
+        "property": "margin",
+        "selector": ".brand-guidelines .brand-share__options"
+      }
+    },
+    {
+      "delta": 2,
+      "a": "clamp(0.84375rem,0.73929rem + 0.42857vw,1.125rem)",
+      "b": "clamp(.75rem,.5rem + 1vw,1rem)",
+      "aSamples": [
+        13.5,
+        13.5001,
+        14.4001,
+        15.0858,
+        15.1201,
+        16.5429,
+        18,
+        18,
+        18
+      ],
+      "bSamples": [
+        12,
+        12,
+        14,
+        15.6,
+        15.68,
+        16,
+        16,
+        16,
+        16
+      ],
+      "exampleA": {
+        "file": "design/components.css",
+        "property": "padding",
+        "selector": ".ds-component .ds-button[data-atom-variant=\"2\"]"
+      },
+      "exampleB": {
+        "file": "assets/spacing-guide.css",
+        "property": "margin-block",
+        "selector": ".spacing-rhythm-bar"
+      }
+    },
+    {
+      "delta": 2,
+      "a": "clamp(1.3125rem,1.15rem + 0.66667vw,1.75rem)",
+      "b": "clamp(1.40625rem,1.23214rem + 0.71429vw,1.875rem)",
+      "aSamples": [
+        21,
+        21,
+        22.4,
+        23.4667,
+        23.52,
+        25.7334,
+        28,
+        28,
+        28
+      ],
+      "bSamples": [
+        22.5,
+        22.5,
+        24,
+        25.1428,
+        25.2,
+        27.5714,
+        30,
+        30,
+        30
+      ],
+      "exampleA": {
+        "file": "assets/colour-testing/palette-lab.css",
+        "property": "margin",
+        "selector": ".palette-lab p.site-colours-intro"
+      },
+      "exampleB": {
+        "file": "assets/colour-testing/palette-lab.css",
+        "property": "margin",
+        "selector": ".site-colour-merges"
+      }
+    },
+    {
+      "delta": 2,
+      "a": "clamp(1.3125rem,1.15rem + 0.66667vw,1.75rem)",
+      "b": "clamp(1.21875rem,1.06786rem + 0.61905vw,1.625rem)",
+      "aSamples": [
+        21,
+        21,
+        22.4,
+        23.4667,
+        23.52,
+        25.7334,
+        28,
+        28,
+        28
+      ],
+      "bSamples": [
+        19.5,
+        19.5001,
+        20.8001,
+        21.7905,
+        21.8401,
+        23.8953,
+        26,
+        26,
+        26
+      ],
+      "exampleA": {
+        "file": "assets/colour-testing/palette-lab.css",
+        "property": "margin",
+        "selector": ".palette-lab p.site-colours-intro"
+      },
+      "exampleB": {
+        "file": "assets/home-moon-door.css",
+        "property": "margin",
+        "selector": "html[data-palette] .home-cta-door .home-cta-door-copy .ds-title"
+      }
+    },
+    {
+      "delta": 2,
+      "a": "clamp(0.65625rem,0.575rem + 0.33333vw,0.875rem)",
+      "b": "clamp(8px,3cqw,12px)",
+      "aSamples": [
+        10.5,
+        10.5,
+        11.2,
+        11.7333,
+        11.76,
+        12.8666,
+        14,
+        14,
+        14
+      ],
+      "bSamples": [
+        9.6,
+        11.7,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12
+      ],
+      "exampleA": {
+        "file": "design/brand-contents.css",
+        "property": "margin",
+        "selector": "html[data-palette] :is(.brand-guide-audience-grid,.brand-guide-service-list) h3"
+      },
+      "exampleB": {
+        "file": "design/brand-contents.css",
+        "property": "gap",
+        "selector": ".brand-logo-lockup"
+      }
+    },
+    {
+      "delta": 2,
+      "a": "clamp(1.5rem,1.31429rem + 0.7619vw,2rem)",
+      "b": "clamp(1.40625rem,1.23214rem + 0.71429vw,1.875rem)",
+      "aSamples": [
+        24,
+        24,
+        25.6,
+        26.8191,
+        26.88,
+        29.4095,
+        32,
+        32,
+        32
+      ],
+      "bSamples": [
+        22.5,
+        22.5,
+        24,
+        25.1428,
+        25.2,
+        27.5714,
+        30,
+        30,
+        30
+      ],
+      "exampleA": {
+        "file": "design/brand-contents.css",
+        "property": "margin",
+        "selector": ".brand-card-study"
+      },
+      "exampleB": {
+        "file": "assets/colour-testing/palette-lab.css",
+        "property": "margin",
+        "selector": ".site-colour-merges"
+      }
+    },
+    {
+      "delta": 2,
+      "a": "clamp(1.5rem,1.31429rem + 0.7619vw,2rem)",
+      "b": "clamp(1.59375rem,1.39643rem + 0.80952vw,2.125rem)",
+      "aSamples": [
+        24,
+        24,
+        25.6,
+        26.8191,
+        26.88,
+        29.4095,
+        32,
+        32,
+        32
+      ],
+      "bSamples": [
+        25.5,
+        25.5,
+        27.2,
+        28.4952,
+        28.56,
+        31.2476,
+        34,
+        34,
+        34
+      ],
+      "exampleA": {
+        "file": "design/brand-contents.css",
+        "property": "margin",
+        "selector": ".brand-card-study"
+      },
+      "exampleB": {
+        "file": "assets/prompts.css",
+        "property": "padding",
+        "selector": ".prompt-footer"
+      }
+    },
+    {
+      "delta": 2,
+      "a": "clamp(1.03125rem,0.90357rem + 0.52381vw,1.375rem)",
+      "b": "clamp(1.125rem,1rem + .5vw,1.5rem)",
+      "aSamples": [
+        16.5,
+        16.5,
+        17.6,
+        18.4381,
+        18.48,
+        20.219,
+        22,
+        22,
+        22
+      ],
+      "bSamples": [
+        18,
+        18,
+        19,
+        19.8,
+        19.84,
+        21.5,
+        23.2,
+        24,
+        24
+      ],
+      "exampleA": {
+        "file": "assets/brand-share.css",
+        "property": "margin",
+        "selector": ".brand-guidelines .brand-share__options"
+      },
+      "exampleB": {
+        "file": "assets/spacing-guide.css",
+        "property": "gap",
+        "selector": ".spacing-rhythm-grid"
+      }
+    },
+    {
+      "delta": 2,
+      "a": "clamp(1.21875rem,1.06786rem + 0.61905vw,1.625rem)",
+      "b": "clamp(20px,2vw,28px)",
+      "aSamples": [
+        19.5,
+        19.5001,
+        20.8001,
+        21.7905,
+        21.8401,
+        23.8953,
+        26,
+        26,
+        26
+      ],
+      "bSamples": [
+        20,
+        20,
+        20,
+        20,
+        20,
+        22,
+        28,
+        28,
+        28
+      ],
+      "exampleA": {
+        "file": "assets/home-moon-door.css",
+        "property": "margin",
+        "selector": "html[data-palette] .home-cta-door .home-cta-door-copy .ds-title"
+      },
+      "exampleB": {
+        "file": "design/brand-contents.css",
+        "property": "padding",
+        "selector": ".brand-guide-editorial .site-preview-mockups-subsection"
+      }
+    },
+    {
+      "delta": 2,
+      "a": "clamp(1.17188rem,1.02679rem + 0.59524vw,1.5625rem)",
+      "b": "clamp(1.07813rem,0.94464rem + 0.54762vw,1.4375rem)",
+      "aSamples": [
+        18.7501,
+        18.7501,
+        20.0001,
+        20.9525,
+        21.0001,
+        22.9763,
+        25,
+        25,
+        25
+      ],
+      "bSamples": [
+        17.2501,
+        17.2501,
+        18.4,
+        19.2762,
+        19.32,
+        21.1381,
+        23,
+        23,
+        23
+      ],
+      "exampleA": {
+        "file": "design/presentation.css",
+        "property": "margin",
+        "selector": ".home-cta-simple .home-cta-copy .ds-kicker"
+      },
+      "exampleB": {
+        "file": "assets/prompts.css",
+        "property": "padding",
+        "selector": ".prompt-card-body"
+      }
+    },
+    {
+      "delta": 2,
+      "a": "clamp(1.17188rem,1.02679rem + 0.59524vw,1.5625rem)",
+      "b": "clamp(1.26563rem,1.10893rem + 0.64286vw,1.6875rem)",
+      "aSamples": [
+        18.7501,
+        18.7501,
+        20.0001,
+        20.9525,
+        21.0001,
+        22.9763,
+        25,
+        25,
+        25
+      ],
+      "bSamples": [
+        20.2501,
+        20.2501,
+        21.6,
+        22.6286,
+        22.68,
+        24.8143,
+        27,
+        27,
+        27
+      ],
+      "exampleA": {
+        "file": "design/presentation.css",
+        "property": "margin",
+        "selector": ".home-cta-simple .home-cta-copy .ds-kicker"
+      },
+      "exampleB": {
+        "file": "site.css",
+        "property": "margin-top",
+        "selector": ".home-hero-inner-photo .home-tagline"
+      }
+    },
+    {
+      "delta": 2,
+      "a": "clamp(1.6875rem,1.47857rem + 0.85714vw,2.25rem)",
+      "b": "clamp(1.59375rem,1.39643rem + 0.80952vw,2.125rem)",
+      "aSamples": [
+        27,
+        27,
+        28.8,
+        30.1714,
+        30.24,
+        33.0857,
+        35.9999,
+        36,
+        36
+      ],
+      "bSamples": [
+        25.5,
+        25.5,
+        27.2,
+        28.4952,
+        28.56,
+        31.2476,
+        34,
+        34,
+        34
+      ],
+      "exampleA": {
+        "file": "assets/resource-game.css",
+        "property": "padding",
+        "selector": ".mw-game"
+      },
+      "exampleB": {
+        "file": "assets/prompts.css",
+        "property": "padding",
+        "selector": ".prompt-footer"
+      }
+    },
+    {
+      "delta": 2,
+      "a": "clamp(1.6875rem,1.47857rem + 0.85714vw,2.25rem)",
+      "b": "clamp(1.78125rem,1.56071rem + 0.90476vw,2.375rem)",
+      "aSamples": [
+        27,
+        27,
+        28.8,
+        30.1714,
+        30.24,
+        33.0857,
+        35.9999,
+        36,
+        36
+      ],
+      "bSamples": [
+        28.5,
+        28.5,
+        30.3999,
+        31.8475,
+        31.9199,
+        34.9237,
+        37.9999,
+        38,
+        38
+      ],
+      "exampleA": {
+        "file": "assets/resource-game.css",
+        "property": "padding",
+        "selector": ".mw-game"
+      },
+      "exampleB": {
+        "file": "design/components.css",
+        "property": "padding-block",
+        "selector": ".ds-purpose.ds-type-header"
+      }
+    },
+    {
+      "delta": 2,
+      "a": "clamp(0.42188rem,0.36964rem + 0.21429vw,0.5625rem)",
+      "b": "clamp(0.51563rem,0.45179rem + 0.2619vw,0.6875rem)",
+      "aSamples": [
+        6.75008,
+        6.75008,
+        7.19998,
+        7.54284,
+        7.55999,
+        8.27143,
+        9,
+        9,
+        9
+      ],
+      "bSamples": [
+        8.25008,
+        8.25008,
+        8.80004,
+        9.21908,
+        9.24003,
+        10.1095,
+        11,
+        11,
+        11
+      ],
+      "exampleA": {
+        "file": "styles.css",
+        "property": "padding",
+        "selector": ".preview-business-card-footer span"
+      },
+      "exampleB": {
+        "file": "assets/brand-door.css",
+        "property": "padding",
+        "selector": "html[data-palette] .brand-door-study__choices button"
+      }
+    },
+    {
+      "delta": 2,
+      "a": "clamp(2.25rem,1.97143rem + 1.14286vw,3rem)",
+      "b": "clamp(2.34375rem,2.05357rem + 1.19048vw,3.125rem)",
+      "aSamples": [
+        36,
+        36,
+        38.4,
+        40.2286,
+        40.32,
+        44.1143,
+        48,
+        48,
+        48
+      ],
+      "bSamples": [
+        37.5,
+        37.5,
+        40,
+        41.9048,
+        42,
+        45.9524,
+        50,
+        50,
+        50
+      ],
+      "exampleA": {
+        "file": "assets/anna-timelines.css",
+        "property": "margin",
+        "selector": "#anna-story .anna-story__heading"
+      },
+      "exampleB": {
+        "file": "design/components.css",
+        "property": "gap",
+        "selector": ".ds-process-horizontal"
+      }
+    },
+    {
+      "delta": 2,
+      "a": "clamp(2.25rem,1.97143rem + 1.14286vw,3rem)",
+      "b": "clamp(2.15625rem,1.88929rem + 1.09524vw,2.875rem)",
+      "aSamples": [
+        36,
+        36,
+        38.4,
+        40.2286,
+        40.32,
+        44.1143,
+        48,
+        48,
+        48
+      ],
+      "bSamples": [
+        34.5,
+        34.5001,
+        36.8001,
+        38.5525,
+        38.6401,
+        42.2763,
+        46,
+        46,
+        46
+      ],
+      "exampleA": {
+        "file": "assets/anna-timelines.css",
+        "property": "margin",
+        "selector": "#anna-story .anna-story__heading"
+      },
+      "exampleB": {
+        "file": "assets/prompts.css",
+        "property": "padding",
+        "selector": ".prompt-footer"
+      }
+    },
+    {
+      "delta": 2,
+      "a": "clamp(24px,3vw,40px)",
+      "b": "clamp(26px,3vw,38px)",
+      "aSamples": [
+        24,
+        24,
+        24,
+        24,
+        24,
+        33,
+        40,
+        40,
+        40
+      ],
+      "bSamples": [
+        26,
+        26,
+        26,
+        26,
+        26,
+        33,
+        38,
+        38,
+        38
+      ],
+      "exampleA": {
+        "file": "design/brand-contents.css",
+        "property": "padding",
+        "selector": "html[data-palette] .brand-guide-maintenance"
+      },
+      "exampleB": {
+        "file": "site.css",
+        "property": "padding",
+        "selector": ".workspace-confirmation-item"
+      }
+    },
+    {
+      "delta": 2,
+      "a": "clamp(24px,3vw,40px)",
+      "b": "clamp(24px,3vw,42px)",
+      "aSamples": [
+        24,
+        24,
+        24,
+        24,
+        24,
+        33,
+        40,
+        40,
+        40
+      ],
+      "bSamples": [
+        24,
+        24,
+        24,
+        24,
+        24,
+        33,
+        42,
+        42,
+        42
+      ],
+      "exampleA": {
+        "file": "design/brand-contents.css",
+        "property": "padding",
+        "selector": "html[data-palette] .brand-guide-maintenance"
+      },
+      "exampleB": {
+        "file": "styles.css",
+        "property": "gap",
+        "selector": ".preview-email-signature-details"
+      }
+    },
+    {
+      "delta": 2,
+      "a": "clamp(2.625rem,2.3rem + 1.33333vw,3.5rem)",
+      "b": "clamp(2.53125rem,2.21786rem + 1.28571vw,3.375rem)",
+      "aSamples": [
+        42,
+        42,
+        44.8,
+        46.9333,
+        47.04,
+        51.4666,
+        56,
+        56,
+        56
+      ],
+      "bSamples": [
+        40.5,
+        40.5,
+        43.2,
+        45.2572,
+        45.36,
+        49.6286,
+        54,
+        54,
+        54
+      ],
+      "exampleA": {
+        "file": "assets/anna-timelines.css",
+        "property": "margin",
+        "selector": "#anna-story .anna-study-caption"
+      },
+      "exampleB": {
+        "file": "design/components.css",
+        "property": "padding-block",
+        "selector": ".ds-purpose.ds-type-header"
+      }
+    },
+    {
+      "delta": 2,
+      "a": "clamp(2.625rem,2.3rem + 1.33333vw,3.5rem)",
+      "b": "clamp(2.71875rem,2.38214rem + 1.38095vw,3.625rem)",
+      "aSamples": [
+        42,
+        42,
+        44.8,
+        46.9333,
+        47.04,
+        51.4666,
+        56,
+        56,
+        56
+      ],
+      "bSamples": [
+        43.5,
+        43.5,
+        46.3999,
+        48.6095,
+        48.7199,
+        53.3047,
+        57.9999,
+        58,
+        58
+      ],
+      "exampleA": {
+        "file": "assets/anna-timelines.css",
+        "property": "margin",
+        "selector": "#anna-story .anna-study-caption"
+      },
+      "exampleB": {
+        "file": "assets/home-book-notice.css",
+        "property": "padding",
+        "selector": ".home-book-notice"
+      }
+    },
+    {
+      "delta": 2,
+      "a": "clamp(3.75rem,3.28571rem + 1.90476vw,5rem)",
+      "b": "clamp(3.65625rem,3.20357rem + 1.85714vw,4.875rem)",
+      "aSamples": [
+        60,
+        60,
+        63.9999,
+        67.0475,
+        67.1999,
+        73.5237,
+        79.9999,
+        80,
+        80
+      ],
+      "bSamples": [
+        58.5,
+        58.5,
+        62.4,
+        65.3714,
+        65.52,
+        71.6857,
+        77.9999,
+        78,
+        78
+      ],
+      "exampleA": {
+        "file": "assets/prompts.css",
+        "property": "padding",
+        "selector": ".prompt-library"
+      },
+      "exampleB": {
+        "file": "assets/prompts.css",
+        "property": "padding",
+        "selector": ".prompt-intro"
+      }
+    },
+    {
+      "delta": 2,
+      "a": "clamp(0.70313rem,0.61607rem + 0.35714vw,0.9375rem)",
+      "b": "clamp(0.60938rem,0.53393rem + 0.30952vw,0.8125rem)",
+      "aSamples": [
+        11.2501,
+        11.2501,
+        12,
+        12.5714,
+        12.6,
+        13.7857,
+        14.9999,
+        15,
+        15
+      ],
+      "bSamples": [
+        9.75008,
+        9.75008,
+        10.4,
+        10.8952,
+        10.92,
+        11.9476,
+        13,
+        13,
+        13
+      ],
+      "exampleA": {
+        "file": "design/brand-contents.css",
+        "property": "padding",
+        "selector": ".ig-follow,.ig-message"
+      },
+      "exampleB": {
+        "file": "assets/prompts.css",
+        "property": "padding",
+        "selector": ".prompt-page .ap-launcher"
+      }
+    },
+    {
+      "delta": 2,
+      "a": "clamp(0.70313rem,0.61607rem + 0.35714vw,0.9375rem)",
+      "b": "clamp(0.79688rem,0.69821rem + 0.40476vw,1.0625rem)",
+      "aSamples": [
+        11.2501,
+        11.2501,
+        12,
+        12.5714,
+        12.6,
+        13.7857,
+        14.9999,
+        15,
+        15
+      ],
+      "bSamples": [
+        12.7501,
+        12.7501,
+        13.5999,
+        14.2475,
+        14.2799,
+        15.6237,
+        16.9999,
+        17,
+        17
+      ],
+      "exampleA": {
+        "file": "design/brand-contents.css",
+        "property": "padding",
+        "selector": ".ig-follow,.ig-message"
+      },
+      "exampleB": {
+        "file": "design/brand-contents.css",
+        "property": "padding",
+        "selector": ".social-actions>span"
+      }
+    },
+    {
+      "delta": 2,
+      "a": "clamp(0.60938rem,0.53393rem + 0.30952vw,0.8125rem)",
+      "b": "clamp(0.51563rem,0.45179rem + 0.2619vw,0.6875rem)",
+      "aSamples": [
+        9.75008,
+        9.75008,
+        10.4,
+        10.8952,
+        10.92,
+        11.9476,
+        13,
+        13,
+        13
+      ],
+      "bSamples": [
+        8.25008,
+        8.25008,
+        8.80004,
+        9.21908,
+        9.24003,
+        10.1095,
+        11,
+        11,
+        11
+      ],
+      "exampleA": {
+        "file": "assets/prompts.css",
+        "property": "padding",
+        "selector": ".prompt-page .ap-launcher"
+      },
+      "exampleB": {
+        "file": "assets/brand-door.css",
+        "property": "padding",
+        "selector": "html[data-palette] .brand-door-study__choices button"
+      }
+    },
+    {
+      "delta": 2,
+      "a": "clamp(2.0625rem,1.80714rem + 1.04762vw,2.75rem)",
+      "b": "clamp(2.15625rem,1.88929rem + 1.09524vw,2.875rem)",
+      "aSamples": [
+        33,
+        33,
+        35.2,
+        36.8762,
+        36.96,
+        40.4381,
+        44,
+        44,
+        44
+      ],
+      "bSamples": [
+        34.5,
+        34.5001,
+        36.8001,
+        38.5525,
+        38.6401,
+        42.2763,
+        46,
+        46,
+        46
+      ],
+      "exampleA": {
+        "file": "assets/home-hero-variants.css",
+        "property": "padding",
+        "selector": "html:is([data-home-hero=\"02\"],[data-home-hero=\"03\"]) .page-home .home-hero .home-hero-inner-photo .home-hero-copy"
+      },
+      "exampleB": {
+        "file": "assets/prompts.css",
+        "property": "padding",
+        "selector": ".prompt-footer"
+      }
+    },
+    {
+      "delta": 2,
+      "a": "clamp(3.375rem,2.95714rem + 1.71429vw,4.5rem)",
+      "b": "clamp(3.28125rem,2.875rem + 1.66667vw,4.375rem)",
+      "aSamples": [
+        54,
+        54,
+        57.6,
+        60.3428,
+        60.48,
+        66.1714,
+        72,
+        72,
+        72
+      ],
+      "bSamples": [
+        52.5,
+        52.5,
+        56,
+        58.6667,
+        58.8,
+        64.3334,
+        70,
+        70,
+        70
+      ],
+      "exampleA": {
+        "file": "styles.css",
+        "property": "padding",
+        "selector": ".page-shell"
+      },
+      "exampleB": {
+        "file": "design/components.css",
+        "property": "gap",
+        "selector": ".ds-feature-editorial"
+      }
+    },
+    {
+      "delta": 2,
+      "a": "clamp(3.375rem,2.95714rem + 1.71429vw,4.5rem)",
+      "b": "clamp(3.46875rem,3.03929rem + 1.7619vw,4.625rem)",
+      "aSamples": [
+        54,
+        54,
+        57.6,
+        60.3428,
+        60.48,
+        66.1714,
+        72,
+        72,
+        72
+      ],
+      "bSamples": [
+        55.5,
+        55.5,
+        59.2,
+        62.0191,
+        62.16,
+        68.0095,
+        74,
+        74,
+        74
+      ],
+      "exampleA": {
+        "file": "styles.css",
+        "property": "padding",
+        "selector": ".page-shell"
+      },
+      "exampleB": {
+        "file": "site.css",
+        "property": "padding-block",
+        "selector": ".section"
+      }
+    },
+    {
+      "delta": 2,
+      "a": "clamp(4.125rem,3.61429rem + 2.09524vw,5.5rem)",
+      "b": "clamp(4.21875rem,3.69643rem + 2.14286vw,5.625rem)",
+      "aSamples": [
+        66,
+        66.0001,
+        70.4001,
+        73.7525,
+        73.9201,
+        80.8763,
+        88,
+        88,
+        88
+      ],
+      "bSamples": [
+        67.5,
+        67.5,
+        72,
+        75.4286,
+        75.6,
+        82.7143,
+        90,
+        90,
+        90
+      ],
+      "exampleA": {
+        "file": "assets/services-contact.css",
+        "property": "padding",
+        "selector": ".home-cta-body"
+      },
+      "exampleB": {
+        "file": "design/components.css",
+        "property": "gap",
+        "selector": ".ds-story-editorial>div"
+      }
+    },
+    {
+      "delta": 2,
+      "a": "clamp(2.4375rem,2.13571rem + 1.2381vw,3.25rem)",
+      "b": "clamp(2.53125rem,2.21786rem + 1.28571vw,3.375rem)",
+      "aSamples": [
+        39,
+        39,
+        41.6,
+        43.5809,
+        43.68,
+        47.7905,
+        52,
+        52,
+        52
+      ],
+      "bSamples": [
+        40.5,
+        40.5,
+        43.2,
+        45.2572,
+        45.36,
+        49.6286,
+        54,
+        54,
+        54
+      ],
+      "exampleA": {
+        "file": "design/components.css",
+        "property": "margin-bottom",
+        "selector": ".ds-section-heading"
+      },
+      "exampleB": {
+        "file": "design/components.css",
+        "property": "padding-block",
+        "selector": ".ds-purpose.ds-type-header"
+      }
+    },
+    {
+      "delta": 2,
+      "a": "clamp(2.4375rem,2.13571rem + 1.2381vw,3.25rem)",
+      "b": "clamp(2.34375rem,2.05357rem + 1.19048vw,3.125rem)",
+      "aSamples": [
+        39,
+        39,
+        41.6,
+        43.5809,
+        43.68,
+        47.7905,
+        52,
+        52,
+        52
+      ],
+      "bSamples": [
+        37.5,
+        37.5,
+        40,
+        41.9048,
+        42,
+        45.9524,
+        50,
+        50,
+        50
+      ],
+      "exampleA": {
+        "file": "design/components.css",
+        "property": "margin-bottom",
+        "selector": ".ds-section-heading"
+      },
+      "exampleB": {
+        "file": "design/components.css",
+        "property": "gap",
+        "selector": ".ds-process-horizontal"
+      }
+    },
+    {
+      "delta": 2,
+      "a": "clamp(28px,3vw,38px)",
+      "b": "clamp(26px,3vw,38px)",
+      "aSamples": [
+        28,
+        28,
+        28,
+        28,
+        28,
+        33,
+        38,
+        38,
+        38
+      ],
+      "bSamples": [
+        26,
+        26,
+        26,
+        26,
+        26,
+        33,
+        38,
+        38,
+        38
+      ],
+      "exampleA": {
+        "file": "styles.css",
+        "property": "padding",
+        "selector": ".site-preview-brand-overview-sheet"
+      },
+      "exampleB": {
+        "file": "site.css",
+        "property": "padding",
+        "selector": ".workspace-confirmation-item"
+      }
+    },
+    {
+      "delta": 2,
+      "a": "clamp(28px,3vw,38px)",
+      "b": "clamp(26px,3vw,36px)",
+      "aSamples": [
+        28,
+        28,
+        28,
+        28,
+        28,
+        33,
+        38,
+        38,
+        38
+      ],
+      "bSamples": [
+        26,
+        26,
+        26,
+        26,
+        26,
+        33,
+        36,
+        36,
+        36
+      ],
+      "exampleA": {
+        "file": "styles.css",
+        "property": "padding",
+        "selector": ".site-preview-brand-overview-sheet"
+      },
+      "exampleB": {
+        "file": "styles.css",
+        "property": "padding",
+        "selector": ".site-preview-typeface-sheet"
+      }
+    },
+    {
+      "delta": 2,
+      "a": "clamp(1.125rem,1rem + .5vw,1.5rem)",
+      "b": "clamp(18px,2.8vw,22px)",
+      "aSamples": [
+        18,
+        18,
+        19,
+        19.8,
+        19.84,
+        21.5,
+        23.2,
+        24,
+        24
+      ],
+      "bSamples": [
+        18,
+        18,
+        18,
+        21.28,
+        21.504,
+        22,
+        22,
+        22,
+        22
+      ],
+      "exampleA": {
+        "file": "assets/spacing-guide.css",
+        "property": "gap",
+        "selector": ".spacing-rhythm-grid"
+      },
+      "exampleB": {
+        "file": "styles.css",
+        "property": "padding",
+        "selector": ".preview-business-card"
+      }
+    },
+    {
+      "delta": 2,
+      "a": "clamp(3.5625rem,3.12143rem + 1.80952vw,4.75rem)",
+      "b": "clamp(3.65625rem,3.20357rem + 1.85714vw,4.875rem)",
+      "aSamples": [
+        57,
+        57,
+        60.8,
+        63.6952,
+        63.84,
+        69.8476,
+        76,
+        76,
+        76
+      ],
+      "bSamples": [
+        58.5,
+        58.5,
+        62.4,
+        65.3714,
+        65.52,
+        71.6857,
+        77.9999,
+        78,
+        78
+      ],
+      "exampleA": {
+        "file": "assets/brand-jump.css",
+        "property": "padding",
+        "selector": ".brand-guidelines .brand-jump__panel"
+      },
+      "exampleB": {
+        "file": "assets/prompts.css",
+        "property": "padding",
+        "selector": ".prompt-intro"
+      }
+    },
+    {
+      "delta": 2,
+      "a": "clamp(3.5625rem,3.12143rem + 1.80952vw,4.75rem)",
+      "b": "clamp(3.46875rem,3.03929rem + 1.7619vw,4.625rem)",
+      "aSamples": [
+        57,
+        57,
+        60.8,
+        63.6952,
+        63.84,
+        69.8476,
+        76,
+        76,
+        76
+      ],
+      "bSamples": [
+        55.5,
+        55.5,
+        59.2,
+        62.0191,
+        62.16,
+        68.0095,
+        74,
+        74,
+        74
+      ],
+      "exampleA": {
+        "file": "assets/brand-jump.css",
+        "property": "padding",
+        "selector": ".brand-guidelines .brand-jump__panel"
+      },
+      "exampleB": {
+        "file": "site.css",
+        "property": "padding-block",
+        "selector": ".section"
+      }
+    },
+    {
+      "delta": 2,
+      "a": "clamp(4.21875rem,3.69643rem + 2.14286vw,5.625rem)",
+      "b": "clamp(4.3125rem,3.77857rem + 2.19048vw,5.75rem)",
+      "aSamples": [
+        67.5,
+        67.5,
+        72,
+        75.4286,
+        75.6,
+        82.7143,
+        90,
+        90,
+        90
+      ],
+      "bSamples": [
+        69,
+        69,
+        73.6,
+        77.1048,
+        77.28,
+        84.5524,
+        92,
+        92,
+        92
+      ],
+      "exampleA": {
+        "file": "design/components.css",
+        "property": "gap",
+        "selector": ".ds-story-editorial>div"
+      },
+      "exampleB": {
+        "file": "design/components.css",
+        "property": "padding",
+        "selector": ".ds-component"
+      }
+    },
+    {
+      "delta": 2,
+      "a": "clamp(24px,4vw,64px)",
+      "b": "clamp(22px,4vw,64px)",
+      "aSamples": [
+        24,
+        24,
+        24,
+        30.4,
+        30.72,
+        44,
+        57.6,
+        64,
+        64
+      ],
+      "bSamples": [
+        22,
+        22,
+        24,
+        30.4,
+        30.72,
+        44,
+        57.6,
+        64,
+        64
+      ],
+      "exampleA": {
+        "file": "design/presentation.css",
+        "property": "gap",
+        "selector": ".kinetic-topics__group"
+      },
+      "exampleB": {
+        "file": "assets/resource-books.css",
+        "property": "padding",
+        "selector": "html[data-palette] #resource-books"
+      }
+    },
+    {
+      "delta": 2,
+      "a": "clamp(26px,3vw,38px)",
+      "b": "clamp(24px,3vw,36px)",
+      "aSamples": [
+        26,
+        26,
+        26,
+        26,
+        26,
+        33,
+        38,
+        38,
+        38
+      ],
+      "bSamples": [
+        24,
+        24,
+        24,
+        24,
+        24,
+        33,
+        36,
+        36,
+        36
+      ],
+      "exampleA": {
+        "file": "site.css",
+        "property": "padding",
+        "selector": ".workspace-confirmation-item"
+      },
+      "exampleB": {
+        "file": "design/presentation.css",
+        "property": "margin",
+        "selector": ".model-section-photo"
+      }
+    },
+    {
+      "delta": 2,
+      "a": "clamp(26px,3vw,38px)",
+      "b": "clamp(26px,3vw,36px)",
+      "aSamples": [
+        26,
+        26,
+        26,
+        26,
+        26,
+        33,
+        38,
+        38,
+        38
+      ],
+      "bSamples": [
+        26,
+        26,
+        26,
+        26,
+        26,
+        33,
+        36,
+        36,
+        36
+      ],
+      "exampleA": {
+        "file": "site.css",
+        "property": "padding",
+        "selector": ".workspace-confirmation-item"
+      },
+      "exampleB": {
+        "file": "styles.css",
+        "property": "padding",
+        "selector": ".site-preview-typeface-sheet"
+      }
+    },
+    {
+      "delta": 2,
+      "a": "clamp(24px,3vw,36px)",
+      "b": "clamp(24px,3vw,34px)",
+      "aSamples": [
+        24,
+        24,
+        24,
+        24,
+        24,
+        33,
+        36,
+        36,
+        36
+      ],
+      "bSamples": [
+        24,
+        24,
+        24,
+        24,
+        24,
+        33,
+        34,
+        34,
+        34
+      ],
+      "exampleA": {
+        "file": "design/presentation.css",
+        "property": "margin",
+        "selector": ".model-section-photo"
+      },
+      "exampleB": {
+        "file": "styles.css",
+        "property": "gap",
+        "selector": ".site-preview-brand-overview-sheet"
+      }
+    },
+    {
+      "delta": 2,
+      "a": "clamp(24px,3vw,36px)",
+      "b": "clamp(26px,3vw,36px)",
+      "aSamples": [
+        24,
+        24,
+        24,
+        24,
+        24,
+        33,
+        36,
+        36,
+        36
+      ],
+      "bSamples": [
+        26,
+        26,
+        26,
+        26,
+        26,
+        33,
+        36,
+        36,
+        36
+      ],
+      "exampleA": {
+        "file": "design/presentation.css",
+        "property": "margin",
+        "selector": ".model-section-photo"
+      },
+      "exampleB": {
+        "file": "styles.css",
+        "property": "padding",
+        "selector": ".site-preview-typeface-sheet"
+      }
+    },
+    {
+      "delta": 2,
+      "a": "clamp(1.26563rem,1.10893rem + 0.64286vw,1.6875rem)",
+      "b": "clamp(1.35938rem,1.19107rem + 0.69048vw,1.8125rem)",
+      "aSamples": [
+        20.2501,
+        20.2501,
+        21.6,
+        22.6286,
+        22.68,
+        24.8143,
+        27,
+        27,
+        27
+      ],
+      "bSamples": [
+        21.7501,
+        21.7501,
+        23.2,
+        24.3048,
+        24.36,
+        26.6524,
+        29,
+        29,
+        29
+      ],
+      "exampleA": {
+        "file": "site.css",
+        "property": "margin-top",
+        "selector": ".home-hero-inner-photo .home-tagline"
+      },
+      "exampleB": {
+        "file": "assets/prompts.css",
+        "property": "margin-bottom",
+        "selector": ".prompt-categories"
+      }
+    },
+    {
+      "delta": 2,
+      "a": "clamp(7.5rem,6.57143rem + 3.80952vw,10rem)",
+      "b": "clamp(7.40625rem,6.48929rem + 3.7619vw,9.875rem)",
+      "aSamples": [
+        120,
+        120,
+        128,
+        134.095,
+        134.4,
+        147.048,
+        160,
+        160,
+        160
+      ],
+      "bSamples": [
+        118.5,
+        118.5,
+        126.4,
+        132.419,
+        132.72,
+        145.21,
+        158,
+        158,
+        158
+      ],
+      "exampleA": {
+        "file": "design/components.css",
+        "property": "padding-top",
+        "selector": ".ds-original-nav .ds-type-header"
+      },
+      "exampleB": {
+        "file": "site.css",
+        "property": "padding-top",
+        "selector": ".page-hero-dark"
+      }
+    },
+    {
+      "delta": 2,
+      "a": "clamp(22px,2.4vw,34px)",
+      "b": "clamp(22px,2.4vw,36px)",
+      "aSamples": [
+        22,
+        22,
+        22,
+        22,
+        22,
+        26.4,
+        34,
+        34,
+        34
+      ],
+      "bSamples": [
+        22,
+        22,
+        22,
+        22,
+        22,
+        26.4,
+        34.56,
+        36,
+        36
+      ],
+      "exampleA": {
+        "file": "styles.css",
+        "property": "gap",
+        "selector": ".site-preview-typeface-grid"
+      },
+      "exampleB": {
+        "file": "styles.css",
+        "property": "padding-left",
+        "selector": ".site-preview-logo-anatomy-copy"
+      }
+    },
+    {
+      "delta": 2,
+      "a": "clamp(24px,3vw,32px)",
+      "b": "clamp(24px,3vw,34px)",
+      "aSamples": [
+        24,
+        24,
+        24,
+        24,
+        24,
+        32,
+        32,
+        32,
+        32
+      ],
+      "bSamples": [
+        24,
+        24,
+        24,
+        24,
+        24,
+        33,
+        34,
+        34,
+        34
+      ],
+      "exampleA": {
+        "file": "styles.css",
+        "property": "padding",
+        "selector": ".site-preview-typeface-specimen"
+      },
+      "exampleB": {
+        "file": "styles.css",
+        "property": "gap",
+        "selector": ".site-preview-brand-overview-sheet"
+      }
+    },
+    {
+      "delta": 2,
+      "a": "clamp(24px,3vw,34px)",
+      "b": "clamp(26px,3vw,36px)",
+      "aSamples": [
+        24,
+        24,
+        24,
+        24,
+        24,
+        33,
+        34,
+        34,
+        34
+      ],
+      "bSamples": [
+        26,
+        26,
+        26,
+        26,
+        26,
+        33,
+        36,
+        36,
+        36
+      ],
+      "exampleA": {
+        "file": "styles.css",
+        "property": "gap",
+        "selector": ".site-preview-brand-overview-sheet"
+      },
+      "exampleB": {
+        "file": "styles.css",
+        "property": "padding",
+        "selector": ".site-preview-typeface-sheet"
+      }
+    },
+    {
+      "delta": 2,
+      "a": "clamp(28px,5vw,76px)",
+      "b": "clamp(30px,5vw,76px)",
+      "aSamples": [
+        28,
+        28,
+        30,
+        38,
+        38.4,
+        55,
+        72,
+        76,
+        76
+      ],
+      "bSamples": [
+        30,
+        30,
+        30,
+        38,
+        38.4,
+        55,
+        72,
+        76,
+        76
+      ],
+      "exampleA": {
+        "file": "assets/workshop-support.css",
+        "property": "padding",
+        "selector": ".workshop-slide-copy"
+      },
+      "exampleB": {
+        "file": "assets/home-hero-variants.css",
+        "property": "padding",
+        "selector": "html:is([data-home-hero=\"02\"],[data-home-hero=\"03\"]) .page-home .home-hero .home-hero-inner-photo .home-hero-copy"
+      }
+    },
+    {
+      "delta": 2,
+      "a": "clamp(40px,6vw,88px)",
+      "b": "clamp(40px,6vw,90px)",
+      "aSamples": [
+        40,
+        40,
+        40,
+        45.6,
+        46.08,
+        66,
+        86.4,
+        88,
+        88
+      ],
+      "bSamples": [
+        40,
+        40,
+        40,
+        45.6,
+        46.08,
+        66,
+        86.4,
+        90,
+        90
+      ],
+      "exampleA": {
+        "file": "assets/workshop-learning.css",
+        "property": "padding",
+        "selector": ".workshop-learning"
+      },
+      "exampleB": {
+        "file": "design/resources-nav.css",
+        "property": "gap",
+        "selector": ".resources-browser"
+      }
+    }
+  ]
+}

@@ -25,7 +25,7 @@ html:not(.js) .kinetic-topics__controls{display:none}
  .statement-icon{--icon-reveal:1!important}
  .model-timeline article>:is(i,.ds-number,h3,p){opacity:1;transform:none}
  .model-timeline article::before{transform:scaleY(1)}
- html.js .kinetic-topics__list{position:static;width:auto;height:auto;margin:0 auto;padding:0 clamp(1.03125rem, 0.90357rem + 0.52381vw, 1.375rem);overflow:visible;clip-path:none;white-space:normal}
+ html.js .kinetic-topics__list{position:static;width:auto;height:auto;margin:0 auto;padding:0 var(--space-fluid-22);overflow:visible;clip-path:none;white-space:normal}
  html.js .kinetic-topics__rows,.kinetic-topics__controls{display:none}
 }
 

@@ -1,0 +1,315 @@
+{
+  "description": "Exact shared spacing expressions. Different ranges remain separate pending visual review.",
+  "tokens": [
+    {
+      "name": "space-fluid-24",
+      "value": "clamp(1.125rem,0.98571rem + 0.57143vw,1.5rem)",
+      "uses": 205
+    },
+    {
+      "name": "space-fluid-12",
+      "value": "clamp(0.5625rem,0.49286rem + 0.28571vw,0.75rem)",
+      "uses": 194
+    },
+    {
+      "name": "space-fluid-16",
+      "value": "clamp(0.75rem,0.65714rem + 0.38095vw,1rem)",
+      "uses": 153
+    },
+    {
+      "name": "space-fluid-20",
+      "value": "clamp(0.9375rem,0.82143rem + 0.47619vw,1.25rem)",
+      "uses": 131
+    },
+    {
+      "name": "space-fluid-18",
+      "value": "clamp(0.84375rem,0.73929rem + 0.42857vw,1.125rem)",
+      "uses": 114
+    },
+    {
+      "name": "space-fluid-10",
+      "value": "clamp(0.46875rem,0.41071rem + 0.2381vw,0.625rem)",
+      "uses": 102
+    },
+    {
+      "name": "space-fluid-28",
+      "value": "clamp(1.3125rem,1.15rem + 0.66667vw,1.75rem)",
+      "uses": 96
+    },
+    {
+      "name": "space-fluid-14",
+      "value": "clamp(0.65625rem,0.575rem + 0.33333vw,0.875rem)",
+      "uses": 90
+    },
+    {
+      "name": "space-fluid-32",
+      "value": "clamp(1.5rem,1.31429rem + 0.7619vw,2rem)",
+      "uses": 66
+    },
+    {
+      "name": "space-fluid-22",
+      "value": "clamp(1.03125rem,0.90357rem + 0.52381vw,1.375rem)",
+      "uses": 60
+    },
+    {
+      "name": "space-fluid-30",
+      "value": "clamp(1.40625rem,1.23214rem + 0.71429vw,1.875rem)",
+      "uses": 28
+    },
+    {
+      "name": "space-fluid-25",
+      "value": "clamp(1.17188rem,1.02679rem + 0.59524vw,1.5625rem)",
+      "uses": 28
+    },
+    {
+      "name": "space-fluid-26",
+      "value": "clamp(1.21875rem,1.06786rem + 0.61905vw,1.625rem)",
+      "uses": 27
+    },
+    {
+      "name": "space-fluid-36",
+      "value": "clamp(1.6875rem,1.47857rem + 0.85714vw,2.25rem)",
+      "uses": 26
+    },
+    {
+      "name": "space-fluid-9",
+      "value": "clamp(0.42188rem,0.36964rem + 0.21429vw,0.5625rem)",
+      "uses": 23
+    },
+    {
+      "name": "space-fluid-40",
+      "value": "clamp(1.875rem,1.64286rem + 0.95238vw,2.5rem)",
+      "uses": 21
+    },
+    {
+      "name": "space-fluid-48",
+      "value": "clamp(2.25rem,1.97143rem + 1.14286vw,3rem)",
+      "uses": 18
+    },
+    {
+      "name": "space-fluid-56",
+      "value": "clamp(2.625rem,2.3rem + 1.33333vw,3.5rem)",
+      "uses": 14
+    },
+    {
+      "name": "space-layout-01",
+      "value": "clamp(24px,3vw,40px)",
+      "uses": 14
+    },
+    {
+      "name": "space-fluid-64",
+      "value": "clamp(3rem,2.62857rem + 1.52381vw,4rem)",
+      "uses": 12
+    },
+    {
+      "name": "space-fluid-80",
+      "value": "clamp(3.75rem,3.28571rem + 1.90476vw,5rem)",
+      "uses": 11
+    },
+    {
+      "name": "space-fluid-13",
+      "value": "clamp(0.60938rem,0.53393rem + 0.30952vw,0.8125rem)",
+      "uses": 11
+    },
+    {
+      "name": "space-fluid-35",
+      "value": "clamp(1.64063rem,1.4375rem + 0.83333vw,2.1875rem)",
+      "uses": 11
+    },
+    {
+      "name": "space-fluid-15",
+      "value": "clamp(0.70313rem,0.61607rem + 0.35714vw,0.9375rem)",
+      "uses": 10
+    },
+    {
+      "name": "space-fluid-45",
+      "value": "clamp(2.10938rem,1.84821rem + 1.07143vw,2.8125rem)",
+      "uses": 10
+    },
+    {
+      "name": "space-layout-02",
+      "value": "clamp(28px,4vw,56px)",
+      "uses": 7
+    },
+    {
+      "name": "space-fluid-34",
+      "value": "clamp(1.59375rem,1.39643rem + 0.80952vw,2.125rem)",
+      "uses": 6
+    },
+    {
+      "name": "space-layout-03",
+      "value": "clamp(28px,4vw,64px)",
+      "uses": 6
+    },
+    {
+      "name": "space-fluid-60",
+      "value": "clamp(2.8125rem,2.46429rem + 1.42857vw,3.75rem)",
+      "uses": 6
+    },
+    {
+      "name": "space-fluid-72",
+      "value": "clamp(3.375rem,2.95714rem + 1.71429vw,4.5rem)",
+      "uses": 5
+    },
+    {
+      "name": "space-fluid-100",
+      "value": "clamp(4.6875rem,4.10714rem + 2.38095vw,6.25rem)",
+      "uses": 5
+    },
+    {
+      "name": "space-fluid-88",
+      "value": "clamp(4.125rem,3.61429rem + 2.09524vw,5.5rem)",
+      "uses": 5
+    },
+    {
+      "name": "space-fluid-44",
+      "value": "clamp(2.0625rem,1.80714rem + 1.04762vw,2.75rem)",
+      "uses": 5
+    },
+    {
+      "name": "space-layout-04",
+      "value": "clamp(16px,3vw,32px)",
+      "uses": 5
+    },
+    {
+      "name": "space-fluid-52",
+      "value": "clamp(2.4375rem,2.13571rem + 1.2381vw,3.25rem)",
+      "uses": 4
+    },
+    {
+      "name": "space-layout-05",
+      "value": "clamp(28px,3vw,38px)",
+      "uses": 4
+    },
+    {
+      "name": "space-fluid-11",
+      "value": "clamp(0.51563rem,0.45179rem + 0.2619vw,0.6875rem)",
+      "uses": 3
+    },
+    {
+      "name": "space-fluid-23",
+      "value": "clamp(1.07813rem,0.94464rem + 0.54762vw,1.4375rem)",
+      "uses": 3
+    },
+    {
+      "name": "space-fluid-19",
+      "value": "clamp(0.89063rem,0.78036rem + 0.45238vw,1.1875rem)",
+      "uses": 3
+    },
+    {
+      "name": "space-fluid-96",
+      "value": "clamp(4.5rem,3.94286rem + 2.28571vw,6rem)",
+      "uses": 3
+    },
+    {
+      "name": "space-layout-06",
+      "value": "clamp(1.125rem,1rem + .5vw,1.5rem)",
+      "uses": 3
+    },
+    {
+      "name": "space-layout-07",
+      "value": "clamp(.75rem,.5rem + 1vw,1rem)",
+      "uses": 3
+    },
+    {
+      "name": "space-fluid-70",
+      "value": "clamp(3.28125rem,2.875rem + 1.66667vw,4.375rem)",
+      "uses": 3
+    },
+    {
+      "name": "space-layout-08",
+      "value": "clamp(64px,7vw,104px)",
+      "uses": 2
+    },
+    {
+      "name": "space-fluid-76",
+      "value": "clamp(3.5625rem,3.12143rem + 1.80952vw,4.75rem)",
+      "uses": 2
+    },
+    {
+      "name": "space-layout-09",
+      "value": "clamp(22px,5vw,80px)",
+      "uses": 2
+    },
+    {
+      "name": "space-fluid-84",
+      "value": "clamp(3.9375rem,3.45rem + 2vw,5.25rem)",
+      "uses": 2
+    },
+    {
+      "name": "space-layout-10",
+      "value": "clamp(.75rem,.6rem + .4vw,1rem)",
+      "uses": 2
+    },
+    {
+      "name": "space-fluid-140",
+      "value": "clamp(6.5625rem,5.75rem + 3.33333vw,8.75rem)",
+      "uses": 2
+    },
+    {
+      "name": "space-fluid-54",
+      "value": "clamp(2.53125rem,2.21786rem + 1.28571vw,3.375rem)",
+      "uses": 2
+    },
+    {
+      "name": "space-fluid-38",
+      "value": "clamp(1.78125rem,1.56071rem + 0.90476vw,2.375rem)",
+      "uses": 2
+    },
+    {
+      "name": "space-fluid-17",
+      "value": "clamp(0.79688rem,0.69821rem + 0.40476vw,1.0625rem)",
+      "uses": 2
+    },
+    {
+      "name": "space-layout-11",
+      "value": "clamp(64px,6vw,96px)",
+      "uses": 2
+    },
+    {
+      "name": "space-layout-12",
+      "value": "clamp(22px,4vw,64px)",
+      "uses": 2
+    },
+    {
+      "name": "space-layout-13",
+      "value": "clamp(1.5rem,1rem + 2vw,3rem)",
+      "uses": 2
+    },
+    {
+      "name": "space-layout-14",
+      "value": "clamp(52px,7vw,100px)",
+      "uses": 2
+    },
+    {
+      "name": "space-layout-15",
+      "value": "clamp(32px,5vw,72px)",
+      "uses": 2
+    },
+    {
+      "name": "space-layout-16",
+      "value": "clamp(20px,2vw,28px)",
+      "uses": 2
+    },
+    {
+      "name": "space-fluid-90",
+      "value": "clamp(4.21875rem,3.69643rem + 2.14286vw,5.625rem)",
+      "uses": 2
+    },
+    {
+      "name": "space-fluid-50",
+      "value": "clamp(2.34375rem,2.05357rem + 1.19048vw,3.125rem)",
+      "uses": 2
+    },
+    {
+      "name": "space-layout-17",
+      "value": "clamp(24px,4vw,64px)",
+      "uses": 2
+    },
+    {
+      "name": "space-layout-18",
+      "value": "clamp(26px,3vw,38px)",
+      "uses": 2
+    }
+  ]
+}
