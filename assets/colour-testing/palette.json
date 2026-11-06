@@ -140,5 +140,54 @@
       "hex": "#191919",
       "role": "Text, footer, dark surfaces and logo"
     }
+  ],
+  "groups": [
+    {
+      "id": "core",
+      "name": "Core brand colours",
+      "purpose": "The recognisable colours that lead your brand.",
+      "colours": [
+        "Evergreen",
+        "Deep teal",
+        "Ocean teal",
+        "Deep purple",
+        "Coral"
+      ]
+    },
+    {
+      "id": "supporting",
+      "name": "Supporting colours",
+      "purpose": "Variety across illustrations, resources and supporting graphics.",
+      "colours": [
+        "Plum",
+        "Sage",
+        "Light olive",
+        "Rose",
+        "Blush"
+      ]
+    },
+    {
+      "id": "warm",
+      "name": "Warm accents",
+      "purpose": "Warmth, light, emphasis and details within illustrations.",
+      "colours": [
+        "Burnt orange",
+        "Apricot",
+        "Amber",
+        "Peach",
+        "Cream"
+      ]
+    },
+    {
+      "id": "neutrals",
+      "name": "Neutrals",
+      "purpose": "Page backgrounds, text, borders and everyday interface elements.",
+      "colours": [
+        "Paper",
+        "Stone",
+        "Slate",
+        "Logo black"
+      ]
+    }
   ]
 }

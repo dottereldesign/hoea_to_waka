@@ -72,3 +72,16 @@ html[data-palette] .palette-lab .site-colour-family h4{font:500 17px/1.4 Inter,A
 .merge-dot{display:inline-block;width:16px;height:16px;flex:none;border-radius:50%;border:1px solid #e3e1dd}
 @media(max-width:900px){.site-colour-merges ul{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.site-colour-merges ul{grid-template-columns:1fr}}
+/* Four equal palette groups, with no enclosing card decoration. */
+.brand-palette-groups{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:48px 56px;}
+.brand-palette-group{min-width:0;border-top:1px solid #E3E1DD;padding-top:24px;scroll-margin-top:120px;}
+html[data-palette] .palette-lab .brand-palette-group h3{font-size:22px;line-height:1.25;margin:0 0 10px;}
+.brand-palette-group header{min-height:100px;}
+.palette-lab .brand-palette-group p{font-size:13px;line-height:1.6;margin:0;max-width:48ch;}
+.brand-palette-swatches{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;}
+.brand-palette-swatches .palette-swatch__colour{height:84px;border-radius:8px;}
+.brand-palette-swatches .palette-swatch__name{font-size:12px;}
+.brand-palette-swatches .palette-swatch__hex{font-size:11px;}
+@media(max-width:900px){.brand-palette-groups{gap:36px 28px;}.brand-palette-swatches{gap:8px;}}
+@media(max-width:700px){.brand-palette-groups{grid-template-columns:1fr;gap:32px;}.brand-palette-group header{min-height:0;margin-bottom:22px;}}
+@media(max-width:400px){.brand-palette-swatches{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px 12px;}}
