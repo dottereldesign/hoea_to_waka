@@ -1,0 +1,32 @@
+/* About portrait studies: static layout, one-shot transform/opacity reveals. */
+#anna-story[data-timeline-variant=thread2] .anna-portrait-hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);align-items:center;gap:clamp(32px,6vw,88px);max-width:1200px;text-align:left;padding-inline:0;text-shadow:none}
+#anna-story .anna-portrait-copy{min-width:0;padding-bottom:clamp(20px,4vw,60px)}
+#anna-story .anna-portrait-copy>p:last-child{font-size:clamp(16px,1.4vw,19px);line-height:1.75;max-width:43ch}
+#anna-story .anna-portrait-copy .anna-story__qualifications{line-height:1.7}
+#anna-story .anna-portrait-studio{width:100%;max-width:460px;justify-self:end;min-width:0}
+#anna-story .anna-portrait-card{margin:0;background:#fff;border-radius:160px 160px 20px 20px;overflow:hidden;isolation:isolate}
+#anna-story .anna-portrait-window{position:relative;aspect-ratio:1.1;overflow:hidden;background:#FDD8B0}
+#anna-story .anna-portrait-window img{display:block;width:100%;height:100%;object-fit:contain;object-position:center bottom;transform-origin:50% 100%}
+#anna-story [data-portrait-colour='2'] .anna-portrait-window{background:#E68387}
+#anna-story [data-portrait-colour='3'] .anna-portrait-window{background:#B4BF8B}
+#anna-story [data-portrait-colour='4'] .anna-portrait-window{background:#267C86}
+#anna-story [data-portrait-colour='5'] .anna-portrait-window{background:#FFFFFF}
+#anna-story .anna-signature-sheet{position:relative;display:grid;place-items:center;min-height:116px;padding:2px 20px 12px;background:#fff;color:#281A2C}
+#anna-story .anna-signature{width:min(100%,310px);height:96px}
+#anna-story .anna-signature[hidden]{display:none}
+#anna-story .anna-signature svg{display:block;width:100%;height:100%;overflow:visible}
+#anna-story .anna-signature-sheet>span{font:10px/1.4 Inter,Arial,sans-serif;letter-spacing:.07em;color:#6B7178}
+#anna-story .anna-portrait-options{margin-top:18px;display:grid;gap:6px;color:#fff}
+#anna-story .anna-portrait-options [role=group]{display:flex;align-items:center;gap:6px}
+#anna-story .anna-portrait-options [role=group]>span{width:76px;flex:none;font:12px/1.3 Inter,Arial,sans-serif}
+#anna-story .anna-portrait-options button{display:grid;place-items:center;width:36px;height:36px;border:1px solid #ffffff66;border-radius:50%;background:transparent;color:#fff;font:11px/1 Inter,Arial,sans-serif;cursor:pointer;padding:0}
+#anna-story .anna-portrait-options button[aria-pressed=true]{background:#fff;color:#191919;border-color:#fff}
+#anna-story .anna-portrait-options button:focus-visible{outline:2px solid #FDB069!important;outline-offset:3px!important}
+#anna-story .anna-portrait-caption{font:11px/1.5 Inter,Arial,sans-serif;margin-top:3px;color:#fff;min-height:17px}
+@media(max-width:760px){#anna-story[data-timeline-variant=thread2] .anna-portrait-hero{grid-template-columns:1fr;gap:26px}#anna-story .anna-portrait-copy{padding-bottom:0}#anna-story .anna-portrait-studio{justify-self:center;max-width:380px}#anna-story .anna-portrait-options button{width:40px;height:40px}#anna-story .anna-portrait-options [role=group]{gap:4px}#anna-story .anna-portrait-options [role=group]>span{width:66px}#anna-story .anna-portrait-card{border-radius:130px 130px 18px 18px}}
+@media(max-width:360px){#anna-story .anna-portrait-options button{width:36px;height:40px}#anna-story .anna-portrait-options [role=group]>span{width:58px}}
+
+.js .anna-portrait-studio:not([data-signature-ready]) .anna-signature{visibility:hidden}
+
+#anna-story .anna-portrait-copy>p{margin-block:18px}
+#anna-story .anna-portrait-copy .anna-story__qualifications{margin-bottom:16px}
