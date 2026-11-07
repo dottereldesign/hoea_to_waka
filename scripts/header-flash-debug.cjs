@@ -1,4 +1,4 @@
-// Usage: node scripts/header-flash-debug.cjs [capture-name]
+// Usage: node scripts/header-flash-debug.cjs [capture-name] [page-path]
 // Records computed colours, geometry, animation timelines and occlusion each frame,
 // plus a screenshot strip. Output: tmp/header-flash-<capture-name>.{json,png}
 // Run before and after changes; header-flash-regression.test.cjs checks the invariants.
@@ -11,7 +11,7 @@ const sharp=require('sharp');
  try{
   const context=await browser.newContext({viewport:{width:1440,height:900}});
   const page=await context.newPage();
-  await page.goto('http://127.0.0.1:8766/hoea_to_waka/');
+  await page.goto('http://127.0.0.1:8766/hoea_to_waka/'+(process.argv[3]||''));
   await page.waitForTimeout(1600);
   await page.evaluate(()=>scrollTo({top:180,behavior:'instant'}));
   await page.waitForTimeout(700);
@@ -27,7 +27,7 @@ const sharp=require('sharp');
       cover:document.elementFromPoint(rect.x+rect.width/2,rect.y+rect.height/2)?.className};
     });
     headerFrames.push({time:performance.now(),scroll:scrollY,notice:notice.getBoundingClientRect().bottom,
-     morph:header.dataset.headerMorph,glassOpacity:getComputedStyle(glass).opacity,elements,
+     morph:header.dataset.headerMorph,progress:Number(header.style.getPropertyValue('--header-motion')),glassOpacity:getComputedStyle(glass).opacity,elements,
      animations:header.getAnimations({subtree:true}).map(a=>({target:a.effect.target.className,time:a.currentTime,state:a.playState}))});
     if(captureHeader)requestAnimationFrame(frame);
    }

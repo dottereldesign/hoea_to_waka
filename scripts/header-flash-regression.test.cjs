@@ -41,7 +41,7 @@ const fs=require('fs');
     if(width>=1100){
      assert(samples.every(f=>f.links.every(c=>c===f.ink)),'Delayed navigation colour '+width);
      const ids=new Set(samples.flatMap(f=>f.animations));
-     assert.equal(ids.size,1,'Alert restarted the shape animation '+width);
+     assert.equal(ids.size,0,'Child transforms must not compete with shared geometry '+width);
     }
     assert(!samples.at(-1).pill);
     assert(samples.at(-1).brandTop>=samples.at(-1).notice,'Logo occluded by alert');
