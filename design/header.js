@@ -14,19 +14,21 @@ export function setupSiteHeader() {
   let morphs=[],morphGeneration=0,placed=false;
   const morphTargets=()=>[glass,symbol,brand.querySelector('.site-brand-name'),brand.querySelector('.site-brand-line'),header.querySelector('.site-nav'),header.querySelector('.site-header-cta'),toggle].filter(node=>node?.getClientRects().length&&getComputedStyle(node).display!=='none');
   function stopMorph(){morphGeneration++;morphs.forEach(animation=>animation.cancel());morphs=[];header.dataset.headerMorph='idle';}
-  function compactHeader(next){
-    if(header.classList.contains('is-scrolled')===next){placed=true;return;}
+  function compactHeader(next,offset){
+    const shapeChanged=header.classList.contains('is-scrolled')!==next;
+    const previousOffset=parseFloat(document.body.style.getPropertyValue('--book-notice-offset'))||0;
+    if(!shapeChanged&&Math.abs(previousOffset-offset)<.1){placed=true;return;}
     const targets=morphTargets();
     const first=new Map(targets.map(node=>[node,node.getBoundingClientRect()]));
-    stopMorph();header.classList.toggle('is-scrolled',next);
-    if(!placed||reduced.matches||!desktop.matches){placed=true;return;}
+    stopMorph();document.body.style.setProperty('--book-notice-offset',offset+'px');header.classList.toggle('is-scrolled',next);
+    if(!placed||reduced.matches||(shapeChanged&&!desktop.matches)){placed=true;return;}
     const last=new Map(targets.map(node=>[node,node.getBoundingClientRect()]));
     const token=++morphGeneration;header.dataset.headerMorph='moving';
     morphs=targets.map(node=>{
       const a=first.get(node),b=last.get(node),dx=a.x+a.width/2-b.x-b.width/2,dy=a.y+a.height/2-b.y-b.height/2;
       if(!a.width||!a.height||!b.width||!b.height)return null;
       const sx=a.width/b.width,sy=node===symbol?sx:a.height/b.height;
-      return node.animate([{transform:`translate(${dx}px,${dy}px) scale(${sx},${sy})`},{transform:'translate(0px,0px) scale(1,1)'}],{duration:520,easing:'cubic-bezier(.22,1,.36,1)',fill:'both'});
+      return node.animate([{transform:`translate(${dx}px,${dy}px) scale(${sx},${sy})`},{transform:'translate(0px,0px) scale(1,1)'}],{duration:shapeChanged?520:220,easing:'cubic-bezier(.22,1,.36,1)',fill:'both'});
     }).filter(Boolean);
     Promise.allSettled(morphs.map(animation=>animation.finished)).then(()=>{if(token===morphGeneration)stopMorph();});
     placed=true;
@@ -97,7 +99,7 @@ export function setupSiteHeader() {
     const compact = header.classList.contains('is-scrolled');
     const notice = document.querySelector('[data-book-notice]:not([hidden])');
     const noticeHeight = notice?.getBoundingClientRect().height || 0;
-    compactHeader(desktop.matches && scrollY > noticeHeight + (compact ? 24 : 48));
+    compactHeader(desktop.matches && scrollY > noticeHeight + (compact ? 24 : 48),Math.max(0,notice?.getBoundingClientRect().bottom||0));
     if (dialog.open) trackAnchor();
   }
   const onScroll = () => { if (!frame) frame = requestAnimationFrame(syncScroll); };
@@ -105,7 +107,9 @@ export function setupSiteHeader() {
   window.addEventListener('scroll', onScroll, { passive:true });
   window.addEventListener('pageshow', syncScroll);
   desktop.addEventListener('change', syncScroll);
-  addEventListener('resize',stopMorph,{passive:true});
+  let headerViewportWidth=innerWidth;
+  addEventListener('resize',()=>{if(innerWidth!==headerViewportWidth){headerViewportWidth=innerWidth;stopMorph();}onScroll();},{passive:true});
+  document.addEventListener('hoea:notice-change',syncScroll);
   reduced.addEventListener('change',()=>{if(reduced.matches)stopMorph();});
 
   function placeMenu(bounds = toggle.getBoundingClientRect()) {

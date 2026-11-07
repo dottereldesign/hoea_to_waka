@@ -1,1 +1,9 @@
-(()=>{const notice=document.querySelector('[data-book-notice]');if(!notice)return;const place=()=>document.body.style.setProperty('--book-notice-offset',Math.max(0,notice.getBoundingClientRect().bottom)+'px');place();window.addEventListener('scroll',place,{passive:true});window.addEventListener('resize',place);new ResizeObserver(place).observe(notice);notice.querySelector('button').addEventListener('click',()=>{notice.hidden=true;place();const brand=document.querySelector('.site-header a');if(brand)brand.focus({preventScroll:true});window.dispatchEvent(new Event('resize'));});})();
+(()=>{
+ const notice=document.querySelector('[data-book-notice]');if(!notice)return;
+ const notify=()=>{
+  if(!document.querySelector('[data-header-bound]'))document.body.style.setProperty('--book-notice-offset',Math.max(0,notice.getBoundingClientRect().bottom)+'px');
+  document.dispatchEvent(new CustomEvent('hoea:notice-change'));
+ };
+ notify();new ResizeObserver(notify).observe(notice);
+ notice.querySelector('button').addEventListener('click',()=>{notice.hidden=true;notify();document.querySelector('.site-header a')?.focus({preventScroll:true});});
+})();
