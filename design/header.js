@@ -16,24 +16,28 @@ export function setupSiteHeader() {
   let morphs=[],morphGeneration=0,placed=false;
   const morphTargets=()=>[glass,symbol,brand.querySelector('.site-brand-name'),brand.querySelector('.site-brand-line'),header.querySelector('.site-nav'),header.querySelector('.site-header-cta'),toggle].filter(node=>node?.getClientRects().length&&getComputedStyle(node).display!=='none');
   function stopMorph(){morphGeneration++;morphs.forEach(a=>a.cancel());morphs=[];header.dataset.headerMorph='idle';}
-  function compactHeader(next,offset,animateOffset=false){
+  function compactHeader(next,offset,animateOffset=false,visibleOffset=0){
     const previousOffset=parseFloat(document.body.style.getPropertyValue('--book-notice-offset'))||0;
     const shapeChanged=header.classList.contains('is-scrolled')!==next;
-    // Move with the returning announcement before measuring. Otherwise inverse
-    // transforms preserve old viewport coordinates underneath the announcement.
-    if(!animateOffset&&previousOffset!==offset)document.body.style.setProperty('--book-notice-offset',offset+'px');
+    // Ordinary scroll displacement can update directly; a shape change measures
+    // its current position before moving to the fixed destination below.
+    if(!shapeChanged&&!animateOffset&&previousOffset!==offset)document.body.style.setProperty('--book-notice-offset',offset+'px');
     if(placed&&!shapeChanged&&(!animateOffset||previousOffset===offset))return;
     const targets=morphTargets();
     const first=new Map(targets.map(node=>[node,node.getBoundingClientRect()]));
+    // Anticipate the expanded header's permanent slot below the full alert.
+    // A fast jump may already expose the alert: shift the whole starting shape
+    // clear of it instead of letting an inverse transform hide the logo beneath it.
+    const clearance=Math.max(0,visibleOffset-Math.min(...[...first.values()].map(r=>r.top)));
     stopMorph();header.classList.toggle('is-scrolled',next);
-    if(animateOffset&&previousOffset!==offset)document.body.style.setProperty('--book-notice-offset',offset+'px');
+    if((shapeChanged||animateOffset)&&previousOffset!==offset)document.body.style.setProperty('--book-notice-offset',offset+'px');
     if(!placed||reduced.matches||(!desktop.matches&&shapeChanged)){placed=true;return;}
     const last=new Map(targets.map(node=>[node,node.getBoundingClientRect()]));
     const token=++morphGeneration;header.dataset.headerMorph='moving';
     morphs=targets.map(node=>{
       const a=first.get(node),b=last.get(node);
       if(!a.width||!a.height||!b.width||!b.height)return null;
-      const dx=a.x+a.width/2-b.x-b.width/2,dy=a.y+a.height/2-b.y-b.height/2;
+      const dx=a.x+a.width/2-b.x-b.width/2,dy=a.y+clearance+a.height/2-b.y-b.height/2;
       const sx=a.width/b.width,sy=node===symbol?sx:a.height/b.height;
       return node.animate([{transform:`translate(${dx}px,${dy}px) scale(${sx},${sy})`},{transform:'none'}],{duration:400,easing:'cubic-bezier(.22,1,.36,1)',fill:'both'});
     }).filter(Boolean);
@@ -106,7 +110,13 @@ export function setupSiteHeader() {
     const compact = header.classList.contains('is-scrolled');
     const notice = document.querySelector('[data-book-notice]:not([hidden])');
     const noticeHeight = notice?.getBoundingClientRect().height || 0;
-    compactHeader(desktop.matches && scrollY > noticeHeight + (compact ? 24 : 48),Math.max(0,notice?.getBoundingClientRect().bottom||0),animateOffset===true);
+    const next=desktop.matches && scrollY > noticeHeight + (compact ? 24 : 48);
+    const visibleOffset=Math.max(0,notice?.getBoundingClientRect().bottom||0);
+    // Start expansion towards the final landing position, even before the
+    // announcement has scrolled fully back into view. Never move that target
+    // halfway through the morph as the banner's visible height increases.
+    const offset=desktop.matches&&!next?noticeHeight:visibleOffset;
+    compactHeader(next,offset,animateOffset===true,visibleOffset);
     if (dialog.open) trackAnchor();
   }
   // Scroll events already precede paint. Deferring the alert offset another frame
