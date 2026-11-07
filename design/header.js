@@ -7,6 +7,18 @@ export function setupSiteHeader() {
   const close = header.querySelector('.site-menu-close');
   const desktop = matchMedia('(min-width:1100px)');
   const reduced = matchMedia('(prefers-reduced-motion:reduce)');
+  const scrollKey='hoea-header-scroll:'+location.pathname;
+  let restoreY=0;
+  try{
+    const navigation=performance.getEntriesByType('navigation')[0]?.type;
+    if(navigation==='reload'||navigation==='back_forward')restoreY=Number(sessionStorage.getItem(scrollKey))||0;
+  }catch{}
+  if(restoreY>0)header.dataset.restoreScroll=String(restoreY);
+  const finishRestoration=()=>{restoreY=0;delete header.dataset.restoreScroll;syncScroll();};
+  addEventListener('pagehide',()=>{try{sessionStorage.setItem(scrollKey,String(scrollY));sessionStorage.setItem(scrollKey+':pill',String(header.classList.contains('is-scrolled')));}catch{}});
+  // Browser scroll restoration may follow pageshow. User input always wins.
+  addEventListener('pageshow',()=>{setTimeout(finishRestoration,600);});
+  for(const event of ['wheel','touchstart','keydown'])addEventListener(event,finishRestoration,{passive:true,once:true});
   const bar=header.querySelector('.site-header-bar'),brand=header.querySelector('.site-brand');
   const glass=document.createElement('span');glass.className='site-header-glass';glass.setAttribute('aria-hidden','true');bar.prepend(glass);
   const symbol=document.createElement('span');symbol.className='site-brand-symbol';symbol.setAttribute('aria-hidden','true');brand.prepend(symbol);
@@ -110,8 +122,9 @@ export function setupSiteHeader() {
     const compact = header.classList.contains('is-scrolled');
     const notice = document.querySelector('[data-book-notice]:not([hidden])');
     const noticeHeight = notice?.getBoundingClientRect().height || 0;
-    const next=desktop.matches && scrollY > noticeHeight + (compact ? 24 : 48);
-    const visibleOffset=Math.max(0,notice?.getBoundingClientRect().bottom||0);
+    const effectiveY=restoreY||scrollY;
+    const next=desktop.matches && effectiveY > noticeHeight + (compact ? 24 : 48);
+    const visibleOffset=restoreY?Math.max(0,noticeHeight-effectiveY):Math.max(0,notice?.getBoundingClientRect().bottom||0);
     // Start expansion towards the final landing position, even before the
     // announcement has scrolled fully back into view. Never move that target
     // halfway through the morph as the banner's visible height increases.
@@ -123,6 +136,7 @@ export function setupSiteHeader() {
   // lets the returning notice cover the header during rapid upward scrolling.
   const onScroll = () => syncScroll();
   syncScroll();
+  document.documentElement.classList.remove('header-restoring');
   window.addEventListener('scroll', onScroll, { passive:true });
   window.addEventListener('pageshow', syncScroll);
   desktop.addEventListener('change', syncScroll);

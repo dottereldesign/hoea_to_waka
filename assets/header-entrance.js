@@ -23,7 +23,7 @@
   header.dataset.entrancePlacing = 'true';
   function place(restoring = false) {
     const threshold=noticeHeight()+(header.classList.contains('is-scrolled')?24:48);
-    header.classList.toggle('is-scrolled', desktop.matches && (scrollY > threshold || (restoring && restoredPill)));
+    header.classList.toggle('is-scrolled', desktop.matches && ((Number(header.dataset.restoreScroll)||scrollY) > threshold || (restoring && restoredPill)));
   }
   place(true);
   function finish(reason = 'complete') {
@@ -158,6 +158,7 @@
 
   function start() {
     place(!pageShown);
+    if(restoredPill){finish('restored-scroll');return;}
     startFrame = requestAnimationFrame(() => play('load'));
   }
   const ready = () => {
