@@ -27,7 +27,7 @@ const sharp=require('sharp');
       cover:document.elementFromPoint(rect.x+rect.width/2,rect.y+rect.height/2)?.className};
     });
     headerFrames.push({time:performance.now(),scroll:scrollY,notice:notice.getBoundingClientRect().bottom,
-     morph:header.dataset.headerMorph,progress:Number(header.style.getPropertyValue('--header-motion')),glassOpacity:getComputedStyle(glass).opacity,elements,
+     morph:header.dataset.headerMorph,glassOpacity:getComputedStyle(glass).opacity,elements,
      animations:header.getAnimations({subtree:true}).map(a=>({target:a.effect.target.className,time:a.currentTime,state:a.playState}))});
     if(captureHeader)requestAnimationFrame(frame);
    }

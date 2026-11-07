@@ -11,35 +11,34 @@ export function setupSiteHeader() {
   const glass=document.createElement('span');glass.className='site-header-glass';glass.setAttribute('aria-hidden','true');bar.prepend(glass);
   const symbol=document.createElement('span');symbol.className='site-brand-symbol';symbol.setAttribute('aria-hidden','true');brand.prepend(symbol);
   header.classList.add('header-compositor');
-  // One scalar drives the complete header. No independently transformed children,
-  // stale viewport rectangles or inherited colour transitions during reversal.
-  let motionFrame=0,progress=0,target=0,placed=false;
-  const render=()=>{
-    header.style.setProperty('--header-motion',progress);
-    header.dataset.headerTone=progress>.68?'dark':'light';
-  };
-  function stopMorph(){cancelAnimationFrame(motionFrame);motionFrame=0;header.dataset.headerMorph='idle';}
+  // Measure layout only when the shape changes. Animate transforms on isolated
+  // layers; never change font sizes, widths or inherited variables every frame.
+  let morphs=[],morphGeneration=0,placed=false;
+  const morphTargets=()=>[glass,symbol,brand.querySelector('.site-brand-name'),brand.querySelector('.site-brand-line'),header.querySelector('.site-nav'),header.querySelector('.site-header-cta'),toggle].filter(node=>node?.getClientRects().length&&getComputedStyle(node).display!=='none');
+  function stopMorph(){morphGeneration++;morphs.forEach(a=>a.cancel());morphs=[];header.dataset.headerMorph='idle';}
   function compactHeader(next,offset,animateOffset=false){
     const previousOffset=parseFloat(document.body.style.getPropertyValue('--book-notice-offset'))||0;
-    const nextTarget=next?1:0;
-    header.classList.toggle('is-scrolled',next);
-    if(!animateOffset)document.body.style.setProperty('--book-notice-offset',offset+'px');
-    if(placed&&nextTarget===target&&(!animateOffset||Math.abs(previousOffset-offset)<.1))return;
-    stopMorph();target=nextTarget;
-    if(!placed||reduced.matches||(!desktop.matches&&progress>0)){
-      progress=target;render();document.body.style.setProperty('--book-notice-offset',offset+'px');placed=true;return;
-    }
-    const from=progress,start=performance.now();
-    const duration=440;
-    header.dataset.headerMorph='moving';
-    function tick(now){
-      const t=Math.max(0,Math.min(1,(now-start)/duration)),ease=1-Math.pow(1-t,3);
-      progress=from+(target-from)*ease;render();
-      if(animateOffset)document.body.style.setProperty('--book-notice-offset',(previousOffset+(offset-previousOffset)*ease)+'px');
-      if(t<1)motionFrame=requestAnimationFrame(tick);
-      else{motionFrame=0;header.dataset.headerMorph='idle';}
-    }
-    motionFrame=requestAnimationFrame(tick);placed=true;
+    const shapeChanged=header.classList.contains('is-scrolled')!==next;
+    // Move with the returning announcement before measuring. Otherwise inverse
+    // transforms preserve old viewport coordinates underneath the announcement.
+    if(!animateOffset&&previousOffset!==offset)document.body.style.setProperty('--book-notice-offset',offset+'px');
+    if(placed&&!shapeChanged&&(!animateOffset||previousOffset===offset))return;
+    const targets=morphTargets();
+    const first=new Map(targets.map(node=>[node,node.getBoundingClientRect()]));
+    stopMorph();header.classList.toggle('is-scrolled',next);
+    if(animateOffset&&previousOffset!==offset)document.body.style.setProperty('--book-notice-offset',offset+'px');
+    if(!placed||reduced.matches||(!desktop.matches&&shapeChanged)){placed=true;return;}
+    const last=new Map(targets.map(node=>[node,node.getBoundingClientRect()]));
+    const token=++morphGeneration;header.dataset.headerMorph='moving';
+    morphs=targets.map(node=>{
+      const a=first.get(node),b=last.get(node);
+      if(!a.width||!a.height||!b.width||!b.height)return null;
+      const dx=a.x+a.width/2-b.x-b.width/2,dy=a.y+a.height/2-b.y-b.height/2;
+      const sx=a.width/b.width,sy=node===symbol?sx:a.height/b.height;
+      return node.animate([{transform:`translate(${dx}px,${dy}px) scale(${sx},${sy})`},{transform:'none'}],{duration:400,easing:'cubic-bezier(.22,1,.36,1)',fill:'both'});
+    }).filter(Boolean);
+    Promise.allSettled(morphs.map(a=>a.finished)).then(()=>{if(token===morphGeneration)stopMorph()});
+    placed=true;
   }
   let frame = 0, closing = 0, opening = 0, anchorFrame = 0, anchorUntil = 0;
   let menuOpen = false, lastAnchor = '';
@@ -120,7 +119,7 @@ export function setupSiteHeader() {
   let headerViewportWidth=innerWidth;
   addEventListener('resize',()=>{if(innerWidth!==headerViewportWidth){headerViewportWidth=innerWidth;}onScroll();},{passive:true});
   document.addEventListener('hoea:notice-change',()=>syncScroll(true));
-  reduced.addEventListener('change',()=>{if(reduced.matches){stopMorph();progress=target;render();}});
+  reduced.addEventListener('change',()=>{if(reduced.matches)stopMorph();});
 
   function placeMenu(bounds = toggle.getBoundingClientRect()) {
     lastAnchor=[bounds.x,bounds.y,bounds.width,bounds.height,innerWidth,innerHeight].join(',');
