@@ -7,7 +7,7 @@ import {mountWakaStudies,paddlePose} from './anna-waka-studies.js';
     svg.classList.add('anna-river');svg.setAttribute('aria-hidden','true');svg.setAttribute('focusable','false');
     svg.innerHTML=`<defs>${[['water','#eaf1ed'],['bank','#526b68']].map(([name,colour])=>`<linearGradient id="anna-river-${name}" x1="0" y1="0" x2="0" y2="1"><stop stop-color="${colour}" stop-opacity="0"/><stop offset=".035" stop-color="${colour}"/><stop offset=".965" stop-color="${colour}"/><stop offset="1" stop-color="${colour}" stop-opacity="0"/></linearGradient>`).join('')}</defs>
       <g class="river-water"></g><g class="river-banks"></g><g class="river-shore"></g><g class="river-currents"></g>
-      <g class="river-kayak">
+      <g class="river-kayak" visibility="hidden">
         <g class="river-wake"><path d="M-5-21Q-11-34-17-49M5-21Q11-34 17-49"/><path d="M-4-26Q-7-38-8-53M4-26Q7-38 8-53"/></g>
         <g class="river-kayak__float" id="anna-current-waka">
           <!-- Hand-traced from the supplied canoe reference, rotated to its upright axis. -->
@@ -117,7 +117,7 @@ import {mountWakaStudies,paddlePose} from './anna-waka-studies.js';
         return `C${f(previous[0]+(point[0]-before[0])/6*blend)} ${f(previous[1]+(point[1]-before[1])/6*blend)} ${f(point[0]-(after[0]-previous[0])/6*blend)} ${f(point[1]-(after[1]-previous[1])/6*blend)} ${point.map(f).join(' ')}`;
       }).join('')+'Z';
       ocean.querySelector('clipPath path').setAttribute('d',silhouette);
-      root.dataset.oceanReady='true';
+
 
       const ld=curve(left),rd=curve(right),water=ld+'L'+right.at(-1).map(f).join(' ')+curve([...right].reverse()).replace(/^M[^C]+/,'')+'Z';
       svg.querySelector('.river-water').innerHTML=`<path d="${water}"/>`;
@@ -154,6 +154,9 @@ import {mountWakaStudies,paddlePose} from './anna-waka-studies.js';
       svg.dataset.stops=JSON.stringify(stops);svg.dataset.release=String(release);
       distance=clamp(distance,0,length);target=clamp(target,0,length);
       setScroll(scrollY,visible,reduced);
+      // Publish geometry and the initial waka pose together, before exposing the river.
+      paint();
+      root.dataset.oceanReady='true';
     }
     function setScroll(y,isVisible,isReduced){
       visible=isVisible;reduced=isReduced;
@@ -208,6 +211,7 @@ import {mountWakaStudies,paddlePose} from './anna-waka-studies.js';
       if(!samples.length)return;
       const p=pointAt(distance),speed=clamp(Math.abs(velocity)/200),rock=Math.sin(distance*.055)*.7*speed;
       boat.setAttribute('transform',`translate(${f(p.x)} ${f(p.y)}) rotate(${f(angle+rock)}) scale(${mobile?.8:1})`);
+      boat.removeAttribute('visibility');
       // A submerged power stroke followed by a feathered, lifted recovery.
       // The stroke rate stays calm; acceleration changes its strength, not its cadence.
       paddlePose(blades,splashes,paddlePhase,reduced?0:paddleActivity);
