@@ -14,9 +14,12 @@ export function setupSiteHeader() {
   let morphs=[],morphGeneration=0,placed=false;
   const morphTargets=()=>[glass,symbol,brand.querySelector('.site-brand-name'),brand.querySelector('.site-brand-line'),header.querySelector('.site-nav'),header.querySelector('.site-header-cta'),toggle].filter(node=>node?.getClientRects().length&&getComputedStyle(node).display!=='none');
   function stopMorph(){morphGeneration++;morphs.forEach(animation=>animation.cancel());morphs=[];header.dataset.headerMorph='idle';}
-  function compactHeader(next,offset){
+  function compactHeader(next,offset,animateOffset=false){
     const shapeChanged=header.classList.contains('is-scrolled')!==next;
     const previousOffset=parseFloat(document.body.style.getPropertyValue('--book-notice-offset'))||0;
+    // Normal scroll displacement belongs to the page, not the shape animation.
+    // Updating the carrier must never cancel/restart an in-flight pill morph.
+    if(!shapeChanged&&!animateOffset){document.body.style.setProperty('--book-notice-offset',offset+'px');placed=true;return;}
     if(!shapeChanged&&Math.abs(previousOffset-offset)<.1){placed=true;return;}
     const targets=morphTargets();
     const first=new Map(targets.map(node=>[node,node.getBoundingClientRect()]));
@@ -93,13 +96,13 @@ export function setupSiteHeader() {
   }
   dialog.querySelectorAll('.site-menu-links a').forEach((link, index) => link.style.setProperty('--menu-item-index', index + 1));
 
-  function syncScroll() {
+  function syncScroll(animateOffset=false) {
     frame = 0;
     // Hysteresis prevents flickering when scrolling near the changeover point.
     const compact = header.classList.contains('is-scrolled');
     const notice = document.querySelector('[data-book-notice]:not([hidden])');
     const noticeHeight = notice?.getBoundingClientRect().height || 0;
-    compactHeader(desktop.matches && scrollY > noticeHeight + (compact ? 24 : 48),Math.max(0,notice?.getBoundingClientRect().bottom||0));
+    compactHeader(desktop.matches && scrollY > noticeHeight + (compact ? 24 : 48),Math.max(0,notice?.getBoundingClientRect().bottom||0),animateOffset===true);
     if (dialog.open) trackAnchor();
   }
   const onScroll = () => { if (!frame) frame = requestAnimationFrame(syncScroll); };
@@ -109,7 +112,7 @@ export function setupSiteHeader() {
   desktop.addEventListener('change', syncScroll);
   let headerViewportWidth=innerWidth;
   addEventListener('resize',()=>{if(innerWidth!==headerViewportWidth){headerViewportWidth=innerWidth;stopMorph();}onScroll();},{passive:true});
-  document.addEventListener('hoea:notice-change',syncScroll);
+  document.addEventListener('hoea:notice-change',()=>syncScroll(true));
   reduced.addEventListener('change',()=>{if(reduced.matches)stopMorph();});
 
   function placeMenu(bounds = toggle.getBoundingClientRect()) {

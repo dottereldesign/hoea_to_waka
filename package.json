@@ -52,7 +52,9 @@
     "build:guide-qr": "node scripts/guide-qr.mjs",
     "build:brand-assets": "node scripts/brand-downloads.mjs",
     "test:language-menu-performance": "node scripts/language-menu-performance.cjs",
-    "build:page-styles": "node scripts/build-page-styles.mjs"
+    "build:page-styles": "node scripts/build-page-styles.mjs",
+    "debug:header-flash": "node scripts/header-flash-debug.cjs",
+    "test:header-flash": "node scripts/header-flash-regression.test.cjs"
   },
   "dependencies": {
     "motion": "^12.0.0"

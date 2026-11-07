@@ -49,3 +49,8 @@ body:has(.home-book-notice) [data-morph-header] .site-header-shell {
 .notice-style-options button:focus-visible{outline:2px solid #183958;outline-offset:2px}
 @media(max-width:760px){.home-book-notice__cta{gap:4px}.home-book-notice__logo{padding:5px 4px}.home-book-notice .home-book-notice__amazon{width:66px;height:22px}.home-book-notice[data-notice-style='2'] .home-book-notice__cta{padding-left:8px}.home-book-notice[data-notice-style='4'] .home-book-notice__logo{padding-inline:8px}.home-book-notice[data-notice-style='5'] .home-book-notice__cta{padding-inline:8px}.notice-style-options{bottom:12px}.notice-style-options button{width:40px;height:40px}}
 @media(max-width:420px){.home-book-notice__short{display:none}.home-book-notice__arrow{display:none}.home-book-notice .home-book-notice__link{gap:6px}.home-book-notice{font-size:12px}}
+
+/* The bar owns the ink transition. Interpolating inherited colour again on
+   the brand leaves a white logo behind after the glass has faded away. */
+html[data-palette] [data-morph-header].header-compositor .site-brand{transition:none!important}
+html[data-palette] [data-morph-header].header-compositor .site-nav :is(.site-nav-link,.site-nav-parent-link,.site-nav-toggle){transition:none!important}
