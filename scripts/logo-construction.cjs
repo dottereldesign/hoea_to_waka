@@ -2,7 +2,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const {chromium} = require('playwright');
 const Axe = require('@axe-core/playwright').default;
-const kinds = ['compass','atlas','ratio','blueprint','bezier','atlas-grid','original'];
+const kinds = ['compass','atlas','ratio','blueprint','bezier','atlas-grid','atlas-outline','original'];
 const approved = [...fs.readFileSync('assets/logo-black.svg','utf8').matchAll(/<path[^>]* d="([^"]+)"/g)].map(m=>m[1]);
 (async()=>{
   const server = require('./preview.cjs')(8893);
@@ -26,7 +26,7 @@ const approved = [...fs.readFileSync('assets/logo-black.svg','utf8').matchAll(/<
         assert.equal(await page.locator('.lc-panel:visible').count(),1);
         assert.equal(await page.locator('.lc-choice[aria-pressed=true]').count(),1);
         assert.deepEqual(await panel.locator('.lc-outline').evaluateAll(es=>es.map(e=>e.getAttribute('d'))),approved);
-        if(kind==='compass')assert.equal(await panel.locator('.lc-ink').count(),0,'Sketch never has a fill layer');
+        if(kind==='compass'||kind==='atlas-outline')assert.equal(await panel.locator('.lc-ink').count(),0,'Sketch never has a fill layer');
         else assert.deepEqual(await panel.locator('.lc-ink>path').evaluateAll(es=>es.map(e=>e.getAttribute('d'))),approved);
         assert.equal(await panel.evaluate(e=>e.getAnimations({subtree:true}).length),0,'Reduced motion is static');
         assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'No page overflow at '+width);
@@ -38,7 +38,7 @@ const approved = [...fs.readFileSync('assets/logo-black.svg','utf8').matchAll(/<
           assert.deepEqual(audit.violations.map(v=>({id:v.id,nodes:v.nodes.map(n=>n.target)})),[],kind+' accessibility '+width);
         }
       }
-      console.log('PASS all seven studies, original paths, complete circles and responsive fit',width);
+      console.log('PASS all eight studies, original paths, complete circles and responsive fit',width);
     }
     const phi=await page.locator('[data-lc-panel=ratio] .lc-ratio-ring circle').evaluateAll(es=>es.map(e=>+e.getAttribute('r')));
     for(let i=1;i<phi.length;i++)assert(Math.abs(phi[i-1]/phi[i]-(1+Math.sqrt(5))/2)<.0001,'Genuine phi radius progression');
