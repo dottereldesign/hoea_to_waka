@@ -11,6 +11,6 @@ const artwork=svg.outerHTML.replaceAll('lc-atlas-audited','brand-outline-08');
 const path='about/brand-guidelines/index.html';let html=await readFile(path,'utf8');
 const study=`<div class="site-preview-brand-hero-logo-study" data-hero-pencil data-hero-outline="08">${artwork}</div>`;
 html=html.replace(/<!-- hero-pencil:start -->[\s\S]*?<!-- hero-pencil:end -->/,`<!-- hero-pencil:start -->${study}<!-- hero-pencil:end -->`);
-if(!html.includes('assets/brand-hero-outline.css'))html=html.replace('</head>','<link rel="stylesheet" href="../../assets/brand-hero-outline.css?v=1">\n</head>');
+if(!html.includes('assets/brand-hero-outline.css'))html=html.replace('</head>','<link rel="stylesheet" href="../../assets/brand-hero-outline.css?v=2">\n</head>');
 await writeFile(path,html);
 console.log('Brand guideline hero: exact study 08 artwork, static grid and animated outlines');
