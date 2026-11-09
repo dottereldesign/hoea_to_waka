@@ -38,7 +38,12 @@
       // The grid stays visible and static while the artwork draws.
       draw('.lc-circle.lc-draw',1200,0,320);
       draw('.lc-fit',850,300,320);
-      draw('.lc-outline',1600,1200,65);
+      if(kind==='atlas-audited') {
+        const circlesEnd=1200+Math.max(0,active.querySelectorAll('.lc-circle.lc-draw').length-1)*320;
+        draw('.lc-outline',700,circlesEnd,700);
+      } else {
+        draw('.lc-outline',1600,1200,65);
+      }
       fade('.lc-detail',650,900,90);
       fade('.lc-ink',1100,2700);
     } else if(kind==='ratio') {
