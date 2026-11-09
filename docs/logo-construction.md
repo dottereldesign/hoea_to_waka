@@ -1,6 +1,6 @@
 # Logo construction studies
 
-The first section on `/illustrations/` contains seven motion studies and a copy of
+The first section on `/illustrations/` contains eight motion studies and a copy of
 the original brand-guideline pencil-to-ink study. The brand-guideline page is
 unchanged. Study 01 is permanently unfilled.
 
@@ -64,7 +64,7 @@ normal site build. Styles and runtime are standalone assets to avoid modifying
 the rest of the illustration page.
 
 `node scripts/logo-construction.cjs` checks unchanged logo paths, complete circle
-bounds, phi ratios, all eight selections at five widths, animation progress,
+bounds, phi ratios, all nine selections at five widths, animation progress,
 pause/resume/replay, keyboard use, guide visibility, reduced motion and a
 no-JavaScript fallback. It runs scoped axe audits and saves desktop/mobile
 screenshots in ignored `tmp/logo-construction/`.
@@ -76,3 +76,15 @@ The wave tip in study 07 similarly joins master paths 6 and 7. A sub-0.01-unit d
 Study 07 keeps its grid visible and static from the start. Only the construction circles and logo animate; there is no grid lead-in.
 
 Study 07 omits all radius guide lines, centre crosses and contact-point markers. The fitted circles and grid remain.
+
+## Study 08 audit
+
+Study 08 is derived from 07 by scripts/logo-outline-audit.mjs. Study 07 and the master remain untouched.
+
+- Removed five separate 1.5-unit curve highlight strokes over the 1.1-unit outline, eliminating local weight changes and blunt overlay ends.
+- Removed the second stroke on each construction circle; a single stroke at 0.706 opacity preserves the former combined appearance.
+- Removed two microscopic join segments (0.000768 and 0.008616 units) and snapped two closing gaps (0.000768 and 0.007220 units).
+- Aligned the two curve handles at the upper wave shoulder (28.9286, 288.261), removing a 9.474-degree tangent discontinuity. Maximum control-point movement is 0.500 units on the 385-unit artwork. Pointed terminals were retained.
+- Checked all five closed contours with Skia path simplification: one contour remains per shape, with area differences below 0.00011 square units. Checked finite coordinates, closed paths, consistent stroke weights, static grid, complete circle bounds, no fill or markers, animation controls, mobile layouts and accessibility.
+
+Before/after screenshots are saved in ignored tmp/logo-construction/08-before.png and 08-after.png.

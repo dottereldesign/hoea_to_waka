@@ -2,9 +2,11 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const {chromium} = require('playwright');
 const Axe = require('@axe-core/playwright').default;
-const kinds = ['compass','atlas','ratio','blueprint','bezier','atlas-grid','atlas-outline','original'];
+const kinds = ['compass','atlas','ratio','blueprint','bezier','atlas-grid','atlas-outline','atlas-audited','original'];
 const approved = [...fs.readFileSync('assets/logo-black.svg','utf8').matchAll(/<path[^>]* d="([^"]+)"/g)].map(m=>m[1]);
 (async()=>{
+  const joined = approved.flatMap((d,i)=>[3,4,7].includes(i)?[]:[i===2?JSON.parse(fs.readFileSync('design/logo-outline-join.json','utf8')).d:i===6?JSON.parse(fs.readFileSync('design/logo-outline-join.json','utf8')).waveTip.d:d]);
+  const audited = (await import('./logo-outline-audit.mjs')).auditOutline(joined.map((d,i)=>({source:[0,1,2,5,6][i],d})));
   const server = require('./preview.cjs')(8893);
   const browser = await chromium.launch({channel:'chrome'});
   const failures=[];
@@ -25,8 +27,8 @@ const approved = [...fs.readFileSync('assets/logo-black.svg','utf8').matchAll(/<
         const panel=page.locator(`[data-lc-panel=${kind}]`);
         assert.equal(await page.locator('.lc-panel:visible').count(),1);
         assert.equal(await page.locator('.lc-choice[aria-pressed=true]').count(),1);
-        assert.deepEqual(await panel.locator('.lc-outline').evaluateAll(es=>es.map(e=>e.getAttribute('d'))),kind==='atlas-outline'?approved.flatMap((d,i)=>[3,4,7].includes(i)?[]:[i===2?JSON.parse(fs.readFileSync('design/logo-outline-join.json','utf8')).d:i===6?JSON.parse(fs.readFileSync('design/logo-outline-join.json','utf8')).waveTip.d:d]):approved);
-        if(kind==='compass'||kind==='atlas-outline')assert.equal(await panel.locator('.lc-ink').count(),0,'Sketch never has a fill layer');
+        assert.deepEqual(await panel.locator('.lc-outline').evaluateAll(es=>es.map(e=>e.getAttribute('d'))),kind==='atlas-audited'?audited.paths.map(p=>p.d):kind==='atlas-outline'?joined:approved);
+        if(kind==='compass'||kind==='atlas-outline'||kind==='atlas-audited')assert.equal(await panel.locator('.lc-ink').count(),0,'Sketch never has a fill layer');
         else assert.deepEqual(await panel.locator('.lc-ink>path').evaluateAll(es=>es.map(e=>e.getAttribute('d'))),approved);
         assert.equal(await panel.evaluate(e=>e.getAnimations({subtree:true}).length),0,'Reduced motion is static');
         assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'No page overflow at '+width);
@@ -38,7 +40,7 @@ const approved = [...fs.readFileSync('assets/logo-black.svg','utf8').matchAll(/<
           assert.deepEqual(audit.violations.map(v=>({id:v.id,nodes:v.nodes.map(n=>n.target)})),[],kind+' accessibility '+width);
         }
       }
-      console.log('PASS all eight studies, original paths, complete circles and responsive fit',width);
+      console.log('PASS all nine studies, original paths, complete circles and responsive fit',width);
     }
     const phi=await page.locator('[data-lc-panel=ratio] .lc-ratio-ring circle').evaluateAll(es=>es.map(e=>+e.getAttribute('r')));
     for(let i=1;i<phi.length;i++)assert(Math.abs(phi[i-1]/phi[i]-(1+Math.sqrt(5))/2)<.0001,'Genuine phi radius progression');

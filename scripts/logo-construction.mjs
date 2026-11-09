@@ -2,6 +2,7 @@ import {readFile, writeFile} from 'node:fs/promises';
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
 import svgpath from 'svgpath';
+import {auditOutline} from './logo-outline-audit.mjs';
 import {hatch} from './pencil-paths.mjs';
 
 // Work in the approved artwork's coordinates. Never rewrite its path data.
@@ -10,6 +11,7 @@ const paths = [...source.matchAll(/<path[^>]* d="([^"]+)"/g)].map(m => m[1]);
 const outlineJoin = JSON.parse(await readFile('design/logo-outline-join.json','utf8'));
 assert.equal(outlineJoin.sourceHash, createHash('sha256').update(paths[2]+'|'+paths[3]).digest('hex'), 'Regenerate the study 07 union after changing source paths');
 assert.equal(outlineJoin.waveTip.sourceHash, createHash('sha256').update(paths[6]+'|'+paths[7]).digest('hex'), 'Regenerate the study 07 wave tip after changing source paths');
+const audited = auditOutline(paths.flatMap((d,i)=>[3,4,7].includes(i)?[]:[{source:i,d:i===2?outlineJoin.d:i===6?outlineJoin.waveTip.d:d}]));
 const curves = paths.map(d => {
   let point;
   return svgpath(d).abs().unshort().segments.map(s => {
@@ -47,13 +49,15 @@ const configs = [
   ['05','bezier','Vector anatomy','The detail behind the flow.','Bézier handles extend from the original path anchors. Curvature circles appear, then the silhouette resolves in ink.','Lavender / anchors to artwork'],
   ['06','atlas-grid','Curve atlas · grid','The current, on paper.','The Curve Atlas silhouette and fitted circles, set on white with the fine Compass Sketch grid.','White / sequential curve tracing'],
   ['07','atlas-outline','Curve atlas · outline','The current, in outline.','The same circles and white grid as study 06, with the original logo traced in ink black and left unfilled.','Ink / outline only'],
+  ['08','atlas-audited','Curve atlas · refined','A cleaner line.','The outline study, refined for consistent strokes and smoother joins. The same white grid and construction circles.','Ink / refined outline'],
   ['00','original','Original reference','From the brand guidelines.','A copy of the original pencil-to-ink sequence and its original circle arrangement, here for comparison.','Reference / pencil to ink']
 ];
 function svg(config) {
   const [number,kind,name] = config, id=`lc-${kind}`;
+  const outlineStudy=['atlas-outline','atlas-audited'].includes(kind);
   const title = `${name} — Hoea tō Waka logo`;
   let grid = `<defs><pattern id="${id}-grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="currentColor" stroke-width=".35"/></pattern><clipPath id="${id}-scan"><rect class="lc-reveal" x="-110" y="-90" width="610" height="570"/></clipPath></defs><rect class="lc-grid" x="-70" y="-65" width="520" height="500" fill="url(#${id}-grid)"/>`;
-  if(kind==='atlas-outline') {
+  if(outlineStudy) {
     const horizontal=Array.from({length:25},(_,i)=>'<path class="lc-grid-line" data-grid-direction="horizontal" pathLength="1" d="M-70 '+(-60+i*20)+'H450"/>').join('');
     const vertical=Array.from({length:26},(_,i)=>'<path class="lc-grid-line" data-grid-direction="vertical" pathLength="1" d="M'+(-60+i*20)+' -65V435"/>').join('');
     grid=grid.replace(/<rect class="lc-grid"[^>]*>/, '<g class="lc-grid" fill="none" stroke="currentColor" stroke-width=".35">'+horizontal+vertical+'</g>');
@@ -79,12 +83,12 @@ function svg(config) {
     geometry+=`<g class="lc-labels lc-detail"><text x="-58" y="-38">φ = 1.618</text><text x="-58" y="-18">1 : φ : φ² : φ³</text><text x="-58" y="425">PROPORTION STUDY</text></g>`;
   } else {
     geometry=selected.map((c,i)=>{
-      const centreMark=kind==='atlas-outline'?'':cross(c.x,c.y);
-      const guideLine=kind==='atlas-outline'?'':line(c.x,c.y,c.b.x,c.b.y,'lc-radius lc-detail');
-      const contact=kind==='atlas-outline'?'':`<circle class="lc-contact lc-detail" cx="${round(c.b.x)}" cy="${round(c.b.y)}" r="2.3"/>`;
+      const centreMark=outlineStudy?'':cross(c.x,c.y);
+      const guideLine=outlineStudy?'':line(c.x,c.y,c.b.x,c.b.y,'lc-radius lc-detail');
+      const contact=outlineStudy?'':`<circle class="lc-contact lc-detail" cx="${round(c.b.x)}" cy="${round(c.b.y)}" r="2.3"/>`;
       const angle=Math.atan2(c.b.y-c.y,c.b.x-c.x)*180/Math.PI;
       const arc=`M${c.curve.start.x} ${c.curve.start.y} ${c.curve.s.join(' ')}`;
-      return `<g class="lc-circle-set" data-order="${i}">${circle(c,'lc-circle-base')}${circle(c,'lc-circle lc-draw',`transform="rotate(${round(angle)} ${round(c.x)} ${round(c.y)})" data-order="${i}"`)}${centreMark}${guideLine}${contact}<path class="lc-fit lc-draw" data-order="${i}" pathLength="1" d="${arc}"/>${kind==='compass'?`<g class="lc-compass" data-order="${i}" data-angle="${round(angle)}" style="transform-origin:${round(c.x)}px ${round(c.y)}px">${line(c.x,c.y,c.x+c.r,c.y,'lc-compass-arm')}<circle cx="${round(c.x+c.r)}" cy="${round(c.y)}" r="2.2"/></g>`:''}</g>`;
+      return `<g class="lc-circle-set" data-order="${i}">${kind==='atlas-audited'?'':circle(c,'lc-circle-base')}${circle(c,'lc-circle lc-draw',`transform="rotate(${round(angle)} ${round(c.x)} ${round(c.y)})" data-order="${i}"`)}${centreMark}${guideLine}${contact}${kind==='atlas-audited'?'':`<path class="lc-fit lc-draw" data-order="${i}" pathLength="1" d="${arc}"/>`}${kind==='compass'?`<g class="lc-compass" data-order="${i}" data-angle="${round(angle)}" style="transform-origin:${round(c.x)}px ${round(c.y)}px">${line(c.x,c.y,c.x+c.r,c.y,'lc-compass-arm')}<circle cx="${round(c.x+c.r)}" cy="${round(c.y)}" r="2.2"/></g>`:''}</g>`;
     }).join('');
     if(kind==='bezier') geometry+=selected.map((c,i)=>{
       const {s,start:p}=c.curve;
@@ -94,16 +98,16 @@ function svg(config) {
   }
   // The filled master includes a tiny isolated seam at the paddle join.
   // Omit that sliver only in study 07 so its outline does not become a stray stroke.
-  const mark=paths.map((d,i)=>kind==='atlas-outline' && [3,4,7].includes(i) ? '' : `<path class="lc-outline lc-draw" data-order="${i}" pathLength="1" d="${kind==='atlas-outline' ? (i===2 ? outlineJoin.d : i===6 ? outlineJoin.waveTip.d : d) : d}"/>`).join('');
-  const fill=(kind==='compass'||kind==='atlas-outline')?'':`<g class="lc-ink" ${kind==='blueprint'?`clip-path="url(#${id}-scan)"`:''}>${paths.map(d=>`<path d="${d}"/>`).join('')}</g>`;
+  const mark=kind==='atlas-audited'?audited.paths.map(({d,source})=>`<path class="lc-outline lc-draw" data-order="${source}" pathLength="1" d="${d}"/>`).join(''):paths.map((d,i)=>outlineStudy && [3,4,7].includes(i) ? '' : `<path class="lc-outline lc-draw" data-order="${i}" pathLength="1" d="${outlineStudy ? (i===2 ? outlineJoin.d : i===6 ? outlineJoin.waveTip.d : d) : d}"/>`).join('');
+  const fill=(kind==='compass'||outlineStudy)?'':`<g class="lc-ink" ${kind==='blueprint'?`clip-path="url(#${id}-scan)"`:''}>${paths.map(d=>`<path d="${d}"/>`).join('')}</g>`;
   const shade=kind!=='original'?'':paths.map((d,i)=>`<defs><clipPath id="${id}-hatch-${i}"><path d="${d}"/></clipPath></defs><path class="lc-hatch lc-draw" pathLength="1" data-order="${i}" clip-path="url(#${id}-hatch-${i})" d="${hatch(d,i)}"/>`).join('');
   return `<svg class="lc-art" viewBox="-110 -90 610 570" width="610" height="570" role="img" aria-labelledby="${id}-title ${id}-desc"><title id="${id}-title">${title}</title><desc id="${id}-desc">${config[4]}</desc>${grid}<g class="lc-mark">${mark}${shade}${fill}</g><g class="lc-guides">${geometry}</g>${kind==='blueprint'?'<path class="lc-scanline" d="M-70 -90H450"/>':''}</svg>`;
 }
 const buttons=configs.map(([num,key,name,,,method],i)=>`<button type="button" class="lc-choice" data-lc-choice="${key}" aria-pressed="${i===0}" aria-controls="lc-panel-${key}"><span class="lc-choice__number">${num}</span><span><strong>${name}</strong><small>${method.split(' / ')[0]}${key==='compass'?' · Outline only':''}</small></span><span class="lc-choice__arrow" aria-hidden="true">↗</span></button>`).join('');
-const panels=configs.map((c,i)=>`<article class="lc-panel" id="lc-panel-${c[1]}" data-lc-panel="${c[1]}" aria-labelledby="lc-heading-${c[1]}" ${i?'hidden':''}><div class="lc-sheet"><div class="lc-sheet__meta" aria-hidden="true"><span>HTW / ${c[0]}</span><span>${c[1]==='original'?'Archive':'Construction study'}</span></div>${svg(c)}<div class="lc-sheet__foot" aria-hidden="true"><span>Hoea tō Waka</span><span>${(c[1]==='compass'||c[1]==='atlas-outline')?'Contour / no fill':c[1]==='ratio'?'φ / proportional lens':'Original silhouette'}</span></div></div><div class="lc-caption"><div><p class="lc-caption__eyebrow">${c[5]}</p><h2 id="lc-heading-${c[1]}">${c[3]}</h2></div><p>${c[4]}</p></div></article>`).join('');
+const panels=configs.map((c,i)=>`<article class="lc-panel" id="lc-panel-${c[1]}" data-lc-panel="${c[1]}" aria-labelledby="lc-heading-${c[1]}" ${i?'hidden':''}><div class="lc-sheet"><div class="lc-sheet__meta" aria-hidden="true"><span>HTW / ${c[0]}</span><span>${c[1]==='original'?'Archive':'Construction study'}</span></div>${svg(c)}<div class="lc-sheet__foot" aria-hidden="true"><span>Hoea tō Waka</span><span>${(c[1]==='compass'||['atlas-outline','atlas-audited'].includes(c[1]))?'Contour / no fill':c[1]==='ratio'?'φ / proportional lens':'Original silhouette'}</span></div></div><div class="lc-caption"><div><p class="lc-caption__eyebrow">${c[5]}</p><h2 id="lc-heading-${c[1]}">${c[3]}</h2></div><p>${c[4]}</p></div></article>`).join('');
 const section=`<!-- logo-construction:start -->
 <section class="logo-construction" id="logo-construction" aria-labelledby="lc-title">
-  <header class="lc-header"><div><p class="lc-eyebrow">Illustrations / Motion studies</p><h1 id="lc-title">One mark. Seven perspectives.</h1></div><p>Exploring the geometry of Hoea tō Waka.<br>The same silhouette, seen in a new light.</p></header>
+  <header class="lc-header"><div><p class="lc-eyebrow">Illustrations / Motion studies</p><h1 id="lc-title">One mark. Eight perspectives.</h1></div><p>Exploring the geometry of Hoea tō Waka.<br>The same silhouette, seen in a new light.</p></header>
   <div class="lc-layout"><aside class="lc-sidebar"><label class="lc-guide-toggle lc-motion-toggle" data-lc-motion-control hidden><input type="checkbox" data-lc-motion checked>Animate</label><div class="lc-choices" role="group" aria-label="Choose a logo animation" hidden>${buttons}</div><div class="lc-sidebar__note"><span class="lc-note-rule"></span><p>Circles follow the existing curves. The original logo stays at the heart of every study.</p><a href="../about/brand-guidelines/#cover">View the brand guidelines <span aria-hidden="true">↗</span></a></div></aside><div class="lc-workspace">${panels}<div class="lc-toolbar" hidden><div class="lc-playback"><button type="button" data-lc-replay><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 7a6 6 0 1 1 0 6M4 3v4h4"/></svg>Replay</button><button type="button" data-lc-pause>Pause</button><span class="lc-status" role="status" aria-live="polite">Ready</span></div><label class="lc-guide-toggle"><input type="checkbox" data-lc-guides checked>Construction lines</label></div></div></div>
   <p class="lc-method-note">Construction studies made around the original artwork. Curve circles are fitted locally; the golden-ratio study explores proportion.</p>
 </section>
@@ -114,8 +118,10 @@ else {
   // Keep one page title; the existing illustration collection is the next section.
   html=html.replace(/<h1([^>]*)>([\s\S]*?)<\/h1>/,'<h2$1>$2</h2>');
   html=html.replace(/(<main[^>]*id="main-content"[^>]*>)/,`$1\n${section}`);
-  html=html.replace('</head>','<link rel="stylesheet" href="../assets/logo-construction.css?v=5">\n<script src="../assets/logo-construction.js?v=8" defer></script>\n</head>');
+  html=html.replace('</head>','<link rel="stylesheet" href="../assets/logo-construction.css?v=9">\n<script src="../assets/logo-construction.js?v=9" defer></script>\n</head>');
 }
 await writeFile('illustrations/index.html',html);
-console.log('Logo construction: seven studies + original, unchanged approved paths.');
+console.log('Logo construction: eight studies + original, unchanged approved paths.');
 console.table(fitted.map(c=>({curve:c.name,radius:round(c.r),maxDeviation:round(c.error)})));
+
+console.log('Study 08 audit:', JSON.stringify(audited.changes));
