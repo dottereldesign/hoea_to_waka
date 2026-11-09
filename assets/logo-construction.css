@@ -45,6 +45,8 @@ html[data-palette] .lc-choice[aria-pressed=true]{background:#eeefea;border-color
 .lc-hatch{fill:none;stroke:var(--mark);stroke-width:.7;opacity:.55}
 [data-lc-panel=atlas] .lc-sheet{--paper:#f5f2ec;--mark:#232722;--guide:#968674;--accent:#8d613a}
 [data-lc-panel=atlas] .lc-grid{opacity:0}
+[data-lc-panel=atlas-grid] .lc-sheet{--paper:#fff;--mark:#232722;--guide:#968674;--accent:#8d613a}
+[data-lc-panel=atlas-grid] .lc-grid{color:#808a76;opacity:.16}
 [data-lc-panel=ratio] .lc-sheet{--paper:#eee7da;--mark:#3a3329;--guide:#94784b;--accent:#94784b}
 [data-lc-panel=ratio] .lc-grid{opacity:.1}
 [data-lc-panel=ratio] .lc-circle{opacity:.8}

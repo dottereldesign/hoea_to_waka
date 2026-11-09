@@ -1,6 +1,6 @@
 # Logo construction studies
 
-The first section on `/illustrations/` contains five motion studies and a copy of
+The first section on `/illustrations/` contains six motion studies and a copy of
 the original brand-guideline pencil-to-ink study. The brand-guideline page is
 unchanged. Study 01 is permanently unfilled.
 
@@ -38,7 +38,8 @@ control points from the approved Bézier paths.
 3. **Golden rhythm:** circles expand from their shared tangent, then ink appears.
 4. **The drafting room:** dimensions and guides draw before a vertical clip reveal.
 5. **Vector anatomy:** handles extend, contours draw, circles and ink resolve.
-6. **Original reference:** the original circle layout and pencil hatching to ink.
+6. **Curve atlas · grid:** the Curve Atlas paths and motion on white, with the Compass Sketch grid.
+7. **Original reference:** the original circle layout and pencil hatching to ink.
 
 All sequences finish, support pause/resume and replay, pause while offscreen,
 and resolve immediately when reduced motion is enabled. With JavaScript off,
@@ -62,7 +63,7 @@ normal site build. Styles and runtime are standalone assets to avoid modifying
 the rest of the illustration page.
 
 `node scripts/logo-construction.cjs` checks unchanged logo paths, complete circle
-bounds, phi ratios, all six selections at five widths, animation progress,
+bounds, phi ratios, all seven selections at five widths, animation progress,
 pause/resume/replay, keyboard use, guide visibility, reduced motion and a
 no-JavaScript fallback. It runs scoped axe audits and saves desktop/mobile
 screenshots in ignored `tmp/logo-construction/`.

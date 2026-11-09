@@ -2,7 +2,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const {chromium} = require('playwright');
 const Axe = require('@axe-core/playwright').default;
-const kinds = ['compass','atlas','ratio','blueprint','bezier','original'];
+const kinds = ['compass','atlas','ratio','blueprint','bezier','atlas-grid','original'];
 const approved = [...fs.readFileSync('assets/logo-black.svg','utf8').matchAll(/<path[^>]* d="([^"]+)"/g)].map(m=>m[1]);
 (async()=>{
   const server = require('./preview.cjs')(8893);
@@ -38,7 +38,7 @@ const approved = [...fs.readFileSync('assets/logo-black.svg','utf8').matchAll(/<
           assert.deepEqual(audit.violations.map(v=>({id:v.id,nodes:v.nodes.map(n=>n.target)})),[],kind+' accessibility '+width);
         }
       }
-      console.log('PASS all six studies, original paths, complete circles and responsive fit',width);
+      console.log('PASS all seven studies, original paths, complete circles and responsive fit',width);
     }
     const phi=await page.locator('[data-lc-panel=ratio] .lc-ratio-ring circle').evaluateAll(es=>es.map(e=>+e.getAttribute('r')));
     for(let i=1;i<phi.length;i++)assert(Math.abs(phi[i-1]/phi[i]-(1+Math.sqrt(5))/2)<.0001,'Genuine phi radius progression');

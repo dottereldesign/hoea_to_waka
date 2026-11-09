@@ -34,7 +34,7 @@
         animate(el,[{opacity:0,transform:`rotate(${angle}deg)`},{opacity:.7,offset:.08},{opacity:.7,offset:.88},{opacity:0,transform:`rotate(${angle+360}deg)`}],1400,i*230,'linear');
       });
       draw('.lc-fit',1000,950,180);
-    } else if(kind==='atlas') {
+    } else if(kind==='atlas' || kind==='atlas-grid') {
       draw('.lc-circle.lc-draw',1200,0,320);
       draw('.lc-fit',850,300,320);
       draw('.lc-outline',1600,1200,65);
