@@ -1,0 +1,50 @@
+/* The tagline stretches to the wordmark's text column. */
+.site-brand-line,
+.brand-logo-lockup__tagline,
+.site-preview-brand-hero-subtitle,
+.footer-brand-tagline {
+  justify-self: stretch;
+  align-self: stretch;
+  justify-content: center;
+  gap: .65em;
+}
+html[data-palette] [data-morph-header] .site-brand-line { font-size: 8.5px; letter-spacing: .12em; }
+html[data-palette] [data-morph-header].is-scrolled .site-brand-line { font-size: 7.5px; }
+.brand-logo-lockup__tagline { font-size: clamp(7px, 2.3cqw, 10px); letter-spacing: .1em; }
+.brand-guide-hero-wordmark { display: grid; gap: var(--space-fluid-14); min-width: 0; text-align: center; }
+html[data-palette] .brand-guidelines .site-preview-brand-hero-subtitle {
+  font-size: clamp(12px, 1.2vw, 17px);
+  letter-spacing: .035em;
+  width: 0;
+  min-width: 100%;
+  white-space: nowrap;
+}
+.footer-brand-tagline {
+  display: flex;
+  align-items: center;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+html[data-palette] :is(.site-brand-line,.brand-logo-lockup__tagline,.site-preview-brand-hero-subtitle,.footer-brand-tagline)::before,
+html[data-palette] :is(.site-brand-line,.brand-logo-lockup__tagline,.site-preview-brand-hero-subtitle,.footer-brand-tagline)::after {
+  content: "";
+  flex: 1 1 0;
+  width: auto;
+  height: 1px;
+  background: currentColor;
+}
+
+/* Size the text column from the name, even at the compact header widths. */
+.site-brand-line {
+  width: 0;
+  min-width: 100%;
+}
+@media (max-width: 480px) {
+  html[data-palette] [data-morph-header] .site-brand-line {
+    font-size: 7px;
+    gap: .45em;
+  }
+}

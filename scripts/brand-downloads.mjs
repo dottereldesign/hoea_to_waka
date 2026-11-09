@@ -10,19 +10,25 @@ const extended=fontkit.create(Buffer.from(await decompress(await readFile(new UR
 const fontWeights=new Map([500,600].map(weight=>[weight,[latin.getVariation({wght:weight}),extended.getVariation({wght:weight})]]));
 const fonts=weight=>fontWeights.get(weight);
 function lettering(text,size,x,y,weight=600,tracking=0){
- const faces=fonts(weight);let paths=[],cursor=x;
+ const faces=fonts(weight);let paths=[],cursor=x,left=Infinity,right=-Infinity;
  for(const character of text){const face=faces.find(f=>f.hasGlyphForCodePoint(character.codePointAt(0)));if(!face)throw Error('Missing glyph '+character);const glyph=face.glyphForCodePoint(character.codePointAt(0)),scale=size/face.unitsPerEm;
- if(glyph.path.commands.length)paths.push(svgpath(glyph.path.toSVG()).matrix([scale,0,0,-scale,cursor,y]).abs().unshort().unarc().toString());
+ if(glyph.path.commands.length){
+  left=Math.min(left,cursor+glyph.bbox.minX*scale);
+  right=Math.max(right,cursor+glyph.bbox.maxX*scale);
+  paths.push(svgpath(glyph.path.toSVG()).matrix([scale,0,0,-scale,cursor,y]).abs().unshort().unarc().toString());}
  cursor+=glyph.advanceWidth*scale+tracking;}
- return {paths,width:cursor-x-tracking};
+ return {paths,width:cursor-x-tracking,left,right};
 }
 const raw=await readFile(new URL('../assets/logo-black.svg',import.meta.url),'utf8');
 const symbol=[...raw.matchAll(/<path\b[^>]*\bd="([^"]+)"[^>]*>/g)].map(m=>m[1]);
-const name=lettering('Hoea tō Waka',140,388,209,600,-4.9),taglineWidth=lettering('STRENGTH IN AOTEAROA',40,0,0,500,6.4).width;
+const name=lettering('Hoea tō Waka',140,388,209,600,-4.9);
+const tagline=lettering('STRENGTH IN AOTEAROA',48,0,278,500,6.4);
+const taglineWidth=tagline.right-tagline.left;
 const width=Math.ceil(388+name.width+48),height=380;
-const taglineX=388+(name.width-taglineWidth)/2;
-const wordmark=[...symbol.map(d=>svgpath(d).matrix([280/385,0,0,280/384,48,45]).abs().toString()),...name.paths,...lettering('STRENGTH IN AOTEAROA',40,taglineX,278,500,6.4).paths,
-`M${taglineX-65} 262h35v5h-35Z`,`M${taglineX+taglineWidth+30} 262h35v5h-35Z`];
+const taglineX=(name.left+name.right-taglineWidth)/2;
+const ruleGap=24,ruleWidth=taglineX-name.left-ruleGap;
+const wordmark=[...symbol.map(d=>svgpath(d).matrix([280/385,0,0,280/384,48,45]).abs().toString()),...name.paths,...lettering('STRENGTH IN AOTEAROA',48,taglineX-tagline.left,278,500,6.4).paths,
+`M${name.left} 258h${ruleWidth}v5h-${ruleWidth}Z`,`M${taglineX+taglineWidth+ruleGap} 258h${ruleWidth}v5h-${ruleWidth}Z`];
 const manifest={version:1,artwork:{},favicon:{sizes:[16,32,48,64,128,180,192,512],formats:['svg','png','webp','ico']}};
 function svg(paths,w,h,colour){return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">${paths.map(d=>`<path fill="${colour}" d="${d}"/>`).join('')}</svg>\n`;}
 function eps(paths,w,h,colour){const rgb=colour==='#FFFFFF'?'1 1 1':colour==='#191919'?'0.098039 0.098039 0.098039':'0.12549 0.137255 0.160784';let result=`%!PS-Adobe-3.0 EPSF-3.0\n%%BoundingBox: 0 0 ${w} ${h}\n%%HiResBoundingBox: 0 0 ${w} ${h}\n%%LanguageLevel: 2\n%%EndComments\ngsave\n0 ${h} translate\n1 -1 scale\n${rgb} setrgbcolor\n`;
