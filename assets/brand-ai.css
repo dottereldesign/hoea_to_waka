@@ -1,4 +1,4 @@
-.brand-guidelines .brand-ai{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,400px);align-items:center;gap:var(--space-fluid-32);margin:0 8px;padding:var(--section-space) var(--space-fluid-32);border-bottom:1px solid var(--t-line);color:var(--t-ink);font-family:Inter,Arial,sans-serif;z-index:4}
+.brand-guidelines .brand-ai{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,400px);align-items:center;gap:var(--space-fluid-32);margin:0 8px;padding:var(--section-space) var(--space-fluid-32) 0;border-bottom:1px solid var(--t-line);color:var(--t-ink);font-family:Inter,Arial,sans-serif;z-index:4}
 html[data-palette] .brand-guidelines .brand-ai h2{margin:0 0 var(--space-fluid-10);font:500 clamp(23px,2.1vw,30px)/1.15 Inter,Arial,sans-serif;letter-spacing:-.04em;color:inherit}
 .brand-guidelines .brand-ai__description{max-width:46ch;font-size:14px;line-height:1.6;color:var(--t-muted)}
 .brand-guidelines .brand-ai__tools{position:relative;display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-fluid-12) var(--space-fluid-20);margin-top:var(--space-fluid-18)}
