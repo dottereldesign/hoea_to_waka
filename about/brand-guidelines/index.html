@@ -727,7 +727,7 @@
         // Keep the original staggered CSS sequence on one reversible timeline.
         // A shared playhead preserves the drawing order in both directions,
         // including when someone changes direction halfway through the reveal.
-        const setupReversibleSequence = (section, trigger, activeClass, completeClass, enterRatio = 0.58) => {
+        const setupReversibleSequence = (section, trigger, activeClass, completeClass, enterRatio = 0.58, replayOnEntry = false) => {
           if (!section || !trigger) return;
           section.classList.add(activeClass);
           if (prefersReducedMotion) {
@@ -773,6 +773,17 @@
             const top = trigger.getBoundingClientRect().top;
             // Separate enter/leave lines avoid flicker around the trigger point.
             const enterLine = innerHeight * enterRatio;
+            // Reset the cover offscreen, ready for a fresh drawing on each visit.
+            // Wait until the whole cover leaves above so its text and CTA stay visible.
+            if (replayOnEntry && (top > enterLine + 40 || section.getBoundingClientRect().bottom < -40)) {
+              if (frame) cancelAnimationFrame(frame);
+              frame = 0;
+              previousTime = null;
+              expanded = false;
+              playhead = 0;
+              render();
+              return;
+            }
             if (top <= enterLine) expanded = true;
             else if (top > enterLine + 40) expanded = false;
             if (!frame && (expanded ? playhead < duration : playhead > 0)) {
@@ -787,7 +798,7 @@
         };
 
         const startSequence = () => setupReversibleSequence(
-          hero, hero?.querySelector(".site-preview-brand-hero-logo-study"), "site-preview-brand-hero-is-ready", "site-preview-brand-hero-is-complete", 1
+          hero, hero?.querySelector(".site-preview-brand-hero-logo-study"), "site-preview-brand-hero-is-ready", "site-preview-brand-hero-is-complete", 1, true
         );
 
         const startBrandOverviewSequence = () => {
