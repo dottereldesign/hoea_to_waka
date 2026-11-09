@@ -127,3 +127,13 @@ html[data-palette] #ui-icons .brand-guide-action-dark :is(h4,p){color:#FFFFFF}
 .external-colour-group .site-colour-grid{padding-block:clamp(.75rem,.6rem + .4vw,1rem)}
 
 }
+
+#colours .brand-guide-editorial__content { container-type: inline-size; }
+@container (max-width: 900px) {
+  #colours .palette-lab .palette-tone { flex-direction: column; align-items: flex-start; gap: 4px; }
+  #colours .brand-palette-swatches { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@container (max-width: 640px) {
+  #colours .palette-ramps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #colours .brand-palette-groups { grid-template-columns: minmax(0, 1fr); }
+}
