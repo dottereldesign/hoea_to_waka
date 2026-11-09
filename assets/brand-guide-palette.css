@@ -146,3 +146,14 @@ html[data-palette] .brand-guide-contents__grid > .brand-guide-contents__link:las
     border-bottom: 0;
   }
 }
+html[data-palette] .brand-guidelines .site-preview #colours {
+  padding-inline: 0;
+}
+#colours .palette-lab .palette-tone {
+  box-sizing: border-box;
+  min-height: 52px;
+  padding-block: 8px;
+}
+#colours .palette-lab .palette-tone--base {
+  min-height: 156px;
+}
