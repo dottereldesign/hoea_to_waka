@@ -68,3 +68,5 @@ bounds, phi ratios, all eight selections at five widths, animation progress,
 pause/resume/replay, keyboard use, guide visibility, reduced motion and a
 no-JavaScript fallback. It runs scoped axe audits and saves desktop/mobile
 screenshots in ignored `tmp/logo-construction/`.
+
+Study 07 also uses a boolean union of master paths 2 and 3 at the wave/paddle join, stored in `design/logo-outline-join.json`. This removes the internal overlap edge without altering the combined silhouette. It was computed with skia-pathops UNION using fontTools SVG parsing; a source hash prevents stale geometry after master edits.

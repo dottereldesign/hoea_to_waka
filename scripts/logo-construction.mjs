@@ -1,11 +1,14 @@
 import {readFile, writeFile} from 'node:fs/promises';
 import assert from 'node:assert/strict';
+import {createHash} from 'node:crypto';
 import svgpath from 'svgpath';
 import {hatch} from './pencil-paths.mjs';
 
 // Work in the approved artwork's coordinates. Never rewrite its path data.
 const source = await readFile('assets/logo-black.svg', 'utf8');
 const paths = [...source.matchAll(/<path[^>]* d="([^"]+)"/g)].map(m => m[1]);
+const outlineJoin = JSON.parse(await readFile('design/logo-outline-join.json','utf8'));
+assert.equal(outlineJoin.sourceHash, createHash('sha256').update(paths[2]+'|'+paths[3]).digest('hex'), 'Regenerate the study 07 union after changing source paths');
 const curves = paths.map(d => {
   let point;
   return svgpath(d).abs().unshort().segments.map(s => {
@@ -82,7 +85,7 @@ function svg(config) {
   }
   // The filled master includes a tiny isolated seam at the paddle join.
   // Omit that sliver only in study 07 so its outline does not become a stray stroke.
-  const mark=paths.map((d,i)=>kind==='atlas-outline' && i===4 ? '' : `<path class="lc-outline lc-draw" data-order="${i}" pathLength="1" d="${d}"/>`).join('');
+  const mark=paths.map((d,i)=>kind==='atlas-outline' && [3,4].includes(i) ? '' : `<path class="lc-outline lc-draw" data-order="${i}" pathLength="1" d="${kind==='atlas-outline' && i===2 ? outlineJoin.d : d}"/>`).join('');
   const fill=(kind==='compass'||kind==='atlas-outline')?'':`<g class="lc-ink" ${kind==='blueprint'?`clip-path="url(#${id}-scan)"`:''}>${paths.map(d=>`<path d="${d}"/>`).join('')}</g>`;
   const shade=kind!=='original'?'':paths.map((d,i)=>`<defs><clipPath id="${id}-hatch-${i}"><path d="${d}"/></clipPath></defs><path class="lc-hatch lc-draw" pathLength="1" data-order="${i}" clip-path="url(#${id}-hatch-${i})" d="${hatch(d,i)}"/>`).join('');
   return `<svg class="lc-art" viewBox="-110 -90 610 570" width="610" height="570" role="img" aria-labelledby="${id}-title ${id}-desc"><title id="${id}-title">${title}</title><desc id="${id}-desc">${config[4]}</desc>${grid}<g class="lc-mark">${mark}${shade}${fill}</g><g class="lc-guides">${geometry}</g>${kind==='blueprint'?'<path class="lc-scanline" d="M-70 -90H450"/>':''}</svg>`;
