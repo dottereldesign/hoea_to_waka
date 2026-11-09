@@ -13,6 +13,7 @@ await import('./brand-previews.mjs');
 await import('./brand-hero-packs.mjs');
 await import('./card-pencil.mjs');
 await import('./hero-pencil.mjs');
+await import('./logo-construction.mjs');
 await import('./guide-qr.mjs');
 
 await import('./build-spacing-tokens.mjs');
