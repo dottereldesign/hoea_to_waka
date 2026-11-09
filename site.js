@@ -1,44 +1,7 @@
 (() => {
   const root = document.documentElement;
-  const themeToggle = document.querySelector("[data-theme-toggle]");
-  const themeColorMeta = document.querySelector('meta[name="theme-color"]');
-  const themeMotionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
-  const themeViewTransitionPreference = window.matchMedia("(min-width: 801px) and (pointer: fine)");
-  const themeStorageKey = "hoea-theme";
-
   window.requestAnimationFrame(() => {
     window.requestAnimationFrame(() => root.classList.add("is-page-ready"));
-  });
-
-  const applyTheme = (theme, { persist = true } = {}) => {
-    const nextTheme = theme === "dark" ? "dark" : "light";
-    const isDark = nextTheme === "dark";
-
-    if(root.dataset.theme!==nextTheme)root.dataset.theme = nextTheme;
-    if(root.style.colorScheme!==nextTheme)root.style.colorScheme = nextTheme;
-    themeToggle?.setAttribute("aria-pressed", String(isDark));
-    themeToggle?.setAttribute("aria-label", isDark ? "Switch to light theme" : "Switch to dark theme");
-    // The initial theme is already authored in the head; do not force layout to read it again.
-    if (persist && themeColorMeta) themeColorMeta.content = getComputedStyle(root).getPropertyValue(isDark ? '--brand-ocean-900' : '--brand-paper').trim();
-
-    if (persist) {
-      try {
-        window.localStorage.setItem(themeStorageKey, nextTheme);
-      } catch {}
-    }
-  };
-
-  applyTheme(root.dataset.theme, { persist: false });
-
-  themeToggle?.addEventListener("click", () => {
-    const nextTheme = root.dataset.theme === "dark" ? "light" : "dark";
-    const updateTheme = () => applyTheme(nextTheme);
-
-    if (document.startViewTransition && !themeMotionPreference.matches && themeViewTransitionPreference.matches) {
-      document.startViewTransition(updateTheme);
-    } else {
-      updateTheme();
-    }
   });
 
   document.querySelectorAll("[data-year]").forEach((element) => {

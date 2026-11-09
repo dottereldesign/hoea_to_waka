@@ -29,13 +29,8 @@
     <script>
       (() => {
         document.documentElement.classList.add("js", "is-page-ready");
-        let theme = "light";
-        try {
-          const savedTheme = window.localStorage.getItem("hoea-theme");
-          if (savedTheme === "light" || savedTheme === "dark") theme = savedTheme;
-        } catch {}
-        document.documentElement.dataset.theme = theme;
-        document.documentElement.style.colorScheme = theme;
+        document.documentElement.dataset.theme = "light";
+        document.documentElement.style.colorScheme = "light";
       })();
     </script>
     <link rel="icon" href="../../assets/favicon.png?v=4" type="image/png">
@@ -146,25 +141,6 @@
             <a href="tel:+64272059520"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z" /></svg><span>+64 27 205 9520</span></a>
             <p><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0z" /><circle cx="12" cy="10" r="2.5" /></svg><span>Ōtautahi Christchurch</span></p>
           </section>
-          <div class="site-menu-appearance"><div><p>Change appearance</p><small>Switch between light and dark</small></div><button class="theme-switcher-grid theme-switcher-grid--compact site-theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false" data-theme-toggle="">
-        <svg class="orb" aria-hidden="true" viewBox="0 0 20 20">
-          <defs>
-            <mask id="hoea-crescent-mask" x="0" y="0" width="20" height="20" maskUnits="userSpaceOnUse" style="mask-type: luminance">
-              <rect width="20" height="20" fill="white" />
-              <circle class="orb-cutout" cx="6.5" cy="10" r="9" fill="black" />
-            </mask>
-          </defs>
-          <circle class="orb-disc" cx="10" cy="10" r="10" mask="url(#hoea-crescent-mask)" />
-        </svg>
-        <span class="cloud-ball cloud-ball-left" aria-hidden="true"></span>
-        <span class="cloud-ball cloud-ball-middle" aria-hidden="true"></span>
-        <span class="cloud-ball cloud-ball-right" aria-hidden="true"></span>
-        <span class="cloud-ball cloud-ball-top" aria-hidden="true"></span>
-        <span class="star star-1" aria-hidden="true"></span>
-        <span class="star star-2" aria-hidden="true"></span>
-        <span class="star star-3" aria-hidden="true"></span>
-        <span class="star star-4" aria-hidden="true"></span>
-      </button></div>
         </div>
       </div></dialog>
     </header>
@@ -297,7 +273,7 @@
         </div>
       </div>
     </footer>
-    <script src="../../site.js?v=1ad57eded2"></script>
+    <script src="../../site.js?v=d8f8ff343b76"></script>
     <script src="../../assets/site-interactions.js?v=394230c6ae" defer=""></script>
     <script src="../../assets/motion-sections.js?v=2" defer></script>
 

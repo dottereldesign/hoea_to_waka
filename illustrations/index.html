@@ -29,13 +29,8 @@
     <script>
       (() => {
         document.documentElement.classList.add("js", "is-page-ready");
-        let theme = "light";
-        try {
-          const savedTheme = window.localStorage.getItem("hoea-theme");
-          if (savedTheme === "light" || savedTheme === "dark") theme = savedTheme;
-        } catch {}
-        document.documentElement.dataset.theme = theme;
-        document.documentElement.style.colorScheme = theme;
+        document.documentElement.dataset.theme = "light";
+        document.documentElement.style.colorScheme = "light";
       })();
     </script>
     <link rel="icon" href="../assets/favicon.png?v=4" type="image/png">
@@ -99,25 +94,6 @@
             <a href="tel:+64272059520"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z" /></svg><span>+64 27 205 9520</span></a>
             <p><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0z" /><circle cx="12" cy="10" r="2.5" /></svg><span>Ōtautahi Christchurch</span></p>
           </section>
-          <div class="site-menu-appearance"><div><p>Change appearance</p><small>Switch between light and dark</small></div><button class="theme-switcher-grid theme-switcher-grid--compact site-theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false" data-theme-toggle="">
-        <svg class="orb" aria-hidden="true" viewBox="0 0 20 20">
-          <defs>
-            <mask id="hoea-crescent-mask" x="0" y="0" width="20" height="20" maskUnits="userSpaceOnUse" style="mask-type: luminance">
-              <rect width="20" height="20" fill="white" />
-              <circle class="orb-cutout" cx="6.5" cy="10" r="9" fill="black" />
-            </mask>
-          </defs>
-          <circle class="orb-disc" cx="10" cy="10" r="10" mask="url(#hoea-crescent-mask)" />
-        </svg>
-        <span class="cloud-ball cloud-ball-left" aria-hidden="true"></span>
-        <span class="cloud-ball cloud-ball-middle" aria-hidden="true"></span>
-        <span class="cloud-ball cloud-ball-right" aria-hidden="true"></span>
-        <span class="cloud-ball cloud-ball-top" aria-hidden="true"></span>
-        <span class="star star-1" aria-hidden="true"></span>
-        <span class="star star-2" aria-hidden="true"></span>
-        <span class="star star-3" aria-hidden="true"></span>
-        <span class="star star-4" aria-hidden="true"></span>
-      </button></div>
         </div>
       </div></dialog>
     </header>
@@ -406,7 +382,7 @@
     <section class="brand-nature" id="brand-nature-studies" aria-labelledby="nature-heading"><div class="brand-nature__layout"><div class="brand-nature__stage"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="640" height="640" role="img" aria-label="A fine botanical fern in generous white space"><rect width="640" height="640" fill="#fff"/><g fill="none" stroke="#263f3c" stroke-width="1.5"><path d="M282 514C274 398 392 278 407 161"/><path d="M285 466Q242 465 229 430Q266 426 285 466ZM296 423Q258 411 254 380Q287 384 296 423ZM316 382Q280 367 282 339Q312 348 316 382ZM340 339Q308 322 315 296Q341 310 340 339ZM361 298Q334 280 343 260Q365 274 361 298ZM380 255Q359 240 368 223Q384 238 380 255ZM394 214Q378 204 388 188Q399 203 394 214ZM285 466Q329 463 349 430Q312 424 285 466ZM296 423Q342 421 362 392Q323 389 296 423ZM316 382Q359 382 381 357Q346 349 316 382ZM340 339Q379 343 402 319Q368 308 340 339ZM361 298Q397 302 417 283Q388 271 361 298ZM380 255Q408 260 428 243Q405 232 380 255ZM394 214Q415 222 431 208Q414 197 394 214Z" fill="#edf1e9"/></g></svg></div><div class="brand-nature__aside"><h2 id="nature-heading">Nature in motion.</h2><p class="brand-nature__intro">Ten small studies in movement and negative space.</p><div class="brand-nature__enhancement" hidden><div class="brand-nature__choices" role="group" aria-label="Choose a nature animation"><button type="button" class="brand-nature__choice" data-nature-study="fern" aria-pressed="true"><span>01</span><span>Fern unfurl</span></button><button type="button" class="brand-nature__choice" data-nature-study="tide" aria-pressed="false"><span>02</span><span>Tide window</span></button><button type="button" class="brand-nature__choice" data-nature-study="arch" aria-pressed="false"><span>03</span><span>Sea arch</span></button><button type="button" class="brand-nature__choice" data-nature-study="rain" aria-pressed="false"><span>04</span><span>Rain rings</span></button><button type="button" class="brand-nature__choice" data-nature-study="bloom" aria-pressed="false"><span>05</span><span>Coastal bloom</span></button><button type="button" class="brand-nature__choice" data-nature-study="alpine" aria-pressed="false"><span>06</span><span>Alpine reflection</span></button><button type="button" class="brand-nature__choice" data-nature-study="grass" aria-pressed="false"><span>07</span><span>Coastal grass</span></button><button type="button" class="brand-nature__choice" data-nature-study="shell" aria-pressed="false"><span>08</span><span>Shell fan</span></button><button type="button" class="brand-nature__choice" data-nature-study="cove" aria-pressed="false"><span>09</span><span>Quiet cove</span></button><button type="button" class="brand-nature__choice" data-nature-study="forest" aria-pressed="false"><span>10</span><span>Forest light</span></button></div><div class="brand-nature__caption" aria-live="polite" aria-atomic="true"><h3 data-nature-title>Fern unfurl</h3><p data-nature-description>A fine frond opens leaf by leaf, then settles into a little breeze.</p></div><div class="brand-nature__playback"><button type="button" data-nature-pause aria-pressed="false">Pause</button><button type="button" data-nature-replay>Replay</button></div></div></div></div></section>
     </main>
 
-    <script src="../site.js?v=1ad57eded2"></script>
+    <script src="../site.js?v=d8f8ff343b76"></script>
     <script src="../assets/site-interactions.js?v=394230c6ae" defer=""></script>
 
 
