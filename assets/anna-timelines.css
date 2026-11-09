@@ -22,7 +22,7 @@ html[data-palette] #anna-story :is(button,a):focus-visible{outline:3px solid #0d
 #anna-story .anna-list{position:relative;display:grid;gap:var(--space-fluid-64);list-style:none;margin:0;padding:var(--space-fluid-24) 0}
 #anna-story .anna-milestone{position:relative;min-width:0;--tl-p:1;--tl-cover:0}
 #anna-story .anna-milestone__copy{position:relative;min-width:0}
-html[data-palette] #anna-story .anna-milestone__label{display:block;margin:0 0 var(--space-fluid-18);color:var(--story-muted);font:500 11px/1.5 Inter,Arial,sans-serif;letter-spacing:.07em;text-transform:uppercase}
+html[data-palette] #anna-story .anna-milestone__label{margin:0 0 var(--space-fluid-18);color:var(--story-muted)}
 html[data-palette] #anna-story .anna-milestone h3{font:500 clamp(27px,2.8vw,38px)/1.12 Inter,Arial,sans-serif;letter-spacing:-.035em;color:var(--story-ink);margin:0 0 var(--space-fluid-20);text-wrap:balance}
 html[data-palette] #anna-story .anna-milestone p{color:var(--story-muted);font-size:17px;line-height:1.8;margin:0;max-width:49ch}
 #anna-story .anna-milestone__number{display:none}
