@@ -80,7 +80,9 @@ function svg(config) {
     }).join('');
     if(kind==='blueprint') geometry+=`<g class="lc-dimensions lc-detail">${line(4,-46,379,-46,'lc-dimension')}${line(4,-53,4,-39,'lc-dimension')}${line(379,-53,379,-39,'lc-dimension')}${line(423,8,423,376,'lc-dimension')}${line(416,8,430,8,'lc-dimension')}${line(416,376,430,376,'lc-dimension')}<text x="192" y="-55" text-anchor="middle">375 units</text><text x="437" y="192" transform="rotate(90 437 192)" text-anchor="middle">368 units</text>${line(4,-35,4,400,'lc-axis')}${line(379,-35,379,400,'lc-axis')}${line(-25,8,409,8,'lc-axis')}${line(-25,376,409,376,'lc-axis')}</g>`;
   }
-  const mark=paths.map((d,i)=>`<path class="lc-outline lc-draw" data-order="${i}" pathLength="1" d="${d}"/>`).join('');
+  // The filled master includes a tiny isolated seam at the paddle join.
+  // Omit that sliver only in study 07 so its outline does not become a stray stroke.
+  const mark=paths.map((d,i)=>kind==='atlas-outline' && i===4 ? '' : `<path class="lc-outline lc-draw" data-order="${i}" pathLength="1" d="${d}"/>`).join('');
   const fill=(kind==='compass'||kind==='atlas-outline')?'':`<g class="lc-ink" ${kind==='blueprint'?`clip-path="url(#${id}-scan)"`:''}>${paths.map(d=>`<path d="${d}"/>`).join('')}</g>`;
   const shade=kind!=='original'?'':paths.map((d,i)=>`<defs><clipPath id="${id}-hatch-${i}"><path d="${d}"/></clipPath></defs><path class="lc-hatch lc-draw" pathLength="1" data-order="${i}" clip-path="url(#${id}-hatch-${i})" d="${hatch(d,i)}"/>`).join('');
   return `<svg class="lc-art" viewBox="-110 -90 610 570" width="610" height="570" role="img" aria-labelledby="${id}-title ${id}-desc"><title id="${id}-title">${title}</title><desc id="${id}-desc">${config[4]}</desc>${grid}<g class="lc-mark">${mark}${shade}${fill}</g><g class="lc-guides">${geometry}</g>${kind==='blueprint'?'<path class="lc-scanline" d="M-70 -90H450"/>':''}</svg>`;

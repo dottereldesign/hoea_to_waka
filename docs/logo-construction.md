@@ -39,7 +39,7 @@ control points from the approved Bézier paths.
 4. **The drafting room:** dimensions and guides draw before a vertical clip reveal.
 5. **Vector anatomy:** handles extend, contours draw, circles and ink resolve.
 6. **Curve atlas · grid:** the Curve Atlas paths and motion on white, with the Compass Sketch grid.
-7. **Curve atlas · outline:** study 06 with an unfilled ink-black logo contour.
+7. **Curve atlas · outline:** study 06 with an unfilled ink-black logo contour. The isolated seam sliver (master path index 4) is omitted in this study only, removing a stray stroke at the paddle join.
 8. **Original reference:** the original circle layout and pencil hatching to ink.
 
 All sequences finish, support pause/resume and replay, pause while offscreen,

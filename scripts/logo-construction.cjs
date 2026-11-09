@@ -25,7 +25,7 @@ const approved = [...fs.readFileSync('assets/logo-black.svg','utf8').matchAll(/<
         const panel=page.locator(`[data-lc-panel=${kind}]`);
         assert.equal(await page.locator('.lc-panel:visible').count(),1);
         assert.equal(await page.locator('.lc-choice[aria-pressed=true]').count(),1);
-        assert.deepEqual(await panel.locator('.lc-outline').evaluateAll(es=>es.map(e=>e.getAttribute('d'))),approved);
+        assert.deepEqual(await panel.locator('.lc-outline').evaluateAll(es=>es.map(e=>e.getAttribute('d'))),kind==='atlas-outline'?approved.filter((_,i)=>i!==4):approved);
         if(kind==='compass'||kind==='atlas-outline')assert.equal(await panel.locator('.lc-ink').count(),0,'Sketch never has a fill layer');
         else assert.deepEqual(await panel.locator('.lc-ink>path').evaluateAll(es=>es.map(e=>e.getAttribute('d'))),approved);
         assert.equal(await panel.evaluate(e=>e.getAnimations({subtree:true}).length),0,'Reduced motion is static');
