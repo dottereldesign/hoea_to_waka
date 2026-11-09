@@ -62,6 +62,11 @@ function svg(config) {
     const vertical=Array.from({length:26},(_,i)=>'<path class="lc-grid-line" data-grid-direction="vertical" pathLength="1" d="M'+(-60+i*20)+' -65V435"/>').join('');
     grid=grid.replace(/<rect class="lc-grid"[^>]*>/, '<g class="lc-grid" fill="none" stroke="currentColor" stroke-width=".35">'+horizontal+vertical+'</g>');
   }
+  if(kind==='atlas-audited') {
+    // Fade only the grid at all four edges; keep the logo and circles untouched.
+    const stops='<stop offset="0" stop-color="black"/><stop offset=".14" stop-color="white"/><stop offset=".86" stop-color="white"/><stop offset="1" stop-color="black"/>';
+    grid=`<defs><linearGradient id="${id}-grid-fade-x">${stops}</linearGradient><linearGradient id="${id}-grid-fade-y" x2="0" y2="1">${stops}</linearGradient><mask id="${id}-grid-mask-x" maskUnits="userSpaceOnUse" x="-70" y="-65" width="520" height="500"><rect x="-70" y="-65" width="520" height="500" fill="url(#${id}-grid-fade-x)"/></mask><mask id="${id}-grid-mask" maskUnits="userSpaceOnUse" x="-70" y="-65" width="520" height="500"><rect x="-70" y="-65" width="520" height="500" fill="url(#${id}-grid-fade-y)" mask="url(#${id}-grid-mask-x)"/></mask></defs>`+grid.replace('class="lc-grid"','class="lc-grid" mask="url(#'+id+'-grid-mask)"');
+  }
   let geometry='';
   const selected = kind==='compass' ? fitted.filter((_,i)=>i!==3) : kind==='bezier' ? fitted.filter((_,i)=>[0,2,4].includes(i)) : fitted;
   if(kind==='original') {
