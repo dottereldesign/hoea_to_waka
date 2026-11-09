@@ -6,7 +6,10 @@ const {document}=parseHTML(await readFile('illustrations/index.html','utf8'));
 const svg=document.querySelector('[data-lc-panel="atlas-audited"] svg.lc-art');
 if(!svg)throw Error('Study 08 artwork missing');
 svg.setAttribute('class','brand-hero-outline-art');
-for(const selector of ['.lc-circle','.lc-outline'])svg.querySelectorAll(selector).forEach((node,i)=>node.setAttribute('style',`--study-index:${i}`));
+svg.querySelectorAll('.lc-circle').forEach((node,i)=>node.setAttribute('style',`--study-index:${i}`));
+// Original path IDs ordered by their vertical position: crown down to lowest wave.
+const topToBottom=[5,1,0,2,6];
+svg.querySelectorAll('.lc-outline').forEach(node=>node.setAttribute('style',`--study-index:${topToBottom.indexOf(Number(node.getAttribute('data-order')))}`));
 const artwork=svg.outerHTML.replaceAll('lc-atlas-audited','brand-outline-08');
 const path='about/brand-guidelines/index.html';let html=await readFile(path,'utf8');
 const study=`<div class="site-preview-brand-hero-logo-study" data-hero-pencil data-hero-outline="08">${artwork}</div>`;
