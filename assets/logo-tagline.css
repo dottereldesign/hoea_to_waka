@@ -8,8 +8,8 @@
   justify-content: center;
   gap: .65em;
 }
-html[data-palette] [data-morph-header] .site-brand-line { font-size: 8.5px; letter-spacing: .12em; }
-html[data-palette] [data-morph-header].is-scrolled .site-brand-line { font-size: 7.5px; }
+html[data-palette] [data-morph-header] .site-brand-line { font-size: 8px; letter-spacing: .12em; }
+html[data-palette] [data-morph-header].is-scrolled .site-brand-line { font-size: 7px; }
 .brand-logo-lockup__tagline { font-size: clamp(7px, 2.3cqw, 10px); letter-spacing: .1em; }
 .brand-guide-hero-wordmark { display: grid; gap: var(--space-fluid-14); min-width: 0; text-align: center; }
 html[data-palette] .brand-guidelines .site-preview-brand-hero-subtitle {
@@ -44,7 +44,40 @@ html[data-palette] :is(.site-brand-line,.brand-logo-lockup__tagline,.site-previe
 }
 @media (max-width: 480px) {
   html[data-palette] [data-morph-header] .site-brand-line {
-    font-size: 7px;
+    font-size: clamp(5.3px, 1.57vw, 6.3px);
     gap: .45em;
   }
+}
+/* Align to Inter's visible H/a edges, not the text advance box.
+   Insets are proportions of the name width, including its letter spacing:
+   600 / -.035em (header/examples), 400 / .01em (cover), 600 / -.035em (footer).
+   Percentages keep the optical alignment through responsive sizing and header morphs. */
+html[data-palette] .brand-guidelines .site-preview-brand-hero-subtitle,
+html[data-palette] :is(.site-brand-line,.brand-logo-lockup__tagline,.site-preview-brand-hero-subtitle,.footer-brand-tagline) {
+  --wordmark-left-inset: .999%;
+  --wordmark-right-inset: .377%;
+  box-sizing: border-box;
+  margin-inline: var(--wordmark-left-inset) var(--wordmark-right-inset);
+  width: 0;
+  min-width: calc(100% - var(--wordmark-left-inset) - var(--wordmark-right-inset));
+}
+html[data-palette] .brand-guidelines .site-preview-brand-hero-subtitle {
+  --wordmark-left-inset: 1.164%;
+  --wordmark-right-inset: 1.298%;
+}
+
+/* Keep tagline text from widening the name's intrinsic grid column. */
+@media (max-width: 900px) {
+  html[data-palette] [data-morph-header] .site-brand-line { font-size: 7.3px; }
+}
+@media (max-width: 480px) {
+  html[data-palette] [data-morph-header] .site-brand-line { font-size: clamp(5.3px, 1.57vw, 6.3px); }
+}
+html[data-palette] .footer-brand-tagline { font-size: clamp(8px, .72vw, 10px); }
+.footer-brand { container-type: inline-size; }
+.footer-brand-lockup > span { display: grid; min-width: 0; }
+.footer-brand-lockup strong { white-space: nowrap; }
+@container (max-width: 260px) {
+  html[data-palette] .site-footer[data-footer-version] .footer-brand-lockup strong { font-size: clamp(16px, 10cqw, 20px); }
+  html[data-palette] .footer-brand-tagline { font-size: clamp(5.3px, 3.3cqw, 6.6px); }
 }
