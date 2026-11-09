@@ -35,10 +35,11 @@
       });
       draw('.lc-fit',1000,950,180);
     } else if(kind==='atlas' || kind==='atlas-grid' || kind==='atlas-outline') {
-      const lead = kind==='atlas-outline' ? 1100 : 0;
+      const lead = kind==='atlas-outline' ? 1600 : 0;
       if(lead) {
-        // Both grid directions draw together before the construction begins.
-        draw('.lc-grid-line',950,0,0,'cubic-bezier(.25,.1,.25,1)');
+        // Horizontal lines first, vertical lines second, then construction.
+        draw('[data-grid-direction=horizontal]',700,0,0,'cubic-bezier(.25,.1,.25,1)');
+        draw('[data-grid-direction=vertical]',700,750,0,'cubic-bezier(.25,.1,.25,1)');
         fade('.lc-guides',250,lead);
       }
       draw('.lc-circle.lc-draw',1200,lead,320);

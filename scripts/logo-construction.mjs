@@ -111,7 +111,7 @@ else {
   // Keep one page title; the existing illustration collection is the next section.
   html=html.replace(/<h1([^>]*)>([\s\S]*?)<\/h1>/,'<h2$1>$2</h2>');
   html=html.replace(/(<main[^>]*id="main-content"[^>]*>)/,`$1\n${section}`);
-  html=html.replace('</head>','<link rel="stylesheet" href="../assets/logo-construction.css?v=5">\n<script src="../assets/logo-construction.js?v=6" defer></script>\n</head>');
+  html=html.replace('</head>','<link rel="stylesheet" href="../assets/logo-construction.css?v=5">\n<script src="../assets/logo-construction.js?v=7" defer></script>\n</head>');
 }
 await writeFile('illustrations/index.html',html);
 console.log('Logo construction: seven studies + original, unchanged approved paths.');
