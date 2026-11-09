@@ -70,3 +70,5 @@ no-JavaScript fallback. It runs scoped axe audits and saves desktop/mobile
 screenshots in ignored `tmp/logo-construction/`.
 
 Study 07 also uses a boolean union of master paths 2 and 3 at the wave/paddle join, stored in `design/logo-outline-join.json`. This removes the internal overlap edge without altering the combined silhouette. It was computed with skia-pathops UNION using fontTools SVG parsing; a source hash prevents stale geometry after master edits.
+
+The wave tip in study 07 similarly joins master paths 6 and 7. A sub-0.01-unit doubled-back seam at their join is removed from the merged outline to prevent a dark crossbar. The source master and other studies remain unchanged.
