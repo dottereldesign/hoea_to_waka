@@ -47,7 +47,7 @@ const approved = [...fs.readFileSync('assets/logo-black.svg','utf8').matchAll(/<
     for(const kind of kinds) {
       await page.locator(`[data-lc-choice=${kind}]`).click();
       const panel=page.locator(`[data-lc-panel=${kind}]`);
-      await page.waitForTimeout(750);
+      await page.waitForTimeout(kind==='atlas-outline'?1450:750);
       assert(await panel.locator('.lc-draw').evaluateAll(es=>es.some(e=>{const offset=parseFloat(getComputedStyle(e).strokeDashoffset);return offset>0&&offset<1;})),kind+' is actually drawing');
       await page.locator('[data-lc-pause]').click();
       await panel.evaluate(e=>Promise.all(e.getAnimations({subtree:true}).map(a=>a.ready)));

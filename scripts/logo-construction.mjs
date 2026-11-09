@@ -52,7 +52,12 @@ const configs = [
 function svg(config) {
   const [number,kind,name] = config, id=`lc-${kind}`;
   const title = `${name} — Hoea tō Waka logo`;
-  const grid = `<defs><pattern id="${id}-grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="currentColor" stroke-width=".35"/></pattern><clipPath id="${id}-scan"><rect class="lc-reveal" x="-110" y="-90" width="610" height="570"/></clipPath></defs><rect class="lc-grid" x="-70" y="-65" width="520" height="500" fill="url(#${id}-grid)"/>`;
+  let grid = `<defs><pattern id="${id}-grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="currentColor" stroke-width=".35"/></pattern><clipPath id="${id}-scan"><rect class="lc-reveal" x="-110" y="-90" width="610" height="570"/></clipPath></defs><rect class="lc-grid" x="-70" y="-65" width="520" height="500" fill="url(#${id}-grid)"/>`;
+  if(kind==='atlas-outline') {
+    const horizontal=Array.from({length:25},(_,i)=>'<path class="lc-grid-line" data-grid-direction="horizontal" pathLength="1" d="M-70 '+(-60+i*20)+'H450"/>').join('');
+    const vertical=Array.from({length:26},(_,i)=>'<path class="lc-grid-line" data-grid-direction="vertical" pathLength="1" d="M'+(-60+i*20)+' -65V435"/>').join('');
+    grid=grid.replace(/<rect class="lc-grid"[^>]*>/, '<g class="lc-grid" fill="none" stroke="currentColor" stroke-width=".35">'+horizontal+vertical+'</g>');
+  }
   let geometry='';
   const selected = kind==='compass' ? fitted.filter((_,i)=>i!==3) : kind==='bezier' ? fitted.filter((_,i)=>[0,2,4].includes(i)) : fitted;
   if(kind==='original') {
@@ -106,7 +111,7 @@ else {
   // Keep one page title; the existing illustration collection is the next section.
   html=html.replace(/<h1([^>]*)>([\s\S]*?)<\/h1>/,'<h2$1>$2</h2>');
   html=html.replace(/(<main[^>]*id="main-content"[^>]*>)/,`$1\n${section}`);
-  html=html.replace('</head>','<link rel="stylesheet" href="../assets/logo-construction.css?v=5">\n<script src="../assets/logo-construction.js?v=5" defer></script>\n</head>');
+  html=html.replace('</head>','<link rel="stylesheet" href="../assets/logo-construction.css?v=5">\n<script src="../assets/logo-construction.js?v=6" defer></script>\n</head>');
 }
 await writeFile('illustrations/index.html',html);
 console.log('Logo construction: seven studies + original, unchanged approved paths.');
