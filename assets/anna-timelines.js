@@ -145,7 +145,7 @@
     if(scroll)list.scrollLeft=0;
     configure();paint();
     if(scroll){const target=root.querySelector('.anna-studies');window.scrollTo({top:target.getBoundingClientRect().top+scrollY-128,behavior:'instant'});buttons.find(button=>button.dataset.annaStudy===id)?.focus({preventScroll:true});}
-    queue(true);
+    if(scroll)queue(true);else measure(true);
   }
   buttons.forEach(button=>button.addEventListener('click',()=>choose(button.dataset.annaStudy,true)));
   root.querySelector('[data-anna-next-study]')?.addEventListener('click',()=>{const ids=Object.keys(studies);choose(ids[(ids.indexOf(variant)+1)%ids.length],true);});
