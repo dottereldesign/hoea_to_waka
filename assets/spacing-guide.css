@@ -2,7 +2,7 @@
 .spacing-rhythm-grid article{padding:var(--space-layout-06);border:1px solid #E3E1DD;border-radius:16px;min-width:0}
 html[data-palette] .spacing-rhythm-grid h3{font-size:16px;margin:0 0 8px}
 .spacing-rhythm-grid strong{font-size:28px;letter-spacing:-.03em}
-.spacing-rhythm-bar{height:var(--space-example);background:#183958;border-radius:4px;margin-block:var(--space-layout-07)}
+.spacing-rhythm-bar{height:var(--space-example);background:#0C396B;border-radius:4px;margin-block:var(--space-layout-07)}
 html[data-palette] .spacing-rhythm-grid p{font-size:14px;margin:0}
 .spacing-formula{display:block;overflow-wrap:anywhere;padding:var(--space-layout-07);background:#F1EAFA;color:#191919;border-radius:8px}
 .spacing-inventory{margin-top:var(--space-layout-13);border-top:1px solid #E3E1DD;padding-top:var(--space-layout-06)}

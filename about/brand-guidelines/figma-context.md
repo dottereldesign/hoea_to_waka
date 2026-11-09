@@ -117,7 +117,7 @@ The paddle connects the symbol to direction and movement. Leave room around its 
 
 ## Logomarks
 
-The symbol on its own. Choose the Ink logomark on Paper, or the Paper logomark on Ink or our primary Blue (#183958). Keep the complete outline visible and leave space around it.
+The symbol on its own. Choose the Ink logomark on Paper, or the Paper logomark on Ink or our primary Blue (#0C396B). Keep the complete outline visible and leave space around it.
 
 ### Logo Backgrounds
 
@@ -143,7 +143,7 @@ Stacked lock-up Symbol above the name, aligned to a shared vertical centre line.
 
 ## URL Wordmarks
 
-Use the website address as artwork when directing people online. Use the Ink wordmark on Paper, or the Paper wordmark on Ink or our primary Blue (#183958). Keep the supplied lettering intact. In digital materials, link the artwork to hoeatowaka.co.nz so people can open the website.
+Use the website address as artwork when directing people online. Use the Ink wordmark on Paper, or the Paper wordmark on Ink or our primary Blue (#0C396B). Keep the supplied lettering intact. In digital materials, link the artwork to hoeatowaka.co.nz so people can open the website.
 
 ## Favicon
 
@@ -490,11 +490,11 @@ So give us a call and have a chat and we'll see how Hoea tō Waka can help you.
 | Evergreen 500 | #016C53 |
 | Evergreen 700 | #075744 |
 | Evergreen 900 | #0D4236 |
-| Blue 100 | #C5CED5 |
-| Blue 300 | #74889B |
-| Blue 500 | #183958 |
-| Blue 700 | #183148 |
-| Blue 900 | #182938 |
+| Blue 100 | #C2CEDA |
+| Blue 300 | #798EA9 |
+| Blue 500 | #0C396B |
+| Blue 700 | #0F3157 |
+| Blue 900 | #132844 |
 | Ocean teal 100 | #C9DEE1 |
 | Ocean teal 300 | #7DB0B6 |
 | Ocean teal 500 | #267C86 |
@@ -558,7 +558,7 @@ These compatibility tokens support the existing website. Use the current brand p
 | ocean-500 | #829FB2 | 500 tonal level |
 | ocean-600 | #607F9D | Shows which control is selected by the keyboard |
 | ocean-700 | #3F5B78 | 700 tonal level |
-| ocean-800 | #183958 | Helpful information or a neutral notice |
+| ocean-800 | #0C396B | Helpful information or a neutral notice |
 | ocean-900 | #1A2B3D | Deep blue · Available dark background |
 | forest-100 | #F1F5F0 | 100 tonal level |
 | forest-200 | #6B7178 | 200 tonal level |
@@ -609,7 +609,7 @@ These compatibility tokens support the existing website. Use the current brand p
   --brand-ocean-500: #829FB2;
   --brand-ocean-600: #607F9D;
   --brand-ocean-700: #3F5B78;
-  --brand-ocean-800: #183958;
+  --brand-ocean-800: #0C396B;
   --brand-ocean-900: #1A2B3D;
   --brand-forest-100: #F1F5F0;
   --brand-forest-200: #6B7178;
@@ -774,7 +774,7 @@ DTCG 2025.10 JSON follows. Colour components use sRGB values from 0 to 1. Alias 
         ],
         "alpha": 1
       },
-      "$description": "Information: Helpful information or a neutral notice. HEX #183958"
+      "$description": "Information: Helpful information or a neutral notice. HEX #0C396B"
     },
     "ocean-900": {
       "$type": "color",

@@ -97,13 +97,13 @@
       "$value": {
         "colorSpace": "srgb",
         "components": [
-          0.09411765,
+          0.04705882,
           0.22352941,
-          0.34509804
+          0.41960784
         ],
         "alpha": 1
       },
-      "$description": "Information: Helpful information or a neutral notice. HEX #183958"
+      "$description": "Information: Helpful information or a neutral notice. HEX #0C396B"
     },
     "ocean-900": {
       "$type": "color",

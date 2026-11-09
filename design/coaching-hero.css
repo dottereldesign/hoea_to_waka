@@ -1,6 +1,6 @@
 /* Soft cloud gradients with fine, stationary grain; the content stays sharp. */
 html[data-palette] .site-main > .subpage-hero.coaching-hero{
-  --coaching-ink:#191919;--coaching-muted:#183958;
+  --coaching-ink:#191919;--coaching-muted:#0C396B;
   background:var(--coaching-surface,#e8f1f5);color:var(--coaching-ink);padding-bottom:var(--space-fluid-80);
 }
 .coaching-hero__backgrounds{position:absolute;inset:0;z-index:-1;pointer-events:none}

@@ -534,7 +534,7 @@ html[data-palette] .brand-guidelines :is(#logomarks,#url-wordmarks){background:v
 .brand-mark-card,.brand-url-row{display:grid;place-items:center;box-sizing:border-box;min-width:0;margin:0;border:1px solid var(--t-line);border-radius:20px}
 .brand-art-surface--white{background:#fff}
 .brand-art-surface--black{background:#191919}
-.brand-art-surface--blue{background:#183958}
+.brand-art-surface--blue{background:#0C396B}
 .brand-mark-card{aspect-ratio:1;padding:clamp(12px,3vw,36px)}
 .brand-mark-card img{display:block;width:100%;max-width:140px;height:auto}
 .brand-url-stack{display:grid;gap:var(--space-fluid-16)}
@@ -817,7 +817,7 @@ html[data-palette] .brand-guidelines .brand-info-panel[data-open=true] .brand-in
 
 /* Solid core colours with contrasting, unaltered logo artwork. */
 html[data-palette] .site-preview-logo-backgrounds-grid .brand-logo-example--evergreen{background:#016C53;color:#FFFFFF}
-html[data-palette] .site-preview-logo-backgrounds-grid .brand-logo-example--blue{background:#183958;color:#FFFFFF}
+html[data-palette] .site-preview-logo-backgrounds-grid .brand-logo-example--blue{background:#0C396B;color:#FFFFFF}
 html[data-palette] .site-preview-logo-backgrounds-grid .brand-logo-example--deep-purple{background:#281A2C;color:#FFFFFF}
 html[data-palette] .site-preview-logo-backgrounds-grid .brand-logo-example--coral{background:#E68387;color:#191919}
 html[data-palette] .site-preview-logo-backgrounds-grid .brand-logo-example--white{background:#FFFFFF;color:#191919;border:1px solid #E3E1DD}
