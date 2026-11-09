@@ -35,18 +35,12 @@
       });
       draw('.lc-fit',1000,950,180);
     } else if(kind==='atlas' || kind==='atlas-grid' || kind==='atlas-outline') {
-      const lead = kind==='atlas-outline' ? 1600 : 0;
-      if(lead) {
-        // Horizontal lines first, vertical lines second, then construction.
-        draw('[data-grid-direction=horizontal]',700,0,0,'cubic-bezier(.25,.1,.25,1)');
-        draw('[data-grid-direction=vertical]',700,750,0,'cubic-bezier(.25,.1,.25,1)');
-        fade('.lc-guides',250,lead);
-      }
-      draw('.lc-circle.lc-draw',1200,lead,320);
-      draw('.lc-fit',850,lead+300,320);
-      draw('.lc-outline',1600,lead+1200,65);
-      fade('.lc-detail',650,lead+900,90);
-      fade('.lc-ink',1100,lead+2700);
+      // The grid stays visible and static while the artwork draws.
+      draw('.lc-circle.lc-draw',1200,0,320);
+      draw('.lc-fit',850,300,320);
+      draw('.lc-outline',1600,1200,65);
+      fade('.lc-detail',650,900,90);
+      fade('.lc-ink',1100,2700);
     } else if(kind==='ratio') {
       active.querySelectorAll('.lc-ratio-ring').forEach((el,i)=>animate(el,[{transform:'scale(.02)',opacity:0},{transform:'scale(1)',opacity:1}],1400,i*300));
       draw('.lc-draw:not(.lc-outline)',1200,900,120);
