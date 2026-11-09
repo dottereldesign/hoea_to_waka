@@ -137,3 +137,12 @@ html[data-palette] #ui-icons .brand-guide-action-dark :is(h4,p){color:#FFFFFF}
   #colours .palette-ramps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   #colours .brand-palette-groups { grid-template-columns: minmax(0, 1fr); }
 }
+html[data-palette] .brand-guide-contents__grid > .brand-guide-contents__link:last-child {
+  border-bottom: 0;
+}
+@media (width > 760px) {
+  /* The contents grid fills each column from top to bottom in five rows. */
+  html[data-palette] .brand-guide-contents__grid > .brand-guide-contents__link:nth-child(5n) {
+    border-bottom: 0;
+  }
+}
