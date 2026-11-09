@@ -1,0 +1,8 @@
+Tool: built-in image_gen (edit mode; transparent background).
+
+Prompt:
+Edit this exact supplied lighthouse illustration. Remove ONLY the orange crescent moon above and to the left of the lighthouse roof, leaving transparent empty space there. Preserve the lighthouse, roof finial, windows, teal and peach tower, plum outlines, coral base, green/teal waves and the entire right-facing warm light beam exactly as provided: same shapes, colours, proportions, placement, subtle shading and illustration style. No new elements. Preserve a truly transparent background and soft alpha at the end of the light beam. Deliver a clean cutout PNG. This is a surgical object removal, not a redesign.
+
+Website asset: assets/anna-lighthouse.webp
+Packaging: transparent margins trimmed; lossless WebP, 978 x 669 pixels.
+Placement: About timeline, The work today / Warmth, evidence, purpose.

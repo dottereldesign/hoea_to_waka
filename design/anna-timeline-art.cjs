@@ -11,7 +11,7 @@ function art(index){
   if(index===3){
     inside=`${paper('M189 271H331L313 354H207Z','#f4f0e5')}${line('M184 271H336M210 354H310','stroke-width="2"')}${line('M260 271V175M260 237Q227 227 214 193M260 214Q294 198 305 166M260 249Q295 245 321 221M260 220Q241 189 247 158')}${leaf(214,193,180,.65)}${leaf(305,166,-15,.65)}${leaf(321,221,-5,.6)}${leaf(247,158,190,.53)}${leaf(260,175,-45,.62)}${line('M260 283v43M260 298l-22 15M260 306l22 16M238 313l-8 13M282 322l9 5','opacity=".45"')}`;
   }
-  if(index===4)inside=`<defs><linearGradient id="anna-light-beam"><stop stop-color="#e9e4c4" stop-opacity=".65"/><stop offset="1" stop-color="#e9e4c4" stop-opacity="0"/></linearGradient></defs><g data-beam><path d="M272 165L474 102V228Z" fill="url(#anna-light-beam)"/></g>${paper('M219 354 236 191H284L301 354Z','#fff')}${paper('M229 191V158L260 136L291 158V191Z','#f4f0e5')}${line('M229 158H291M260 136V119M222 191H298M235 211H285M231 252H289','opacity=".8"')}${paper('M251 320Q260 308 269 320V354H251Z','#edf1f5')}${line('M240 160V180M260 160V180M280 160V180M124 327Q145 316 166 327T208 327M311 327Q332 316 353 327T395 327M98 342Q119 331 140 342T182 342M338 342Q359 331 380 342T422 342','stroke-width="1.1"')}`;
+  if(index===4)return `<svg viewBox="0 0 520 400" width="520" height="400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><image href="../assets/anna-lighthouse.webp" x="30" y="40" width="460" height="314" preserveAspectRatio="xMidYMax meet"/></svg>`;
   return `<svg viewBox="0 0 520 400" width="520" height="400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" style="color:#243a53">${floor}${inside}</svg>`;
 }
 module.exports=art;
