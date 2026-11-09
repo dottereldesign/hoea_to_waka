@@ -96,3 +96,5 @@ html[data-palette][data-typography] .logo-construction .lc-caption__eyebrow{font
 [data-lc-panel=atlas-audited] :is(.lc-outline,.lc-circle){shape-rendering:geometricPrecision;vector-effect:non-scaling-stroke}
 [data-lc-panel=atlas-audited] .lc-outline{stroke-width:1.35px}
 [data-lc-panel=atlas-audited] .lc-circle{stroke-width:.75px}
+
+[data-lc-panel=atlas-audited] .lc-outline{fill:var(--mark)}

@@ -42,6 +42,7 @@
         const circlesEnd=1200+Math.max(0,active.querySelectorAll('.lc-circle.lc-draw').length-1)*320;
         const topToBottom=[5,1,0,2,6];
         active.querySelectorAll('.lc-outline').forEach(el=>animate(el,{strokeDasharray:['1','1'],strokeDashoffset:['1','0']},700,circlesEnd+topToBottom.indexOf(Number(el.dataset.order))*700));
+        active.querySelectorAll('.lc-outline').forEach(el=>animate(el,{fillOpacity:[0,1]},800,circlesEnd+topToBottom.length*700,'ease-in-out'));
       } else {
         draw('.lc-outline',1600,1200,65);
       }

@@ -5,13 +5,17 @@
 .brand-hero-outline-art .lc-grid{color:var(--guide);opacity:.16}
 .brand-hero-outline-art .lc-guides{fill:none;stroke:var(--guide);stroke-width:.65}
 .brand-hero-outline-art .lc-circle{opacity:.706}
-.brand-hero-outline-art .lc-outline{fill:none;stroke:var(--mark);stroke-width:1.1;stroke-linecap:round;stroke-linejoin:round}
+.brand-hero-outline-art .lc-outline{fill:var(--mark);stroke:var(--mark);stroke-width:1.1;stroke-linecap:round;stroke-linejoin:round}
 /* Keep fine curves legible instead of shrinking into subpixel hairlines. */
 .brand-hero-outline-art :is(.lc-outline,.lc-circle){shape-rendering:geometricPrecision;vector-effect:non-scaling-stroke}
 .brand-hero-outline-art .lc-outline{stroke-width:1.35px}
 .brand-hero-outline-art .lc-circle{stroke-width:.75px}
 .js .brand-guidelines #cover.site-preview-brand-hero-is-ready [data-hero-outline] .lc-circle{animation:previewHeroStrokeDraw 1200ms cubic-bezier(.4,0,.2,1) calc(var(--study-index)*320ms) both}
 /* Five circles finish at 2480ms; each logo element then gets its own drawing turn. */
-.js .brand-guidelines #cover.site-preview-brand-hero-is-ready [data-hero-outline] .lc-outline{animation:previewHeroStrokeDraw 700ms cubic-bezier(.4,0,.2,1) calc(2480ms + var(--study-index)*700ms) both}
+.js .brand-guidelines #cover.site-preview-brand-hero-is-ready [data-hero-outline] .lc-outline{animation:previewHeroStrokeDraw 700ms cubic-bezier(.4,0,.2,1) calc(2480ms + var(--study-index)*700ms) both,previewHeroInkFill 800ms ease-in-out 5980ms both}
 .js .brand-guidelines #cover:not(.site-preview-brand-hero-is-ready):not(.site-preview-brand-hero-is-complete) [data-hero-outline] :is(.lc-circle,.lc-outline){stroke-dasharray:1;stroke-dashoffset:1}
 @media(prefers-reduced-motion:reduce){.js .brand-guidelines #cover [data-hero-outline] :is(.lc-circle,.lc-outline){animation:none!important;stroke-dashoffset:0!important}}
+
+@keyframes previewHeroInkFill{from{fill-opacity:0}to{fill-opacity:1}}
+.js .brand-guidelines #cover:not(.site-preview-brand-hero-is-ready):not(.site-preview-brand-hero-is-complete) [data-hero-outline] .lc-outline{fill-opacity:0}
+@media(prefers-reduced-motion:reduce){.js .brand-guidelines #cover [data-hero-outline] .lc-outline{fill-opacity:1!important}}
