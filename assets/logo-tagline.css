@@ -50,7 +50,7 @@ html[data-palette] :is(.site-brand-line,.brand-logo-lockup__tagline,.site-previe
 }
 /* Align to Inter's visible H/a edges, not the text advance box.
    Insets are proportions of the name width, including its letter spacing:
-   600 / -.035em (header/examples), 400 / .01em (cover), 600 / -.035em (footer).
+   600 / -.035em (header/examples), 600 / .01em (cover), 600 / -.035em (footer).
    Percentages keep the optical alignment through responsive sizing and header morphs. */
 html[data-palette] .brand-guidelines .site-preview-brand-hero-subtitle,
 html[data-palette] :is(.site-brand-line,.brand-logo-lockup__tagline,.site-preview-brand-hero-subtitle,.footer-brand-tagline) {
@@ -62,8 +62,8 @@ html[data-palette] :is(.site-brand-line,.brand-logo-lockup__tagline,.site-previe
   min-width: calc(100% - var(--wordmark-left-inset) - var(--wordmark-right-inset));
 }
 html[data-palette] .brand-guidelines .site-preview-brand-hero-subtitle {
-  --wordmark-left-inset: 1.164%;
-  --wordmark-right-inset: 1.298%;
+  --wordmark-left-inset: .9194%;
+  --wordmark-right-inset: 1.009%;
 }
 
 /* Keep tagline text from widening the name's intrinsic grid column. */
@@ -80,4 +80,10 @@ html[data-palette] .footer-brand-tagline { font-size: clamp(8px, .72vw, 10px); }
 @container (max-width: 260px) {
   html[data-palette] .site-footer[data-footer-version] .footer-brand-lockup strong { font-size: clamp(16px, 10cqw, 20px); }
   html[data-palette] .footer-brand-tagline { font-size: clamp(5.3px, 3.3cqw, 6.6px); }
+}
+
+/* The cover wordmark uses the same real Inter Semibold as the brand artwork. */
+html[data-palette] .brand-guidelines .brand-guide-hero-wordmark h2.brand-name-text {
+  font-weight: 600 !important;
+  font-synthesis: none;
 }
