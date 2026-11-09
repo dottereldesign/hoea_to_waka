@@ -79,9 +79,13 @@ function svg(config) {
     geometry+=`<g class="lc-labels lc-detail"><text x="-58" y="-38">φ = 1.618</text><text x="-58" y="-18">1 : φ : φ² : φ³</text><text x="-58" y="425">PROPORTION STUDY</text></g>`;
   } else {
     geometry=selected.map((c,i)=>{
+      // Study 07 uses a shared construction hub at the inner (wahine) circle centre.
+      const sharedHub=kind==='atlas-outline' && [1,2,3].includes(i);
+      const origin=sharedHub?fitted[1]:c;
+      const centreMark=sharedHub && i!==1?'':cross(origin.x,origin.y);
       const angle=Math.atan2(c.b.y-c.y,c.b.x-c.x)*180/Math.PI;
       const arc=`M${c.curve.start.x} ${c.curve.start.y} ${c.curve.s.join(' ')}`;
-      return `<g class="lc-circle-set" data-order="${i}">${circle(c,'lc-circle-base')}${circle(c,'lc-circle lc-draw',`transform="rotate(${round(angle)} ${round(c.x)} ${round(c.y)})" data-order="${i}"`)}${cross(c.x,c.y)}${line(c.x,c.y,c.b.x,c.b.y,'lc-radius lc-detail')}<circle class="lc-contact lc-detail" cx="${round(c.b.x)}" cy="${round(c.b.y)}" r="2.3"/><path class="lc-fit lc-draw" data-order="${i}" pathLength="1" d="${arc}"/>${kind==='compass'?`<g class="lc-compass" data-order="${i}" data-angle="${round(angle)}" style="transform-origin:${round(c.x)}px ${round(c.y)}px">${line(c.x,c.y,c.x+c.r,c.y,'lc-compass-arm')}<circle cx="${round(c.x+c.r)}" cy="${round(c.y)}" r="2.2"/></g>`:''}</g>`;
+      return `<g class="lc-circle-set" data-order="${i}">${circle(c,'lc-circle-base')}${circle(c,'lc-circle lc-draw',`transform="rotate(${round(angle)} ${round(c.x)} ${round(c.y)})" data-order="${i}"`)}${centreMark}${line(origin.x,origin.y,c.b.x,c.b.y,'lc-radius lc-detail')}<circle class="lc-contact lc-detail" cx="${round(c.b.x)}" cy="${round(c.b.y)}" r="2.3"/><path class="lc-fit lc-draw" data-order="${i}" pathLength="1" d="${arc}"/>${kind==='compass'?`<g class="lc-compass" data-order="${i}" data-angle="${round(angle)}" style="transform-origin:${round(c.x)}px ${round(c.y)}px">${line(c.x,c.y,c.x+c.r,c.y,'lc-compass-arm')}<circle cx="${round(c.x+c.r)}" cy="${round(c.y)}" r="2.2"/></g>`:''}</g>`;
     }).join('');
     if(kind==='bezier') geometry+=selected.map((c,i)=>{
       const {s,start:p}=c.curve;

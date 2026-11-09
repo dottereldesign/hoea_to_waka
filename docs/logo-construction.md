@@ -74,3 +74,5 @@ Study 07 also uses a boolean union of master paths 2 and 3 at the wave/paddle jo
 The wave tip in study 07 similarly joins master paths 6 and 7. A sub-0.01-unit doubled-back seam at their join is removed from the merged outline to prevent a dark crossbar. The source master and other studies remain unchanged.
 
 Study 07 keeps its grid visible and static from the start. Only the construction circles and logo animate; there is no grid lead-in.
+
+In study 07, the three central construction spokes share the centre of the inner wahine circle. They are visual alignment guides rather than individual radius measurements; the fitted circles and contact points stay in place.
