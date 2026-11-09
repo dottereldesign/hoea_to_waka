@@ -6,6 +6,9 @@
   const panels = [...root.querySelectorAll('[data-lc-panel]')];
   const pause = root.querySelector('[data-lc-pause]');
   const status = root.querySelector('.lc-status');
+  const motion = root.querySelector('[data-lc-motion]');
+  const replay = root.querySelector('[data-lc-replay]');
+  try { motion.checked = localStorage.getItem('hoea-logo-animate') !== 'false'; } catch {}
   let active = panels[0], animations = [], generation = 0, seen = false, pausedByVisibility = false;
   const stop = () => {generation++; animations.forEach(a => a.cancel()); animations = [];};
   const animate = (node, frames, duration, delay=0, easing='cubic-bezier(.4,0,.2,1)') => {
@@ -18,7 +21,8 @@
   function play() {
     stop();
     pausedByVisibility = false;
-    if(reduced.matches) {status.textContent='Still study';pause.disabled=true;pause.textContent='Pause';return;}
+    replay.disabled = reduced.matches || !motion.checked;
+    if(reduced.matches || !motion.checked) {status.textContent='Still study';pause.disabled=true;pause.textContent='Pause';return;}
     const kind=active.dataset.lcPanel;
     pause.disabled=false;pause.textContent='Pause';status.textContent='Drawing';
     if(kind==='compass') {
@@ -83,6 +87,11 @@
     pause.textContent=playing?'Resume':'Pause';status.textContent=playing?'Paused':'Drawing';
   });
   root.querySelector('[data-lc-guides]').addEventListener('change',e=>root.dataset.guides=String(e.target.checked));
+  motion.addEventListener('change',()=>{
+    try { localStorage.setItem('hoea-logo-animate',String(motion.checked)); } catch {}
+    play();
+  });
+  root.querySelector('[data-lc-motion-control]').hidden=false;
   root.querySelector('.lc-choices').hidden=false;root.querySelector('.lc-toolbar').hidden=false;
   const visibility=visible=>{
     if(!visible&&animations.some(a=>a.playState==='running')){animations.forEach(a=>a.pause());pausedByVisibility=true;}

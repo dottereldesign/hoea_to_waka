@@ -67,6 +67,7 @@ html[data-palette] .lc-playback button:disabled{color:#757a71;cursor:default}
 .lc-status{font-size:10px;color:var(--lc-muted)}
 .lc-guide-toggle{display:flex;align-items:center;gap:8px;font-size:10px;color:#51584b;cursor:pointer;min-height:36px}
 .lc-guide-toggle input{accent-color:#526948;width:13px;height:13px;margin:0}
+.lc-motion-toggle{margin:0 14px 12px;font-size:12px}
 .logo-construction :is(button,a,input):focus-visible{outline:2px solid #526948;outline-offset:4px}
 .logo-construction[data-guides=false] :is(.lc-guides,.lc-grid,.lc-scanline){opacity:0!important}
 .lc-method-note{font-size:10px;line-height:1.8;color:var(--lc-muted);margin:30px 0 0;padding-top:20px;border-top:1px solid #e2e3dc}

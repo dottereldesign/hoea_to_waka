@@ -88,7 +88,7 @@ const panels=configs.map((c,i)=>`<article class="lc-panel" id="lc-panel-${c[1]}"
 const section=`<!-- logo-construction:start -->
 <section class="logo-construction" id="logo-construction" aria-labelledby="lc-title">
   <header class="lc-header"><div><p class="lc-eyebrow">Illustrations / Motion studies</p><h1 id="lc-title">One mark. Five perspectives.</h1></div><p>Exploring the geometry of Hoea tō Waka.<br>The same silhouette, seen in a new light.</p></header>
-  <div class="lc-layout"><aside class="lc-sidebar"><div class="lc-choices" role="group" aria-label="Choose a logo animation" hidden>${buttons}</div><div class="lc-sidebar__note"><span class="lc-note-rule"></span><p>Circles follow the existing curves. The original logo stays at the heart of every study.</p><a href="../about/brand-guidelines/#cover">View the brand guidelines <span aria-hidden="true">↗</span></a></div></aside><div class="lc-workspace">${panels}<div class="lc-toolbar" hidden><div class="lc-playback"><button type="button" data-lc-replay><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 7a6 6 0 1 1 0 6M4 3v4h4"/></svg>Replay</button><button type="button" data-lc-pause>Pause</button><span class="lc-status" role="status" aria-live="polite">Ready</span></div><label class="lc-guide-toggle"><input type="checkbox" data-lc-guides checked>Construction lines</label></div></div></div>
+  <div class="lc-layout"><aside class="lc-sidebar"><label class="lc-guide-toggle lc-motion-toggle" data-lc-motion-control hidden><input type="checkbox" data-lc-motion checked>Animate</label><div class="lc-choices" role="group" aria-label="Choose a logo animation" hidden>${buttons}</div><div class="lc-sidebar__note"><span class="lc-note-rule"></span><p>Circles follow the existing curves. The original logo stays at the heart of every study.</p><a href="../about/brand-guidelines/#cover">View the brand guidelines <span aria-hidden="true">↗</span></a></div></aside><div class="lc-workspace">${panels}<div class="lc-toolbar" hidden><div class="lc-playback"><button type="button" data-lc-replay><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 7a6 6 0 1 1 0 6M4 3v4h4"/></svg>Replay</button><button type="button" data-lc-pause>Pause</button><span class="lc-status" role="status" aria-live="polite">Ready</span></div><label class="lc-guide-toggle"><input type="checkbox" data-lc-guides checked>Construction lines</label></div></div></div>
   <p class="lc-method-note">Construction studies made around the original artwork. Curve circles are fitted locally; the golden-ratio study explores proportion.</p>
 </section>
 <!-- logo-construction:end -->`;
@@ -98,7 +98,7 @@ else {
   // Keep one page title; the existing illustration collection is the next section.
   html=html.replace(/<h1([^>]*)>([\s\S]*?)<\/h1>/,'<h2$1>$2</h2>');
   html=html.replace(/(<main[^>]*id="main-content"[^>]*>)/,`$1\n${section}`);
-  html=html.replace('</head>','<link rel="stylesheet" href="../assets/logo-construction.css?v=1">\n<script src="../assets/logo-construction.js?v=1" defer></script>\n</head>');
+  html=html.replace('</head>','<link rel="stylesheet" href="../assets/logo-construction.css?v=2">\n<script src="../assets/logo-construction.js?v=2" defer></script>\n</head>');
 }
 await writeFile('illustrations/index.html',html);
 console.log('Logo construction: five studies + original, unchanged approved paths.');
