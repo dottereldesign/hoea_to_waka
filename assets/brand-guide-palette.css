@@ -157,3 +157,19 @@ html[data-palette] .brand-guidelines .site-preview #colours {
 #colours .palette-lab .palette-tone--base {
   min-height: 156px;
 }
+#colours button[data-copy] {
+  position: relative;
+}
+#colours .palette-copy-feedback {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 4px;
+  border-radius: inherit;
+  background: #191919;
+  color: #fff;
+  font: 500 11px/1.25 Inter, Arial, sans-serif;
+  text-align: center;
+  pointer-events: none;
+}
