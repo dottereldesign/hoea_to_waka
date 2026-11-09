@@ -1,0 +1,12 @@
+/* The cover uses the same SVG as illustration study 08. */
+.brand-guidelines #cover [data-hero-outline]{width:min(88vw,420px);aspect-ratio:610/570;background:#fff;--mark:#191919;--guide:#808a76}
+.brand-guidelines #cover [data-hero-outline]::after{display:none}
+.brand-hero-outline-art{display:block;width:100%;height:100%;overflow:visible}
+.brand-hero-outline-art .lc-grid{color:var(--guide);opacity:.16}
+.brand-hero-outline-art .lc-guides{fill:none;stroke:var(--guide);stroke-width:.65}
+.brand-hero-outline-art .lc-circle{opacity:.706}
+.brand-hero-outline-art .lc-outline{fill:none;stroke:var(--mark);stroke-width:1.1;stroke-linecap:round;stroke-linejoin:round}
+.js .brand-guidelines #cover.site-preview-brand-hero-is-ready [data-hero-outline] .lc-circle{animation:previewHeroStrokeDraw 1200ms cubic-bezier(.4,0,.2,1) calc(var(--study-index)*320ms) both}
+.js .brand-guidelines #cover.site-preview-brand-hero-is-ready [data-hero-outline] .lc-outline{animation:previewHeroStrokeDraw 1600ms cubic-bezier(.4,0,.2,1) calc(1200ms + var(--study-index)*65ms) both}
+.js .brand-guidelines #cover:not(.site-preview-brand-hero-is-ready):not(.site-preview-brand-hero-is-complete) [data-hero-outline] :is(.lc-circle,.lc-outline){stroke-dasharray:1;stroke-dashoffset:1}
+@media(prefers-reduced-motion:reduce){.js .brand-guidelines #cover [data-hero-outline] :is(.lc-circle,.lc-outline){animation:none!important;stroke-dashoffset:0!important}}

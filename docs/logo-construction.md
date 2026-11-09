@@ -88,3 +88,5 @@ Study 08 is derived from 07 by scripts/logo-outline-audit.mjs. Study 07 and the 
 - Checked all five closed contours with Skia path simplification: one contour remains per shape, with area differences below 0.00011 square units. Checked finite coordinates, closed paths, consistent stroke weights, static grid, complete circle bounds, no fill or markers, animation controls, mobile layouts and accessibility.
 
 Before/after screenshots are saved in ignored tmp/logo-construction/08-before.png and 08-after.png.
+
+The brand-guideline cover above Hoea tō Waka uses the exact study 08 SVG. scripts/hero-pencil.mjs regenerates the illustration studies before copying 08 into the cover, and assets/brand-hero-outline.css connects its circle and contour drawing to the existing reversible cover timeline. The grid remains static and the logo remains unfilled.
