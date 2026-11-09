@@ -75,4 +75,4 @@ The wave tip in study 07 similarly joins master paths 6 and 7. A sub-0.01-unit d
 
 Study 07 keeps its grid visible and static from the start. Only the construction circles and logo animate; there is no grid lead-in.
 
-Study 07 omits the three central construction spokes, the top-circle radius line, and all centre crosses and contact-point markers. The fitted circles, grid and lower paddle guide remain.
+Study 07 omits all radius guide lines, centre crosses and contact-point markers. The fitted circles and grid remain.

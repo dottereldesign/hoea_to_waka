@@ -80,7 +80,7 @@ function svg(config) {
   } else {
     geometry=selected.map((c,i)=>{
       const centreMark=kind==='atlas-outline'?'':cross(c.x,c.y);
-      const guideLine=kind==='atlas-outline' && i<4?'':line(c.x,c.y,c.b.x,c.b.y,'lc-radius lc-detail');
+      const guideLine=kind==='atlas-outline'?'':line(c.x,c.y,c.b.x,c.b.y,'lc-radius lc-detail');
       const contact=kind==='atlas-outline'?'':`<circle class="lc-contact lc-detail" cx="${round(c.b.x)}" cy="${round(c.b.y)}" r="2.3"/>`;
       const angle=Math.atan2(c.b.y-c.y,c.b.x-c.x)*180/Math.PI;
       const arc=`M${c.curve.start.x} ${c.curve.start.y} ${c.curve.s.join(' ')}`;
