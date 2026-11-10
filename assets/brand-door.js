@@ -95,7 +95,7 @@
     const shapeName={arch:'arched',round:'circular',oval:'oval',facet:'faceted'}[current.shape];
     svg.querySelector('title').textContent=current.tide?`Moonlit ocean — ${shapeName} door`:'A door to possibility';
     svg.querySelector('desc').textContent=current.tide?`A white ${shapeName} door with a lever handle opens onto moving ocean waves, a crescent moon and a starry night sky.`:originalDescription;
-    if(matarikiDoor){svg.querySelector('title').textContent='A doorway to Matariki';svg.querySelector('desc').textContent='A white arched door opens onto a deep navy sky, the nine stars of Matariki, a crescent moon and blue ocean waves.';}
+    if(matarikiDoor){svg.querySelector('title').textContent='A doorway to Matariki';svg.querySelector('desc').textContent='An arched door opens onto a deep navy sky, the nine stars of Matariki, a crescent moon and blue ocean waves.';}
     tide.setAttribute('display',current.tide?'inline':'none');
     stars.style.display=current.tide?'none':'';
     const b=profile||{left:239,top:105,width:245,height:496};

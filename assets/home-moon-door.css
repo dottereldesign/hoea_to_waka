@@ -12,3 +12,9 @@ html[data-palette] .home-cta-door .home-cta-body .ds-lead{font-size:clamp(18px,1
 
 /* Keep the static fallback for no-JS visitors; reveal motion only after its first draw. */
 html.js [data-moon-door]:not([data-door-bound="true"])>svg{visibility:hidden}
+/* Selected site-wide colourway: Apricot, with filled hardware and no outlines. */
+.home-moon-door [data-door-panel]{fill:#FDC78C}
+.home-moon-door [data-door-edge]{fill:#F78C5B}
+.home-moon-door :is([data-door-lever],[data-door-collar]){fill:#D6BA83}
+.home-moon-door :is([data-door-plate],[data-door-latch]){fill:#281A2C}
+.home-moon-door :is([data-door-panel],[data-door-edge],[data-door-lever],[data-door-collar],[data-door-plate],[data-door-latch]){stroke:none}
