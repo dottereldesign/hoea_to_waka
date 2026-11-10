@@ -64,3 +64,5 @@ await import('./build-theme-boot.mjs');
 await import('./build-page-styles.mjs');
 
 await import('./concepts.mjs');
+
+await import('./youth-motion.mjs');

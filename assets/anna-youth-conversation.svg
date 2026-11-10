@@ -14,7 +14,7 @@
     <linearGradient id="evergreen" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#528A69"/><stop offset="1" stop-color="#016C53"/></linearGradient>
     <linearGradient id="trouser-shadow" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#8EA568"/><stop offset="1" stop-color="#B7C28C"/></linearGradient>
     <!-- Reusable organic puzzle piece. Each instance remains editable vector geometry. -->
-    <path id="puzzle" d="M-44-50H-17C-11-50-10-54-13-59C-24-77-10-88 4-88C20-88 32-74 21-59C18-54 19-50 25-50H44Q50-50 50-44V-17C50-11 54-10 59-13C77-24 88-10 88 4C88 20 74 32 59 21C54 18 50 19 50 25V44Q50 50 44 50H17C11 50 10 46 13 41C24 23 10 12-4 12C-20 12-32 26-21 41C-18 46-19 50-25 50H-44Q-50 50-50 44V17C-50 11-46 10-41 13C-23 24-12 10-12-4C-12-20-26-32-41-21C-46-18-50-19-50-25V-44Q-50-50-44-50Z"/>
+    <path id="puzzle" d="M-43-50H-13C-8-50-8-54-11-59C-21-76-12-83 0-83C12-83 21-76 11-59C8-54 8-50 13-50H43Q50-50 50-43V-13C50-8 54-8 59-11C76-21 83-12 83 0C83 12 76 21 59 11C54 8 50 8 50 13V43Q50 50 43 50H13C8 50 8 46 11 41C21 24 12 17 0 17C-12 17-21 24-11 41C-8 46-8 50-13 50H-43Q-50 50-50 43V13C-50 8-46 8-41 11C-24 21-17 12-17 0C-17-12-24-21-41-11C-46-8-50-8-50-13V-43Q-50-50-43-50Z"/>
     <clipPath id="scene-edge"><path d="M35 0H1412V1002Q1308 1062 740 1062Q215 1062 35 1004Z"/></clipPath>
   </defs>
   <g id="scene" clip-path="url(#scene-edge)">
@@ -41,9 +41,9 @@
       <path id="shared-puzzle" fill="url(#plum)" d="M708 116L755 122C775 125 761 110 765 100C773 76 803 76 817 93C832 111 815 126 813 134C808 146 822 163 836 165C847 167 852 157 867 156C889 154 898 171 899 191C899 215 884 230 862 222C844 211 827 219 825 235L825 292C825 329 785 337 689 336C683 304 680 270 688 250C696 229 709 232 720 238C741 250 762 236 764 215C767 193 750 176 735 177C718 176 714 190 700 183C686 176 692 146 708 116Z"/>
     </g>
     <g id="floating-pieces">
-      <use href="#puzzle" transform="translate(255 284) rotate(-40) scale(.82)" fill="url(#teal)"/>
-      <use href="#puzzle" transform="translate(781 431) rotate(28) scale(.72)" fill="#8EA568"/>
-      <use href="#puzzle" transform="translate(1258 499) rotate(40) scale(.86)" fill="#E68387"/>
+      <g id="piece-left"><use href="#puzzle" transform="translate(255 284) rotate(-40) scale(.82)" fill="url(#teal)"/></g>
+      <g id="piece-middle"><use href="#puzzle" transform="translate(781 431) rotate(28) scale(.72)" fill="#8EA568"/></g>
+      <g id="piece-right"><use href="#puzzle" transform="translate(1258 499) rotate(40) scale(.86)" fill="#E68387"/></g>
     </g>
     <g id="left-person">
       <g id="flowing-hair">
