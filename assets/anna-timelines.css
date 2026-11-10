@@ -208,6 +208,9 @@ html[data-palette] #anna-story .anna-story__heading>.ds-kicker{margin-top:0}
 
 /* Preserve the blue opening below the intro after removing the study controls. */
 #anna-story[data-timeline-variant=thread2] .anna-stage{padding-top:clamp(8.4375rem, 7.39286rem + 4.28571vw, 11.25rem)}
+/* Let the opening narrow into the river before either side of the story begins.
+   Space inside the pin moves every milestone together without moving the ocean. */
+#anna-story[data-timeline-variant=thread2] .anna-list{padding-top:calc(var(--space-fluid-24) + clamp(96px,16vw,240px))}
 
 /* On phones, keep the river left and stack each illustration above its copy. */
 @media(max-width:760px){
