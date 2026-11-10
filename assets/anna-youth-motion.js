@@ -30,8 +30,8 @@
       element.style.transformOrigin = 'center';
       const animation = element.animate([
         { opacity: 0, transform },
-        { opacity: 1, transform: 'translate(0,0) rotate(0deg) scale(1)' }
-      ], { duration, delay, easing: 'cubic-bezier(.22,1,.36,1)', fill: 'both' });
+        { opacity: 1, transform: 'none' }
+      ], { duration, delay, easing: 'cubic-bezier(.22,1,.36,1)', fill: 'backwards' });
       animation.pause();
       animation.currentTime = 0;
       animations.push(animation);

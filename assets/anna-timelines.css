@@ -221,6 +221,13 @@ html[data-palette] #anna-story .anna-story__heading>.ds-kicker{margin-top:0}
  #anna-story[data-timeline-variant=thread2] .anna-milestone:nth-child(n)::after{left:calc(40px + var(--river-node-x,0px) + 18px);width:calc(34px - var(--river-node-x,0px))}
 }
 
+/* Youth artwork fills its text-aligned column, without nested SVG padding. */
+#anna-story[data-timeline-variant=thread2] .anna-world:has([data-youth-arrival]){max-width:520px;aspect-ratio:1328/1043}
+#anna-story[data-timeline-variant=thread2] .river-node-hit .anna-world:has([data-youth-arrival]){transform:none}
+@media(max-width:760px){
+ #anna-story[data-timeline-variant=thread2] .anna-milestone:nth-child(n) .anna-world:has([data-youth-arrival]){max-width:none;justify-self:stretch}
+}
+
 /* The original heading docks without a size change; glass fades in over the approach. */
 .anna-sticky-title{position:fixed;z-index:40;text-align:center;visibility:hidden;pointer-events:none;color:#fff;isolation:isolate}
 .anna-sticky-title::before{content:"";position:absolute;inset:-6px -16px;z-index:-1;border-radius:999px;background:linear-gradient(125deg,#80678899,#281a2cd9 65%,#281a2cbf);border:1px solid #F1EAFA4D;box-shadow:inset 0 1px 0 #F1EAFA59,inset 0 -1px 0 #281a2c33,0 6px 22px #281a2c1f;backdrop-filter:blur(18px) saturate(125%);-webkit-backdrop-filter:blur(18px) saturate(125%);opacity:var(--glass-progress,0)}
