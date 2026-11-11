@@ -1,7 +1,8 @@
 (() => {
   const gallery = document.querySelector('.home-hero-gallery');
   const copy = document.querySelector('.home-hero-copy');
-  if (!gallery) return;
+  // The current illustration hero has copy but no legacy gallery.
+  if (!gallery && !copy) return;
   const root = document.documentElement;
   const header = document.querySelector('[data-header-entrance]');
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
@@ -10,7 +11,7 @@
     if (started) return;
     started = true;
     requestAnimationFrame(() => {
-      gallery.classList.remove('gallery-motion-pending');
+      gallery?.classList.remove('gallery-motion-pending');
       copy?.classList.remove('home-hero-motion-pending');
     });
   }
