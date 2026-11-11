@@ -65,3 +65,16 @@ html[data-palette] .site-footer a:focus-visible {
 
 /* Paper creator mark sits directly on the footer surface. */
 footer .footer-creator-credit img { background:transparent; padding:0; border-radius:0; }
+/* Align the visible text, not font leading, with the 28px creator mark. */
+footer .footer-creator-copy {
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  height:28px;
+  font-size:14px;
+  line-height:1;
+}
+footer .footer-creator-copy > span {
+  text-box-trim:trim-both;
+  text-box-edge:cap alphabetic;
+}
