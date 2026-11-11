@@ -62,3 +62,6 @@ html[data-palette] .site-footer a:focus-visible {
   text-decoration: none;
   white-space: nowrap;
 }
+
+/* Keep the Ink creator mark legible on the Ink footer. */
+footer .footer-creator-credit img { background:#FFFFFF; padding:5px; border-radius:4px; box-sizing:content-box; }
