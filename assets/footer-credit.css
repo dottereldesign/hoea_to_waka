@@ -78,3 +78,5 @@ footer .footer-creator-copy > span {
   text-box-trim:trim-both;
   text-box-edge:cap alphabetic;
 }
+
+.site-footer .footer-column h2 > a { font:inherit; font-weight:700; text-decoration:none; }
