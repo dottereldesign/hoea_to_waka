@@ -1,0 +1,43 @@
+/* Option 01 uses the shared helping-roles grid. */
+.services-topics:not([data-topic-layout="01"]) #service-topic-list li span {white-space:normal;}
+.services-topics:is([data-topic-layout="02"],[data-topic-layout="06"]) #service-topic-list {
+  display:flex;flex-wrap:wrap;gap:10px;
+}
+[data-topic-layout="02"] #services-topics-title,
+[data-topic-layout="09"] #services-topics-title {text-align:center;}
+[data-topic-layout="02"] #service-topic-list {justify-content:center;max-width:1040px;margin-inline:auto;}
+[data-topic-layout="02"] #service-topic-list li {min-height:46px;padding:8px 18px;border-radius:99px;border-color:#837991;}
+[data-topic-layout="03"] #service-topic-list {grid-template-columns:repeat(3,minmax(0,1fr));gap:0 28px;}
+[data-topic-layout="03"] #service-topic-list li {border:0;border-top:1px solid #a99fb6;border-radius:0;padding:18px 0;}
+[data-topic-layout="04"] #service-topic-list li {align-items:flex-start;flex-direction:column;gap:18px;padding:18px;border:0;background:#ffffff91;}
+[data-topic-layout="04"] #service-topic-list .role-icon {width:30px;height:30px;}
+[data-topic-layout="05"] #service-topic-list {grid-template-columns:repeat(2,minmax(0,1fr));gap:0 24px;}
+[data-topic-layout="05"] #service-topic-list li {border:0;border-bottom:1px solid #b6adbf;border-radius:0;padding:12px 0;}
+[data-topic-layout="06"] #service-topic-list li {min-height:42px;border:0;border-radius:8px;background:#d9ceee;padding:10px 16px;}
+[data-topic-layout="07"] #service-topic-list {max-width:900px;margin-inline:auto;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;border-block:1px solid #897e94;}
+[data-topic-layout="07"] #service-topic-list li {border:0;border-radius:0;padding:16px;counter-increment:topic;}
+[data-topic-layout="07"] #service-topic-list {counter-reset:topic;}
+[data-topic-layout="07"] #service-topic-list li::after {content:counter(topic,decimal-leading-zero);margin-left:auto;font-size:.75rem;color:#564b62;}
+[data-topic-layout="07"] #service-topic-list li:nth-child(4n+1),
+[data-topic-layout="07"] #service-topic-list li:nth-child(4n+2) {background:#ffffff60;}
+[data-topic-layout="08"] #service-topic-list {grid-template-columns:repeat(3,minmax(0,1fr));gap:20px 28px;}
+[data-topic-layout="08"] #service-topic-list li {padding:0 12px;min-height:32px;border:0;border-left:2px solid #9985ae;border-radius:0;}
+[data-topic-layout="09"] #service-topic-list {grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:22px;}
+[data-topic-layout="09"] #service-topic-list li {flex-direction:column;text-align:center;justify-content:flex-start;border:0;padding:4px;}
+[data-topic-layout="09"] #service-topic-list .role-icon {width:48px;height:48px;border:1px solid #a79aad;border-radius:50%;padding:10px;box-sizing:border-box;}
+[data-topic-layout="10"] #service-topic-list {gap:6px 14px;grid-template-columns:repeat(2,minmax(0,1fr));}
+[data-topic-layout="10"] #service-topic-list li {padding:8px 12px;min-height:42px;border:0;border-radius:8px;background:#ffffff91;}
+@media(min-width:1050px) {
+  .services-topics:is([data-topic-layout="05"],[data-topic-layout="10"]) .services-topics-inner {display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.4fr);gap:clamp(36px,6vw,86px);}
+  [data-topic-layout="10"] #services-topics-title {align-self:center;margin:0;}
+}
+@container(max-width:650px) {
+  .services-topics:is([data-topic-layout="03"],[data-topic-layout="04"],[data-topic-layout="08"],[data-topic-layout="09"]) #service-topic-list {grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;}
+  .services-topics:is([data-topic-layout="05"],[data-topic-layout="07"],[data-topic-layout="10"]) #service-topic-list {grid-template-columns:1fr;}
+  [data-topic-layout="07"] #service-topic-list li:nth-child(n) {background:transparent;}
+  [data-topic-layout="07"] #service-topic-list li:nth-child(odd) {background:#ffffff60;}
+}
+@container(max-width:310px) {
+  .services-topics:is([data-topic-layout="03"],[data-topic-layout="08"]) #service-topic-list {grid-template-columns:1fr;}
+  [data-topic-layout="04"] #service-topic-list li {padding:12px;}
+}
