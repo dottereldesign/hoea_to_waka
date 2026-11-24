@@ -9,11 +9,6 @@ const headerColourSets = {
     ['Soft blush','#FBEBEE'], ['Peach wash','#FCD8B2'], ['Lilac mist','#ECE2EF'],
     ['Sea glass','#C0DAD6'], ['Rosewater','#E8BCC5'], ['Honey','#E3BE83'],
     ['Coastal blue','#819EB4'], ['Berry','#804B61'], ['Harbour teal','#23616A'], ['Aubergine','#472B43']
-  ],
-  support: [
-    ['Pale tide','#E3F2EF'], ['Flax paper','#F5EFDA'], ['Cool lavender','#E2D5E5'],
-    ['Reed green','#BDCFB8'], ['Sky blue','#AECBD9'], ['Soft terracotta','#DCAA91'],
-    ['Tidal green','#61958B'], ['Blue spruce','#27636A'], ['Slate navy','#3F5B78'], ['Dark teal','#143F43']
   ]
 };
 
