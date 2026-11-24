@@ -2,7 +2,9 @@
   <title id="title">River within</title>
   <desc id="desc">A bowed profile holds a sun and layers of rolling hills. A blue river winds through the hills and widens into the foreground.</desc>
   <view id="homepage-portrait" viewBox="174 275 590 924"/>
-  <style>#homepage-portrait:target ~ .landscape {clip-path:url(#smooth-profile)}</style>
+  <style>#homepage-portrait:target ~ .landscape {clip-path:url(#smooth-profile)}
+    #homepage-portrait:target ~ .landscape .river-highlights {display:none}
+  </style>
   <defs>
     <clipPath id="smooth-profile">
       <path d="M100 200H840V1550H100V540H370L389 504
@@ -47,7 +49,7 @@
     <use href="#river" fill="url(#estuary)"/>
     <g clip-path="url(#channel)">
       <path fill="#6494bb" opacity=".55" d="M231 723 C322 734 295 798 399 825 S668 862 658 923 C647 974 489 975 408 1010 C319 1047 337 1081 428 1114 C537 1152 631 1188 609 1239 C588 1288 513 1294 445 1318 C366 1348 321 1404 299 1482 H185 V704Z"/>
-      <g fill="none" stroke="#fff9f0" stroke-linecap="round" opacity=".58">
+      <g class="river-highlights" fill="none" stroke="#fff9f0" stroke-linecap="round" opacity=".58">
         <path d="M563 870q25 4 39 10 M646 937q-10 10-35 16 M377 1028q13-9 35-15 M478 1146q28 9 49 21" stroke-width="2"/>
         <path d="M569 1265q-17 12-47 22 M412 1341q-30 15-48 35 M331 1427q-5 8-8 16" stroke-width="3"/>
       </g>
