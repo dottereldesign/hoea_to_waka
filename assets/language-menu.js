@@ -4,7 +4,7 @@
   const i18n=window.hoeaI18n;
   if(!i18n)return;
   const languages=[['en','English','English'],['mi','Te reo Māori','Māori'],['sm','Gagana Sāmoa','Samoan'],['zh-CN','普通话','Mandarin Chinese'],['hi','हिन्दी','Hindi'],['tl','Tagalog','Filipino'],['yue','廣東話','Cantonese'],['fr','Français','French'],['pa','ਪੰਜਾਬੀ','Punjabi'],['af','Afrikaans','Afrikaans']];
-  const flagCountries={en:'nz',mi:'nz',sm:'ws','zh-CN':'cn',hi:'in',tl:'ph',yue:'hk',fr:'fr',pa:'in',af:'za'};
+  const flagCountries={en:'nz',mi:'tino-rangatiratanga',sm:'ws','zh-CN':'cn',hi:'in',tl:'ph',yue:'hk',fr:'fr',pa:'in',af:'za'};
   const flagBase=new URL('language-flags/',document.currentScript.src);
   const flag=document.createElement('img');flag.className='language-launch__flag';flag.width=28;flag.height=21;flag.alt='';flag.setAttribute('aria-hidden','true');flag.src=new URL('nz.svg',flagBase).href;
   const launch=document.createElement('button');launch.className='language-launch';launch.type='button';launch.title='English · Choose a language';launch.setAttribute('translate','no');launch.append(flag);launch.setAttribute('aria-label','Language: English. Choose a language');launch.setAttribute('aria-expanded','false');launch.setAttribute('aria-controls','language-panel');
