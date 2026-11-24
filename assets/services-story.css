@@ -44,6 +44,7 @@ html[data-palette] #flexible-approach .ds-landscape { border-radius: 20px; }
 
 @media(min-width:701px) {
   #flexible-approach .ds-prose {padding-bottom:var(--section-space);}
+  #flexible-approach .workshop-art {width:138%;max-width:none;justify-self:start;}
 }
 
 @media(max-width:700px) {
@@ -53,5 +54,5 @@ html[data-palette] #flexible-approach .ds-landscape { border-radius: 20px; }
     grid-template-areas:"heading" "copy" "art";
     gap:16px;
   }
-  #flexible-approach .workshop-art {max-width:230px;}
+  #flexible-approach .workshop-art {max-width:340px;}
 }
