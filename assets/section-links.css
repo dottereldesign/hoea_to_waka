@@ -1,0 +1,27 @@
+/* Fine underline for standalone links within section copy. */
+main a.section-link {
+  display: inline-flex;
+  align-items: center;
+  align-self: center;
+  justify-self: start;
+  gap: 16px;
+  width: fit-content;
+  max-width: 100%;
+  min-height: 48px;
+  padding: 4px 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: 500 clamp(18px, 1.5vw, 21px)/1.3 var(--font-body, Arial, sans-serif);
+  letter-spacing: -.025em;
+  text-decoration: none;
+}
+main .ds-prose > a.section-link { margin-top: clamp(24px, 3vw, 40px); gap: 16px; }
+.section-link__label { padding-block: 5px; border-bottom: 1px solid currentColor; }
+.section-link__arrow { display: grid; place-items: center; flex: none; width: 32px; height: 32px; }
+.section-link__arrow svg { display: block; width: 20px; height: 20px; }
+main a.section-link:focus-visible { outline: 2px solid currentColor; outline-offset: 6px; }
+@media (prefers-reduced-motion: no-preference) {
+  .section-link__arrow { transition: transform .25s cubic-bezier(.22, 1, .36, 1); }
+  .section-link:hover .section-link__arrow { transform: translateX(4px); }
+}
