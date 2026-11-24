@@ -362,11 +362,11 @@ html[data-home-hero="03"] .home-hero-illustration .home-hero-illustration__cutou
   html[data-home-hero="03"] .page-home .home-hero .home-hero-inner-photo .button-row {
     flex-flow: row wrap;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
   }
   html[data-home-hero="03"][data-palette] .home-hero .home-hero-explore {
     min-width: 0;
-    padding: 5px 6px 5px 12px;
+    padding: 5px 5px 5px 10px;
     gap: 8px;
   }
   .home-hero-explore .model-button__icon { width: 32px; height: 32px; }
@@ -376,5 +376,5 @@ html[data-home-hero="03"] .home-hero-illustration .home-hero-illustration__cutou
 
 @media (max-width: 374px) {
   .home-hero-explore .model-button__icon { display: none; }
-  html[data-home-hero="03"][data-palette] .home-hero .home-hero-explore { padding-inline: 12px; }
+  html[data-home-hero="03"][data-palette] .home-hero .home-hero-explore { padding-inline: 9px; }
 }
