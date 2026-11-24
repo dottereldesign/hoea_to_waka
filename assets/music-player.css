@@ -19,7 +19,7 @@ html[data-palette] #resource-videos :is(h2,h3,p,summary,a){color:inherit}
 .music-bottom {
   flex-flow: row wrap;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 10px;
 }
 .music-popout .music-info { flex-basis: 100%; }
