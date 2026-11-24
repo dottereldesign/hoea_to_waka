@@ -23,7 +23,7 @@ body:has(.home-book-notice) [data-morph-header] .site-header-shell {
 /* Final lavender announcement with compact wordmark and matching arrow. */
 .home-book-notice__cta{gap:8px;text-decoration:none!important;font-weight:500}
 .home-book-notice__logo{display:inline-flex;align-items:center;justify-content:center;padding:5px 4px;flex:none}
-.home-book-notice .home-book-notice__amazon{width:58px;height:20px;object-fit:contain;transform:none}
+.home-book-notice .home-book-notice__amazon{width:58px;height:20px;object-fit:contain;transform:translateY(3px)}
 .home-book-notice__arrow{display:block;width:16px;height:16px;flex:none}
 .home-book-notice a:hover{color:inherit;opacity:.8}
 .home-book-notice button{color:inherit}
