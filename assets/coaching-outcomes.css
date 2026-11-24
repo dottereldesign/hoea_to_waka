@@ -56,3 +56,8 @@ html[data-palette][data-typography] #coaching-outcomes :is(.ds-kicker,.ds-title,
   border-color: #FFFFFF;
 }
 #coaching-outcomes[data-background-study]::before { display: none; }
+
+/* Keep the hands and cup, journal, and sunlit eye in the landscape crop. */
+.outcome-panel .outcome-image:nth-child(1), [data-outcome-image="focus"] .outcome-mobile-image {object-position:50% 57%;}
+.outcome-panel .outcome-image:nth-child(2), [data-outcome-image="goals"] .outcome-mobile-image {object-position:54% 60%;}
+.outcome-panel .outcome-image:nth-child(3), [data-outcome-image="wellbeing"] .outcome-mobile-image {object-position:50% 77%;}
