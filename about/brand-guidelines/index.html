@@ -89,7 +89,7 @@
 <link rel="stylesheet" href="../../assets/home-book-notice.css?v=2257fa772df2">
 <script src="../../assets/home-book-notice.js?v=db1d8caae1e6" defer></script>
 <link rel="stylesheet" href="../../assets/logo-tagline.css?v=af53eb164cb0">
-<link rel="stylesheet" href="../../assets/brand-hero-outline.css?v=2">
+<link rel="stylesheet" href="../../assets/brand-hero-outline.css?v=sticky-guide">
 <link rel="stylesheet" href="../../assets/section-links.css">
 <link rel="stylesheet" href="../../assets/section-pills.css">
 </head>
@@ -769,6 +769,7 @@
             // Reset the cover offscreen, ready for a fresh drawing on each visit.
             // Wait until the whole cover leaves above so its text and CTA stay visible.
             if (replayOnEntry && (top > enterLine + 40 || section.getBoundingClientRect().bottom < -40)) {
+              if (!expanded && !frame && playhead === 0) return;
               if (frame) cancelAnimationFrame(frame);
               frame = 0;
               previousTime = null;

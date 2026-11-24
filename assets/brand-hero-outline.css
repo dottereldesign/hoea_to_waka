@@ -19,3 +19,15 @@
 @keyframes previewHeroInkFill{from{fill-opacity:0}to{fill-opacity:1}}
 .js .brand-guidelines #cover:not(.site-preview-brand-hero-is-ready):not(.site-preview-brand-hero-is-complete) [data-hero-outline] .lc-outline{fill-opacity:0}
 @media(prefers-reduced-motion:reduce){.js .brand-guidelines #cover [data-hero-outline] .lc-outline{fill-opacity:1!important}}
+
+/* Keep the guide navigation attached to the scrolling announcement until it
+   reaches the viewport edge. The outer slot retains the expanded header height. */
+html.js[data-palette] body.brand-guidelines > .site-header[data-morph-header] {
+  position:sticky;
+  top:0;
+  pointer-events:none;
+}
+html.js[data-palette] body.brand-guidelines > [data-morph-header] .site-header-shell {
+  position:absolute;
+  top:0 !important;
+}
