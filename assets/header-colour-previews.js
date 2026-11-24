@@ -3,7 +3,14 @@ const headerColourSets = {
   resources: [
     ['Book paper','#FBF4E6'], ['Apricot','#FDC78C'], ['Petal','#FDC7C2'],
     ['Rainwashed blue','#C8D5E0'], ['Oat','#D6C9AB'], ['Dusty rose','#C88F99'],
-    ['Moss','#728365'], ['Mulberry','#713C55'], ['Ocean ink','#183E66'], ['Dark olive','#354638']
+    ['Moss','#728365'], ['Mulberry','#713C55'], ['Ocean ink','#183E66'], ['Dark olive','#354638'],
+    ['Lilac paper','#F1EAFA'], ['Glacier blue','#CEE8F7'], ['Sea foam','#D2EBE3'],
+    ['Flax shoot','#E3E8BA'], ['Butter yellow','#F8EBBD'], ['Peach milk','#FFE3CF'],
+    ['Rose quartz','#F2D6DA'], ['Bluebell','#D8D9F2'], ['Pumice','#E6E2DD'],
+    ['Pale sage','#DFE9DA'], ['Golden flax','#E4C373'], ['Coral clay','#E99E85'],
+    ['Heather mauve','#C4A6BE'], ['Kingfisher blue','#79AEC4'], ['Eucalyptus','#93B4A5'],
+    ['Burnished copper','#89482F'], ['Wineberry','#67394D'], ['Deep teal','#205C60'],
+    ['Twilight violet','#51476E'], ['Graphite','#34383D']
   ],
   contact: [
     ['Soft blush','#FBEBEE'], ['Peach wash','#FCD8B2'], ['Lilac mist','#ECE2EF'],
