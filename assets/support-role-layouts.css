@@ -1,7 +1,12 @@
+.support-research-section {
+  container-type: inline-size;
+  width: min(calc(100% - 32px), 1280px);
+  margin: clamp(60px, 7vw, 104px) auto;
+}
 #support-roles .ex-content { container-type: inline-size; }
 #support-role-list.ex-tags {
   display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 12px;
-  padding: 0; margin: 0 0 clamp(40px,5vw,72px); list-style: none;
+  padding: 0; margin: 0; list-style: none;
 }
 #support-role-list li {
   display: flex; align-items: center; gap: 10px; padding: 14px;
