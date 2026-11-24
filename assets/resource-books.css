@@ -38,3 +38,19 @@ html[data-palette] #resource-books .book-amazon-button {
     50% { transform: translate(-24px, 24px); }
   }
 }
+#resource-books .book-purchase-actions {
+  container-type: inline-size;
+  flex-wrap: nowrap;
+}
+@container (max-width: 375px) {
+  html[data-palette] #resource-books .book-amazon-button {
+    min-width: 0;
+    gap: 6px;
+    padding-inline: 10px 5px;
+    white-space: normal;
+    line-height: 1.15;
+  }
+  #resource-books .book-amazon-arrow { width: 32px; height: 32px; }
+  #resource-books .section-link { flex: none; gap: 6px; }
+  #resource-books .section-link__arrow { width: 20px; }
+}
