@@ -1,7 +1,7 @@
 /* Full-width resource library, with each book and its copy kept together. */
 html[data-palette] #resource-books{max-width:1680px;min-width:0;margin-inline:auto;padding:var(--space-layout-11) var(--space-layout-12);scroll-margin-top:112px;background:transparent}
 #resource-books .ds-book-catalogue{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(32px,4vw,64px);align-items:start}
-#resource-books .ds-book-catalogue article{grid-template-columns:minmax(170px,.7fr) minmax(0,1fr);gap:var(--space-fluid-24);align-items:start;padding:var(--space-fluid-32) 0;min-width:0}
+#resource-books .ds-book-catalogue article{border-top:0;grid-template-columns:minmax(170px,.7fr) minmax(0,1fr);gap:var(--space-fluid-24);align-items:start;padding:var(--space-fluid-32) 0;min-width:0}
 #resource-books .ds-book-catalogue article>div{grid-column:auto;min-width:0}
 #resource-books .ds-book-catalogue img{display:block;width:100%;height:auto;max-width:360px;max-height:none;object-fit:contain;border-radius:20px;margin:0;justify-self:start}
 html[data-palette] #resource-books .book-amazon-button{min-height:56px;background:#ffd814;border:1px solid #db6f09;color:#191919;box-shadow:0 2px 4px #19191918;text-decoration:none}
