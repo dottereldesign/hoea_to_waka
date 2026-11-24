@@ -4,20 +4,20 @@
   margin: clamp(60px, 7vw, 104px) auto;
 }
 #support-roles .ex-content { container-type: inline-size; }
-#support-role-list.ex-tags {
+:is(#support-role-list,#service-topic-list).ex-tags {
   display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 12px;
   padding: 0; margin: 0; list-style: none;
 }
-#support-role-list li {
+:is(#support-role-list,#service-topic-list) li {
   display: flex; align-items: center; gap: 10px; padding: 14px;
   min-width: 0; min-height: 58px; border: 1px solid #aab8c5;
   border-radius: 16px; background: transparent;
   color: inherit; font-size: clamp(14px,1.1vw,17px); line-height: 1.3;
 }
-#support-role-list li span { white-space: nowrap; }
-#support-role-list .role-icon { width: 24px; height: 24px; flex: none; }
-@container (max-width: 869px) { #support-role-list.ex-tags {grid-template-columns:repeat(2,minmax(0,1fr));} }
-@container (max-width: 500px) { #support-role-list.ex-tags {grid-template-columns:minmax(0,1fr);gap:8px;} }
+:is(#support-role-list,#service-topic-list) li span { white-space: nowrap; }
+:is(#support-role-list,#service-topic-list) .role-icon { width: 24px; height: 24px; flex: none; }
+@container (max-width: 869px) { :is(#support-role-list,#service-topic-list).ex-tags {grid-template-columns:repeat(2,minmax(0,1fr));} }
+@container (max-width: 500px) { :is(#support-role-list,#service-topic-list).ex-tags {grid-template-columns:minmax(0,1fr);gap:8px;} }
 
 
 #support-research {
@@ -57,3 +57,12 @@
     margin-block:calc(-1 * var(--research-padding) - 24px);
   }
 }
+
+html[data-palette] .site-main > .services-topics {
+  margin-inline:8px;
+  border-radius:clamp(24px,3vw,32px);
+  background:#e8e0ff;
+  color:#191919;
+}
+.services-topics-inner {container-type:inline-size;max-width:1280px;margin-inline:auto;}
+#services-topics-title {color:inherit;margin:0 0 clamp(32px,4vw,56px);}
