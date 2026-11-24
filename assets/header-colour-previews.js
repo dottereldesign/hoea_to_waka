@@ -1,5 +1,10 @@
 /* Each header has its own set of backgrounds, ordered from lighter to deeper colours. */
 const headerColourSets = {
+  services: [
+    ['Coastal mist','#E8F1F5'], ['Pale fern','#D8E6D8'], ['Lavender grey','#D8CBDD'],
+    ['Sunlit flax','#E9D394'], ['Powder blue','#A9C5CE'], ['Eucalyptus','#93B4A5'],
+    ['Slate blue','#607F9D'], ['Ocean blue','#0C396B'], ['Deep forest','#344A3A'], ['Harbour night','#1A2B3D']
+  ],
   model: [
     ['Lilac paper','#F1EAFA'], ['River mist','#D9E9EE'], ['Fresh sage','#CBDBCD'],
     ['Warm sand','#EBD6AD'], ['Clay rose','#D6A3A9'], ['Heather','#B9A9C0'],
