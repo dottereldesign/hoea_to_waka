@@ -61,3 +61,30 @@ html[data-palette] #resource-videos :is(h2,h3,p,summary,a){color:inherit}
     50% { transform: translate(-24px,24px); }
   }
 }
+
+#resource-music-player .music-playlist {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(8px, 2vw, 24px);
+}
+#resource-music-player .music-track {
+  border-bottom: 1px solid;
+  border-bottom-color: inherit;
+}
+@media (max-width: 900px) {
+  #resource-music-player .music-track {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-rows: auto 1fr;
+    align-content: start;
+    gap: 10px 6px;
+    padding: 14px 8px;
+  }
+  #resource-music-player .music-track img {width: 44px; height: 44px;}
+  #resource-music-player .music-track strong {font-size: 17px;}
+  #resource-music-player .music-track span:has(> strong) {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    align-self: start;
+  }
+  #resource-music-player .music-track-indicator {grid-column: 3; grid-row: 1;}
+}
