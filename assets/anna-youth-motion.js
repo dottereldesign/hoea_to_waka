@@ -40,7 +40,7 @@
       const animation = element.animate([
         { opacity: 0, transform },
         { opacity: 1, transform: 'none' }
-      ], { duration, delay, endDelay: sequenceEnd - delay - duration, easing: 'cubic-bezier(.22,1,.36,1)', fill: 'both' });
+      ], { duration, delay, endDelay: sequenceEnd - delay - duration, easing: 'cubic-bezier(.22,1,.36,1)', fill: 'backwards' });
       animation.pause();
       animation.currentTime = 0;
       animations.push(animation);
