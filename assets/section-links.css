@@ -40,6 +40,7 @@ main a.section-link:focus-visible { outline: 2px solid currentColor; outline-off
   --story-arrow-width: 32px;
   --story-arrow-gap: 16px;
   gap: var(--story-arrow-gap);
+  margin-block-start: clamp(24px, 3vw, 40px);
   margin-inline-start: calc(var(--story-arrow-width) + var(--story-arrow-gap));
 }
 .ds-statement-editorial > .section-link .section-link__arrow { width: var(--story-arrow-width); }
