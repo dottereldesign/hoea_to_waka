@@ -1,0 +1,108 @@
+/* Every design uses the same live controls. Only the console changes. */
+#resource-music-player .music-console {
+  --panel: #e8e0ff;
+  --ink: #281a2c;
+  --music-accent: #281a2c;
+  --play-ink: white;
+  --rule: color-mix(in srgb, var(--ink) 26%, transparent);
+  display: grid;
+  grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+  grid-template-areas: "now transport" "now progress" "now extras" "status status";
+  align-items: center;
+  gap: 12px clamp(18px,4vw,60px);
+  padding: clamp(18px,3vw,42px);
+  border-radius: 22px;
+  background: var(--panel);
+  color: var(--ink);
+}
+#resource-music-player .music-now { grid-area: now; min-width: 0; }
+#resource-music-player .music-now h3 { font-size: clamp(26px,3vw,46px); }
+#resource-music-player .music-transport { grid-area: transport; margin: 0; }
+#resource-music-player .music-play { background: var(--music-accent); color: var(--play-ink); }
+#resource-music-player .music-progress { grid-area: progress; }
+#resource-music-player .music-extras { grid-area: extras; margin: 0; flex-wrap: wrap; gap: 0 14px; }
+#resource-music-player .music-status { grid-area: status; margin: 0; }
+#resource-music-player .music-status:empty { display: none; }
+#resource-music-player .music-transport [aria-pressed=true] { background: var(--ink); color: var(--panel); }
+#resource-music-player .music-console :focus-visible { outline-color: currentColor; }
+
+#resource-music-player[data-console-style="02"] .music-console {
+  --panel: #28212b; --ink: white; --music-accent: #fdaeb5; --play-ink: #191919;
+  grid-template-columns: minmax(0,680px); justify-content: center;
+  grid-template-areas: "now" "transport" "progress" "extras" "status"; text-align: center;
+}
+#resource-music-player[data-console-style="02"] .music-transport { justify-content: center; }
+#resource-music-player[data-console-style="02"] [data-repeat] { margin-left: 0; }
+
+#resource-music-player[data-console-style="03"] .music-console {
+  --panel: #f4efe7; --ink: #191919; --music-accent: #191919;
+  grid-template-columns: minmax(90px,.45fr) minmax(0,1fr) minmax(0,1.25fr);
+  grid-template-areas: "art now transport" "art now progress" "art now extras" "status status status";
+}
+#resource-music-player[data-console-style="03"] .music-console::before {
+  content: ""; grid-area: art; width: 100%; aspect-ratio: 1; background: var(--track-art) center/cover; border-radius: 8px;
+}
+
+#resource-music-player[data-console-style="04"] .music-console {
+  --panel: #201e20; --ink: white; --music-accent: #fdaeb5; --play-ink: #191919;
+  border-block: 1px solid var(--rule); border-radius: 0;
+  grid-template-areas: "now transport" "progress progress" "extras extras" "status status";
+}
+#resource-music-player[data-console-style="04"] .music-progress { border-block: 1px solid var(--rule); }
+
+#resource-music-player[data-console-style="05"] .music-console {
+  --panel: #faf8f4; --ink: #191919; --music-accent: #191919;
+  grid-template-areas: "now now" "progress progress" "transport extras" "status status";
+  border-radius: 4px; border-top: 5px solid #b99831;
+}
+#resource-music-player[data-console-style="05"] .music-now h3 { font: 500 clamp(30px,4vw,56px)/1.05 Georgia,serif; }
+
+#resource-music-player[data-console-style="06"] .music-console {
+  --panel: #0c396b; --ink: white; --music-accent: #c8d5e0; --play-ink: #152b42;
+  grid-template-areas: "transport now" "progress now" "extras now" "status status";
+}
+#resource-music-player[data-console-style="06"] .music-now { border-inline-start: 1px solid var(--rule); padding-inline-start: 24px; }
+
+#resource-music-player[data-console-style="07"] .music-console {
+  --panel: #f6edef; --ink: #281a2c; --music-accent: #58415f;
+  border: 1px solid var(--rule); gap: 8px 20px;
+}
+#resource-music-player[data-console-style="07"] .music-now {
+  align-self: stretch; align-content: center; padding: 22px; background: #281a2c; color: white; border-radius: 14px;
+}
+
+#resource-music-player[data-console-style="08"] .music-console {
+  --panel: #191919; --ink: white; --music-accent: #fff; --play-ink: #191919;
+  grid-template-areas: "now now" "transport progress" "extras extras" "status status";
+  background: linear-gradient(90deg,#191919ee,#191919ce),var(--track-art) center/cover;
+}
+#resource-music-player[data-console-style="08"] .music-now { padding-bottom: 20px; border-bottom: 1px solid var(--rule); }
+
+#resource-music-player[data-console-style="09"] .music-console {
+  --panel: #dce5df; --ink: #24362a; --music-accent: #344a3a;
+  grid-template-areas: "now extras" "transport progress" "status status"; border-radius: 32px;
+}
+#resource-music-player[data-console-style="09"] .music-transport {
+  width: fit-content; padding: 4px; gap: 2px; background: #ffffffa8; border-radius: 40px;
+}
+
+#resource-music-player[data-console-style="10"] .music-console {
+  --panel: #191919; --ink: #fff; --music-accent: #e8e0ff; --play-ink: #191919;
+  grid-template-areas: "now now" "transport progress" "extras extras" "status status";
+  border-radius: 0; border-block: 1px solid var(--rule); padding-inline: 0;
+}
+#resource-music-player[data-console-style="10"] .music-now { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 18px; }
+#resource-music-player[data-console-style="10"] .music-now h3 { font-size: clamp(22px,2.4vw,34px); }
+
+@media (max-width: 760px) {
+  #resource-music-player[data-console-style] .music-console {
+    grid-template-columns: minmax(0,1fr); grid-template-areas: "now" "transport" "progress" "extras" "status";
+    gap: 10px; padding: 18px 14px;
+  }
+  #resource-music-player .music-transport { gap: 2px; }
+  #resource-music-player .music-play { width: 52px; height: 52px; }
+  #resource-music-player[data-console-style="03"] .music-console::before { display: none; }
+  #resource-music-player[data-console-style="03"] .music-now { padding-left: 72px; background: var(--track-art) left center / 60px 60px no-repeat; }
+  #resource-music-player[data-console-style="05"] .music-console { grid-template-areas: "now" "progress" "transport" "extras" "status"; }
+  #resource-music-player[data-console-style="10"] .music-console { padding-inline: 0; }
+}
