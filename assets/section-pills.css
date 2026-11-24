@@ -1,0 +1,12 @@
+/* Section labels keep their existing type and spacing on light and dark sections. */
+html[data-palette][data-typography] main :is(.ds-kicker, .eyebrow, .home-resources__eyebrow, .workshop-learning__eyebrow, .palette-eyebrow, .prompt-eyebrow, .site-preview-typeface-eyebrow) {
+  border: 1px dashed color-mix(in srgb, currentColor 55%, transparent) !important;
+  border-radius: 999px !important;
+  background: transparent !important;
+}
+html[data-palette][data-typography] main :is(.eyebrow, .anna-milestone__label, .home-resources__eyebrow, .palette-eyebrow, .prompt-eyebrow, .site-preview-typeface-eyebrow) {
+  color: var(--brand-logo-black, #191919) !important;
+}
+html[data-palette][data-typography] main :is(.eyebrow-light, #workspace-response-title) {
+  color: white !important;
+}
