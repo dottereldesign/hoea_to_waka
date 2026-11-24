@@ -378,3 +378,6 @@ html[data-home-hero="03"] .home-hero-illustration .home-hero-illustration__cutou
   .home-hero-explore .model-button__icon { display: none; }
   html[data-home-hero="03"][data-palette] .home-hero .home-hero-explore { padding-inline: 9px; }
 }
+html[data-home-hero="03"] .home-tagline-start > strong {
+  letter-spacing: -.015em;
+}
