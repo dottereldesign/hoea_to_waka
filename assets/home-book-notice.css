@@ -13,11 +13,6 @@
 body:has(.home-book-notice) [data-morph-header] .site-header-shell {
  top:var(--book-notice-offset,44px)!important;
 }
-@media(min-width:1100px){
- body:has(.home-book-notice) [data-morph-header].is-scrolled .site-header-shell {
-  top:calc(16px + var(--book-notice-offset,0px))!important;
- }
-}
 @media(max-width:760px){body:has(.home-book-notice) [data-morph-header] .site-header-shell{top:var(--book-notice-offset,44px)!important;}}
 
 .home-book-notice{z-index:101}
@@ -45,9 +40,28 @@ html[data-palette] [data-morph-header].header-compositor .site-nav :is(.site-nav
 /* Layout changes once per state; only transforms animate between those states.
    Opaque surfaces remove backdrop capture cost and keep text readable throughout. */
 html[data-palette] [data-morph-header].header-compositor{--motion-ink:#191919;--motion-paper:#fff;--motion-surface:#fff}
-html[data-palette] [data-morph-header].header-compositor.is-scrolled{--motion-ink:#fff;--motion-paper:#191919;--motion-surface:#343434}
 html[data-palette] [data-morph-header].header-compositor .site-header-bar{color:var(--motion-ink)!important;transition:none!important}
 html[data-palette] [data-morph-header].header-compositor .site-brand{color:inherit!important}
 html[data-palette] [data-morph-header].header-compositor .site-header-glass{opacity:1!important;background:var(--motion-surface)!important;transition:none!important;box-shadow:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
 html[data-palette] [data-morph-header].header-compositor .site-header-cta{background:var(--motion-ink)!important;color:var(--motion-paper)!important;transition:none!important}
 html[data-palette] [data-morph-header].header-compositor .site-menu-toggle{color:var(--motion-ink)!important;background:var(--motion-surface)!important;transition:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+
+@media (min-width: 1100px) {
+  html[data-palette] [data-morph-header] .site-header-shell::before {
+    content: "";
+    position: absolute;
+    inset: 0 calc((100vw - 100%) / -2);
+    z-index: -1;
+    background: var(--header-paper);
+    pointer-events: none;
+  }
+}
+html[data-palette] [data-morph-header].has-compact-logo .site-brand { scale: .83; }
+@media (max-width: 1099px) {
+  [data-morph-header] .site-brand { transform-origin: left center; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  html[data-palette] [data-morph-header].header-compositor .site-brand {
+    transition: scale .32s cubic-bezier(.22, 1, .36, 1) !important;
+  }
+}

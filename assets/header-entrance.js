@@ -16,14 +16,14 @@
   let running = [], generation = 0, startFrame = 0, settled = false;
   let pageShown = document.readyState === 'complete';
   let navigation = performance.getEntriesByType('navigation')[0]?.type;
-  let restoredY = 0, restoredPill = false;
-  try { if (navigation === 'reload' || navigation === 'back_forward') {restoredY=Number(sessionStorage.getItem(scrollKey))||0;restoredPill=restoredY>noticeHeight()+48||(restoredY>noticeHeight()+24&&sessionStorage.getItem(scrollKey+':pill')==='true');} } catch {}
+  let restoredY = 0, restoredCompact = false;
+  try { if (navigation === 'reload' || navigation === 'back_forward') {restoredY=Number(sessionStorage.getItem(scrollKey))||0;restoredCompact=restoredY>noticeHeight()+48||(restoredY>noticeHeight()+24&&sessionStorage.getItem(scrollKey+':pill')==='true');} } catch {}
 
   // Place directly into the restored shape before anything becomes visible.
   header.dataset.entrancePlacing = 'true';
   function place(restoring = false) {
-    const threshold=noticeHeight()+(header.classList.contains('is-scrolled')?24:48);
-    header.classList.toggle('is-scrolled', desktop.matches && ((Number(header.dataset.restoreScroll)||scrollY) > threshold || (restoring && restoredPill)));
+    const threshold=noticeHeight()+(header.classList.contains('has-compact-logo')?24:48);
+    header.classList.toggle('has-compact-logo', ((Number(header.dataset.restoreScroll)||scrollY) > threshold || (restoring && restoredCompact)));
   }
   place(true);
   function finish(reason = 'complete') {
@@ -42,8 +42,8 @@
   function settlePlacement() {
     const deadline = performance.now() + 600;
     const settle = () => {
-      // Long documents can restore scroll after pageshow. Keep the saved pill until then.
-      if (restoredPill && scrollY < noticeHeight()+24 && performance.now() < deadline) {requestAnimationFrame(settle);return;}
+      // Long documents can restore scroll after pageshow. Keep the saved logo size until then.
+      if (restoredCompact && scrollY < noticeHeight()+24 && performance.now() < deadline) {requestAnimationFrame(settle);return;}
       place(false);
       delete header.dataset.entrancePlacing;
       settled = true;
@@ -57,7 +57,7 @@
   });
   if (pageShown) settlePlacement();
   addEventListener('pagehide', () => {
-    try { sessionStorage.setItem(scrollKey,String(scrollY));sessionStorage.setItem(scrollKey+':pill',String(header.classList.contains('is-scrolled'))); } catch {}
+    try { sessionStorage.setItem(scrollKey,String(scrollY));sessionStorage.setItem(scrollKey+':pill',String(header.classList.contains('has-compact-logo'))); } catch {}
     finish('pagehide');
   });
 
@@ -96,7 +96,7 @@
     finish('restart');
     if (reduced.matches || header.classList.contains('is-open')) {return;}
     if (settled) place(false);
-    const preset = presets[selected], compact = header.classList.contains('is-scrolled');
+    const preset = presets[selected], compact = header.classList.contains('has-compact-logo');
     const current = ++generation;
     header.dataset.entranceState = 'playing';
     document.querySelector('.home-hero-gallery')?.classList.remove('gallery-motion-pending');
@@ -104,7 +104,7 @@
     document.dispatchEvent(new CustomEvent('header-entrance-started', {detail:{reason}}));
     header.dataset.entranceVariant = String(selected + 1);
     header.dataset.entranceStyle = preset.name;
-    header.dataset.entranceShape = compact ? 'pill' : 'full';
+    header.dataset.entranceShape = compact ? 'compact' : 'full';
     header.dataset.entranceReason = reason;
     const items = targets();
     // Read every target before starting any animation. Reading the next target
@@ -158,12 +158,12 @@
 
   function start() {
     place(!pageShown);
-    if(restoredPill){finish('restored-scroll');return;}
+    if(restoredCompact){finish('restored-scroll');return;}
     startFrame = requestAnimationFrame(() => play('load'));
   }
   const ready = () => {
     place(!pageShown);
-    if (!restoredPill) settlePlacement();
+    if (!restoredCompact) settlePlacement();
   };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded',ready,{once:true});
   else ready();

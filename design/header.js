@@ -5,7 +5,6 @@ export function setupSiteHeader() {
   const toggle = header.querySelector('[data-menu-toggle]');
   const dialog = header.querySelector('.site-menu-panel');
   const close = header.querySelector('.site-menu-close');
-  const desktop = matchMedia('(min-width:1100px)');
   const reduced = matchMedia('(prefers-reduced-motion:reduce)');
   const scrollKey='hoea-header-scroll:'+location.pathname;
   let restoreY=0;
@@ -15,7 +14,7 @@ export function setupSiteHeader() {
   }catch{}
   if(restoreY>0)header.dataset.restoreScroll=String(restoreY);
   const finishRestoration=()=>{restoreY=0;delete header.dataset.restoreScroll;syncScroll();};
-  addEventListener('pagehide',()=>{try{sessionStorage.setItem(scrollKey,String(scrollY));sessionStorage.setItem(scrollKey+':pill',String(header.classList.contains('is-scrolled')));}catch{}});
+  addEventListener('pagehide',()=>{try{sessionStorage.setItem(scrollKey,String(scrollY));sessionStorage.setItem(scrollKey+':pill',String(header.classList.contains('has-compact-logo')));}catch{}});
   // Browser scroll restoration may follow pageshow. User input always wins.
   addEventListener('pageshow',()=>{setTimeout(finishRestoration,600);});
   for(const event of ['wheel','touchstart','keydown'])addEventListener(event,finishRestoration,{passive:true,once:true});
@@ -23,40 +22,7 @@ export function setupSiteHeader() {
   const glass=document.createElement('span');glass.className='site-header-glass';glass.setAttribute('aria-hidden','true');bar.prepend(glass);
   const symbol=document.createElement('span');symbol.className='site-brand-symbol';symbol.setAttribute('aria-hidden','true');brand.prepend(symbol);
   header.classList.add('header-compositor');
-  // Measure layout only when the shape changes. Animate transforms on isolated
-  // layers; never change font sizes, widths or inherited variables every frame.
-  let morphs=[],morphGeneration=0,placed=false;
-  const morphTargets=()=>[glass,symbol,brand.querySelector('.site-brand-name'),brand.querySelector('.site-brand-line'),header.querySelector('.site-nav'),header.querySelector('.site-header-cta'),toggle].filter(node=>node?.getClientRects().length&&getComputedStyle(node).display!=='none');
-  function stopMorph(){morphGeneration++;morphs.forEach(a=>a.cancel());morphs=[];header.dataset.headerMorph='idle';}
-  function compactHeader(next,offset,animateOffset=false,visibleOffset=0){
-    const previousOffset=parseFloat(document.body.style.getPropertyValue('--book-notice-offset'))||0;
-    const shapeChanged=header.classList.contains('is-scrolled')!==next;
-    // Ordinary scroll displacement can update directly; a shape change measures
-    // its current position before moving to the fixed destination below.
-    if(!shapeChanged&&!animateOffset&&previousOffset!==offset)document.body.style.setProperty('--book-notice-offset',offset+'px');
-    if(placed&&!shapeChanged&&(!animateOffset||previousOffset===offset))return;
-    const targets=morphTargets();
-    const first=new Map(targets.map(node=>[node,node.getBoundingClientRect()]));
-    // Anticipate the expanded header's permanent slot below the full alert.
-    // A fast jump may already expose the alert: shift the whole starting shape
-    // clear of it instead of letting an inverse transform hide the logo beneath it.
-    const clearance=Math.max(0,visibleOffset-Math.min(...[...first.values()].map(r=>r.top)));
-    stopMorph();header.classList.toggle('is-scrolled',next);
-    if((shapeChanged||animateOffset)&&previousOffset!==offset)document.body.style.setProperty('--book-notice-offset',offset+'px');
-    if(!placed||reduced.matches||(!desktop.matches&&shapeChanged)){placed=true;return;}
-    const last=new Map(targets.map(node=>[node,node.getBoundingClientRect()]));
-    const token=++morphGeneration;header.dataset.headerMorph='moving';
-    morphs=targets.map(node=>{
-      const a=first.get(node),b=last.get(node);
-      if(!a.width||!a.height||!b.width||!b.height)return null;
-      const dx=a.x+a.width/2-b.x-b.width/2,dy=a.y+clearance+a.height/2-b.y-b.height/2;
-      const sx=a.width/b.width,sy=node===symbol?sx:a.height/b.height;
-      return node.animate([{transform:`translate(${dx}px,${dy}px) scale(${sx},${sy})`},{transform:'none'}],{duration:400,easing:'cubic-bezier(.22,1,.36,1)',fill:'both'});
-    }).filter(Boolean);
-    Promise.allSettled(morphs.map(a=>a.finished)).then(()=>{if(token===morphGeneration)stopMorph()});
-    placed=true;
-  }
-  let frame = 0, closing = 0, opening = 0, anchorFrame = 0, anchorUntil = 0;
+  let closing = 0, opening = 0, anchorFrame = 0, anchorUntil = 0;
   let menuOpen = false, lastAnchor = '';
   const content = dialog.querySelector('.site-menu-content');
   // A top-layer popover avoids native :modal's document-wide inert restyle.
@@ -116,20 +82,19 @@ export function setupSiteHeader() {
   }
   dialog.querySelectorAll('.site-menu-links a').forEach((link, index) => link.style.setProperty('--menu-item-index', index + 1));
 
-  function syncScroll(animateOffset=false) {
-    frame = 0;
+  function syncScroll() {
     // Hysteresis prevents flickering when scrolling near the changeover point.
-    const compact = header.classList.contains('is-scrolled');
+    const compact = header.classList.contains('has-compact-logo');
     const notice = document.querySelector('[data-book-notice]:not([hidden])');
     const noticeHeight = notice?.getBoundingClientRect().height || 0;
     const effectiveY=restoreY||scrollY;
-    const next=desktop.matches && effectiveY > noticeHeight + (compact ? 24 : 48);
+    const next=effectiveY > noticeHeight + (compact ? 24 : 48);
     const visibleOffset=restoreY?Math.max(0,noticeHeight-effectiveY):Math.max(0,notice?.getBoundingClientRect().bottom||0);
-    // Start expansion towards the final landing position, even before the
-    // announcement has scrolled fully back into view. Never move that target
-    // halfway through the morph as the banner's visible height increases.
-    const offset=desktop.matches&&!next?noticeHeight:visibleOffset;
-    compactHeader(next,offset,animateOffset===true,visibleOffset);
+    header.classList.toggle('has-compact-logo', next);
+    const offset = visibleOffset + 'px';
+    if (document.body.style.getPropertyValue('--book-notice-offset') !== offset) {
+      document.body.style.setProperty('--book-notice-offset', offset);
+    }
     if (dialog.open) trackAnchor();
   }
   // Scroll events already precede paint. Deferring the alert offset another frame
@@ -139,11 +104,8 @@ export function setupSiteHeader() {
   document.documentElement.classList.remove('header-restoring');
   window.addEventListener('scroll', onScroll, { passive:true });
   window.addEventListener('pageshow', syncScroll);
-  desktop.addEventListener('change', syncScroll);
-  let headerViewportWidth=innerWidth;
-  addEventListener('resize',()=>{if(innerWidth!==headerViewportWidth){headerViewportWidth=innerWidth;}onScroll();},{passive:true});
-  document.addEventListener('hoea:notice-change',()=>syncScroll(true));
-  reduced.addEventListener('change',()=>{if(reduced.matches)stopMorph();});
+  window.addEventListener('resize', onScroll, { passive: true });
+  document.addEventListener('hoea:notice-change', syncScroll);
 
   function placeMenu(bounds = toggle.getBoundingClientRect()) {
     lastAnchor=[bounds.x,bounds.y,bounds.width,bounds.height,innerWidth,innerHeight].join(',');

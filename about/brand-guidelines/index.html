@@ -58,8 +58,8 @@
         try {
           const navigation = performance.getEntriesByType('navigation')[0]?.type;
           const saved = Number(sessionStorage.getItem('hoea-header-scroll:' + location.pathname));
-          if ((navigation === 'reload' || navigation === 'back_forward') && (saved > 48 || (saved > 24 && sessionStorage.getItem('hoea-header-scroll:' + location.pathname + ':pill') === 'true')) && matchMedia('(min-width:1100px)').matches) {
-            const restore = () => { const header = document.querySelector('[data-header-entrance]'); if (!header) return false; header.dataset.entrancePlacing = 'true'; header.classList.add('is-scrolled'); return true; };
+          if ((navigation === 'reload' || navigation === 'back_forward') && (saved > 48 || (saved > 24 && sessionStorage.getItem('hoea-header-scroll:' + location.pathname + ':pill') === 'true'))) {
+            const restore = () => { const header = document.querySelector('[data-header-entrance]'); if (!header) return false; header.dataset.entrancePlacing = 'true'; header.classList.add('has-compact-logo'); return true; };
             const observer = new MutationObserver(() => {if (restore()) observer.disconnect();});
             observer.observe(root, {childList:true,subtree:true});
             document.addEventListener('DOMContentLoaded', () => {if (scrollY < 24) restore();}, {once:true});
