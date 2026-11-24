@@ -10,11 +10,6 @@ const headerColourSets = {
     ['Sea glass','#C0DAD6'], ['Rosewater','#E8BCC5'], ['Honey','#E3BE83'],
     ['Coastal blue','#819EB4'], ['Berry','#804B61'], ['Harbour teal','#23616A'], ['Aubergine','#472B43']
   ],
-  workshops: [
-    ['Apricot paper','#FFF0DE'], ['Manuka cream','#F4DCAC'], ['Coral wash','#F9C4AD'],
-    ['Soft flax','#CED2A7'], ['Clay pink','#DBA7A0'], ['Sandstone','#D6BA83'],
-    ['Brick','#A34F3E'], ['Kauri bark','#765342'], ['Warm plum','#613B50'], ['Ember','#503437']
-  ],
   coaching: [
     ['Sage paper','#F1F5F0'], ['Shell pink','#F7E5E5'], ['Quiet lilac','#E6DBE9'],
     ['Morning blue','#D1E3EE'], ['Soft sage','#B8C9B5'], ['Fern grey','#A0B49E'],
