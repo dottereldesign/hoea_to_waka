@@ -1,14 +1,5 @@
 /* Keep each header’s preview order stable for saved selections. */
 const headerColourSets = {
-  model: [
-    ['Lilac paper','#F1EAFA'], ['River mist','#D9E9EE'], ['Fresh sage','#CBDBCD'],
-    ['Warm sand','#EBD6AD'], ['Clay rose','#D6A3A9'], ['Heather','#B9A9C0'],
-    ['Willow','#87A78C'], ['Plum','#58415F'], ['Estuary','#245568'], ['Midnight plum','#35283E'],
-    ['Sea foam','#D2EBE3'], ['Morning sky','#D1E4F6'], ['Bluebell','#D8D9F2'],
-    ['Orchid petal','#ECD8ED'], ['Rose quartz','#F2D6DA'], ['Peach clay','#F7DAC8'],
-    ['Manuka honey','#F5E2AF'], ['Flax shoot','#E3E8BA'], ['Pumice','#E6E2DD'],
-    ['Pearl shell','#F7EEE2']
-  ],
   resources: [
     ['Book paper','#FBF4E6'], ['Apricot','#FDC78C'], ['Petal','#FDC7C2'],
     ['Rainwashed blue','#C8D5E0'], ['Oat','#D6C9AB'], ['Dusty rose','#C88F99'],

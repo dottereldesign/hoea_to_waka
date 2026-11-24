@@ -22,6 +22,9 @@ html[data-palette] .solid-subpage-hero :focus-visible {
   outline-offset: 4px !important;
 }
 
+html[data-palette] main.site-main > .solid-subpage-hero[data-hero-palette="model"] {
+  background: #f1eafa !important;
+}
 html[data-palette] main.site-main > .solid-subpage-hero[data-hero-palette="services"] {
   background: #cee8f7 !important;
 }
@@ -34,11 +37,11 @@ html[data-palette] main.site-main > .solid-subpage-hero[data-hero-palette="coach
 html[data-palette] main.site-main > .solid-subpage-hero[data-hero-palette="support"] {
   background: #e3f2ef !important;
 }
-html[data-palette] main.site-main > .solid-subpage-hero:is([data-hero-palette="services"],[data-hero-palette="workshops"],[data-hero-palette="coaching"],[data-hero-palette="support"]),
-html[data-palette] .solid-subpage-hero:is([data-hero-palette="services"],[data-hero-palette="workshops"],[data-hero-palette="coaching"],[data-hero-palette="support"]) :is(h1,.ds-kicker,.ds-lead,.brand-name-text,.pp-breadcrumb,.pp-breadcrumb a,.pp-breadcrumb span) {
+html[data-palette] main.site-main > .solid-subpage-hero:is([data-hero-palette="model"],[data-hero-palette="services"],[data-hero-palette="workshops"],[data-hero-palette="coaching"],[data-hero-palette="support"]),
+html[data-palette] .solid-subpage-hero:is([data-hero-palette="model"],[data-hero-palette="services"],[data-hero-palette="workshops"],[data-hero-palette="coaching"],[data-hero-palette="support"]) :is(h1,.ds-kicker,.ds-lead,.brand-name-text,.pp-breadcrumb,.pp-breadcrumb a,.pp-breadcrumb span) {
   color: var(--brand-logo-black) !important;
   border-color: currentColor;
 }
-html[data-palette] .solid-subpage-hero:is([data-hero-palette="services"],[data-hero-palette="workshops"],[data-hero-palette="coaching"],[data-hero-palette="support"]) :focus-visible {
+html[data-palette] .solid-subpage-hero:is([data-hero-palette="model"],[data-hero-palette="services"],[data-hero-palette="workshops"],[data-hero-palette="coaching"],[data-hero-palette="support"]) :focus-visible {
   outline-color: var(--brand-logo-black) !important;
 }
