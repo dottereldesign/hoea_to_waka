@@ -37,7 +37,7 @@ const routes=['','about/','model/','services/','services/in-house-workshops/','s
   await page.goto('http://127.0.0.1:8791/hoea_to_waka/contact/');
   await page.route('**/contact.js',async route=>{const response=await route.fetch();await route.fulfill({response,body:(await response.text()).replace('window.location.href =','window.__preparedMailto =')});});
   await page.reload();
-  await page.getByLabel('Name',{exact:true}).fill('Site verification');await page.getByLabel('Email',{exact:true}).fill('test@example.com');await page.getByLabel('How can Anna help?').fill('Testing the simplified site.');await page.getByRole('button',{name:'Prepare email',exact:true}).click();
+  await page.getByLabel('Name',{exact:true}).fill('Site verification');await page.getByLabel('Email',{exact:true}).fill('test@example.com');await page.getByLabel('How can Anna help?').fill('Testing the simplified site.');await page.getByRole('button',{name:'Send by email',exact:true}).click();
   assert.match(await page.evaluate(()=>window.__preparedMailto),/^mailto:anna@hoeatowaka\.co\.nz/);
   assert.equal(await page.locator('[data-quick-toggle],.site-utility-menu').count(),0);
   await page.locator('[data-menu-toggle]').click();assert(await page.locator('[data-site-header]').evaluate(el=>el.classList.contains('is-open')));await page.keyboard.press('Escape');assert.equal(await page.locator('[data-site-header]').evaluate(el=>el.classList.contains('is-open')),false);
