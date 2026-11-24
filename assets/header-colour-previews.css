@@ -1,0 +1,13 @@
+html[data-palette] main.site-main > .solid-subpage-hero[data-header-colours] {
+  background: var(--header-preview-bg,#191919) !important;
+  color: var(--header-preview-ink,#fff) !important;
+  border-color: currentColor;
+}
+html[data-palette] main.site-main > .solid-subpage-hero[data-header-colours] :is(h1,.ds-kicker,.ds-lead,.brand-name-text,.pp-breadcrumb,.pp-breadcrumb a,.pp-breadcrumb span) {
+  color: var(--header-preview-ink,#fff) !important;
+  border-color: currentColor;
+}
+html[data-palette] main.site-main > .solid-subpage-hero[data-header-colours] :focus-visible {
+  outline-color: var(--header-preview-ink,#fff) !important;
+}
+body.previewing-header > :is(.variation-picker:not(.header-colour-picker),.workshop-previews) {display:none;}
