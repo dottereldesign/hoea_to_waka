@@ -27,8 +27,13 @@ const {chromium}=require('playwright'),assert=require('node:assert/strict'),fs=r
     assert(await path.locator('article>:is(i,.ds-number,h3,p)').evaluateAll(els=>els.every(el=>getComputedStyle(el).opacity==='1')),'all content visible');
     assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'no horizontal overflow '+width);
     await section.screenshot({path:`tmp/model-timeline/after-${width}.png`,style:'.site-header,.skip-link{visibility:hidden!important}'});
-    await page.evaluate(()=>scrollTo({top:0,behavior:'instant'}));await page.waitForTimeout(100);assert(await path.evaluate(el=>el.classList.contains('is-timeline-complete')),'no reverse');
+    await page.evaluate(()=>scrollTo({top:0,behavior:'instant'}));await page.waitForTimeout(100);assert.equal(await path.getAttribute('data-timeline-started'),null,'timeline reset');
+    assert(await section.evaluate(el=>el.classList.contains('model-section-reveal-pending')),'photo reset');
+    await path.evaluate(el=>el.scrollIntoView({block:'center',behavior:'instant'}));
+    await page.waitForFunction(()=>document.querySelector('.model-timeline').dataset.timelineStarted==='true');
+    assert(await section.evaluate(el=>!el.classList.contains('model-section-reveal-pending')),'photo replays');
+    await page.waitForFunction(()=>document.querySelector('.model-timeline').classList.contains('is-timeline-complete'));
   }
   await page.emulateMedia({reducedMotion:'reduce'});await page.reload();await page.waitForLoadState('networkidle');assert.equal(await page.locator('.model-timeline').count(),1);assert(await page.locator('.ds-path-line article').evaluateAll(els=>els.every(el=>getComputedStyle(el).opacity==='1')),'reduced motion visible');
-  assert.deepEqual(errors,[]);console.log('PASS: actual icon/number/heading/paragraph/line ordering, line reaches next icon, one-time autonomous reveal, stable layout, responsive widths and reduced motion.');
+  assert.deepEqual(errors,[]);console.log('PASS: actual icon/number/heading/paragraph/line ordering, line reaches next icon, repeatable photo and timeline reveals, stable layout, responsive widths and reduced motion.');
 }finally{await browser.close();server.close();}})().catch(e=>{console.error(e);process.exitCode=1});

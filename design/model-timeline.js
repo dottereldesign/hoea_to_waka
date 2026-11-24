@@ -6,6 +6,7 @@ export function setupModelTimeline(section, paused = false) {
   if (!path || paused || preference.matches) return () => {};
   const items = [...path.querySelectorAll('article')];
   let started = false, disposed = false, observer;
+  const replay = section.matches('[data-component="home:4:features"]');
   const animations = [];
   path.classList.add('model-timeline');
 
@@ -22,7 +23,7 @@ export function setupModelTimeline(section, paused = false) {
   function reveal() {
     if (started || disposed) return;
     started = true;
-    observer?.disconnect();
+    if (!replay) observer?.disconnect();
     path.dataset.timelineStarted = 'true';
     items.forEach((item, i) => {
       const start = i * 1.2;
@@ -45,9 +46,24 @@ export function setupModelTimeline(section, paused = false) {
   }
   function watch() {
     observer?.disconnect();
-    if (started || disposed) return;
+    if ((started && !replay) || disposed || preference.matches) return;
     observer = new IntersectionObserver(entries => {
-      if (entries.some(entry => entry.isIntersecting)) reveal();
+      for (const entry of entries) {
+        if (entry.isIntersecting) reveal();
+        else if (replay && started && entry.boundingClientRect.top >= entry.rootBounds.bottom) {
+          animations.splice(0).forEach(animation => animation.stop());
+          started = false;
+          delete path.dataset.timelineStarted;
+          path.classList.remove('is-timeline-complete');
+          items.forEach(item => {
+            item.style.removeProperty('--timeline-line');
+            item.querySelectorAll('i,.ds-number,h3,p').forEach(el => {
+              el.style.removeProperty('opacity');
+              el.style.removeProperty('transform');
+            });
+          });
+        }
+      }
     }, { rootMargin: `0px 0px -${Math.round(innerHeight * .22)}px 0px` });
     observer.observe(path);
   }

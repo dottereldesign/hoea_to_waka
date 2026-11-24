@@ -7,9 +7,12 @@
     return;
   }
   const observer = new IntersectionObserver(entries => {
-    if (!entries.some(entry => entry.isIntersecting)) return;
-    observer.disconnect();
-    requestAnimationFrame(reveal);
-  }, {rootMargin:'0px 0px -12% 0px', threshold:0.12});
+    for (const entry of entries) {
+      if (entry.isIntersecting) reveal();
+      else if (entry.boundingClientRect.top >= entry.rootBounds.bottom) {
+        section.classList.add('model-section-reveal-pending');
+      }
+    }
+  }, {rootMargin:'0px 0px -12% 0px', threshold:0});
   observer.observe(section);
 })();
