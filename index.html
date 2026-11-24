@@ -162,6 +162,8 @@
 <link rel="stylesheet" href="assets/spacing-tokens.css?v=1917599e9d">
 <link rel="stylesheet" href="assets/logo-tagline.css?v=af53eb164cb0">
 <link rel="stylesheet" href="assets/section-links.css">
+    <link rel="stylesheet" href="assets/variation-picker.css">
+    <link rel="stylesheet" href="assets/home-pill-previews.css">
 </head>
   <body id="page-top" tabindex="-1" class="page-home ds-original-nav" style="--ds-nav-clearance: 114px;">
     <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -379,5 +381,16 @@
 
 <script src="assets/testimonial-quote-motion.js?v=f89ad9eac8" defer></script>
 <script type="module" src="assets/footer-game.js"></script>
+    <aside class="variation-picker" aria-label="Homepage pill designs" hidden
+      data-variation-target="page-top" data-variation-attribute="data-pill-style"
+      data-variation-names="Fine outline|Lilac wash|Solid ink|Print shadow|Leaf dot|Stitched edge|Ocean tab|Double line|Peach to lilac|Rose stripe">
+      <strong class="pill-picker__sample" aria-live="polite" data-variation-name></strong>
+      <div class="variation-picker__controls">
+        <button type="button" data-variation-step="-1" aria-label="Previous pill design">&#8592;</button>
+        <span data-variation-count></span>
+        <button type="button" data-variation-step="1" aria-label="Next pill design">&#8594;</button>
+      </div>
+    </aside>
+    <script src="assets/variation-picker.js" defer></script>
 </body>
 </html>
