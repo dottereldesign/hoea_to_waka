@@ -221,10 +221,10 @@ html[data-palette] #anna-story .anna-story__heading>.ds-kicker{margin-top:0}
  #anna-story[data-timeline-variant=thread2] .anna-milestone:nth-child(n)::after{left:calc(40px + var(--river-node-x,0px) + 18px);width:calc(34px - var(--river-node-x,0px))}
 }
 
-/* Youth artwork fills its text-aligned column, without nested SVG padding. */
-#anna-story[data-timeline-variant=thread2] .anna-world:has([data-youth-arrival]){max-width:520px;aspect-ratio:1328/1043;opacity:1;transform:none}
+#anna-story[data-timeline-variant=thread2] .anna-world:has([data-youth-arrival]){width:80%;max-width:400px;aspect-ratio:1328/1043;opacity:1;transform:none}
+#anna-story[data-timeline-variant=thread2] .anna-milestone:nth-child(2) .anna-world{max-width:520px}
 @media(max-width:760px){
- #anna-story[data-timeline-variant=thread2] .anna-milestone:nth-child(n) .anna-world:has([data-youth-arrival]){max-width:none;justify-self:stretch}
+ #anna-story[data-timeline-variant=thread2] .anna-milestone:nth-child(2) .anna-world{width:calc(100% + 24px);max-width:340px}
 }
 
 /* The original heading docks without a size change; glass fades in over the approach. */
