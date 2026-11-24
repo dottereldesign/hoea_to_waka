@@ -34,3 +34,12 @@ main a.section-link:focus-visible { outline: 2px solid currentColor; outline-off
   .section-link__arrow { transition: transform .25s cubic-bezier(.22, 1, .36, 1); }
   .section-link:hover .section-link__arrow { transform: translateX(4px); }
 }
+
+/* Center the story label, keeping its trailing arrow inside the link target. */
+.ds-statement-editorial > a.section-link {
+  --story-arrow-width: 32px;
+  --story-arrow-gap: 16px;
+  gap: var(--story-arrow-gap);
+  margin-inline-start: calc(var(--story-arrow-width) + var(--story-arrow-gap));
+}
+.ds-statement-editorial > .section-link .section-link__arrow { width: var(--story-arrow-width); }
