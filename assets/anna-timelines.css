@@ -222,8 +222,7 @@ html[data-palette] #anna-story .anna-story__heading>.ds-kicker{margin-top:0}
 }
 
 /* Youth artwork fills its text-aligned column, without nested SVG padding. */
-#anna-story[data-timeline-variant=thread2] .anna-world:has([data-youth-arrival]){max-width:520px;aspect-ratio:1328/1043}
-#anna-story[data-timeline-variant=thread2] .river-node-hit .anna-world:has([data-youth-arrival]){transform:none}
+#anna-story[data-timeline-variant=thread2] .anna-world:has([data-youth-arrival]){max-width:520px;aspect-ratio:1328/1043;opacity:1;transform:none}
 @media(max-width:760px){
  #anna-story[data-timeline-variant=thread2] .anna-milestone:nth-child(n) .anna-world:has([data-youth-arrival]){max-width:none;justify-self:stretch}
 }
