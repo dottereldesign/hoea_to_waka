@@ -67,3 +67,8 @@
   font: 400 14px/1.5 var(--font-body, Arial, sans-serif);
 }
 #contact-enquiry .required-mark { color: var(--brand-error, #b74855); font-weight: 600; }
+
+.ds-contact-editorial .ds-contact-links {
+  font-size: clamp(18px, 1.5vw, 21px);
+  line-height: 1.5;
+}
