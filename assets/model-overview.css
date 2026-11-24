@@ -1,0 +1,19 @@
+/* Shared homepage and Model page feature. */
+html[data-palette] main.site-main > .model-overview {
+  --ds-bg: #0d4687 !important;
+  --t-inverse: #0d4687;
+  --ds-muted: #e8f1f5 !important;
+  --ds-line: #83aacb !important;
+  background: #0d4687;
+  margin-top: var(--space-fluid-80);
+  overflow: visible;
+}
+.model-overview .model-section-photo { margin-top: -168px; }
+.model-overview .model-section-action { margin-top: var(--space-fluid-28); }
+@media (min-width: 1101px) {
+  .model-overview .ds-section-heading { margin-bottom: 0; }
+}
+@media (max-width: 760px) {
+  html[data-palette] main.site-main > .model-overview { margin-top: var(--space-fluid-32); }
+  .model-overview .model-section-photo { margin-top: -56px; }
+}
