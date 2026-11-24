@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="174 275 590 924" width="590" height="924" role="img" aria-labelledby="title desc">
   <title id="title">River within</title>
-  <desc id="desc">A bowed profile holds a sun and layers of rolling hills. A blue river winds through the hills and widens into the foreground.</desc>
+  <desc id="desc">A bowed profile holds a moon and layers of rolling hills. A blue river winds through the hills and widens into the foreground.</desc>
   <defs>
     <clipPath id="smooth-profile">
       <path d="M100 200H840V1550H100V540H370L389 504
@@ -10,9 +10,6 @@
     </clipPath>
     <path id="portrait" d="M300 329 C333 271 411 263 459 304 C504 342 510 409 535 471 Q508 484 468 480 L461 444 Q465 453 475 456 C505 525 549 516 593 532 C638 547 663 597 680 652 C709 737 727 846 722 949 C718 1027 738 1067 751 1119 C774 1216 768 1289 701 1364 C605 1475 420 1486 280 1439 C234 1424 216 1384 205 1335 C185 1251 186 1140 179 1059 C169 963 177 912 191 868 C212 777 243 685 278 629 C304 585 337 568 370 554 C399 541 406 523 389 504 C374 519 358 532 344 529 C334 527 337 514 326 512 Q319 511 321 504 Q311 505 312 495 Q312 488 305 491 C286 495 299 469 290 453 Q280 443 277 436 C245 418 242 363 300 329Z"/>
     <clipPath id="figure"><use href="#portrait"/></clipPath>
-    <linearGradient id="dusk" x2=".18" y2="1" gradientUnits="objectBoundingBox">
-      <stop stop-color="#281A2C"/><stop offset=".35" stop-color="#53263C"/><stop offset=".76" stop-color="#016C54"/><stop offset="1" stop-color="#016C54"/>
-    </linearGradient>
     <linearGradient id="estuary" x1="0" y1="1" x2="1" y2="0">
       <stop stop-color="#061628"/><stop offset=".5" stop-color="#0d4687"/><stop offset="1" stop-color="#28609a"/>
     </linearGradient>
@@ -27,8 +24,8 @@
   <g clip-path="url(#smooth-profile)">
   <g clip-path="url(#figure)">
     <use href="#portrait" fill="#016C54"/>
-    <path fill="url(#dusk)" d="M222 259h323v275H222z"/>
-    <circle cx="367" cy="651" r="42" fill="#FDC78C"/>
+    <path fill="#191919" d="M150 250H740V820H150Z"/>
+    <circle cx="367" cy="651" r="42" fill="#FFF9F0"/>
     <g id="hills">
       <path fill="#FC964B" d="M310 808 C389 799 422 758 468 757 C519 758 535 708 582 674 C617 649 653 644 687 653 L730 917H300Z"/>
       <path fill="#FA94A0" d="M258 819 C327 798 346 820 394 785 S464 750 496 759 S560 802 621 751 L732 781V915H258Z"/>
