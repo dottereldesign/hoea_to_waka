@@ -1433,12 +1433,6 @@
       "hex": "#D72E38",
       "uses": [
         {
-          "page": "Services",
-          "section": "Built around the people in front of us",
-          "href": "../services/#flexible-approach",
-          "kind": "Artwork"
-        },
-        {
           "page": "In-house workshops",
           "section": "Stronger direction in demanding work",
           "href": "../services/in-house-workshops/#workshop-support",
