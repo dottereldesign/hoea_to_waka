@@ -13,3 +13,6 @@ html[data-palette] .ds-component.home-cta-simple { padding-block:var(--section-s
 @media (max-width:1279px) {
   .home-cta-simple .home-cta-body { padding-bottom:0; }
 }
+
+#coaching-contact .home-cta-body,
+#coaching-contact .ds-lead { color: var(--brand-logo-black); }
