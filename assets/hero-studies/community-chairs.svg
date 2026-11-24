@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1122 1402" width="1122" height="1402" role="img" aria-labelledby="title desc">
   <title id="title">A conversation in chairs</title>
-  <desc id="desc">Four people sit in plum armchairs around three coloured cards. One person gestures as the others listen, framed by concentric circles of sunlight.</desc>
+  <desc id="desc">Four people sit in blue armchairs around three coloured cards. One person gestures as the others listen, framed by concentric circles of sunlight.</desc>
   <defs>
     <linearGradient id="plum" x2=".85" y2="1"><stop stop-color="#673348"/><stop offset="1" stop-color="#402137"/></linearGradient>
-    <linearGradient id="velvet" x2=".8" y2="1"><stop stop-color="#783b52"/><stop offset="1" stop-color="#54273d"/></linearGradient>
+    <linearGradient id="upholstery" x2=".8" y2="1"><stop stop-color="#0D4687"/><stop offset="1" stop-color="#0C396B"/></linearGradient>
     <linearGradient id="rose" x2=".72" y2="1"><stop stop-color="#ffa29c"/><stop offset="1" stop-color="#e78181"/></linearGradient>
     <linearGradient id="sage" x2=".6" y2="1"><stop stop-color="#c6cc93"/><stop offset="1" stop-color="#98ac72"/></linearGradient>
     <linearGradient id="forest" x2=".8" y2="1"><stop stop-color="#347150"/><stop offset="1" stop-color="#1b503f"/></linearGradient>
@@ -32,10 +32,10 @@
         <path d="m132 745 23 9-43 137q-6 15-18 5zM308 766l25-2 4 158q-2 12-16 7zM461 759l18-4 39 150q3 12-12 13z"/>
         <path d="m634 741 25 6-48 173q-3 11-15 5-4-3-2-10zM775 748l24 1-15 133-18 3zM951 733l22-6 18 151-18 6z"/>
       </g>
-      <path fill="#aa5668" d="M142 505c-52 11-75 52-62 115l23 108c7 34 24 49 58 54 43 7 128 8 187 4l144-18c23-3 36-18 36-40l-2-66c-1-41-16-64-48-69l-202-51z"/>
-      <path fill="url(#plum)" d="M147 514c-46 11-62 48-51 99l22 94c6 25 17 38 36 39l117-9 203-64-9-69-194-49z"/>
-      <path fill="#ac586c" d="M825 508c44-28 89-38 128-26 53 15 78 52 67 111l-24 141c-5 29-28 41-61 43l-137 6c-29 1-66-6-82-18l20-113z"/>
-      <path fill="url(#plum)" d="M841 515c41-24 79-35 112-25 42 13 60 42 53 89l-23 140-105 23-135 10z"/>
+      <path fill="#607F9D" d="M142 505c-52 11-75 52-62 115l23 108c7 34 24 49 58 54 43 7 128 8 187 4l144-18c23-3 36-18 36-40l-2-66c-1-41-16-64-48-69l-202-51z"/>
+      <path fill="url(#upholstery)" d="M147 514c-46 11-62 48-51 99l22 94c6 25 17 38 36 39l117-9 203-64-9-69-194-49z"/>
+      <path fill="#607F9D" d="M825 508c44-28 89-38 128-26 53 15 78 52 67 111l-24 141c-5 29-28 41-61 43l-137 6c-29 1-66-6-82-18l20-113z"/>
+      <path fill="url(#upholstery)" d="M841 515c41-24 79-35 112-25 42 13 60 42 53 89l-23 140-105 23-135 10z"/>
     </g>
     <g id="listener-at-left">
       <path fill="url(#gold)" d="M399 765l80-14c-12 38-26 76-37 104l-39 60-34-15c20-46 25-82 30-135z"/>
@@ -111,10 +111,10 @@
         <path d="m97 1082 28 8-51 171c-4 15-22 11-19-3zM210 1102l29-1-24 201c-2 13-23 12-21-2zM321 1090l29-5 42 188c3 14-14 18-18 6z"/>
         <path d="m752 1081 37 4-51 196c-4 13-22 8-19-3zM854 1097l24 4-14 125c-1 12-21 10-19-2zM870 1102l29-5 31 197c3 15-16 19-20 5zM975 1081l29-9 49 181c4 13-14 17-19 5z"/>
       </g>
-      <path fill="#a75568" d="M33 908c-2-30 20-45 48-41 48 4 91 30 112 72 15 32 27 79 44 122 8 20 16 29 36 27 32-1 57-14 74-20 15-5 27 0 30 13 3 11-4 19-17 22l-95 19c-49 9-102 5-144-10-24-8-34-22-41-47L39 943c-4-13-6-23-6-35z"/>
-      <path fill="url(#velvet)" d="M34 908c1-25 21-32 48-29 44 4 82 28 101 68 13 28 24 66 38 103 13 34 17 56 40 62 15 5 33 2 53-2l-50 12c-51 8-102 4-144-11-22-8-33-23-40-47L39 943q-6-19-5-35z"/>
-      <path fill="#a55468" d="M736 1081c4-12 17-15 30-10 28 11 53 20 76 18 19-2 26-15 34-37l33-91c20-53 57-86 105-94 34-6 60 1 65 28 3 16-4 37-10 61l-26 95c-10 35-28 53-63 62-55 16-108 17-161 8l-67-15c-13-3-21-11-16-25z"/>
-      <path fill="url(#plum)" d="M1077 894c-6-21-29-23-57-17-43 9-77 39-94 86l-34 94c-8 23-16 46-35 55-12 6-29 7-48 5 57 12 112 12 167-3 38-10 57-28 67-63l26-95c7-26 12-46 8-62z"/>
+      <path fill="#607F9D" d="M33 908c-2-30 20-45 48-41 48 4 91 30 112 72 15 32 27 79 44 122 8 20 16 29 36 27 32-1 57-14 74-20 15-5 27 0 30 13 3 11-4 19-17 22l-95 19c-49 9-102 5-144-10-24-8-34-22-41-47L39 943c-4-13-6-23-6-35z"/>
+      <path fill="url(#upholstery)" d="M34 908c1-25 21-32 48-29 44 4 82 28 101 68 13 28 24 66 38 103 13 34 17 56 40 62 15 5 33 2 53-2l-50 12c-51 8-102 4-144-11-22-8-33-23-40-47L39 943q-6-19-5-35z"/>
+      <path fill="#607F9D" d="M736 1081c4-12 17-15 30-10 28 11 53 20 76 18 19-2 26-15 34-37l33-91c20-53 57-86 105-94 34-6 60 1 65 28 3 16-4 37-10 61l-26 95c-10 35-28 53-63 62-55 16-108 17-161 8l-67-15c-13-3-21-11-16-25z"/>
+      <path fill="url(#upholstery)" d="M1077 894c-6-21-29-23-57-17-43 9-77 39-94 86l-34 94c-8 23-16 46-35 55-12 6-29 7-48 5 57 12 112 12 167-3 38-10 57-28 67-63l26-95c7-26 12-46 8-62z"/>
     </g>
   </g>
   <mask id="paper-cutout" maskUnits="userSpaceOnUse" x="0" y="0" width="1122" height="1402" style="mask-type:alpha"><use href="#artwork"/></mask>
