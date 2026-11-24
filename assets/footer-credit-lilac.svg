@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <filter id="lilac" color-interpolation-filters="sRGB">
+    <!-- Tint white to the Resources background (#e8e0ff) and preserve black details. -->
+    <feComponentTransfer>
+      <feFuncR type="linear" slope="0.909804"/>
+      <feFuncG type="linear" slope="0.878432"/>
+    </feComponentTransfer>
+  </filter>
+</svg>

@@ -96,3 +96,11 @@ footer .footer-creator-copy > span {
 footer .footer-creator-credit{display:flex;flex-direction:row;align-items:center;gap:2px}
 footer .footer-creator-copy{display:block;height:auto;font-size:12px;line-height:1.3}
 footer:is(.site-footer[data-footer-version],.prompt-footer,.site-footer) .footer-creator-credit img{display:block;width:auto;height:36px;max-width:100%;object-fit:contain}
+
+html[data-palette] footer .footer-creator-credit:is(:hover, :focus-visible) {
+  text-decoration: none;
+}
+
+footer .footer-creator-credit:is(:hover, :focus-visible) img {
+  filter: url("footer-credit-lilac.svg#lilac");
+}
