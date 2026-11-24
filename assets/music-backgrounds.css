@@ -1,6 +1,6 @@
 #resource-videos {
-  --music-ink: var(--brand-logo-black);
-  background-color: var(--brand-ocean-200);
+  --music-ink: var(--brand-paper);
+  background-color: #0D4687;
   color: var(--music-ink);
 }
 
