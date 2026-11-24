@@ -18,5 +18,11 @@ document.querySelectorAll('[data-variation-target]').forEach(picker => {
     show((current + Number(button.dataset.variationStep) + names.length) % names.length);
   });
   show(0);
-  picker.hidden = false;
+  if (picker.hasAttribute('data-show-with-target')) {
+    new IntersectionObserver(([entry]) => {
+      picker.hidden = !entry.isIntersecting;
+    }).observe(target);
+  } else {
+    picker.hidden = false;
+  }
 });
