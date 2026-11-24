@@ -16,9 +16,7 @@
   padding: 0;
   list-style: none;
 }
-.coaching-steps li { position: relative; --delay: 0ms; }
-.coaching-steps li:nth-child(2) { --delay: 760ms; }
-.coaching-steps li:nth-child(3) { --delay: 1520ms; }
+.coaching-steps li { position: relative; }
 .step-icon {
   width: 90px; height: 90px; border-radius: 20px;
   display: inline-grid; place-items: center;
@@ -48,13 +46,6 @@
   .step-connector::before { top: 0; }
   .step-connector::after { top: auto; bottom: 0; }
 }
-@media (prefers-reduced-motion: no-preference) {
-  .steps-entered .step-icon { animation: step-arrive 420ms ease-out var(--delay) backwards; }
-  .steps-entered .step-connector { animation: step-connect 500ms ease-in-out calc(var(--delay) + 260ms) backwards; }
-}
-@keyframes step-arrive { from { opacity: 0; transform: translateY(6px) scale(.91); } }
-@keyframes step-connect { from { clip-path: var(--start-clip, inset(0 100% 0 0)); } to { clip-path: inset(0); } }
-
 html[data-palette] #how-it-works :is(.ds-kicker,.ds-title,h3,p,.brand-name-text) { color: #191919; }
 
 html[data-palette] #how-it-works .ds-kicker { border-color: #191919; }
