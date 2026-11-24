@@ -95,7 +95,7 @@
     <script src="../assets/i18n.js?v=1" defer></script>
     <script src="../assets/language-menu.js?v=aa6068797c5f" defer></script>
     <link rel="stylesheet" href="../assets/anna-timelines.css?v=ac98c8157a92">
-    <script src="../assets/anna-timelines-runtime.js?v=346ef21f26dd" defer blocking="render"></script>
+    <script src="../assets/anna-timelines-runtime.js?v=paddle-strokes" defer blocking="render"></script>
     <noscript><style>#anna-story :is(.anna-studies,.anna-study-caption,.anna-timeline-footer){display:none!important}</style></noscript>
     <link rel="stylesheet" href="../assets/services-contact.css?v=7cfa65cc21d4">
     <link rel="stylesheet" href="../assets/home-moon-door.css?v=77e84032bc39">
@@ -108,6 +108,7 @@
 <link rel="stylesheet" href="../assets/logo-tagline.css?v=af53eb164cb0">
 <link rel="stylesheet" href="../assets/section-links.css">
 <link rel="stylesheet" href="../assets/section-pills.css">
+<link rel="stylesheet" href="../assets/variation-picker.css">
 </head>
   <body id="page-top" tabindex="-1" class="ds-original-nav" style="--ds-nav-clearance: 114px;">
     <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -264,6 +265,14 @@
             </div>
           </div></div></section>
     </main>
+    <aside class="variation-picker" data-paddle-picker aria-label="Waka paddle motion" hidden>
+      <span>Paddle motion</span><strong aria-live="polite"></strong>
+      <div class="variation-picker__controls">
+        <button type="button" data-step="-1" aria-label="Previous paddle stroke">&#8592;</button>
+        <span data-count></span>
+        <button type="button" data-step="1" aria-label="Next paddle stroke">&#8594;</button>
+      </div>
+    </aside>
     <footer class="site-footer" data-footer-version="04">
       <div class="container">
         <a class="footer-back-top" href="#page-top">Back to top <span aria-hidden="true">↑</span></a>

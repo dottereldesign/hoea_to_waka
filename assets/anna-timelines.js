@@ -86,7 +86,7 @@
     route.querySelector('.anna-stars').innerHTML=stars.map(star=>`<circle cx="${f(star.x*box.width)}" cy="${f(star.y*box.height)}" r="${star.r}"/>`).join('');
   }
   function configure(){
-    if(['thread','thread2'].includes(variant)&&!river)river=window.createAnnaRiver?.(root,items);
+    if(['thread','thread2'].includes(variant)&&!river)river=window.createAnnaRiver?.(root,items,run);
     if(!['thread','thread2'].includes(variant))river?.pause();
     horizon=variant==='horizon'&&innerWidth>900&&innerHeight>700&&!preference.matches;
     root.classList.toggle('is-horizon-scroll',horizon);
