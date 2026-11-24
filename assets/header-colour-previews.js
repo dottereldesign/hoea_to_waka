@@ -10,11 +10,6 @@ const headerColourSets = {
     ['Sea glass','#C0DAD6'], ['Rosewater','#E8BCC5'], ['Honey','#E3BE83'],
     ['Coastal blue','#819EB4'], ['Berry','#804B61'], ['Harbour teal','#23616A'], ['Aubergine','#472B43']
   ],
-  coaching: [
-    ['Sage paper','#F1F5F0'], ['Shell pink','#F7E5E5'], ['Quiet lilac','#E6DBE9'],
-    ['Morning blue','#D1E3EE'], ['Soft sage','#B8C9B5'], ['Fern grey','#A0B49E'],
-    ['Dusky orchid','#A18AA9'], ['Forest green','#4C7054'], ['Dusk','#514459'], ['Deep fern','#24362A']
-  ],
   support: [
     ['Pale tide','#E3F2EF'], ['Flax paper','#F5EFDA'], ['Cool lavender','#E2D5E5'],
     ['Reed green','#BDCFB8'], ['Sky blue','#AECBD9'], ['Soft terracotta','#DCAA91'],
