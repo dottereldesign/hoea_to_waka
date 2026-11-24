@@ -10,8 +10,12 @@ html[data-palette] #support-features {
   color: #191919;
 }
 html[data-palette] #support-features :is(.pp-feature,.pp-feature-marker) {
-  background: #FFFFFF !important;
+  background: transparent !important;
   color: #191919 !important;
+}
+html[data-palette] main #support-features .pp-features .pp-feature {
+  border: 1px solid var(--brand-stone, #ccc);
+  border-radius: 24px;
 }
 html[data-palette] #support-features :is(h2,h3,.ds-kicker,.ds-lead,.brand-name-text) {
   color: #191919 !important;
