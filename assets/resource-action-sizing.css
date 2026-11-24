@@ -1,0 +1,37 @@
+/* Use the Resources primary action's footprint for each branded action. */
+:root {
+  --resource-action-width: clamp(210px,16.6vw,222px);
+  --resource-action-height: 56px;
+}
+.home-cta-body .model-button, #resource-books .book-amazon-button,
+.music-bottom :is(.music-youtube,.music-spotify) {
+  box-sizing: border-box;
+  width: var(--resource-action-width);
+  min-height: var(--resource-action-height);
+  flex-shrink: 0;
+}
+.music-bottom :is(.music-youtube,.music-spotify) {
+  font-size: var(--action-text-size,clamp(15px,1.25vw,17px));
+  line-height: 1.35;
+  padding: 6px 7px 6px 12px;
+  gap: 6px;
+  justify-content: space-between;
+}
+.music-bottom .music-youtube > svg { width: 22px; flex: none; }
+.music-platform-arrow { flex: none; width: 38px; height: 38px; }
+.music-bottom .music-spotify { padding-inline: 14px; }
+#resource-books .book-amazon-button { justify-content: space-between; }
+html[data-palette] #resource-books .book-amazon-button {
+  padding-inline: 10px 6px;
+  gap: 5px;
+}
+@media (max-width: 350px) {
+  #resource-books .book-purchase-actions { gap: 5px; margin-inline: -6px; }
+  #resource-books .book-purchase-actions .section-link { gap: 3px; }
+  #resource-books .book-purchase-actions .section-link__arrow { width: 16px; }
+}
+.home-cta-body .model-button__label { white-space: nowrap; }
+.music-bottom .music-youtube { gap: 4px; padding-inline: 10px 5px; }
+.music-bottom .music-youtube > svg { width: 19px; }
+.music-youtube > span:first-of-type { letter-spacing: -.025em; white-space: normal; }
+.music-platform-arrow { width: 32px; height: 32px; }
