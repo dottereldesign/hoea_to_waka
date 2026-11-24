@@ -11,6 +11,19 @@
     if (matchingOption) interestSelect.value = matchingOption.value;
   }
 
+  // Leave room below the field when the menu opens near the viewport edge.
+  function makeRoomForOptions() {
+    const viewportHeight = document.documentElement.clientHeight;
+    const room = Math.min(340, viewportHeight * 0.45);
+    const available = viewportHeight - interestSelect.getBoundingClientRect().bottom;
+    if (available < room) window.scrollBy({ top: room - available, behavior: "instant" });
+  }
+
+  interestSelect.addEventListener("pointerdown", () => requestAnimationFrame(makeRoomForOptions));
+  interestSelect.addEventListener("keydown", event => {
+    if (["Enter", " ", "ArrowDown", "ArrowUp", "F4"].includes(event.key)) makeRoomForOptions();
+  });
+
   contactForm.addEventListener("submit", (event) => {
     event.preventDefault();
     const data = new FormData(contactForm);
