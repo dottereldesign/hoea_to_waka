@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="100 205 740 1340" width="740" height="1340" role="img" aria-labelledby="title desc">
+  <title id="title">River within</title>
+  <desc id="desc">A bowed profile holds a sun and layers of rolling hills. A blue river winds through the hills and widens into the foreground.</desc>
+  <defs>
+    <path id="portrait" d="M300 329 C336 262 435 255 473 322 C496 325 513 347 512 374 C531 408 516 444 475 456 C505 525 549 516 593 532 C638 547 663 597 680 652 C709 737 727 846 722 949 C718 1027 738 1067 751 1119 C774 1216 768 1289 701 1364 C605 1475 420 1486 280 1439 C234 1424 216 1384 205 1335 C185 1251 186 1140 179 1059 C169 963 177 912 191 868 C212 777 243 685 278 629 C304 585 337 568 370 554 C399 541 406 523 389 504 C374 519 358 532 344 529 C334 527 337 514 326 512 Q319 511 321 504 Q311 505 312 495 Q312 488 305 491 C286 495 299 469 290 453 Q280 443 277 436 C245 418 242 363 300 329Z"/>
+    <clipPath id="figure"><use href="#portrait"/></clipPath>
+    <linearGradient id="dusk" x2=".18" y2="1" gradientUnits="objectBoundingBox">
+      <stop stop-color="#522e45"/><stop offset=".35" stop-color="#403446"/><stop offset=".76" stop-color="#0c5758"/><stop offset="1" stop-color="#07595a"/>
+    </linearGradient>
+    <linearGradient id="estuary" x1="0" y1="1" x2="1" y2="0">
+      <stop stop-color="#061628"/><stop offset=".5" stop-color="#0d4687"/><stop offset="1" stop-color="#28609a"/>
+    </linearGradient>
+    <path id="river" d="M231 723 C302 720 315 775 348 800 C403 845 622 835 686 894 C737 945 664 976 581 988 C497 1000 447 1015 433 1040 C412 1078 476 1098 549 1117 C655 1147 722 1181 720 1230 C716 1287 645 1303 595 1326 C527 1357 488 1405 464 1477 L201 1466 C231 1362 302 1317 394 1288 C479 1260 501 1222 477 1179 C446 1124 358 1110 299 1103 C269 1098 253 1070 273 1040 C303 998 391 977 489 966 C566 957 627 944 615 909 C599 869 462 856 390 841 C327 829 308 814 295 779 C282 748 260 730 231 726Z"/>
+    <clipPath id="channel"><use href="#river"/></clipPath>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency=".46" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+  </defs>
+  <path fill="#fbdbcd" d="M100 205h740v1340H100z"/>
+  <g clip-path="url(#figure)">
+    <use href="#portrait" fill="#095959"/>
+    <path fill="url(#dusk)" d="M222 259h323v275H222z"/>
+    <circle cx="367" cy="651" r="42" fill="#ffe3c0"/>
+    <g id="hills">
+      <path fill="#ffa64f" d="M310 808 C389 799 422 758 468 757 C519 758 535 708 582 674 C617 649 653 644 687 653 L730 917H300Z"/>
+      <path fill="#ff9781" d="M258 819 C327 798 346 820 394 785 S464 750 496 759 S560 802 621 751 L732 781V915H258Z"/>
+      <path fill="#d65c60" d="M313 855 C388 846 435 807 493 800 S563 805 608 763 S683 722 716 734 L734 922H310Z"/>
+      <path fill="#533047" d="M372 867 C493 852 545 818 598 813 S697 826 733 859 L735 945H365Z"/>
+      <path fill="#126459" d="M169 713 C278 717 277 785 320 810 C369 854 590 847 665 884 C706 906 727 936 747 966 C669 939 620 985 565 1001 C412 1035 344 1021 152 1041Z"/>
+      <path fill="#f17871" d="M156 891 C235 828 299 846 366 893 C414 932 452 914 494 932 C519 942 533 951 546 959 C478 977 400 986 345 1026 L297 1108H150Z"/>
+      <path fill="#ba5862" d="M151 949 C220 909 258 921 313 949 C360 976 381 958 433 974 Q373 989 320 1028 L297 1065H155Z"/>
+      <path fill="#a6ad7c" d="M150 1105 C219 999 314 978 404 991 C311 1027 299 1070 341 1107 L397 1177H155Z"/>
+      <path fill="#6d846a" d="M153 1131 C245 1085 300 1099 368 1115 C473 1140 518 1111 566 1068 C641 1008 698 1029 750 1051 L785 1371H150Z"/>
+      <path fill="#593047" d="M151 1146 C241 1142 289 1166 343 1217 C411 1280 453 1271 485 1275 L496 1495H150Z"/>
+      <path fill="#f78979" d="M415 1485 C448 1415 516 1340 611 1298 C686 1260 708 1220 704 1193 C754 1250 764 1295 754 1368 L688 1490Z"/>
+    </g>
+    <use href="#river" fill="url(#estuary)"/>
+    <g clip-path="url(#channel)">
+      <path fill="#6494bb" opacity=".55" d="M231 723 C322 734 295 798 399 825 S668 862 658 923 C647 974 489 975 408 1010 C319 1047 337 1081 428 1114 C537 1152 631 1188 609 1239 C588 1288 513 1294 445 1318 C366 1348 321 1404 299 1482 H185 V704Z"/>
+      <g fill="none" stroke="#fff9f0" stroke-linecap="round" opacity=".58">
+        <path d="M563 870q25 4 39 10 M646 937q-10 10-35 16 M377 1028q13-9 35-15 M478 1146q28 9 49 21" stroke-width="2"/>
+        <path d="M569 1265q-17 12-47 22 M412 1341q-30 15-48 35 M331 1427q-5 8-8 16" stroke-width="3"/>
+      </g>
+    </g>
+  </g>
+  <g clip-path="url(#figure)"><path d="M100 205h740v1340H100z" filter="url(#grain)" opacity=".09"/></g>
+</svg>
