@@ -120,7 +120,7 @@
 <script src="assets/theme-init.js?v=0e0f19683fde" defer></script>
     <link rel="stylesheet" href="assets/page-styles/home.css?v=6d5e1f99f20b">
     <link rel="stylesheet" href="assets/language-menu.css?v=7260dc13c9">
-    <link rel="stylesheet" href="assets/home-hero-variants.css?v=639aabafa0">
+    <link rel="stylesheet" href="assets/home-hero-variants.css?v=river2">
     <script src="assets/i18n.js?v=1" defer></script>
     <script src="assets/language-menu.js?v=aa6068797c5f" defer></script>
     <link rel="preload" href="assets/logo-white.svg" as="image">
@@ -228,6 +228,11 @@
           </div>
           <figure class="home-hero-illustration">
             <img class="home-hero-illustration__cutout" src="assets/hero-studies/community-clean-animated.svg?v=3" width="1086" height="1448" alt="Four people sharing a conversation on a mat beneath warm sun circles." loading="eager" fetchpriority="high" decoding="async">
+            <div class="hero-image-controls" role="group" aria-label="Hero illustrations" hidden>
+              <button type="button" aria-label="Previous hero image" data-image-step="-1">&#8592;</button>
+              <button type="button" aria-label="Next hero image" data-image-step="1">&#8594;</button>
+              <span class="sr-only" aria-live="polite"></span>
+            </div>
           </figure>
         </div>
       </section>
@@ -392,5 +397,6 @@
       </div>
     </aside>
     <script src="assets/variation-picker.js" defer></script>
+    <script src="assets/hero-image-switcher.js" defer></script>
 </body>
 </html>

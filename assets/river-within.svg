@@ -17,7 +17,7 @@
       <feColorMatrix type="saturate" values="0"/>
     </filter>
   </defs>
-  <path fill="#fbdbcd" d="M100 205h740v1340H100z"/>
+
   <g clip-path="url(#figure)">
     <use href="#portrait" fill="#095959"/>
     <path fill="url(#dusk)" d="M222 259h323v275H222z"/>
