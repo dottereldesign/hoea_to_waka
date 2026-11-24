@@ -161,6 +161,8 @@
 <link rel="stylesheet" href="assets/testimonial-layout.css?v=4d10a41933">
 <link rel="stylesheet" href="assets/spacing-tokens.css?v=1917599e9d">
 <link rel="stylesheet" href="assets/logo-tagline.css?v=af53eb164cb0">
+<link rel="stylesheet" href="assets/hero-sun.css">
+<script defer src="assets/hero-sun.js"></script>
 <link rel="stylesheet" href="assets/model-overview.css">
 <link rel="stylesheet" href="assets/home-model-colours.css">
 <link rel="stylesheet" href="assets/variation-picker.css">
@@ -229,7 +231,12 @@
             </div>
           </div>
           <figure class="home-hero-illustration">
-            <img class="home-hero-illustration__cutout" src="assets/hero-studies/community-chairs.svg?v=a0c431f8be" width="1122" height="1402" alt="Four people sharing a conversation in chairs, with three cards between them and warm sun circles behind them." loading="eager" fetchpriority="high" decoding="async">
+            <div class="home-hero-illustration__cutout">
+              <div class="hero-sun-artboard">
+                <div class="hero-sun" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+                <img src="assets/hero-studies/community-chairs.svg?v=sun-layers#people" width="1122" height="1402" alt="Four people sharing a conversation in chairs, with three cards between them and warm sun circles behind them." loading="eager" fetchpriority="high" decoding="async">
+              </div>
+            </div>
           </figure>
         </div>
       </section>
@@ -280,6 +287,15 @@
           </div></div></section>
 
     </main>
+    <aside class="variation-picker sun-picker" aria-label="Hero sun animation" hidden>
+      <strong aria-live="polite">Soft pulse</strong>
+      <div class="variation-picker__controls">
+        <button type="button" data-step="-1" aria-label="Previous sun animation">&#8592;</button>
+        <span data-count>01 / 10</span>
+        <button type="button" data-step="1" aria-label="Next sun animation">&#8594;</button>
+      </div>
+      <button type="button" data-sun-replay>Replay</button>
+    </aside>
     <aside class="variation-picker" aria-label="Model section colours" data-variation-target="home-model-overview" data-variation-attribute="data-overview-colour" data-variation-names="Lake and estuary|Glacier and fern|Plum sunset|Apricot shore|Forest canopy|Lilac sky|Blue hour|Sunlit flax|Clay and wine|Sea and sand" data-show-with-target hidden>
       <strong data-variation-name aria-live="polite"></strong>
       <div class="variation-picker__controls">

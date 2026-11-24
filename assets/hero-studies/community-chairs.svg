@@ -19,28 +19,15 @@
     <pattern id="paper" width="128" height="128" patternUnits="userSpaceOnUse"><path d="M0 0h128v128H0z" filter="url(#fibres)"/></pattern>
     <filter id="fibres" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".55 .38" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter>
   </defs>
-  <style>
-    /* Reveal the smallest disc first, then expand outwards. People remain still. */
-    #sunlight > * { transform-box: view-box; transform-origin: 558px 435px; animation: sun-arrive 1300ms cubic-bezier(.22,.68,.25,1) both; }
-    #sunlight [data-part="centre"] { animation-delay: 100ms; }
-    #sunlight [data-part="peach"] { animation-delay: 340ms; }
-    #sunlight [data-part="amber"] { animation-delay: 580ms; }
-    #sunlight [data-part="outer"] { animation-delay: 820ms; }
-    @keyframes sun-arrive {
-      0% { opacity: 0; transform: scale(.68); }
-      48% { opacity: 1; transform: scale(1.035); }
-      73% { opacity: 1; transform: scale(.988); }
-      100% { opacity: 1; transform: scale(1); }
-    }
-    @media (prefers-reduced-motion: reduce) { #sunlight > * { animation: none; } }
-  </style>
-  <g id="artwork">
+  <view id="people" viewBox="0 0 1122 1402"/>
+  <style>#people:target ~ #sunlight { display:none; }</style>
     <g id="sunlight">
       <ellipse data-part="outer" cx="552" cy="417.5" rx="309" ry="308" fill="url(#sun)"/>
       <circle data-part="amber" cx="552" cy="430" r="241" fill="#ffb873"/>
       <ellipse data-part="peach" cx="554" cy="437" rx="168" ry="174" fill="#ffcd95"/>
       <ellipse data-part="centre" cx="558" cy="435" rx="103" ry="104" fill="#ffdbad"/>
     </g>
+  <g id="artwork">
     <ellipse id="rug" cx="557" cy="1242" rx="532" ry="100" fill="#473646"/>
     <g id="back-chairs">
       <g fill="url(#wood)">

@@ -1,0 +1,26 @@
+/* The artboard fits the same portrait box as the foreground SVG. */
+.home-hero-illustration__cutout {position:absolute;container-type:size;}
+.hero-sun-artboard {
+  position:absolute;
+  width:min(100cqw, calc(100cqh * 1122 / 1402));
+  aspect-ratio:1122 / 1402;
+  left:50%;
+  top:55%;
+  transform:translate(-50%,-55%);
+}
+@media (max-width:760px) {
+  .hero-sun-artboard {top:50%;transform:translate(-50%,-50%);}
+}
+.hero-sun,
+html[data-home-hero="03"] .home-hero-illustration .hero-sun-artboard img {
+  position:absolute;inset:0;width:100%;height:100%;
+}
+.hero-sun i {position:absolute;border-radius:50%;}
+/* The four disc bounds follow the original 1122 × 1402 illustration. */
+.hero-sun i:nth-child(1) {left:21.66%;top:7.81%;width:55.08%;height:43.94%;background:radial-gradient(#ffb373,#ff995c);}
+.hero-sun i:nth-child(2) {left:27.72%;top:13.48%;width:42.96%;height:34.38%;background:#ffb873;}
+.hero-sun i:nth-child(3) {left:34.40%;top:18.76%;width:29.95%;height:24.82%;background:#ffcd95;}
+.hero-sun i:nth-child(4) {left:40.55%;top:23.61%;width:18.36%;height:14.84%;background:#ffdbad;}
+html[data-palette] .sun-picker [data-sun-replay] {
+  width:auto;height:32px;border-radius:10px;font:inherit;
+}
