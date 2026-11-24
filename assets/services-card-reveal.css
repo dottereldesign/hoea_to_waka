@@ -9,7 +9,7 @@ html.js body [data-component="home:3:services"] :is(.ds-section-heading,.ds-card
   transition:none!important;
 }
 html[data-palette] [data-component="home:3:services"] .ds-service-editorial.services-leveling{
-  align-items:start;
+  align-items:stretch;
   /* Reserve only the space the moving cards currently occupy. */
   padding-bottom:calc(var(--services-step,104px) * 2);
 }
@@ -19,8 +19,14 @@ html[data-palette] [data-component="home:3:services"] .services-leveling>.ds-car
 @media(prefers-reduced-motion:reduce){
   html[data-palette] [data-component="home:3:services"] .services-leveling>.ds-card{translate:none!important;}
 }
-html[data-theme="light"] #services .ds-card-actions .model-button{background-color:rgb(25,25,25);}
-
-
-/* Service actions need spacing, without a decorative divider. */
-html[data-palette] .ds-service-editorial .ds-card-actions { border-top: 0; }
+[data-component="home:3:services"] .ds-service-editorial > .ds-card,
+[data-component="home:3:services"] .ds-card-copy {
+  display:flex;
+  flex-direction:column;
+}
+[data-component="home:3:services"] .ds-card-copy {flex:1;align-items:flex-start;}
+html[data-palette] .ds-service-editorial .ds-card-actions {
+  margin-top:auto;
+  padding-top:var(--space-fluid-24);
+  border-top:0;
+}
