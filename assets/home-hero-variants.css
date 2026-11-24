@@ -357,3 +357,24 @@ html[data-home-hero="03"] .home-hero-illustration .home-hero-illustration__cutou
     min-height: calc(100svh - 76px - var(--hero-notice-height) - 8px);
   }
 }
+
+@media (max-width: 1024px) {
+  html[data-home-hero="03"] .page-home .home-hero .home-hero-inner-photo .button-row {
+    flex-flow: row wrap;
+    align-items: center;
+    gap: 10px;
+  }
+  html[data-home-hero="03"][data-palette] .home-hero .home-hero-explore {
+    min-width: 0;
+    padding: 5px 6px 5px 12px;
+    gap: 8px;
+  }
+  .home-hero-explore .model-button__icon { width: 32px; height: 32px; }
+  .page-home .home-hero .section-link { gap: 4px; }
+  .home-hero .section-link__arrow { width: 20px; }
+}
+
+@media (max-width: 374px) {
+  .home-hero-explore .model-button__icon { display: none; }
+  html[data-home-hero="03"][data-palette] .home-hero .home-hero-explore { padding-inline: 12px; }
+}
