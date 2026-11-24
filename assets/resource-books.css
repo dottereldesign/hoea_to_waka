@@ -54,3 +54,10 @@ html[data-palette] #resource-books .book-amazon-button {
   #resource-books .section-link { flex: none; gap: 6px; }
   #resource-books .section-link__arrow { width: 20px; }
 }
+
+html[data-palette] #resource-books p.book-byline {
+  margin: 6px 0 12px;
+  color: var(--brand-logo-black);
+  font-size: .95rem !important;
+  line-height: 1.45;
+}
