@@ -1,5 +1,5 @@
 (() => {
- const section=document.querySelector('#workshop-support');if(!section)return;
+ const section=document.querySelector('#workshop-support, #flexible-approach');if(!section)return;
  const reduced=matchMedia('(prefers-reduced-motion: reduce)');
  const scenes=[...section.querySelectorAll('[data-art]')].map(host=>{
   const svg=host.querySelector('svg'),kind=host.dataset.art,part=name=>svg.querySelector(`[data-part="${name}"]`);
@@ -19,7 +19,7 @@
   return scene;
  });
  function stop(s){clearTimeout(s.timer);s.animations.forEach(a=>a.cancel());s.animations=[];}
- function active(s){return s.host.closest('.workshop-slide').classList.contains('is-active');}
+ function active(s){const slide=s.host.closest('.workshop-slide');return !slide||slide.classList.contains('is-active');}
  function animate(s,el,frames,duration=2400,delay=0,origin='724px 543px'){
   if(!el)return;el.style.transformBox='view-box';el.style.transformOrigin=origin;
   const a=el.animate(frames,{duration,delay,easing:'cubic-bezier(.22,1,.36,1)',fill:'backwards'});a.pause();a.currentTime=0;s.animations.push(a);
