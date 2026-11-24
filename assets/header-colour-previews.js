@@ -1,9 +1,13 @@
-/* Each header has its own set of backgrounds, ordered from lighter to deeper colours. */
+/* Keep each header’s preview order stable for saved selections. */
 const headerColourSets = {
   services: [
     ['Coastal mist','#E8F1F5'], ['Pale fern','#D8E6D8'], ['Lavender grey','#D8CBDD'],
     ['Sunlit flax','#E9D394'], ['Powder blue','#A9C5CE'], ['Eucalyptus','#93B4A5'],
-    ['Slate blue','#607F9D'], ['Ocean blue','#0C396B'], ['Deep forest','#344A3A'], ['Harbour night','#1A2B3D']
+    ['Slate blue','#607F9D'], ['Ocean blue','#0C396B'], ['Deep forest','#344A3A'], ['Harbour night','#1A2B3D'],
+    ['Shell pink','#F8DEDE'], ['Apricot milk','#FCE2C5'], ['Buttercup','#F6E9AE'],
+    ['Warm linen','#EDE5D8'], ['Spring leaf','#E3ECC5'], ['Mint wash','#CFEDE4'],
+    ['Glacier blue','#CEE8F7'], ['Soft periwinkle','#DBDFF7'], ['Wisteria','#E9DDF5'],
+    ['Pōhutukawa blush','#F0D5E3']
   ],
   model: [
     ['Lilac paper','#F1EAFA'], ['River mist','#D9E9EE'], ['Fresh sage','#CBDBCD'],
