@@ -157,7 +157,6 @@
   root.querySelector('[data-anna-prev]')?.addEventListener('click',()=>go(-1));
   root.querySelector('[data-anna-next]')?.addEventListener('click',()=>go(1));
   list.addEventListener('scroll',()=>queue(),{passive:true});
-  new MutationObserver(()=>queue()).observe(root,{attributes:true,attributeFilter:['data-boat-scroll']});
   addEventListener('scroll',()=>queue(),{passive:true});
   addEventListener('resize',()=>{configure();queue(true);},{passive:true});
   const suspend=()=>{cancelAnimationFrame(frame);cancelAnimationFrame(measureFrame);frame=measureFrame=0;lastTime=undefined;river?.pause();root.dataset.timelineState='suspended';};

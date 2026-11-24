@@ -158,26 +158,8 @@ import {mountWakaStudies,paddlePose,glideSeconds} from './anna-waka-studies.js';
       paint();
       root.dataset.oceanReady='true';
     }
-    // Landing hold is a fraction of the original reading pause. Each mapping
-    // still passes through the exact distance of every chapter in either direction.
-    const linear=t=>t;
-    const soft=t=>t*t*(3-2*t);
-    const profiles={
-      '01': {map:smooth, hold:1, spring:46},
-      '02': {map:linear, hold:0, direct:true},
-      '03': {map:linear, hold:0, follow:9},
-      '04': {map:soft, hold:.25, spring:18},
-      '05': {map:smooth, hold:1, spring:12},
-      '06': {map:linear, hold:.5, spring:34},
-      '07': {map:soft, hold:0, speedLimit:700},
-      '08': {map:linear, hold:.15, adaptive:true},
-      '09': {map:t=>1-(1-t)**2, hold:.65, spring:24},
-      '10': {map:t=>(1-Math.cos(t*Math.PI))/2, hold:0, follow:16}
-    };
-    let profile=profiles['01'];
     function setScroll(y,isVisible,isReduced){
       visible=isVisible;reduced=isReduced;
-      profile=profiles[root.dataset.boatScroll] || profiles['01'];
       svg.classList.toggle('river-is-active',visible&&!reduced);
       if(!stops.length)return;
       const release=Number(svg.dataset.release);
@@ -185,12 +167,12 @@ import {mountWakaStudies,paddlePose,glideSeconds} from './anna-waka-studies.js';
       if(y>release){
         let fromScroll=release,fromDistance=launch;
         for(const stop of stops){
-          if(y<stop.arrival){target=fromDistance+(stop.distance-fromDistance)*profile.map(clamp((y-fromScroll)/(stop.arrival-fromScroll)));break;}
+          if(y<stop.arrival){target=fromDistance+(stop.distance-fromDistance)*smooth(clamp((y-fromScroll)/(stop.arrival-fromScroll)));break;}
           target=stop.distance;
-          const departure=stop.arrival+(stop.departure-stop.arrival)*profile.hold;
+          const departure=stop.departure;
           if(y<=departure)break;
           fromScroll=departure;fromDistance=stop.distance;
-          if(stop===stops.at(-1))target=stop.distance+(Math.max(stop.distance,length-launch)-stop.distance)*profile.map(clamp((y-departure)/180));
+          if(stop===stops.at(-1))target=stop.distance+(Math.max(stop.distance,length-launch)-stop.distance)*smooth(clamp((y-departure)/180));
         }
       }
       if(reduced){distance=stops[0].distance;velocity=0;angle=-Math.atan(pointAt(distance).slope)*180/Math.PI;angularVelocity=0;}
@@ -210,16 +192,8 @@ import {mountWakaStudies,paddlePose,glideSeconds} from './anna-waka-studies.js';
       if(!samples.length||reduced)return false;
       const previous=distance;
       const passage=root.dataset.timelineVariant==='thread2';
-      if(passage && (profile.direct || profile.follow || profile.speedLimit)){
-        const gap=target-distance;
-        if(profile.direct) distance=target;
-        else if(profile.speedLimit) distance+=Math.sign(gap)*Math.min(Math.abs(gap),profile.speedLimit*dt);
-        else distance+=gap*(1-Math.exp(-profile.follow*dt));
-        velocity=dt>0?(distance-previous)/dt:0;
-      }else{
-        const spring=profile.adaptive ? 14+Math.min(Math.abs(target-distance)*.22,48) : profile.spring;
-        [distance,velocity]=critical(distance,velocity,target,passage?spring:15,dt);
-      }
+      // Long glide eases the waka into each chapter landing.
+      [distance,velocity]=critical(distance,velocity,target,passage?12:15,dt);
       const max=(mobile?950:1200)*dt;
       if(!passage&&Math.abs(distance-previous)>max){distance=previous+Math.sign(distance-previous)*max;velocity=Math.sign(velocity)*(mobile?950:1200);}
       distance=clamp(distance,0,length);
