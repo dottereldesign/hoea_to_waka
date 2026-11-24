@@ -1,0 +1,12 @@
+#river-within { position: relative; margin: 0; background: #fbdbcd; }
+#river-within object, #river-within object img {
+  display: block;
+  width: 100%;
+  height: clamp(420px,78svh,840px);
+  object-fit: contain;
+  pointer-events: none;
+}
+#river-within .variation-picker:not([hidden]) { position: absolute; }
+@media (max-width: 600px) {
+  #river-within { padding-bottom: 92px; }
+}
