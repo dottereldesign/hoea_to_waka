@@ -131,3 +131,25 @@ html[data-palette] footer button.footer-tagline {
   user-select: none;
 }
 footer button.footer-tagline:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+
+@media (max-width: 760px) {
+  html[data-palette] .site-footer[data-footer-version] .footer-bottom {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .site-footer[data-footer-version] .footer-bottom > .footer-creator-credit {
+    order: 1;
+    justify-self: center;
+  }
+  .site-footer[data-footer-version] .footer-bottom > .footer-tagline {
+    justify-self: start;
+    text-align: left;
+  }
+}
+
+@media (max-width: 520px) {
+  .prompt-footer > div { display: contents; }
+  .prompt-footer .footer-creator-credit { order: 1; align-self: center; }
+  .prompt-footer .prompt-brand { align-self: flex-start; }
+  .prompt-footer p { margin-block: 0; }
+}
