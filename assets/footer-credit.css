@@ -91,3 +91,8 @@ footer .footer-creator-copy > span {
  .site-footer[data-footer-version="04"] .footer-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
  .site-footer[data-footer-version="04"] .footer-more-column{grid-column:1/-1}
 }
+
+/* Creator credit: label above the Bit Clever wordmark. */
+footer .footer-creator-credit{display:flex;flex-direction:column;align-items:flex-start;gap:6px}
+footer .footer-creator-copy{display:block;height:auto;font-size:12px;line-height:1.3}
+footer.site-footer .footer-creator-credit img{display:block;width:128px;height:auto;max-width:100%;object-fit:contain}
