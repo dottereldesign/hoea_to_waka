@@ -4,7 +4,7 @@ const {chromium}=require('playwright');const assert=require('node:assert/strict'
 const player = p.locator('#resource-music-player');
 const panel = player.locator('.music-console');
 assert.equal(await player.getAttribute('data-layout'), '4');
-assert.equal(await p.locator('[data-credits], [data-music-layout], [data-variation-step]').count(), 0);
+assert.equal(await p.locator('[data-credits], [data-music-layout], [data-variation-target="resource-music-player"]').count(), 0);
 for (const width of [1440, 768, 390, 320]) {
   await p.setViewportSize({width, height: 1100});
   assert.match(await panel.evaluate(el => getComputedStyle(el).backgroundImage), /url\(/);
