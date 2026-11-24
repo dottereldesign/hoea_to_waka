@@ -22,9 +22,11 @@
 .music-bottom .music-spotify { padding-inline: 14px; }
 #resource-books .book-amazon-button { justify-content: space-between; }
 html[data-palette] #resource-books .book-amazon-button {
-  padding-inline: 10px 6px;
-  gap: 5px;
+  padding-inline: 10px 8px;
+  gap: 4px;
 }
+#resource-books .book-amazon-button .book-amazon-mark { width: 20px; height: 20px; }
+#resource-books .book-amazon-button .book-amazon-arrow { width: 36px; height: 36px; }
 @media (max-width: 350px) {
   #resource-books .book-purchase-actions { gap: 5px; margin-inline: -6px; }
   #resource-books .book-purchase-actions .section-link { gap: 3px; }
