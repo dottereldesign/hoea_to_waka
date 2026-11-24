@@ -39,8 +39,3 @@ html[data-palette] .solid-subpage-hero:is([data-hero-palette="workshops"],[data-
 html[data-palette] .solid-subpage-hero:is([data-hero-palette="workshops"],[data-hero-palette="coaching"],[data-hero-palette="support"]) :focus-visible {
   outline-color: var(--brand-logo-black) !important;
 }
-
-html[data-palette] main.site-main > .solid-subpage-hero[data-hero-palette="resources"] {
-  --coaching-surface: #354638;
-  background: #354638 !important;
-}
