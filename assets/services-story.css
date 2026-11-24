@@ -14,6 +14,7 @@ html[data-palette] #flexible-approach .ds-kicker {
 
 html[data-palette] #flexible-approach {
   margin-inline: 8px;
+  padding-bottom: 0;
   border-radius: 30px;
 }
 html[data-palette] #flexible-approach .ds-landscape { border-radius: 20px; }
@@ -39,7 +40,11 @@ html[data-palette] #flexible-approach .ds-landscape { border-radius: 20px; }
 #flexible-approach .ds-prose {grid-area:copy;align-self:start;margin:0;max-width:74ch;}
 #flexible-approach .ds-prose p {margin:0 0 12px;}
 #flexible-approach .section-link {margin-top:4px;}
-#flexible-approach .workshop-art {grid-area:art;width:100%;justify-self:center;}
+#flexible-approach .workshop-art {grid-area:art;width:100%;justify-self:center;align-self:end;background:transparent;border-radius:0;}
+
+@media(min-width:701px) {
+  #flexible-approach .ds-prose {padding-bottom:var(--section-space);}
+}
 
 @media(max-width:700px) {
   #flexible-approach {padding-inline:20px;}
