@@ -35,3 +35,8 @@ html[data-palette] .solid-subpage-hero[data-hero-palette="services"] :is(h1,.ds-
 html[data-palette] .solid-subpage-hero[data-hero-palette="services"] :focus-visible {
   outline-color: var(--brand-logo-black) !important;
 }
+
+html[data-palette] main.site-main > .solid-subpage-hero[data-hero-palette="resources"] {
+  --coaching-surface: #354638;
+  background: #354638 !important;
+}
