@@ -1,5 +1,4 @@
-(()=>{
- const root=document.querySelector('#resource-play');if(!root)return;
+export function setupGame(root) {
  const C=window.MaoriWordleCore,W=window.MaoriWordleWords,start=root.querySelector('[data-game-start]');
  if(!C||!W){start.querySelector('span').textContent='Reload to play';return;}
  const $=s=>root.querySelector(s),storageKey='hoea-maori-wordle-v1',intro=$('[data-wordle-intro]'),game=$('[data-wordle-game]'),input=$('#mw-guess'),board=$('[data-wordle-board]'),keyboard=$('[data-wordle-keyboard]'),form=$('[data-wordle-form]'),message=$('[data-wordle-message]'),result=$('[data-wordle-result]');
@@ -67,5 +66,4 @@
  render();
  start.addEventListener('click',()=>{save();intro.hidden=true;game.hidden=false;root.classList.add('is-playing');render();say('');if(finished())$('[data-wordle-next]').focus({preventScroll:true});else input.focus({preventScroll:true});});
  $('[data-wordle-next]').addEventListener('click',()=>{state=C.next(state,W.answers);input.value='';save();render();say('A new word is ready.');input.focus({preventScroll:true});});
- $('[data-wordle-close]').addEventListener('click',()=>{game.hidden=true;intro.hidden=false;root.classList.remove('is-playing');start.querySelector('span').textContent='Start Game';start.focus({preventScroll:true});});
-})();
+}

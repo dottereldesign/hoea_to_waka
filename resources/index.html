@@ -102,10 +102,6 @@
     <script src="../assets/brand-door.js?v=2d1f4d0d87c9" defer></script>
     <link rel="stylesheet" href="../assets/footer-credit.css?v=bit-clever-credit">
     <link rel="stylesheet" media="(max-width: 1024px)" href="../assets/responsive-layout.css">
-<link rel="stylesheet" href="../assets/resource-game.css?v=e6bd3c5019">
-<script src="../assets/maori-wordle-core.js?v=1" defer></script>
-<script src="../assets/maori-wordle-words.js?v=1" defer></script>
-<script src="../assets/resource-game.js?v=e97b8b6543" defer></script>
     <link rel="stylesheet" href="../assets/solid-subpage-headers.css?v=7480c1a97c">
 <link rel="stylesheet" href="../assets/spacing-tokens.css?v=1917599e9d">
 <link rel="stylesheet" href="../assets/home-book-notice.css?v=ae3aa49a5fac">
@@ -166,26 +162,7 @@
 
       <section class="music-section" id="resource-videos" aria-labelledby="resource-videos-title"><div class="music-inner"><header class="music-heading"><p class="ds-kicker">Listen and learn</p><h2 id="resource-videos-title">Carry the ideas through music</h2><p>Revisit the model, learn the actions, and bring the language into everyday practice.</p></header><div class="music-variations" role="group" aria-label="Compare music player layouts"><span>Explore layouts</span><button aria-pressed="true" data-music-layout="1">01</button><button aria-pressed="false" data-music-layout="2">02</button><button aria-pressed="false" data-music-layout="3">03</button><button aria-pressed="false" data-music-layout="4">04</button><button aria-pressed="false" data-music-layout="5">05</button><small data-music-layout-name>Album &amp; playlist</small></div><div data-music-player data-layout="1"></div><noscript><p><a href="../assets/audio/hoea-to-waka-waiata-a-ringa.mp3">Listen to Hoea tō Waka</a> · <a href="../assets/audio/in-this-together.mp3">Listen to In This Together</a></p></noscript></div></section>
 
-      <section id="resource-play" class="resource-play" aria-labelledby="resource-play-title">
- <header class="resource-play__heading"><p class="resource-play__eyebrow">Play &amp; practise</p><h2 id="resource-play-title">Strength in Te Reo</h2></header>
- <div class="resource-play__screen">
-  <img class="resource-play__art" src="../assets/resource-game-art.svg" alt="" width="1200" height="580" loading="lazy" aria-hidden="true">
-  <div class="resource-play__content" data-wordle-intro><p>Five tiles. Six guesses.</p>
-   <button class="resource-play__start" type="button" data-game-start><svg aria-hidden="true" viewBox="0 0 20 20" width="18" height="18"><path d="M6 3L16 10L6 17Z" fill="currentColor"/></svg><span>Start Game</span></button>
-  </div>
-  <div class="mw-game" data-wordle-game hidden>
-   <div class="mw-top"><p class="mw-progress" data-wordle-progress></p><div class="mw-actions"><button type="button" class="mw-info" data-wordle-info aria-label="How to play" aria-haspopup="dialog">i</button><button type="button" class="mw-text-button" data-wordle-close>Close game</button></div></div><div class="mw-layout"><div class="mw-puzzle">
-   <div class="mw-legend" aria-label="Tile meanings"><span><i data-state="correct" aria-hidden="true">✓</i> Right place</span><span><i data-state="present" aria-hidden="true">↔</i> Elsewhere</span><span><i data-state="absent" aria-hidden="true">–</i> Not in word</span></div>
-   <div class="mw-board" role="group" aria-label="Your six guesses" data-wordle-board></div>
-   </div><div class="mw-controls"><form class="mw-entry" data-wordle-form><div><input id="mw-guess" name="guess" type="text" inputmode="text" autocomplete="off" autocapitalize="characters" spellcheck="false" aria-label="Your five-letter guess" maxlength="10"><button type="submit">Guess</button></div></form>
-   <p class="mw-message" data-wordle-message role="status" aria-live="polite" aria-atomic="true"></p>
-   <div class="mw-keyboard" role="group" aria-label="Māori letter keyboard" data-wordle-keyboard></div>
-   <div class="mw-result" data-wordle-result hidden><p data-wordle-result-text></p><button type="button" class="resource-play__start" data-wordle-next>Next word</button></div>
-   </div></div><dialog class="mw-help" aria-labelledby="mw-help-title"><div class="mw-help-top"><h3 id="mw-help-title">How to play</h3><button type="button" class="mw-text-button" data-wordle-help-close aria-label="Close instructions">Close</button></div><p>Guess the five-letter word in six tries. Each written letter gets a tile: <strong>ng</strong> and <strong>wh</strong> each use two tiles. A vowel with a macron uses one tile and differs from its short vowel: <strong>a ≠ ā</strong>.</p><p>Repeated letters are marked only as many times as they occur in the answer. Guesses must be in this game’s word list; it does not include every Māori word.</p><p>Your progress stays in this browser when storage is available. The word order is shuffled, and a word won’t repeat until you finish the set.</p><a href="https://word-lists.learn.maori.nz/all.php" target="_blank" rel="noopener noreferrer">Vocabulary source: Māori Word Lists ↗</a></dialog>
-  </div>
- </div>
- <noscript><p class="resource-play__fallback">Enable JavaScript to play Strength in Te Reo.</p></noscript>
-</section>
+
 
 
 
@@ -250,5 +227,6 @@
     <script src="../assets/site-interactions.js?v=394230c6ae" defer=""></script>
 
 
+<script type="module" src="../assets/footer-game.js"></script>
 </body>
 </html>
