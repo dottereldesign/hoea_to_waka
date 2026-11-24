@@ -7,8 +7,7 @@ html[data-palette] #workshop-learning h2{font:600 clamp(28px,3.2vw,46px)/1.08 va
 html[data-palette] #workshop-learning p{font:400 17px/1.65 var(--font-body,Arial)!important;color:#FFFFFF;margin:0 0 var(--space-fluid-16);max-width:60ch;}
 html[data-palette] #workshop-learning p:last-child{margin-bottom:0;}
 .workshop-learning__contact{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:var(--space-fluid-28);border-top:1px solid #E3E1DD;padding-top:var(--space-fluid-32);}
-.workshop-learning__contact>a{display:inline-flex;align-items:center;justify-content:space-between;gap:var(--space-fluid-28);flex-shrink:0;background:transparent;color:#FFFFFF;border:1px solid #E3E1DD;border-radius:999px;padding:var(--space-fluid-14) var(--space-fluid-22);font:600 15px/1.4 var(--font-body,Arial);text-decoration:none;transition:background-color .2s ease;}
-.workshop-learning__contact>a:hover{background:#6B7178;color:#FFFFFF;}
+.workshop-learning__contact > .section-link { flex-shrink: 0; }
 html[data-palette] #workshop-learning .workshop-learning__contact p{font-size:14px!important;max-width:53ch;}
 html[data-palette] #workshop-learning a:focus-visible{outline:3px solid #FFFFFF!important;outline-offset:4px!important;}
 @media(max-width:760px){
@@ -18,4 +17,3 @@ html[data-palette] #workshop-learning a:focus-visible{outline:3px solid #FFFFFF!
 .workshop-learning__contact{flex-direction:column;align-items:flex-start;gap:var(--space-fluid-16);}
 html[data-palette] #workshop-learning p{font-size:16px!important;}
 }
-@media(prefers-reduced-motion:reduce){.workshop-learning__contact>a{transition:none;}}
