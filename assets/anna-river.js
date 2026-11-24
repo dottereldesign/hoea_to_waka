@@ -1,7 +1,7 @@
-import {mountWakaStudies,paddlePose,strokes} from './anna-waka-studies.js';
+import {mountWakaStudies,paddlePose,glideSeconds} from './anna-waka-studies.js';
 /* A measured, scroll-led river. Geometry is cached; idle frames do no JS work. */
 (() => {
-  window.createAnnaRiver=(root,items,run)=>{
+  window.createAnnaRiver=(root,items)=>{
     const ns='http://www.w3.org/2000/svg',pin=root.querySelector('.anna-pin');
     const svg=document.createElementNS(ns,'svg');
     svg.classList.add('anna-river');svg.setAttribute('aria-hidden','true');svg.setAttribute('focusable','false');
@@ -43,25 +43,7 @@ import {mountWakaStudies,paddlePose,strokes} from './anna-waka-studies.js';
     root.prepend(ocean);
     const boat=svg.querySelector('.river-kayak'),paddle=svg.querySelector('.river-paddle');
     const blades=[...svg.querySelectorAll('[data-paddle-blade]')],splashes=[...svg.querySelectorAll('[data-paddle-splash]')];
-    let paddlePhase=0,paddleActivity=0,direction=1,strokeIndex=0,previewTime=0;
-    const picker=document.querySelector('[data-paddle-picker]');
-    function updatePicker(){
-      picker.querySelector('strong').textContent=strokes[strokeIndex].name;
-      picker.querySelector('[data-count]').textContent=String(strokeIndex+1).padStart(2,'0')+' / 10';
-    }
-    if(picker){
-      updatePicker();
-      picker.addEventListener('click',event=>{
-        const button=event.target.closest('[data-step]');
-        if(!button)return;
-        strokeIndex=(strokeIndex+Number(button.dataset.step)+strokes.length)%strokes.length;
-        paddlePhase=0;
-        previewTime=reduced?0:strokes[strokeIndex].seconds*2;
-        updatePicker();
-        run();
-      });
-      new IntersectionObserver(([entry])=>{picker.hidden=!entry.isIntersecting;if(picker.hidden)previewTime=0;}).observe(pin);
-    }
+    let paddlePhase=0,paddleActivity=0,direction=1;
     // The canoe artwork stays editable independently of its two rowing paddles.
     svg.dataset.wakaDesign='reference-canoe';
     blades.forEach((blade,i)=>{blade.dataset.mirror=i?1:-1;});
@@ -71,7 +53,7 @@ import {mountWakaStudies,paddlePose,strokes} from './anna-waka-studies.js';
     const launch=72;
     let distance=launch,velocity=0,target=launch,width=0,height=0,mobile=false;
     const reached=items.map(()=>false);
-    mountWakaStudies(root,svg,()=>{paddlePose(blades,splashes,paddlePhase,paddleActivity,strokes[strokeIndex],direction);});
+    mountWakaStudies(root,svg,()=>{paddlePose(blades,splashes,paddlePhase,paddleActivity,direction);});
     // Cubic interpolation keeps both pencil banks continuous through every bend.
     const curve=points=>points.map((p,i)=>{
       if(!i)return `M${f(p[0])} ${f(p[1])}`;
@@ -215,12 +197,11 @@ import {mountWakaStudies,paddlePose,strokes} from './anna-waka-studies.js';
       distance=clamp(distance,0,length);
       if(Math.abs(distance-target)<.015&&Math.abs(velocity)<.1){distance=target;velocity=0;}
       // A timed left/right cadence avoids frantic strokes during fast scrolls.
-      previewTime=Math.max(0,previewTime-dt);
-      const rowing=previewTime>0?1:clamp(Math.abs(velocity)/70);
+      const rowing=clamp(Math.abs(velocity)/70);
       if(Math.abs(velocity)>4)direction+=(Math.sign(velocity)-direction)*(1-Math.exp(-dt*12));
       paddleActivity+=(rowing-paddleActivity)*(1-Math.exp(-dt*7));
       if(paddleActivity<.002&&rowing===0)paddleActivity=0;
-      paddlePhase=(paddlePhase+dt*paddleActivity/strokes[strokeIndex].seconds)%1;
+      paddlePhase=(paddlePhase+dt*paddleActivity/glideSeconds)%1;
       const tangent=-Math.atan(pointAt(distance).slope)*180/Math.PI;
       [angle,angularVelocity]=critical(angle,angularVelocity,tangent,passage?26:17,dt);
       if(Math.abs(angle-tangent)<.005&&Math.abs(angularVelocity)<.02){angle=tangent;angularVelocity=0;}
@@ -234,7 +215,7 @@ import {mountWakaStudies,paddlePose,strokes} from './anna-waka-studies.js';
       boat.removeAttribute('visibility');
       // A submerged power stroke followed by a feathered, lifted recovery.
       // The stroke rate stays calm; acceleration changes its strength, not its cadence.
-      paddlePose(blades,splashes,paddlePhase,reduced?0:paddleActivity,strokes[strokeIndex],direction);
+      paddlePose(blades,splashes,paddlePhase,reduced?0:paddleActivity,direction);
       paddle.dataset.phase=String(f(paddlePhase));
 
       svg.style.setProperty('--river-speed',f(speed));svg.classList.toggle('river-is-moving',speed>.015);
