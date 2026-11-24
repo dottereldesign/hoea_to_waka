@@ -24,7 +24,7 @@
   transform:translateX(-50%);
   width:auto;
   height:calc(100% + var(--portrait-overlap));
-  aspect-ratio:590 / 1190;
+  aspect-ratio:590 / 924;
   max-width:none;
   pointer-events:none;
 }
@@ -43,7 +43,7 @@
 @media(max-width:700px) {
   .home-resources {
     --portrait-overlap:32px;
-    grid-template-columns:44% minmax(0,1fr);
+    grid-template-columns:46% minmax(0,1fr);
     grid-template-rows:auto auto 1fr auto;
     gap:0 12px;
     margin-bottom:100px;
@@ -55,8 +55,7 @@
   .home-resources::before {
     content:"";
     grid-area:3 / 1 / 5 / -1;
-    align-self:end;
-    height:min(100%, calc(88.75cqw - var(--portrait-overlap)));
+    align-self:stretch;
     background:#e8e0ff;
     border-radius:24px;
     z-index:-1;
@@ -76,11 +75,13 @@
   .home-resources #river-within {
     grid-area:3 / 1 / 5 / 2;
     width:100%;
-    aspect-ratio:590 / 1190;
+    aspect-ratio:590 / 924;
     margin-top:calc(-1 * var(--portrait-overlap));
-    align-self:end;
+    align-self:stretch;
+    overflow:hidden;
+    border-bottom-left-radius:24px;
   }
-  .home-resources #river-within object {inset:0;width:100%;height:100%;transform:none;}
+  .home-resources #river-within object {height:100%;}
   .home-resources .home-resources__copy>p:not(.home-resources__eyebrow) {
     grid-area:3 / 2;
     align-self:end;
