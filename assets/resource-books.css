@@ -12,3 +12,29 @@ html[data-palette] #resource-books .book-amazon-button:active{background:#f0bd00
 html[data-palette] #resource-books .book-amazon-button:focus-visible{outline:3px solid #0d4687;outline-offset:4px;box-shadow:0 0 0 7px #fff}
 @media(max-width:1279px){#resource-books .ds-book-catalogue article{grid-template-columns:minmax(0,1fr);gap:var(--space-fluid-28)}#resource-books .ds-book-catalogue img{width:auto;height:400px;max-width:100%;justify-self:center;margin:0}#resource-books .ds-book-catalogue article>div{grid-column:auto}}
 @media(max-width:760px){#resource-books .ds-book-catalogue{grid-template-columns:minmax(0,1fr);gap:8px}#resource-books .ds-book-catalogue article{padding:var(--space-fluid-28) 0;gap:var(--space-fluid-28)}#resource-books .ds-book-catalogue img{width:min(100%,320px);height:auto}#resource-books .book-purchase-actions{gap:var(--space-fluid-12)}}
+
+html[data-palette] #resource-books .book-amazon-button {
+  padding: 6px 6px 6px var(--space-fluid-20);
+}
+.book-amazon-arrow {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 42px;
+  height: 42px;
+  overflow: hidden;
+  border-radius: 50%;
+  background: var(--brand-logo-black);
+  color: #ffd814;
+}
+.book-amazon-arrow svg { width: 20px; height: 20px; }
+@media (prefers-reduced-motion: no-preference) {
+  .book-amazon-button:is(:hover, :focus-visible) .book-amazon-arrow svg {
+    animation: amazon-arrow-through 420ms ease-in-out;
+  }
+  @keyframes amazon-arrow-through {
+    0%, 100% { transform: translate(0, 0); }
+    49.99% { transform: translate(24px, -24px); }
+    50% { transform: translate(-24px, 24px); }
+  }
+}
