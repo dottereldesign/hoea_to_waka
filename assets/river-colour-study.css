@@ -10,3 +10,19 @@
 @media (max-width: 600px) {
   #river-within { padding-bottom: 92px; }
 }
+
+.pencil-study {
+  margin:0;
+  padding:clamp(32px, 7vw, 96px) 20px;
+  overflow:hidden;
+  background:#e8e0ff;
+}
+.pencil-study .resource-artwork {
+  display:block;
+  width:min(100%, 700px);
+  height:auto;
+  margin:auto;
+  overflow:visible;
+}
+.pencil-study .resource-art-scene {transform-box:view-box;transform-origin:35% 45%;transform:rotate(-12deg);}
+html.js .pencil-study #resource-trail path {animation-play-state:paused;}

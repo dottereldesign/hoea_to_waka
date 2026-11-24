@@ -15,7 +15,8 @@ const riverPalettes = [
 
 const riverStudy = document.getElementById('river-within');
 const artwork = riverStudy.querySelector('object');
-const controls = riverStudy.querySelector('figcaption');
+const resourceSection = riverStudy.closest('.home-resources');
+const controls = (resourceSection || riverStudy).querySelector('.variation-picker');
 let paletteIndex = 0;
 
 function paintRiverLandscape() {
@@ -29,7 +30,7 @@ function paintRiverLandscape() {
   const hills = svg.querySelectorAll('#hills path');
   [ridge, slope, near, shadow, sky, slope, shadow, meadow, near, deep, ridge]
     .forEach((colour, i) => hills[i].setAttribute('fill', colour));
-  riverStudy.style.backgroundColor = backdrop;
+  if (!resourceSection) riverStudy.style.backgroundColor = backdrop;
   controls.querySelector('strong').textContent = name;
   controls.querySelector('[data-count]').textContent = String(paletteIndex + 1).padStart(2, '0') + ' / 10';
   controls.hidden = false;
@@ -43,3 +44,4 @@ controls.addEventListener('click', event => {
 });
 artwork.addEventListener('load', paintRiverLandscape);
 paintRiverLandscape();
+

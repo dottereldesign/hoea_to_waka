@@ -1,6 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="100 205 740 1340" width="740" height="1340" role="img" aria-labelledby="title desc">
   <title id="title">River within</title>
   <desc id="desc">A bowed profile holds a sun and layers of rolling hills. A blue river winds through the hills and widens into the foreground.</desc>
+  <view id="edge-to-edge" viewBox="174 275 590 1190"/>
   <defs>
     <path id="portrait" d="M300 329 C336 262 435 255 473 322 C496 325 513 347 512 374 C531 408 516 444 475 456 C505 525 549 516 593 532 C638 547 663 597 680 652 C709 737 727 846 722 949 C718 1027 738 1067 751 1119 C774 1216 768 1289 701 1364 C605 1475 420 1486 280 1439 C234 1424 216 1384 205 1335 C185 1251 186 1140 179 1059 C169 963 177 912 191 868 C212 777 243 685 278 629 C304 585 337 568 370 554 C399 541 406 523 389 504 C374 519 358 532 344 529 C334 527 337 514 326 512 Q319 511 321 504 Q311 505 312 495 Q312 488 305 491 C286 495 299 469 290 453 Q280 443 277 436 C245 418 242 363 300 329Z"/>
     <clipPath id="figure"><use href="#portrait"/></clipPath>

@@ -1,5 +1,5 @@
 (()=>{
- const section=document.querySelector('.home-resources');
+ const section=document.querySelector('.pencil-study');
  const artwork=section?.querySelector('.resource-artwork');if(!artwork)return;
  const reduced=matchMedia('(prefers-reduced-motion:reduce)');
  // One shared playhead preserves the line / first stroke / second stroke order
