@@ -9,7 +9,7 @@
   justify-content:center;
   column-gap:clamp(28px, 5vw, 80px);
   min-height:clamp(425px, 38vw, 540px);
-  margin-top:calc(var(--portrait-overlap) + 36px);
+  margin-top:calc(var(--portrait-overlap) + 8px);
   padding:0 clamp(22px, 4vw, 72px);
 }
 .home-resources #river-within {
@@ -38,6 +38,7 @@
 @media(max-width:700px) {
   .home-resources {
     --portrait-overlap:32px;
+    margin-top:36px;
     grid-template-columns:46% minmax(0,1fr);
     grid-template-rows:auto auto 1fr auto;
     gap:0 12px;
