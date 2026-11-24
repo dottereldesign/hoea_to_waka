@@ -61,3 +61,36 @@ html[data-palette] #resource-books p.book-byline {
   font-size: .95rem !important;
   line-height: 1.45;
 }
+
+#resource-books .book-cover {position:relative;margin:0;min-width:0;justify-self:center;width:fit-content;max-width:100%;}
+#resource-books .book-shop-link {
+  display:inline-flex;align-items:center;gap:.4em;min-height:32px;
+  margin:8px 0 0;padding:0;background:transparent;color:#191919;
+  font:500 .96rem/1.35 var(--font-body);text-decoration:none;
+}
+#resource-books .book-shop-link span:first-child {text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px;}
+#resource-books .book-shop-link:hover span:first-child {text-decoration-thickness:2px;}
+#resource-books .book-shop-link:focus-visible {outline:2px solid currentColor;outline-offset:3px;}
+#resource-books .books-enquiry {margin-top:16px;}
+#resource-books .book-cover .book-shop-link {font-size:.875rem;}
+#resource-books[data-book-actions="02"] .books-enquiry {text-align:center;}
+#resource-books[data-book-actions="03"] .book-shop-link {margin:0 0 8px;font-size:.875rem;}
+#resource-books[data-book-actions="04"] .book-shop-link,
+#resource-books[data-book-actions="08"] .book-shop-link {border-radius:20px;padding:3px 12px;}
+#resource-books[data-book-actions="04"] .book-shop-link {border:1px solid #c8c8c8;}
+#resource-books:is([data-book-actions="04"],[data-book-actions="08"]) .book-shop-link:not(:hover) span:first-child {text-decoration:none;}
+#resource-books[data-book-actions="05"] .book-shop-link {border-top:1px solid #d3d0ca;border-radius:0;padding-top:8px;}
+#resource-books[data-book-actions="05"] .books-enquiry {border-top:1px solid #d3d0ca;padding-top:16px;}
+#resource-books[data-book-actions="06"] .book-shop-link {position:absolute;bottom:10px;right:10px;background:#fff;border-radius:8px;padding:3px 10px;}
+#resource-books[data-book-actions="07"] .book-shop-link span:first-child {text-decoration-style:dotted;}
+#resource-books[data-book-actions="07"] .books-enquiry {text-align:right;}
+#resource-books[data-book-actions="08"] .book-shop-link {background:#f0efed;}
+#resource-books[data-book-actions="09"] .book-shop-link {border-left:2px solid #b9b2bf;border-radius:0;padding-left:10px;}
+#resource-books[data-book-actions="10"] .book-shop-link {margin:2px 0;font-size:.875rem;}
+#resource-books[data-book-actions="10"] .shop-arrow {display:grid;place-items:center;border:1px solid #c8c8c8;border-radius:50%;width:20px;height:20px;}
+@media(min-width:900px) {
+  #resource-books .ds-section-heading:has(.books-enquiry) {display:grid;grid-template-columns:minmax(0,1fr) auto;max-width:none;}
+  #resource-books .ds-section-heading .ds-kicker {justify-self:start;}
+  #resource-books .ds-section-heading .ds-title {grid-column:1;}
+  #resource-books .ds-section-heading .books-enquiry {grid-column:2;grid-row:2;align-self:end;margin:0;}
+}
