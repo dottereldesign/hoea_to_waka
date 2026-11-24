@@ -95,12 +95,25 @@ footer .footer-creator-copy > span {
 /* Creator credit: label to the left of the Bit Clever wordmark. */
 footer .footer-creator-credit{display:flex;flex-direction:row;align-items:center;gap:2px}
 footer .footer-creator-copy{display:block;height:auto;font-size:12px;line-height:1.3}
-footer:is(.site-footer[data-footer-version],.prompt-footer,.site-footer) .footer-creator-credit img{display:block;width:auto;height:36px;max-width:100%;object-fit:contain}
+footer:is(.site-footer[data-footer-version],.prompt-footer,.site-footer) .footer-creator-logo{display:block;flex:none;width:auto;height:36px;max-width:100%}
 
 html[data-palette] footer .footer-creator-credit:is(:hover, :focus-visible) {
   text-decoration: none;
 }
 
-footer .footer-creator-credit:is(:hover, :focus-visible) img {
+footer .footer-creator-credit:is(:hover, :focus-visible) .footer-creator-logo {
   filter: url("footer-credit-lilac.svg#lilac");
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .footer-creator-credit:hover use[href*="#bit-"] {
+    animation: footer-letter-nudge 220ms ease-in-out;
+  }
+
+  .footer-creator-credit:hover use[href$="#bit-i"] { animation-delay: 150ms; }
+  .footer-creator-credit:hover use[href$="#bit-t"] { animation-delay: 300ms; }
+
+  @keyframes footer-letter-nudge {
+    50% { transform: translateY(-9px); }
+  }
 }
