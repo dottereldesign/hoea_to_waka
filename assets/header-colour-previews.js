@@ -15,11 +15,6 @@ const headerColourSets = {
     ['Sea glass','#C0DAD6'], ['Rosewater','#E8BCC5'], ['Honey','#E3BE83'],
     ['Coastal blue','#819EB4'], ['Berry','#804B61'], ['Harbour teal','#23616A'], ['Aubergine','#472B43']
   ],
-  services: [
-    ['Coastal mist','#E8F1F5'], ['Pale fern','#D8E6D8'], ['Lavender grey','#D8CBDD'],
-    ['Sunlit flax','#E9D394'], ['Powder blue','#A9C5CE'], ['Eucalyptus','#93B4A5'],
-    ['Slate blue','#607F9D'], ['Ocean blue','#0C396B'], ['Deep forest','#344A3A'], ['Harbour night','#1A2B3D']
-  ],
   workshops: [
     ['Apricot paper','#FFF0DE'], ['Manuka cream','#F4DCAC'], ['Coral wash','#F9C4AD'],
     ['Soft flax','#CED2A7'], ['Clay pink','#DBA7A0'], ['Sandstone','#D6BA83'],

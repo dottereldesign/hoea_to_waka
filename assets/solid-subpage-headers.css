@@ -21,3 +21,17 @@ html[data-palette] .solid-subpage-hero :focus-visible {
   outline: 2px solid #FFFFFF !important;
   outline-offset: 4px !important;
 }
+
+/* Services overview: Sunlit flax. */
+html[data-palette] main.site-main > .solid-subpage-hero[data-hero-palette="services"] {
+  background: #e9d394 !important;
+  color: var(--brand-logo-black) !important;
+  border-color: currentColor;
+}
+html[data-palette] .solid-subpage-hero[data-hero-palette="services"] :is(h1,.ds-kicker,.ds-lead,.brand-name-text,.pp-breadcrumb,.pp-breadcrumb a,.pp-breadcrumb span) {
+  color: var(--brand-logo-black) !important;
+  border-color: currentColor;
+}
+html[data-palette] .solid-subpage-hero[data-hero-palette="services"] :focus-visible {
+  outline-color: var(--brand-logo-black) !important;
+}
