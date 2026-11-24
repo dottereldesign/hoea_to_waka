@@ -21,13 +21,21 @@
 @media(prefers-reduced-motion:reduce){.js .brand-guidelines #cover [data-hero-outline] .lc-outline{fill-opacity:1!important}}
 
 /* Keep the guide navigation attached to the scrolling announcement until it
-   reaches the viewport edge. The outer slot retains the expanded header height. */
+   reaches the viewport edge. Size the painted header to its navigation shell. */
 html.js[data-palette] body.brand-guidelines > .site-header[data-morph-header] {
   position:sticky;
+  height:auto;
+  min-height:0;
   top:0;
   pointer-events:none;
 }
 html.js[data-palette] body.brand-guidelines > [data-morph-header] .site-header-shell {
-  position:absolute;
+  position:relative;
   top:0 !important;
+}
+
+/* Reserve the released space in document flow so compaction cannot shift the cover. */
+html.js[data-palette] body.brand-guidelines > .site-header.has-compact-logo {margin-bottom:22px;}
+@media(max-width:1099px) {
+  html.js[data-palette] body.brand-guidelines > .site-header.has-compact-logo {margin-bottom:20px;}
 }
