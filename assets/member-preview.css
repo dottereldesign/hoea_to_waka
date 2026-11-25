@@ -1,0 +1,38 @@
+.member-actions {display:inline-flex;align-items:center;gap:.5rem;color:inherit}
+.site-header-actions:has(.member-actions) {align-items:center;gap:clamp(6px,1vw,16px)}
+.member-actions button {
+  display:inline-flex;align-items:center;justify-content:center;gap:.35em;
+  color:inherit;background:transparent;border:1px solid transparent;
+  border-radius:0;box-shadow:none;cursor:pointer;font:inherit;font-size:14px;
+  font-weight:550;line-height:1.2;white-space:nowrap;padding:.5em .25em;
+}
+.member-actions button:hover {text-decoration:underline;text-underline-offset:.22em}
+.member-actions svg,.member-actions .member-price {display:none}
+.member-actions svg {width:16px;height:16px}
+.footer-explore-column .member-actions {margin-top:14px;flex-wrap:wrap}
+.site-menu-utilities .member-actions {margin-block:8px 18px}
+[data-member-style="1"] .member-actions button:last-child {border-bottom-color:currentColor}
+[data-member-style="2"] .member-actions button,
+[data-member-style="6"] .member-actions button {border-color:currentColor;border-radius:2em;padding-inline:.8em}
+[data-member-style="6"] .member-actions button {border-style:dashed}
+[data-member-style="3"] .member-actions button:last-child,
+[data-member-style="5"] .member-actions button:last-child,
+[data-member-style="10"] .member-actions button:last-child {background:#e9e1ff;color:#191919;border-radius:2em;padding-inline:1em}
+[data-member-style="5"] .member-actions button:last-child {background:#191919;color:#fff;border-color:#888}
+[data-member-style="10"] .member-actions button:last-child {background:#dce6c8;border-radius:5px}
+[data-member-style="4"] .member-actions {border:1px solid;border-radius:24px;gap:0;padding:2px}
+[data-member-style="4"] .member-actions button {padding-inline:.7em}
+[data-member-style="4"] .member-actions button+button {border-left-color:currentColor}
+[data-member-style="7"] .member-price {display:inline-block;background:#f9dfbd;color:#33261a;padding:.3em .5em;border-radius:4px;font-size:.78em}
+[data-member-style="8"] .member-actions svg,
+[data-member-style="10"] .member-actions button:last-child svg {display:block}
+[data-member-style="9"] .member-actions {flex-direction:column;align-items:flex-start;gap:0}
+[data-member-style="9"] .member-actions button {padding:3px 5px}
+[data-member-style="9"] .member-actions button:first-child {font-size:12px}
+.member-picker {position:fixed;z-index:90;right:8px;bottom:8px;background:white;color:#191919;border:1px solid #cecac4;border-radius:12px;padding:5px 8px;text-align:center;box-shadow:0 2px 12px #0001}
+.member-picker small {font-size:11px}
+.member-picker div {display:flex;align-items:center;gap:4px}
+.member-picker span {min-width:115px;font-size:13px}
+.member-picker button {border:0;background:transparent;color:inherit;cursor:pointer;font-size:18px;width:34px;height:32px}
+@media(max-width:1100px){.site-header-actions .member-actions {display:none}}
+@media(min-width:1101px){.site-header-actions .member-actions {margin-inline-end:10px}}
