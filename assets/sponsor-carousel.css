@@ -12,9 +12,9 @@
 .sponsor-set {display: flex; flex: none; min-width: 100vw}
 #home-sponsors .sponsor-mark {
   display: grid; place-items: center; flex: 1 0 clamp(164px, 17vw, 272px); height: clamp(86px, 9vw, 132px);
-  cursor: pointer; padding: 20px; border: 0; border-radius: 0;
+  padding: 20px; border: 0; border-radius: 0;
 }
-.sponsor-mark img {width: clamp(122px, 12vw, 190px); height: 58px; object-fit: contain; filter: grayscale(1); transition: filter .24s}
+.sponsor-mark img {width: clamp(122px, 12vw, 190px); height: auto; cursor: pointer; filter: grayscale(1); transition: filter .24s}
 
 @keyframes sponsor-flow {
   from {transform: translate3d(0,0,0)}
@@ -22,8 +22,8 @@
 }
 #home-sponsors[data-away] .sponsor-track {animation-play-state: paused}
 @media (hover:hover) {
-  .sponsor-window:hover .sponsor-track {animation-play-state: paused}
-  .sponsor-mark:hover img {filter: none}
+  .sponsor-track:has(.sponsor-mark img:hover) {animation-play-state: paused}
+  .sponsor-mark img:hover {filter: none}
 }
 @media (prefers-reduced-motion:reduce) {
   .sponsor-track {animation:none}
