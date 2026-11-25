@@ -4,7 +4,7 @@
   const select = picker.querySelector('select');
 
   function applyDesign() {
-    section.dataset.finish = select.value;
+    section.dataset.byline = select.value;
   }
 
   select.addEventListener('change', applyDesign);
