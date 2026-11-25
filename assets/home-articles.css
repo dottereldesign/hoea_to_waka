@@ -23,10 +23,7 @@
 #home-articles .journal-stories article { background: var(--card); padding: 12px; border-radius: 24px; }
 #home-articles .journal-stories article > div { padding-inline: 8px; }
 #home-articles .journal-stories .journal-byline {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 4px 10px;
+  text-align: right;
   margin: 16px 0 0;
   border-top: 1px solid #0003;
   padding-top: 12px;
@@ -36,7 +33,6 @@
 @media (min-width: 760px) {
   .journal-stories { grid-template-columns: repeat(3,minmax(0,1fr)); }
 }
-.journal-author { font-weight: 650; }
 
 .journal-wording:not([hidden]) { display: flex; align-items: center; gap: 12px; margin-top: 20px; }
 .journal-wording output { font-size: 14px; font-variant-numeric: tabular-nums; }
