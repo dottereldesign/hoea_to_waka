@@ -3,15 +3,15 @@ const journalIntro = journalHeading.nextElementSibling;
 const wordingPicker = document.querySelector('.journal-wording');
 const introductions = [
   [journalHeading.textContent, journalIntro.textContent],
-  ['Between workshops', 'Keep practising Hoea tō Waka with a question to take to your team or a reflection to try on your own.'],
-  ['What can you steer today?', 'Anna writes about finding your next move when the things weighing on you are outside your control.'],
-  ['In good company', 'Explore what helps people listen to each other, ask for support and find their feet together.'],
-  ['Small things worth trying', 'A pause before answering. A different question at the team meeting. Start with something small enough to try today.'],
-  ['The waka in everyday life', 'See how the waka metaphor can help you make sense of a hard day, a change of plan or a conversation that matters.'],
-  ['A question to carry', 'Take a question into your week and see what it brings up at work, at home or with your whānau.'],
-  ['When work feels heavy', 'Read about recognising pressure, setting boundaries and making room for the people who support others.'],
-  ['What matters to you?', 'Explore how the things you value can guide an ordinary decision, from where you put your energy to when you ask for help.'],
-  ['Notes from Aotearoa', 'Anna reflects on how people, place and whānau shape the way we understand resilience.']
+  ["How to support someone under pressure", "When a colleague says they’re fine but seems overwhelmed, what do you say next? Anna offers questions that give them room to answer."],
+  ["Practical guides to workplace wellbeing", "Find a check-in for your next team meeting, a way to talk about workload and ideas for winding down after a difficult shift."],
+  ["Understanding your response to stress", "Learn to recognise what pressure looks like for you, from snapping at someone to replaying a conversation long after it ends."],
+  ["How the Hoea tō Waka model works", "Anna uses the example of steering a waka to explain a familiar problem: what can you do when the biggest source of pressure is beyond your control?"],
+  ["For people who look after others", "If you support clients, colleagues or whānau, read about setting limits, asking for backup and recognising when you need a break yourself."],
+  ["Better conversations at work", "Find ways to ask about a missed deadline, hear a colleague out or make it easier for someone to tell you they need help."],
+  ["When work follows you home", "Anna looks at why a hard shift can stay with you and how to give yourself a little space before the rest of your evening begins."],
+  ["Resilience advice from Anna Brown", "Drawing on her background in youth work and counselling, Anna writes about managing stress, making decisions and supporting the people around you."],
+  ["What to do when everything feels urgent", "Read about sorting competing demands, deciding what can wait and asking someone to share the load."]
 ];
 let introductionIndex = 0;
 function changeIntroduction(step) {
