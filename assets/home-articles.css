@@ -6,7 +6,7 @@
   border-radius: 28px;
   --inset: clamp(24px, 8%, 152px);
   --gap: clamp(12px, 2vw, 36px);
-  padding-block: clamp(54px, 7vw, 104px);
+  padding-block: clamp(54px, 7vw, 104px) 0;
 }
 .journal-inner { margin-inline: var(--inset); }
 #home-articles .journal-heading { max-width: 52rem; }
