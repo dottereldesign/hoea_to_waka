@@ -6,5 +6,5 @@
   group.innerHTML = '<button type="button" aria-disabled="true">' + person + 'Login</button><button type="button" aria-disabled="true">Become a member<span class="member-price">$20 lifetime</span></button>';
   document.querySelector('.site-header-actions')?.prepend(group);
   document.querySelector('.site-menu-utilities')?.prepend(group.cloneNode(true));
-  document.querySelector('.footer-explore-column')?.append(group.cloneNode(true));
+  document.querySelector('.footer-more-column')?.prepend(group.cloneNode(true));
 })();

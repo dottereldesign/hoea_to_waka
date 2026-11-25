@@ -9,7 +9,8 @@
 .member-actions button:hover {text-decoration:underline;text-underline-offset:.22em}
 
 .member-actions svg {width:16px;height:16px}
-.footer-explore-column .member-actions {margin-top:14px;flex-wrap:wrap}
+.footer-more-column .member-actions {margin-bottom:14px;flex-wrap:wrap}
+.site-footer .footer-more-column .member-actions .member-price {color:#000 !important}
 .site-menu-utilities .member-actions {margin-block:8px 18px}
 .member-price {display:inline-block;background:#f9dfbd;color:#33261a;padding:.3em .5em;border-radius:4px;font-size:.78em}
 @media(max-width:1100px){.site-header-actions .member-actions {display:none}}
