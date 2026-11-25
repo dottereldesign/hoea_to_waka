@@ -16,3 +16,13 @@
 .member-price {display:inline-block;background:#f9dfbd;color:#33261a;padding:.3em .5em;border-radius:4px;font-size:.78em}
 @media(max-width:1100px){.site-header-actions .member-actions {display:none}}
 @media(min-width:1101px){.site-header-actions .member-actions {margin-inline-end:clamp(24px,2vw,36px)}}
+.footer-more-column .member-actions button:first-child {
+  font-size:15px;
+  font-weight:400;
+  line-height:1.65;
+  padding-inline-start:0;
+}
+.footer-more-column .member-actions svg {width:24px;height:24px}
+@media(max-width:700px){
+  .footer-more-column .member-actions button:first-child {font-size:14px;line-height:1.45}
+}
