@@ -3,15 +3,15 @@ const journalIntro = journalHeading.nextElementSibling;
 const wordingPicker = document.querySelector('.journal-wording');
 const introductions = [
   [journalHeading.textContent, journalIntro.textContent],
-  ["How to support someone under pressure", "When a colleague says they’re fine but seems overwhelmed, what do you say next? Anna offers questions that give them room to answer."],
-  ["Practical guides to workplace wellbeing", "Find a check-in for your next team meeting, a way to talk about workload and ideas for winding down after a difficult shift."],
-  ["Understanding your response to stress", "Learn to recognise what pressure looks like for you, from snapping at someone to replaying a conversation long after it ends."],
-  ["How the Hoea tō Waka model works", "Anna uses the example of steering a waka to explain a familiar problem: what can you do when the biggest source of pressure is beyond your control?"],
-  ["For people who look after others", "If you support clients, colleagues or whānau, read about setting limits, asking for backup and recognising when you need a break yourself."],
-  ["Better conversations at work", "Find ways to ask about a missed deadline, hear a colleague out or make it easier for someone to tell you they need help."],
-  ["When work follows you home", "Anna looks at why a hard shift can stay with you and how to give yourself a little space before the rest of your evening begins."],
-  ["Resilience advice from Anna Brown", "Drawing on her background in youth work and counselling, Anna writes about managing stress, making decisions and supporting the people around you."],
-  ["What to do when everything feels urgent", "Read about sorting competing demands, deciding what can wait and asking someone to share the load."]
+  ["News and articles", "Find news from Hoea tō Waka alongside articles by Anna Brown."],
+  ["From Anna Brown", "Read what Anna’s been writing, with her most recent article first."],
+  ["The journal", "A collection of writing by Anna Brown for Hoea tō Waka."],
+  ["Articles from Hoea tō Waka", "You’ll find everything published here in one place, starting with the newest."],
+  ["Latest from Anna", "Catch up on Anna’s recent writing or choose an earlier piece to read."],
+  ["Articles and updates", "Read Anna Brown’s articles and follow updates from Hoea tō Waka."],
+  ["The article archive", "Browse Anna’s writing by title and see when each piece was published."],
+  ["Anna’s writing", "Explore the full collection of Anna Brown’s articles for Hoea tō Waka."],
+  ["Recent posts", "Start with Anna’s newest post or scroll down to see what else she’s shared."]
 ];
 let introductionIndex = 0;
 function changeIntroduction(step) {
