@@ -1,6 +1,5 @@
 #home-sponsors {
   --paper: #fff;
-  --rule: #d3d3cc;
   margin: clamp(24px, 4vw, 64px) 8px 0;
   padding: clamp(24px, 3vw, 44px) 0 20px;
   color: #191919;
@@ -8,16 +7,6 @@
   border-radius: 24px;
   isolation: isolate;
 }
-#home-sponsors header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-#home-sponsors header {justify-content: space-between; margin: 0 clamp(20px, 5vw, 84px) 18px}
-#home-sponsors h2 {margin: 0; font: inherit; font-size: clamp(18px, 2vw, 26px); font-weight: 600; letter-spacing: -.035em}
-#home-sponsors button {color: inherit; cursor: pointer; font: inherit; background: transparent; box-shadow: none}
-.sponsor-motion {width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--rule)}
-#home-sponsors button:focus-visible {outline: 2px solid #0d4687; outline-offset: -3px}
 .sponsor-window {overflow: clip}
 .sponsor-track {display: flex; width: max-content; animation: sponsor-flow 42s linear infinite}
 .sponsor-set {display: flex; flex: none; min-width: 100vw}
@@ -31,14 +20,14 @@
   from {transform: translate3d(0,0,0)}
   to {transform: translate3d(-50%,0,0)}
 }
-#home-sponsors:is([data-paused],[data-away]) .sponsor-track {animation-play-state: paused}
+#home-sponsors[data-away] .sponsor-track {animation-play-state: paused}
 @media (hover:hover) {
   .sponsor-window:hover .sponsor-track {animation-play-state: paused}
   .sponsor-mark:hover img {filter: none}
 }
 @media (prefers-reduced-motion:reduce) {
   .sponsor-track {animation:none}
-  .sponsor-set[aria-hidden], .sponsor-motion {display:none}
+  .sponsor-set[aria-hidden] {display:none}
   .sponsor-window {overflow-x:auto}
   .sponsor-mark img {transition:none}
 }
