@@ -38,19 +38,20 @@
 @media (min-width: 680px) {
   .journal-stories article { flex-basis: calc((100% - var(--inset) - 2 * var(--gap)) / 2.25); }
 }
-.journal-stories article { min-width: 0; align-self: start; --card: #e9e1ff; }
+.journal-stories article { min-width: 0; display: flex; flex-direction: column; --card: #e9e1ff; }
 .journal-stories article:nth-child(3n + 2) { --card: #e2ece8; }
 .journal-stories article:nth-child(3n) { --card: #ffead6; }
 .journal-placeholder { display: block; width: 100%; aspect-ratio: 16/10; border-radius: 18px; background: #dc363c; }
-.journal-stories article > div { padding-block: 16px; }
+.journal-stories article > div { display: flex; flex: 1; flex-direction: column; padding-block: 16px; }
 #home-articles .journal-stories h3 { font-size: clamp(23px, 2.1vw, 35px); line-height: 1.1; margin: 8px 0; color: inherit; }
 #home-articles .journal-stories p { margin: 0; color: inherit; line-height: 1.5; }
 .journal-stories small { font-size: 13px; font-weight: 600; }
 #home-articles .journal-stories article { background: var(--card); padding: 12px; border-radius: 24px; }
 #home-articles .journal-stories article > div { padding-inline: 8px; }
+#home-articles .journal-stories p:has(+ .journal-byline) { padding-bottom: 16px; }
 #home-articles .journal-stories .journal-byline {
   text-align: right;
-  margin: 16px 0 0;
+  margin: auto 0 0;
   border-top: 1px solid #0003;
   padding-top: 12px;
   font-size: 14px;
