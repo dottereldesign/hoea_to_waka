@@ -59,7 +59,3 @@
 @media (min-width: 1200px) {
   .journal-stories article { flex-basis: calc((100% - var(--inset) - 3 * var(--gap)) / 3.25); }
 }
-
-.journal-wording:not([hidden]) { display: flex; align-items: center; gap: 12px; margin-top: 20px; }
-.journal-wording output { font-size: 14px; font-variant-numeric: tabular-nums; }
-.journal-wording button { width: 36px; height: 36px; border: 1px solid #aaa; border-radius: 50%; background: transparent; color: inherit; cursor: pointer; }
