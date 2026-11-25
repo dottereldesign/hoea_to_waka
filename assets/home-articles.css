@@ -11,16 +11,11 @@
 #home-articles .journal-heading { max-width: 52rem; }
 #home-articles .journal-heading h2 { margin: 18px 0 12px; color: inherit; }
 #home-articles .journal-heading > p:last-child { margin: 0; color: inherit; }
-.journal-picker { display: flex; align-items: center; gap: 5px; margin-top: 24px; }
-.journal-picker[hidden] { display: none; }
-.journal-picker :is(select,button) { min-height: 36px; border: 1px solid #aaa; border-radius: 20px; background: white; color: #191919; cursor: pointer; font: inherit; font-size: 14px; }
-.journal-picker button { width: 36px; flex: none; }
-.journal-picker select { padding-inline: 10px; max-width: calc(100% - 82px); }
 .journal-stories { display: grid; gap: clamp(16px, 2.4vw, 36px); margin-top: 32px; }
 .journal-stories article { min-width: 0; align-self: start; --card: #e9e1ff; }
 .journal-stories article:nth-child(2) { --card: #e2ece8; }
 .journal-stories article:nth-child(3) { --card: #ffead6; }
-.journal-stories img { display: block; width: 100%; height: auto; aspect-ratio: 16/10; object-fit: cover; border-radius: 18px; }
+.journal-placeholder { display: block; width: 100%; aspect-ratio: 16/10; border-radius: 18px; background: #dc363c; }
 .journal-stories article > div { padding-block: 16px; }
 #home-articles .journal-stories h3 { font-size: clamp(23px, 2.1vw, 35px); line-height: 1.1; margin: 8px 0; color: inherit; }
 #home-articles .journal-stories p { margin: 0; color: inherit; line-height: 1.5; }
@@ -28,31 +23,17 @@
 #home-articles .journal-stories article { background: var(--card); padding: 12px; border-radius: 24px; }
 #home-articles .journal-stories article > div { padding-inline: 8px; }
 #home-articles .journal-stories .journal-byline {
-  margin-block: 0 12px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 10px;
+  margin: 16px 0 0;
+  border-top: 1px solid #0003;
+  padding-top: 12px;
   font-size: 14px;
   color: #4b4849;
 }
 @media (min-width: 760px) {
   .journal-stories { grid-template-columns: repeat(3,minmax(0,1fr)); }
 }
-
-.journal-stories article { position: relative; }
-.journal-stories article > div { display: flex; flex-direction: column; align-items: flex-start; }
-.journal-byline { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; }
 .journal-author { font-weight: 650; }
-[data-byline="dot"] .journal-age::before { content: "·"; margin-right: 10px; }
-[data-byline="stack"] .journal-byline { flex-direction: column; align-items: flex-start; gap: 0; }
-[data-byline="stack"] .journal-author::before { content: "By "; }
-[data-byline="initial"] .journal-byline::before { content: "AB"; border-radius: 50%; background: #281a2c; color: white; padding: 6px; font-size: 11px; }
-#home-articles:is([data-byline="split"],[data-byline="signature"],[data-byline="stamp"]) .journal-byline { order: 1; margin: 16px 0 0; }
-[data-byline="split"] .journal-byline { width: 100%; justify-content: space-between; border-top: 1px solid #0003; padding-top: 12px; }
-[data-byline="tabs"] .journal-byline span { border: 1px solid #0003; padding: 2px 9px; border-radius: 99px; }
-[data-byline="tabs"] .journal-author { background: #ffffff80; }
-#home-articles[data-byline="photo"] .journal-byline { position: absolute; top: 22px; left: 22px; right: 22px; width: fit-content; padding: 4px 10px; border-radius: 8px; background: #191919; color: white; }
-[data-byline="rail"] .journal-byline { border-left: 3px solid #67616c; padding-left: 10px; flex-direction: column; align-items: flex-start; gap: 0; }
-[data-byline="signature"] .journal-author { font: italic 20px Georgia, serif; }
-[data-byline="signature"] .journal-author::before { content: "— "; }
-[data-byline="date"] .journal-byline { order: -1; }
-[data-byline="date"] .journal-age { order: -1; font-weight: 650; text-transform: uppercase; letter-spacing: .05em; font-size: 12px; }
-[data-byline="date"] .journal-author { padding-left: 10px; border-left: 1px solid #0004; font-weight: 400; }
-[data-byline="stamp"] .journal-byline { align-self: flex-end; border: 1px dashed currentColor; border-radius: 6px; padding: 4px 12px; flex-direction: column; gap: 0; transform: rotate(-2deg); }
