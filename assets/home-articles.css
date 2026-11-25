@@ -37,3 +37,7 @@
   .journal-stories { grid-template-columns: repeat(3,minmax(0,1fr)); }
 }
 .journal-author { font-weight: 650; }
+
+.journal-wording:not([hidden]) { display: flex; align-items: center; gap: 12px; margin-top: 20px; }
+.journal-wording output { font-size: 14px; font-variant-numeric: tabular-nums; }
+.journal-wording button { width: 36px; height: 36px; border: 1px solid #aaa; border-radius: 50%; background: transparent; color: inherit; cursor: pointer; }
