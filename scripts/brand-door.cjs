@@ -4,7 +4,7 @@ const fs = require('node:fs');
 const Axe = require('@axe-core/playwright').default;
 
 (async () => {
-  const server = require('./preview.cjs')(8894);
+  const {server,origin:releaseOrigin}=await require('./test-site.cjs')();
   const browser = await chromium.launch({channel:'chrome'});
   fs.mkdirSync('tmp/door-render', {recursive:true});
   try {
@@ -13,7 +13,7 @@ const Axe = require('@axe-core/playwright').default;
     const errors = []; page.on('pageerror', error => errors.push(error.message));
     for (const width of process.argv.includes('--runtime-only') ? [] : [1440,760,390,320]) for (const theme of ['light','dark']) {
       await page.setViewportSize({width,height:1000});
-      await page.goto('http://127.0.0.1:8894/about/brand-guidelines/');
+      await page.goto(releaseOrigin+'/about/brand-guidelines/');
       await page.evaluate(theme => localStorage.setItem('hoea-theme',theme),theme); await page.reload();
       const study = page.locator('#brand-door-study');
       await study.scrollIntoViewIfNeeded();
@@ -38,7 +38,7 @@ const Axe = require('@axe-core/playwright').default;
       console.log('PASS eight variants, moon/ocean artwork, placement, responsive fit, reduced motion and accessibility',width,theme);
     }
     await page.setViewportSize({width:1000,height:1000});
-    if (process.argv.includes('--runtime-only')) await page.goto('http://127.0.0.1:8894/about/brand-guidelines/');
+    if (process.argv.includes('--runtime-only')) await page.goto(releaseOrigin+'/about/brand-guidelines/');
     await page.locator('[data-door-variant=reference]').click();
     const geometry = await page.locator('#brand-door-study svg').evaluate(svg => {
       const box = selector => {const b=svg.querySelector(selector).getBBox();return {x:b.x,y:b.y,width:b.width,height:b.height};};
@@ -57,7 +57,7 @@ const Axe = require('@axe-core/playwright').default;
 
     const motion = await browser.newPage({viewport:{width:1000,height:1000}});
     await motion.clock.install({time:new Date('2026-10-25T00:00:00Z')});
-    await motion.goto('http://127.0.0.1:8894/about/brand-guidelines/');
+    await motion.goto(releaseOrigin+'/about/brand-guidelines/');
     await motion.clock.pauseAt(new Date('2026-10-25T00:00:05Z'));
     await motion.addStyleTag({content:'.brand-door-study__stage{width:720px!important;max-width:none!important}.site-header,.brand-jump,.header-motion-lab{visibility:hidden!important}'});
     const svg = motion.locator('#brand-door-study svg');
@@ -91,10 +91,10 @@ const Axe = require('@axe-core/playwright').default;
     console.log('PASS sampled six-second opening/holding/closing loop, Pause/Replay, offscreen/hidden-tab suspension and keyboard variants');
     await motion.close();
     const plain = await browser.newPage({javaScriptEnabled:false});
-    await plain.goto('http://127.0.0.1:8894/about/brand-guidelines/');
+    await plain.goto(releaseOrigin+'/about/brand-guidelines/');
     assert(await plain.locator('#brand-door-study svg').isVisible());
     assert(await plain.locator('.brand-door-study__controls').evaluate(e => e.hidden));
-    await plain.goto('http://127.0.0.1:8894/');
+    await plain.goto(releaseOrigin+'/');
     assert.equal(await plain.locator('#brand-door-study').count(),0);
     await plain.close();
     for (const reducedMotion of ['reduce','no-preference']) {
@@ -102,7 +102,7 @@ const Axe = require('@axe-core/playwright').default;
       let release;
       const held = new Promise(resolve => release=resolve);
       await delayed.route('**/brand-door.js?*',async route => {await held;await route.continue();});
-      await delayed.goto('http://127.0.0.1:8894/about/brand-guidelines/',{waitUntil:'commit'});
+      await delayed.goto(releaseOrigin+'/about/brand-guidelines/',{waitUntil:'commit'});
       await delayed.locator('#brand-door-study').waitFor();
       await delayed.evaluate(() => document.fonts.ready);
       const height = () => delayed.locator('#brand-door-study').evaluate(e => e.getBoundingClientRect().height);

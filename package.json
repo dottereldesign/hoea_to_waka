@@ -2,7 +2,7 @@
   "name": "hoea-to-waka",
   "private": true,
   "scripts": {
-    "build": "node scripts/build.mjs",
+    "build": "node scripts/build.mjs && node scripts/stage-site.mjs",
     "preview": "node scripts/preview.cjs",
     "test": "node scripts/verify-basic.cjs",
     "test:first-paint": "node scripts/verify-first-paint.cjs",
@@ -57,7 +57,12 @@
     "test:header-flash": "node scripts/header-flash-regression.test.cjs",
     "test:header-reversal": "node scripts/header-rapid-reversal.test.cjs",
     "test:header-landing": "node scripts/header-alert-landing.test.cjs",
-    "profile:header": "node scripts/header-performance-comparison.cjs"
+    "profile:header": "node scripts/header-performance-comparison.cjs",
+    "generate": "node scripts/build.mjs",
+    "prepreview": "npm run stage",
+    "pretest": "npm run stage",
+    "stage": "node scripts/stage-site.mjs",
+    "test:release": "npm run stage && python scripts/verify-release.py && node scripts/verify-basic.cjs && node scripts/hero-illustrations.cjs && node scripts/navigation.cjs && node scripts/home-faq.cjs && node scripts/model-benefits.cjs && node scripts/resources-layout.cjs && node scripts/resource-videos.cjs && node scripts/header-rapid-reversal.test.cjs && node scripts/maori-wordle-browser.test.cjs"
   },
   "dependencies": {
     "motion": "^12.0.0"
@@ -71,6 +76,7 @@
     "fontkit": "^2.0.4",
     "lighthouse": "^13.4.1",
     "linkedom": "0.18.12",
+    "node": "24.22.3",
     "pdfkit": "^0.20.2",
     "playwright": "^1.51.0",
     "qrcode": "^1.5.4",
@@ -78,5 +84,8 @@
     "simple-icons": "^16.35.0",
     "svgpath": "^2.6.0",
     "wawoff2": "^2.0.1"
+  },
+  "engines": {
+    "node": ">=22.12.0"
   }
 }

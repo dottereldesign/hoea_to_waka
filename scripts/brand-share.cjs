@@ -1,10 +1,10 @@
 const{chromium}=require('playwright'),assert=require('assert/strict'),fs=require('fs'),sharp=require('sharp'),Axe=require('@axe-core/playwright').default;
 const URL_VALUE='https://dottereldesign.github.io/hoea_to_waka/about/brand-guidelines';
-(async()=>{const server=require('./preview.cjs')(8921),browser=await chromium.launch({channel:'chrome'});try{fs.mkdirSync('tmp/brand-share',{recursive:true});const errors=[];
+(async()=>{const {server,origin:releaseOrigin}=await require('./test-site.cjs')(),browser=await chromium.launch({channel:'chrome'});try{fs.mkdirSync('tmp/brand-share',{recursive:true});const errors=[];
 for(const[width,height]of[[1440,1000],[1100,900],[390,844],[320,844],[390,500]]){
  const context=await browser.newContext({viewport:{width,height},permissions:['clipboard-read','clipboard-write']}),page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));
  await page.addInitScript(()=>{navigator.share=async data=>{window.__shareData=data;};});
- await page.goto('http://127.0.0.1:8921/hoea_to_waka/about/brand-guidelines/');await page.waitForLoadState('networkidle');const trigger=page.locator('#brand-share-trigger'),panel=page.locator('#brand-share-panel');
+ await page.goto(releaseOrigin+'/hoea_to_waka/about/brand-guidelines/');await page.waitForLoadState('networkidle');const trigger=page.locator('#brand-share-trigger'),panel=page.locator('#brand-share-panel');
  await trigger.scrollIntoViewIfNeeded();await page.screenshot({path:`tmp/brand-share/closed-${width}-${height}.png`});await trigger.click();await page.waitForTimeout(900);
  assert.equal(await trigger.getAttribute('aria-expanded'),'true');const box=await panel.boundingBox();assert(box.x>=15&&box.y>=15&&box.x+box.width<=width&&box.y+box.height<=height-15,'Sharing panel fits viewport');
  assert.equal(await panel.evaluate(e=>getComputedStyle(e).scrollbarWidth),'none');assert.equal(await panel.evaluate(e=>e.scrollWidth-e.clientWidth),0,'No horizontal scrollbars');
@@ -33,7 +33,7 @@ for(const[width,height]of[[1440,1000],[1100,900],[390,844],[320,844],[390,500]])
  }
  await context.close();console.log('PASS QR/arrow geometry, copy, sharing URLs, native share/cancel, PNG save, axe, bounds and reversible motion',width,height);
 }
-const reduced=await browser.newPage({reducedMotion:'reduce'});await reduced.goto('http://127.0.0.1:8921/about/brand-guidelines/');await reduced.locator('#brand-share-trigger').click();await reduced.waitForFunction(()=>document.querySelector('#brand-share-panel').dataset.open==='true');assert.equal(await reduced.locator('#brand-share-panel').evaluate(e=>getComputedStyle(e).transitionDuration),'0s');await reduced.keyboard.press('Escape');assert(!(await reduced.locator('#brand-share-panel').evaluate(e=>e.matches(':popover-open'))));
-const plain=await browser.newPage({javaScriptEnabled:false});await plain.goto('http://127.0.0.1:8921/about/brand-guidelines/');assert((await plain.locator('#brand-share-trigger').getAttribute('href')).endsWith('brand-guide-qr.svg'));
+const reduced=await browser.newPage({reducedMotion:'reduce'});await reduced.goto(releaseOrigin+'/about/brand-guidelines/');await reduced.locator('#brand-share-trigger').click();await reduced.waitForFunction(()=>document.querySelector('#brand-share-panel').dataset.open==='true');assert.equal(await reduced.locator('#brand-share-panel').evaluate(e=>getComputedStyle(e).transitionDuration),'0s');await reduced.keyboard.press('Escape');assert(!(await reduced.locator('#brand-share-panel').evaluate(e=>e.matches(':popover-open'))));
+const plain=await browser.newPage({javaScriptEnabled:false});await plain.goto(releaseOrigin+'/about/brand-guidelines/');assert((await plain.locator('#brand-share-trigger').getAttribute('href')).endsWith('brand-guide-qr.svg'));
 assert.deepEqual(errors,[]);console.log('PASS reduced motion and QR fallback without JavaScript');
 }finally{await browser.close();server.close()}})().catch(e=>{console.error(e);process.exitCode=1});

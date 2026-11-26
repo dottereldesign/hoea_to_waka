@@ -6,11 +6,11 @@ const destination = path.resolve('design/comparisons/community-svg');
 async function main() {
   const mode = process.argv[2] || 'after';
   fs.mkdirSync(destination, { recursive: true });
-  const server = require('./preview.cjs')(8891);
+  const {server,origin:releaseOrigin}=await require('./test-site.cjs')();
   const browser = await chromium.launch({ channel: 'chrome', headless: true });
   try {
     const page = await browser.newPage({ viewport: { width: 1600, height: 1100 }, deviceScaleFactor: 1, reducedMotion: 'reduce' });
-    await page.goto('http://127.0.0.1:8891/hoea_to_waka/colour-testing/');
+    await page.goto(releaseOrigin+'/hoea_to_waka/colour-testing/');
     await page.waitForLoadState('networkidle');
     await sharp(await page.screenshot()).webp({ quality: 90 }).toFile(path.join(destination, `${mode}-page.webp`));
     if (mode === 'before') return;

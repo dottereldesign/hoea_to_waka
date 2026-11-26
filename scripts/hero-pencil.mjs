@@ -3,7 +3,7 @@ import {parseHTML} from 'linkedom';
 // Regenerate the canonical study before copying it: the guide always uses 08.
 await import('./logo-construction.mjs');
 const {document}=parseHTML(await readFile('illustrations/index.html','utf8'));
-const svg=document.querySelector('[data-lc-panel="atlas-audited"] svg.lc-art');
+const svg=document.querySelector('[data-lc-panel="atlas-audited"] template.lc-preview')?.content.querySelector('svg.lc-art');
 if(!svg)throw Error('Study 08 artwork missing');
 svg.setAttribute('class','brand-hero-outline-art');
 svg.querySelectorAll('.lc-circle').forEach((node,i)=>node.setAttribute('style',`--study-index:${i}`));

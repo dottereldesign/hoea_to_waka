@@ -1,14 +1,14 @@
 const assert = require('node:assert/strict');
 const { chromium } = require('playwright');
-const serve = require('./preview.cjs');
+const startTestSite = require('./test-site.cjs');
 
 (async () => {
-  const server = serve(0);
+  const {server, base} = await startTestSite();
   const browser = await chromium.launch({ channel: 'chrome' });
   try {
     for (const width of [1440, 390]) {
       const page = await browser.newPage({ viewport: { width, height: 900 } });
-      await page.goto('http://127.0.0.1:' + server.address().port + '/hoea_to_waka/about/brand-guidelines/');
+      await page.goto(base+'about/brand-guidelines/');
       await page.waitForSelector('.header-compositor');
       await page.waitForFunction(() => document.querySelector('[data-header-entrance]').dataset.entranceState !== 'playing');
       const check = async () => {

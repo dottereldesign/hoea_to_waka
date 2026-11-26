@@ -2,13 +2,13 @@ const {chromium}=require('playwright');
 const assert=require('node:assert/strict');
 const fs=require('node:fs');
 (async()=>{
- const server=require('./preview.cjs')(8924),browser=await chromium.launch({channel:'chrome'});
+ const {server,origin:releaseOrigin}=await require('./test-site.cjs')(),browser=await chromium.launch({channel:'chrome'});
  fs.mkdirSync('tmp/language-menu/motion',{recursive:true});
  try{
   for(const width of [1440,390,320]){
    const page=await browser.newPage({viewport:{width,height:900}}),errors=[];
    page.on('pageerror',e=>errors.push(e.message));
-   await page.goto('http://127.0.0.1:8924/');await page.evaluate(()=>document.fonts.ready);
+   await page.goto(releaseOrigin+'/');await page.evaluate(()=>document.fonts.ready);
    await page.locator('.language-launch').click();
    await page.evaluate(()=>{const panel=document.querySelector('.language-panel');window.menuMotion=panel.getAnimations().find(a=>a.effect.target===panel);window.menuMotion.pause();});
    let previous=-1;

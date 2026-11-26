@@ -11,7 +11,20 @@ concurrency:
   group: pages
   cancel-in-progress: false
 jobs:
+  rebuild:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - name: Check generated files match the release commit
+        run: git diff --exit-code -- .
   deploy:
+    needs: rebuild
     runs-on: ubuntu-latest
     environment:
       name: github-pages
@@ -19,7 +32,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Stage public website
-        run: node scripts/stage-site.mjs
+        run: npm run stage
+      - name: Verify release links and packaging
+        run: python scripts/verify-release.py
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

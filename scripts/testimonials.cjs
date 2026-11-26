@@ -1,12 +1,12 @@
 const {chromium}=require('playwright');
 const assert=require('node:assert/strict');
 (async()=>{
- const server=require('./preview.cjs')(8835),browser=await chromium.launch({channel:'chrome',headless:true});
+ const {server,origin:releaseOrigin}=await require('./test-site.cjs')(),browser=await chromium.launch({channel:'chrome',headless:true});
  try{
   const context=await browser.newContext(),page=await context.newPage();
   for(const width of [1440,900,390,320]){
    await page.setViewportSize({width,height:1000});
-   await page.goto('http://127.0.0.1:8835/hoea_to_waka/');await page.waitForLoadState('networkidle');
+   await page.goto(releaseOrigin+'/hoea_to_waka/');await page.waitForLoadState('networkidle');
    const section=page.locator('[data-component="home:6:testimonials"]');
    await section.scrollIntoViewIfNeeded();
    const measure=()=>section.evaluate(s=>({height:s.getBoundingClientRect().height,controls:s.querySelector('.ds-controls').getBoundingClientRect().y+scrollY,font:parseFloat(getComputedStyle(s.querySelector('figure:not([hidden]) blockquote')).fontSize),overflow:document.documentElement.scrollWidth>innerWidth}));

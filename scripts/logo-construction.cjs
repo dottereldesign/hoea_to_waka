@@ -7,7 +7,7 @@ const approved = [...fs.readFileSync('assets/logo-black.svg','utf8').matchAll(/<
 (async()=>{
   const joined = approved.flatMap((d,i)=>[3,4,7].includes(i)?[]:[i===2?JSON.parse(fs.readFileSync('design/logo-outline-join.json','utf8')).d:i===6?JSON.parse(fs.readFileSync('design/logo-outline-join.json','utf8')).waveTip.d:d]);
   const audited = (await import('./logo-outline-audit.mjs')).auditOutline(joined.map((d,i)=>({source:[0,1,2,5,6][i],d})));
-  const server = require('./preview.cjs')(8893);
+  const {server,origin:releaseOrigin}=await require('./test-site.cjs')();
   const browser = await chromium.launch({channel:'chrome'});
   const failures=[];
   fs.mkdirSync('tmp/logo-construction',{recursive:true});
@@ -18,7 +18,7 @@ const approved = [...fs.readFileSync('assets/logo-black.svg','utf8').matchAll(/<
     page.on('response',r=>{if(r.status()>=400&&r.url().includes('127.0.0.1'))failures.push(r.url());});
     for(const width of [320,390,760,1100,1440]) {
       await page.setViewportSize({width,height:1100});
-      await page.goto('http://127.0.0.1:8893/hoea_to_waka/illustrations/');
+      await page.goto(releaseOrigin+'/hoea_to_waka/illustrations/');
       await page.evaluate(()=>document.fonts.ready);
       assert.equal(await page.locator('h1').count(),1);
       assert.equal(await page.locator('main>section').first().getAttribute('id'),'logo-construction');

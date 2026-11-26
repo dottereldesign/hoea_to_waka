@@ -4,13 +4,13 @@ const fs=require('node:fs');
 const sharp=require('sharp');
 
 (async()=>{
-  const server=require('./preview.cjs')(8890),browser=await chromium.launch({channel:'chrome'});
+  const {server,origin:releaseOrigin}=await require('./test-site.cjs')(),browser=await chromium.launch({channel:'chrome'});
   fs.mkdirSync('tmp/moon-doors',{recursive:true});
   try{
     const page=await browser.newPage({viewport:{width:1000,height:1100}}),errors=[];
     page.on('pageerror',error=>errors.push(error.message));
     await page.clock.install({time:new Date('2026-10-25T00:00:00Z')});
-    await page.goto('http://127.0.0.1:8890/about/brand-guidelines/');
+    await page.goto(releaseOrigin+'/about/brand-guidelines/');
     await page.clock.pauseAt(new Date('2026-10-25T00:00:05Z'));
     await page.addStyleTag({content:'.site-header,.brand-jump,.header-motion-lab{visibility:hidden!important}'});
     const study=page.locator('#brand-door-study'),svg=study.locator('svg');

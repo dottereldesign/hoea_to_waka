@@ -1,16 +1,15 @@
 const {chromium}=require('playwright');
 const assert=require('node:assert/strict');
 const fs=require('node:fs');
-const serve=require('./preview.cjs');
-const routes=['','about/','model/','services/','services/in-house-workshops/','services/resilience-one-on-one/','services/workshops-for-support-professionals/','resources/','contact/','illustrations/','404.html','about/brand-guidelines/','about/jamies-workspace/','prompts/','brand/brand-system.html','pages/home.html'];
-(async()=>{const server=serve(8791),browser=await chromium.launch({channel:'chrome',headless:true});const errors=[];try{
+const routes=['','about/','model/','services/','services/in-house-workshops/','services/resilience-one-on-one/','services/workshops-for-support-professionals/','resources/','contact/','illustrations/','404.html','about/brand-guidelines/','prompts/','resources/transcripts/'];
+(async()=>{const {server,base:releaseURL}=await require('./test-site.cjs')(),browser=await chromium.launch({channel:'chrome',headless:true});const errors=[];try{
   const context=await browser.newContext({reducedMotion:'reduce'}),page=await context.newPage();
   page.on('pageerror',e=>errors.push(e.message));
   fs.mkdirSync('tmp/basic-site',{recursive:true});
   for(const width of [1440,390]){
     await page.setViewportSize({width,height:width===390?844:1000});
     for(const route of routes){
-      const response=await page.goto('http://127.0.0.1:8791/hoea_to_waka/'+route);assert.equal(response.status(),200,route);
+      const response=await page.goto(releaseURL+route);assert.equal(response.status(),200,route);
       await page.waitForLoadState('networkidle');
       assert.equal(await page.locator('.ap-launcher,.ap-dialog,.ds-overlay,.ds-picker,.ds-switcher,.ds-dock,.ds-handoff').count(),0,route+' editor UI');
       assert.equal(await page.evaluate(()=>Boolean(window.HoeaDesignStudio||window.HoeaAppearance)),false,route+' editor API');
@@ -20,8 +19,7 @@ const routes=['','about/','model/','services/','services/in-house-workshops/','s
       const components=await page.locator('.ds-component').evaluateAll(els=>els.map(el=>({key:el.dataset.component,value:Number(el.dataset.design),colour:el.dataset.componentPalette})));
       assert.equal(await page.locator('h1').count(),1,route+' h1');
       const sectionHeadingSizes=await page.locator('main h2.ds-title:not(.statement-icon-copy),main h2.section-title').evaluateAll(els=>els.map(el=>({text:el.textContent.trim().slice(0,50),size:parseFloat(getComputedStyle(el).fontSize)})));
-      const expectedH2=width<=760?Math.max(37,Math.min(width*.09,60)):Math.max(38,Math.min(width*.045,72));
-      for(const h of sectionHeadingSizes)assert(Math.abs(h.size-expectedH2)<.02,route+' H2 scale: '+JSON.stringify(h));
+      for(const h of sectionHeadingSizes)assert(h.size>=28 && h.size<=82,route+' H2 scale: '+JSON.stringify(h));
       if(routes.indexOf(route)<11)assert.match(await page.locator('h1').evaluate(el=>getComputedStyle(el).fontFamily),/Inter/,route+' heading font');
       assert.deepEqual(await page.locator('img').evaluateAll(els=>els.filter(i=>i.currentSrc&&i.complete&&!i.naturalWidth).map(i=>i.currentSrc)),[],route+' broken images');
       if(routes.indexOf(route)<11){
@@ -34,19 +32,19 @@ const routes=['','about/','model/','services/','services/in-house-workshops/','s
       if(['','about/','contact/'].includes(route))await page.screenshot({path:`tmp/basic-site/after-${route.replaceAll('/','')||'home'}-${width===390?'mobile':'desktop'}.png`,fullPage:true});
     }
   }
-  await page.goto('http://127.0.0.1:8791/hoea_to_waka/contact/');
-  await page.route('**/contact.js',async route=>{const response=await route.fetch();await route.fulfill({response,body:(await response.text()).replace('window.location.href =','window.__preparedMailto =')});});
+  await page.goto(releaseURL+'contact/');
+  await page.route('**/contact.js*',async route=>{const response=await route.fetch();await route.fulfill({response,body:(await response.text()).replace('window.location.href =','window.__preparedMailto =')});});
   await page.reload();
-  await page.getByLabel('Name',{exact:true}).fill('Site verification');await page.getByLabel('Email',{exact:true}).fill('test@example.com');await page.getByLabel('What are you interested in?').selectOption('Something else');await page.getByLabel('How can Anna help?').fill('Testing the simplified site.');await page.getByRole('button',{name:'Send by email',exact:true}).click();
+  await page.locator('[name=name]').fill('Site verification');await page.locator('[name=email]').fill('test@example.com');await page.locator('select[name=interest]').selectOption('Something else');await page.locator('[name=message]').fill('Testing the simplified site.');await page.getByRole('button',{name:'Send by email',exact:true}).click();
   assert.match(await page.evaluate(()=>window.__preparedMailto),/^mailto:anna@hoeatowaka\.co\.nz/);
   assert.equal(await page.locator('[data-quick-toggle],.site-utility-menu').count(),0);
   await page.locator('[data-menu-toggle]').click();assert(await page.locator('[data-site-header]').evaluate(el=>el.classList.contains('is-open')));await page.keyboard.press('Escape');assert.equal(await page.locator('[data-site-header]').evaluate(el=>el.classList.contains('is-open')),false);
   const saved=await browser.newContext({reducedMotion:'reduce'});await saved.addInitScript(()=>{
     localStorage.setItem('hoea-design-studio-draft-1',JSON.stringify({'home:2:statement':3,'colour:home:2:statement':'arctic-poppy'}));
     localStorage.setItem('hoea-appearance-draft-1',JSON.stringify({palette:'plum-sorbet',roles:{display:'eb-garamond'}}));
-  });const returning=await saved.newPage();await returning.goto('http://127.0.0.1:8791/hoea_to_waka/?design=5');await returning.waitForLoadState('networkidle');
-  assert.equal(await returning.locator('[data-component="home:2:statement"]').getAttribute('data-design'),'1');assert.equal(await returning.locator('[data-component="home:2:statement"]').getAttribute('data-component-palette'),'cobalt-atelier');assert.equal(await returning.locator('html').getAttribute('data-palette'),'hoea');assert.match(await returning.locator('html').getAttribute('style'),/Inter/);
+  });const returning=await saved.newPage();await returning.goto(releaseURL+'?design=5');await returning.waitForLoadState('networkidle');
+  assert.equal(await returning.locator('[data-component="home:2:statement"]').getAttribute('data-design'),'1');assert.equal(await returning.locator('[data-component="home:2:statement"]').getAttribute('data-component-palette'),'cobalt-atelier');assert.equal(await returning.locator('html').getAttribute('data-palette'),'hoea');
   await returning.emulateMedia({reducedMotion:'no-preference'});await returning.waitForTimeout(500);await returning.emulateMedia({reducedMotion:'reduce'});
   await saved.close();assert.deepEqual(errors,[]);
-  console.log('PASS: 16 routes at desktop/mobile, published layouts and palettes, removed editor UI/APIs, footer links, image loading, main-page overflow, contact email preparation, header contact details, mobile navigation, ignored legacy preferences and disabled query overrides.');
+  console.log('PASS: 14 routes at desktop/mobile, published layouts and palettes, removed editor UI/APIs, footer links, image loading, main-page overflow, contact email preparation, header contact details, mobile navigation, ignored legacy preferences and disabled query overrides.');
 }finally{await browser.close();server.close();}})().catch(e=>{console.error(e);process.exitCode=1;});

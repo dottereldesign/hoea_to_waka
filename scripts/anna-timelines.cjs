@@ -3,11 +3,12 @@ const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const Axe=require('@axe-core/playwright').default;
 const ids=['thread','stack','worlds','horizon','constellation'];
-const url='http://127.0.0.1:8889/about/';
+
 const screenshotStyle='.site-header,.skip-link{visibility:hidden!important}';
 (async()=>{
   fs.mkdirSync('tmp/anna-timelines',{recursive:true});
-  const server=require('./preview.cjs')(8889),browser=await chromium.launch({channel:'chrome'});
+  const {server,origin:releaseOrigin}=await require('./test-site.cjs')(),browser=await chromium.launch({channel:'chrome'});
+  const url=releaseOrigin+'/about/';
   try{
     const context=await browser.newContext({reducedMotion:'reduce'}),page=await context.newPage(),errors=[];
     page.on('pageerror',e=>errors.push(e.message));

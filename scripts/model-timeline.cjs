@@ -1,9 +1,9 @@
 const {chromium}=require('playwright'),assert=require('node:assert/strict'),fs=require('node:fs'),serve=require('./preview.cjs');
-(async()=>{const server=serve(8796),browser=await chromium.launch({channel:'chrome',headless:true});try{
+(async()=>{const {server,origin:releaseOrigin}=await require('./test-site.cjs')(),browser=await chromium.launch({channel:'chrome',headless:true});try{
   fs.mkdirSync('tmp/model-timeline',{recursive:true});const errors=[];
   const page=await browser.newPage({reducedMotion:'no-preference'});page.on('pageerror',e=>errors.push(e.message));
   for(const width of [1440,390,320]){
-    await page.setViewportSize({width,height:1000});await page.goto('http://127.0.0.1:8796/hoea_to_waka/');await page.waitForLoadState('networkidle');
+    await page.setViewportSize({width,height:1000});await page.goto(releaseOrigin+'/hoea_to_waka/');await page.waitForLoadState('networkidle');
     const section=page.locator('[data-component="home:4:features"]'),path=section.locator('.model-timeline');assert.equal(await path.count(),1);
     await path.evaluate(el=>scrollTo({top:scrollY+el.getBoundingClientRect().top-innerHeight*.9,behavior:'instant'}));await page.waitForTimeout(150);
     assert.equal(await path.getAttribute('data-timeline-started'),null,'no early trigger');

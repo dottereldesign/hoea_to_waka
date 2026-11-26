@@ -1,13 +1,13 @@
 const {chromium}=require('playwright'),assert=require('node:assert/strict'),fs=require('node:fs');
 const Axe=require('@axe-core/playwright').default;
 (async()=>{
- const server=require('./preview.cjs')(8908),browser=await chromium.launch({channel:'chrome'});
+ const {server,origin:releaseOrigin}=await require('./test-site.cjs')(),browser=await chromium.launch({channel:'chrome'});
  fs.mkdirSync('tmp/anna-river',{recursive:true});
  try{
   for(const width of [1440,1100,768,760,390,320]){
    const context=await browser.newContext({viewport:{width,height:1000}}),page=await context.newPage(),errors=[];
    page.on('pageerror',e=>errors.push(e.message));
-   await page.goto('http://127.0.0.1:8908/about/');
+   await page.goto(releaseOrigin+'/about/');
    await page.evaluate(()=>document.fonts.ready);
    await page.waitForFunction(()=>document.querySelector('#anna-story').classList.contains('is-enhanced'));
    assert.equal(await page.locator('#anna-story').getAttribute('data-timeline-variant'),'thread2','Ocean passage is the default');
@@ -69,7 +69,7 @@ const Axe=require('@axe-core/playwright').default;
    assert.deepEqual(errors,[]);console.log('PASS river geometry, scroll-only dwell, all five landings, smooth travel/heading, reverse and responsive layout',width);
    await context.close();
   }
-  const context=await browser.newContext(),page=await context.newPage();await page.goto('http://127.0.0.1:8908/about/');await page.locator('[data-anna-study=thread]').click();await page.waitForFunction(()=>!!document.querySelector('.anna-river')?.dataset.stops);
+  const context=await browser.newContext(),page=await context.newPage();await page.goto(releaseOrigin+'/about/');await page.locator('[data-anna-study=thread]').click();await page.waitForFunction(()=>!!document.querySelector('.anna-river')?.dataset.stops);
   // Capture a real intermediate arrival: the node pulses before the copy settles.
   const first=await page.locator('.anna-river').evaluate(e=>JSON.parse(e.dataset.stops)[0]);
   await page.evaluate(y=>{window.__arrival=[];scrollTo({top:y,behavior:'instant'});dispatchEvent(new Event('scroll'));function sample(t){const node=document.querySelector('.anna-node'),copy=document.querySelector('.anna-milestone__copy');window.__arrival.push({t,hit:node.parentElement.classList.contains('river-node-hit'),opacity:+getComputedStyle(copy).opacity,transform:getComputedStyle(copy).transform,pulse:node.getAnimations().some(a=>a.playState==='running')});if(window.__arrival.length<160)requestAnimationFrame(sample);}requestAnimationFrame(sample);},first.arrival+20);

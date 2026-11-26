@@ -4,7 +4,7 @@ const fs = require('node:fs');
 const Axe = require('@axe-core/playwright').default;
 
 (async () => {
-  const server = require('./preview.cjs')(8899);
+  const {server,origin:releaseOrigin}=await require('./test-site.cjs')();
   const browser = await chromium.launch({channel: 'chrome'});
   fs.mkdirSync('tmp/ai-toast', {recursive: true});
   try {
@@ -16,7 +16,7 @@ const Axe = require('@axe-core/playwright').default;
     const launch = page.locator('.brand-ai__launch');
     for (const width of process.argv.includes('--interactions-only') ? [] : [1440, 760, 390, 320]) for (const theme of ['light', 'dark']) {
       await page.setViewportSize({width, height: 900});
-      await page.goto('http://127.0.0.1:8899/about/brand-guidelines/');
+      await page.goto(releaseOrigin+'/about/brand-guidelines/');
       await page.evaluate(theme => localStorage.setItem('hoea-theme', theme), theme); await page.reload();
       for (const provider of ['chatgpt', 'claude', 'gemini', 'deepseek', 'figma']) {
         const source = page.locator(`[data-ai-provider=${provider}]`);
@@ -43,7 +43,7 @@ const Axe = require('@axe-core/playwright').default;
       console.log('PASS five fixed bottom-left toasts, scroll persistence, bounds, accessibility and Escape', width, theme);
     }
     await page.setViewportSize({width: 1440, height: 1000});
-    await page.goto('http://127.0.0.1:8899/about/brand-guidelines/');
+    await page.goto(releaseOrigin+'/about/brand-guidelines/');
     await page.locator('[data-ai-provider=claude]').click();
     await page.waitForFunction(() => document.querySelector('.brand-ai__feedback').dataset.tone === 'success');
     await launch.hover();

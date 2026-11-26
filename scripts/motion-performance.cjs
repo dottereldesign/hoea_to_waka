@@ -6,7 +6,7 @@ const routes=[['home','',1440],['home-mobile','',390],['guide','about/brand-guid
 const percentile=(values,p)=>values.length?[...values].sort((a,b)=>a-b)[Math.min(values.length-1,Math.floor(values.length*p))]:0;
 (async()=>{
   const folder=path.resolve('tmp/performance',label);fs.mkdirSync(folder,{recursive:true});
-  const server=require('./preview.cjs')(8891),browser=await chromium.launch({channel:'chrome'}),results=[];
+  const {server,origin:releaseOrigin}=await require('./test-site.cjs')(),browser=await chromium.launch({channel:'chrome'}),results=[];
   try{
     for(const [name,route,width]of routes){
       const context=await browser.newContext({viewport:{width,height:1000},reducedMotion:'no-preference'}),page=await context.newPage(),session=await context.newCDPSession(page),errors=[];
@@ -18,7 +18,7 @@ const percentile=(values,p)=>values.length?[...values].sort((a,b)=>a-b)[Math.min
         new PerformanceObserver(list=>list.getEntries().forEach(entry=>window.__motion.tasks.push({phase:window.__motion.phase,duration:entry.duration,start:entry.startTime}))).observe({type:'longtask',buffered:true});
       });
       await session.send('Tracing.start',{categories:'devtools.timeline,blink.user_timing,disabled-by-default-devtools.timeline',transferMode:'ReturnAsStream'});
-      await page.goto('http://127.0.0.1:8891/'+route,{waitUntil:'load'});await page.waitForTimeout(2200);
+      await page.goto(releaseOrigin+'/'+route,{waitUntil:'load'});await page.waitForTimeout(2200);
       const phase=async value=>page.evaluate(value=>{window.__motion.phase=value;performance.mark('profile:'+value);},value);
       await phase('pill-in');await page.evaluate(()=>scrollTo({top:110,behavior:'instant'}));await page.waitForTimeout(1000);
       await page.locator('.site-header-shell').screenshot({path:path.join(folder,name+'-pill.png')});

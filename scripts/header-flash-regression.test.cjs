@@ -1,13 +1,13 @@
 const {chromium}=require('playwright');
 const assert=require('node:assert/strict');
 const fs=require('fs');
-(async()=>{
+require('./test-site.cjs').withTestSite(async ({base})=>{
  const browser=await chromium.launch({channel:'chrome'});
  try {
   for(const [width,path,style] of [[390,'',1],[768,'about/',2],[1100,'',3],[1440,'',4],[1920,'about/',5]]){
    const context=await browser.newContext({viewport:{width,height:900}});
    const page=await context.newPage();
-   await page.goto('http://127.0.0.1:8766/hoea_to_waka/'+path);
+   await page.goto(base+path);
    await page.locator('button[data-notice-style="'+style+'"]').click();
    await page.waitForTimeout(1400);
    for(const duration of [180,700]){
@@ -50,4 +50,4 @@ const fs=require('fs');
    await context.close();
   }
  }finally{await browser.close()}
-})().catch(error=>{console.error(error);process.exitCode=1});
+}).catch(error=>{console.error(error);process.exitCode=1});

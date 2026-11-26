@@ -2,11 +2,11 @@ const {chromium}=require('playwright');
 const assert=require('node:assert/strict');
 (async()=>{
  require('node:fs').mkdirSync('tmp',{recursive:true});
- const server=require('./preview.cjs')(8917);
+ const {server,origin:releaseOrigin}=await require('./test-site.cjs')();
  const browser=await chromium.launch({channel:'chrome'});
  try{for(const width of [1440,390])for(const speed of [600,1600]){
   const page=await browser.newPage({viewport:{width,height:width<=760?844:1000}});
-  await page.goto('http://127.0.0.1:8917/about/');
+  await page.goto(releaseOrigin+'/about/');
   
   await page.waitForFunction(()=>!!document.querySelector('.anna-river')?.dataset.stops);
   const result=await page.evaluate(async speed=>{

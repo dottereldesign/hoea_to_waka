@@ -4,7 +4,7 @@ const fs=require('node:fs');
 const Axe=require('@axe-core/playwright').default;
 
 (async()=>{
-  const server=require('./preview.cjs')(8891),browser=await chromium.launch({channel:'chrome'});
+  const {server,origin:releaseOrigin}=await require('./test-site.cjs')(),browser=await chromium.launch({channel:'chrome'});
   fs.mkdirSync('tmp/nature',{recursive:true});
   const names=['fern','tide','arch','rain','bloom','alpine','grass','shell','cove','forest'];
   try{
@@ -12,7 +12,7 @@ const Axe=require('@axe-core/playwright').default;
     page.on('pageerror',error=>errors.push(error.message));
     for(const width of process.argv.includes('--runtime-only')?[]:[1440,1100,760,390,320])for(const theme of ['light','dark']){
       await page.setViewportSize({width,height:1000});
-      await page.goto('http://127.0.0.1:8891/illustrations/');
+      await page.goto(releaseOrigin+'/illustrations/');
       await page.evaluate(theme=>localStorage.setItem('hoea-theme',theme),theme);await page.reload();
       const section=page.locator('#brand-nature-studies'),stage=section.locator('.brand-nature__stage');
       await section.scrollIntoViewIfNeeded();
@@ -41,7 +41,7 @@ const Axe=require('@axe-core/playwright').default;
     const motion=await browser.newPage({viewport:{width:1440,height:1000}});
     motion.on('pageerror',error=>errors.push(error.message));
     await motion.clock.install({time:new Date('2026-10-25T00:00:00Z')});
-    await motion.goto('http://127.0.0.1:8891/illustrations/');
+    await motion.goto(releaseOrigin+'/illustrations/');
     await motion.clock.pauseAt(new Date('2026-10-25T00:00:05Z'));
     const section=motion.locator('#brand-nature-studies'),stage=section.locator('.brand-nature__stage');
     await section.scrollIntoViewIfNeeded();await motion.clock.runFor(40);
@@ -82,15 +82,15 @@ const Axe=require('@axe-core/playwright').default;
       const delayed=await browser.newPage({viewport:{width:390,height:1000},reducedMotion});
       let release;const held=new Promise(resolve=>release=resolve);
       await delayed.route('**/brand-nature.js?*',async route=>{await held;await route.continue();});
-      await delayed.goto('http://127.0.0.1:8891/illustrations/',{waitUntil:'commit'});
+      await delayed.goto(releaseOrigin+'/illustrations/',{waitUntil:'commit'});
       await delayed.locator('#brand-nature-studies').waitFor();await delayed.evaluate(()=>document.fonts.ready);
       const height=()=>delayed.locator('#brand-nature-studies').evaluate(e=>e.getBoundingClientRect().height);
       const before=await height();release();await delayed.locator('.brand-nature__enhancement:not([hidden])').waitFor();
       assert.equal(await height(),before,'Late enhancement does not shift the contents');await delayed.close();
     }
-    const plain=await browser.newPage({javaScriptEnabled:false});await plain.goto('http://127.0.0.1:8891/illustrations/');
+    const plain=await browser.newPage({javaScriptEnabled:false});await plain.goto(releaseOrigin+'/illustrations/');
     assert(await plain.locator('#brand-nature-studies svg').isVisible());assert(await plain.locator('.brand-nature__enhancement').evaluate(e=>e.hidden));
-    await plain.goto('http://127.0.0.1:8891/');assert.equal(await plain.locator('#brand-nature-studies').count(),0);
+    await plain.goto(releaseOrigin+'/');assert.equal(await plain.locator('#brand-nature-studies').count(),0);
     assert.deepEqual(errors,[]);
     console.log('PASS stable delayed enhancement, static no-JavaScript fallback and illustrations-page scope');
   }finally{await browser.close();server.close();}

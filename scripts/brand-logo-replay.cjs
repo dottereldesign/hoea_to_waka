@@ -2,7 +2,7 @@ const {chromium}=require('playwright');
 const assert=require('assert/strict');
 const fs=require('fs');
 (async()=>{
-  const server=require('./preview.cjs')(8891),browser=await chromium.launch({channel:'chrome',headless:true});
+  const {server,origin:releaseOrigin}=await require('./test-site.cjs')(),browser=await chromium.launch({channel:'chrome',headless:true});
   try {
     fs.mkdirSync('tmp/brand-logo-replay',{recursive:true});
     const page=await browser.newPage({reducedMotion:'no-preference'}),errors=[];
@@ -10,7 +10,7 @@ const fs=require('fs');
     for(const width of [1440,390]){
       await page.setViewportSize({width,height:400});
       for(const [id,trigger] of [['cover','.site-preview-brand-hero-logo-study'],['logo','.site-preview-logo-anatomy-layout']]){
-        await page.goto('http://127.0.0.1:8891/hoea_to_waka/about/brand-guidelines/');
+        await page.goto(releaseOrigin+'/hoea_to_waka/about/brand-guidelines/');
         await page.waitForLoadState('networkidle');
         const section=page.locator('#'+id);
         const state=()=>section.evaluate((e,id)=>{const a=e.getAnimations({subtree:true}).filter(a=>a.animationName?.startsWith('preview'));return{times:a.map(a=>a.currentTime),duration:Math.max(...a.map(a=>a.effect.getComputedTiming().endTime)),opacity:getComputedStyle(e.querySelector(id==='cover'?'.site-preview-brand-hero-logo':'.site-preview-logo-anatomy-logo')).opacity};},id);

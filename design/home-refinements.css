@@ -1,0 +1,83 @@
+/* Home hero and model section refinements. */
+.home-hero-inner-photo .home-hero-copy{align-items:center;width:min(100%,980px);text-align:center}
+.home-hero-inner-photo .home-tagline{display:block;font-size:clamp(2.4rem,5vw,4.8rem);font-weight:400;letter-spacing:-.045em;line-height:1.06;text-transform:none}
+.home-hero-inner-photo .home-tagline::after{display:block;margin:var(--space-fluid-16) auto 0}
+.home-hero-inner-photo .home-tagline strong{font-weight:600}
+.home-hero-inner-photo .home-tagline em{font-weight:400}
+.home-hero-inner-photo .home-intro{max-width:900px;text-align:center}
+.home-hero .home-hero-inner-photo .button-row{justify-content:center;margin-left:0}
+.model-section-action{display:flex;margin-top:var(--space-fluid-28)}
+@media(max-width:760px){.home-hero-inner-photo .home-hero-copy{width:100%}.home-hero-inner-photo .home-tagline{font-size:clamp(2rem,8vw,3.2rem);letter-spacing:-.04em}.home-hero-inner-photo .home-intro{max-width:34ch}.home-hero .home-hero-inner-photo .button-row{justify-content:center}.home-hero-inner-photo .home-intro-line{display:inline}.home-hero-inner-photo .home-intro-line:first-child::after{content:" "}}
+.page-home .home-hero .home-hero-inner-photo{align-items:center!important}
+.page-home .home-hero .home-hero-inner-photo .home-hero-copy{align-items:center!important;width:min(100%,980px)!important;text-align:center!important}
+.page-home .home-hero .home-hero-inner-photo .home-tagline{margin-top:var(--space-fluid-10)!important;color:#fff!important;font-size:clamp(2.4rem,5vw,4.8rem)!important;letter-spacing:-.045em!important;text-transform:none!important}
+.page-home .home-hero .home-hero-inner-photo .home-intro{max-width:900px!important;text-align:center!important}
+.page-home .home-hero .home-hero-inner-photo .button-row{justify-content:center!important;margin-left:0!important}
+@media(max-width:760px){.page-home .home-hero .home-hero-inner-photo .home-tagline{margin-top:8px!important;font-size:clamp(2rem,8vw,3.2rem)!important}.page-home .home-hero .home-hero-inner-photo .home-intro{max-width:34ch!important}}
+@media(min-width:761px){.page-home .home-hero .home-intro-line{display:block!important}}
+@media(max-width:760px){.page-home .home-hero .home-intro-line{display:inline!important}}
+.home-hero-gallery{position:relative;z-index:5;display:flex;align-items:flex-end;gap:var(--space-fluid-24);width:min(100% - 12vw,1260px);height:360px;margin:-150px auto 0;pointer-events:none}
+.home-hero-gallery figure{margin:0;overflow:hidden;border-radius:18px;background:#ddd;box-shadow:0 18px 45px rgba(12,13,28,.14)}
+.home-hero-gallery__portrait{flex:0 0 30%;height:360px}
+.home-hero-gallery__landscape{flex:0 0 43%;height:245px}
+.home-hero-gallery img{display:block;width:100%;height:100%;object-fit:cover}
+.home-hero-gallery__portrait img{object-position:55% center}
+.home-hero-gallery__landscape img{object-position:center top}
+@media(max-width:760px){.home-hero-gallery{gap:var(--space-fluid-10);width:calc(100% - 40px);height:185px;margin-top:-72px}.home-hero-gallery figure{border-radius:12px}.home-hero-gallery__portrait{flex:0 0 42%;height:185px}.home-hero-gallery__landscape{flex:1 1 auto;height:125px}}
+.page-home .home-hero[data-hero-version="01"] .home-hero-art{background:linear-gradient(180deg,rgba(15,16,31,.92) 0%,rgba(20,15,43,.28) 30%,transparent 62%),radial-gradient(ellipse 78% 78% at 50% 68%,#7132da 0%,rgba(81,31,178,.8) 46%,transparent 82%),radial-gradient(ellipse 72% 105% at 50% 112%,#bb58f6 0%,#963ce6 39%,transparent 76%),radial-gradient(ellipse 78% 100% at 0% 88%,#7b29e8 0%,transparent 78%),radial-gradient(ellipse 85% 110% at 100% 90%,#6721c6 0%,transparent 80%),#21173c}
+/* Reveal the two fixed-position hero images after the header entrance. */
+html.js .home-hero-gallery figure{clip-path:inset(0 0 0 0);transition:clip-path 1120ms cubic-bezier(.45,0,.25,1)}
+html.js .home-hero-gallery figure:nth-child(2){transition-delay:1120ms}
+html.js .home-hero-gallery.gallery-motion-pending figure{clip-path:inset(0 100% 0 0)}
+@media(prefers-reduced-motion:reduce){html.js .home-hero-gallery figure{clip-path:none!important;transition:none!important}}
+/* Hero copy follows the header entrance alongside the image reveals. */
+html.js .page-home .home-hero-copy > :is(.home-hero-symbol,.display-title,.home-tagline,.home-intro),html.js .page-home .home-hero-copy .button-row a{opacity:1!important;translate:0 0!important;transition:opacity 840ms cubic-bezier(.45,0,.25,1),translate 840ms cubic-bezier(.45,0,.25,1)!important}
+html.js .page-home .home-hero-copy.home-hero-motion-pending > :is(.home-hero-symbol,.display-title,.home-tagline,.home-intro),html.js .page-home .home-hero-copy.home-hero-motion-pending .button-row a{opacity:0!important;translate:0 14px!important}
+html.js .page-home .home-hero-copy .display-title{transition-delay:140ms!important}
+html.js .page-home .home-hero-copy .home-tagline{transition-delay:280ms!important}
+html.js .page-home .home-hero-copy .home-intro{transition-delay:420ms!important}
+html.js .page-home .home-hero-copy .button-row a:first-child{transition-delay:560ms!important}
+html.js .page-home .home-hero-copy .button-row a:nth-child(2){transition-delay:700ms!important}
+@media(prefers-reduced-motion:reduce){html.js .page-home .home-hero-copy > :is(.home-hero-symbol,.display-title,.home-tagline,.home-intro),html.js .page-home .home-hero-copy .button-row a{opacity:1!important;translate:none!important;transition:none!important}}
+.page-home .home-hero-symbol{display:block;width:76px;height:76px;margin:0 auto var(--space-fluid-16);object-fit:contain}
+html[data-palette] .page-home .home-hero #home-hero-title{font-size:clamp(3.4rem,4.5vw,4.3rem)!important}
+@media(max-width:760px){.page-home .home-hero-symbol{width:58px;height:58px;margin-bottom:var(--space-fluid-12)}html[data-palette] .page-home .home-hero #home-hero-title{font-size:clamp(2rem,9vw,2.5rem)!important}}
+/* Home model section joins the hero's scroll-led reveal rhythm. */
+html.js .page-home [data-component="home:4:features"] .model-section-photo{clip-path:inset(0 0 0 0 round 20px);transition:clip-path 1120ms cubic-bezier(.45,0,.25,1)}
+html.js .page-home [data-component="home:4:features"].model-section-reveal-pending .model-section-photo{clip-path:inset(0 100% 0 0 round 20px)}
+html.js .page-home [data-component="home:4:features"] .ds-section-heading > :is(.ds-kicker,.ds-title,.ds-lead,.model-section-action){opacity:1;translate:0 0;transition:opacity 840ms cubic-bezier(.45,0,.25,1),translate 840ms cubic-bezier(.45,0,.25,1)}
+html.js .page-home [data-component="home:4:features"].model-section-reveal-pending .ds-section-heading > :is(.ds-kicker,.ds-title,.ds-lead,.model-section-action){opacity:0;translate:0 14px}
+html.js .page-home [data-component="home:4:features"] .ds-section-heading > .ds-kicker{transition-delay:140ms}
+html.js .page-home [data-component="home:4:features"] .ds-section-heading > .ds-title{transition-delay:280ms}
+html.js .page-home [data-component="home:4:features"] .ds-section-heading > .ds-lead{transition-delay:420ms}
+html.js .page-home [data-component="home:4:features"] .ds-section-heading > .model-section-action{transition-delay:560ms}
+@media(prefers-reduced-motion:reduce){html.js .page-home [data-component="home:4:features"] .model-section-photo{clip-path:none!important;transition:none!important}html.js .page-home [data-component="home:4:features"] .ds-section-heading > :is(.ds-kicker,.ds-title,.ds-lead,.model-section-action){opacity:1!important;translate:none!important;transition:none!important}}
+/* Inset resources invitation between services and testimonials. */
+.home-resources{box-sizing:border-box;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(240px,.65fr);gap:clamp(36px,6vw,100px);align-items:center;margin:0 8px;padding:clamp(44px,6vw,84px);border-radius:30px;background:radial-gradient(ellipse at 88% 18%,#ede6f1 0%,transparent 48%),linear-gradient(135deg,#e5e8df,#eee5ed);color:#281a2c;overflow:hidden}
+.home-resources__copy{max-width:650px}
+.home-resources__eyebrow{display:inline-block;margin:0 0 var(--space-fluid-26);padding:var(--space-fluid-10) var(--space-fluid-16);border:1px solid #917e9c;border-radius:999px;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.home-resources h2{max-width:11ch;margin:0;font-family:var(--font-heading);font-size:clamp(42px,4.6vw,72px);font-weight:600;letter-spacing:-.055em;line-height:1.02}
+.home-resources__copy>p:not(.home-resources__eyebrow){max-width:49ch;margin:var(--space-fluid-24) 0 var(--space-fluid-32);color:#514656;font-size:clamp(16px,1.3vw,19px);line-height:1.65}
+.home-resources .model-button{--model-ink:#281a2c;--model-paper:#f7f2f8}
+.home-resources__aside{display:grid;align-self:stretch;align-content:center;border-left:1px solid #9e91a48c;padding-left:var(--space-layout-17)}
+.home-resources__aside span{display:block;padding:var(--space-fluid-25) 0;border-bottom:1px solid #9e91a48c;font-family:var(--font-heading);font-size:clamp(24px,2.7vw,38px);font-weight:500;letter-spacing:-.04em}
+.home-resources__aside span:first-child{border-top:1px solid #9e91a48c}
+@media(max-width:900px){.home-resources{grid-template-columns:1fr;padding:var(--space-fluid-40) var(--space-fluid-32)}.home-resources h2{max-width:14ch}.home-resources__aside{grid-template-columns:repeat(3,minmax(0,1fr));border-left:0;border-top:1px solid #9e91a48c;padding:0}.home-resources__aside span{padding:var(--space-fluid-18) 8px;border-bottom:0;font-size:clamp(16px,3vw,24px)}.home-resources__aside span:first-child{border-top:0}}
+@media(max-width:600px){.home-resources{padding:var(--space-fluid-34) var(--space-fluid-24);border-radius:24px}.home-resources h2{font-size:clamp(38px,10vw,52px)}.home-resources__aside{gap:8px}.home-resources__aside span{font-size:15px}}
+/* Services cards reveal on scroll with the hero's measured swipe and type rhythm. */
+html.js .page-home [data-component="home:3:services"] .ds-section-heading > :is(.ds-kicker,.ds-title){opacity:1;translate:0 0;transition:opacity 840ms cubic-bezier(.45,0,.25,1),translate 840ms cubic-bezier(.45,0,.25,1)}
+html.js .page-home [data-component="home:3:services"].services-heading-reveal-pending .ds-section-heading > :is(.ds-kicker,.ds-title){opacity:0;translate:0 14px}
+html.js .page-home [data-component="home:3:services"] .ds-section-heading > .ds-title{transition-delay:140ms}
+html.js .page-home [data-component="home:3:services"] .ds-card > img{clip-path:inset(0 0 0 0 round 20px);transition:clip-path 1120ms cubic-bezier(.45,0,.25,1)}
+html.js .page-home [data-component="home:3:services"] .ds-card.service-card-reveal-pending > img{clip-path:inset(0 100% 0 0 round 20px)}
+html.js .page-home [data-component="home:3:services"] .ds-card-copy > :is(.ds-number,h3,.ds-lead,.ds-card-actions){opacity:1;translate:0 0;transition:opacity 840ms cubic-bezier(.45,0,.25,1),translate 840ms cubic-bezier(.45,0,.25,1)}
+html.js .page-home [data-component="home:3:services"] .ds-card.service-card-reveal-pending .ds-card-copy > :is(.ds-number,h3,.ds-lead,.ds-card-actions){opacity:0;translate:0 14px}
+html.js .page-home [data-component="home:3:services"] .ds-card-copy > .ds-number{transition-delay:280ms}
+html.js .page-home [data-component="home:3:services"] .ds-card-copy > h3{transition-delay:420ms}
+html.js .page-home [data-component="home:3:services"] .ds-card-copy > .ds-lead{transition-delay:560ms}
+html.js .page-home [data-component="home:3:services"] .ds-card-copy > .ds-card-actions{transition-delay:700ms}
+@media(prefers-reduced-motion:reduce){html.js .page-home [data-component="home:3:services"] .ds-card > img{clip-path:none!important;transition:none!important}html.js .page-home [data-component="home:3:services"] :is(.ds-section-heading,.ds-card-copy) > :is(.ds-kicker,.ds-title,.ds-number,h3,.ds-lead,.ds-card-actions){opacity:1!important;translate:none!important;transition:none!important}}
+/* Lift the model photo into the white space while its column copy follows it. */
+.page-home [data-component="home:4:features"]{margin-top:var(--space-fluid-80);overflow:visible}
+.page-home [data-component="home:4:features"] .model-section-photo{margin-top:-168px}
+@media(max-width:760px){.page-home [data-component="home:4:features"]{margin-top:var(--space-fluid-32)}.page-home [data-component="home:4:features"] .model-section-photo{margin-top:-56px}}

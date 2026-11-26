@@ -3,14 +3,14 @@ const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const routes=['about','model','services','resources','contact','services/in-house-workshops','services/workshops-for-support-professionals','services/resilience-one-on-one'];
 (async()=>{
- const server=require('./preview.cjs')(8838),browser=await chromium.launch({channel:'chrome',headless:true});
+ const {server,origin:releaseOrigin}=await require('./test-site.cjs')(),browser=await chromium.launch({channel:'chrome',headless:true});
  try{
   fs.mkdirSync('tmp/subpage-backgrounds',{recursive:true});
   const context=await browser.newContext({reducedMotion:'reduce'}),page=await context.newPage(),errors=[];
   page.on('pageerror',e=>errors.push(e.message));
   for(const route of routes){
    for(const width of [1440,390,320]){
-    await page.setViewportSize({width,height:1000});await page.goto(`http://127.0.0.1:8838/hoea_to_waka/${route}/`);await page.waitForLoadState('networkidle');
+    await page.setViewportSize({width,height:1000});await page.goto(`${releaseOrigin}/hoea_to_waka/${route}/`);await page.waitForLoadState('networkidle');
     const hero=page.locator('.subpage-hero'),buttons=hero.locator('[data-coaching-choice]');
     if(['model','services/in-house-workshops','resources','services','about','services/workshops-for-support-professionals','services/resilience-one-on-one'].includes(route)){assert.equal(await buttons.count(),0);assert.equal(await hero.getAttribute('data-coaching-version'),['resources','services','about','services/workshops-for-support-professionals','services/resilience-one-on-one'].includes(route)?'01':'04');assert.equal(await hero.locator('.coaching-hero__background').count(),1);assert.equal(await hero.locator('.coaching-hero__background').evaluate(e=>getComputedStyle(e).opacity),'1');assert.equal(await hero.locator('h1').evaluate(e=>getComputedStyle(e).color),['resources','services','about','services/workshops-for-support-professionals','services/resilience-one-on-one'].includes(route)?'rgb(24, 32, 44)':'rgb(255, 255, 255)');continue;}
     assert.equal(await buttons.count(),4);assert.equal(await hero.getAttribute('data-coaching-version'),'01');
@@ -31,12 +31,12 @@ const routes=['about','model','services','resources','contact','services/in-hous
    }
    console.log('PASS: chosen background or variation controls, readable UI and stable layout',route);
   }
-  await page.emulateMedia({reducedMotion:'no-preference'});await page.goto('http://127.0.0.1:8838/hoea_to_waka/contact/');await page.waitForLoadState('networkidle');
+  await page.emulateMedia({reducedMotion:'no-preference'});await page.goto(releaseOrigin+'/hoea_to_waka/contact/');await page.waitForLoadState('networkidle');
   await page.locator('[data-coaching-choice="03"]').click();await page.waitForTimeout(200);
   const opacity=await page.locator('.coaching-hero__background').nth(2).evaluate(e=>parseFloat(getComputedStyle(e).opacity));assert(opacity>0&&opacity<1,'Backgrounds crossfade');
   await page.reload();assert.equal(await page.locator('.subpage-hero').getAttribute('data-coaching-version'),'01');
   const native=await browser.newContext({javaScriptEnabled:false,reducedMotion:'reduce'}),fallback=await native.newPage();
-  for(const route of routes){await fallback.goto(`http://127.0.0.1:8838/hoea_to_waka/${route}/`);assert.equal(await fallback.locator('.coaching-hero__background').first().evaluate(e=>getComputedStyle(e).opacity),'1');assert(await fallback.locator('.coaching-hero__controls').isHidden());}
+  for(const route of routes){await fallback.goto(`${releaseOrigin}/hoea_to_waka/${route}/`);assert.equal(await fallback.locator('.coaching-hero__background').first().evaluate(e=>getComputedStyle(e).opacity),'1');assert(await fallback.locator('.coaching-hero__controls').isHidden());}
   assert.deepEqual(errors,[]);
   console.log('PASS: smooth crossfade, clean default on reload, and no-JavaScript fallback');
  }finally{await browser.close();server.close()}

@@ -84,6 +84,29 @@
     ]
   },
   {
+    "value": "var(--inset)",
+    "resolved": "var(--inset)",
+    "kind": "Calculated / inherited",
+    "count": 3,
+    "uses": [
+      {
+        "file": "assets/home-articles.css",
+        "property": "margin-inline",
+        "selector": ".journal-inner"
+      },
+      {
+        "file": "assets/home-articles.css",
+        "property": "margin-inline-start",
+        "selector": ".journal-stories article:first-child"
+      },
+      {
+        "file": "assets/home-articles.css",
+        "property": "margin-inline-end",
+        "selector": ".journal-stories article:last-child"
+      }
+    ]
+  },
+  {
     "value": "var(--reading-section)",
     "resolved": "var(--reading-section)",
     "kind": "Calculated / inherited",
@@ -179,6 +202,19 @@
     ]
   },
   {
+    "value": "var(--gap)",
+    "resolved": "var(--gap)",
+    "kind": "Calculated / inherited",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/home-articles.css",
+        "property": "gap",
+        "selector": ".journal-stories"
+      }
+    ]
+  },
+  {
     "value": "max(76px,calc((100vw - 1440px)/2))",
     "resolved": "max(76px,calc((100vw - 1440px)/2))",
     "kind": "Calculated / inherited",
@@ -187,20 +223,124 @@
       {
         "file": "assets/home-hero-variants.css",
         "property": "padding-left",
-        "selector": "html:is([data-home-hero=\"02\"],[data-home-hero=\"03\"]) .page-home .home-hero .home-hero-inner-photo .home-hero-copy"
+        "selector": "html[data-home-hero=\"03\"] .page-home .home-hero .home-hero-inner-photo .home-hero-copy"
       }
     ]
   },
   {
-    "value": "46%",
-    "resolved": "46%",
+    "value": "var(--wordmark-left-inset)",
+    "resolved": "var(--wordmark-left-inset)",
+    "kind": "Calculated / inherited",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/logo-tagline.css",
+        "property": "margin-inline",
+        "selector": "html[data-palette] .brand-guidelines .site-preview-brand-hero-subtitle,html[data-palette] :is(.site-brand-line,.brand-logo-lockup__tagline,.site-preview-brand-hero-subtitle,.footer-brand-tagline)"
+      }
+    ]
+  },
+  {
+    "value": "var(--wordmark-right-inset)",
+    "resolved": "var(--wordmark-right-inset)",
+    "kind": "Calculated / inherited",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/logo-tagline.css",
+        "property": "margin-inline",
+        "selector": "html[data-palette] .brand-guidelines .site-preview-brand-hero-subtitle,html[data-palette] :is(.site-brand-line,.brand-logo-lockup__tagline,.site-preview-brand-hero-subtitle,.footer-brand-tagline)"
+      }
+    ]
+  },
+  {
+    "value": "var(--pad)",
+    "resolved": "var(--pad)",
+    "kind": "Calculated / inherited",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/model-topic-layouts.css",
+        "property": "padding",
+        "selector": "html[data-palette] #where-it-can-help"
+      }
+    ]
+  },
+  {
+    "value": "var(--gap,0 24px)",
+    "resolved": "var(--gap,0 24px)",
+    "kind": "Calculated / inherited",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/model-topic-layouts.css",
+        "property": "gap",
+        "selector": "#where-it-can-help .model-topics"
+      }
+    ]
+  },
+  {
+    "value": "var(--tile-pad,14px 0)",
+    "resolved": "var(--tile-pad,14px 0)",
+    "kind": "Calculated / inherited",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/model-topic-layouts.css",
+        "property": "padding",
+        "selector": "#where-it-can-help .model-topics li"
+      }
+    ]
+  },
+  {
+    "value": "var(--step,0)",
+    "resolved": "var(--step,0)",
+    "kind": "Calculated / inherited",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/research-layouts.css",
+        "property": "margin-inline-start",
+        "selector": "[data-layout=\"09\"] .research-points li"
+      }
+    ]
+  },
+  {
+    "value": "calc(var(--portrait-overlap) + 8px)",
+    "resolved": "calc(var(--portrait-overlap) + 8px)",
     "kind": "Calculated / inherited",
     "count": 1,
     "uses": [
       {
         "file": "assets/resources-art-options.css",
-        "property": "padding-left",
+        "property": "margin-top",
         "selector": ".home-resources"
+      }
+    ]
+  },
+  {
+    "value": "calc(var(--portrait-overlap) + 24px)",
+    "resolved": "calc(var(--portrait-overlap) + 24px)",
+    "kind": "Calculated / inherited",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/resources-art-options.css",
+        "property": "margin",
+        "selector": ".home-resources #home-resources-title"
+      }
+    ]
+  },
+  {
+    "value": "calc(-1*var(--portrait-overlap))",
+    "resolved": "calc(-1*var(--portrait-overlap))",
+    "kind": "Calculated / inherited",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/resources-art-options.css",
+        "property": "margin-top",
+        "selector": ".home-resources #river-within"
       }
     ]
   },
@@ -214,6 +354,32 @@
         "file": "assets/responsive-layout.css",
         "property": "padding-bottom",
         "selector": "html[data-palette] .site-main>.subpage-hero:has(.coaching-hero__controls:not([hidden]))"
+      }
+    ]
+  },
+  {
+    "value": "var(--story-arrow-gap)",
+    "resolved": "var(--story-arrow-gap)",
+    "kind": "Calculated / inherited",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/section-links.css",
+        "property": "gap",
+        "selector": ".ds-statement-editorial>a.section-link"
+      }
+    ]
+  },
+  {
+    "value": "calc(var(--story-arrow-width) + var(--story-arrow-gap))",
+    "resolved": "calc(var(--story-arrow-width) + var(--story-arrow-gap))",
+    "kind": "Calculated / inherited",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/section-links.css",
+        "property": "margin-inline-start",
+        "selector": ".ds-statement-editorial>a.section-link"
       }
     ]
   },
@@ -374,6 +540,78 @@
     ]
   },
   {
+    "value": "clamp(32px,6vw,88px)",
+    "resolved": "clamp(32px,6vw,88px)",
+    "kind": "Component fluid",
+    "count": 2,
+    "uses": [
+      {
+        "file": "assets/anna-timelines.css",
+        "property": "gap",
+        "selector": "#anna-story[data-timeline-variant=worlds] .anna-milestone"
+      },
+      {
+        "file": "assets/research-layouts.css",
+        "property": "gap",
+        "selector": "#support-research"
+      }
+    ]
+  },
+  {
+    "value": "clamp(24px,3vw,40px)",
+    "resolved": "clamp(24px,3vw,40px)",
+    "kind": "Component fluid",
+    "count": 2,
+    "uses": [
+      {
+        "file": "assets/section-links.css",
+        "property": "margin-top",
+        "selector": "main .ds-prose>a.section-link"
+      },
+      {
+        "file": "assets/section-links.css",
+        "property": "margin-block-start",
+        "selector": ".ds-statement-editorial>a.section-link"
+      }
+    ]
+  },
+  {
+    "value": "clamp(32px,4vw,56px)",
+    "resolved": "clamp(32px,4vw,56px)",
+    "kind": "Component fluid",
+    "count": 2,
+    "uses": [
+      {
+        "file": "assets/support-features.css",
+        "property": "padding-top",
+        "selector": "#support-roles .ex-moon-panels"
+      },
+      {
+        "file": "assets/support-role-layouts.css",
+        "property": "margin",
+        "selector": "#services-topics-title"
+      }
+    ]
+  },
+  {
+    "value": "clamp(48px,6vw,88px)",
+    "resolved": "clamp(48px,6vw,88px)",
+    "kind": "Component fluid",
+    "count": 2,
+    "uses": [
+      {
+        "file": "assets/topic-marquee.css",
+        "property": "padding",
+        "selector": ".kinetic-topics"
+      },
+      {
+        "file": "design/presentation.css",
+        "property": "padding",
+        "selector": ".kinetic-topics"
+      }
+    ]
+  },
+  {
     "value": "clamp(22px,5vw,72px)",
     "resolved": "clamp(22px,5vw,72px)",
     "kind": "Component fluid",
@@ -383,19 +621,6 @@
         "file": "assets/anna-timelines.css",
         "property": "padding",
         "selector": "html[data-palette] #anna-story"
-      }
-    ]
-  },
-  {
-    "value": "clamp(32px,6vw,88px)",
-    "resolved": "clamp(32px,6vw,88px)",
-    "kind": "Component fluid",
-    "count": 1,
-    "uses": [
-      {
-        "file": "assets/anna-timelines.css",
-        "property": "gap",
-        "selector": "#anna-story[data-timeline-variant=worlds] .anna-milestone"
       }
     ]
   },
@@ -422,6 +647,19 @@
         "file": "assets/anna-timelines.css",
         "property": "padding-top",
         "selector": "#anna-story[data-timeline-variant=thread2] .anna-stage"
+      }
+    ]
+  },
+  {
+    "value": "calc(var(--space-fluid-24) + clamp(96px,16vw,240px))",
+    "resolved": "calc(var(--space-fluid-24) + clamp(96px,16vw,240px))",
+    "kind": "Component fluid",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/anna-timelines.css",
+        "property": "padding-top",
+        "selector": "#anna-story[data-timeline-variant=thread2] .anna-list"
       }
     ]
   },
@@ -530,15 +768,41 @@
     ]
   },
   {
-    "value": "clamp(2.71875rem,2.38214rem + 1.38095vw,3.625rem)",
-    "resolved": "clamp(2.71875rem,2.38214rem + 1.38095vw,3.625rem)",
+    "value": "clamp(18px,3vw,36px)",
+    "resolved": "clamp(18px,3vw,36px)",
     "kind": "Component fluid",
     "count": 1,
     "uses": [
       {
-        "file": "assets/home-book-notice.css",
+        "file": "assets/contact-form.css",
         "property": "padding",
-        "selector": ".home-book-notice"
+        "selector": "#contact-enquiry"
+      }
+    ]
+  },
+  {
+    "value": "clamp(16px,2vw,28px)",
+    "resolved": "clamp(16px,2vw,28px)",
+    "kind": "Component fluid",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/footer-credit.css",
+        "property": "margin-bottom",
+        "selector": ".site-footer[data-footer-version] .footer-back-top"
+      }
+    ]
+  },
+  {
+    "value": "clamp(54px,7vw,104px)",
+    "resolved": "clamp(54px,7vw,104px)",
+    "kind": "Component fluid",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/home-articles.css",
+        "property": "padding-block",
+        "selector": "#home-articles"
       }
     ]
   },
@@ -551,7 +815,7 @@
       {
         "file": "assets/home-hero-variants.css",
         "property": "padding",
-        "selector": "html:is([data-home-hero=\"02\"],[data-home-hero=\"03\"]) .page-home .home-hero .home-hero-inner-photo .home-hero-copy"
+        "selector": "html[data-home-hero=\"03\"] .page-home .home-hero .home-hero-inner-photo .home-hero-copy"
       }
     ]
   },
@@ -564,7 +828,7 @@
       {
         "file": "assets/home-hero-variants.css",
         "property": "padding",
-        "selector": "html:is([data-home-hero=\"02\"],[data-home-hero=\"03\"]) .page-home .home-hero .home-hero-inner-photo .home-hero-copy"
+        "selector": "html[data-home-hero=\"03\"] .page-home .home-hero .home-hero-inner-photo .home-hero-copy"
       }
     ]
   },
@@ -621,6 +885,136 @@
     ]
   },
   {
+    "value": "clamp(24px,2vw,36px)",
+    "resolved": "clamp(24px,2vw,36px)",
+    "kind": "Component fluid",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/member-preview.css",
+        "property": "margin-inline-end",
+        "selector": ".site-header-actions .member-actions"
+      }
+    ]
+  },
+  {
+    "value": "clamp(24px,4vw,60px)",
+    "resolved": "clamp(24px,4vw,60px)",
+    "kind": "Component fluid",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/model-topic-layouts.css",
+        "property": "gap",
+        "selector": "html[data-palette] #where-it-can-help"
+      }
+    ]
+  },
+  {
+    "value": "clamp(20px,3vw,46px)",
+    "resolved": "clamp(20px,3vw,46px)",
+    "kind": "Component fluid",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/model-topic-layouts.css",
+        "property": "padding",
+        "selector": "#where-it-can-help[data-uses-layout=\"10\"] .ds-section-heading"
+      }
+    ]
+  },
+  {
+    "value": "clamp(16px,3vw,40px)",
+    "resolved": "clamp(16px,3vw,40px)",
+    "kind": "Component fluid",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/model-topic-layouts.css",
+        "property": "padding-left",
+        "selector": "#where-it-can-help[data-uses-layout=\"20\"] .model-topics"
+      }
+    ]
+  },
+  {
+    "value": "clamp(18px,4vw,60px)",
+    "resolved": "clamp(18px,4vw,60px)",
+    "kind": "Component fluid",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/music-console.css",
+        "property": "gap",
+        "selector": "#resource-music-player .music-console"
+      }
+    ]
+  },
+  {
+    "value": "clamp(18px,3vw,42px)",
+    "resolved": "clamp(18px,3vw,42px)",
+    "kind": "Component fluid",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/music-console.css",
+        "property": "padding",
+        "selector": "#resource-music-player .music-console"
+      }
+    ]
+  },
+  {
+    "value": "clamp(48px,6vw,92px)",
+    "resolved": "clamp(48px,6vw,92px)",
+    "kind": "Component fluid",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/music-player.css",
+        "property": "padding",
+        "selector": ".music-section"
+      }
+    ]
+  },
+  {
+    "value": "clamp(20px,5vw,80px)",
+    "resolved": "clamp(20px,5vw,80px)",
+    "kind": "Component fluid",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/music-player.css",
+        "property": "padding",
+        "selector": ".music-section"
+      }
+    ]
+  },
+  {
+    "value": "clamp(20px,3vw,40px)",
+    "resolved": "clamp(20px,3vw,40px)",
+    "kind": "Component fluid",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/music-player.css",
+        "property": "gap",
+        "selector": "[data-music-player]"
+      }
+    ]
+  },
+  {
+    "value": "clamp(8px,2vw,24px)",
+    "resolved": "clamp(8px,2vw,24px)",
+    "kind": "Component fluid",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/music-player.css",
+        "property": "gap",
+        "selector": "#resource-music-player .music-playlist"
+      }
+    ]
+  },
+  {
     "value": "clamp(3.65625rem,3.20357rem + 1.85714vw,4.875rem)",
     "resolved": "clamp(3.65625rem,3.20357rem + 1.85714vw,4.875rem)",
     "kind": "Component fluid",
@@ -660,6 +1054,19 @@
     ]
   },
   {
+    "value": "clamp(4px,3vw,40px)",
+    "resolved": "clamp(4px,3vw,40px)",
+    "kind": "Component fluid",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/research-layouts.css",
+        "property": "padding-inline",
+        "selector": "#support-research"
+      }
+    ]
+  },
+  {
     "value": "clamp(32px,4vw,64px)",
     "resolved": "clamp(32px,4vw,64px)",
     "kind": "Component fluid",
@@ -673,15 +1080,54 @@
     ]
   },
   {
-    "value": "clamp(32px,5vw,80px)",
-    "resolved": "clamp(32px,5vw,80px)",
+    "value": "clamp(28px,5vw,80px)",
+    "resolved": "clamp(28px,5vw,80px)",
     "kind": "Component fluid",
     "count": 1,
     "uses": [
       {
-        "file": "assets/resource-game.css",
+        "file": "assets/resources-art-options.css",
+        "property": "column-gap",
+        "selector": ".home-resources"
+      }
+    ]
+  },
+  {
+    "value": "clamp(22px,4vw,72px)",
+    "resolved": "clamp(22px,4vw,72px)",
+    "kind": "Component fluid",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/resources-art-options.css",
+        "property": "padding",
+        "selector": ".home-resources"
+      }
+    ]
+  },
+  {
+    "value": "clamp(32px,7vw,96px)",
+    "resolved": "clamp(32px,7vw,96px)",
+    "kind": "Component fluid",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/river-colour-study.css",
+        "property": "padding",
+        "selector": ".pencil-study"
+      }
+    ]
+  },
+  {
+    "value": "clamp(36px,6vw,86px)",
+    "resolved": "clamp(36px,6vw,86px)",
+    "kind": "Component fluid",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/services-topic-variations.css",
         "property": "gap",
-        "selector": ".mw-layout"
+        "selector": ".services-topics:is([data-topic-layout=\"05\"],[data-topic-layout=\"10\"]) .services-topics-inner"
       }
     ]
   },
@@ -695,6 +1141,58 @@
         "file": "assets/spacing-guide.css",
         "property": "padding",
         "selector": ".spacing-inventory th,.spacing-inventory td"
+      }
+    ]
+  },
+  {
+    "value": "clamp(24px,4vw,64px)",
+    "resolved": "clamp(24px,4vw,64px)",
+    "kind": "Component fluid",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/sponsor-carousel.css",
+        "property": "margin",
+        "selector": "#home-sponsors"
+      }
+    ]
+  },
+  {
+    "value": "clamp(24px,3vw,44px)",
+    "resolved": "clamp(24px,3vw,44px)",
+    "kind": "Component fluid",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/sponsor-carousel.css",
+        "property": "padding",
+        "selector": "#home-sponsors"
+      }
+    ]
+  },
+  {
+    "value": "clamp(60px,7vw,104px)",
+    "resolved": "clamp(60px,7vw,104px)",
+    "kind": "Component fluid",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/support-role-layouts.css",
+        "property": "margin",
+        "selector": ".support-research-section"
+      }
+    ]
+  },
+  {
+    "value": "clamp(2px,0.5vw,8px)",
+    "resolved": "clamp(2px,0.5vw,8px)",
+    "kind": "Component fluid",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/topic-marquee.css",
+        "property": "margin-top",
+        "selector": ".kinetic-topics__row+.kinetic-topics__row"
       }
     ]
   },
@@ -998,6 +1496,32 @@
     ]
   },
   {
+    "value": "clamp(36px,6vw,100px)",
+    "resolved": "clamp(36px,6vw,100px)",
+    "kind": "Component fluid",
+    "count": 1,
+    "uses": [
+      {
+        "file": "design/home-refinements.css",
+        "property": "gap",
+        "selector": ".home-resources"
+      }
+    ]
+  },
+  {
+    "value": "clamp(44px,6vw,84px)",
+    "resolved": "clamp(44px,6vw,84px)",
+    "kind": "Component fluid",
+    "count": 1,
+    "uses": [
+      {
+        "file": "design/home-refinements.css",
+        "property": "padding",
+        "selector": ".home-resources"
+      }
+    ]
+  },
+  {
     "value": "clamp(20px,3vw,44px)",
     "resolved": "clamp(20px,3vw,44px)",
     "kind": "Component fluid",
@@ -1033,19 +1557,6 @@
         "file": "design/presentation.css",
         "property": "margin",
         "selector": ".model-section-photo"
-      }
-    ]
-  },
-  {
-    "value": "clamp(48px,6vw,88px)",
-    "resolved": "clamp(48px,6vw,88px)",
-    "kind": "Component fluid",
-    "count": 1,
-    "uses": [
-      {
-        "file": "design/presentation.css",
-        "property": "padding",
-        "selector": ".kinetic-topics"
       }
     ]
   },
@@ -1547,7 +2058,7 @@
     "value": "8px",
     "resolved": "8px",
     "kind": "Fixed / alignment",
-    "count": 154,
+    "count": 185,
     "uses": [
       {
         "file": "assets/anna-timelines.css",
@@ -1575,7 +2086,7 @@
     "value": "6px",
     "resolved": "6px",
     "kind": "Fixed / alignment",
-    "count": 68,
+    "count": 83,
     "uses": [
       {
         "file": "assets/anna-timelines.css",
@@ -1603,7 +2114,7 @@
     "value": "4px",
     "resolved": "4px",
     "kind": "Fixed / alignment",
-    "count": 43,
+    "count": 58,
     "uses": [
       {
         "file": "assets/anna-timelines.css",
@@ -1628,38 +2139,10 @@
     ]
   },
   {
-    "value": "7px",
-    "resolved": "7px",
-    "kind": "Fixed / alignment",
-    "count": 26,
-    "uses": [
-      {
-        "file": "assets/anna-timelines.css",
-        "property": "gap",
-        "selector": "#anna-story .anna-studies"
-      },
-      {
-        "file": "assets/brand-ai.css",
-        "property": "padding",
-        "selector": "html[data-palette] .brand-guidelines .brand-ai__open.brand-ai__launch"
-      },
-      {
-        "file": "assets/brand-share.css",
-        "property": "gap",
-        "selector": "html[data-palette] .brand-guidelines .brand-share__copy"
-      },
-      {
-        "file": "assets/brand-share.css",
-        "property": "gap",
-        "selector": "html[data-palette] .brand-guidelines .brand-share__footer a"
-      }
-    ]
-  },
-  {
     "value": "5px",
     "resolved": "5px",
     "kind": "Fixed / alignment",
-    "count": 25,
+    "count": 34,
     "uses": [
       {
         "file": "assets/brand-jump.css",
@@ -1684,30 +2167,142 @@
     ]
   },
   {
-    "value": "2px",
-    "resolved": "2px",
+    "value": "12px",
+    "resolved": "12px",
     "kind": "Fixed / alignment",
-    "count": 15,
+    "count": 34,
     "uses": [
       {
-        "file": "assets/brand-jump.css",
-        "property": "gap",
-        "selector": ".brand-guidelines .brand-jump__links"
+        "file": "assets/contact-form.css",
+        "property": "padding",
+        "selector": "#contact-enquiry :is(input,select,textarea)"
       },
       {
-        "file": "assets/brand-jump.css",
+        "file": "assets/contact-form.css",
         "property": "padding",
-        "selector": "html[data-palette] .brand-guidelines .brand-jump__link"
+        "selector": "#contact-enquiry option"
+      },
+      {
+        "file": "assets/home-articles.css",
+        "property": "margin",
+        "selector": "#home-articles .journal-heading h2"
+      },
+      {
+        "file": "assets/home-articles.css",
+        "property": "gap",
+        "selector": ".journal-navigation:not([hidden])"
+      }
+    ]
+  },
+  {
+    "value": "10px",
+    "resolved": "10px",
+    "kind": "Fixed / alignment",
+    "count": 29,
+    "uses": [
+      {
+        "file": "assets/contact-form.css",
+        "property": "padding",
+        "selector": "#contact-enquiry option"
+      },
+      {
+        "file": "assets/footer-credit.css",
+        "property": "gap",
+        "selector": ".site-footer[data-footer-version] .footer-services-column .footer-links a"
       },
       {
         "file": "assets/home-hero-variants.css",
-        "property": "margin-top",
-        "selector": "html:is([data-home-hero=\"02\"],[data-home-hero=\"03\"]) .home-tagline em"
+        "property": "padding",
+        "selector": "html[data-home-hero=\"03\"][data-palette] .home-hero .home-hero-explore"
       },
       {
-        "file": "assets/prompts.css",
+        "file": "assets/logo-construction.css",
+        "property": "gap",
+        "selector": ".lc-choice"
+      }
+    ]
+  },
+  {
+    "value": "7px",
+    "resolved": "7px",
+    "kind": "Fixed / alignment",
+    "count": 25,
+    "uses": [
+      {
+        "file": "assets/anna-timelines.css",
+        "property": "gap",
+        "selector": "#anna-story .anna-studies"
+      },
+      {
+        "file": "assets/brand-ai.css",
         "property": "padding",
-        "selector": ".prompt-card-art span"
+        "selector": "html[data-palette] .brand-guidelines .brand-ai__open.brand-ai__launch"
+      },
+      {
+        "file": "assets/brand-share.css",
+        "property": "gap",
+        "selector": "html[data-palette] .brand-guidelines .brand-share__copy"
+      },
+      {
+        "file": "assets/brand-share.css",
+        "property": "gap",
+        "selector": "html[data-palette] .brand-guidelines .brand-share__footer a"
+      }
+    ]
+  },
+  {
+    "value": "24px",
+    "resolved": "24px",
+    "kind": "Fixed / alignment",
+    "count": 23,
+    "uses": [
+      {
+        "file": "assets/footer-credit.css",
+        "property": "margin-block-start",
+        "selector": ".footer-socials"
+      },
+      {
+        "file": "assets/home-articles.css",
+        "property": "margin-top",
+        "selector": ".journal-navigation:not([hidden])"
+      },
+      {
+        "file": "assets/logo-construction.css",
+        "property": "margin-bottom",
+        "selector": ".lc-header"
+      },
+      {
+        "file": "assets/model-topic-layouts.css",
+        "property": "padding",
+        "selector": "#where-it-can-help[data-uses-layout=\"08\"] .model-topics"
+      }
+    ]
+  },
+  {
+    "value": "14px",
+    "resolved": "14px",
+    "kind": "Fixed / alignment",
+    "count": 21,
+    "uses": [
+      {
+        "file": "assets/contact-form.css",
+        "property": "padding",
+        "selector": "#contact-enquiry :is(input,select,textarea)"
+      },
+      {
+        "file": "assets/logo-construction.css",
+        "property": "padding",
+        "selector": "html[data-palette] .lc-choice"
+      },
+      {
+        "file": "assets/logo-construction.css",
+        "property": "padding",
+        "selector": ".lc-sidebar__note"
+      },
+      {
+        "file": "assets/logo-construction.css",
+        "property": "padding-top",
+        "selector": ".lc-toolbar"
       }
     ]
   },
@@ -1715,7 +2310,7 @@
     "value": "3px",
     "resolved": "3px",
     "kind": "Fixed / alignment",
-    "count": 14,
+    "count": 20,
     "uses": [
       {
         "file": "assets/brand-nature.css",
@@ -1740,10 +2335,122 @@
     ]
   },
   {
+    "value": "16px",
+    "resolved": "16px",
+    "kind": "Fixed / alignment",
+    "count": 17,
+    "uses": [
+      {
+        "file": "assets/home-articles.css",
+        "property": "padding-block",
+        "selector": ".journal-stories article>div"
+      },
+      {
+        "file": "assets/home-articles.css",
+        "property": "padding-bottom",
+        "selector": "#home-articles .journal-stories p:has(+.journal-byline)"
+      },
+      {
+        "file": "assets/logo-construction.css",
+        "property": "margin",
+        "selector": ".lc-eyebrow"
+      },
+      {
+        "file": "assets/logo-construction.css",
+        "property": "gap",
+        "selector": "html[data-palette] .lc-choice"
+      }
+    ]
+  },
+  {
+    "value": "2px",
+    "resolved": "2px",
+    "kind": "Fixed / alignment",
+    "count": 16,
+    "uses": [
+      {
+        "file": "assets/brand-jump.css",
+        "property": "gap",
+        "selector": ".brand-guidelines .brand-jump__links"
+      },
+      {
+        "file": "assets/brand-jump.css",
+        "property": "padding",
+        "selector": "html[data-palette] .brand-guidelines .brand-jump__link"
+      },
+      {
+        "file": "assets/footer-credit.css",
+        "property": "gap",
+        "selector": "footer .footer-creator-credit"
+      },
+      {
+        "file": "assets/home-hero-variants.css",
+        "property": "margin-top",
+        "selector": "html[data-home-hero=\"03\"] .home-tagline em"
+      }
+    ]
+  },
+  {
+    "value": "20px",
+    "resolved": "20px",
+    "kind": "Fixed / alignment",
+    "count": 15,
+    "uses": [
+      {
+        "file": "assets/brand-hero-outline.css",
+        "property": "margin-bottom",
+        "selector": "html.js[data-palette] body.brand-guidelines>.site-header.has-compact-logo"
+      },
+      {
+        "file": "assets/logo-construction.css",
+        "property": "padding",
+        "selector": ".lc-caption"
+      },
+      {
+        "file": "assets/logo-construction.css",
+        "property": "padding-top",
+        "selector": ".lc-method-note"
+      },
+      {
+        "file": "assets/logo-construction.css",
+        "property": "padding",
+        "selector": ".logo-construction"
+      }
+    ]
+  },
+  {
+    "value": "18px",
+    "resolved": "18px",
+    "kind": "Fixed / alignment",
+    "count": 15,
+    "uses": [
+      {
+        "file": "assets/home-articles.css",
+        "property": "margin",
+        "selector": "#home-articles .journal-heading h2"
+      },
+      {
+        "file": "assets/logo-construction.css",
+        "property": "margin",
+        "selector": ".lc-sidebar__note p"
+      },
+      {
+        "file": "assets/member-preview.css",
+        "property": "margin-block",
+        "selector": ".site-menu-utilities .member-actions"
+      },
+      {
+        "file": "assets/model-topic-layouts.css",
+        "property": "margin-bottom",
+        "selector": "#where-it-can-help[data-uses-layout=\"06\"] .ds-section-heading::before"
+      }
+    ]
+  },
+  {
     "value": "-1px",
     "resolved": "-1px",
     "kind": "Fixed / alignment",
-    "count": 8,
+    "count": 10,
     "uses": [
       {
         "file": "assets/anna-timelines.css",
@@ -1751,19 +2458,75 @@
         "selector": ".anna-story-outline"
       },
       {
+        "file": "assets/topic-marquee.css",
+        "property": "margin",
+        "selector": ".kinetic-topics.is-kinetic-ready .kinetic-topics__list"
+      },
+      {
+        "file": "assets/topic-marquee.css",
+        "property": "margin",
+        "selector": "html.js .kinetic-topics__list"
+      },
+      {
         "file": "design/brand-contents.css",
         "property": "margin",
         "selector": ".brand-copy-status"
+      }
+    ]
+  },
+  {
+    "value": "0px",
+    "resolved": "0px",
+    "kind": "Fixed / alignment",
+    "count": 6,
+    "uses": [
+      {
+        "file": "assets/topic-marquee.css",
+        "property": "padding",
+        "selector": ".kinetic-topics"
       },
       {
-        "file": "design/brand-contents.css",
+        "file": "assets/topic-marquee.css",
         "property": "margin",
-        "selector": ".brand-references__table thead"
+        "selector": ".kinetic-topics__list"
       },
       {
-        "file": "design/brand-contents.css",
+        "file": "assets/topic-marquee.css",
+        "property": "padding",
+        "selector": ".kinetic-topics.is-kinetic-ready .kinetic-topics__list"
+      },
+      {
+        "file": "assets/topic-marquee.css",
         "property": "margin",
-        "selector": ".email-preview-status"
+        "selector": ".kinetic-topics.is-kinetic-ready .kinetic-topics__list"
+      }
+    ]
+  },
+  {
+    "value": "32px",
+    "resolved": "32px",
+    "kind": "Fixed / alignment",
+    "count": 5,
+    "uses": [
+      {
+        "file": "assets/home-articles.css",
+        "property": "margin-top",
+        "selector": ".journal-stories"
+      },
+      {
+        "file": "assets/research-layouts.css",
+        "property": "gap",
+        "selector": "[data-layout=\"03\"] .research-copy,[data-layout=\"04\"] .research-copy"
+      },
+      {
+        "file": "assets/research-layouts.css",
+        "property": "padding-block",
+        "selector": "#support-research[data-layout=\"08\"]"
+      },
+      {
+        "file": "assets/youth-motion.css",
+        "property": "margin-bottom",
+        "selector": ".youth-motion header"
       }
     ]
   },
@@ -1771,12 +2534,17 @@
     "value": "-6px",
     "resolved": "-6px",
     "kind": "Fixed / alignment",
-    "count": 3,
+    "count": 4,
     "uses": [
       {
         "file": "assets/brand-jump.css",
         "property": "margin",
         "selector": ".brand-guidelines .brand-jump__links"
+      },
+      {
+        "file": "assets/resource-action-sizing.css",
+        "property": "margin-inline",
+        "selector": "#resource-books .book-purchase-actions"
       },
       {
         "file": "site.css",
@@ -1787,6 +2555,154 @@
         "file": "styles.css",
         "property": "margin",
         "selector": ".site-preview-typeface-body-tagline"
+      }
+    ]
+  },
+  {
+    "value": "28px",
+    "resolved": "28px",
+    "kind": "Fixed / alignment",
+    "count": 4,
+    "uses": [
+      {
+        "file": "assets/logo-construction.css",
+        "property": "gap",
+        "selector": ".lc-header"
+      },
+      {
+        "file": "assets/logo-construction.css",
+        "property": "gap",
+        "selector": ".lc-caption"
+      },
+      {
+        "file": "assets/services-topic-variations.css",
+        "property": "gap",
+        "selector": "[data-topic-layout=\"03\"] #service-topic-list"
+      },
+      {
+        "file": "assets/services-topic-variations.css",
+        "property": "gap",
+        "selector": "[data-topic-layout=\"08\"] #service-topic-list"
+      }
+    ]
+  },
+  {
+    "value": "36px",
+    "resolved": "36px",
+    "kind": "Fixed / alignment",
+    "count": 4,
+    "uses": [
+      {
+        "file": "assets/logo-construction.css",
+        "property": "margin-bottom",
+        "selector": ".lc-header"
+      },
+      {
+        "file": "assets/music-player.css",
+        "property": "margin-bottom",
+        "selector": ".music-heading"
+      },
+      {
+        "file": "assets/research-layouts.css",
+        "property": "gap",
+        "selector": "[data-layout=\"05\"] .research-points"
+      },
+      {
+        "file": "assets/resources-art-options.css",
+        "property": "margin-top",
+        "selector": ".home-resources"
+      }
+    ]
+  },
+  {
+    "value": "30px",
+    "resolved": "30px",
+    "kind": "Fixed / alignment",
+    "count": 4,
+    "uses": [
+      {
+        "file": "assets/logo-construction.css",
+        "property": "padding",
+        "selector": ".lc-sidebar__note"
+      },
+      {
+        "file": "assets/logo-construction.css",
+        "property": "margin",
+        "selector": ".lc-method-note"
+      },
+      {
+        "file": "assets/logo-construction.css",
+        "property": "padding",
+        "selector": ".logo-construction"
+      }
+    ]
+  },
+  {
+    "value": "22px",
+    "resolved": "22px",
+    "kind": "Fixed / alignment",
+    "count": 3,
+    "uses": [
+      {
+        "file": "assets/brand-hero-outline.css",
+        "property": "margin-bottom",
+        "selector": "html.js[data-palette] body.brand-guidelines>.site-header.has-compact-logo"
+      },
+      {
+        "file": "assets/logo-construction.css",
+        "property": "gap",
+        "selector": ".lc-layout"
+      },
+      {
+        "file": "assets/services-topic-variations.css",
+        "property": "gap",
+        "selector": "[data-topic-layout=\"09\"] #service-topic-list"
+      }
+    ]
+  },
+  {
+    "value": "9px",
+    "resolved": "9px",
+    "kind": "Fixed / alignment",
+    "count": 3,
+    "uses": [
+      {
+        "file": "assets/home-hero-variants.css",
+        "property": "padding-inline",
+        "selector": "html[data-home-hero=\"03\"][data-palette] .home-hero .home-hero-explore"
+      },
+      {
+        "file": "assets/logo-construction.css",
+        "property": "margin",
+        "selector": ".lc-caption__eyebrow"
+      },
+      {
+        "file": "assets/music-player.css",
+        "property": "gap",
+        "selector": ".music-bottom :is(.music-youtube,.music-spotify)"
+      }
+    ]
+  },
+  {
+    "value": "-56px",
+    "resolved": "-56px",
+    "kind": "Fixed / alignment",
+    "count": 3,
+    "uses": [
+      {
+        "file": "assets/model-overview.css",
+        "property": "margin-top",
+        "selector": ".model-overview .model-section-photo"
+      },
+      {
+        "file": "design/brand-contents.css",
+        "property": "margin-top",
+        "selector": ".li-avatar"
+      },
+      {
+        "file": "design/home-refinements.css",
+        "property": "margin-top",
+        "selector": ".page-home [data-component=\"home:4:features\"] .model-section-photo"
       }
     ]
   },
@@ -1810,6 +2726,91 @@
         "file": "assets/responsive-layout.css",
         "property": "gap",
         "selector": ".site-footer[data-footer-version] .footer-grid"
+      }
+    ]
+  },
+  {
+    "value": "35px",
+    "resolved": "35px",
+    "kind": "Fixed / alignment",
+    "count": 2,
+    "uses": [
+      {
+        "file": "assets/logo-construction.css",
+        "property": "padding",
+        "selector": ".logo-construction"
+      }
+    ]
+  },
+  {
+    "value": ".5rem",
+    "resolved": ".5rem",
+    "kind": "Fixed / alignment",
+    "count": 2,
+    "uses": [
+      {
+        "file": "assets/member-preview.css",
+        "property": "gap",
+        "selector": ".member-actions"
+      },
+      {
+        "file": "assets/responsive-layout.css",
+        "property": "gap",
+        "selector": "html[data-palette] .subpage-hero .pp-breadcrumb"
+      }
+    ]
+  },
+  {
+    "value": ".5em",
+    "resolved": ".5em",
+    "kind": "Fixed / alignment",
+    "count": 2,
+    "uses": [
+      {
+        "file": "assets/member-preview.css",
+        "property": "padding",
+        "selector": ".member-actions button"
+      },
+      {
+        "file": "assets/member-preview.css",
+        "property": "padding",
+        "selector": ".member-price"
+      }
+    ]
+  },
+  {
+    "value": "-168px",
+    "resolved": "-168px",
+    "kind": "Fixed / alignment",
+    "count": 2,
+    "uses": [
+      {
+        "file": "assets/model-overview.css",
+        "property": "margin-top",
+        "selector": ".model-overview .model-section-photo"
+      },
+      {
+        "file": "design/home-refinements.css",
+        "property": "margin-top",
+        "selector": ".page-home [data-component=\"home:4:features\"] .model-section-photo"
+      }
+    ]
+  },
+  {
+    "value": "48px",
+    "resolved": "48px",
+    "kind": "Fixed / alignment",
+    "count": 2,
+    "uses": [
+      {
+        "file": "assets/resources-art-options.css",
+        "property": "padding-block",
+        "selector": ".home-resources__copy"
+      },
+      {
+        "file": "assets/youth-motion.css",
+        "property": "padding",
+        "selector": ".youth-motion"
       }
     ]
   },
@@ -1935,6 +2936,19 @@
     ]
   },
   {
+    "value": "44px",
+    "resolved": "44px",
+    "kind": "Fixed / alignment",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/contact-form.css",
+        "property": "padding-right",
+        "selector": "#contact-enquiry select"
+      }
+    ]
+  },
+  {
     "value": ".55em",
     "resolved": ".55em",
     "kind": "Fixed / alignment",
@@ -1944,6 +2958,266 @@
         "file": "assets/footer-credit.css",
         "property": "gap",
         "selector": "footer .footer-creator-credit"
+      }
+    ]
+  },
+  {
+    "value": "52px",
+    "resolved": "52px",
+    "kind": "Fixed / alignment",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/home-book-notice.css",
+        "property": "padding",
+        "selector": ".home-book-notice"
+      }
+    ]
+  },
+  {
+    "value": "70px",
+    "resolved": "70px",
+    "kind": "Fixed / alignment",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/logo-construction.css",
+        "property": "padding",
+        "selector": ".logo-construction"
+      }
+    ]
+  },
+  {
+    "value": "56px",
+    "resolved": "56px",
+    "kind": "Fixed / alignment",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/logo-construction.css",
+        "property": "padding",
+        "selector": ".logo-construction"
+      }
+    ]
+  },
+  {
+    "value": "46px",
+    "resolved": "46px",
+    "kind": "Fixed / alignment",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/logo-construction.css",
+        "property": "padding",
+        "selector": ".logo-construction"
+      }
+    ]
+  },
+  {
+    "value": "38px",
+    "resolved": "38px",
+    "kind": "Fixed / alignment",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/logo-construction.css",
+        "property": "gap",
+        "selector": ".lc-layout"
+      }
+    ]
+  },
+  {
+    "value": "17px",
+    "resolved": "17px",
+    "kind": "Fixed / alignment",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/logo-construction.css",
+        "property": "padding",
+        "selector": "html[data-palette] .lc-choice"
+      }
+    ]
+  },
+  {
+    "value": "23px",
+    "resolved": "23px",
+    "kind": "Fixed / alignment",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/logo-construction.css",
+        "property": "padding",
+        "selector": ".lc-caption"
+      }
+    ]
+  },
+  {
+    "value": "45px",
+    "resolved": "45px",
+    "kind": "Fixed / alignment",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/logo-construction.css",
+        "property": "padding",
+        "selector": ".logo-construction"
+      }
+    ]
+  },
+  {
+    "value": "1px",
+    "resolved": "1px",
+    "kind": "Fixed / alignment",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/logo-construction.css",
+        "property": "padding-top",
+        "selector": ".lc-choice__number"
+      }
+    ]
+  },
+  {
+    "value": "13px",
+    "resolved": "13px",
+    "kind": "Fixed / alignment",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/logo-construction.css",
+        "property": "gap",
+        "selector": ".lc-playback"
+      }
+    ]
+  },
+  {
+    "value": "25px",
+    "resolved": "25px",
+    "kind": "Fixed / alignment",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/logo-construction.css",
+        "property": "margin-top",
+        "selector": ".lc-method-note"
+      }
+    ]
+  },
+  {
+    "value": "15px",
+    "resolved": "15px",
+    "kind": "Fixed / alignment",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/logo-construction.css",
+        "property": "padding-inline",
+        "selector": ".logo-construction"
+      }
+    ]
+  },
+  {
+    "value": ".65em",
+    "resolved": ".65em",
+    "kind": "Fixed / alignment",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/logo-tagline.css",
+        "property": "gap",
+        "selector": ".site-brand-line,.brand-logo-lockup__tagline,.site-preview-brand-hero-subtitle,.footer-brand-tagline"
+      }
+    ]
+  },
+  {
+    "value": ".45em",
+    "resolved": ".45em",
+    "kind": "Fixed / alignment",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/logo-tagline.css",
+        "property": "gap",
+        "selector": "html[data-palette] [data-morph-header] .site-brand-line"
+      }
+    ]
+  },
+  {
+    "value": ".35em",
+    "resolved": ".35em",
+    "kind": "Fixed / alignment",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/member-preview.css",
+        "property": "gap",
+        "selector": ".member-actions button"
+      }
+    ]
+  },
+  {
+    "value": ".25em",
+    "resolved": ".25em",
+    "kind": "Fixed / alignment",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/member-preview.css",
+        "property": "padding",
+        "selector": ".member-actions button"
+      }
+    ]
+  },
+  {
+    "value": ".3em",
+    "resolved": ".3em",
+    "kind": "Fixed / alignment",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/member-preview.css",
+        "property": "padding",
+        "selector": ".member-price"
+      }
+    ]
+  },
+  {
+    "value": "40px",
+    "resolved": "40px",
+    "kind": "Fixed / alignment",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/music-player.css",
+        "property": "column-gap",
+        "selector": "[data-layout=\"4\"] .music-console"
+      }
+    ]
+  },
+  {
+    "value": "1em",
+    "resolved": "1em",
+    "kind": "Fixed / alignment",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/research-layouts.css",
+        "property": "margin-top",
+        "selector": ".research-copy p+p"
+      }
+    ]
+  },
+  {
+    "value": ".18em",
+    "resolved": ".18em",
+    "kind": "Fixed / alignment",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/research-layouts.css",
+        "property": "margin-top",
+        "selector": ".research-points svg"
       }
     ]
   },
@@ -1963,19 +3237,6 @@
   {
     "value": ".25rem",
     "resolved": ".25rem",
-    "kind": "Fixed / alignment",
-    "count": 1,
-    "uses": [
-      {
-        "file": "assets/responsive-layout.css",
-        "property": "gap",
-        "selector": "html[data-palette] .subpage-hero .pp-breadcrumb"
-      }
-    ]
-  },
-  {
-    "value": ".5rem",
-    "resolved": ".5rem",
     "kind": "Fixed / alignment",
     "count": 1,
     "uses": [
@@ -2026,15 +3287,41 @@
     ]
   },
   {
-    "value": "-56px",
-    "resolved": "-56px",
+    "value": "92px",
+    "resolved": "92px",
     "kind": "Fixed / alignment",
     "count": 1,
     "uses": [
       {
-        "file": "design/brand-contents.css",
-        "property": "margin-top",
-        "selector": ".li-avatar"
+        "file": "assets/river-colour-study.css",
+        "property": "padding-bottom",
+        "selector": "#river-within"
+      }
+    ]
+  },
+  {
+    "value": "0.06em",
+    "resolved": "0.06em",
+    "kind": "Fixed / alignment",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/topic-marquee.css",
+        "property": "padding-block",
+        "selector": ".kinetic-topics__row"
+      }
+    ]
+  },
+  {
+    "value": "80px",
+    "resolved": "80px",
+    "kind": "Fixed / alignment",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/youth-motion.css",
+        "property": "padding",
+        "selector": ".youth-motion"
       }
     ]
   },
@@ -2061,19 +3348,6 @@
         "file": "design/brand-contents.css",
         "property": "margin-top",
         "selector": ".x-avatar"
-      }
-    ]
-  },
-  {
-    "value": "12px",
-    "resolved": "12px",
-    "kind": "Fixed / alignment",
-    "count": 1,
-    "uses": [
-      {
-        "file": "design/brand-contents.css",
-        "property": "gap",
-        "selector": ".brand-credit-author"
       }
     ]
   },
@@ -2113,6 +3387,32 @@
         "file": "design/components.css",
         "property": "margin",
         "selector": ".ex-cutout-stage>.ex-heading"
+      }
+    ]
+  },
+  {
+    "value": "-150px",
+    "resolved": "-150px",
+    "kind": "Fixed / alignment",
+    "count": 1,
+    "uses": [
+      {
+        "file": "design/home-refinements.css",
+        "property": "margin",
+        "selector": ".home-hero-gallery"
+      }
+    ]
+  },
+  {
+    "value": "-72px",
+    "resolved": "-72px",
+    "kind": "Fixed / alignment",
+    "count": 1,
+    "uses": [
+      {
+        "file": "design/home-refinements.css",
+        "property": "margin-top",
+        "selector": ".home-hero-gallery"
       }
     ]
   },
@@ -2211,7 +3511,7 @@
     "value": "var(--space-fluid-24)",
     "resolved": "clamp(1.125rem,0.98571rem + 0.57143vw,1.5rem)",
     "kind": "Shared spacing",
-    "count": 205,
+    "count": 197,
     "uses": [
       {
         "file": "assets/anna-timelines.css",
@@ -2239,7 +3539,7 @@
     "value": "var(--space-fluid-12)",
     "resolved": "clamp(0.5625rem,0.49286rem + 0.28571vw,0.75rem)",
     "kind": "Shared spacing",
-    "count": 194,
+    "count": 188,
     "uses": [
       {
         "file": "assets/anna-timelines.css",
@@ -2267,7 +3567,7 @@
     "value": "var(--space-fluid-16)",
     "resolved": "clamp(0.75rem,0.65714rem + 0.38095vw,1rem)",
     "kind": "Shared spacing",
-    "count": 153,
+    "count": 147,
     "uses": [
       {
         "file": "assets/anna-timelines.css",
@@ -2295,7 +3595,7 @@
     "value": "var(--space-fluid-20)",
     "resolved": "clamp(0.9375rem,0.82143rem + 0.47619vw,1.25rem)",
     "kind": "Shared spacing",
-    "count": 131,
+    "count": 125,
     "uses": [
       {
         "file": "assets/anna-timelines.css",
@@ -2323,7 +3623,7 @@
     "value": "var(--space-fluid-18)",
     "resolved": "clamp(0.84375rem,0.73929rem + 0.42857vw,1.125rem)",
     "kind": "Shared spacing",
-    "count": 114,
+    "count": 112,
     "uses": [
       {
         "file": "assets/anna-timelines.css",
@@ -2351,7 +3651,7 @@
     "value": "var(--space-fluid-10)",
     "resolved": "clamp(0.46875rem,0.41071rem + 0.2381vw,0.625rem)",
     "kind": "Shared spacing",
-    "count": 102,
+    "count": 99,
     "uses": [
       {
         "file": "assets/anna-timelines.css",
@@ -2379,7 +3679,7 @@
     "value": "var(--space-fluid-28)",
     "resolved": "clamp(1.3125rem,1.15rem + 0.66667vw,1.75rem)",
     "kind": "Shared spacing",
-    "count": 96,
+    "count": 97,
     "uses": [
       {
         "file": "assets/anna-timelines.css",
@@ -2407,7 +3707,7 @@
     "value": "var(--space-fluid-14)",
     "resolved": "clamp(0.65625rem,0.575rem + 0.33333vw,0.875rem)",
     "kind": "Shared spacing",
-    "count": 90,
+    "count": 87,
     "uses": [
       {
         "file": "assets/anna-timelines.css",
@@ -2435,7 +3735,7 @@
     "value": "var(--space-fluid-32)",
     "resolved": "clamp(1.5rem,1.31429rem + 0.7619vw,2rem)",
     "kind": "Shared spacing",
-    "count": 66,
+    "count": 67,
     "uses": [
       {
         "file": "assets/anna-timelines.css",
@@ -2463,7 +3763,7 @@
     "value": "var(--space-fluid-22)",
     "resolved": "clamp(1.03125rem,0.90357rem + 0.52381vw,1.375rem)",
     "kind": "Shared spacing",
-    "count": 60,
+    "count": 62,
     "uses": [
       {
         "file": "assets/anna-timelines.css",
@@ -2484,6 +3784,34 @@
         "file": "assets/brand-ai.css",
         "property": "padding",
         "selector": "html[data-palette] .brand-guidelines .brand-ai__open.brand-ai__launch"
+      }
+    ]
+  },
+  {
+    "value": "var(--space-fluid-25)",
+    "resolved": "clamp(1.17188rem,1.02679rem + 0.59524vw,1.5625rem)",
+    "kind": "Shared spacing",
+    "count": 29,
+    "uses": [
+      {
+        "file": "assets/colour-testing/palette-lab.css",
+        "property": "margin-top",
+        "selector": ".palette-lab__heading nav"
+      },
+      {
+        "file": "assets/colour-testing/palette-lab.css",
+        "property": "margin",
+        "selector": ".palette-lab p.palette-note"
+      },
+      {
+        "file": "assets/prompts.css",
+        "property": "padding",
+        "selector": ".prompt-art-card"
+      },
+      {
+        "file": "assets/prompts.css",
+        "property": "gap",
+        "selector": ".prompt-more"
       }
     ]
   },
@@ -2516,38 +3844,10 @@
     ]
   },
   {
-    "value": "var(--space-fluid-25)",
-    "resolved": "clamp(1.17188rem,1.02679rem + 0.59524vw,1.5625rem)",
-    "kind": "Shared spacing",
-    "count": 28,
-    "uses": [
-      {
-        "file": "assets/colour-testing/palette-lab.css",
-        "property": "margin-top",
-        "selector": ".palette-lab__heading nav"
-      },
-      {
-        "file": "assets/colour-testing/palette-lab.css",
-        "property": "margin",
-        "selector": ".palette-lab p.palette-note"
-      },
-      {
-        "file": "assets/prompts.css",
-        "property": "padding",
-        "selector": ".prompt-art-card"
-      },
-      {
-        "file": "assets/prompts.css",
-        "property": "gap",
-        "selector": ".prompt-more"
-      }
-    ]
-  },
-  {
     "value": "var(--space-fluid-26)",
     "resolved": "clamp(1.21875rem,1.06786rem + 0.61905vw,1.625rem)",
     "kind": "Shared spacing",
-    "count": 27,
+    "count": 28,
     "uses": [
       {
         "file": "assets/anna-timelines.css",
@@ -2567,7 +3867,7 @@
       {
         "file": "assets/home-hero-variants.css",
         "property": "margin",
-        "selector": "html:is([data-home-hero=\"02\"],[data-home-hero=\"03\"]) .page-home .home-hero .home-hero-inner-photo .home-tagline"
+        "selector": "html[data-home-hero=\"03\"] .page-home .home-hero .home-hero-inner-photo .home-tagline"
       }
     ]
   },
@@ -2575,7 +3875,7 @@
     "value": "var(--space-fluid-36)",
     "resolved": "clamp(1.6875rem,1.47857rem + 0.85714vw,2.25rem)",
     "kind": "Shared spacing",
-    "count": 26,
+    "count": 25,
     "uses": [
       {
         "file": "assets/anna-timelines.css",
@@ -2600,38 +3900,10 @@
     ]
   },
   {
-    "value": "var(--space-fluid-9)",
-    "resolved": "clamp(0.42188rem,0.36964rem + 0.21429vw,0.5625rem)",
-    "kind": "Shared spacing",
-    "count": 23,
-    "uses": [
-      {
-        "file": "assets/anna-timelines.css",
-        "property": "gap",
-        "selector": "html[data-palette] #anna-story .anna-studies button"
-      },
-      {
-        "file": "assets/anna-timelines.css",
-        "property": "padding",
-        "selector": "#anna-story .waka-studies button"
-      },
-      {
-        "file": "assets/brand-ai.css",
-        "property": "gap",
-        "selector": "html[data-palette] .brand-guidelines .brand-ai__provider"
-      },
-      {
-        "file": "assets/brand-nature.css",
-        "property": "gap",
-        "selector": "html[data-palette] #brand-nature-studies .brand-nature__choice"
-      }
-    ]
-  },
-  {
     "value": "var(--space-fluid-40)",
     "resolved": "clamp(1.875rem,1.64286rem + 0.95238vw,2.5rem)",
     "kind": "Shared spacing",
-    "count": 21,
+    "count": 22,
     "uses": [
       {
         "file": "assets/anna-timelines.css",
@@ -2652,6 +3924,34 @@
         "file": "assets/colour-testing/palette-lab.css",
         "property": "padding-top",
         "selector": ".palette-lab section"
+      }
+    ]
+  },
+  {
+    "value": "var(--space-fluid-9)",
+    "resolved": "clamp(0.42188rem,0.36964rem + 0.21429vw,0.5625rem)",
+    "kind": "Shared spacing",
+    "count": 21,
+    "uses": [
+      {
+        "file": "assets/anna-timelines.css",
+        "property": "gap",
+        "selector": "html[data-palette] #anna-story .anna-studies button"
+      },
+      {
+        "file": "assets/anna-timelines.css",
+        "property": "padding",
+        "selector": "#anna-story .waka-studies button"
+      },
+      {
+        "file": "assets/brand-ai.css",
+        "property": "gap",
+        "selector": "html[data-palette] .brand-guidelines .brand-ai__provider"
+      },
+      {
+        "file": "assets/brand-nature.css",
+        "property": "gap",
+        "selector": "html[data-palette] #brand-nature-studies .brand-nature__choice"
       }
     ]
   },
@@ -2684,30 +3984,30 @@
     ]
   },
   {
-    "value": "var(--space-fluid-56)",
-    "resolved": "clamp(2.625rem,2.3rem + 1.33333vw,3.5rem)",
+    "value": "var(--section-space)",
+    "resolved": "clamp(3.75rem,3.00714rem + 3.04762vw,5.75rem)",
     "kind": "Shared spacing",
-    "count": 14,
+    "count": 18,
     "uses": [
       {
-        "file": "assets/anna-timelines.css",
-        "property": "margin",
-        "selector": "#anna-story .anna-study-caption"
+        "file": "assets/brand-ai.css",
+        "property": "padding",
+        "selector": ".brand-guidelines .brand-ai"
       },
       {
-        "file": "assets/anna-timelines.css",
-        "property": "margin-top",
-        "selector": "#anna-story .anna-timeline-footer"
+        "file": "assets/brand-ai.css",
+        "property": "padding",
+        "selector": ".brand-guidelines .brand-ai-images"
       },
       {
-        "file": "assets/anna-timelines.css",
-        "property": "gap",
-        "selector": "#anna-story:is([data-timeline-variant=thread],[data-timeline-variant=thread2]) .anna-list"
+        "file": "assets/illustration-clean-study.css",
+        "property": "padding",
+        "selector": "html[data-palette] .illustration-clean-study"
       },
       {
-        "file": "assets/anna-timelines.css",
-        "property": "padding-block",
-        "selector": "#anna-story:is([data-timeline-variant=thread],[data-timeline-variant=thread2]) .anna-list"
+        "file": "design/brand-contents.css",
+        "property": "padding-top",
+        "selector": ".brand-guide-layout"
       }
     ]
   },
@@ -2740,30 +4040,30 @@
     ]
   },
   {
-    "value": "var(--section-space)",
-    "resolved": "clamp(3.75rem,3.00714rem + 3.04762vw,5.75rem)",
+    "value": "var(--space-fluid-56)",
+    "resolved": "clamp(2.625rem,2.3rem + 1.33333vw,3.5rem)",
     "kind": "Shared spacing",
-    "count": 13,
+    "count": 12,
     "uses": [
       {
-        "file": "assets/illustration-clean-study.css",
-        "property": "padding",
-        "selector": "html[data-palette] .illustration-clean-study"
+        "file": "assets/anna-timelines.css",
+        "property": "margin",
+        "selector": "#anna-story .anna-study-caption"
       },
       {
-        "file": "design/brand-contents.css",
-        "property": "padding-top",
-        "selector": ".brand-guide-layout"
+        "file": "assets/anna-timelines.css",
+        "property": "margin-top",
+        "selector": "#anna-story .anna-timeline-footer"
       },
       {
-        "file": "design/brand-contents.css",
-        "property": "padding-block",
-        "selector": "html[data-palette] .brand-guidelines .site-preview :is(.site-preview-hero,.site-preview-section,.brand-guide-contents),html[data-palette] .brand-guidelines .dashboard-content>.section"
-      },
-      {
-        "file": "design/brand-contents.css",
+        "file": "assets/anna-timelines.css",
         "property": "gap",
-        "selector": ".brand-guidelines #mockups"
+        "selector": "#anna-story:is([data-timeline-variant=thread],[data-timeline-variant=thread2]) .anna-list"
+      },
+      {
+        "file": "assets/anna-timelines.css",
+        "property": "padding-block",
+        "selector": "#anna-story:is([data-timeline-variant=thread],[data-timeline-variant=thread2]) .anna-list"
       }
     ]
   },
@@ -2799,7 +4099,7 @@
     "value": "var(--space-fluid-80)",
     "resolved": "clamp(3.75rem,3.28571rem + 1.90476vw,5rem)",
     "kind": "Shared spacing",
-    "count": 11,
+    "count": 12,
     "uses": [
       {
         "file": "assets/anna-timelines.css",
@@ -2817,9 +4117,9 @@
         "selector": ".palette-lab"
       },
       {
-        "file": "assets/prompts.css",
-        "property": "padding",
-        "selector": ".prompt-library"
+        "file": "assets/model-overview.css",
+        "property": "margin-top",
+        "selector": "html[data-palette] main.site-main>.model-overview"
       }
     ]
   },
@@ -2967,12 +4267,12 @@
     "value": "var(--space-fluid-34)",
     "resolved": "clamp(1.59375rem,1.39643rem + 0.80952vw,2.125rem)",
     "kind": "Shared spacing",
-    "count": 6,
+    "count": 7,
     "uses": [
       {
         "file": "assets/home-hero-variants.css",
         "property": "margin",
-        "selector": "html:is([data-home-hero=\"02\"],[data-home-hero=\"03\"]) .page-home .home-hero .home-hero-inner-photo .button-row"
+        "selector": "html[data-home-hero=\"03\"] .page-home .home-hero .home-hero-inner-photo .button-row"
       },
       {
         "file": "assets/prompts.css",
@@ -2985,9 +4285,9 @@
         "selector": ".prompt-footer"
       },
       {
-        "file": "site.css",
-        "property": "margin",
-        "selector": ".prose h3"
+        "file": "design/home-refinements.css",
+        "property": "padding",
+        "selector": ".home-resources"
       }
     ]
   },
@@ -3132,30 +4432,30 @@
     ]
   },
   {
-    "value": "var(--space-fluid-44)",
-    "resolved": "clamp(2.0625rem,1.80714rem + 1.04762vw,2.75rem)",
+    "value": "var(--space-layout-17)",
+    "resolved": "clamp(24px,4vw,64px)",
     "kind": "Shared spacing",
     "count": 5,
     "uses": [
       {
-        "file": "assets/home-hero-variants.css",
-        "property": "padding",
-        "selector": "html:is([data-home-hero=\"02\"],[data-home-hero=\"03\"]) .page-home .home-hero .home-hero-inner-photo .home-hero-copy"
-      },
-      {
-        "file": "assets/prompts.css",
+        "file": "assets/topic-marquee.css",
         "property": "gap",
-        "selector": ".prompt-library"
+        "selector": ".kinetic-topics__group"
       },
       {
-        "file": "assets/resource-game.css",
-        "property": "padding",
-        "selector": ".resource-play__content"
+        "file": "assets/topic-marquee.css",
+        "property": "padding-right",
+        "selector": ".kinetic-topics__group"
       },
       {
-        "file": "design/footer-versions.css",
-        "property": "row-gap",
-        "selector": ".site-footer[data-footer-version=\"04\"] .footer-grid"
+        "file": "design/home-refinements.css",
+        "property": "padding-left",
+        "selector": ".home-resources__aside"
+      },
+      {
+        "file": "design/presentation.css",
+        "property": "gap",
+        "selector": ".kinetic-topics__group"
       }
     ]
   },
@@ -3184,6 +4484,34 @@
         "file": "styles.css",
         "property": "padding-top",
         "selector": ".site-preview-section.site-preview-contents"
+      }
+    ]
+  },
+  {
+    "value": "var(--space-fluid-44)",
+    "resolved": "clamp(2.0625rem,1.80714rem + 1.04762vw,2.75rem)",
+    "kind": "Shared spacing",
+    "count": 4,
+    "uses": [
+      {
+        "file": "assets/home-hero-variants.css",
+        "property": "padding",
+        "selector": "html[data-home-hero=\"03\"] .page-home .home-hero .home-hero-inner-photo .home-hero-copy"
+      },
+      {
+        "file": "assets/prompts.css",
+        "property": "gap",
+        "selector": ".prompt-library"
+      },
+      {
+        "file": "design/footer-versions.css",
+        "property": "row-gap",
+        "selector": ".site-footer[data-footer-version=\"04\"] .footer-grid"
+      },
+      {
+        "file": "design/resources-nav.css",
+        "property": "gap",
+        "selector": ".resources-browser .ds-video-editorial"
       }
     ]
   },
@@ -3309,29 +4637,6 @@
         "file": "assets/prompts.css",
         "property": "margin-top",
         "selector": ".prompt-intro h1"
-      }
-    ]
-  },
-  {
-    "value": "var(--space-fluid-96)",
-    "resolved": "clamp(4.5rem,3.94286rem + 2.28571vw,6rem)",
-    "kind": "Shared spacing",
-    "count": 3,
-    "uses": [
-      {
-        "file": "assets/resource-game.css",
-        "property": "margin",
-        "selector": ".resource-play"
-      },
-      {
-        "file": "design/brand-contents.css",
-        "property": "padding-top",
-        "selector": ".brand-guidelines .brand-guide-layout"
-      },
-      {
-        "file": "site.css",
-        "property": "padding",
-        "selector": ".home-hero-inner"
       }
     ]
   },
@@ -3562,42 +4867,6 @@
     ]
   },
   {
-    "value": "var(--space-layout-11)",
-    "resolved": "clamp(64px,6vw,96px)",
-    "kind": "Shared spacing",
-    "count": 2,
-    "uses": [
-      {
-        "file": "assets/resource-books.css",
-        "property": "padding",
-        "selector": "html[data-palette] #resource-books"
-      },
-      {
-        "file": "assets/resource-videos.css",
-        "property": "padding",
-        "selector": "html[data-palette] #resource-videos"
-      }
-    ]
-  },
-  {
-    "value": "var(--space-layout-12)",
-    "resolved": "clamp(22px,4vw,64px)",
-    "kind": "Shared spacing",
-    "count": 2,
-    "uses": [
-      {
-        "file": "assets/resource-books.css",
-        "property": "padding",
-        "selector": "html[data-palette] #resource-books"
-      },
-      {
-        "file": "assets/resource-videos.css",
-        "property": "padding",
-        "selector": "html[data-palette] #resource-videos"
-      }
-    ]
-  },
-  {
     "value": "var(--space-layout-13)",
     "resolved": "clamp(1.5rem,1rem + 2vw,3rem)",
     "kind": "Shared spacing",
@@ -3648,6 +4917,24 @@
         "file": "design/brand-colours.css",
         "property": "gap",
         "selector": ":is(#home-faq,#contact-faq) .home-faq-columns"
+      }
+    ]
+  },
+  {
+    "value": "var(--space-fluid-96)",
+    "resolved": "clamp(4.5rem,3.94286rem + 2.28571vw,6rem)",
+    "kind": "Shared spacing",
+    "count": 2,
+    "uses": [
+      {
+        "file": "design/brand-contents.css",
+        "property": "padding-top",
+        "selector": ".brand-guidelines .brand-guide-layout"
+      },
+      {
+        "file": "site.css",
+        "property": "padding",
+        "selector": ".home-hero-inner"
       }
     ]
   },
@@ -3706,24 +4993,6 @@
     ]
   },
   {
-    "value": "var(--space-layout-17)",
-    "resolved": "clamp(24px,4vw,64px)",
-    "kind": "Shared spacing",
-    "count": 2,
-    "uses": [
-      {
-        "file": "design/presentation.css",
-        "property": "gap",
-        "selector": ".kinetic-topics__group"
-      },
-      {
-        "file": "design/presentation.css",
-        "property": "padding-right",
-        "selector": ".kinetic-topics__group"
-      }
-    ]
-  },
-  {
     "value": "var(--space-layout-18)",
     "resolved": "clamp(26px,3vw,38px)",
     "kind": "Shared spacing",
@@ -3738,6 +5007,32 @@
         "file": "site.css",
         "property": "padding",
         "selector": ".workspace-response-note"
+      }
+    ]
+  },
+  {
+    "value": "var(--space-layout-11)",
+    "resolved": "clamp(64px,6vw,96px)",
+    "kind": "Shared spacing",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/resource-books.css",
+        "property": "padding",
+        "selector": "html[data-palette] #resource-books"
+      }
+    ]
+  },
+  {
+    "value": "var(--space-layout-12)",
+    "resolved": "clamp(22px,4vw,64px)",
+    "kind": "Shared spacing",
+    "count": 1,
+    "uses": [
+      {
+        "file": "assets/resource-books.css",
+        "property": "padding",
+        "selector": "html[data-palette] #resource-books"
       }
     ]
   }

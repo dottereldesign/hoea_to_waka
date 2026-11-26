@@ -3,7 +3,7 @@ const assert=require('node:assert/strict');
 const fs=require('node:fs');
 
 (async()=>{
-  const server=require('./preview.cjs')(8887),browser=await chromium.launch({channel:'chrome'});
+  const {server,origin:releaseOrigin}=await require('./test-site.cjs')(),browser=await chromium.launch({channel:'chrome'});
   fs.mkdirSync('tmp/menu-perf',{recursive:true});
   const results=[];
   try{
@@ -11,7 +11,7 @@ const fs=require('node:fs');
     page.on('pageerror',error=>errors.push(error.message));
     for(const [route,width]of [['about/brand-guidelines/',1440],['about/brand-guidelines/',390],['',1440],['services/',1440]]){
       await page.setViewportSize({width,height:1000});
-      await page.goto('http://127.0.0.1:8887/'+route);await page.waitForLoadState('networkidle');
+      await page.goto(releaseOrigin+'/'+route);await page.waitForLoadState('networkidle');
       await page.waitForFunction(()=>!document.querySelector('[data-header-entrance]')||document.querySelector('[data-header-entrance]').dataset.entranceState==='idle');
       await page.evaluate(()=>{
         const box=document.createElement('div');box.id='menu-background-probes';box.setAttribute('aria-hidden','false');
@@ -58,7 +58,7 @@ const fs=require('node:fs');
       results.push({route,width,clickMilliseconds:times});
       console.log('PASS responsive menu, modal isolation, restored attributes/scroll lock, animation pause/resume',JSON.stringify(results.at(-1)));
     }
-    await page.goto('http://127.0.0.1:8887/about/brand-guidelines/');
+    await page.goto(releaseOrigin+'/about/brand-guidelines/');
     for(const selector of ['#brand-door-study svg','.brand-nature__stage']){
       await page.locator(selector).scrollIntoViewIfNeeded();await page.waitForTimeout(300);
       await page.locator('[data-menu-toggle]').click();
@@ -70,7 +70,7 @@ const fs=require('node:fs');
     assert.deepEqual(errors,[]);fs.writeFileSync('tmp/menu-perf/current.json',JSON.stringify(results,null,2));
     const fallback=await browser.newPage({reducedMotion:'reduce'});
     await fallback.addInitScript(()=>Object.defineProperty(HTMLElement.prototype,'showPopover',{value:undefined,configurable:true}));
-    await fallback.goto('http://127.0.0.1:8887/services/');await fallback.locator('[data-menu-toggle]').click();
+    await fallback.goto(releaseOrigin+'/services/');await fallback.locator('[data-menu-toggle]').click();
     assert(await fallback.locator('.site-menu-panel').evaluate(e=>e.open&&e.matches(':modal')));
     await fallback.keyboard.press('Escape');assert(await fallback.locator('.site-menu-panel').evaluate(e=>!e.open));
     await fallback.close();

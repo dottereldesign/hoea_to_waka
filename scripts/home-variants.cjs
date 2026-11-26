@@ -4,9 +4,9 @@ const fs = require('node:fs');
 const AxeBuilder = require('@axe-core/playwright').default;
 const KEY = 'hoea-home-hero-choice-v2';
 (async () => {
- const server = require('./preview.cjs')(8803);
+ const {server,origin:releaseOrigin}=await require('./test-site.cjs')();
  const browser = await chromium.launch({channel:'chrome',headless:true});
- const url='http://127.0.0.1:8803/hoea_to_waka/';
+ const url=releaseOrigin+'/hoea_to_waka/';
  fs.mkdirSync('tmp/hero-variation',{recursive:true});
  try {
   for(const width of [320,390,820,1440,2560]) {

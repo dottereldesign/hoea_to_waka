@@ -7,6 +7,8 @@ import { brandCSS } from './brand-css.mjs';
 import { renderBrandGuidelines } from './brand-guidelines.mjs';
 import { updateServiceLinkIcons } from './service-link-icons.mjs';
 
+// ZIP headers use local calendar fields. Keep release timestamps consistent across time zones.
+process.env.TZ = 'UTC';
 await import('./brand-downloads.mjs');
 await import('./social-downloads.mjs');
 await import('./brand-previews.mjs');
@@ -36,7 +38,8 @@ const lightAliases=aliases(siteSource.match(/:root\s*\{([^}]+)\}/)[1]);
 const darkAliases=aliases(siteSource.match(/html\[data-theme="dark"\]\s*\{([^}]+)\}/)?.[1]||'');
 const presentation=tokeniseCSS(await readFile('design/presentation.css','utf8'),colours);
 async function collectInline(folder='.'){
- for(const entry of await readdir(folder,{withFileTypes:true})){
+ const entries=await readdir(folder,{withFileTypes:true});
+ for(const entry of entries.sort((a,b)=>a.name<b.name?-1:a.name>b.name?1:0)){
   if(entry.name.startsWith('.')||['node_modules','tmp','assets','_site'].includes(entry.name))continue;
   const path=folder+'/'+entry.name;
   if(entry.isDirectory())await collectInline(path);
@@ -48,7 +51,7 @@ let theme=await readFile('design/theme-fonts.css','utf8');
 theme+=brandCSS(colours);
 theme+='\n[data-component-palette]{'+lightAliases.join(';')+'}\nhtml[data-theme="dark"] [data-component-palette]{'+darkAliases.join(';')+'}';
 theme+='\n'+presentation;
-for(const file of['brand-colours','header','model-button','home-monochrome','static-pages','section-spacing','coaching-hero','subpage-backgrounds','footer-versions','model-benefits','resources-nav'])theme+='\n'+await readFile('design/'+file+'.css','utf8');
+for(const file of['brand-colours','header','model-button','home-monochrome','static-pages','section-spacing','coaching-hero','subpage-backgrounds','footer-versions','model-benefits','resources-nav','home-refinements'])theme+='\n'+await readFile('design/'+file+'.css','utf8');
 await writeFile('assets/theme.css',(await transform(theme,{loader:'css',minifyWhitespace:true})).code);
 await writeFile('assets/brand-guide-components.css',(await transform(await readFile('design/brand-contents.css','utf8'),{loader:'css',minifyWhitespace:true})).code);
 await build({entryPoints:['design/theme-init.js'],bundle:true,minify:true,format:'iife',target:['es2020'],outfile:'assets/theme-init.js'});

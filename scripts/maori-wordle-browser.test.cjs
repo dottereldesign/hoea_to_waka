@@ -1,7 +1,7 @@
 const {chromium}=require('playwright'),assert=require('node:assert/strict');
-(async()=>{const browser=await chromium.launch({channel:'chrome'});try{
+require('./test-site.cjs').withTestSite(async ({base})=>{const browser=await chromium.launch({channel:'chrome'});try{
 const page=await browser.newPage({viewport:{width:1440,height:1000},reducedMotion:'reduce'}),errors=[];page.on('pageerror',e=>errors.push(e.message));
-const url=(process.env.SITE_BASE_URL||'http://127.0.0.1:8766/hoea_to_waka/')+'resources/';
+const url=base+'resources/';
 await page.goto(url);
 async function unlock(p) {
  const trigger=p.locator('button.footer-tagline');
@@ -29,4 +29,4 @@ await seed(await page.evaluate(()=>window.MaoriWordleWords.allowed.filter(w=>w!=
 await page.evaluate(()=>localStorage.setItem('hoea-maori-wordle-v1','{broken'));await page.reload();await unlock(page);await page.locator('[data-game-start]').click();assert.equal(await page.locator('.mw-row').count(),6);
 const privatePage=await browser.newPage();await privatePage.addInitScript(()=>{Storage.prototype.getItem=Storage.prototype.setItem=()=>{throw Error('Storage disabled')};});await privatePage.goto(url);await unlock(privatePage);await privatePage.locator('[data-game-start]').click();assert(await privatePage.locator('#mw-guess').isVisible());
 assert.deepEqual(errors,[]);console.log('PASS validation, repeated-letter UI, macron replacement, win/loss, resume, next, corrupt/blocked storage, help, keyboard targets and 320–1440px layouts');
-}finally{await browser.close()}})().catch(e=>{console.error(e);process.exitCode=1});
+}finally{await browser.close()}}).catch(e=>{console.error(e);process.exitCode=1});

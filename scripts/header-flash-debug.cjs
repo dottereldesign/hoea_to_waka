@@ -5,13 +5,13 @@
 const {chromium}=require('playwright');
 const fs=require('fs');
 const sharp=require('sharp');
-(async()=>{
+require('./test-site.cjs').withTestSite(async ({base})=>{
  const label=(process.argv[2]||'after').replace(/[^a-z0-9_-]/gi,'-');
  const browser=await chromium.launch({channel:'chrome'});
  try{
   const context=await browser.newContext({viewport:{width:1440,height:900}});
   const page=await context.newPage();
-  await page.goto('http://127.0.0.1:8766/hoea_to_waka/'+(process.argv[3]||''));
+  await page.goto(base+(process.argv[3]||''));
   await page.waitForTimeout(1600);
   await page.evaluate(()=>scrollTo({top:180,behavior:'instant'}));
   await page.waitForTimeout(700);
@@ -46,4 +46,4 @@ const sharp=require('sharp');
   await sharp({create:{width:1440,height:1740,channels:3,background:'#ccc'}}).composite(layers).png().toFile('tmp/header-flash-'+label+'.png');
   console.log('Saved frame trace and screenshot strip: tmp/header-flash-'+label);
  }finally{await browser.close()}
-})().catch(error=>{console.error(error);process.exitCode=1});
+}).catch(error=>{console.error(error);process.exitCode=1});

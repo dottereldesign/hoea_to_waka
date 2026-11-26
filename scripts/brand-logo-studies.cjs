@@ -4,7 +4,7 @@ const {chromium} = require('playwright');
 const Axe = require('@axe-core/playwright').default;
 
 (async () => {
-  const server = require('./preview.cjs')(8897);
+  const {server,origin:releaseOrigin}=await require('./test-site.cjs')();
   const browser = await chromium.launch({channel: 'chrome'});
   fs.mkdirSync('tmp/logo-studies', {recursive: true});
   try {
@@ -15,7 +15,7 @@ const Axe = require('@axe-core/playwright').default;
     page.on('response', response => {if (response.url().includes('/logo-hover/') && !response.ok()) failures.push(response.url());});
     for (const theme of ['light', 'dark']) for (const width of [1440, 1100, 760, 390, 320]) {
       await page.setViewportSize({width, height: 1100});
-      await page.goto('http://127.0.0.1:8897/about/brand-guidelines/');
+      await page.goto(releaseOrigin+'/about/brand-guidelines/');
       await page.evaluate(theme => localStorage.setItem('hoea-theme', theme), theme);
       await page.reload();
       const section = page.locator('#brand-ai-images');
@@ -45,7 +45,7 @@ const Axe = require('@axe-core/playwright').default;
       console.log('PASS six layouts, hover fill, columns, overflow and accessibility', theme, width);
     }
     await page.setViewportSize({width: 1440, height: 1000});
-    await page.goto('http://127.0.0.1:8897/about/brand-guidelines/');
+    await page.goto(releaseOrigin+'/about/brand-guidelines/');
     const section = page.locator('#brand-ai-images');
     await section.scrollIntoViewIfNeeded();
     await page.waitForTimeout(900);
@@ -79,7 +79,7 @@ const Axe = require('@axe-core/playwright').default;
     let release;
     const held = new Promise(resolve => release = resolve);
     await delayed.route('**/brand-logo-studies.js?*', async route => {await held; await route.continue();});
-    await delayed.goto('http://127.0.0.1:8897/about/brand-guidelines/', {waitUntil: 'commit'});
+    await delayed.goto(releaseOrigin+'/about/brand-guidelines/', {waitUntil: 'commit'});
     await delayed.locator('#brand-ai-images').waitFor();
     await delayed.evaluate(() => document.fonts.ready);
     const measure = () => delayed.locator('#brand-ai-images').evaluate(e => e.getBoundingClientRect().height);

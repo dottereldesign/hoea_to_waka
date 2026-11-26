@@ -1,12 +1,12 @@
 const {chromium}=require('playwright'),assert=require('assert/strict'),fs=require('fs');
 (async()=>{
- const server=require('./preview.cjs')(8923),browser=await chromium.launch({channel:'chrome'});
+ const {server,origin:releaseOrigin}=await require('./test-site.cjs')(),browser=await chromium.launch({channel:'chrome'});
  fs.mkdirSync('tmp/language-menu',{recursive:true});
  try{
   for(const width of [1440,1100,768,760,390,320]){
    const context=await browser.newContext({viewport:{width,height:width<=390?640:900}}),page=await context.newPage(),errors=[];
    page.on('pageerror',e=>errors.push(e.message));
-   await page.goto('http://127.0.0.1:8923/hoea_to_waka/');
+   await page.goto(releaseOrigin+'/hoea_to_waka/');
    await page.waitForSelector('.language-launch');
    assert.equal(await page.locator('.header-motion-lab,[data-header-motion-choice]').count(),0);
    await page.locator('.language-launch').click();
@@ -37,7 +37,7 @@ const {chromium}=require('playwright'),assert=require('assert/strict'),fs=requir
    assert.deepEqual(errors,[]);await context.close();console.log('PASS morph, reverse, keyboard, links, outside click, fit',width);
   }
   const context=await browser.newContext({reducedMotion:'reduce'}),page=await context.newPage();
-  await page.goto('http://127.0.0.1:8923/about/');await page.locator('.language-launch').click();await page.waitForTimeout(100);
+  await page.goto(releaseOrigin+'/about/');await page.locator('.language-launch').click();await page.waitForTimeout(100);
   const axe=await new(require('@axe-core/playwright').default)({page}).include('.language-panel').include('.language-launch').withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();assert.deepEqual(axe.violations,[]);
   await page.keyboard.press('Escape');await page.waitForTimeout(50);assert.equal(await page.locator('.language-launch').getAttribute('aria-expanded'),'false');
   await context.close();console.log('PASS reduced motion and accessibility');

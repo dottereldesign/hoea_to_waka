@@ -4,13 +4,13 @@ const fs=require('node:fs');
 const Axe=require('@axe-core/playwright').default;
 
 (async()=>{
-  const server=require('./preview.cjs')(8885),browser=await chromium.launch({channel:'chrome'});
+  const {server,origin:releaseOrigin}=await require('./test-site.cjs')(),browser=await chromium.launch({channel:'chrome'});
   fs.mkdirSync('tmp/home-door',{recursive:true});
   try{
     const context=await browser.newContext({reducedMotion:'reduce'}),page=await context.newPage(),errors=[];
     page.on('pageerror',error=>errors.push(error.message));
     for(const width of process.argv.includes('--runtime-only')?[]:[1440,1100,900,768,390,320])for(const theme of ['light','dark']){
-      await page.setViewportSize({width,height:1000});await page.goto('http://127.0.0.1:8885/');
+      await page.setViewportSize({width,height:1000});await page.goto(releaseOrigin+'/');
       await page.evaluate(theme=>localStorage.setItem('hoea-theme',theme),theme);await page.reload();
       const cta=page.locator('[data-component="home:7:cta"]'),door=cta.locator('[data-moon-door]');
       await cta.scrollIntoViewIfNeeded();
@@ -35,7 +35,7 @@ const Axe=require('@axe-core/playwright').default;
     const motion=await browser.newPage({viewport:{width:1440,height:1000}});
     motion.on('pageerror',error=>errors.push(error.message));
     await motion.clock.install({time:new Date('2026-10-26T00:00:00Z')});
-    await motion.goto('http://127.0.0.1:8885/');await motion.clock.pauseAt(new Date('2026-10-26T00:00:05Z'));
+    await motion.goto(releaseOrigin+'/');await motion.clock.pauseAt(new Date('2026-10-26T00:00:05Z'));
     const door=motion.locator('[data-moon-door]'),svg=door.locator(':scope > svg');
     assert.equal(await svg.getAttribute('data-angle'),'0.000');
     await motion.clock.runFor(2000);assert.equal(await svg.getAttribute('data-angle'),'0.000','Door waits for its first viewport entry');
@@ -77,12 +77,12 @@ const Axe=require('@axe-core/playwright').default;
     console.log('PASS timed entry/re-entry, complete closing above the section, angle independent of scroll distance, moving sea and menu pause');
     await motion.close();
 
-    const aboutContext=await browser.newContext({reducedMotion:'reduce'}),about=await aboutContext.newPage();await about.goto('http://127.0.0.1:8885/about/');
+    const aboutContext=await browser.newContext({reducedMotion:'reduce'}),about=await aboutContext.newPage();await about.goto(releaseOrigin+'/about/');
     assert.equal(await about.locator('#about-contact-title').textContent(),'Help bring Hoea tō Waka to more people');
     assert.equal(await about.locator('[data-moon-door]').count(),1);
     assert.equal(await about.getByRole('heading',{name:'Meet Anna Brown'}).count(),1);
     await aboutContext.close();
-    const plain=await browser.newPage({javaScriptEnabled:false});await plain.goto('http://127.0.0.1:8885/');
+    const plain=await browser.newPage({javaScriptEnabled:false});await plain.goto(releaseOrigin+'/');
     assert(await plain.locator('[data-moon-door] > svg').isVisible());assert.equal(await plain.locator('[data-moon-door] [data-door-pause]').count(),0);
     assert.equal(await plain.locator('[data-moon-door] [data-door-tide]').getAttribute('display'),'inline');
     assert.deepEqual(errors,[]);

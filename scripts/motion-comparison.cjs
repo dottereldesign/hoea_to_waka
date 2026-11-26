@@ -9,12 +9,12 @@ const changed=execFileSync('git',['diff','--name-only',baseline],{encoding:'utf8
 for(const file of changed)try{originals.set(file,execFileSync('git',['show',baseline+':'+file],{maxBuffer:10*1024*1024}));}catch{}
 const mime=file=>/\.css$/.test(file)?'text/css':/\.js$/.test(file)?'application/javascript':/\.html$/.test(file)?'text/html':'application/octet-stream';
 (async()=>{
- const server=require('./preview.cjs')(8898),browser=await chromium.launch({channel:'chrome'}),results=[];
+ const {server,origin:releaseOrigin}=await require('./test-site.cjs')(),browser=await chromium.launch({channel:'chrome'}),results=[];
  try{
   for(const [name,route,width] of routes)for(let repeat=0;repeat<3;repeat++)for(const version of repeat%2?['after','before']:['before','after']){
    const context=await browser.newContext({viewport:{width,height:1000}}),page=await context.newPage(),session=await context.newCDPSession(page);
    await session.send('Emulation.setCPUThrottlingRate',{rate:4});await session.send('Performance.enable');
-   if(version==='before')await page.route('http://127.0.0.1:8898/**',async request=>{
+   if(version==='before')await page.route(releaseOrigin+'/**',async request=>{
     let file=decodeURIComponent(new URL(request.request().url()).pathname).replace(/^\/(?:hoea_to_waka\/)?/,'');
     if(!file||file.endsWith('/'))file+='index.html';
     const original=originals.get(file);
@@ -22,7 +22,7 @@ const mime=file=>/\.css$/.test(file)?'text/css':/\.js$/.test(file)?'application/
    });
    const errors=[];page.on('pageerror',e=>errors.push(e.message));
    await page.addInitScript(()=>{window.__sample={deltas:[],tasks:[],active:false};let previous;requestAnimationFrame(function tick(t){if(window.__sample.active&&previous)window.__sample.deltas.push(t-previous);previous=t;requestAnimationFrame(tick)});new PerformanceObserver(list=>{if(window.__sample.active)window.__sample.tasks.push(...list.getEntries().map(e=>e.duration));}).observe({type:'longtask'});});
-   await page.goto('http://127.0.0.1:8898/'+route);await page.waitForTimeout(1800);
+   await page.goto(releaseOrigin+'/'+route);await page.waitForTimeout(1800);
    const metric=async()=>Object.fromEntries((await session.send('Performance.getMetrics')).metrics.map(x=>[x.name,x.value]));
    const measure=async(phase,action)=>{
     const first=await metric();await page.evaluate(()=>{window.__sample={deltas:[],tasks:[],active:true};});

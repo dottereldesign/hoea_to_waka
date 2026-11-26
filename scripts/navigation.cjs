@@ -1,8 +1,8 @@
 const{chromium}=require('playwright'),assert=require('node:assert/strict'),fs=require('node:fs');
-(async()=>{const server=require('./preview.cjs')(8829),browser=await chromium.launch({channel:'chrome',headless:true});try{
+(async()=>{const {server,base:releaseURL}=await require('./test-site.cjs')(),browser=await chromium.launch({channel:'chrome',headless:true});try{
  const context=await browser.newContext({reducedMotion:'reduce'}),page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));
- const base='http://127.0.0.1:8829/hoea_to_waka/';
- for(const route of['','about/','model/','services/','services/in-house-workshops/','services/resilience-one-on-one/','services/workshops-for-support-professionals/','resources/','contact/','illustrations/','404.html','about/brand-guidelines/','about/jamies-workspace/']){
+ const base=releaseURL;
+ for(const route of['','about/','model/','services/','services/in-house-workshops/','services/resilience-one-on-one/','services/workshops-for-support-professionals/','resources/','contact/','illustrations/','404.html','about/brand-guidelines/']){
   await page.goto(base+route);await page.waitForLoadState('networkidle');
   const nav=page.locator('nav.site-nav,nav.site-preview-nav').first();
   const links=await nav.locator(':scope > a,:scope > .site-nav-dropdown > a,:scope > .site-preview-nav-item > a').evaluateAll(es=>es.map(e=>({text:e.textContent.trim(),url:e.href})));
@@ -16,7 +16,7 @@ const{chromium}=require('playwright'),assert=require('node:assert/strict'),fs=re
   await page.setViewportSize({width,height:1000});await page.goto(base+'model/');await page.waitForLoadState('networkidle');
   assert.equal(await page.locator('h1').textContent(),'Model');assert.equal(await page.locator('.site-nav [aria-current="page"]').textContent(),'Model');
   assert(await page.locator('.subpage-hero').evaluate(e=>{const c=getComputedStyle(e);return c.borderRadius==='32px'&&e.getBoundingClientRect().x===8}));
-  assert.equal(await page.locator('[data-component="model/:2:features"]').evaluate(e=>getComputedStyle(e).backgroundColor),'rgb(40, 26, 44)');
+  assert.equal(await page.locator('[data-component="model/:2:features"]').evaluate(e=>getComputedStyle(e).backgroundColor),'rgb(13, 70, 135)');
   assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'overflow '+width);
   if([1440,390].includes(width))await page.screenshot({path:`tmp/model-page/after-${width}.png`,fullPage:true});
   if(width>=1100){await page.evaluate(()=>scrollTo({top:300,behavior:'instant'}));await page.waitForTimeout(100);const clear=await page.locator('[data-morph-header]').evaluate(e=>{const brand=e.querySelector('.site-brand').getBoundingClientRect();return [...e.querySelectorAll('.site-nav-link,.site-nav-parent-link')].every(a=>a.getBoundingClientRect().right<brand.left-5)});assert(clear,'compact nav clears centred logo '+width);}

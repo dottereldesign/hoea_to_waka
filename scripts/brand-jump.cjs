@@ -3,14 +3,14 @@ const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const Axe=require('@axe-core/playwright').default;
 (async()=>{
- const server=require('./preview.cjs')(8898),browser=await chromium.launch({channel:'chrome',headless:true});
+ const {server,origin:releaseOrigin}=await require('./test-site.cjs')(),browser=await chromium.launch({channel:'chrome',headless:true});
  try{
   fs.mkdirSync('tmp/brand-jump',{recursive:true});
   const errors=[];
   for(const width of [1440,390,320]){
    const context=await browser.newContext({viewport:{width,height:844}}),page=await context.newPage();
    page.on('pageerror',e=>errors.push(e.message));
-   await page.goto('http://127.0.0.1:8898/about/brand-guidelines/#chapter-logo');
+   await page.goto(releaseOrigin+'/about/brand-guidelines/#chapter-logo');
    await page.waitForLoadState('networkidle');
    const toggle=page.locator('.brand-jump__toggle'),panel=page.locator('.brand-jump__panel');
    assert.equal(await panel.evaluate(e=>e.inert),true);
@@ -69,7 +69,7 @@ const Axe=require('@axe-core/playwright').default;
    console.log('PASS viewport, all chapter targets, axe, keyboard, outside dismiss, reversal and navigation',width);
   }
   const reducedContext=await browser.newContext({reducedMotion:'reduce'}),reduced=await reducedContext.newPage();
-  await reduced.goto('http://127.0.0.1:8898/about/brand-guidelines/');
+  await reduced.goto(releaseOrigin+'/about/brand-guidelines/');
   await reduced.locator('.brand-jump__toggle').click();
   assert.equal(await reduced.locator('.brand-jump__panel').evaluate(e=>getComputedStyle(e).transitionDuration),'0s');
   for(let i=0;i<10;i++){
@@ -82,7 +82,7 @@ const Axe=require('@axe-core/playwright').default;
   await reduced.screenshot({path:'tmp/brand-jump/dark.png'});
   const dark=await new Axe({page:reduced}).include('.brand-jump').withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();
   assert.deepEqual(dark.violations,[]);
-  await reduced.goto('http://127.0.0.1:8898/about/');
+  await reduced.goto(releaseOrigin+'/about/');
   assert.equal(await reduced.locator('.brand-jump').count(),0,'Only brand guidelines gets the button');
   assert.deepEqual(errors,[]);
   console.log('PASS reduced motion, every chapter navigation, dark theme and page-only scope');

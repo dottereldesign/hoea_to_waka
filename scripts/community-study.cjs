@@ -3,13 +3,13 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const sharp = require('sharp');
 (async()=>{
-  const server=require('./preview.cjs')(8892), browser=await chromium.launch({channel:'chrome',headless:true});
+  const {server,origin:releaseOrigin}=await require('./test-site.cjs')(), browser=await chromium.launch({channel:'chrome',headless:true});
   const errors=[],failed=[];
   try {
     const context=await browser.newContext({viewport:{width:1600,height:1100},reducedMotion:'reduce',acceptDownloads:true});
     const page=await context.newPage();
     page.on('pageerror',e=>errors.push(e.message));page.on('response',r=>{if(r.status()>=400)failed.push(r.url())});
-    await page.goto('http://127.0.0.1:8892/hoea_to_waka/colour-testing/');
+    await page.goto(releaseOrigin+'/hoea_to_waka/colour-testing/');
     await page.locator('[data-community-svg="flat"] > svg').waitFor();
     await page.waitForLoadState('networkidle');
     const root=page.locator('#community-study');
@@ -72,7 +72,7 @@ const sharp = require('sharp');
     assert(!await page.locator('#community-dialog').isVisible());
     await page.locator('#close-preview').click();
     const nojs=await browser.newPage({javaScriptEnabled:false,viewport:{width:390,height:844}});
-    await nojs.goto('http://127.0.0.1:8892/hoea_to_waka/colour-testing/');
+    await nojs.goto(releaseOrigin+'/hoea_to_waka/colour-testing/');
     await nojs.locator('#community-study').scrollIntoViewIfNeeded();
     assert.equal(await nojs.locator('.community-triptych figure').count(),3);
     assert(await nojs.locator('[data-community-download="textured"]').isVisible());

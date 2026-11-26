@@ -1,12 +1,12 @@
 const {chromium}=require('playwright');
 const assert=require('node:assert/strict');
 (async()=>{
- const server=require('./preview.cjs')(8800),browser=await chromium.launch({channel:'chrome',headless:true});
+ const {server,origin:releaseOrigin}=await require('./test-site.cjs')(),browser=await chromium.launch({channel:'chrome',headless:true});
  try{
   const page=await browser.newPage();
   for(const width of [1440,390,320]){
    await page.setViewportSize({width,height:1000});
-   await page.goto('http://localhost:8800/hoea_to_waka/');
+   await page.goto(releaseOrigin+'/hoea_to_waka/');
    await page.waitForLoadState('networkidle');
    const button=page.locator('[data-home-statement] .model-button');
    await button.scrollIntoViewIfNeeded();

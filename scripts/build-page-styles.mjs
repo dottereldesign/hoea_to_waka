@@ -1,7 +1,7 @@
 import * as css from 'css-tree';
 import {readFile,writeFile,mkdir} from 'node:fs/promises';
 import path from 'node:path';import {createHash} from 'node:crypto';
-const pages=['index.html','about/index.html','model/index.html','services/index.html','services/in-house-workshops/index.html','services/resilience-one-on-one/index.html','services/workshops-for-support-professionals/index.html','resources/index.html','contact/index.html','illustrations/index.html','404.html','about/jamies-workspace/index.html','prompts/index.html'];
+const pages=['index.html','about/index.html','model/index.html','services/index.html','services/in-house-workshops/index.html','services/resilience-one-on-one/index.html','services/workshops-for-support-professionals/index.html','resources/index.html','contact/index.html','illustrations/index.html','404.html','prompts/index.html'];
 const sources=['site-palette','components','theme'];
 const source=await Promise.all(sources.map(name=>readFile('assets/'+name+'.css','utf8')));
 await mkdir('assets/page-styles',{recursive:true});

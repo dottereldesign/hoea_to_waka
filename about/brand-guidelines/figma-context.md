@@ -41,25 +41,17 @@ Hoea tō Waka provides resilience training, individual coaching and learning res
 
 Hoea tō Waka
 
-Write the name as three words: Hoea tō Waka. Keep the line above the ō in tō; this is a macron. Use this spelling in headings, documents and social posts.
-
 ### Brand line
 
 Strength in Aotearoa
-
-This short line sits with the name in the main logo. Keep the wording together when using that version of the logo.
 
 ### Vision
 
 To see stronger, more resilient people, teams, and communities across Aotearoa.
 
-The vision describes the future the work aims to contribute to.
-
 ### Mission
 
 To deliver practical, culturally grounded resilience training, coaching, and resources that help people move through challenge with clarity and direction.
-
-The mission describes what Hoea tō Waka does and how it supports people.
 
 ## Audience
 
@@ -117,7 +109,7 @@ The paddle connects the symbol to direction and movement. Leave room around its 
 
 ## Logomarks
 
-The symbol on its own. Choose the Ink logomark on Paper, or the Paper logomark on Ink or our primary Blue (#0C396B). Keep the complete outline visible and leave space around it.
+The symbol on its own. Choose the Ink logomark on Paper, or the Paper logomark on Ink or blue (#0C396B). Keep the complete outline visible and leave space around it.
 
 ### Logo Backgrounds
 
@@ -143,7 +135,7 @@ Stacked lock-up Symbol above the name, aligned to a shared vertical centre line.
 
 ## URL Wordmarks
 
-Use the website address as artwork when directing people online. Use the Ink wordmark on Paper, or the Paper wordmark on Ink or our primary Blue (#0C396B). Keep the supplied lettering intact. In digital materials, link the artwork to hoeatowaka.co.nz so people can open the website.
+Use the website address as artwork when directing people online. Use the Ink wordmark on Paper, or the Paper wordmark on Ink or blue (#0C396B). Keep the supplied lettering intact. In digital materials, link the artwork to hoeatowaka.co.nz so people can open the website.
 
 ## Favicon
 
@@ -383,7 +375,7 @@ Keep the 8px page inset, tiny alignment gaps and negative offsets where needed. 
 
 Individual values are counted once, rather than counting every combination of top, right, bottom and left padding as a new size. This inventory follows the stylesheets linked by current site pages, maps compiled bundles back to their source, and includes responsive and interaction rules. It does not claim every rule is visible in every state.
 
-63 shared definitions preserve existing values exactly. 151 component-specific, calculated or fixed values remain for separate review.
+63 shared definitions preserve existing values exactly. 231 component-specific, calculated or fixed values remain for separate review.
 
 ## Social Media
 
@@ -444,42 +436,6 @@ Check readability on a phone, confirm dates and links, and get permission for ph
 Use the examples to make consistent decisions, then check the result in the place people will see it: a phone, browser, printed card or workshop handout. Keep the name, logo and font roles consistent; let the amount of content determine the layout. When a brand decision changes, update this guide and its examples together.
 
 For brand wording or an application not covered here, contact Anna with the draft and where it will be used.
-
-In Anna’s words
-
-## Video transcripts
-
-Anna Brown introduces Hoea tō Waka and explains how people use the model in their work.
-
-Machine transcriptions from the two videos, with punctuation and brand spelling tidied.
-
-Anna Brown · Video transcript
-
-### What is Hoea tō Waka? — Strength in Aotearoa
-
-Download transcript (.txt)
-
-Kia ora koutou. I'm Anna Brown. I'm the founder and programme designer of Hoea tō Waka. Strength in Aotearoa. I've developed this programme because I really, really appreciated all of the research that's been done for decades now overseas into resilience in third wave psychotherapies. So this model is built on metacognitive therapy, acceptance and commitment therapy and compassion focused therapy, particularly. Those therapies are amazing, but they also involve some jargon, some complicated analogies.
-
-So what I've done is I've taken that research and got the main parts out of it and then turned them into a really simple analogy so that it's very applicable to life in Aotearoa, easy to relate to and very easy to remember and apply. So there are only three elements in this model and we can also address particular issues like wider whakapapa relationship with whenua.
-
-We can also, if we choose to, have a look at social inequalities and where they come from and what we're going to do about that as well, how that fits with our lives and how those inequalities might have come about for our clients and ourselves. So it can really help us look at those things from a position of strength and of really wanting to do something to remedy some really difficult situations in people's lives.
-
-Hoea tō Waka is sort of a multi-sensory approach to learning. We've developed a waiata-a-ringa which is, it's really about making the model really accessible. It's a great way to remember the things that you've learnt in workshops and to bring it into your everyday life and bring others together with you. There's also a song in English, you might like to sing it in the shower, sing it in the car and that will remind you of the main concepts as well.
-
-I've written a short story called My Brother Hemi and that's a great way of explaining the concepts to younger people and people who really relate to that narrative and storytelling way of learning. So there really is something for everybody. Yeah, so give us a call or drop us an email and let's have a chat about what might work for you.
-
-### Hoea tō Waka — Strength in Aotearoa for social services
-
-Kia ora koutou. I'm Anna Brown. I'm the founder and programme developer of Hoea tō Waka. Strength in Aotearoa. I wanted to tell you a little bit about how people are already using Hoea tō Waka in their work. It's a really useful method for social workers, youth workers, counsellors, psychologists, teachers. A great way of building rapport in a really culturally appropriate and sensitive way.
-
-It allows students and young people and clients to be exactly who they are and for us to walk alongside them. Hoea tō Waka is built on decades of research which has been done overseas into third wave therapies. You don't need to be an expert in therapy though. There's no jargon. It's just set in an everyday context with really easy to understand language.
-
-It's very easy to apply and remember and you'll be teaching other people really quickly. You'll find that you can help people to make goals for themselves. They can find ways to get through really difficult, challenging times and find their own direction rather than needing others to give it to them. This is a model that's deeply personal to everybody who uses it. It's very, very flexible and gives life a new meaning and a new vitality even in the toughest of times.
-
-You can use it for helping people to make goals, helping people to understand the perspective of others and to understand their role in relationships with other people. It's really useful with clients but also a wonderful way for us to keep ourselves on track and keep our heads above water when it gets really difficult. So I call it a 360 degree model because all the concepts that we use with clients we also can use for our own selves, for our resilience at home and in the workplace as well.
-
-So give us a call and have a chat and we'll see how Hoea tō Waka can help you.
 
 ## Current brand palette
 
@@ -768,9 +724,9 @@ DTCG 2025.10 JSON follows. Colour components use sRGB values from 0 to 1. Alias 
       "$value": {
         "colorSpace": "srgb",
         "components": [
-          0.09411765,
+          0.04705882,
           0.22352941,
-          0.34509804
+          0.41960784
         ],
         "alpha": 1
       },
@@ -1645,8 +1601,6 @@ DTCG 2025.10 JSON follows. Colour components use sRGB values from 0 to 1. Alias 
 - [SVG ↓](https://dottereldesign.github.io/hoea_to_waka/assets/social-downloads/x-banner-1500x500.svg)
 - [PNG ↓](https://dottereldesign.github.io/hoea_to_waka/assets/social-downloads/x-post-1600x900.png)
 - [SVG ↓](https://dottereldesign.github.io/hoea_to_waka/assets/social-downloads/x-post-1600x900.svg)
-- [Download transcript (.txt)](https://dottereldesign.github.io/hoea_to_waka/about/brand-guidelines/transcripts/what-is-hoea-to-waka.txt)
-- [Download transcript (.txt)](https://dottereldesign.github.io/hoea_to_waka/about/brand-guidelines/transcripts/hoea-to-waka-for-social-services.txt)
 
 - [Black horizontal logo](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-horizontal-black.svg)
 - [White horizontal logo](https://dottereldesign.github.io/hoea_to_waka/assets/brand-downloads/hoea-to-waka-horizontal-white.svg)
