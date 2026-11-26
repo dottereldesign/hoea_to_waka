@@ -5,7 +5,7 @@ const{chromium}=require('playwright');const assert=require('assert/strict');cons
   const context=await browser.newContext({viewport:{width,height:1000}}),page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));
   await page.goto('http://127.0.0.1:8912/about/brand-guidelines/');await page.waitForLoadState('networkidle');assert.equal(await page.locator('[data-card-study]').count(),2);
   assert.equal(await page.locator('.brand-card-study__heading,.bc-sketch-stroke').count(),0,'No outer heading or stray logo underline');
-  const ids=await page.locator('[data-card-study] [id]').evaluateAll(es=>es.map(e=>e.id));assert.equal(ids.length,new Set(ids).size,'Both drawings have unique SVG references');
+  assert.equal(await page.locator('[data-card-study] svg').count(),0,'Distant drawings are deferred');
   const waitReset=side=>page.waitForFunction(side=>(()=>{const animations=document.querySelector(`[data-card-side=${side}]`).getAnimations({subtree:true});return animations.length>0&&animations.every(a=>a.currentTime===0);})(),side);
   const waitComplete=side=>page.waitForFunction(side=>document.querySelector(`[data-card-side=${side}]`).getAnimations({subtree:true}).every(a=>a.currentTime>=a.effect.getComputedTiming().endTime),side);
   for(const side of['front','back']){
@@ -29,9 +29,18 @@ const{chromium}=require('playwright');const assert=require('assert/strict');cons
    assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));const result=await new Axe({page}).include(`[data-card-side=${side}]`).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();assert.deepEqual(result.violations,[]);
    console.log('PASS frameless construction, pencil drawing/reverse/replay, safe area and accessibility',side,width);
   }
+  const ids=await page.locator('[data-card-study] [id]').evaluateAll(es=>es.map(e=>e.id));assert.equal(ids.length,new Set(ids).size,'Both drawings have unique SVG references');
   await context.close();
  }
  const reduced=await browser.newPage({reducedMotion:'reduce'});await reduced.goto('http://127.0.0.1:8912/about/brand-guidelines/');assert(await reduced.locator('[data-card-study]').evaluateAll(es=>es.every(e=>e.getAnimations({subtree:true}).length===0)));
- const plain=await browser.newPage({javaScriptEnabled:false});await plain.goto('http://127.0.0.1:8912/about/brand-guidelines/');assert.equal(await plain.locator('[data-card-study]').count(),2);assert.equal(await plain.locator('[data-bc-pencil]').count(),183);assert.equal(await plain.locator('.bc-graphite-outline').first().evaluate(e=>getComputedStyle(e).opacity),'0.85');
+ const plain=await browser.newPage({javaScriptEnabled:false});await plain.goto('http://127.0.0.1:8912/about/brand-guidelines/');assert.equal(await plain.locator('[data-card-study]').count(),2);for (const [side,count] of [['front',129],['back',54]]) {
+   const preview=plain.locator(`[data-card-side=${side}] iframe`);
+   await preview.scrollIntoViewIfNeeded();
+   const diagram=preview.contentFrame();
+   await diagram.locator('svg').waitFor();
+   assert.equal(await diagram.locator('[data-bc-pencil]').count(), count);
+   assert.equal(await diagram.locator('.bc-graphite-outline').first().evaluate(e=>getComputedStyle(e).opacity),'0.85');
+ }
+
  assert.deepEqual(errors,[]);console.log('PASS both static drawings for reduced-motion and no-JavaScript reading');
 }finally{await browser.close();server.close();}})().catch(e=>{console.error(e);process.exitCode=1;});

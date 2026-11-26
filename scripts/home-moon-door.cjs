@@ -44,7 +44,11 @@ const Axe=require('@axe-core/playwright').default;
       // Deliver viewport observers before sampling the deferred scene's clock.
       await motion.clock.runFor(32);await motion.waitForTimeout(60);
     };
-    await setDoorTop(.75);await motion.clock.runFor(550);
+    await setDoorTop(.75);
+    // Force a native paint so IntersectionObserver delivers entry while the
+    // animation clock is paused. Advancing synthetic rAF alone cannot do this.
+    await motion.screenshot();
+    await motion.clock.runFor(582);
     assert(Number(await svg.getAttribute('data-angle'))>0&&Number(await svg.getAttribute('data-angle'))<67);
     await svg.screenshot({path:'tmp/home-door/opening.png',style:'.site-header,.header-motion-lab{visibility:hidden!important}'});
     await motion.clock.runFor(1100);assert.equal(await svg.getAttribute('data-angle'),'67.000');
@@ -74,13 +78,14 @@ const Axe=require('@axe-core/playwright').default;
     await motion.close();
 
     const aboutContext=await browser.newContext({reducedMotion:'reduce'}),about=await aboutContext.newPage();await about.goto('http://127.0.0.1:8885/about/');
-    assert.equal(await about.locator('[data-component="about/:3:cta"],[data-cta-orbit],[data-moon-door]').count(),0);
+    assert.equal(await about.locator('#about-contact-title').textContent(),'Help bring Hoea tō Waka to more people');
+    assert.equal(await about.locator('[data-moon-door]').count(),1);
     assert.equal(await about.getByRole('heading',{name:'Meet Anna Brown'}).count(),1);
     await aboutContext.close();
     const plain=await browser.newPage({javaScriptEnabled:false});await plain.goto('http://127.0.0.1:8885/');
     assert(await plain.locator('[data-moon-door] > svg').isVisible());assert.equal(await plain.locator('[data-moon-door] [data-door-pause]').count(),0);
     assert.equal(await plain.locator('[data-moon-door] [data-door-tide]').getAttribute('display'),'inline');
     assert.deepEqual(errors,[]);
-    console.log('PASS About CTA removal, retained founder section and no-JavaScript homepage door fallback');
+    console.log('PASS About partnership CTA, retained founder section and no-JavaScript homepage door fallback');
   }finally{await browser.close();server.close();}
 })().catch(error=>{console.error(error);process.exitCode=1});

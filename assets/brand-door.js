@@ -311,7 +311,14 @@
   document.addEventListener('visibilitychange', sync);
   document.addEventListener('hoea:site-menu', event => {menuBlocked=event.detail.open;sync();});
   preference.addEventListener('change', standalone?measureScroll:sync);
-  if (standalone) {addEventListener('scroll',requestScroll,{passive:true});addEventListener('resize',requestScroll,{passive:true});}
+  if (standalone) {
+    new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) addEventListener('scroll', requestScroll, {passive:true});
+      else removeEventListener('scroll', requestScroll);
+      requestScroll();
+    }, {rootMargin:'120px 0px'}).observe(svg);
+    addEventListener('resize',requestScroll,{passive:true});
+  }
   addEventListener('pagehide', cancel);
   addEventListener('pageshow', sync);
   if (standalone) {configurePortal();section.dataset.doorState='closed';}
@@ -326,12 +333,17 @@
     // entry, rather than building an unseen ocean during the header entrance.
     section.querySelector('svg').setAttribute('data-angle','0.000');
     section.dataset.doorState='closed';
-    let prepareFrame=0;
-    const activate=()=>{observer.disconnect();removeEventListener('scroll',prepare);cancelAnimationFrame(prepareFrame);initialise();};
-    const prepare=()=>{if(!prepareFrame)prepareFrame=requestAnimationFrame(()=>{prepareFrame=0;const bounds=section.getBoundingClientRect();if(bounds.top<innerHeight+1000&&bounds.bottom>-1000)activate();});};
-    const observer=new IntersectionObserver(entries=>{if(entries.some(entry=>entry.isIntersecting))activate();},{rootMargin:'1000px 0px'});
+    const activate = () => {
+      observer.disconnect();
+      preferenceChange.removeEventListener('change', onPreference);
+      if (!section.dataset.doorBound) initialise();
+    };
+    const preferenceChange = matchMedia('(prefers-reduced-motion:reduce)');
+    const onPreference = event => { if (event.matches) activate(); };
+    const observer = new IntersectionObserver(entries => {
+      if (entries.some(entry => entry.isIntersecting)) activate();
+    }, {rootMargin:'1000px 0px'});
     observer.observe(section);
-    addEventListener('scroll',prepare,{passive:true});
-    matchMedia('(prefers-reduced-motion:reduce)').addEventListener('change',event=>{if(event.matches)activate();},{once:true});
+    preferenceChange.addEventListener('change', onPreference);
   }else initialise();
 })();

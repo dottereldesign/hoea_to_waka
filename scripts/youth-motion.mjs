@@ -6,6 +6,6 @@ const section=`<!-- youth-motion:start --><section class="youth-motion" id="yout
 let html=await readFile('illustrations/index.html','utf8');
 if(html.includes('<!-- youth-motion:start -->'))html=html.replace(/<!-- youth-motion:start -->[\s\S]*?<!-- youth-motion:end -->/,section);
 else html=html.replace('<!-- logo-construction:start -->',section+'\n<!-- logo-construction:start -->');
-if(!html.includes('assets/youth-motion.css'))html=html.replace('</head>','<link rel="stylesheet" href="../assets/youth-motion.css">\n<script src="../assets/youth-motion.js" defer></script>\n</head>');
+if(!html.includes('assets/youth-motion.js'))html=html.replace('</head>','<script type="text/plain" data-near=".youth-motion" src="../assets/youth-motion.js" defer></script>\n</head>');
 await writeFile('illustrations/index.html',html);
 console.log('Youth illustration: five scroll-motion comparisons.');

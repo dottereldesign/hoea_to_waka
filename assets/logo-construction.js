@@ -84,6 +84,8 @@
   }
   choices.forEach(button=>button.addEventListener('click',()=>{
     active=panels.find(panel=>panel.dataset.lcPanel===button.dataset.lcChoice);
+    const preview = active.querySelector('template.lc-preview');
+    if (preview) preview.replaceWith(preview.content);
     panels.forEach(panel=>panel.hidden=panel!==active);
     choices.forEach(choice=>choice.setAttribute('aria-pressed',String(choice===button)));
     seen=true;play();

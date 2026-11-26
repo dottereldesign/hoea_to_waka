@@ -67,3 +67,5 @@ await import('./build-page-styles.mjs');
 await import('./youth-motion.mjs');
 
 await import('./door-colours.mjs');
+await import('./build-layout-bundles.mjs');
+await import('./version-shared-assets.mjs');

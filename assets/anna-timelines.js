@@ -44,6 +44,9 @@
   }
   function paint(){
     states.forEach(state=>{
+      const values = [f(state.reveal.x), f(state.node.x), f(state.cover.x)].join(',');
+      if (state.lastPaint === values) return;
+      state.lastPaint = values;
       state.item.style.setProperty('--tl-p',f(state.reveal.x));
       state.item.style.setProperty('--tl-node',f(.72+.28*state.node.x));
       state.item.style.setProperty('--tl-cover',f(state.cover.x));
@@ -104,7 +107,8 @@
     measureFrame=0;
     if(blocked||document.hidden)return;
     const box=stage.getBoundingClientRect(),visible=box.bottom>0&&box.top<innerHeight;
-    const bounds=items.map(item=>item.getBoundingClientRect());
+    const riverLayout = river && (variant === "thread" || variant === "thread2");
+    const bounds = rebuild || !riverLayout ? items.map(item => item.getBoundingClientRect()) : [];
     if(rebuild)buildRoute(bounds);
     if(['thread','thread2'].includes(variant)&&river)river.setScroll(scrollY,visible,preference.matches);
     let reached=0;
@@ -129,13 +133,14 @@
   function queue(rebuild=false){
     needsRoute=needsRoute||rebuild;
     if(blocked||document.hidden)return;
-    if(measureFrame)cancelAnimationFrame(measureFrame);
+    if(measureFrame)return;
     measureFrame=requestAnimationFrame(()=>{const rebuildRoute=needsRoute;needsRoute=false;measure(rebuildRoute);});
   }
   function choose(id,scroll=false){
     if(!studies[id])return;
     cancelAnimationFrame(frame);frame=0;lastTime=undefined;
     variant=id;root.dataset.timelineVariant=id;
+    states.forEach(state => { state.lastPaint = null; });
     if(['thread','thread2'].includes(id))river?.reset();
     buttons.forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.annaStudy===id)));
     const [name,description]=studies[id];if(root.querySelector('[data-anna-study-name]'))root.querySelector('[data-anna-study-name]').textContent=name;if(root.querySelector('[data-anna-study-description]'))root.querySelector('[data-anna-study-description]').textContent=description;

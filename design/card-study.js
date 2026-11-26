@@ -57,12 +57,16 @@ export function setupCardStudy() {
     preference.addEventListener('change', start);
     start();
     };
-    const preference=matchMedia('(prefers-reduced-motion: reduce)');
-    if(preference.matches)initialise();
-    else{
-      const observer=new IntersectionObserver(entries=>{if(entries.some(entry=>entry.isIntersecting)){observer.disconnect();initialise();}},{rootMargin:'800px 0px'});
-      observer.observe(study);
-      preference.addEventListener('change',()=>{if(preference.matches){observer.disconnect();initialise();}},{once:true});
-    }
+    const preview = study.querySelector('iframe');
+    const attach = () => {
+      const diagram = preview.contentDocument?.querySelector('svg.brand-card-study__diagram');
+      if (!diagram) return;
+      preview.replaceWith(document.adoptNode(diagram));
+      initialise();
+    };
+    if (preview) {
+      preview.addEventListener('load', attach);
+      attach();
+    } else initialise();
   });
 }

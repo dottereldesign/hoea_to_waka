@@ -1,0 +1,20 @@
+/* Preserve the order of the homepage layers, including its mobile overrides. */
+@import "../assets/language-menu.css";
+@import "../assets/home-hero-variants.css";
+@import "../assets/header-entrance.css";
+@import "../assets/home-moon-door.css";
+@import "../assets/section-backgrounds.css";
+@import "../assets/responsive-layout.css" (max-width: 1024px);
+@import "../assets/resources-art-options.css";
+@import "../assets/home-articles.css";
+@import "../assets/home-faq-dark.css";
+@import "../assets/home-book-notice.css";
+@import "../assets/services-card-reveal.css";
+@import "../assets/footer-credit.css";
+@import "../assets/testimonial-layout.css";
+@import "../assets/spacing-tokens.css";
+@import "../assets/logo-tagline.css";
+@import "../assets/hero-sun.css";
+@import "../assets/model-overview.css";
+@import "../assets/section-links.css";
+@import "../assets/section-pills.css";

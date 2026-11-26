@@ -1,4 +1,10 @@
 (() => {
+  const foreground = document.querySelector('.hero-sun-artboard img');
+  if (foreground && !matchMedia('(prefers-reduced-motion:reduce)').matches) {
+    foreground.decode().then(() => requestAnimationFrame(() => requestAnimationFrame(() => {
+      foreground.parentElement.classList.add('foreground-ready');
+    }))).catch(() => {});
+  }
   const gallery = document.querySelector('.home-hero-gallery');
   const copy = document.querySelector('.home-hero-copy');
   // The current illustration hero has copy but no legacy gallery.

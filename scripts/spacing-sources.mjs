@@ -7,6 +7,7 @@ export function spacingSources(){
  const files=new Set();
  for(const page of spacingPages){const {document}=parseHTML(fs.readFileSync(page,'utf8'));for(const link of document.querySelectorAll('link[rel=stylesheet]')){const href=link.getAttribute('href').split('?')[0];if(/^(https?:|\/\/)/.test(href))continue;const file=path.posix.normalize(path.posix.join(path.posix.dirname(page),href));
  if(file.startsWith('assets/page-styles/')){for(const source of ['site.css','design/components.css',...theme])files.add(source);}
+ else if(['assets/home-layout.css','assets/interior-layout.css','assets/illustrations-layout.css'].includes(file)){for(const match of fs.readFileSync('design/'+path.basename(file),'utf8').matchAll(/@import "\.\.\/(assets\/[^"]+)"/g)){if(match[1]!=='assets/spacing-tokens.css')files.add(match[1]);}}
  else if(file==='assets/theme.css'){theme.forEach(f=>files.add(f));}
  else if(file==='assets/brand-guide-components.css')files.add('design/brand-contents.css');
  else if(file==='assets/site-palette.css')files.add('site.css');

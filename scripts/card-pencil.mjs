@@ -36,9 +36,7 @@ const name=text('.preview-business-card-name'),role=text('.preview-business-card
 const details=[...document.querySelectorAll('.preview-business-card-details p')].map(p=>({label:p.querySelector('strong').textContent.trim(),value:p.textContent.replace(p.querySelector('strong').textContent,'').trim()}));
 const services=[...document.querySelectorAll('.preview-business-card-footer span')].map(e=>e.textContent.trim());
 const escape=value=>value.replaceAll('&','&amp;').replaceAll('"','&quot;').replaceAll('<','&lt;');
-const original=html.match(/<figure class="brand-card-study"[^>]*>[\s\S]*?<\/figure>/)?.[0];
-if(!original)throw Error('Card study template missing');
-const template=original.replace(/<div class="brand-card-study__heading">[\s\S]*?<\/div>/,'').replace(/<path class="bc-sketch-stroke"[^>]*\/>/,'');
+const template=(await readFile('design/card-study-template.html','utf8')).trim();
 function dimensions(){return `<g class="bc-dimensions" aria-hidden="true">${pencil(lettering('90 mm',550,53,'middle'),780,650)}<g transform="rotate(90 1062 392)">${pencil(lettering('55 mm',1062,392,'middle'),850,650)}</g></g>`;}
 function annotations(){return `<g class="bc-annotations"><path class="bc-pencil" data-bc-draw pathLength="1" d="M90 685L90 737H235M120 655L345 737H455M150 625L610 737H675"/><g aria-hidden="true">${[['Bleed · 3 mm',100,1050],['Trim / cut line',356,1150],['Safe area',685,1250]].map(([text,x,delay])=>pencil(lettering(text,x,772),delay,700)).join('')}</g></g>`;}
 function row(value,x,y,size,delay,weight=500,anchor='start'){return `<g data-card-text="${escape(value)}">${pencil(lettering(value,x,y,anchor,size,weight),delay,700)}</g>`;}
@@ -64,7 +62,22 @@ function study(side){
   .replace(/<!-- card-pencil-annotations:start -->[\s\S]*?<!-- card-pencil-annotations:end -->/,`<!-- card-pencil-annotations:start -->${annotations()}<!-- card-pencil-annotations:end -->`)
   .replace(/<figcaption>[\s\S]*?<\/figcaption>/,`<figcaption>${side==='front'?'Front · 90 × 55 mm finished card with 3 mm bleed. Keep the logo inside the safe area and confirm the setup with your printer.':'Back · Name, role and contact details, with the same bleed, trim and safe-area guides. Check every contact detail before printing.'}</figcaption>`);
 }
-const studies=`<!-- card-studies:start -->${study('front')}\n${study('back')}<!-- card-studies:end -->`;
-html=html.includes('<!-- card-studies:start -->')?html.replace(/<!-- card-studies:start -->[\s\S]*?<!-- card-studies:end -->/,studies):html.replace(original,studies);
+const previews = [];
+for (const side of ['front', 'back']) {
+  const figure = study(side);
+  const svg = figure.match(/<svg\b[\s\S]*?<\/svg>/)[0];
+  const title = 'Business card ' + side + ' pencil study';
+  const filename = 'card-study-' + side + '.html';
+  await writeFile('assets/brand-previews/' + filename, `<!doctype html>
+<html lang="en-NZ"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width">
+<meta name="robots" content="noindex"><title>${title}</title>
+<link rel="stylesheet" href="../brand-guide-components.css">
+<style>html,body,figure.brand-card-study{margin:0}</style></head>
+<body><figure class="brand-card-study">${svg}</figure></body></html>`);
+  const frame = `<iframe class="brand-card-study__diagram" loading="lazy" title="${title}" tabindex="-1" width="1100" height="850" style="border:0;aspect-ratio:1100/850" src="../../assets/brand-previews/${filename}"></iframe>`;
+  previews.push(figure.replace(svg, frame));
+}
+const studies = '<!-- card-studies:start -->' + previews.join('\n') + '<!-- card-studies:end -->';
+html=html.replace(/<!-- card-studies:start -->[\s\S]*?<!-- card-studies:end -->/,studies);
 await writeFile(path,html);
 console.log(`Card pencil studies: front and back, ${serial} traced shapes with graphite shading`);

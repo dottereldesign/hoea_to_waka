@@ -4,9 +4,7 @@ import { setupHomeFaq } from './home-faq';
 import { setupCtaOrbit } from './cta-orbit';
 
 // Enhance the published HTML; never replace page sections or select a design.
-const preference = matchMedia('(prefers-reduced-motion: reduce)');
-const syncMotion = () => document.documentElement.classList.toggle('ds-motion-paused', preference.matches);
-syncMotion();preference.addEventListener('change', syncMotion);
+
 document.querySelectorAll('[data-cta-orbit]').forEach(orbit => setupCtaOrbit(orbit.closest('section')));
 document.querySelectorAll('[data-carousel]').forEach(carousel => {
  if (carousel.hasAttribute('data-testimonial-autoplay')) {setupTestimonials(carousel);return;}

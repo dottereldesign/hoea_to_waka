@@ -3,6 +3,10 @@ import { setupSiteHeader } from './header';
 import { setupCoachingHeroVersions } from './hero-versions';
 import { setupFooterVersions } from './footer-versions';
 
+const preference = matchMedia('(prefers-reduced-motion: reduce)');
+const syncMotion = () => document.documentElement.classList.toggle('ds-motion-paused', preference.matches);
+syncMotion();preference.addEventListener('change', syncMotion);
+
 const root=document.documentElement;
 const syncMode=()=>{
   const dark=root.dataset.theme==='dark';

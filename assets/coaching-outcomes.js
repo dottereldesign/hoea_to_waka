@@ -17,7 +17,11 @@
     if (!frame) frame = requestAnimationFrame(update);
   }
 
-  window.addEventListener('scroll', schedule, {passive: true});
+  new IntersectionObserver(([entry]) => {
+    if (entry.isIntersecting) window.addEventListener('scroll', schedule, {passive:true});
+    else window.removeEventListener('scroll', schedule);
+    schedule();
+  }, {rootMargin:'160px 0px'}).observe(section);
   window.addEventListener('resize', schedule);
   new ResizeObserver(schedule).observe(section);
   update();

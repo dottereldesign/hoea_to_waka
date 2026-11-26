@@ -16,18 +16,22 @@ html[data-home-hero="03"] .home-hero-illustration .hero-sun-artboard img {
   position:absolute;inset:0;width:100%;height:100%;
 }
 .hero-sun i {position:absolute;border-radius:50%;}
-/* The four disc bounds follow the original 1122 × 1402 illustration. */
+/* The four disc bounds follow the original 1122 Ã— 1402 illustration. */
 .hero-sun i:nth-child(1) {left:21.66%;top:7.81%;width:55.08%;height:43.94%;background:radial-gradient(#ffb373,#ff995c);}
 .hero-sun i:nth-child(2) {left:27.72%;top:13.48%;width:42.96%;height:34.38%;background:#ffb873;}
 .hero-sun i:nth-child(3) {left:34.40%;top:18.76%;width:29.95%;height:24.82%;background:#ffcd95;}
 .hero-sun i:nth-child(4) {left:40.55%;top:23.61%;width:18.36%;height:14.84%;background:#ffdbad;}
 /* Soft pulse opens from the centre of the sun outwards. */
 @media (prefers-reduced-motion: no-preference) {
-  .hero-sun i { animation: hero-soft-pulse 1.4s cubic-bezier(.25,.65,.35,1) backwards; }
+  @media (scripting: enabled) {
+    .hero-sun-artboard:not(.foreground-ready) .hero-sun { animation: sun-fallback 0s 3s backwards; }
+  }
+  .foreground-ready .hero-sun i { animation: hero-soft-pulse 1.4s cubic-bezier(.25,.65,.35,1) backwards; }
   .hero-sun i:nth-child(1) { animation-delay: 300ms; }
   .hero-sun i:nth-child(2) { animation-delay: 200ms; }
   .hero-sun i:nth-child(3) { animation-delay: 100ms; }
 }
+@keyframes sun-fallback { from { opacity: 0; } }
 @keyframes hero-soft-pulse {
   0% { opacity: 0; transform: scale(.8); }
   65% { opacity: 1; transform: scale(1.025); }
