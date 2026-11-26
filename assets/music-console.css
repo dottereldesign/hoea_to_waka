@@ -29,6 +29,7 @@
   #resource-music-player .music-console {
     grid-template-columns: minmax(0,1fr); grid-template-areas: "now" "transport" "progress" "extras" "status";
     gap: 10px; padding: 18px 14px;
+    background-image: linear-gradient(90deg,#191919ee,#191919ce), var(--track-art-small);
   }
   #resource-music-player .music-transport { gap: 2px; }
   #resource-music-player .music-play { width: 52px; height: 52px; }

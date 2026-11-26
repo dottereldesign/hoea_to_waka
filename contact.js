@@ -49,4 +49,5 @@
     if (status) status.textContent = "Opening your email app…";
     window.location.href = `mailto:anna@hoeatowaka.co.nz?subject=${subject}&body=${body}`;
   });
+  contactForm.querySelector('[type="submit"]').disabled = false;
 })();
