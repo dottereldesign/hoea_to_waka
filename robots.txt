@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /websitethankyou/
 
-Sitemap: https://www.hoeatowaka.co.nz/sitemap.xml
+Sitemap: https://dottereldesign.github.io/hoea_to_waka/sitemap.xml

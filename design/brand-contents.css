@@ -28,7 +28,7 @@ html[data-palette] .brand-chapter-cover{position:relative;isolation:isolate;over
 
 
 
-.brand-chapter-cover__number{position:absolute;bottom:-.16em;left:-.055em;font:400 clamp(220px,31vw,440px)/1 Inter,Arial,sans-serif;letter-spacing:-.08em;color:#ffffff40;user-select:none}
+.brand-chapter-cover__number{position:absolute;bottom:-.16em;left:-.055em;font:400 clamp(220px,31vw,440px)/1 Inter,Arial,sans-serif;letter-spacing:-.08em;color:#898989;user-select:none}
 html[data-palette] .brand-chapter-cover h2.brand-chapter-cover__title{position:absolute;right:24px;bottom:16px;max-width:calc(100% - 48px);margin:0;font:400 clamp(64px,9vw,144px)/1 Inter,Arial,sans-serif;font-weight:400!important;letter-spacing:-.045em;text-align:right;color:#fff;overflow-wrap:normal;text-wrap:balance}
 
 
@@ -831,3 +831,30 @@ html[data-palette] .brand-credit .brand-credit-name:hover{text-decoration:underl
 html[data-palette] .brand-credit-social a{display:grid;place-items:center;width:44px;height:44px;border:1px solid #ffffff45;border-radius:50%;color:#fff;background:transparent;transition:background .2s ease}
 html[data-palette] .brand-credit-social a:hover{background:#ffffff20}
 .brand-credit a:focus-visible{outline:2px solid #fff;outline-offset:4px}
+
+/* Keep the displayed colour samples accurate while making their labels legible. */
+.palette-tone:is([data-copy="#7E7680"],[data-copy="#B3686C"],[data-copy="#C1595E"]) span { color:#000; }
+.site-preview-spacing-rule code, .fb-intro > .social-muted {color:#535b64}
+
+/* Double interior logo spacing; preserve the chapter's outer top and bottom padding. */
+html[data-palette] .brand-guidelines .site-preview .brand-logo-subsection {
+  padding-block: var(--section-space) !important;
+}
+html[data-palette] .brand-guidelines .site-preview .brand-logo-subsection#logo {
+  padding-block-start: var(--section-space) !important;
+}
+html[data-palette] .brand-guidelines .site-preview .brand-logo-subsection#favicon {
+  padding-block-end: var(--section-space) !important;
+}
+html[data-palette] .brand-guidelines .brand-logo-subsection > :is(.brand-guide-editorial, .brand-logo-anatomy-sheet, .site-preview-logo-backgrounds-sheet) {
+  margin-block: 0;
+  padding-block: 0;
+}
+
+/* The guide header shell already has side gutters. Extend its backdrop only into those gutters. */
+@media (max-width:1099px) {
+  html[data-palette] .brand-guidelines [data-morph-header] .site-header-shell::before { inset-inline:-16px; }
+}
+@media (max-width:400px) {
+  html[data-palette] .brand-guidelines [data-morph-header] .site-header-shell::before { inset-inline:-8px; }
+}

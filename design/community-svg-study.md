@@ -68,7 +68,7 @@ These measurements include intentionally omitted texture, gradient differences a
 - Vector master: `assets/colour-testing/community.svg`
 - Standalone textured export: `assets/colour-testing/community-textured.svg`
 - Portrait grain: `assets/colour-testing/community-grain.webp`
-- Page section source: `assets/colour-testing/community-section.html`
+- Page section source: `illustrations/index.html#community-study`
 - Page behaviour and styles: `assets/colour-testing/community-lab.js` and `.css`
 - Colour fitting: `python scripts/refine-community-colours.py INPUT.svg OUTPUT.svg`
 - Optional edge suggestion: `node scripts/refine-community-edges.cjs`, then `python scripts/refine-community-edges.py`. Inspect `tmp/community-edge-refined.svg` before adopting any changes; it is not an automatic build step.

@@ -51,7 +51,9 @@ async function loadGame(trigger) {
     const dialog = document.createElement('dialog');
     dialog.className = 'footer-game-dialog';
     dialog.setAttribute('aria-labelledby', 'resource-play-title');
-    dialog.innerHTML = markup;
+    const section = new DOMParser().parseFromString(markup, 'text/html').getElementById('resource-play');
+    if (!section) throw new Error('Game unavailable');
+    dialog.append(section);
     const close = document.createElement('button');
     close.type = 'button';
     close.className = 'footer-game-close';

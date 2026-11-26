@@ -11,7 +11,7 @@ export function renderBrandGuidelines() {
     .replace('<h1 id="palette-title">', '<h2 id="palette-title">')
     .replace('Brand colour palette</h1>', 'Brand colour palette</h2>');
   return `<!-- brand-colours:start -->
-<section class="site-preview-section brand-colour-section" id="colours" aria-labelledby="palette-title">
+<section class="site-preview-section brand-colour-section" id="colours" aria-label="Colour standards">
 <div class="palette-lab"><div class="palette-lab__wrap">${palette}</div></div>
 <p id="guide-palette-status" class="ds-sr-only" role="status"></p>
 </section>
